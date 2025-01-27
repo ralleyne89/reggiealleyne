@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Download } from 'lucide-react';
+import { Download, MapPin, Languages, Briefcase, GraduationCap, Clock } from 'lucide-react';
 
 const titles = [
   "Product Designer",
@@ -14,7 +14,7 @@ const ProfileCard = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
-    }, 2000); // Switch every 2 seconds
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);
@@ -63,19 +63,24 @@ const ProfileCard = () => {
         </div>
       </div>
       <div className="bg-[rgba(20,20,20,1)] border flex w-full gap-2.5 text-[13px] text-[rgba(204,204,204,1)] font-medium flex-wrap mt-[30px] p-3 rounded-xl border-[rgba(255,255,255,0.06)] border-solid">
-        <span className="bg-[rgba(25,25,25,1)] border px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
+        <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
+          <MapPin size={14} className="text-[#916CE7]" />
           India
         </span>
-        <span className="bg-[rgba(25,25,25,1)] border px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
+        <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
+          <Languages size={14} className="text-[#916CE7]" />
           English & Hindi
         </span>
-        <span className="bg-[rgba(25,25,25,1)] border px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
+        <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
+          <Briefcase size={14} className="text-[#916CE7]" />
           Product Designer
         </span>
-        <span className="bg-[rgba(25,25,25,1)] border px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
+        <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
+          <GraduationCap size={14} className="text-[#916CE7]" />
           Mumbai University
         </span>
-        <span className="bg-[rgba(25,25,25,1)] border px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
+        <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
+          <Clock size={14} className="text-[#916CE7]" />
           IST
         </span>
       </div>

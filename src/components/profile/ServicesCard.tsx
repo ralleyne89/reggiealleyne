@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase } from 'lucide-react';
+import { Briefcase, Smartphone, Code, Layout } from 'lucide-react';
 
 const ServicesCard = () => {
   return (
@@ -16,12 +16,14 @@ const ServicesCard = () => {
       <div className="self-center z-0 max-w-full w-[317px] text-sm text-[rgba(204,204,204,1)] font-medium mt-[30px]">
         <div className="w-full max-w-[317px] overflow-hidden">
           <div className="flex gap-2 flex-wrap justify-center">
-            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 pr-[15px] py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
+            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 px-4 py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
+              <Smartphone size={14} className="text-[#916CE7]" />
               <div className="self-stretch gap-1.5 my-auto">
                 Mobile App Design
               </div>
             </div>
-            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 pl-[7px] pr-[15px] py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
+            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 px-4 py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
+              <Code size={14} className="text-[#916CE7]" />
               <div className="self-stretch gap-1.5 my-auto">
                 No Code development
               </div>
@@ -30,12 +32,14 @@ const ServicesCard = () => {
         </div>
         <div className="w-full max-w-[317px] overflow-hidden mt-2.5 px-3">
           <div className="flex gap-2 flex-wrap justify-center">
-            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 pl-[7px] pr-[15px] py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
+            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 px-4 py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
+              <Layout size={14} className="text-[#916CE7]" />
               <div className="self-stretch gap-1.5 my-auto">
                 Web Design
               </div>
             </div>
-            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 pl-[7px] py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
+            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 px-4 py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
+              <Smartphone size={14} className="text-[#916CE7]" />
               <div className="self-stretch gap-1.5 my-auto">
                 Mobile App Design
               </div>
