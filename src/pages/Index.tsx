@@ -11,8 +11,24 @@ import ContactCard from '@/components/profile/ContactCard';
 
 const Index = () => {
   return (
-    <div className="bg-[rgba(5,5,5,1)] min-h-screen w-full overflow-x-hidden px-4 sm:px-6 md:px-8 lg:px-[50px] py-6 md:py-[30px] rounded-none md:rounded-[40px]">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-5">
+    <div 
+      className="min-h-screen w-full overflow-x-hidden px-4 sm:px-6 md:px-8 lg:px-[50px] py-6 md:py-[30px]"
+      style={{
+        background: 'linear-gradient(102.3deg, rgba(147,39,143,1) 5.9%, rgba(234,172,232,1) 64%, rgba(246,219,245,1) 89%)',
+        position: 'relative',
+      }}
+    >
+      {/* Overlay pattern */}
+      <div 
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `radial-gradient(#fff 1px, transparent 1px)`,
+          backgroundSize: '30px 30px',
+        }}
+      />
+      
+      {/* Content container with backdrop blur */}
+      <div className="relative max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-5 backdrop-blur-sm bg-black/30 p-6">
         {/* Left Column */}
         <div className="lg:col-span-7">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -27,7 +43,7 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
             <ServicesCard />
-            <div className="bg-[rgba(16,16,16,1)] border relative flex grow flex-col overflow-hidden items-stretch w-full pt-5 pb-[30px] rounded-[20px] border-[rgba(255,255,255,0.05)] border-solid">
+            <div className="bg-[rgba(16,16,16,1)] border relative flex grow flex-col overflow-hidden items-stretch w-full pt-5 pb-[30px] border-[rgba(255,255,255,0.05)] border-solid">
               {/* Clients section */}
             </div>
           </div>
