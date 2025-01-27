@@ -12,7 +12,7 @@ const ProfileCard = () => {
         />
         <div className="flex flex-col items-stretch flex-1 shrink basis-[0%]">
           <div className="flex w-full items-center gap-[40px_52px] font-medium justify-between flex-wrap">
-            <div className="self-stretch bg-[rgba(20,20,20,1)] border flex items-center justify-between text-sm text-[rgba(153,153,153,1)] w-40 my-auto px-5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
+            <div className="self-stretch bg-[rgba(20,20,20,1)] border flex items-center justify-between text-sm text-[rgba(153,153,153,1)] w-[160px] my-auto px-4 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap">
               <span>Available To Work</span>
               <div className="relative">
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Figma, Framer, PenTool, Layout } from 'lucide-react';
+import { Figma, Framer, PenTool, Layout, Layers } from 'lucide-react';
 
 const TechStack = () => {
   const tools = [
@@ -12,8 +12,9 @@ const TechStack = () => {
   return (
     <div className="bg-[rgba(16,16,16,1)] border p-4 sm:p-5 rounded-xl border-[rgba(255,255,255,0.05)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="flex w-full flex-col items-center">
-        <div className="self-stretch gap-2 text-sm text-[rgba(153,153,153,1)] font-medium px-2.5 py-1.5 text-center">
-          My Stacks
+        <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium px-2.5 py-1.5">
+          <Layers className="w-4 h-4 text-[#916CE7]" />
+          <span>My Stacks</span>
         </div>
         <div className="text-[rgba(230,230,230,1)] text-base font-semibold">
           Tech Arsenal
