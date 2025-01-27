@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactCard = () => {
   return (
-    <div className="bg-[rgba(16,16,16,1)] border min-h-[343px] grow overflow-hidden w-full pt-5 pb-[31px] px-5 border-[rgba(255,255,255,0.05)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
+    <div className="bg-[rgba(16,16,16,1)] border min-h-[343px] grow overflow-hidden w-full pt-5 pb-[31px] px-5 rounded-xl border-[rgba(255,255,255,0.05)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="w-full">
         <div className="flex w-full flex-col items-center">
           <h2 className="text-[rgba(230,230,230,1)] text-xl font-semibold leading-[1.2]">
@@ -13,11 +13,11 @@ const ContactCard = () => {
           </div>
         </div>
       </div>
-      <div className="w-full text-[13px] text-[rgba(204,204,204,1)] font-medium mt-[30px]">
-        <button className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 px-2.5 py-4 rounded-[10px]">
+      <div className="w-full text-[13px] text-[rgba(204,204,204,1)] font-medium mt-[30px] space-y-3">
+        <button className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 px-2.5 py-4 rounded-xl">
           Email Me
         </button>
-        <button className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 mt-3 px-2.5 py-4 rounded-[10px]">
+        <button className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 px-2.5 py-4 rounded-xl">
           Schedule a Call
         </button>
       </div>
