@@ -8,6 +8,7 @@ import TestimonialsCard from '@/components/profile/TestimonialsCard';
 import WorkflowCard from '@/components/profile/WorkflowCard';
 import SocialCard from '@/components/profile/SocialCard';
 import ContactCard from '@/components/profile/ContactCard';
+import FeaturedProjects from '@/components/profile/FeaturedProjects';
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
             <div className="space-y-5">
               <StatsCard />
               <ProfileCard />
+              <FeaturedProjects />
             </div>
           </div>
         </div>
