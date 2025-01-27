@@ -14,7 +14,7 @@ const ServicesCard = () => {
         </div>
       </div>
       <div className="self-center z-0 w-full text-sm text-[rgba(204,204,204,1)] font-medium mt-[30px] px-4">
-        <div className="flex flex-wrap gap-2.5 justify-center">
+        <div className="grid grid-cols-2 gap-2.5">
           <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 px-4 py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
             <Smartphone size={14} className="text-[#916CE7]" />
             <div className="self-stretch gap-1.5 my-auto">
