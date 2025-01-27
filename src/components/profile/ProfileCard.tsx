@@ -1,4 +1,5 @@
 import React from 'react';
+import { FileText } from 'lucide-react';
 
 const ProfileCard = () => {
   return (
@@ -13,14 +14,17 @@ const ProfileCard = () => {
         <div className="flex flex-col items-stretch flex-1 shrink basis-[0%]">
           <div className="flex w-full items-center gap-2 justify-between flex-wrap">
             <div className="bg-[rgba(20,20,20,1)] border flex items-center gap-2 text-sm text-[rgba(153,153,153,1)] px-4 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap">
-              <span>Available To Work</span>
               <div className="relative">
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                 <div className="absolute inset-0 w-2 h-2 rounded-full border border-green-500 animate-ping"></div>
               </div>
+              <span className="ml-2">Available To Work</span>
             </div>
-            <button className="text-[13px] text-[rgba(204,204,204,1)] whitespace-nowrap">
-              Resume
+            <button className="flex items-center gap-2 text-[13px] text-[rgba(204,204,204,1)] whitespace-nowrap">
+              <span>Resume</span>
+              <div className="bg-[rgba(31,31,31,1)] p-1.5 rounded-lg">
+                <FileText size={16} className="text-white" />
+              </div>
             </button>
           </div>
           <div className="mt-3">
