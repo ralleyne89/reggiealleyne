@@ -25,15 +25,14 @@ const WorkflowCard = () => {
         {steps.map((step, index) => (
           <div
             key={index}
-            className={`bg-[rgba(25,25,25,1)] border flex min-h-[46px] w-full items-center gap-2 whitespace-nowrap ${
-              index > 0 ? 'mt-2' : ''
-            } px-[7px] py-1.5 rounded-xl border-[rgba(255,255,255,0.02)] border-solid transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:border-[rgba(145,108,231,0.2)] animate-fade-in`}
-            style={{ animationDelay: `${index * 100}ms` }}
+            className="flex w-full max-w-full mt-2 first:mt-0"
           >
-            <div className="bg-[#333333] p-1.5 rounded-lg">
-              {step.icon}
+            <div className="bg-[rgba(25,25,25,1)] flex w-full items-center gap-2 whitespace-nowrap px-[7px] py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
+              <div className="bg-[#333333] p-1.5 rounded-lg">
+                {step.icon}
+              </div>
+              <span>{step.name}</span>
             </div>
-            <span>{step.name}</span>
           </div>
         ))}
       </div>
