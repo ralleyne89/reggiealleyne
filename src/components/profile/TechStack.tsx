@@ -1,18 +1,12 @@
 import React from 'react';
-import { Layers } from 'lucide-react';
+import { Figma, Framer, PenTool, Layout, Layers } from 'lucide-react';
 
 const TechStack = () => {
   const tools = [
-    { 
-      name: 'Webflow', 
-      icon: (
-        <img 
-          src="/lovable-uploads/da816ba3-0374-42ce-9d12-faf31a1aa442.png" 
-          alt="Webflow" 
-          className="w-5 h-5 mr-2"
-        />
-      )
-    }
+    { name: 'Webflow', icon: <Layout className="w-5 h-5 text-[#916CE7] mr-2" /> },
+    { name: 'Figma', icon: <Figma className="w-5 h-5 text-[#916CE7] mr-2" /> },
+    { name: 'Framer', icon: <Framer className="w-5 h-5 text-[#916CE7] mr-2" /> },
+    { name: 'Adobe XD', icon: <PenTool className="w-5 h-5 text-[#916CE7] mr-2" /> }
   ];
 
   return (
@@ -27,7 +21,7 @@ const TechStack = () => {
         </div>
       </div>
       <div className="w-full mt-[30px] space-y-2">
-        <div className="grid grid-cols-1 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {tools.map((tool, index) => (
             <div 
               key={index} 
