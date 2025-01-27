@@ -1,11 +1,11 @@
 import React from 'react';
-import { Trophy, Smile, Clock } from 'lucide-react';
+import { Trophy, Smile, Star } from 'lucide-react';
 
 const StatsCard = () => {
   const stats = [
     { label: 'Projects', icon: <Trophy className="w-4 h-4 text-[#916CE7]" /> },
     { label: 'Happy Clients', icon: <Smile className="w-4 h-4 text-[#916CE7]" /> },
-    { label: 'Year Expertise', icon: <Clock className="w-4 h-4 text-[#916CE7]" /> }
+    { label: 'Year Expertise', icon: <Star className="w-4 h-4 text-[#916CE7]" /> }
   ];
 
   return (
