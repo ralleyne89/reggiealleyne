@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Search, Layout, Box, Paintbrush, ListTodo } from 'lucide-react';
+import { Target, Search, Layout, Box, Paintbrush, MessageSquare } from 'lucide-react';
 
 const WorkflowCard = () => {
   const steps = [
@@ -15,7 +15,7 @@ const WorkflowCard = () => {
       <div className="bg-[rgba(16,16,16,1)] flex w-full flex-col items-center pb-3 border-[rgba(255,255,255,0.06)] border-b">
         <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium px-2.5 py-1.5">
           <div className="bg-[#333333] p-1.5 rounded-lg">
-            <ListTodo className="w-4 h-4 text-white" />
+            <MessageSquare className="w-4 h-4 text-white" />
           </div>
           <span>Work Process</span>
         </div>
