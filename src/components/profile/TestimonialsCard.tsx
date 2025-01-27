@@ -1,5 +1,37 @@
 import React from 'react';
 import { MessageSquare } from 'lucide-react';
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+const reviews = [
+  {
+    name: "Sai Abhishek Mishra",
+    location: "Mumbai, India",
+    date: "11, Apr 2024",
+    image: "https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af",
+    text: "Sanjay is a remarkable Product Designer, renowned for his exceptional UI skills and creating Awwwards-worthy websites. I highly recommend Sanjay for any Product Designer role that requires a talented and dedicated professional with a focus on UI skills."
+  },
+  {
+    name: "Alex Thompson",
+    location: "London, UK",
+    date: "10, Apr 2024",
+    image: "https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af",
+    text: "Working with Sanjay was an absolute pleasure. His attention to detail and innovative approach to UI/UX design transformed our project completely. His ability to understand and implement complex requirements while maintaining aesthetic appeal is remarkable."
+  },
+  {
+    name: "Maria Garcia",
+    location: "Barcelona, Spain",
+    date: "9, Apr 2024",
+    image: "https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af",
+    text: "Sanjay's expertise in creating responsive and intuitive designs is outstanding. He not only delivered exactly what we needed but also provided valuable insights that improved our initial concept. A true professional who goes above and beyond."
+  },
+  {
+    name: "David Chen",
+    location: "Singapore",
+    date: "8, Apr 2024",
+    image: "https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af",
+    text: "I've worked with many designers, but Sanjay stands out for his exceptional creativity and technical proficiency. His designs are not just beautiful but also highly functional and user-friendly. Looking forward to collaborating on more projects!"
+  }
+];
 
 const TestimonialsCard = () => {
   return (
@@ -16,36 +48,45 @@ const TestimonialsCard = () => {
       <div className="max-w-full w-[342px] overflow-hidden font-medium">
         <img
           loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/cd3e52e929827d304f729a85d214474d12caf422363803615f133bb560a4a44d?placeholderIfAbsent=true"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/cd3e52e929827d304f729a85d214474d12caf422363803615f133bb560a4a44d"
           className="aspect-[4.81] object-contain w-full z-10"
           alt="Review background"
         />
-        <div className="bg-[rgba(20,20,20,1)] border mt-[-65px] w-[291px] max-w-full ml-3 p-3 rounded-xl border-[rgba(255,255,255,0.06)] border-solid max-md:ml-2.5">
-          <div className="flex w-full gap-7 justify-between pb-3 border-[rgba(255,255,255,0.06)] border-b">
-            <div className="flex items-center gap-2.5">
-              <img
-                loading="lazy"
-                srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af?placeholderIfAbsent=true&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af?placeholderIfAbsent=true&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af?placeholderIfAbsent=true&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af?placeholderIfAbsent=true&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af?placeholderIfAbsent=true&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af?placeholderIfAbsent=true&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af?placeholderIfAbsent=true&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af?placeholderIfAbsent=true"
-                className="aspect-[1] object-contain w-8 self-stretch shrink-0 my-auto rounded-full"
-                alt="Reviewer"
-              />
-              <div className="self-stretch my-auto">
-                <div className="text-[rgba(204,204,204,1)] text-sm">
-                  Sai Abhishek Mishra
+        <ScrollArea className="h-[250px] w-full px-3">
+          <div className="space-y-4 pr-4">
+            {reviews.map((review, index) => (
+              <div 
+                key={index}
+                className="bg-[rgba(20,20,20,1)] border w-full p-3 rounded-xl border-[rgba(255,255,255,0.06)] border-solid"
+              >
+                <div className="flex w-full gap-7 justify-between pb-3 border-[rgba(255,255,255,0.06)] border-b">
+                  <div className="flex items-center gap-2.5">
+                    <img
+                      loading="lazy"
+                      src={review.image}
+                      className="aspect-[1] object-contain w-8 self-stretch shrink-0 my-auto rounded-full"
+                      alt={`${review.name}'s avatar`}
+                    />
+                    <div className="self-stretch my-auto">
+                      <div className="text-[rgba(204,204,204,1)] text-sm">
+                        {review.name}
+                      </div>
+                      <div className="text-[rgba(117,117,117,1)] text-xs">
+                        {review.location}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-[rgba(117,117,117,1)] text-xs">
+                    {review.date}
+                  </div>
                 </div>
-                <div className="text-[rgba(117,117,117,1)] text-xs">
-                  Mumbai, India
+                <div className="text-[rgba(117,117,117,1)] text-xs mt-3">
+                  {review.text}
                 </div>
               </div>
-            </div>
-            <div className="text-[rgba(117,117,117,1)] text-xs">
-              11, Apr 2024
-            </div>
+            ))}
           </div>
-          <div className="text-[rgba(117,117,117,1)] text-xs mt-3">
-            Sanjay is a remarkable Product Designer, renowned for his exceptional UI skills and creating Awwwards-worthy websites. I highly recommend Sanjay for any Product Designer role that requires a talented and dedicated professional with a focus on UI skills.
-          </div>
-        </div>
+        </ScrollArea>
       </div>
     </div>
   );
