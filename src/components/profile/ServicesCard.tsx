@@ -13,9 +13,7 @@ const ServicesCard = () => {
           Solutions Suite
         </div>
       </div>
-      <div className="self-center z-0 max-w-full w-[317px] text-sm text-[rgba(204,204,204,1)] font-medium mt-[30px] relative">
-        <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[rgba(16,16,16,1)] to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[rgba(16,16,16,1)] to-transparent z-10"></div>
+      <div className="self-center z-0 max-w-full w-[317px] text-sm text-[rgba(204,204,204,1)] font-medium mt-[30px]">
         <div className="w-full max-w-[317px] overflow-hidden">
           <div className="flex gap-2 flex-wrap justify-start">
             <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 px-4 py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
