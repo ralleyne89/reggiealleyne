@@ -40,7 +40,7 @@ const ProfileCard = () => {
           </div>
           <div className="mt-3">
             <h1 className="text-[rgba(230,230,230,1)] text-[22px] font-semibold leading-none">
-              Sanjay Billa
+              Reggie Alleyne
             </h1>
             <div className="flex items-center gap-1 text-sm mt-2.5">
               <span className="text-[rgba(153,153,153,1)] font-medium">
