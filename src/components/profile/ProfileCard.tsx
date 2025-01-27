@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Download } from 'lucide-react';
 
+const titles = [
+  "Product Designer",
+  "UX/UI Designer",
+  "Graphic Designer",
+  "Web Developer"
+];
+
 const ProfileCard = () => {
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
+    }, 2000); // Switch every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="bg-[rgba(16,16,16,1)] border w-full max-w-[463px] p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="flex w-full gap-[15px] flex-col sm:flex-row">
@@ -35,9 +52,16 @@ const ProfileCard = () => {
               <span className="text-[rgba(153,153,153,1)] font-medium">
                 I'm a
               </span>
-              <div className="overflow-hidden text-[rgba(145,108,231,1)] font-semibold w-[134px]">
-                <div className="overflow-hidden py-1">
-                  Product Designer
+              <div className="overflow-hidden text-[rgba(145,108,231,1)] font-semibold w-[134px] h-6">
+                <div 
+                  className="transition-all duration-500 ease-in-out"
+                  style={{ 
+                    transform: `translateY(-${currentTitleIndex * 24}px)`,
+                  }}
+                >
+                  {titles.map((title, index) => (
+                    <div key={index} className="h-6">{title}</div>
+                  ))}
                 </div>
               </div>
             </div>
