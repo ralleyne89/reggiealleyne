@@ -1,5 +1,5 @@
 import React from 'react';
-import { Handshake } from 'lucide-react';
+import { Handshake, Mail, PhoneCall } from 'lucide-react';
 
 const ContactCard = () => {
   return (
@@ -16,10 +16,12 @@ const ContactCard = () => {
         </div>
       </div>
       <div className="w-full text-[13px] text-[rgba(204,204,204,1)] font-medium mt-[30px] space-y-3">
-        <button className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 px-2.5 py-4 rounded-xl">
+        <button className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 px-2.5 py-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner">
+          <Mail className="w-4 h-4 mr-2 text-[#916CE7]" />
           Email Me
         </button>
-        <button className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 px-2.5 py-4 rounded-xl">
+        <button className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 px-2.5 py-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner">
+          <PhoneCall className="w-4 h-4 mr-2 text-[#916CE7]" />
           Schedule a Call
         </button>
       </div>

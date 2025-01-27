@@ -14,12 +14,12 @@ const ServicesCard = () => {
       <div className="self-center z-0 max-w-full w-[317px] text-sm text-[rgba(204,204,204,1)] font-medium mt-[30px]">
         <div className="w-full max-w-[317px] overflow-hidden">
           <div className="flex gap-2 flex-wrap">
-            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 pr-[15px] py-[7px] rounded-xl">
+            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 pr-[15px] py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
               <div className="self-stretch gap-1.5 my-auto">
                 Mobile App Design
               </div>
             </div>
-            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 pl-[7px] pr-[15px] py-[7px] rounded-xl">
+            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 pl-[7px] pr-[15px] py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
               <div className="self-stretch gap-1.5 my-auto">
                 No Code development
               </div>
@@ -28,12 +28,12 @@ const ServicesCard = () => {
         </div>
         <div className="w-full max-w-[317px] overflow-hidden mt-2.5 px-3">
           <div className="flex gap-2 flex-wrap">
-            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 pl-[7px] pr-[15px] py-[7px] rounded-xl">
+            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 pl-[7px] pr-[15px] py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
               <div className="self-stretch gap-1.5 my-auto">
                 Web Design
               </div>
             </div>
-            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 pl-[7px] py-[7px] rounded-xl">
+            <div className="bg-[rgba(25,25,25,1)] flex items-center gap-2.5 pl-[7px] py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
               <div className="self-stretch gap-1.5 my-auto">
                 Mobile App Design
               </div>
@@ -41,7 +41,7 @@ const ServicesCard = () => {
           </div>
         </div>
       </div>
-      <button className="bg-[rgba(145,108,231,1)] absolute gap-2.5 text-sm text-white font-medium -translate-x-2/4 translate-y-[0%] px-[30px] py-[13px] rounded-xl border-[rgba(16,16,16,1)] border-solid border-2 left-2/4 bottom-3.5 max-md:px-5">
+      <button className="bg-[rgba(145,108,231,1)] absolute gap-2.5 text-sm text-white font-medium -translate-x-2/4 translate-y-[0%] px-[30px] py-[13px] rounded-xl border-[rgba(16,16,16,1)] border-solid border-2 left-2/4 bottom-3.5 transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-inner max-md:px-5">
         View All Services
       </button>
     </div>

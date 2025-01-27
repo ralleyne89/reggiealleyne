@@ -22,7 +22,7 @@ const SocialCard = () => {
         ].map((handle, index) => (
           <div key={index} className="flex w-full max-w-[185px] mt-2 first:mt-0">
             <div className="flex w-[185px]">
-              <div className="bg-[rgba(25,25,25,1)] flex w-[185px] items-center justify-between pl-[7px] pr-2.5 py-[7px] rounded-xl">
+              <div className="bg-[rgba(25,25,25,1)] flex w-[185px] items-center justify-between pl-[7px] pr-2.5 py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
                 <div className="self-stretch gap-1.5 my-auto">
                   {handle}
                 </div>
