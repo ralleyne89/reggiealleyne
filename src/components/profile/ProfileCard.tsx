@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProfileCard = () => {
   return (
-    <div className="bg-[rgba(16,16,16,1)] border w-full max-w-[463px] p-5 rounded-[20px] border-[rgba(255,255,255,0.06)] border-solid">
+    <div className="bg-[rgba(16,16,16,1)] border w-full max-w-[463px] p-5 border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="flex w-full gap-[15px] max-md:max-w-full">
         <img
           loading="lazy"

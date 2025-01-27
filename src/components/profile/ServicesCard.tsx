@@ -2,7 +2,7 @@ import React from 'react';
 
 const ServicesCard = () => {
   return (
-    <div className="bg-[rgba(16,16,16,1)] border relative flex w-full flex-col overflow-hidden items-stretch pl-3.5 pr-[13px] pt-5 pb-[30px] rounded-[20px] border-[rgba(255,255,255,0.05)] border-solid">
+    <div className="bg-[rgba(16,16,16,1)] border relative flex w-full flex-col overflow-hidden items-stretch pl-3.5 pr-[13px] pt-5 pb-[30px] border-[rgba(255,255,255,0.05)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="z-0 flex w-full flex-col items-center">
         <div className="self-stretch gap-2 text-sm text-[rgba(153,153,153,1)] font-medium whitespace-nowrap px-2.5 py-1.5">
           Services
