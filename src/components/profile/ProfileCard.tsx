@@ -37,12 +37,6 @@ const ProfileCard = () => {
               </div>
               <span className="ml-2">Available To Work</span>
             </div>
-            <button className="flex items-center gap-2 text-[13px] text-[rgba(204,204,204,1)] whitespace-nowrap">
-              <span>Resume</span>
-              <div className="bg-[rgba(31,31,31,1)] p-1.5 rounded-lg">
-                <Download size={16} className="text-white" />
-              </div>
-            </button>
           </div>
           <div className="mt-3">
             <h1 className="text-[rgba(230,230,230,1)] text-[22px] font-semibold leading-none">
@@ -86,16 +80,11 @@ const ProfileCard = () => {
         </span>
       </div>
       <div className="flex w-full gap-3 text-[13px] text-[rgba(204,204,204,1)] font-medium mt-[30px] flex-col sm:flex-row">
-        <button className="bg-[rgba(31,31,31,1)] flex items-center gap-2.5 justify-center flex-1 shrink basis-[0%] px-2.5 py-4 rounded-xl">
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/b4e16f2fb3849aaf3a314fdc317a701757edf5f9c1450cc4fd14a4c442accee0?placeholderIfAbsent=true"
-            className="aspect-[1] object-contain w-[18px] self-stretch shrink-0 my-auto"
-            alt="Instagram"
-          />
-          <span>DM me (Instagram)</span>
+        <button className="bg-[rgba(31,31,31,1)] flex items-center gap-2.5 justify-center flex-1 shrink basis-[0%] px-2.5 py-4 rounded-xl transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner">
+          <Download className="w-4 h-4 text-[#916CE7]" />
+          <span>Resume</span>
         </button>
-        <button className="bg-[rgba(31,31,31,1)] gap-2.5 flex-1 shrink px-2.5 py-4 rounded-xl">
+        <button className="bg-[rgba(31,31,31,1)] gap-2.5 flex-1 shrink px-2.5 py-4 rounded-xl transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner">
           WhatsApp Me
         </button>
       </div>
