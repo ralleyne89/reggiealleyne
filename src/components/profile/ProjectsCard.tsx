@@ -20,7 +20,7 @@ const ProjectsCard = () => {
         alt="Projects gallery"
       />
       <div className="absolute z-0 flex min-h-[105px] max-w-full w-[344px] -translate-x-2/4 translate-y-[0%] h-[105px] left-2/4 bottom-0" />
-      <button className="self-stretch bg-[rgba(145,108,231,1)] absolute gap-2.5 text-sm text-white font-medium px-[30px] py-[13px] rounded-xl border-[rgba(16,16,16,1)] border-solid border-2 right-[104px] bottom-[18px] max-md:px-5">
+      <button className="absolute left-1/2 -translate-x-1/2 bottom-[18px] bg-[rgba(145,108,231,1)] gap-2.5 text-sm text-white font-medium px-[30px] py-[13px] rounded-xl border-[rgba(16,16,16,1)] border-solid border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-inner max-md:px-5">
         View Works
       </button>
     </div>
