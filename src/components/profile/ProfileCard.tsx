@@ -12,7 +12,7 @@ const ProfileCard = () => {
           alt="Profile"
         />
         <div className="flex flex-col items-stretch flex-1 shrink basis-[0%]">
-          <div className="flex w-full items-center gap-2 justify-between flex-wrap">
+          <div className="flex w-full justify-between items-center gap-2 flex-wrap">
             <div className="bg-[rgba(20,20,20,1)] border flex items-center gap-2 text-sm text-[rgba(153,153,153,1)] px-4 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap">
               <div className="relative">
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
