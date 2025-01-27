@@ -3,10 +3,10 @@ import { Figma, Framer, PenTool, Layout, Layers } from 'lucide-react';
 
 const TechStack = () => {
   const tools = [
-    { name: 'Webflow', icon: <Layout className="w-5 h-5 text-[#916CE7] mr-2" /> },
-    { name: 'Figma', icon: <Figma className="w-5 h-5 text-[#916CE7] mr-2" /> },
-    { name: 'Framer', icon: <Framer className="w-5 h-5 text-[#916CE7] mr-2" /> },
-    { name: 'Adobe XD', icon: <PenTool className="w-5 h-5 text-[#916CE7] mr-2" /> }
+    { name: 'Webflow', icon: <Layout className="w-5 h-5 text-white" /> },
+    { name: 'Figma', icon: <Figma className="w-5 h-5 text-white" /> },
+    { name: 'Framer', icon: <Framer className="w-5 h-5 text-white" /> },
+    { name: 'Adobe XD', icon: <PenTool className="w-5 h-5 text-white" /> }
   ];
 
   return (
@@ -28,7 +28,9 @@ const TechStack = () => {
               className="bg-[rgba(25,25,25,1)] flex items-center px-3 py-2 rounded-xl transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:shadow-[0_0_10px_rgba(145,108,231,0.1)] animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {tool.icon}
+              <div className="bg-[#333333] p-1.5 rounded-lg mr-2">
+                {tool.icon}
+              </div>
               <span className="text-sm text-[rgba(204,204,204,1)] font-medium">
                 {tool.name}
               </span>
