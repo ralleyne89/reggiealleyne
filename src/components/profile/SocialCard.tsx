@@ -1,7 +1,14 @@
 import React from 'react';
-import { UserPlus } from 'lucide-react';
+import { UserPlus, Github, Instagram, Twitter, Globe } from 'lucide-react';
 
 const SocialCard = () => {
+  const socialLinks = [
+    { handle: 'visualsbyartam', icon: Globe },
+    { handle: 'sanjay-billa', icon: Github },
+    { handle: 'sanjaybilla', icon: Twitter },
+    { handle: 'visualsbyartam', icon: Instagram },
+  ];
+
   return (
     <div className="bg-[rgba(16,16,16,1)] border min-h-[343px] grow overflow-hidden w-full px-5 py-[19px] rounded-xl border-[rgba(255,255,255,0.05)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="flex w-full flex-col items-center">
@@ -14,16 +21,14 @@ const SocialCard = () => {
         </div>
       </div>
       <div className="w-full text-sm text-[rgba(204,204,204,1)] font-medium whitespace-nowrap mt-[30px]">
-        {[
-          'visualsbyartam',
-          'sanjay-billa',
-          'sanjaybilla',
-          'visualsbyartam'
-        ].map((handle, index) => (
+        {socialLinks.map(({ handle, icon: Icon }, index) => (
           <div key={index} className="flex w-full max-w-[185px] mt-2 first:mt-0">
             <div className="flex w-[185px]">
               <div className="bg-[rgba(25,25,25,1)] flex w-[185px] items-center justify-between pl-[7px] pr-2.5 py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
-                <div className="self-stretch gap-1.5 my-auto">
+                <div className="self-stretch flex items-center gap-2">
+                  <div className="bg-[rgba(35,35,35,1)] p-1.5 rounded-lg">
+                    <Icon size={14} className="text-white" />
+                  </div>
                   {handle}
                 </div>
               </div>
