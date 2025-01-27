@@ -16,19 +16,14 @@ const Index = () => {
         {/* Left Column */}
         <div className="lg:col-span-7">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div className="space-y-5">
+            <div className="space-y-5 flex flex-col">
               <TechStack />
               <ProjectsCard />
+              <ServicesCard />
             </div>
             <div className="space-y-5">
               <StatsCard />
               <ProfileCard />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
-            <ServicesCard />
-            <div className="bg-[rgba(16,16,16,1)] border relative flex grow flex-col overflow-hidden items-stretch w-full pt-5 pb-[30px] border-[rgba(255,255,255,0.05)] border-solid">
-              {/* Clients section */}
             </div>
           </div>
         </div>
