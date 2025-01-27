@@ -3,7 +3,7 @@ import { Handshake, Mail, PhoneCall } from 'lucide-react';
 
 const ContactCard = () => {
   return (
-    <div className="bg-[rgba(16,16,16,1)] border min-h-[343px] grow overflow-hidden w-full pt-5 pb-[31px] px-5 rounded-xl border-[rgba(255,255,255,0.05)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
+    <div className="bg-[rgba(16,16,16,1)] border w-full pt-5 pb-[31px] px-5 rounded-xl border-[rgba(255,255,255,0.05)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="w-full">
         <div className="flex w-full flex-col items-center">
           <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium px-2.5 py-1.5">
