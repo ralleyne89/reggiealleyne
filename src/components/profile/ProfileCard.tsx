@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText } from 'lucide-react';
+import { Download } from 'lucide-react';
 
 const ProfileCard = () => {
   return (
@@ -23,7 +23,7 @@ const ProfileCard = () => {
             <button className="flex items-center gap-2 text-[13px] text-[rgba(204,204,204,1)] whitespace-nowrap">
               <span>Resume</span>
               <div className="bg-[rgba(31,31,31,1)] p-1.5 rounded-lg">
-                <FileText size={16} className="text-white" />
+                <Download size={16} className="text-white" />
               </div>
             </button>
           </div>
