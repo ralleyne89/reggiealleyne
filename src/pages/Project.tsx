@@ -13,6 +13,7 @@ const Project = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // This would normally come from an API, but for now we'll use mock data
   const project = {
     id: 1,
     title: "E-commerce Platform",
@@ -50,6 +51,14 @@ const Project = () => {
       nextSteps: "Moving forward, we're implementing a continuous feedback loop with users to further enhance the platform based on real-world usage patterns."
     }
   };
+
+  if (!project) {
+    return (
+      <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white flex items-center justify-center">
+        <p className="text-xl">Project not found</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white pb-0">
