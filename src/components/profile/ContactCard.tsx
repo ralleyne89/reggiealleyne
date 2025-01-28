@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Handshake, Mail, PhoneCall } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import ContactForm from './ContactForm';
+import type { ContactFormData } from './ContactForm';
 
 const ContactCard = () => {
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleEmailMe = async () => {
+  const handleEmailMe = async (formData: ContactFormData) => {
+    setIsLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke('send-contact-email');
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData,
+      });
       
       if (error) throw error;
 
@@ -16,6 +30,7 @@ const ContactCard = () => {
         title: "Email Sent!",
         description: "I'll get back to you as soon as possible.",
       });
+      setIsOpen(false);
     } catch (error) {
       console.error('Error sending email:', error);
       toast({
@@ -23,6 +38,8 @@ const ContactCard = () => {
         title: "Error",
         description: "Failed to send email. Please try again later.",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -40,13 +57,20 @@ const ContactCard = () => {
         </div>
       </div>
       <div className="w-full text-[13px] text-[rgba(204,204,204,1)] font-medium mt-[30px] space-y-3">
-        <button 
-          onClick={handleEmailMe}
-          className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 px-2.5 py-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner"
-        >
-          <Mail className="w-4 h-4 mr-2 text-[#916CE7]" />
-          Email Me
-        </button>
+        <Dialog open={isOpen} onOpenChange={setIsOpen}>
+          <DialogTrigger asChild>
+            <button className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 px-2.5 py-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner">
+              <Mail className="w-4 h-4 mr-2 text-[#916CE7]" />
+              Email Me
+            </button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Send me a message</DialogTitle>
+            </DialogHeader>
+            <ContactForm onSubmit={handleEmailMe} isLoading={isLoading} />
+          </DialogContent>
+        </Dialog>
         <button className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 px-2.5 py-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner">
           <PhoneCall className="w-4 h-4 mr-2 text-[#916CE7]" />
           Schedule a Call

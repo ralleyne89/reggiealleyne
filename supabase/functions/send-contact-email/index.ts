@@ -9,6 +9,12 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
+interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
@@ -16,13 +22,17 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    const { name, email, message }: ContactFormData = await req.json();
+
     const emailResponse = await resend.emails.send({
       from: "Lovable <onboarding@resend.dev>",
       to: ["reggiealleyne89@gmail.com"],
       subject: "New Contact Request from Portfolio",
       html: `
         <h1>New Contact Request</h1>
-        <p>Someone wants to get in touch with you from your portfolio website!</p>
+        <p><strong>From:</strong> ${name} (${email})</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
       `,
     });
 
