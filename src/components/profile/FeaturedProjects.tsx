@@ -6,12 +6,14 @@ const FeaturedProjects = () => {
     {
       title: "E-Commerce Dashboard",
       description: "Modern admin dashboard with dark theme",
-      tech: "React, TypeScript"
+      tech: "React, TypeScript",
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
     },
     {
       title: "Portfolio Website",
       description: "Personal portfolio with 3D elements",
-      tech: "Next.js, Three.js"
+      tech: "Next.js, Three.js",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
     }
   ];
 
@@ -33,14 +35,23 @@ const FeaturedProjects = () => {
             key={index}
             className="bg-[rgba(20,20,20,1)] border p-3 rounded-xl border-[rgba(255,255,255,0.05)] border-solid hover:bg-[rgba(25,25,25,1)] transition-all duration-300"
           >
-            <h3 className="text-[rgba(230,230,230,1)] text-sm font-semibold">
-              {project.title}
-            </h3>
-            <p className="text-[rgba(153,153,153,1)] text-xs mt-1">
-              {project.description}
-            </p>
-            <div className="text-[#916CE7] text-xs mt-2 font-medium">
-              {project.tech}
+            <div className="flex gap-4">
+              <img 
+                src={project.image} 
+                alt={project.title}
+                className="w-24 h-16 object-cover rounded-lg"
+              />
+              <div className="flex-1">
+                <h3 className="text-[rgba(230,230,230,1)] text-sm font-semibold">
+                  {project.title}
+                </h3>
+                <p className="text-[rgba(153,153,153,1)] text-xs mt-1">
+                  {project.description}
+                </p>
+                <div className="text-[#916CE7] text-xs mt-2 font-medium">
+                  {project.tech}
+                </div>
+              </div>
             </div>
           </div>
         ))}
