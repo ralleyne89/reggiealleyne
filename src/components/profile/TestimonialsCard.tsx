@@ -8,28 +8,28 @@ const reviews = [
     location: "San Francisco, CA",
     date: "11, Apr 2024",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-    text: "Sanjay is a remarkable Product Designer, renowned for his exceptional UI skills and creating Awwwards-worthy websites. I highly recommend Sanjay for any Product Designer role that requires a talented and dedicated professional with a focus on UI skills."
+    text: "Reggie is a remarkable Product Designer, renowned for his exceptional UI skills and creating Awwwards-worthy websites. I highly recommend Reggie for any Product Designer role that requires a talented and dedicated professional with a focus on UI skills."
   },
   {
     name: "Michael Thompson",
     location: "New York, NY",
     date: "10, Apr 2024",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
-    text: "Working with Sanjay was an absolute pleasure. His attention to detail and innovative approach to UI/UX design transformed our project completely. His ability to understand and implement complex requirements while maintaining aesthetic appeal is remarkable."
+    text: "Working with Reggie was an absolute pleasure. His attention to detail and innovative approach to UI/UX design transformed our project completely. His ability to understand and implement complex requirements while maintaining aesthetic appeal is remarkable."
   },
   {
     name: "Sarah Williams",
     location: "Seattle, WA",
     date: "9, Apr 2024",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
-    text: "Sanjay's expertise in creating responsive and intuitive designs is outstanding. He not only delivered exactly what we needed but also provided valuable insights that improved our initial concept. A true professional who goes above and beyond."
+    text: "Reggie's expertise in creating responsive and intuitive designs is outstanding. He not only delivered exactly what we needed but also provided valuable insights that improved our initial concept. A true professional who goes above and beyond."
   },
   {
     name: "James Anderson",
     location: "Boston, MA",
     date: "8, Apr 2024",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
-    text: "I've worked with many designers, but Sanjay stands out for his exceptional creativity and technical proficiency. His designs are not just beautiful but also highly functional and user-friendly. Looking forward to collaborating on more projects!"
+    text: "I've worked with many designers, but Reggie stands out for his exceptional creativity and technical proficiency. His designs are not just beautiful but also highly functional and user-friendly. Looking forward to collaborating on more projects!"
   }
 ];
 
