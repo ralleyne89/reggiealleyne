@@ -1,7 +1,31 @@
 import React from 'react';
 import { Handshake, Mail, PhoneCall } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 const ContactCard = () => {
+  const { toast } = useToast();
+
+  const handleEmailMe = async () => {
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email');
+      
+      if (error) throw error;
+
+      toast({
+        title: "Email Sent!",
+        description: "I'll get back to you as soon as possible.",
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to send email. Please try again later.",
+      });
+    }
+  };
+
   return (
     <div className="bg-[rgba(16,16,16,1)] border w-full pt-5 pb-[31px] px-5 rounded-xl border-[rgba(255,255,255,0.05)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="w-full">
@@ -16,7 +40,10 @@ const ContactCard = () => {
         </div>
       </div>
       <div className="w-full text-[13px] text-[rgba(204,204,204,1)] font-medium mt-[30px] space-y-3">
-        <button className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 px-2.5 py-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner">
+        <button 
+          onClick={handleEmailMe}
+          className="self-stretch bg-[rgba(31,31,31,1)] w-full gap-2.5 px-2.5 py-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner"
+        >
           <Mail className="w-4 h-4 mr-2 text-[#916CE7]" />
           Email Me
         </button>
