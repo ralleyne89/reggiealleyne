@@ -20,24 +20,18 @@ const ProfileCard = () => {
   }, []);
 
   const handleResumeDownload = () => {
-    // Create a blob with sample PDF content
-    const blob = new Blob(['Sample Resume Content'], { type: 'application/pdf' });
-    
-    // Create a URL for the blob
-    const url = window.URL.createObjectURL(blob);
+    // Get the resume file URL from the public directory
+    const resumeUrl = '/resume.pdf';
     
     // Create a temporary anchor element
     const link = document.createElement('a');
-    link.href = url;
+    link.href = resumeUrl;
     link.download = 'reggie-alleyne-resume.pdf';
     
-    // Append to body, click, and remove
+    // Trigger the download
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
-    // Clean up the URL
-    window.URL.revokeObjectURL(url);
   };
 
   return (
