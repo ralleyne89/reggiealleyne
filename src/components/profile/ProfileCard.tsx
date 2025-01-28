@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Download, MapPin, Layout, Palette, GraduationCap, Clock, Sparkles } from 'lucide-react';
 
 const titles = [
-  "Product Designer",
   "UX/UI Designer",
-  "Graphic Designer",
-  "Web Developer"
+  "Frontend Developer"
 ];
 
 const ProfileCard = () => {
@@ -20,27 +18,22 @@ const ProfileCard = () => {
   }, []);
 
   const handleResumeDownload = () => {
-    // Get the resume file URL from the public directory
     const resumeUrl = '/resume.pdf';
-    
-    // Create a temporary anchor element
     const link = document.createElement('a');
     link.href = resumeUrl;
     link.download = 'reggie-alleyne-resume.pdf';
-    
-    // Trigger the download
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
-return (
+  return (
     <div className="bg-[rgba(16,16,16,1)] border w-full max-w-[463px] p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="flex w-full gap-[15px] flex-col sm:flex-row">
         <img
           loading="lazy"
-          srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/ee1aac22c3d415f1ee9dc0d3132144837315cc7345e8417972a2ac9ffdb58848?placeholderIfAbsent=true&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/ee1aac22c3d415f1ee9dc0d3132144837315cc7345e8417972a2ac9ffdb58848?placeholderIfAbsent=true&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ee1aac22c3d415f1ee9dc0d3132144837315cc7345e8417972a2ac9ffdb58848?placeholderIfAbsent=true&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/ee1aac22c3d415f1ee9dc0d3132144837315cc7345e8417972a2ac9ffdb58848?placeholderIfAbsent=true&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/ee1aac22c3d415f1ee9dc0d3132144837315cc7345e8417972a2ac9ffdb58848?placeholderIfAbsent=true&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ee1aac22c3d415f1ee9dc0d3132144837315cc7345e8417972a2ac9ffdb58848?placeholderIfAbsent=true&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/ee1aac22c3d415f1ee9dc0d3132144837315cc7345e8417972a2ac9ffdb58848?placeholderIfAbsent=true&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/ee1aac22c3d415f1ee9dc0d3132144837315cc7345e8417972a2ac9ffdb58848?placeholderIfAbsent=true"
-          className="aspect-[1] object-contain w-[101px] shrink-0 rounded-lg mx-auto sm:mx-0"
+          src="/lovable-uploads/cb582645-1a6e-4846-8a2e-72b2dffd49a8.png"
+          className="aspect-square object-cover w-[101px] shrink-0 rounded-lg mx-auto sm:mx-0"
           alt="Profile"
         />
         <div className="flex flex-col items-stretch flex-1 shrink basis-[0%]">
