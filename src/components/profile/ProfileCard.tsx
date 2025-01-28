@@ -3,7 +3,8 @@ import { Download, MapPin, Layout, Palette, GraduationCap, Clock, Sparkles } fro
 
 const titles = [
   "UX/UI Designer",
-  "Frontend Developer"
+  "Frontend Developer",
+  "Graphic Designer"
 ];
 
 const ProfileCard = () => {
