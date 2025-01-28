@@ -23,12 +23,12 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
 
   return (
     <div className="bg-[rgba(16,16,16,1)] border w-full p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
-      <div className="flex w-full flex-col items-center">
+      <div className="flex w-full flex-col items-center mb-6">
         <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium px-2.5 py-1.5">
           <Star className="w-4 h-4 text-[#916CE7]" />
           <span>Featured Work</span>
         </div>
-        <div className="text-[rgba(230,230,230,1)] text-lg font-semibold mb-6">
+        <div className="text-[rgba(230,230,230,1)] text-lg font-semibold">
           Recent Projects
         </div>
       </div>
@@ -47,7 +47,7 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
             style={{ animationDelay: `${index * 150}ms` }}
           >
             <div className="flex gap-5">
-              <div className="relative group w-32 h-20 overflow-hidden rounded-lg">
+              <div className="relative group w-32 h-20 flex-shrink-0 overflow-hidden rounded-lg">
                 <img 
                   src={project.image} 
                   alt={project.title}
@@ -55,18 +55,18 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <div className="flex-1">
-                <h3 className="text-[rgba(230,230,230,1)] text-base font-semibold">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-[rgba(230,230,230,1)] text-base font-semibold truncate">
                   {project.title}
                 </h3>
-                <p className="text-[rgba(153,153,153,1)] text-sm mt-1.5">
+                <p className="text-[rgba(153,153,153,1)] text-sm mt-1.5 line-clamp-2">
                   {project.description}
                 </p>
-                <div className="flex gap-2 mt-3">
+                <div className="flex gap-2 mt-3 flex-wrap">
                   {project.tags?.slice(0, 2).map((tech, i) => (
                     <span 
                       key={i} 
-                      className="bg-[rgba(145,108,231,0.1)] text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium"
+                      className="bg-[rgba(145,108,231,0.1)] text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium whitespace-nowrap"
                     >
                       {tech}
                     </span>
