@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Download, MapPin, Languages, Briefcase, GraduationCap, Clock } from 'lucide-react';
+import { Download, MapPin, Layout, Briefcase, GraduationCap, Clock } from 'lucide-react';
 
 const titles = [
   "Product Designer",
@@ -83,8 +83,8 @@ const ProfileCard = () => {
           Los Angeles
         </span>
         <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
-          <Languages size={14} className="text-[#916CE7]" />
-          English & Hindi
+          <Layout size={14} className="text-[#916CE7]" />
+          UX/UI Developer
         </span>
         <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
           <Briefcase size={14} className="text-[#916CE7]" />
