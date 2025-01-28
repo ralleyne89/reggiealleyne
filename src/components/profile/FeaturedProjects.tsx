@@ -2,6 +2,7 @@ import React from 'react';
 import { Star } from 'lucide-react';
 import { ProjectType } from '@/types/project';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useNavigate } from 'react-router-dom';
 
 interface FeaturedProjectsProps {
   projects?: ProjectType[];
@@ -10,6 +11,8 @@ interface FeaturedProjectsProps {
 }
 
 const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps) => {
+  const navigate = useNavigate();
+
   if (error) {
     return (
       <div className="bg-[rgba(16,16,16,1)] border w-full p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid">
@@ -39,7 +42,8 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
         ) : projects?.slice(0, 2).map((project, index) => (
           <div 
             key={project.id}
-            className="bg-[rgba(20,20,20,1)] border p-4 rounded-xl border-[rgba(255,255,255,0.05)] border-solid hover:bg-[rgba(25,25,25,1)] transition-all duration-300 hover:scale-[1.02] hover:shadow-lg animate-fade-in"
+            onClick={() => navigate(`/project/${project.id}`)}
+            className="bg-[rgba(20,20,20,1)] border p-4 rounded-xl border-[rgba(255,255,255,0.05)] border-solid hover:bg-[rgba(25,25,25,1)] transition-all duration-300 hover:scale-[1.02] hover:shadow-lg animate-fade-in cursor-pointer"
             style={{ animationDelay: `${index * 150}ms` }}
           >
             <div className="flex gap-5">
