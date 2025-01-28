@@ -1,19 +1,18 @@
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '@/integrations/supabase/client';
 import { ProjectType } from '../types/project';
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL || '',
-  import.meta.env.VITE_SUPABASE_ANON_KEY || ''
-);
 
 export const getProject = async (id: number): Promise<ProjectType> => {
   const { data, error } = await supabase
     .from('projects')
     .select('*')
     .eq('id', id)
-    .single();
+    .maybeSingle();
 
   if (error) {
+    throw new Error('Project not found');
+  }
+
+  if (!data) {
     throw new Error('Project not found');
   }
 
