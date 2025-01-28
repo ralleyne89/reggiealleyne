@@ -19,6 +19,27 @@ const ProfileCard = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleResumeDownload = () => {
+    // Create a blob with sample PDF content
+    const blob = new Blob(['Sample Resume Content'], { type: 'application/pdf' });
+    
+    // Create a URL for the blob
+    const url = window.URL.createObjectURL(blob);
+    
+    // Create a temporary anchor element
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'reggie-alleyne-resume.pdf';
+    
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Clean up the URL
+    window.URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="bg-[rgba(16,16,16,1)] border w-full max-w-[463px] p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="flex w-full gap-[15px] flex-col sm:flex-row">
@@ -85,7 +106,10 @@ const ProfileCard = () => {
         </span>
       </div>
       <div className="flex w-full gap-3 text-[13px] text-[rgba(204,204,204,1)] font-medium mt-[30px] flex-col sm:flex-row">
-        <button className="bg-[rgba(31,31,31,1)] flex items-center gap-2.5 justify-center flex-1 shrink basis-[0%] px-2.5 py-4 rounded-xl transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner">
+        <button 
+          onClick={handleResumeDownload}
+          className="bg-[rgba(31,31,31,1)] flex items-center gap-2.5 justify-center flex-1 shrink basis-[0%] px-2.5 py-4 rounded-xl transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner"
+        >
           <Download className="w-4 h-4 text-[#916CE7]" />
           <span>Resume</span>
         </button>
