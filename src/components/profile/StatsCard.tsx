@@ -17,7 +17,7 @@ const StatsCard = () => {
           style={{ animationDelay: `${index * 150}ms` }}
         >
           <div className="flex items-center text-[30px] md:text-[55px] text-[rgba(153,153,153,1)]">
-            <div>01</div>
+            <div>{label === 'Years' ? '12' : '01'}</div>
             <div className="text-[20px] md:text-[35px] text-[#916CE7]">+</div>
           </div>
           <div className="bg-[rgba(20,20,20,1)] border w-full text-[11px] md:text-[13px] text-[rgba(204,204,204,1)] px-2 py-1 rounded-xl border-[rgba(255,255,255,0.05)] border-solid">
