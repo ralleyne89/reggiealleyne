@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Download, MapPin, Layout, Palette, GraduationCap, Clock } from 'lucide-react';
+import { Download, MapPin, Layout, Palette, GraduationCap, Clock, Sparkles } from 'lucide-react';
 
 const titles = [
   "Product Designer",
