@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Download, MapPin, Layout, Palette, GraduationCap, Clock } from 'lucide-react';
 
 const titles = [
-  "Product Designer",
+  "Professional Pixel Pusher",
   "UX/UI Designer",
   "Graphic Designer",
   "Web Developer"
