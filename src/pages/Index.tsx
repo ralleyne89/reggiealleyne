@@ -9,8 +9,15 @@ import WorkflowCard from '@/components/profile/WorkflowCard';
 import SocialCard from '@/components/profile/SocialCard';
 import ContactCard from '@/components/profile/ContactCard';
 import FeaturedProjects from '@/components/profile/FeaturedProjects';
+import { useQuery } from '@tanstack/react-query';
+import { getAllProjects } from '@/services/api';
 
 const Index = () => {
+  const { data: projects, isLoading, error } = useQuery({
+    queryKey: ['projects'],
+    queryFn: getAllProjects
+  });
+
   return (
     <div className="bg-[rgba(5,5,5,1)] min-h-screen w-full overflow-hidden px-4 sm:px-6 md:px-8 lg:px-[50px] py-6 md:py-[30px]">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -25,7 +32,7 @@ const Index = () => {
         <div className="space-y-5">
           <StatsCard />
           <ServicesCard />
-          <FeaturedProjects />
+          <FeaturedProjects projects={projects} isLoading={isLoading} error={error} />
         </div>
 
         {/* Column 3 */}
