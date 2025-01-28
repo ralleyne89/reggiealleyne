@@ -55,11 +55,11 @@ const ProfileCard = () => {
               <span className="text-[rgba(153,153,153,1)] font-medium">
                 I'm a
               </span>
-              <div className="relative h-6 overflow-hidden" style={{ minWidth: '140px' }}>
+              <div className="relative h-6 overflow-hidden" style={{ minWidth: '160px' }}>
                 {titles.map((title, index) => (
                   <div
                     key={index}
-                    className="absolute inset-x-0 transition-all duration-500 ease-in-out text-[rgba(145,108,231,1)] font-semibold"
+                    className="absolute inset-x-0 transition-all duration-500 ease-in-out text-[rgba(145,108,231,1)] font-semibold whitespace-nowrap"
                     style={{
                       transform: `translateY(${(index - currentTitleIndex) * 100}%)`,
                       opacity: index === currentTitleIndex ? 1 : 0
