@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Download, MapPin, Layout, Palette, GraduationCap, Clock, Sparkles } from 'lucide-react';
 
 const titles = [
-  "Product Designer",
   "UX/UI Designer",
-  "Graphic Designer",
-  "Web Developer"
+  "Frontend Developer"
 ];
 
 const ProfileCard = () => {
