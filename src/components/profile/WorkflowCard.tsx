@@ -11,28 +11,29 @@ const WorkflowCard = () => {
   ];
 
   return (
-    <div className="bg-[rgba(16,16,16,1)] border min-h-[369px] grow overflow-hidden w-full pt-2.5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
-      <div className="bg-[rgba(16,16,16,1)] flex w-full flex-col items-center pb-3 border-[rgba(255,255,255,0.06)] border-b">
-        <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium px-2.5 py-1.5 text-center">
+    <div className="bg-[rgba(16,16,16,1)] border min-h-[369px] grow overflow-hidden w-full p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
+      <div className="flex w-full flex-col items-center mb-6">
+        <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium px-2.5 py-1.5">
           <ListTodo className="w-4 h-4 text-[#916CE7]" />
           <span>Work Process</span>
         </div>
-        <div className="text-[rgba(230,230,230,1)] text-base font-semibold text-center w-full">
+        <div className="text-[rgba(230,230,230,1)] text-xl font-semibold">
           Workflow Highlights
         </div>
       </div>
-      <div className="w-full text-sm text-[rgba(204,204,204,1)] font-medium p-3">
+      <div className="w-full space-y-3">
         {steps.map((step, index) => (
           <div
             key={index}
-            className="flex w-full max-w-full mt-2 first:mt-0"
+            className="bg-[rgba(25,25,25,1)] flex items-center gap-3 p-4 rounded-xl transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:scale-[1.02] hover:shadow-lg animate-fade-in cursor-pointer"
+            style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="bg-[rgba(25,25,25,1)] flex w-full items-center gap-2 whitespace-nowrap px-[7px] py-[7px] rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner cursor-pointer">
-              <div className="bg-[#333333] p-1.5 rounded-lg">
-                {step.icon}
-              </div>
-              <span>{step.name}</span>
+            <div className="bg-[#333333] p-2 rounded-lg">
+              {step.icon}
             </div>
+            <span className="text-[rgba(204,204,204,1)] font-medium">
+              {step.name}
+            </span>
           </div>
         ))}
       </div>

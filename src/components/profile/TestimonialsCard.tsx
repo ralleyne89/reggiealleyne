@@ -35,47 +35,48 @@ const reviews = [
 
 const TestimonialsCard = () => {
   return (
-    <div className="bg-[rgba(16,16,16,1)] border flex min-h-[369px] grow flex-col overflow-hidden items-center w-full pt-2.5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
-      <div className="bg-[rgba(16,16,16,1)] flex w-full max-w-[344px] flex-col items-center pb-2 border-[rgba(255,255,255,0.06)] border-b">
-        <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium whitespace-nowrap px-2.5 py-1.5">
+    <div className="bg-[rgba(16,16,16,1)] border flex min-h-[369px] grow flex-col overflow-hidden w-full p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
+      <div className="flex w-full flex-col items-center mb-6">
+        <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium px-2.5 py-1.5">
           <MessageSquare className="w-4 h-4 text-[#916CE7]" />
           <span>Testimonials</span>
         </div>
-        <div className="text-[rgba(230,230,230,1)] text-base font-semibold text-center">
+        <div className="text-[rgba(230,230,230,1)] text-xl font-semibold">
           Reviews Showcase
         </div>
       </div>
-      <ScrollArea className="h-[280px] w-full px-3 pt-2">
-        <div className="space-y-4 pr-4">
+      <ScrollArea className="h-[280px] w-full pr-4">
+        <div className="space-y-4">
           {reviews.map((review, index) => (
             <div 
               key={index}
-              className="bg-[rgba(20,20,20,1)] border w-full p-3 rounded-xl border-[rgba(255,255,255,0.06)] border-solid"
+              className="bg-[rgba(25,25,25,1)] border p-4 rounded-xl border-[rgba(255,255,255,0.06)] border-solid animate-fade-in"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="flex w-full gap-7 justify-between pb-3 border-[rgba(255,255,255,0.06)] border-b">
-                <div className="flex items-center gap-2.5">
+              <div className="flex justify-between items-center pb-3 border-b border-[rgba(255,255,255,0.06)]">
+                <div className="flex items-center gap-3">
                   <img
                     loading="lazy"
                     src={review.image}
-                    className="aspect-[1] object-contain w-8 self-stretch shrink-0 my-auto rounded-full"
+                    className="w-10 h-10 rounded-full object-cover"
                     alt={`${review.name}'s avatar`}
                   />
-                  <div className="self-stretch my-auto">
-                    <div className="text-[rgba(204,204,204,1)] text-sm">
+                  <div>
+                    <div className="text-[rgba(230,230,230,1)] text-sm font-medium">
                       {review.name}
                     </div>
-                    <div className="text-[rgba(117,117,117,1)] text-xs">
+                    <div className="text-[rgba(153,153,153,1)] text-xs">
                       {review.location}
                     </div>
                   </div>
                 </div>
-                <div className="text-[rgba(117,117,117,1)] text-xs">
+                <div className="text-[rgba(153,153,153,1)] text-xs">
                   {review.date}
                 </div>
               </div>
-              <div className="text-[rgba(117,117,117,1)] text-xs mt-3">
+              <p className="text-[rgba(204,204,204,1)] text-sm mt-3 leading-relaxed">
                 {review.text}
-              </div>
+              </p>
             </div>
           ))}
         </div>
