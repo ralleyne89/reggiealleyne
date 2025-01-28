@@ -13,7 +13,7 @@ const ProfileCard = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
-    }, 3000); // Increased duration for better readability
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -55,15 +55,14 @@ const ProfileCard = () => {
               <span className="text-[rgba(153,153,153,1)] font-medium">
                 I'm a
               </span>
-              <div className="relative overflow-hidden text-[rgba(145,108,231,1)] font-semibold h-6">
+              <div className="relative h-6 overflow-hidden" style={{ minWidth: '140px' }}>
                 {titles.map((title, index) => (
                   <div
                     key={index}
-                    className="absolute w-full transition-transform duration-500 ease-in-out"
+                    className="absolute inset-x-0 transition-all duration-500 ease-in-out text-[rgba(145,108,231,1)] font-semibold"
                     style={{
                       transform: `translateY(${(index - currentTitleIndex) * 100}%)`,
-                      opacity: index === currentTitleIndex ? 1 : 0,
-                      transition: 'transform 500ms ease-in-out, opacity 500ms ease-in-out'
+                      opacity: index === currentTitleIndex ? 1 : 0
                     }}
                   >
                     {title}
