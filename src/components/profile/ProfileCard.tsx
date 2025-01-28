@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Download, MapPin, Layout, Briefcase, GraduationCap, Clock } from 'lucide-react';
+import { Download, MapPin, Layout, Palette, GraduationCap, Clock } from 'lucide-react';
 
 const titles = [
   "Product Designer",
@@ -34,7 +34,7 @@ const ProfileCard = () => {
     document.body.removeChild(link);
   };
 
-  return (
+return (
     <div className="bg-[rgba(16,16,16,1)] border w-full max-w-[463px] p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="flex w-full gap-[15px] flex-col sm:flex-row">
         <img
@@ -87,8 +87,8 @@ const ProfileCard = () => {
           UX/UI Developer
         </span>
         <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
-          <Briefcase size={14} className="text-[#916CE7]" />
-          Product Designer
+          <Palette size={14} className="text-[#916CE7]" />
+          Creative Artist
         </span>
         <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
           <GraduationCap size={14} className="text-[#916CE7]" />
