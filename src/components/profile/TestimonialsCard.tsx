@@ -4,31 +4,31 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 const reviews = [
   {
-    name: "Sai Abhishek Mishra",
-    location: "Mumbai, India",
+    name: "Emily Parker",
+    location: "San Francisco, CA",
     date: "11, Apr 2024",
-    image: "https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
     text: "Sanjay is a remarkable Product Designer, renowned for his exceptional UI skills and creating Awwwards-worthy websites. I highly recommend Sanjay for any Product Designer role that requires a talented and dedicated professional with a focus on UI skills."
   },
   {
-    name: "Alex Thompson",
-    location: "London, UK",
+    name: "Michael Thompson",
+    location: "New York, NY",
     date: "10, Apr 2024",
-    image: "https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af",
+    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
     text: "Working with Sanjay was an absolute pleasure. His attention to detail and innovative approach to UI/UX design transformed our project completely. His ability to understand and implement complex requirements while maintaining aesthetic appeal is remarkable."
   },
   {
-    name: "Maria Garcia",
-    location: "Barcelona, Spain",
+    name: "Sarah Williams",
+    location: "Seattle, WA",
     date: "9, Apr 2024",
-    image: "https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af",
+    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04",
     text: "Sanjay's expertise in creating responsive and intuitive designs is outstanding. He not only delivered exactly what we needed but also provided valuable insights that improved our initial concept. A true professional who goes above and beyond."
   },
   {
-    name: "David Chen",
-    location: "Singapore",
+    name: "James Anderson",
+    location: "Boston, MA",
     date: "8, Apr 2024",
-    image: "https://cdn.builder.io/api/v1/image/assets/TEMP/81560e126a18746ce974cc6777d7146cfc7ddae84580e8f2fea57b60e94c02af",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
     text: "I've worked with many designers, but Sanjay stands out for his exceptional creativity and technical proficiency. His designs are not just beautiful but also highly functional and user-friendly. Looking forward to collaborating on more projects!"
   }
 ];
