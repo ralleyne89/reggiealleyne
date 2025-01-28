@@ -31,12 +31,15 @@ const ProfileCard = () => {
   return (
     <div className="bg-[rgba(16,16,16,1)] border w-full max-w-[463px] p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="flex w-full gap-[15px] flex-col sm:flex-row">
-        <img
-          loading="lazy"
-          src="/lovable-uploads/cb582645-1a6e-4846-8a2e-72b2dffd49a8.png"
-          className="aspect-square object-cover w-[101px] shrink-0 rounded-lg mx-auto sm:mx-0"
-          alt="Profile"
-        />
+        <div className="relative w-[101px] h-[101px] mx-auto sm:mx-0">
+          <img
+            loading="lazy"
+            src="/lovable-uploads/cb582645-1a6e-4846-8a2e-72b2dffd49a8.png"
+            className="aspect-square object-cover w-full h-full rounded-lg"
+            alt="Profile"
+          />
+          <div className="absolute inset-0 rounded-lg border-2 border-[#9b87f5] glow-effect"></div>
+        </div>
         <div className="flex flex-col items-stretch flex-1 shrink basis-[0%]">
           <div className="flex w-full justify-between items-center gap-2 flex-wrap">
             <div className="bg-[rgba(20,20,20,1)] border flex items-center gap-2 text-sm text-[rgba(153,153,153,1)] px-4 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap">

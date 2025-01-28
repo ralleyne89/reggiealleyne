@@ -99,3 +99,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.glow-effect {
+  box-shadow: 0 0 10px rgba(155, 135, 245, 0.3);
+}
