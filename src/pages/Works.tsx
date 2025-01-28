@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { getAllProjects } from '@/services/api';
 
 const Works = () => {
   const navigate = useNavigate();
@@ -9,36 +11,38 @@ const Works = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const projects = [
-    {
-      id: 1,
-      title: "E-commerce Platform",
-      description: "A modern e-commerce solution built with React",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800",
-      tags: ["React", "TypeScript", "Tailwind"]
-    },
-    {
-      id: 2,
-      title: "Portfolio Website",
-      description: "Personal portfolio website with dark mode",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800",
-      tags: ["Next.js", "Tailwind", "Framer Motion"]
-    },
-    {
-      id: 3,
-      title: "Task Management App",
-      description: "Collaborative task management application",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800",
-      tags: ["React", "Redux", "Node.js"]
-    },
-    {
-      id: 4,
-      title: "Social Media Dashboard",
-      description: "Analytics dashboard for social media metrics",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800",
-      tags: ["React", "D3.js", "Material UI"]
-    }
-  ];
+  const { data: projects, isLoading, error } = useQuery({
+    queryKey: ['projects'],
+    queryFn: getAllProjects
+  });
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white p-6 md:p-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="animate-pulse space-y-4">
+            <div className="h-8 w-32 bg-gray-700 rounded"></div>
+            <div className="h-12 w-64 bg-gray-700 rounded"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="h-96 bg-gray-700 rounded-xl"></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white p-6 md:p-8">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-red-500">Error loading projects: {error.message}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white p-6 md:p-8">
@@ -56,7 +60,7 @@ const Works = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => (
+          {projects?.map((project) => (
             <div 
               key={project.id}
               className="bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1 cursor-pointer"
@@ -74,7 +78,7 @@ const Works = () => {
                 <h3 className="text-xl font-semibold mb-2 text-[rgba(230,230,230,1)]">{project.title}</h3>
                 <p className="text-[rgba(153,153,153,1)] mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, index) => (
+                  {project.tags?.map((tag, index) => (
                     <span 
                       key={index}
                       className="px-3 py-1 text-sm bg-[rgba(20,20,20,1)] border border-[rgba(255,255,255,0.05)] rounded-full text-[#9b87f5]"
