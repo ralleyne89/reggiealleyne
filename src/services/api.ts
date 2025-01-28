@@ -18,6 +18,7 @@ export const getProject = async (id: number): Promise<ProjectType> => {
 
   return {
     ...data,
+    fullDescription: data.full_description,
     conclusion: {
       impact: data.impact,
       learnings: data.learnings,
@@ -38,6 +39,7 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
 
   return data.map(project => ({
     ...project,
+    fullDescription: project.full_description,
     conclusion: {
       impact: project.impact,
       learnings: project.learnings,
