@@ -22,13 +22,15 @@ const ProfileCard = () => {
 
   const handleResumeDownload = async () => {
     try {
+      const fileName = 'Reginald Alleyne Resume 2025';
+      
       // First check if the file exists
       const { data: fileExists } = await supabase
         .storage
         .from('documents')
         .list('', {
           limit: 1,
-          search: 'resume.pdf'
+          search: fileName
         });
 
       if (!fileExists || fileExists.length === 0) {
@@ -38,7 +40,7 @@ const ProfileCard = () => {
 
       const { data, error } = await supabase.storage
         .from('documents')
-        .download('resume.pdf');
+        .download(fileName);
 
       if (error) {
         throw error;
