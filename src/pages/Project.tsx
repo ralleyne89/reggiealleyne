@@ -67,14 +67,12 @@ const Project = () => {
         </div>
       )}
       
-      {Number(id) !== 7 && (
-        <ProjectHeader 
-          image={project.image}
-          tags={project.tags}
-          title={project.title}
-          description={project.description}
-        />
-      )}
+      <ProjectHeader 
+        image={project.image}
+        tags={project.tags}
+        title={project.title}
+        description={project.description}
+      />
       
       <div className="max-w-7xl mx-auto px-6">
         <ProjectDetails 
