@@ -22,11 +22,15 @@ const ProfileActions = () => {
         return;
       }
 
+      // Get the actual file name from the list results
+      const actualFileName = fileExists[0].name;
+
       const { data, error } = await supabase.storage
         .from('documents')
-        .download(fileName);
+        .download(actualFileName);
 
       if (error) {
+        console.error('Download error:', error);
         throw error;
       }
 
@@ -36,7 +40,7 @@ const ProfileActions = () => {
       // Create a temporary link element
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'reggie-alleyne-resume.pdf';
+      link.download = 'reggie-alleyne-resume.pdf'; // The name that will be used when saving
       
       // Append to document, click, and cleanup
       document.body.appendChild(link);
