@@ -1,60 +1,63 @@
-import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
-
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
+import { Resend } from "https://esm.sh/@resend/node@0.16.0"
 
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
-};
-
-interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
-const handler = async (req: Request): Promise<Response> => {
+serve(async (req) => {
   // Handle CORS preflight requests
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
+  if (req.method === 'OPTIONS') {
+    return new Response(null, { headers: corsHeaders })
   }
 
   try {
-    const { name, email, message }: ContactFormData = await req.json();
+    const resend = new Resend(Deno.env.get('RESEND_API_KEY'))
+    const { name, email, message } = await req.json()
 
-    const emailResponse = await resend.emails.send({
-      from: "Lovable <onboarding@resend.dev>",
-      to: ["reggiealleyne89@gmail.com"],
-      subject: "New Contact Request from Portfolio",
+    console.log('Sending email with data:', { name, email, message })
+
+    const { data, error } = await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: 'reggiealleyne89@gmail.com', // Using the logged-in user's email
+      subject: `New Contact Form Submission from ${name}`,
       html: `
-        <h1>New Contact Request</h1>
+        <h2>New Contact Form Submission</h2>
         <p><strong>From:</strong> ${name} (${email})</p>
         <p><strong>Message:</strong></p>
         <p>${message}</p>
-      `,
-    });
+      `
+    })
 
-    console.log("Email sent successfully:", emailResponse);
+    if (error) {
+      console.error('Resend API error:', error)
+      throw error
+    }
 
-    return new Response(JSON.stringify(emailResponse), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-        ...corsHeaders,
-      },
-    });
-  } catch (error: any) {
-    console.error("Error in send-contact-email function:", error);
+    console.log('Email sent successfully:', data)
+
+    return new Response(
+      JSON.stringify({ success: true }),
+      { 
+        headers: { 
+          "Content-Type": "application/json",
+          ...corsHeaders
+        } 
+      }
+    )
+  } catch (error) {
+    console.error('Error sending email:', error)
+    
     return new Response(
       JSON.stringify({ error: error.message }),
-      {
+      { 
         status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
+        headers: { 
+          "Content-Type": "application/json",
+          ...corsHeaders
+        }
       }
-    );
+    )
   }
-};
-
-serve(handler);
+})
