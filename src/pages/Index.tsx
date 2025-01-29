@@ -9,7 +9,6 @@ import WorkflowCard from '@/components/profile/WorkflowCard';
 import SocialCard from '@/components/profile/SocialCard';
 import ContactCard from '@/components/profile/ContactCard';
 import FeaturedProjects from '@/components/profile/FeaturedProjects';
-import Footer from '@/components/layout/Footer';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
 
@@ -48,7 +47,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
