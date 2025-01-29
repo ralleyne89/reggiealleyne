@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Download, MapPin, Layout, Palette, GraduationCap, Clock, Sparkles } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 const titles = [
   "UX/UI Designer",
@@ -18,14 +20,37 @@ const ProfileCard = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleResumeDownload = () => {
-    const resumeUrl = '/resume.pdf';
-    const link = document.createElement('a');
-    link.href = resumeUrl;
-    link.download = 'reggie-alleyne-resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleResumeDownload = async () => {
+    try {
+      const { data, error } = await supabase.storage
+        .from('documents')
+        .download('resume.pdf');
+
+      if (error) {
+        throw error;
+      }
+
+      // Create a URL for the downloaded blob
+      const url = window.URL.createObjectURL(data);
+      
+      // Create a temporary link element
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'reggie-alleyne-resume.pdf';
+      
+      // Append to document, click, and cleanup
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Cleanup the blob URL
+      window.URL.revokeObjectURL(url);
+      
+      toast.success('Resume downloaded successfully!');
+    } catch (error) {
+      console.error('Error downloading resume:', error);
+      toast.error('Failed to download resume. Please try again later.');
+    }
   };
 
   return (
