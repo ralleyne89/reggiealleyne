@@ -1,12 +1,23 @@
 import React from 'react';
-import { UserPlus, Github, Instagram, Twitter, Globe } from 'lucide-react';
+import { UserPlus, Github, Linkedin, Globe } from 'lucide-react';
 
 const SocialCard = () => {
   const socialLinks = [
-    { handle: 'visualsbyartam', icon: Globe },
-    { handle: 'sanjay-billa', icon: Github },
-    { handle: 'sanjaybilla', icon: Twitter },
-    { handle: 'visualsbyartam', icon: Instagram },
+    { 
+      handle: 'reggiealleyne.com', 
+      icon: Globe,
+      url: 'https://reggiealleyne.com'
+    },
+    { 
+      handle: 'github.com/reggiealleyne', 
+      icon: Github,
+      url: 'https://github.com/reggiealleyne'
+    },
+    { 
+      handle: 'linkedin.com/in/reggiealleyne', 
+      icon: Linkedin,
+      url: 'https://linkedin.com/in/reggiealleyne'
+    }
   ];
 
   return (
@@ -21,9 +32,12 @@ const SocialCard = () => {
         </div>
       </div>
       <div className="w-full space-y-3">
-        {socialLinks.map(({ handle, icon: Icon }, index) => (
-          <div 
+        {socialLinks.map(({ handle, icon: Icon, url }, index) => (
+          <a 
             key={index} 
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-[rgba(25,25,25,1)] flex items-center gap-3 p-4 rounded-xl transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:scale-[1.02] hover:shadow-lg animate-fade-in cursor-pointer"
             style={{ animationDelay: `${index * 100}ms` }}
           >
@@ -33,7 +47,7 @@ const SocialCard = () => {
             <span className="text-[rgba(204,204,204,1)] font-medium">
               {handle}
             </span>
-          </div>
+          </a>
         ))}
       </div>
     </div>
