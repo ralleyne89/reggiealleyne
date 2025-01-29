@@ -25,4 +25,5 @@ export interface ProjectType {
   technicalHighlights?: string[] | null;
   teamSize?: string | null;
   methodologies?: string[] | null;
+  summary: string;
 }

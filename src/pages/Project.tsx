@@ -41,7 +41,7 @@ const Project = () => {
 
   return (
     <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white">
-      {project.techStack && project.techStack.length > 0 && (
+      {project.techStack && project.techStack.length > 0 && project.id !== 7 && (
         <div className="bg-[rgba(16,16,16,1)] border-b border-[rgba(255,255,255,0.1)] py-4">
           <div className="max-w-7xl mx-auto px-6">
             <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
