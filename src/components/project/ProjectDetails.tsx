@@ -9,7 +9,6 @@ interface ProjectDetailsProps {
   duration: string;
   year: string;
   teamSize?: string;
-  techStack?: string[];
   methodologies?: string[];
   githubUrl?: string;
   liveUrl?: string;
@@ -20,7 +19,6 @@ const ProjectDetails = ({
   duration, 
   year, 
   teamSize,
-  techStack,
   methodologies,
   githubUrl,
   liveUrl 
@@ -33,11 +31,8 @@ const ProjectDetails = ({
         <ProjectTeamInfo teamSize={teamSize} />
       )}
 
-      {techStack && techStack.length > 0 && (
-        <ProjectTechInfo 
-          techStack={techStack} 
-          methodologies={methodologies} 
-        />
+      {methodologies && methodologies.length > 0 && (
+        <ProjectTechInfo methodologies={methodologies} />
       )}
 
       {(githubUrl || liveUrl) && (
