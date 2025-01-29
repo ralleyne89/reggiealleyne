@@ -9,6 +9,7 @@ import WorkflowCard from '@/components/profile/WorkflowCard';
 import SocialCard from '@/components/profile/SocialCard';
 import ContactCard from '@/components/profile/ContactCard';
 import FeaturedProjects from '@/components/profile/FeaturedProjects';
+import Footer from '@/components/layout/Footer';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
 
@@ -19,32 +20,35 @@ const Index = () => {
   });
 
   return (
-    <div className="bg-[rgba(5,5,5,1)] min-h-screen w-full overflow-hidden px-4 sm:px-6 md:px-8 lg:px-[50px] py-6 md:py-[30px]">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {/* Column 1 */}
-        <div className="space-y-5">
-          <ProfileCard />
-          <TechStack />
-          <ProjectsCard />
-        </div>
-
-        {/* Column 2 */}
-        <div className="space-y-5">
-          <StatsCard />
-          <ServicesCard />
-          <FeaturedProjects projects={projects} isLoading={isLoading} error={error} />
-        </div>
-
-        {/* Column 3 */}
-        <div className="space-y-5">
-          <TestimonialsCard />
-          <div className="grid grid-cols-2 gap-5">
-            <WorkflowCard />
-            <SocialCard />
+    <div className="bg-[rgba(5,5,5,1)] min-h-screen w-full overflow-hidden">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-[50px] py-6 md:py-[30px]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* Column 1 */}
+          <div className="space-y-5">
+            <ProfileCard />
+            <TechStack />
+            <ProjectsCard />
           </div>
-          <ContactCard />
+
+          {/* Column 2 */}
+          <div className="space-y-5">
+            <StatsCard />
+            <ServicesCard />
+            <FeaturedProjects projects={projects} isLoading={isLoading} error={error} />
+          </div>
+
+          {/* Column 3 */}
+          <div className="space-y-5">
+            <TestimonialsCard />
+            <div className="grid grid-cols-2 gap-5">
+              <WorkflowCard />
+              <SocialCard />
+            </div>
+            <ContactCard />
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
