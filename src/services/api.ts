@@ -23,7 +23,15 @@ export const getProject = async (id: number): Promise<ProjectType> => {
       impact: data.impact,
       learnings: data.learnings,
       nextSteps: data.next_steps
-    }
+    },
+    techStack: data.tech_stack,
+    keyAchievements: data.key_achievements,
+    githubUrl: data.github_url,
+    liveUrl: data.live_url,
+    problemSolved: data.problem_solved,
+    technicalHighlights: data.technical_highlights,
+    teamSize: data.team_size,
+    methodologies: data.methodologies
   };
 };
 
@@ -44,6 +52,14 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
       impact: project.impact,
       learnings: project.learnings,
       nextSteps: project.next_steps
-    }
+    },
+    techStack: project.tech_stack,
+    keyAchievements: project.key_achievements,
+    githubUrl: project.github_url,
+    liveUrl: project.live_url,
+    problemSolved: project.problem_solved,
+    technicalHighlights: project.technical_highlights,
+    teamSize: project.team_size,
+    methodologies: project.methodologies
   }));
 };
