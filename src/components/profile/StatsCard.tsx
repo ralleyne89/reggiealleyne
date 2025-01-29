@@ -1,11 +1,30 @@
 import React from 'react';
 import { Database, Users, Calendar } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+import { getAllProjects } from '@/services/api';
 
 const StatsCard = () => {
+  const { data: projects } = useQuery({
+    queryKey: ['projects'],
+    queryFn: getAllProjects
+  });
+
   const stats = [
-    { label: 'Projects', value: '01', icon: <Database className="w-4 h-4 text-[#916CE7]" /> },
-    { label: 'Clients', value: '01', icon: <Users className="w-4 h-4 text-[#916CE7]" /> },
-    { label: 'Years', value: '12', icon: <Calendar className="w-4 h-4 text-[#916CE7]" /> }
+    { 
+      label: 'Projects', 
+      value: projects?.length.toString().padStart(2, '0') || '00', 
+      icon: <Database className="w-4 h-4 text-[#916CE7]" /> 
+    },
+    { 
+      label: 'Clients', 
+      value: '01', 
+      icon: <Users className="w-4 h-4 text-[#916CE7]" /> 
+    },
+    { 
+      label: 'Years', 
+      value: '12', 
+      icon: <Calendar className="w-4 h-4 text-[#916CE7]" /> 
+    }
   ];
 
   return (
