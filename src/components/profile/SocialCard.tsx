@@ -38,13 +38,13 @@ const SocialCard = () => {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[rgba(25,25,25,1)] flex items-center gap-3 p-4 rounded-xl transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:scale-[1.02] hover:shadow-lg animate-fade-in cursor-pointer"
+            className="bg-[rgba(25,25,25,1)] flex items-center gap-3 p-4 rounded-xl transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:scale-[1.02] hover:shadow-lg animate-fade-in group"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="bg-[#333333] p-2 rounded-lg">
+            <div className="bg-[#333333] p-2 rounded-lg shrink-0">
               <Icon size={20} className="text-white" />
             </div>
-            <span className="text-[rgba(204,204,204,1)] font-medium">
+            <span className="text-[rgba(204,204,204,1)] font-medium truncate">
               {handle}
             </span>
           </a>
