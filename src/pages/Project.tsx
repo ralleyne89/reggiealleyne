@@ -83,6 +83,7 @@ const Project = () => {
           methodologies={project.methodologies}
           githubUrl={project.githubUrl}
           liveUrl={project.liveUrl}
+          summary={project.summary}
         />
         
         <ProjectProcess 
