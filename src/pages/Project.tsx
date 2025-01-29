@@ -51,11 +51,19 @@ const Project = () => {
           role={project.role}
           duration={project.duration}
           year={project.year}
+          teamSize={project.teamSize}
+          techStack={project.techStack}
+          methodologies={project.methodologies}
+          githubUrl={project.githubUrl}
+          liveUrl={project.liveUrl}
         />
         
         <ProjectProcess 
           challenge={project.challenge}
           process={project.process}
+          problemSolved={project.problemSolved}
+          technicalHighlights={project.technicalHighlights}
+          keyAchievements={project.keyAchievements}
         />
         
         <ProjectDeliverables 

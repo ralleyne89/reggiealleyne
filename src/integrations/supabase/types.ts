@@ -17,15 +17,23 @@ export type Database = {
           description: string
           duration: string
           full_description: string | null
+          github_url: string | null
           id: number
           image: string
           images: string[] | null
           impact: string | null
+          key_achievements: string[] | null
           learnings: string | null
+          live_url: string | null
+          methodologies: string[] | null
           next_steps: string | null
+          problem_solved: string | null
           process: string[] | null
           role: string
           tags: string[] | null
+          team_size: string | null
+          tech_stack: string[] | null
+          technical_highlights: string[] | null
           title: string
           year: string
         }
@@ -36,15 +44,23 @@ export type Database = {
           description: string
           duration: string
           full_description?: string | null
+          github_url?: string | null
           id?: never
           image: string
           images?: string[] | null
           impact?: string | null
+          key_achievements?: string[] | null
           learnings?: string | null
+          live_url?: string | null
+          methodologies?: string[] | null
           next_steps?: string | null
+          problem_solved?: string | null
           process?: string[] | null
           role: string
           tags?: string[] | null
+          team_size?: string | null
+          tech_stack?: string[] | null
+          technical_highlights?: string[] | null
           title: string
           year: string
         }
@@ -55,15 +71,23 @@ export type Database = {
           description?: string
           duration?: string
           full_description?: string | null
+          github_url?: string | null
           id?: never
           image?: string
           images?: string[] | null
           impact?: string | null
+          key_achievements?: string[] | null
           learnings?: string | null
+          live_url?: string | null
+          methodologies?: string[] | null
           next_steps?: string | null
+          problem_solved?: string | null
           process?: string[] | null
           role?: string
           tags?: string[] | null
+          team_size?: string | null
+          tech_stack?: string[] | null
+          technical_highlights?: string[] | null
           title?: string
           year?: string
         }

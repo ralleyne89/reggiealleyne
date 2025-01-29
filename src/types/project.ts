@@ -17,4 +17,12 @@ export interface ProjectType {
     learnings: string | null;
     nextSteps: string | null;
   };
+  techStack?: string[] | null;
+  keyAchievements?: string[] | null;
+  githubUrl?: string | null;
+  liveUrl?: string | null;
+  problemSolved?: string | null;
+  technicalHighlights?: string[] | null;
+  teamSize?: string | null;
+  methodologies?: string[] | null;
 }
