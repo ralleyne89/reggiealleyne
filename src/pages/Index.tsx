@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ProfileCard from '@/components/profile/ProfileCard';
+import ProfileHeader from '@/components/profile/ProfileHeader';
 import BentoProjectsGrid from '@/components/bento/BentoProjectsGrid';
 import SocialCard from '@/components/profile/SocialCard';
 import ContactCard from '@/components/profile/ContactCard';
@@ -17,6 +17,11 @@ const Index = () => {
     <div className="bg-[rgba(5,5,5,1)] min-h-screen w-full overflow-hidden">
       <div className="px-4 sm:px-6 md:px-8 lg:px-[50px] py-6 md:py-[30px]">
         <div className="max-w-[1400px] mx-auto space-y-8">
+          {/* Profile Header Section */}
+          <div className="bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 hover:border-[rgba(145,108,231,0.3)] transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)]">
+            <ProfileHeader />
+          </div>
+          
           {/* Value Proposition Hero Section */}
           <div className="relative w-full bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 lg:p-10 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-[rgba(145,108,231,0.15)] to-transparent pointer-events-none"></div>
@@ -46,18 +51,23 @@ const Index = () => {
           </div>
 
           {/* Bento Grid Projects */}
-          <div id="projects">
+          <div id="projects" className="pt-4">
+            <h2 className="text-2xl font-bold text-[rgba(230,230,230,1)] mb-6">Featured Case Studies</h2>
             <BentoProjectsGrid projects={projects} isLoading={isLoading} error={error} />
           </div>
 
-          {/* Profile and Contact Section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="md:col-span-2">
-              <ProfileCard />
-            </div>
-            <div className="space-y-5">
-              <SocialCard />
-              <ContactCard />
+          {/* Contact and Social Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <SocialCard />
+            <ContactCard />
+            <div className="lg:col-span-1 flex flex-col justify-center items-center bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 hover:border-[rgba(145,108,231,0.3)] transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)]">
+              <div className="text-[rgba(230,230,230,1)] text-xl font-semibold mb-4">Ready to collaborate?</div>
+              <a 
+                href="#contact" 
+                className="bg-[rgba(145,108,231,1)] text-white font-medium px-6 py-3 rounded-xl hover:bg-[rgba(125,88,211,1)] transition-all duration-300"
+              >
+                Get in Touch
+              </a>
             </div>
           </div>
         </div>
