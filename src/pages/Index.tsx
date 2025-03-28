@@ -61,13 +61,35 @@ const Index = () => {
             <SocialCard />
             <ContactCard />
             <div className="lg:col-span-1 flex flex-col justify-center items-center bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl p-6 hover:border-[rgba(145,108,231,0.3)] transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)]">
-              <div className="text-[rgba(230,230,230,1)] text-xl font-semibold mb-4">Ready to collaborate?</div>
-              <a 
-                href="#contact" 
-                className="bg-[rgba(145,108,231,1)] text-white font-medium px-6 py-3 rounded-xl hover:bg-[rgba(125,88,211,1)] transition-all duration-300"
-              >
-                Get in Touch
-              </a>
+              <div className="w-full space-y-4">
+                <div className="text-[rgba(230,230,230,1)] text-xl font-semibold text-center">Why I'm Your Ideal Candidate</div>
+                <ul className="text-[rgba(204,204,204,1)] space-y-3">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#916CE7] font-bold">•</span>
+                    <span>5+ years experience in enterprise UX design</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#916CE7] font-bold">•</span>
+                    <span>Proven track record of increasing user engagement by 30%+</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#916CE7] font-bold">•</span>
+                    <span>Skilled in cross-functional team collaboration</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#916CE7] font-bold">•</span>
+                    <span>Available to start immediately</span>
+                  </li>
+                </ul>
+                <div className="flex justify-center pt-2">
+                  <a 
+                    href="mailto:hiring@example.com" 
+                    className="bg-[rgba(145,108,231,1)] text-white font-medium px-6 py-3 rounded-xl hover:bg-[rgba(125,88,211,1)] transition-all duration-300"
+                  >
+                    Schedule Interview
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
