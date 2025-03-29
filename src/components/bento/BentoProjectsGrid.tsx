@@ -30,7 +30,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
     );
   }
 
-  const featuredProjects = projects?.slice(0, 3) || [];
+  const featuredProjects = projects?.slice(0, 2) || [];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
