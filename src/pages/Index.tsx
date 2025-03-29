@@ -28,7 +28,7 @@ const Index = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-[rgba(145,108,231,0.15)] to-transparent pointer-events-none"></div>
             <div className="relative z-10 max-w-3xl">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[rgba(230,230,230,1)] mb-6">
-                <span className="block">UI/UX Developer specializing in</span>
+                <span className="block">UI/UX Designer specializing in</span>
                 <span className="text-[#916CE7]">enterprise solutions with measurable impact.</span>
               </h1>
               <p className="text-[rgba(204,204,204,1)] text-lg md:text-xl">
