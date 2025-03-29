@@ -1,9 +1,11 @@
+
 import React, { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
 import Footer from '@/components/layout/Footer';
+import HealthHomeProjectCard from '@/components/bento/HealthHomeProjectCard';
 
 const Works = () => {
   const navigate = useNavigate();
@@ -62,6 +64,7 @@ const Works = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <HealthHomeProjectCard />
             {projects?.map((project) => (
               <div 
                 key={project.id}

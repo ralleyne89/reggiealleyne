@@ -1,51 +1,49 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, BarChart2, Zap, Users } from 'lucide-react';
+import { ChevronRight, HeartPulse, Users, BarChart2 } from 'lucide-react';
 
 const HealthHomeProjectCard = () => {
   return (
-    <div className="w-full bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
+    <div className="w-full bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-[rgba(145,108,231,0.3)] transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)]">
+      <div className="relative">
+        <img 
+          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+          alt="Health@Home Platform"
+          className="w-full h-48 object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,1)] to-transparent opacity-50"></div>
+      </div>
       <div className="p-6">
-        <h2 className="text-2xl font-bold text-[rgba(230,230,230,1)] mb-4">Health@Home Platform</h2>
-        <p className="text-[rgba(153,153,153,1)] mb-6">
-          A comprehensive telehealth platform for Blue Shield of California, designed to improve patient monitoring and care management during the pandemic.
+        <div className="flex items-center gap-2 mb-3">
+          <div className="bg-[#333333] p-1.5 rounded-md">
+            <HeartPulse className="w-4 h-4 text-[#916CE7]" />
+          </div>
+          <h2 className="text-xl font-bold text-[rgba(230,230,230,1)]">Health@Home Platform</h2>
+        </div>
+        
+        <p className="text-[rgba(153,153,153,1)] mb-4 text-sm">
+          A comprehensive telehealth solution for Blue Shield of California, enabling remote patient monitoring during COVID-19.
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div className="bg-[rgba(25,25,25,1)] rounded-lg p-4 flex flex-col">
+        <div className="grid grid-cols-2 gap-3 mb-4">
+          <div className="bg-[rgba(25,25,25,1)] rounded-lg p-3 flex flex-col">
             <div className="flex items-center gap-2 mb-2">
-              <div className="bg-[#333333] p-1.5 rounded-md">
-                <Zap className="w-4 h-4 text-[#916CE7]" />
-              </div>
-              <span className="text-sm font-medium text-[rgba(230,230,230,1)]">Challenge</span>
+              <Users className="w-3.5 h-3.5 text-[#916CE7]" />
+              <span className="text-xs font-medium text-[rgba(230,230,230,1)]">Challenge</span>
             </div>
             <p className="text-xs text-[rgba(153,153,153,1)]">
-              Rapidly develop an intuitive telehealth platform during COVID-19 to support remote patient monitoring.
+              Rapidly develop an intuitive telehealth platform during pandemic
             </p>
           </div>
           
-          <div className="bg-[rgba(25,25,25,1)] rounded-lg p-4 flex flex-col">
+          <div className="bg-[rgba(25,25,25,1)] rounded-lg p-3 flex flex-col">
             <div className="flex items-center gap-2 mb-2">
-              <div className="bg-[#333333] p-1.5 rounded-md">
-                <Users className="w-4 h-4 text-[#916CE7]" />
-              </div>
-              <span className="text-sm font-medium text-[rgba(230,230,230,1)]">Solution</span>
+              <BarChart2 className="w-3.5 h-3.5 text-[#916CE7]" />
+              <span className="text-xs font-medium text-[rgba(230,230,230,1)]">Impact</span>
             </div>
             <p className="text-xs text-[rgba(153,153,153,1)]">
-              User-centered design approach with rapid prototyping and iterative testing to create an accessible interface.
-            </p>
-          </div>
-          
-          <div className="bg-[rgba(25,25,25,1)] rounded-lg p-4 flex flex-col">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="bg-[#333333] p-1.5 rounded-md">
-                <BarChart2 className="w-4 h-4 text-[#916CE7]" />
-              </div>
-              <span className="text-sm font-medium text-[rgba(230,230,230,1)]">Impact</span>
-            </div>
-            <p className="text-xs text-[rgba(153,153,153,1)]">
-              42% increase in patient engagement and 28% reduction in hospital readmissions.
+              42% increase in patient engagement, 28% reduction in readmissions
             </p>
           </div>
         </div>
@@ -61,7 +59,7 @@ const HealthHomeProjectCard = () => {
           </div>
           <Link 
             to="/project/health-at-home"
-            className="text-[#916CE7] flex items-center gap-1 hover:underline"
+            className="text-[#916CE7] flex items-center gap-1 text-sm hover:underline"
           >
             View case study <ChevronRight className="w-4 h-4" />
           </Link>
