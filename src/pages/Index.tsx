@@ -66,11 +66,11 @@ const Index = () => {
                 <ul className="text-[rgba(204,204,204,1)] space-y-3">
                   <li className="flex items-start gap-2">
                     <span className="text-[#916CE7] font-bold">•</span>
-                    <span>5+ years experience in enterprise UX design</span>
+                    <span>10+ years experience in Design</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#916CE7] font-bold">•</span>
-                    <span>Proven track record of increasing user engagement by 30%+</span>
+                    <span>Proven track record of increasing user engagement and retention</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#916CE7] font-bold">•</span>
@@ -78,7 +78,7 @@ const Index = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#916CE7] font-bold">•</span>
-                    <span>Available to start immediately</span>
+                    <span>Adapts to any situation to find a solution</span>
                   </li>
                 </ul>
                 <div className="flex justify-center pt-2">
