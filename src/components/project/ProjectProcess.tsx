@@ -16,6 +16,28 @@ const ProjectProcess = ({
   technicalHighlights,
   keyAchievements
 }: ProjectProcessProps) => {
+  // Define standard step names that make sense for most design/development projects
+  const stepNames = [
+    "Research & Discovery",
+    "Planning & Strategy",
+    "Design & Prototyping",
+    "Development",
+    "Testing & Refinement",
+    "Implementation & Launch",
+    "Evaluation & Iteration"
+  ];
+
+  // Standard insights that can be customized based on project type
+  const stepInsights = [
+    "User interviews and market research revealed key pain points that informed our approach.",
+    "Defined project scope, requirements, and created a comprehensive roadmap for execution.",
+    "Created wireframes and prototypes to visualize solutions and gather feedback.",
+    "Built the core functionality with focus on performance and user experience.",
+    "Conducted thorough testing to identify and address usability issues.",
+    "Deployed the solution and provided documentation for seamless adoption.",
+    "Gathered feedback to identify areas for improvement and future features."
+  ];
+  
   return (
     <>
       <div className="mb-16">
@@ -47,14 +69,16 @@ const ProjectProcess = ({
           {process.map((step, index) => (
             <div key={index} className="relative">
               <div className="absolute left-[-27px] top-0 w-6 h-6 rounded-full bg-[#9b87f5] border-4 border-[rgba(5,5,5,1)]"></div>
-              <h3 className="text-xl font-semibold mb-3 text-[rgba(230,230,230,1)]">Step {index + 1}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[rgba(230,230,230,1)]">
+                {stepNames[index % stepNames.length]}
+              </h3>
               <p className="text-[rgba(153,153,153,1)] mb-4">{step}</p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-[rgba(20,20,20,1)] border border-[rgba(255,255,255,0.05)] rounded-lg p-4">
                   <h4 className="text-sm font-medium text-[#9b87f5] mb-2">Key Insight</h4>
                   <p className="text-sm text-[rgba(153,153,153,1)]">
-                    Insights from this step helped inform our design decisions.
+                    {stepInsights[index % stepInsights.length]}
                   </p>
                 </div>
               </div>
