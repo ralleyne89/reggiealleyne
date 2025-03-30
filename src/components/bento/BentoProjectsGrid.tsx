@@ -57,8 +57,8 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
             <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,1)] via-[rgba(16,16,16,0.8)] to-transparent"></div>
           </div>
 
-          <div className="relative z-10 p-4 sm:p-6 h-full flex flex-col justify-between">
-            <div>
+          <div className="relative z-10 p-4 sm:p-6 h-full w-full flex flex-col justify-between">
+            <div className="w-full">
               <div className="flex flex-wrap gap-2 mb-2 sm:mb-3">
                 {project.tags?.slice(0, 3).map((tag, i) => (
                   <span 
@@ -73,7 +73,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
               <p className="text-sm sm:text-base text-[rgba(153,153,153,1)] line-clamp-2 mb-4">{project.description}</p>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-3 w-full">
               {index === 0 && (
                 <>
                   <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -108,7 +108,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
                 </>
               )}
               
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between w-full">
                 <span className="text-xs sm:text-sm text-[rgba(153,153,153,1)]">{project.role}</span>
                 <span className="bg-[rgba(145,108,231,0.1)] text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium">
                   {project.year}
