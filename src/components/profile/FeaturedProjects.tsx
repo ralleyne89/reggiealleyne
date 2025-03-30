@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Star } from 'lucide-react';
 import { ProjectType } from '@/types/project';
@@ -33,7 +34,7 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
         </div>
       </div>
       
-      <div className="space-y-4">
+      <div className="space-y-4 w-full">
         {isLoading ? (
           <>
             <Skeleton className="h-32 w-full" />
@@ -43,10 +44,10 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
           <div 
             key={project.id}
             onClick={() => navigate(`/project/${project.id}`)}
-            className="bg-[rgba(20,20,20,1)] border p-4 rounded-xl border-[rgba(255,255,255,0.05)] border-solid hover:bg-[rgba(25,25,25,1)] transition-all duration-300 hover:scale-[1.02] hover:shadow-lg animate-fade-in cursor-pointer"
+            className="bg-[rgba(20,20,20,1)] border p-4 rounded-xl border-[rgba(255,255,255,0.05)] border-solid hover:bg-[rgba(25,25,25,1)] transition-all duration-300 hover:scale-[1.02] hover:shadow-lg animate-fade-in cursor-pointer w-full"
             style={{ animationDelay: `${index * 150}ms` }}
           >
-            <div className="flex gap-5">
+            <div className="flex gap-5 w-full">
               <div className="relative group w-32 h-20 flex-shrink-0 overflow-hidden rounded-lg">
                 <img 
                   src={project.image} 

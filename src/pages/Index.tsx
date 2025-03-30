@@ -54,9 +54,17 @@ const Index = () => {
           {/* Bento Grid Projects */}
           <div id="projects" className="pt-4">
             <h2 className="text-2xl font-bold text-[rgba(230,230,230,1)] mb-6">Featured Case Studies</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              <HealthHomeCard />
-              <BentoProjectsGrid projects={projects} isLoading={isLoading} error={error} />
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 w-full">
+              <div className="col-span-1 lg:col-span-4 w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 w-full">
+                  <div className="lg:col-span-1">
+                    <HealthHomeCard />
+                  </div>
+                  <div className="lg:col-span-3">
+                    <BentoProjectsGrid projects={projects} isLoading={isLoading} error={error} />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

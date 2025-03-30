@@ -22,7 +22,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
 
   if (isLoading) {
     return (
-      <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      <div className="grid w-full h-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         <Skeleton className="h-[300px] sm:h-[400px] lg:h-[450px] lg:col-span-2 rounded-xl" />
         <Skeleton className="h-[200px] sm:h-[220px] rounded-xl" />
         <Skeleton className="h-[200px] sm:h-[220px] rounded-xl" />
@@ -33,7 +33,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
   const featuredProjects = projects?.slice(0, 3) || [];
 
   return (
-    <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+    <div className="grid w-full h-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
       {featuredProjects.map((project, index) => (
         <Link
           key={project.id}
