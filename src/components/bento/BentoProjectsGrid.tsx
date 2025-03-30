@@ -2,7 +2,7 @@
 import React from 'react';
 import { ProjectType } from '@/types/project';
 import { Skeleton } from '@/components/ui/skeleton';
-import { BarChart, Lightbulb, Check } from 'lucide-react';
+import { BarChart, Lightbulb, Check, Heart, Clock, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface BentoProjectsGridProps {
@@ -48,13 +48,18 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
               : 'h-[200px] sm:h-[220px]'
           }`}
         >
+          {index === 0 && (
+            <div className="absolute top-3 right-3 z-20 bg-[rgba(145,108,231,0.9)] text-white text-xs px-3 py-1 rounded-full font-medium">
+              Featured Project
+            </div>
+          )}
           <div className="absolute inset-0 w-full h-full">
             <img 
               src={project.image} 
               alt={project.title}
-              className="w-full h-full object-cover opacity-40 transition-transform duration-500 group-hover:scale-105 group-hover:opacity-25"
+              className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${index === 0 ? 'opacity-50 group-hover:opacity-30' : 'opacity-40 group-hover:opacity-25'}`}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,1)] via-[rgba(16,16,16,0.8)] to-transparent"></div>
+            <div className={`absolute inset-0 ${index === 0 ? 'bg-gradient-to-t from-[rgba(16,16,16,1)] via-[rgba(16,16,16,0.85)] to-transparent' : 'bg-gradient-to-t from-[rgba(16,16,16,1)] via-[rgba(16,16,16,0.8)] to-transparent'}`}></div>
           </div>
 
           <div className="relative z-10 p-4 sm:p-6 h-full w-full flex flex-col justify-between">
@@ -63,46 +68,55 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
                 {project.tags?.slice(0, 3).map((tag, i) => (
                   <span 
                     key={i} 
-                    className="bg-[rgba(25,25,25,0.8)] text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium"
+                    className={`${index === 0 ? 'bg-[rgba(145,108,231,0.2)]' : 'bg-[rgba(25,25,25,0.8)]'} text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium`}
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-[rgba(230,230,230,1)] mb-2">{project.title}</h3>
+              <h3 className={`${index === 0 ? 'text-xl sm:text-2xl' : 'text-lg sm:text-xl'} font-bold text-[rgba(230,230,230,1)] mb-2`}>{project.title}</h3>
               <p className="text-sm sm:text-base text-[rgba(153,153,153,1)] line-clamp-2 mb-4">{project.description}</p>
             </div>
 
             <div className="space-y-3 w-full">
               {index === 0 && (
                 <>
-                  <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className="bg-[rgba(25,25,25,0.8)] rounded-lg p-3 flex items-center gap-2">
-                      <div className="bg-[#333333] p-1.5 rounded-md">
+                  <div className="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
+                      <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
                         <Lightbulb className="w-4 h-4 text-[#916CE7]" />
                       </div>
                       <div className="flex flex-col">
                         <span className="text-xs text-[rgba(153,153,153,1)]">Problem</span>
-                        <span className="text-sm text-[rgba(230,230,230,1)] truncate">Inefficient workflow</span>
+                        <span className="text-sm text-[rgba(230,230,230,1)] truncate">Remote healthcare</span>
                       </div>
                     </div>
-                    <div className="bg-[rgba(25,25,25,0.8)] rounded-lg p-3 flex items-center gap-2">
-                      <div className="bg-[#333333] p-1.5 rounded-md">
-                        <Check className="w-4 h-4 text-green-500" />
+                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
+                      <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
+                        <Clock className="w-4 h-4 text-[#916CE7]" />
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-xs text-[rgba(153,153,153,1)]">Solution</span>
-                        <span className="text-sm text-[rgba(230,230,230,1)] truncate">Streamlined UX</span>
+                        <span className="text-xs text-[rgba(153,153,153,1)]">Timeline</span>
+                        <span className="text-sm text-[rgba(230,230,230,1)] truncate">{project.duration}</span>
+                      </div>
+                    </div>
+                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
+                      <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
+                        <Users className="w-4 h-4 text-[#916CE7]" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-xs text-[rgba(153,153,153,1)]">Team</span>
+                        <span className="text-sm text-[rgba(230,230,230,1)] truncate">{project.teamSize}</span>
                       </div>
                     </div>
                   </div>
-                  <div className="hidden sm:flex bg-[rgba(25,25,25,0.8)] rounded-lg p-3 items-center gap-2">
-                    <div className="bg-[#333333] p-1.5 rounded-md">
+                  <div className="hidden sm:flex bg-[rgba(145,108,231,0.15)] rounded-lg p-3 items-center gap-2">
+                    <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
                       <BarChart className="w-4 h-4 text-[#916CE7]" />
                     </div>
                     <div className="flex flex-col">
                       <span className="text-xs text-[rgba(153,153,153,1)]">Impact</span>
-                      <span className="text-sm text-[rgba(230,230,230,1)]">32% increase in user satisfaction</span>
+                      <span className="text-sm text-[rgba(230,230,230,1)]">{project.conclusion.impact?.split(',')[0]}</span>
                     </div>
                   </div>
                 </>
@@ -110,7 +124,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
               
               <div className="flex items-center justify-between w-full">
                 <span className="text-xs sm:text-sm text-[rgba(153,153,153,1)]">{project.role}</span>
-                <span className="bg-[rgba(145,108,231,0.1)] text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium">
+                <span className={`${index === 0 ? 'bg-[rgba(145,108,231,0.2)]' : 'bg-[rgba(145,108,231,0.1)]'} text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium`}>
                   {project.year}
                 </span>
               </div>
