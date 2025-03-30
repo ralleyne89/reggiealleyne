@@ -48,11 +48,6 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
               : 'h-[200px] sm:h-[220px]'
           }`}
         >
-          {index === 0 && (
-            <div className="absolute top-3 right-3 z-20 bg-[rgba(145,108,231,0.9)] text-white text-xs px-3 py-1 rounded-full font-medium">
-              Featured Project
-            </div>
-          )}
           <div className="absolute inset-0 w-full h-full">
             <img 
               src={project.image} 
