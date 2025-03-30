@@ -30,7 +30,13 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
     );
   }
 
-  const featuredProjects = projects?.slice(0, 4) || [];
+  // Define the specific projects to show in the featured section
+  const featuredProjectIds = [0, 1, 2]; // Health@Home, CLLCTVE Platform, Tutor D
+  
+  // Filter to get only the specified projects in the right order
+  const featuredProjects = featuredProjectIds
+    .map(id => projects?.find(project => project.id === id))
+    .filter(project => project !== undefined) as ProjectType[];
 
   return (
     <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
@@ -101,7 +107,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
                       </div>
                       <div className="flex flex-col">
                         <span className="text-xs text-[rgba(153,153,153,1)]">Team</span>
-                        <span className="text-sm text-[rgba(230,230,230,1)] truncate">{project.teamSize}</span>
+                        <span className="text-sm text-[rgba(230,230,230,1)] truncate max-w-full">{project.teamSize}</span>
                       </div>
                     </div>
                   </div>
@@ -111,14 +117,14 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
                     </div>
                     <div className="flex flex-col">
                       <span className="text-xs text-[rgba(153,153,153,1)]">Impact</span>
-                      <span className="text-sm text-[rgba(230,230,230,1)]">{project.conclusion.impact?.split(',')[0]}</span>
+                      <span className="text-sm text-[rgba(230,230,230,1)] truncate max-w-full">{project.conclusion.impact?.split(',')[0]}</span>
                     </div>
                   </div>
                 </>
               )}
               
               <div className="flex items-center justify-between w-full">
-                <span className="text-xs sm:text-sm text-[rgba(153,153,153,1)]">{project.role}</span>
+                <span className="text-xs sm:text-sm text-[rgba(153,153,153,1)] truncate max-w-[70%]">{project.role}</span>
                 <span className={`${index === 0 ? 'bg-[rgba(145,108,231,0.2)]' : 'bg-[rgba(145,108,231,0.1)]'} text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium`}>
                   {project.year}
                 </span>

@@ -22,6 +22,14 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
     );
   }
 
+  // Define the specific projects to show
+  const featuredProjectIds = [0, 1]; // Health@Home and CLLCTVE
+  
+  // Filter to get only the specified projects in the right order
+  const featuredProjects = featuredProjectIds
+    .map(id => projects?.find(project => project.id === id))
+    .filter(project => project !== undefined) as ProjectType[];
+
   return (
     <div className="bg-[rgba(16,16,16,1)] border w-full p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="flex w-full flex-col items-center mb-6">
@@ -40,7 +48,7 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
             <Skeleton className="h-32 w-full" />
             <Skeleton className="h-32 w-full" />
           </>
-        ) : projects?.slice(0, 2).map((project, index) => (
+        ) : featuredProjects.map((project, index) => (
           <div 
             key={project.id}
             onClick={() => navigate(`/project/${project.id}`)}

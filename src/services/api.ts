@@ -79,10 +79,77 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     summary: "A telehealth platform enabling remote patient monitoring during COVID-19 with significant impact on patient outcomes."
   };
 
-  // Add the Health@Home project as the first item
-  const allProjects = [
-    healthHomeProject,
-    ...data.map(project => ({
+  // Manually creating the list of projects to ensure specific IDs and order
+  const tutorDProject: ProjectType = {
+    id: 2,
+    title: "Tutor D",
+    description: "Educational platform connecting students with qualified tutors for personalized learning sessions.",
+    fullDescription: "A comprehensive platform that matches students with expert tutors based on subject, learning style, and scheduling needs.",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8",
+    tags: ["Education", "Marketplace", "SaaS"],
+    role: "UX/UI Designer",
+    duration: "4 months",
+    year: "2021",
+    challenge: "Create an intuitive matching system for students and tutors",
+    process: ["User Research", "Competitive Analysis", "Wireframing", "Usability Testing"],
+    deliverables: ["User Flows", "UI Design", "Interactive Prototype"],
+    images: [
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173",
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+    ],
+    conclusion: {
+      impact: "95% student satisfaction rate, 32% improvement in grades",
+      learnings: "The importance of flexible scheduling and clear communication channels",
+      nextSteps: "Expanding subject offerings and implementing AI-driven matching"
+    },
+    techStack: ["React", "Node.js", "MongoDB", "Socket.io"],
+    keyAchievements: ["5,000+ active users", "500+ qualified tutors", "20+ subjects"],
+    problemSolved: "Difficulty finding qualified tutors for specific subjects",
+    technicalHighlights: ["Real-time availability calendar", "In-app video conferencing", "Progress tracking dashboard"],
+    teamSize: "6 members",
+    methodologies: ["Lean UX", "Agile", "User Testing"],
+    summary: "Educational platform connecting students with qualified tutors for personalized learning."
+  };
+
+  // Let's define CLLCTVE Platform with ID 1
+  const cllctveProject: ProjectType = {
+    id: 1,
+    title: "CLLCTVE Platform",
+    description: "A digital portfolio platform connecting college creators with brands seeking authentic content.",
+    fullDescription: "CLLCTVE empowers the next generation of creatives by providing a platform to showcase their work and connect with brands looking for authentic content creators.",
+    image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d",
+    tags: ["Platform", "Creative", "Marketplace"],
+    role: "Product Designer",
+    duration: "8 months",
+    year: "2022",
+    challenge: "Build a portfolio platform that meets the needs of both creators and brands",
+    process: ["Discovery", "User Interviews", "Design Sprint", "Testing"],
+    deliverables: ["Design System", "User Flows", "Interactive Prototype"],
+    images: [
+      "https://images.unsplash.com/photo-1542744094-3a31f272c490",
+      "https://images.unsplash.com/photo-1497091071254-cc9b2ba7c48a",
+      "https://images.unsplash.com/photo-1535586453970-bd8fb0d2d2fc"
+    ],
+    conclusion: {
+      impact: "10,000+ creator portfolios, 200+ brand partnerships",
+      learnings: "Creator discovery and curation are critical for platform success",
+      nextSteps: "Expanding into video content and international markets"
+    },
+    techStack: ["React", "GraphQL", "PostgreSQL", "AWS"],
+    keyAchievements: ["Raised $1.2M in funding", "Featured in TechCrunch", "15,000+ user base"],
+    problemSolved: "Gap between college creators and brands seeking authentic content",
+    technicalHighlights: ["Creator analytics dashboard", "Automated contract generation", "Secure payment processing"],
+    teamSize: "9 members",
+    methodologies: ["Design Thinking", "Agile", "A/B Testing"],
+    summary: "Digital platform connecting college creators with brands for authentic content partnerships."
+  };
+
+  // Combine our manually created projects with any other projects from the database
+  // Filter out any projects that might have IDs 0, 1, or 2 to avoid duplicates
+  const otherProjects = data
+    .filter(project => ![0, 1, 2].includes(project.id))
+    .map(project => ({
       ...project,
       fullDescription: project.full_description,
       conclusion: {
@@ -98,7 +165,14 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
       technicalHighlights: project.technical_highlights,
       teamSize: project.team_size,
       methodologies: project.methodologies
-    }))
+    }));
+
+  // Return the projects in the specified order
+  const allProjects = [
+    healthHomeProject,
+    cllctveProject,
+    tutorDProject,
+    ...otherProjects
   ];
 
   return allProjects;
