@@ -1,5 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
+import { ArrowRight, Award, Briefcase, MapPin, Download } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const titles = [
   "UX/UI Designer",
@@ -53,14 +55,33 @@ const ProfileHeader = () => {
               ))}
             </div>
           </div>
+          <div className="flex items-center gap-4 mt-2 text-xs text-[rgba(153,153,153,1)]">
+            <div className="flex items-center gap-1">
+              <MapPin size={12} className="text-[#9b87f5]" />
+              <span>San Francisco, CA</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Briefcase size={12} className="text-[#9b87f5]" />
+              <span>5+ Years Experience</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="bg-[rgba(20,20,20,1)] border flex items-center gap-2 text-sm text-[rgba(153,153,153,1)] px-4 py-2 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap">
-        <div className="relative">
-          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-          <div className="absolute inset-0 w-2 h-2 rounded-full border border-green-500 animate-ping"></div>
+      <div className="flex items-center gap-3">
+        <div className="bg-[rgba(20,20,20,1)] border flex items-center gap-2 text-sm text-[rgba(153,153,153,1)] px-4 py-2 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap">
+          <div className="relative">
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+            <div className="absolute inset-0 w-2 h-2 rounded-full border border-green-500 animate-ping"></div>
+          </div>
+          <span className="ml-2">Available To Work</span>
         </div>
-        <span className="ml-2">Available To Work</span>
+        <Link 
+          to="/works"
+          className="bg-[rgba(20,20,20,1)] hover:bg-[rgba(30,30,30,1)] border flex items-center gap-1 text-sm text-[#9b87f5] px-4 py-2 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap transition-colors duration-300"
+        >
+          <span>Portfolio</span>
+          <ArrowRight size={14} />
+        </Link>
       </div>
     </div>
   );

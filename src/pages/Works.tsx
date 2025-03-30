@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
 import Footer from '@/components/layout/Footer';
-import HealthHomeProjectCard from '@/components/bento/HealthHomeProjectCard';
 
 const Works = () => {
   const navigate = useNavigate();
@@ -47,6 +46,9 @@ const Works = () => {
     );
   }
 
+  // Filter out project 0 (Health@Home) as we have a dedicated card for it
+  const filteredProjects = projects?.filter(project => project.id !== 0) || [];
+
   return (
     <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white">
       <div className="p-6 md:p-8">
@@ -64,8 +66,42 @@ const Works = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <HealthHomeProjectCard />
-            {projects?.map((project) => (
+            <div 
+              className="bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1 cursor-pointer"
+              onClick={() => navigate('/project/health-at-home')}
+            >
+              <div className="relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+                  alt="Health@Home Platform"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,1)] to-transparent opacity-50"></div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-[rgba(230,230,230,1)]">Health@Home Platform</h3>
+                <p className="text-[rgba(153,153,153,1)] mb-4">Designing a comprehensive telehealth solution for Blue Shield of California to enable remote patient monitoring and care.</p>
+                <div className="flex flex-wrap gap-2">
+                  <span 
+                    className="px-3 py-1 text-sm bg-[rgba(20,20,20,1)] border border-[rgba(255,255,255,0.05)] rounded-full text-[#9b87f5]"
+                  >
+                    Healthcare
+                  </span>
+                  <span 
+                    className="px-3 py-1 text-sm bg-[rgba(20,20,20,1)] border border-[rgba(255,255,255,0.05)] rounded-full text-[#9b87f5]"
+                  >
+                    Enterprise UX
+                  </span>
+                  <span 
+                    className="px-3 py-1 text-sm bg-[rgba(20,20,20,1)] border border-[rgba(255,255,255,0.05)] rounded-full text-[#9b87f5]"
+                  >
+                    Telehealth
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            {filteredProjects.map((project) => (
               <div 
                 key={project.id}
                 className="bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1 cursor-pointer"
