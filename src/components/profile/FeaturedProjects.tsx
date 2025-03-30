@@ -30,6 +30,14 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
     .map(id => projects?.find(project => project.id === id))
     .filter(project => project !== undefined) as ProjectType[];
 
+  const handleProjectClick = (projectId: number) => {
+    if (projectId === 0) {
+      navigate('/project/health-at-home');
+    } else {
+      navigate(`/project/${projectId}`);
+    }
+  };
+
   return (
     <div className="bg-[rgba(16,16,16,1)] border w-full p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="flex w-full flex-col items-center mb-6">
@@ -51,7 +59,7 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
         ) : featuredProjects.map((project, index) => (
           <div 
             key={project.id}
-            onClick={() => navigate(`/project/${project.id}`)}
+            onClick={() => handleProjectClick(project.id)}
             className="bg-[rgba(20,20,20,1)] border p-4 rounded-xl border-[rgba(255,255,255,0.05)] border-solid hover:bg-[rgba(25,25,25,1)] transition-all duration-300 hover:scale-[1.02] hover:shadow-lg animate-fade-in cursor-pointer w-full"
             style={{ animationDelay: `${index * 150}ms` }}
           >

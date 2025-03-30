@@ -43,7 +43,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
       {featuredProjects.map((project, index) => (
         <Link
           key={project.id}
-          to={`/project/${project.id}`}
+          to={project.id === 0 ? "/project/health-at-home" : `/project/${project.id}`}
           className={`group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] ${
             index === 0 
               ? 'md:col-span-2 lg:col-span-2 lg:row-span-2' 
