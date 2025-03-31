@@ -3,6 +3,11 @@ import { supabase } from '@/integrations/supabase/client';
 import { ProjectType } from '../types/project';
 
 export const getProject = async (id: number): Promise<ProjectType> => {
+  // Special case for Health@Home project
+  if (id === 0) {
+    return getHealthHomeProject();
+  }
+
   const { data, error } = await supabase
     .from('projects')
     .select('*')
@@ -36,17 +41,9 @@ export const getProject = async (id: number): Promise<ProjectType> => {
   };
 };
 
-export const getAllProjects = async (): Promise<ProjectType[]> => {
-  const { data, error } = await supabase
-    .from('projects')
-    .select('*')
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    throw new Error('Failed to fetch projects');
-  }
-
-  const healthHomeProject: ProjectType = {
+// Get pre-defined Health@Home project
+const getHealthHomeProject = (): ProjectType => {
+  return {
     id: 0,
     title: "Health@Home Platform",
     description: "A comprehensive telehealth solution for Blue Shield of California, enabling remote patient monitoring during COVID-19.",
@@ -77,20 +74,28 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     methodologies: ["Design Thinking", "Agile", "User-Centered Design"],
     summary: "A telehealth platform enabling remote patient monitoring during COVID-19 with significant impact on patient outcomes."
   };
+};
 
-  // Define TECH NOIR project with ID 3
-  const techNoirProject: ProjectType = {
+// Get pre-defined TECH NOIR project
+const getTechNoirProject = (): ProjectType => {
+  return {
     id: 3,
     title: "TECH NOIR",
     description: "A fashion & technology driven e-commerce app showcasing wearable technology and educating users on new trends.",
-    fullDescription: "An e-commerce platform that merges fashion and wearable technology, educating users on new trends in both worlds while offering a seamless shopping experience.",
+    fullDescription: "An e-commerce platform that merges fashion and wearable technology, educating users on new trends in both worlds while offering a seamless shopping experience. The platform addresses consumer knowledge gaps about wearable technology by showcasing how to integrate tech into fashion.",
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5",
     tags: ["E-commerce", "Fashion", "Wearable Tech"],
     role: "UX, UI & Visual Design",
     duration: "2 months",
     year: "2023",
     challenge: "Create an engaging platform that educates users about wearable technology while offering fashionable products",
-    process: ["User Research", "Competitor Analysis", "Wireframing", "Visual Design", "Usability Testing"],
+    process: [
+      "Research showed that consumers have little knowledge of wearable technology and its benefits",
+      "Competitive analysis of luxury retail apps like Net-A-Porter, Nordstrom, and Farfetch",
+      "User surveys revealed preference for in-store purchases due to lack of online education",
+      "Created persona 'Tech Tina' - a 27-year-old fashionista who loves tech gadgets",
+      "Designed wireframes with solid foundation for key features"
+    ],
     deliverables: ["UX Strategy", "UI Design", "User Flows", "Interactive Prototype", "Design System"],
     images: [
       "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
@@ -103,16 +108,18 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
       nextSteps: "Expanding product categories and implementing AR try-on features"
     },
     techStack: ["Figma", "Shopify", "React", "TailwindCSS"],
-    keyAchievements: ["Increased wearable tech sales by 40%", "Reduced user education time by 35%"],
+    keyAchievements: ["Designed 'How to Wear' section", "Developed educational blog content", "Created exclusive designer collaborations section"],
     problemSolved: "Lack of consumer knowledge about wearable technology and its fashion applications",
-    technicalHighlights: ["Product comparison tool", "Technology education section", "Personalized recommendations"],
+    technicalHighlights: ["Product comparison tool", "Designer style guides", "Daily blog posts", "AR try-on experience"],
     teamSize: "3 members",
-    methodologies: ["Design Thinking", "Lean UX", "Agile"],
+    methodologies: ["Design Thinking", "Lean UX", "Usability Testing"],
     summary: "An e-commerce platform bridging the gap between fashion and wearable technology through education and seamless shopping experiences."
   };
+};
 
-  // Create a new project with ID 4
-  const dataVizProject: ProjectType = {
+// Get pre-defined DataViz Dashboard project
+const getDataVizProject = (): ProjectType => {
+  return {
     id: 4,
     title: "DataViz Dashboard",
     description: "Enterprise data visualization dashboard for financial analytics and reporting.",
@@ -143,9 +150,11 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     methodologies: ["Data-Driven Design", "Agile", "Iterative Testing"],
     summary: "An enterprise dashboard transforming complex financial data into intuitive visualizations for better decision-making."
   };
+};
 
-  // Define CLLCTVE Platform with ID 1
-  const cllctveProject: ProjectType = {
+// Get pre-defined CLLCTVE Platform project
+const getCllctveProject = (): ProjectType => {
+  return {
     id: 1,
     title: "CLLCTVE Platform",
     description: "A digital portfolio platform connecting college creators with brands seeking authentic content.",
@@ -176,9 +185,11 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     methodologies: ["Design Thinking", "Agile", "Usability Testing"],
     summary: "Digital platform connecting college creators with brands for authentic content partnerships."
   };
+};
 
-  // Define Tutor D project with ID 2
-  const tutorDProject: ProjectType = {
+// Get pre-defined Tutor D project
+const getTutorDProject = (): ProjectType => {
+  return {
     id: 2,
     title: "Tutor D",
     description: "Educational platform connecting students with qualified tutors for personalized learning sessions.",
@@ -209,9 +220,19 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     methodologies: ["Lean UX", "Agile", "User Testing"],
     summary: "Educational platform connecting students with qualified tutors for personalized learning."
   };
+};
 
-  // Combine our manually created projects with any other projects from the database
-  // Filter out any projects that might have IDs 0, 1, 2, 3, 4 to avoid duplicates
+export const getAllProjects = async (): Promise<ProjectType[]> => {
+  const { data, error } = await supabase
+    .from('projects')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    throw new Error('Failed to fetch projects');
+  }
+
+  // Process any other projects from Supabase that don't conflict with our predefined ones
   const otherProjects = data
     .filter(project => ![0, 1, 2, 3, 4].includes(project.id))
     .map(project => ({
@@ -232,15 +253,15 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
       methodologies: project.methodologies
     }));
 
-  // Return the projects in the specified order
-  const allProjects = [
-    healthHomeProject,
-    cllctveProject,
-    tutorDProject,
-    techNoirProject,
-    dataVizProject,
-    ...otherProjects
+  // Create our predefined projects array
+  const mainProjects = [
+    getHealthHomeProject(),
+    getCllctveProject(),
+    getTutorDProject(),
+    getTechNoirProject(),
+    getDataVizProject()
   ];
 
-  return allProjects;
+  // Combine predefined projects with other projects from the database
+  return [...mainProjects, ...otherProjects];
 };

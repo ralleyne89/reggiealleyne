@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,6 +17,15 @@ const Works = () => {
     queryKey: ['projects'],
     queryFn: getAllProjects
   });
+
+  // Handle project navigation
+  const handleProjectClick = (projectId: number) => {
+    if (projectId === 0) {
+      navigate('/project/health-at-home');
+    } else {
+      navigate(`/project/${projectId}`);
+    }
+  };
 
   if (isLoading) {
     return (
@@ -65,29 +75,34 @@ const Works = () => {
             {projects?.map((project) => (
               <div 
                 key={project.id}
-                className="bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1 cursor-pointer"
-                onClick={() => project.id === 0 ? navigate('/project/health-at-home') : navigate(`/project/${project.id}`)}
+                className="bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1 cursor-pointer h-full flex flex-col"
+                onClick={() => handleProjectClick(project.id)}
               >
-                <div className="relative">
+                <div className="relative h-48">
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,1)] to-transparent opacity-50"></div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-[rgba(230,230,230,1)] truncate">{project.title}</h3>
-                  <p className="text-[rgba(153,153,153,1)] mb-4 line-clamp-3">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags?.map((tag, index) => (
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-semibold mb-2 text-[rgba(230,230,230,1)]">{project.title}</h3>
+                  <p className="text-[rgba(153,153,153,1)] mb-4 line-clamp-3 flex-grow">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.tags?.slice(0, 3).map((tag, index) => (
                       <span 
                         key={index}
-                        className="px-3 py-1 text-sm bg-[rgba(20,20,20,1)] border border-[rgba(255,255,255,0.05)] rounded-full text-[#9b87f5] truncate max-w-full"
+                        className="px-3 py-1 text-sm bg-[rgba(20,20,20,1)] border border-[rgba(255,255,255,0.05)] rounded-full text-[#9b87f5] truncate max-w-[100px]"
                       >
                         {tag}
                       </span>
                     ))}
+                    {project.tags && project.tags.length > 3 && (
+                      <span className="px-3 py-1 text-sm bg-[rgba(20,20,20,1)] border border-[rgba(255,255,255,0.05)] rounded-full text-[rgba(153,153,153,1)]">
+                        +{project.tags.length - 3}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
