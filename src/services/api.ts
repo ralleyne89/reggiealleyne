@@ -78,40 +78,73 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     summary: "A telehealth platform enabling remote patient monitoring during COVID-19 with significant impact on patient outcomes."
   };
 
-  // Manually creating the list of projects to ensure specific IDs and order
-  const tutorDProject: ProjectType = {
-    id: 2,
-    title: "Tutor D",
-    description: "Educational platform connecting students with qualified tutors for personalized learning sessions.",
-    fullDescription: "A comprehensive platform that matches students with expert tutors based on subject, learning style, and scheduling needs.",
-    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8",
-    tags: ["Education", "Marketplace", "SaaS"],
-    role: "UI/UX Designer & Frontend Developer",
-    duration: "6 months",
-    year: "2021",
-    challenge: "Create an intuitive matching system for students and tutors",
-    process: ["User Research", "Competitive Analysis", "Wireframing", "Usability Testing"],
-    deliverables: ["User Flows", "UI Design", "Interactive Prototype"],
+  // Define TECH NOIR project with ID 3
+  const techNoirProject: ProjectType = {
+    id: 3,
+    title: "TECH NOIR",
+    description: "A fashion & technology driven e-commerce app showcasing wearable technology and educating users on new trends.",
+    fullDescription: "An e-commerce platform that merges fashion and wearable technology, educating users on new trends in both worlds while offering a seamless shopping experience.",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+    tags: ["E-commerce", "Fashion", "Wearable Tech"],
+    role: "UX, UI & Visual Design",
+    duration: "2 months",
+    year: "2023",
+    challenge: "Create an engaging platform that educates users about wearable technology while offering fashionable products",
+    process: ["User Research", "Competitor Analysis", "Wireframing", "Visual Design", "Usability Testing"],
+    deliverables: ["UX Strategy", "UI Design", "User Flows", "Interactive Prototype", "Design System"],
     images: [
-      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173",
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644",
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+      "https://images.unsplash.com/photo-1522542550221-31fd19575a2d"
     ],
     conclusion: {
-      impact: "95% student satisfaction rate, 32% improvement in grades",
-      learnings: "The importance of flexible scheduling and clear communication channels",
-      nextSteps: "Expanding subject offerings and implementing AI-driven matching"
+      impact: "28% increase in customer engagement with wearable tech products",
+      learnings: "The importance of educational content in driving sales for innovative products",
+      nextSteps: "Expanding product categories and implementing AR try-on features"
     },
-    techStack: ["React", "Node.js", "Supabase", "Ant Design"],
-    keyAchievements: ["300+ active users", "50+ qualified tutors", "10+ subjects"],
-    problemSolved: "Difficulty finding qualified tutors for specific subjects",
-    technicalHighlights: ["Real-time availability calendar", "In-app video conferencing", "Progress tracking dashboard"],
-    teamSize: "4 members",
-    methodologies: ["Lean UX", "Agile", "User Testing"],
-    summary: "Educational platform connecting students with qualified tutors for personalized learning."
+    techStack: ["Figma", "Shopify", "React", "TailwindCSS"],
+    keyAchievements: ["Increased wearable tech sales by 40%", "Reduced user education time by 35%"],
+    problemSolved: "Lack of consumer knowledge about wearable technology and its fashion applications",
+    technicalHighlights: ["Product comparison tool", "Technology education section", "Personalized recommendations"],
+    teamSize: "3 members",
+    methodologies: ["Design Thinking", "Lean UX", "Agile"],
+    summary: "An e-commerce platform bridging the gap between fashion and wearable technology through education and seamless shopping experiences."
   };
 
-  // Let's define CLLCTVE Platform with ID 1
+  // Create a new project with ID 4
+  const dataVizProject: ProjectType = {
+    id: 4,
+    title: "DataViz Dashboard",
+    description: "Enterprise data visualization dashboard for financial analytics and reporting.",
+    fullDescription: "A comprehensive data visualization platform that transforms complex financial data into actionable insights through intuitive dashboards and interactive reports.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    tags: ["Enterprise", "Data Visualization", "FinTech"],
+    role: "Lead UI Designer",
+    duration: "5 months",
+    year: "2023",
+    challenge: "Design intuitive visualizations for complex financial data that non-technical stakeholders can understand",
+    process: ["Stakeholder Interviews", "Information Architecture", "Wireframing", "Prototyping", "User Testing"],
+    deliverables: ["Dashboard Design", "Chart Library", "Design System", "Interactive Prototype"],
+    images: [
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+      "https://images.unsplash.com/photo-1543286386-713bdd548da4",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+    ],
+    conclusion: {
+      impact: "45% reduction in report generation time, 30% increase in data-driven decisions",
+      learnings: "The critical importance of user testing with actual stakeholders when designing data visualizations",
+      nextSteps: "Implementing predictive analytics features and expanded export capabilities"
+    },
+    techStack: ["Figma", "D3.js", "React", "Recharts"],
+    keyAchievements: ["Reduced data interpretation time by 60%", "Implemented 15+ customizable visualization types"],
+    problemSolved: "Difficulty in interpreting complex financial data for decision-making",
+    technicalHighlights: ["Real-time data filtering", "Custom visualization engine", "Automated reporting"],
+    teamSize: "5 members",
+    methodologies: ["Data-Driven Design", "Agile", "Iterative Testing"],
+    summary: "An enterprise dashboard transforming complex financial data into intuitive visualizations for better decision-making."
+  };
+
+  // Define CLLCTVE Platform with ID 1
   const cllctveProject: ProjectType = {
     id: 1,
     title: "CLLCTVE Platform",
@@ -144,10 +177,43 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     summary: "Digital platform connecting college creators with brands for authentic content partnerships."
   };
 
+  // Define Tutor D project with ID 2
+  const tutorDProject: ProjectType = {
+    id: 2,
+    title: "Tutor D",
+    description: "Educational platform connecting students with qualified tutors for personalized learning sessions.",
+    fullDescription: "A comprehensive platform that matches students with expert tutors based on subject, learning style, and scheduling needs.",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8",
+    tags: ["Education", "Marketplace", "SaaS"],
+    role: "UI/UX Designer & Frontend Developer",
+    duration: "6 months",
+    year: "2021",
+    challenge: "Create an intuitive matching system for students and tutors",
+    process: ["User Research", "Competitive Analysis", "Wireframing", "Usability Testing"],
+    deliverables: ["User Flows", "UI Design", "Interactive Prototype"],
+    images: [
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173",
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+    ],
+    conclusion: {
+      impact: "95% student satisfaction rate, 32% improvement in grades",
+      learnings: "The importance of flexible scheduling and clear communication channels",
+      nextSteps: "Expanding subject offerings and implementing AI-driven matching"
+    },
+    techStack: ["React", "Node.js", "Supabase", "Ant Design"],
+    keyAchievements: ["300+ active users", "50+ qualified tutors", "10+ subjects"],
+    problemSolved: "Difficulty finding qualified tutors for specific subjects",
+    technicalHighlights: ["Real-time availability calendar", "In-app video conferencing", "Progress tracking dashboard"],
+    teamSize: "4 members",
+    methodologies: ["Lean UX", "Agile", "User Testing"],
+    summary: "Educational platform connecting students with qualified tutors for personalized learning."
+  };
+
   // Combine our manually created projects with any other projects from the database
-  // Filter out any projects that might have IDs 0, 1, or 2 to avoid duplicates
+  // Filter out any projects that might have IDs 0, 1, 2, 3, 4 to avoid duplicates
   const otherProjects = data
-    .filter(project => ![0, 1, 2].includes(project.id))
+    .filter(project => ![0, 1, 2, 3, 4].includes(project.id))
     .map(project => ({
       ...project,
       fullDescription: project.full_description,
@@ -171,6 +237,8 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     healthHomeProject,
     cllctveProject,
     tutorDProject,
+    techNoirProject,
+    dataVizProject,
     ...otherProjects
   ];
 
