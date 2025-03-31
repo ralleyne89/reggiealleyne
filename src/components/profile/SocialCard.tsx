@@ -9,9 +9,9 @@ const SocialCard = () => {
       url: 'https://reggiealleyne.com'
     },
     { 
-      handle: 'github.com/reggiealleyne', 
+      handle: 'github.com/ralleyne89', 
       icon: Github,
-      url: 'https://github.com/reggiealleyne'
+      url: 'https://github.com/ralleyne89'
     },
     { 
       handle: 'linkedin.com/in/reggiealleyne', 

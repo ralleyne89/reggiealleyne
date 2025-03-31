@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex items-center space-x-6">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/ralleyne89"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[rgba(204,204,204,1)] hover:text-[#916CE7] transition-colors"
@@ -20,7 +20,7 @@ const Footer = () => {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/reggiealleyne"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[rgba(204,204,204,1)] hover:text-[#916CE7] transition-colors"
@@ -28,7 +28,7 @@ const Footer = () => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:reggiealleyne89@gmail.com"
               className="text-[rgba(204,204,204,1)] hover:text-[#916CE7] transition-colors"
             >
               <Mail className="w-5 h-5" />
@@ -47,7 +47,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-[rgba(153,153,153,1)] text-sm">
-            © {currentYear} Your Name. All rights reserved.
+            © {currentYear} Reggie Alleyne. All rights reserved.
           </div>
         </div>
       </div>

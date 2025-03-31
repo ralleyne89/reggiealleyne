@@ -26,7 +26,7 @@ const ProfileHeader = () => {
         <div className="relative w-[101px] h-[101px]">
           <img
             loading="lazy"
-            src="/lovable-uploads/cb582645-1a6e-4846-8a2e-72b2dffd49a8.png"
+            src="/lovable-uploads/1686931266900.jpeg"
             className="aspect-square object-cover w-full h-full rounded-lg"
             alt="Profile"
           />
