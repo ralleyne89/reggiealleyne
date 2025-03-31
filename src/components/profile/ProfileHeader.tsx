@@ -4,7 +4,7 @@ import { ArrowRight, Award, Briefcase, MapPin, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const titles = [
-  "UX/UI Designer",
+  "UI/UX Designer",
   "Frontend Developer",
   "Graphic Designer"
 ];
