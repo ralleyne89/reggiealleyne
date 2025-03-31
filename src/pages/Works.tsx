@@ -55,6 +55,12 @@ const Works = () => {
     );
   }
 
+  // Process the projects array to remove duplicates
+  const uniqueProjects = projects ? 
+    projects.filter((project, index, self) =>
+      index === self.findIndex((p) => p.title === project.title)
+    ) : [];
+
   return (
     <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white">
       <div className="p-6 md:p-8">
@@ -72,7 +78,7 @@ const Works = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects?.map((project) => (
+            {uniqueProjects.map((project) => (
               <div 
                 key={project.id}
                 className="bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1 cursor-pointer h-full flex flex-col"

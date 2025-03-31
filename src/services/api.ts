@@ -7,6 +7,26 @@ export const getProject = async (id: number): Promise<ProjectType> => {
   if (id === 0) {
     return getHealthHomeProject();
   }
+  
+  // Special case for TECH NOIR project
+  if (id === 3) {
+    return getTechNoirProject();
+  }
+  
+  // Special case for DataViz Dashboard project
+  if (id === 4) {
+    return getDataVizProject();
+  }
+  
+  // Special case for CLLCTVE Platform project
+  if (id === 1) {
+    return getCllctveProject();
+  }
+  
+  // Special case for Tutor D project
+  if (id === 2) {
+    return getTutorDProject();
+  }
 
   const { data, error } = await supabase
     .from('projects')
@@ -262,6 +282,10 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     getDataVizProject()
   ];
 
-  // Combine predefined projects with other projects from the database
-  return [...mainProjects, ...otherProjects];
+  // Remove potential duplicates based on project title
+  const uniqueProjects = [...mainProjects, ...otherProjects].filter(
+    (project, index, self) => index === self.findIndex((p) => p.title === project.title)
+  );
+
+  return uniqueProjects;
 };
