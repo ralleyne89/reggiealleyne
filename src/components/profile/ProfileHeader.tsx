@@ -58,11 +58,11 @@ const ProfileHeader = () => {
           <div className="flex items-center gap-4 mt-2 text-xs text-[rgba(153,153,153,1)]">
             <div className="flex items-center gap-1">
               <MapPin size={12} className="text-[#9b87f5]" />
-              <span>San Francisco, CA</span>
+              <span>Los Angeles, CA</span>
             </div>
             <div className="flex items-center gap-1">
               <Briefcase size={12} className="text-[#9b87f5]" />
-              <span>5+ Years Experience</span>
+              <span>10+ Years Experience</span>
             </div>
           </div>
         </div>

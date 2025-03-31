@@ -46,7 +46,6 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     throw new Error('Failed to fetch projects');
   }
 
-  // Create Health@Home project as the first item
   const healthHomeProject: ProjectType = {
     id: 0,
     title: "Health@Home Platform",
@@ -55,26 +54,26 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
     tags: ["Enterprise UX", "Healthcare", "Telehealth"],
     role: "Lead UX Designer",
-    duration: "6 months",
-    year: "2020",
+    duration: "8 months",
+    year: "2022",
     challenge: "Rapidly develop an intuitive telehealth platform during pandemic",
     process: ["Research", "Ideation", "Prototyping", "Testing", "Implementation"],
-    deliverables: ["UX Strategy", "User Flows", "Wireframes", "Prototypes", "Design System"],
+    deliverables: ["UX Strategy", "User Interface", "User Flows", "Wireframes", "Prototypes", "Design System", "Web Application"],
     images: [
       "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
       "https://images.unsplash.com/photo-1579684385127-1ef15d508118"
     ],
     conclusion: {
-      impact: "42% increase in patient engagement, 28% reduction in readmissions",
+      impact: "32% increase in patient engagement, 24% increase in sign-ups",
       learnings: "The importance of simplified user flows for elderly patients and healthcare providers under stress",
       nextSteps: "Expanding platform capabilities to include preventative care monitoring"
     },
-    techStack: ["React", "Node.js", "MongoDB", "WebRTC"],
-    keyAchievements: ["Launched in 4 months", "Onboarded 2,000+ providers", "Served 50,000+ patients"],
+    techStack: ["React", "Node.js", "Material UI", "Figma"],
+    keyAchievements: ["Led cross-functional team of principal level designers, content strategists, and reearchers", "Served 50,000+ patients"],
     problemSolved: "Inefficient remote healthcare delivery during pandemic restrictions",
     technicalHighlights: ["HIPAA-compliant video conferencing", "Real-time vital monitoring", "Electronic health record integration"],
-    teamSize: "12 members",
+    teamSize: "8 members",
     methodologies: ["Design Thinking", "Agile", "User-Centered Design"],
     summary: "A telehealth platform enabling remote patient monitoring during COVID-19 with significant impact on patient outcomes."
   };
@@ -87,8 +86,8 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     fullDescription: "A comprehensive platform that matches students with expert tutors based on subject, learning style, and scheduling needs.",
     image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8",
     tags: ["Education", "Marketplace", "SaaS"],
-    role: "UX/UI Designer",
-    duration: "4 months",
+    role: "UI/UX Designer & Frontend Developer",
+    duration: "6 months",
     year: "2021",
     challenge: "Create an intuitive matching system for students and tutors",
     process: ["User Research", "Competitive Analysis", "Wireframing", "Usability Testing"],
@@ -103,11 +102,11 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
       learnings: "The importance of flexible scheduling and clear communication channels",
       nextSteps: "Expanding subject offerings and implementing AI-driven matching"
     },
-    techStack: ["React", "Node.js", "MongoDB", "Socket.io"],
-    keyAchievements: ["5,000+ active users", "500+ qualified tutors", "20+ subjects"],
+    techStack: ["React", "Node.js", "Supabase", "Ant Design"],
+    keyAchievements: ["300+ active users", "50+ qualified tutors", "10+ subjects"],
     problemSolved: "Difficulty finding qualified tutors for specific subjects",
     technicalHighlights: ["Real-time availability calendar", "In-app video conferencing", "Progress tracking dashboard"],
-    teamSize: "6 members",
+    teamSize: "4 members",
     methodologies: ["Lean UX", "Agile", "User Testing"],
     summary: "Educational platform connecting students with qualified tutors for personalized learning."
   };
@@ -120,12 +119,12 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     fullDescription: "CLLCTVE empowers the next generation of creatives by providing a platform to showcase their work and connect with brands looking for authentic content creators.",
     image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d",
     tags: ["Platform", "Creative", "Marketplace"],
-    role: "Product Designer",
-    duration: "8 months",
-    year: "2022",
+    role: "Frontend Developer & UI Designer",
+    duration: "2 years",
+    year: "2020",
     challenge: "Build a portfolio platform that meets the needs of both creators and brands",
     process: ["Discovery", "User Interviews", "Design Sprint", "Testing"],
-    deliverables: ["Design System", "User Flows", "Interactive Prototype"],
+    deliverables: ["Design System", "User Flows", "Interactive Prototype, Web Application"],
     images: [
       "https://images.unsplash.com/photo-1542744094-3a31f272c490",
       "https://images.unsplash.com/photo-1497091071254-cc9b2ba7c48a",
@@ -136,12 +135,12 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
       learnings: "Creator discovery and curation are critical for platform success",
       nextSteps: "Expanding into video content and international markets"
     },
-    techStack: ["React", "GraphQL", "PostgreSQL", "AWS"],
-    keyAchievements: ["Raised $1.2M in funding", "Featured in TechCrunch", "15,000+ user base"],
+    techStack: ["React", "GraphQL", "Ant Design", "React Query", "Figma"],
+    keyAchievements: ["Raised $1.2M in funding", "Featured in TechCrunch", "5,000+ user base"],
     problemSolved: "Gap between college creators and brands seeking authentic content",
     technicalHighlights: ["Creator analytics dashboard", "Automated contract generation", "Secure payment processing"],
-    teamSize: "9 members",
-    methodologies: ["Design Thinking", "Agile", "A/B Testing"],
+    teamSize: "6 members",
+    methodologies: ["Design Thinking", "Agile", "Usability Testing"],
     summary: "Digital platform connecting college creators with brands for authentic content partnerships."
   };
 
