@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -40,12 +41,16 @@ const Project = () => {
         throw err;
       }
     },
-    retry: 1,
-    onError: (error) => {
-      console.error("Project fetch error:", error);
-      toast.error(`Failed to load project: ${error.message}`);
-    }
+    retry: 1
   });
+
+  // Handle error separately
+  React.useEffect(() => {
+    if (error) {
+      console.error("Project fetch error:", error);
+      toast.error(`Failed to load project: ${error instanceof Error ? error.message : "Unknown error"}`);
+    }
+  }, [error]);
 
   console.log("Project data:", project);
   console.log("Project path params:", slug);
