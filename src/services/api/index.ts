@@ -68,10 +68,14 @@ const getProjectById = async (id: number): Promise<ProjectType> => {
     ...data,
     fullDescription: data.full_description,
     conclusion: {
-      impact: data.impact,
-      learnings: data.learnings,
-      nextSteps: data.next_steps
+      impact: data.impact || null,
+      learnings: data.learnings || null,
+      nextSteps: data.next_steps || null
     },
+    // Also include direct properties for backward compatibility
+    impact: data.impact || null,
+    learnings: data.learnings || null,
+    next_steps: data.next_steps || null,
     techStack: data.tech_stack,
     keyAchievements: data.key_achievements,
     githubUrl: data.github_url,
@@ -101,10 +105,14 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
       ...project,
       fullDescription: project.full_description,
       conclusion: {
-        impact: project.impact,
-        learnings: project.learnings,
-        nextSteps: project.next_steps
+        impact: project.impact || null,
+        learnings: project.learnings || null,
+        nextSteps: project.next_steps || null
       },
+      // Also include direct properties for backward compatibility
+      impact: project.impact || null,
+      learnings: project.learnings || null,
+      next_steps: project.next_steps || null,
       techStack: project.tech_stack,
       keyAchievements: project.key_achievements,
       githubUrl: project.github_url,

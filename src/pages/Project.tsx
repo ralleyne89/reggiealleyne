@@ -26,7 +26,7 @@ const Project = () => {
 
   const { data: project, isLoading, error } = useQuery({
     queryKey: ['project', id || (isWristband ? 'wristband' : '')],
-    queryFn: () => isWristband ? getProject('6') : getProject(id || ''),
+    queryFn: () => isWristband ? getProject('wristband') : getProject(id || ''),
     retry: 3
   });
 
@@ -126,9 +126,9 @@ const Project = () => {
       </div>
 
       <ProjectConclusion conclusion={{
-        impact: project.impact || "The project had a significant positive impact on users.",
-        learnings: project.learnings || "We learned valuable lessons about user experience and implementation.",
-        nextSteps: project.next_steps || "Next steps include expanding features and improving performance."
+        impact: project.conclusion?.impact || project.impact || "The project had a significant positive impact on users.",
+        learnings: project.conclusion?.learnings || project.learnings || "We learned valuable lessons about user experience and implementation.",
+        nextSteps: project.conclusion?.nextSteps || project.next_steps || "Next steps include expanding features and improving performance."
       }} />
       <Footer />
     </div>
