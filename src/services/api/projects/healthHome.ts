@@ -11,7 +11,7 @@ export const getHealthHomeProject = (): ProjectType => {
     tags: ["Enterprise UX", "Healthcare", "Telehealth"],
     role: "Lead UX Designer",
     duration: "8 months",
-    year: "2022",
+    year: "2023",
     challenge: "Rapidly develop an intuitive telehealth platform during pandemic",
     process: ["Research", "Ideation", "Prototyping", "Testing", "Implementation"],
     deliverables: ["UX Strategy", "User Interface", "User Flows", "Wireframes", "Prototypes", "Design System", "Web Application"],

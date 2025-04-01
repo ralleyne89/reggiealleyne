@@ -21,7 +21,7 @@ export const getCllctveProject = (): ProjectType => {
       "https://images.unsplash.com/photo-1535586453970-bd8fb0d2d2fc"
     ],
     conclusion: {
-      impact: "10,000+ creator portfolios, 200+ brand partnerships",
+      impact: "5,000+ creator portfolios, 50+ brand partnerships",
       learnings: "Creator discovery and curation are critical for platform success",
       nextSteps: "Expanding into video content and international markets"
     },
