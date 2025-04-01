@@ -161,7 +161,7 @@ const Index = () => {
                 </ul>
                 <div className="flex justify-center pt-2">
                   <a 
-                    href="mailto:hiring@example.com" 
+                    href="mailto:reggiealleyne89@gmail.com" 
                     className="bg-[rgba(145,108,231,1)] text-white font-medium px-6 py-3 rounded-xl hover:bg-[rgba(125,88,211,1)] transition-all duration-300"
                   >
                     Schedule Interview
