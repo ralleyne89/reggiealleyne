@@ -26,8 +26,17 @@ const Project = () => {
 
   const { data: project, isLoading, error } = useQuery({
     queryKey: ['project', id || (isWristband ? 'wristband' : '')],
-    queryFn: () => isWristband ? getProject('wristband') : getProject(id || ''),
-    retry: 3
+    queryFn: async () => {
+      try {
+        console.log("Fetching project with ID:", id, "isWristband:", isWristband);
+        return isWristband ? await getProject('wristband') : await getProject(id || '');
+      } catch (err) {
+        console.error("Error fetching project:", err);
+        throw err;
+      }
+    },
+    retry: 3,
+    staleTime: 1000 * 60 * 5 // 5 minutes
   });
 
   console.log("Project data:", project);
@@ -51,7 +60,7 @@ const Project = () => {
     return (
       <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white flex flex-col items-center justify-center">
         <p className="text-xl mb-4">Project not found</p>
-        <p className="text-gray-400 mb-6">Error: {error?.message || "Unable to load project data"}</p>
+        <p className="text-gray-400 mb-6">Error: {error instanceof Error ? error.message : "Unable to load project data"}</p>
         <button 
           onClick={() => navigate('/works')}
           className="px-4 py-2 bg-[#9b87f5] text-white rounded-lg hover:bg-[#7E69AB] transition-colors"
@@ -62,9 +71,21 @@ const Project = () => {
     );
   }
 
+  // Ensure the project has all required fields before rendering
+  const projectWithDefaults = {
+    ...project,
+    conclusion: project.conclusion || {
+      impact: null,
+      learnings: null,
+      nextSteps: null
+    },
+    tags: project.tags || [],
+    techStack: project.techStack || []
+  };
+
   return (
     <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white">
-      {project.techStack && project.techStack.length > 0 && (
+      {projectWithDefaults.techStack.length > 0 && (
         <div className="bg-[rgba(16,16,16,1)] border-b border-[rgba(255,255,255,0.1)] py-4">
           <div className="max-w-7xl mx-auto px-6">
             <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
@@ -75,7 +96,7 @@ const Project = () => {
                 >
                   All
                 </TabsTrigger>
-                {project.techStack.map((tech) => (
+                {projectWithDefaults.techStack.map((tech) => (
                   <TabsTrigger 
                     key={tech}
                     value={tech}
@@ -91,44 +112,44 @@ const Project = () => {
       )}
       
       <ProjectHeader 
-        image={project.image}
-        tags={project.tags || []}
-        title={project.title}
-        description={project.description}
+        image={projectWithDefaults.image}
+        tags={projectWithDefaults.tags}
+        title={projectWithDefaults.title}
+        description={projectWithDefaults.description}
       />
       
       <div className="max-w-7xl mx-auto px-6">
         <ProjectDetails 
-          role={project.role}
-          duration={project.duration}
-          year={project.year}
-          teamSize={project.teamSize}
-          methodologies={project.methodologies}
-          githubUrl={project.githubUrl}
-          liveUrl={project.liveUrl}
-          summary={project.summary}
-          problem={project.problemSolved}
-          solution={project.solution}
+          role={projectWithDefaults.role}
+          duration={projectWithDefaults.duration}
+          year={projectWithDefaults.year}
+          teamSize={projectWithDefaults.teamSize}
+          methodologies={projectWithDefaults.methodologies}
+          githubUrl={projectWithDefaults.githubUrl}
+          liveUrl={projectWithDefaults.liveUrl}
+          summary={projectWithDefaults.summary}
+          problem={projectWithDefaults.problemSolved}
+          solution={projectWithDefaults.solution}
         />
         
         <ProjectProcess 
-          challenge={project.challenge || ''}
-          process={project.process || []}
-          problemSolved={project.problemSolved}
-          technicalHighlights={project.technicalHighlights}
-          keyAchievements={project.keyAchievements}
+          challenge={projectWithDefaults.challenge || ''}
+          process={projectWithDefaults.process || []}
+          problemSolved={projectWithDefaults.problemSolved}
+          technicalHighlights={projectWithDefaults.technicalHighlights}
+          keyAchievements={projectWithDefaults.keyAchievements}
         />
         
         <ProjectDeliverables 
-          deliverables={project.deliverables || []}
-          images={project.images || []}
+          deliverables={projectWithDefaults.deliverables || []}
+          images={projectWithDefaults.images || []}
         />
       </div>
 
       <ProjectConclusion conclusion={{
-        impact: project.conclusion?.impact || "The project had a significant positive impact on users.",
-        learnings: project.conclusion?.learnings || "We learned valuable lessons about user experience and implementation.",
-        nextSteps: project.conclusion?.nextSteps || "Next steps include expanding features and improving performance."
+        impact: projectWithDefaults.conclusion.impact || "The project had a significant positive impact on users.",
+        learnings: projectWithDefaults.conclusion.learnings || "We learned valuable lessons about user experience and implementation.",
+        nextSteps: projectWithDefaults.conclusion.nextSteps || "Next steps include expanding features and improving performance."
       }} />
       <Footer />
     </div>
