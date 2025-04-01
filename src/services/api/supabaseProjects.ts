@@ -4,8 +4,6 @@ import { mapSupabaseProjectToProjectType } from './utils';
 import { ProjectType } from '../../types/project';
 import { Tables } from '@/integrations/supabase/types';
 
-type SupabaseProject = Tables<'projects'>;
-
 // Get a project from Supabase by slug
 export const getSupabaseProjectBySlug = async (slug: string): Promise<ProjectType | null> => {
   try {
@@ -26,7 +24,7 @@ export const getSupabaseProjectBySlug = async (slug: string): Promise<ProjectTyp
     }
     
     // Create a ProjectType object from the Supabase data
-    return mapSupabaseProjectToProjectType(data as SupabaseProject);
+    return mapSupabaseProjectToProjectType(data as Tables<'projects'>);
   } catch (error) {
     console.error('Unexpected error in getSupabaseProjectBySlug:', error);
     return null;
@@ -53,7 +51,7 @@ export const getSupabaseProjectById = async (id: number): Promise<ProjectType | 
     }
 
     // Create a ProjectType object from the Supabase data
-    return mapSupabaseProjectToProjectType(data as SupabaseProject);
+    return mapSupabaseProjectToProjectType(data as Tables<'projects'>);
   } catch (error) {
     console.error('Unexpected error in getSupabaseProjectById:', error);
     return null;
@@ -79,7 +77,7 @@ export const getSupabaseProjects = async (): Promise<ProjectType[]> => {
     }
 
     // Map Supabase data to ProjectType
-    return data.map(project => mapSupabaseProjectToProjectType(project as SupabaseProject));
+    return data.map(project => mapSupabaseProjectToProjectType(project as Tables<'projects'>));
   } catch (error) {
     console.error('Unexpected error in getSupabaseProjects:', error);
     return [];

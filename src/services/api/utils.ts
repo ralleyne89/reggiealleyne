@@ -20,7 +20,7 @@ export const sortProjectsByDate = (projects: ProjectType[]): ProjectType[] => {
 export const mapSupabaseProjectToProjectType = (data: SupabaseProject): ProjectType => {
   return {
     id: data.id,
-    slug: data.slug || `project-${data.id}`,
+    slug: `project-${data.id}`, // Generate a default slug using the id
     title: data.title,
     description: data.description,
     fullDescription: data.full_description || null,
@@ -48,6 +48,6 @@ export const mapSupabaseProjectToProjectType = (data: SupabaseProject): ProjectT
     teamSize: data.team_size || null,
     methodologies: data.methodologies || [],
     summary: data.summary || data.description,
-    date: data.date || null
+    date: data.year + '-01-01' // Generate a default date from the year
   };
 };
