@@ -70,7 +70,7 @@ const getProjectById = async (id: number): Promise<ProjectType> => {
     githubUrl: data.github_url,
     liveUrl: data.live_url,
     problemSolved: data.problem_solved,
-    solution: data.solution || null, // Add solution with fallback to null
+    solution: data.solution || null, // Ensure solution has a fallback to null
     technicalHighlights: data.technical_highlights,
     teamSize: data.team_size,
     methodologies: data.methodologies
@@ -103,7 +103,7 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
       githubUrl: project.github_url,
       liveUrl: project.live_url,
       problemSolved: project.problem_solved,
-      solution: project.solution || null, // Add solution with fallback to null
+      solution: project.solution || null, // Ensure solution has a fallback to null
       technicalHighlights: project.technical_highlights,
       teamSize: project.team_size,
       methodologies: project.methodologies
