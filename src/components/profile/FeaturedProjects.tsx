@@ -22,9 +22,9 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
     );
   }
 
-  // Define the specific projects to show (removed Wristband)
-  // Specifically use Tutor D and CLLCTVE as requested
-  const featuredProjectIds = [2, 1]; // Tutor D and CLLCTVE
+  // Define the specific projects to show (including DoggyDate)
+  // Use Tutor D and DoggyDate now
+  const featuredProjectIds = [2, 4]; // Tutor D and DoggyDate
   
   // Filter to get only the specified projects in the right order
   const featuredProjects = featuredProjectIds

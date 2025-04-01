@@ -3,11 +3,12 @@ import { ProjectType } from '../../../types/project';
 
 export const getDoggyDateProject = (): ProjectType => {
   return {
-    id: 4,
+    id: 4, // Replace DataViz with this ID
+    slug: 'doggy-date',
     title: "Doggy Date",
     description: "The dating app for dog lovers - find matches who love dogs as much as you do.",
     fullDescription: "Doggy Date is a social network for dog owners with a dating app component. Once downloaded, and a user profile is created they will discover our multifaceted dog community.",
-    image: "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8",
+    image: "public/lovable-uploads/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png", // Use the mockup image as the main thumbnail
     tags: ["Social", "Dating App", "Dog Lovers"],
     role: "UX, UI & Visual Design",
     duration: "2 months",
@@ -30,9 +31,10 @@ export const getDoggyDateProject = (): ProjectType => {
       "Final App Design"
     ],
     images: [
-      "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8",
-      "https://images.unsplash.com/photo-1544568100-847a948585b9",
-      "https://images.unsplash.com/photo-1583511666372-62fc211f8377"
+      "public/lovable-uploads/57c3f150-f310-44ad-b0c2-e88165c01417.png",
+      "public/lovable-uploads/748d7e06-f545-44ba-842c-6401bf2284d1.png",
+      "public/lovable-uploads/b9b62216-4a0c-4367-bdab-32f608350015.png",
+      "public/lovable-uploads/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png"
     ],
     conclusion: {
       impact: "Created a unique dating platform for dog lovers that has a strong community focus",

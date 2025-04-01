@@ -4,7 +4,7 @@ import { getHealthHomeProject } from './projects/healthHome';
 import { getCllctveProject } from './projects/cllctve';
 import { getTutorDProject } from './projects/tutorD';
 import { getTechNoirProject } from './projects/techNoir';
-import { getDataVizProject } from './projects/dataViz';
+import { getDoggyDateProject } from './projects/doggyDate';
 import { getImprovLearningProject } from './projects/improvLearning';
 import { getWristbandProject } from './projects/wristband';
 import { supabase } from '@/integrations/supabase/client';
@@ -24,6 +24,11 @@ export const getProject = async (idOrSlug: number | string): Promise<ProjectType
       if (idOrSlug === 'health-at-home') {
         return getHealthHomeProject();
       }
+
+      // Handle specific slug for doggy-date
+      if (idOrSlug === 'doggy-date') {
+        return getDoggyDateProject();
+      }
       
       // Map slugs to IDs
       const slugMap: Record<string, number> = {
@@ -31,7 +36,7 @@ export const getProject = async (idOrSlug: number | string): Promise<ProjectType
         'cllctve-platform': 1,
         'tutor-d': 2,
         'tech-noir': 3,
-        'dataviz-dashboard': 4,
+        'doggy-date': 4,
         'improv-learning': 5,
         'wristband': 6
       };
@@ -69,7 +74,7 @@ const getProjectById = async (id: number): Promise<ProjectType> => {
     if (id === 1) return getCllctveProject();
     if (id === 2) return getTutorDProject();
     if (id === 3) return getTechNoirProject();
-    if (id === 4) return getDataVizProject();
+    if (id === 4) return getDoggyDateProject();
     if (id === 5) return getImprovLearningProject();
 
     // For other projects from Supabase
@@ -135,7 +140,7 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
       await getCllctveProject(),
       await getTutorDProject(),
       await getTechNoirProject(),
-      await getDataVizProject(),
+      await getDoggyDateProject(),
       await getImprovLearningProject(),
       await getWristbandProject()
     ];
