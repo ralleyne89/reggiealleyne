@@ -28,6 +28,7 @@ export const getTutorDProject = (): ProjectType => {
     techStack: ["React", "Node.js", "Supabase", "Ant Design"],
     keyAchievements: ["300+ active users", "50+ qualified tutors", "10+ subjects"],
     problemSolved: "Difficulty finding qualified tutors for specific subjects",
+    solution: "An intelligent matching algorithm that pairs students with tutors based on subject expertise, learning style, and schedule compatibility.",
     technicalHighlights: ["Real-time availability calendar", "In-app video conferencing", "Progress tracking dashboard"],
     teamSize: "4 members",
     methodologies: ["Lean UX", "Agile", "User Testing"],
