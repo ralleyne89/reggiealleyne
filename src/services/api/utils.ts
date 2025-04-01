@@ -1,5 +1,8 @@
 
 import { ProjectType } from '../../types/project';
+import { Tables } from '@/integrations/supabase/types';
+
+type SupabaseProject = Tables<'projects'>;
 
 // Helper function to sort projects by date (newest first)
 export const sortProjectsByDate = (projects: ProjectType[]): ProjectType[] => {
@@ -14,7 +17,7 @@ export const sortProjectsByDate = (projects: ProjectType[]): ProjectType[] => {
 };
 
 // Create a ProjectType object from the Supabase data
-export const mapSupabaseProjectToProjectType = (data: any): ProjectType => {
+export const mapSupabaseProjectToProjectType = (data: SupabaseProject): ProjectType => {
   return {
     id: data.id,
     slug: data.slug || `project-${data.id}`,
