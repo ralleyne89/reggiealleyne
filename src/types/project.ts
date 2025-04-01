@@ -1,5 +1,7 @@
+
 export interface ProjectType {
   id: number;
+  slug?: string;
   title: string;
   description: string;
   fullDescription: string | null;

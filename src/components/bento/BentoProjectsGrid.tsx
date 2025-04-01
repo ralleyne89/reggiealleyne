@@ -2,7 +2,7 @@
 import React from 'react';
 import { ProjectType } from '@/types/project';
 import { Skeleton } from '@/components/ui/skeleton';
-import { BarChart, Lightbulb, Check, Heart, Clock, Users } from 'lucide-react';
+import { BarChart, Lightbulb, Clock, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface BentoProjectsGridProps {
