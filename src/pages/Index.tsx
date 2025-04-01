@@ -80,7 +80,7 @@ const Index = () => {
           </div>
 
           {/* Featured TECH NOIR Project */}
-          {!isLoading && !error && techNoirProject && (
+          {/* {!isLoading && !error && techNoirProject && (
             <div 
               onClick={handleFeaturedProjectClick}
               className="relative w-full bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-[rgba(145,108,231,0.3)] transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] block cursor-pointer"
@@ -124,7 +124,7 @@ const Index = () => {
                 </div>
               </div>
             </div>
-          )}
+          )} */}
 
           {/* Bento Grid Projects */}
           <div id="projects" className="pt-4">
