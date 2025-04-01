@@ -7,6 +7,7 @@ import { getTechNoirProject } from './projects/techNoir';
 import { getDoggyDateProject } from './projects/doggyDate';
 import { getImprovLearningProject } from './projects/improvLearning';
 import { getWristbandProject } from './projects/wristband';
+import { getChillVibesProject } from './projects/chillVibes';
 
 // Map of ID to project getter functions
 const projectGetters = {
@@ -17,6 +18,7 @@ const projectGetters = {
   4: getDoggyDateProject,
   5: getImprovLearningProject,
   6: getWristbandProject,
+  7: getChillVibesProject,
 };
 
 // Map of slug to project ID - FIXED to ensure correct mapping
@@ -28,6 +30,7 @@ const slugToIdMap: Record<string, number> = {
   'doggy-date': 4,
   'improv-learning': 5,
   'wristband': 6,
+  'chill-vibes-music-player': 7,
 };
 
 // Get a predefined project by ID
