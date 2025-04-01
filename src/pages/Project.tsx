@@ -42,9 +42,11 @@ const Project = () => {
       }
     },
     retry: 1,
-    onError: (error) => {
-      console.error("Project fetch error:", error);
-      toast.error(`Failed to load project: ${error.message}`);
+    onSettled: (data, error) => {
+      if (error) {
+        console.error("Project fetch error:", error);
+        toast.error(`Failed to load project: ${error.message}`);
+      }
     }
   });
 
