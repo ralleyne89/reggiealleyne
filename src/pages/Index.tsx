@@ -1,21 +1,46 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import ProfileHeader from '@/components/profile/ProfileHeader';
 import BentoProjectsGrid from '@/components/bento/BentoProjectsGrid';
 import SocialCard from '@/components/profile/SocialCard';
 import ContactCard from '@/components/profile/ContactCard';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Index = () => {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { data: projects, isLoading, error } = useQuery({
     queryKey: ['projects'],
-    queryFn: getAllProjects
+    queryFn: async () => {
+      try {
+        console.log('Fetching all projects from Index page');
+        return await getAllProjects();
+      } catch (err) {
+        console.error('Error fetching projects from Index:', err);
+        return []; // Return empty array to prevent UI crashes
+      }
+    },
+    retry: 1
   });
 
   // Find the TECH NOIR project for the featured banner instead of WRISTBAND
   const techNoirProject = projects?.find(project => project.id === 3);
+
+  const handleFeaturedProjectClick = () => {
+    if (!techNoirProject) return;
+    
+    if (techNoirProject.slug) {
+      navigate(`/project/${techNoirProject.slug}`);
+    } else {
+      navigate(`/project/${techNoirProject.id}`);
+    }
+  };
 
   return (
     <div className="bg-[rgba(5,5,5,1)] min-h-screen w-full overflow-hidden">
@@ -44,21 +69,21 @@ const Index = () => {
                 >
                   View Case Studies
                 </a>
-                <a 
-                  href="/works" 
+                <Link 
+                  to="/works" 
                   className="bg-[rgba(25,25,25,1)] text-[rgba(230,230,230,1)] font-medium px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(30,30,30,1)] hover:border-[rgba(145,108,231,0.3)] transition-all duration-300"
                 >
                   Full Portfolio
-                </a>
+                </Link>
               </div>
             </div>
           </div>
 
-          {/* Featured TECH NOIR Project instead of WRISTBAND */}
+          {/* Featured TECH NOIR Project */}
           {!isLoading && !error && techNoirProject && (
-            <Link 
-              to={`/project/${techNoirProject.slug || techNoirProject.id}`}
-              className="relative w-full bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-[rgba(145,108,231,0.3)] transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] block"
+            <div 
+              onClick={handleFeaturedProjectClick}
+              className="relative w-full bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-[rgba(145,108,231,0.3)] transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] block cursor-pointer"
             >
               <div className="flex flex-col md:flex-row items-center">
                 <div className="w-full md:w-1/2 h-64 md:h-96 relative">
@@ -66,6 +91,10 @@ const Index = () => {
                     src={techNoirProject.image} 
                     alt={techNoirProject.title} 
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      console.error(`Image failed to load: ${techNoirProject.image}`);
+                      e.currentTarget.src = "/placeholder.svg";
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,0,0,0.7)] to-transparent"></div>
                 </div>
@@ -94,14 +123,14 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
           )}
 
           {/* Bento Grid Projects */}
           <div id="projects" className="pt-4">
             <h2 className="text-2xl font-bold text-[rgba(230,230,230,1)] mb-6">Featured Case Studies</h2>
             <div className="w-full">
-              <BentoProjectsGrid projects={projects} isLoading={isLoading} error={error} />
+              <BentoProjectsGrid projects={projects || []} isLoading={isLoading} error={error} />
             </div>
           </div>
 

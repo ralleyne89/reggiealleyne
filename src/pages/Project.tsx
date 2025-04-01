@@ -29,14 +29,19 @@ const Project = () => {
     queryFn: async () => {
       try {
         console.log("Fetching project with ID:", id, "isWristband:", isWristband);
-        return isWristband ? await getProject('wristband') : await getProject(id || '');
+        if (isWristband) {
+          return await getProject('wristband');
+        } else if (id) {
+          return await getProject(id);
+        } else {
+          throw new Error("No project ID or slug provided");
+        }
       } catch (err) {
         console.error("Error fetching project:", err);
         throw err;
       }
     },
-    retry: 3,
-    staleTime: 1000 * 60 * 5 // 5 minutes
+    retry: 1,
   });
 
   console.log("Project data:", project);
@@ -85,7 +90,7 @@ const Project = () => {
 
   return (
     <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white">
-      {projectWithDefaults.techStack.length > 0 && (
+      {projectWithDefaults.techStack?.length > 0 && (
         <div className="bg-[rgba(16,16,16,1)] border-b border-[rgba(255,255,255,0.1)] py-4">
           <div className="max-w-7xl mx-auto px-6">
             <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
@@ -96,7 +101,7 @@ const Project = () => {
                 >
                   All
                 </TabsTrigger>
-                {projectWithDefaults.techStack.map((tech) => (
+                {projectWithDefaults.techStack?.map((tech) => (
                   <TabsTrigger 
                     key={tech}
                     value={tech}
@@ -113,7 +118,7 @@ const Project = () => {
       
       <ProjectHeader 
         image={projectWithDefaults.image}
-        tags={projectWithDefaults.tags}
+        tags={projectWithDefaults.tags || []}
         title={projectWithDefaults.title}
         description={projectWithDefaults.description}
       />
@@ -123,21 +128,21 @@ const Project = () => {
           role={projectWithDefaults.role}
           duration={projectWithDefaults.duration}
           year={projectWithDefaults.year}
-          teamSize={projectWithDefaults.teamSize}
-          methodologies={projectWithDefaults.methodologies}
+          teamSize={projectWithDefaults.teamSize || ""}
+          methodologies={projectWithDefaults.methodologies || []}
           githubUrl={projectWithDefaults.githubUrl}
           liveUrl={projectWithDefaults.liveUrl}
-          summary={projectWithDefaults.summary}
-          problem={projectWithDefaults.problemSolved}
-          solution={projectWithDefaults.solution}
+          summary={projectWithDefaults.summary || projectWithDefaults.description}
+          problem={projectWithDefaults.problemSolved || ""}
+          solution={projectWithDefaults.solution || ""}
         />
         
         <ProjectProcess 
           challenge={projectWithDefaults.challenge || ''}
           process={projectWithDefaults.process || []}
-          problemSolved={projectWithDefaults.problemSolved}
-          technicalHighlights={projectWithDefaults.technicalHighlights}
-          keyAchievements={projectWithDefaults.keyAchievements}
+          problemSolved={projectWithDefaults.problemSolved || ''}
+          technicalHighlights={projectWithDefaults.technicalHighlights || []}
+          keyAchievements={projectWithDefaults.keyAchievements || []}
         />
         
         <ProjectDeliverables 
@@ -147,9 +152,9 @@ const Project = () => {
       </div>
 
       <ProjectConclusion conclusion={{
-        impact: projectWithDefaults.conclusion.impact || "The project had a significant positive impact on users.",
-        learnings: projectWithDefaults.conclusion.learnings || "We learned valuable lessons about user experience and implementation.",
-        nextSteps: projectWithDefaults.conclusion.nextSteps || "Next steps include expanding features and improving performance."
+        impact: projectWithDefaults.conclusion?.impact || "The project had a significant positive impact on users.",
+        learnings: projectWithDefaults.conclusion?.learnings || "We learned valuable lessons about user experience and implementation.",
+        nextSteps: projectWithDefaults.conclusion?.nextSteps || "Next steps include expanding features and improving performance."
       }} />
       <Footer />
     </div>
