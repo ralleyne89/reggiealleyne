@@ -4,6 +4,8 @@ import ProjectBasicInfo from './details/ProjectBasicInfo';
 import ProjectTeamInfo from './details/ProjectTeamInfo';
 import ProjectTechInfo from './details/ProjectTechInfo';
 import ProjectLinks from './details/ProjectLinks';
+import ProjectProblem from './details/ProjectProblem';
+import ProjectSolution from './details/ProjectSolution';
 
 interface ProjectDetailsProps {
   role: string;
@@ -14,6 +16,8 @@ interface ProjectDetailsProps {
   githubUrl?: string;
   liveUrl?: string;
   summary: string;
+  problem?: string;
+  solution?: string;
 }
 
 const ProjectDetails = ({ 
@@ -24,7 +28,9 @@ const ProjectDetails = ({
   methodologies,
   githubUrl,
   liveUrl,
-  summary
+  summary,
+  problem,
+  solution
 }: ProjectDetailsProps) => {
   return (
     <div className="mb-16">
@@ -41,6 +47,14 @@ const ProjectDetails = ({
 
       {methodologies && methodologies.length > 0 && (
         <ProjectTechInfo methodologies={methodologies} />
+      )}
+
+      {problem && (
+        <ProjectProblem problem={problem} />
+      )}
+
+      {solution && (
+        <ProjectSolution solution={solution} />
       )}
 
       {(githubUrl || liveUrl) && (

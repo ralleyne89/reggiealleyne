@@ -41,16 +41,6 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
 
   return (
     <div className="bg-[rgba(16,16,16,1)] border w-full p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
-      <div className="flex w-full flex-col items-center mb-6">
-        <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium px-2.5 py-1.5">
-          <Star className="w-4 h-4 text-[#916CE7]" />
-          <span>Featured Work</span>
-        </div>
-        <div className="text-[rgba(230,230,230,1)] text-lg font-semibold">
-          Recent Projects
-        </div>
-      </div>
-      
       <div className="space-y-4 w-full">
         {isLoading ? (
           <>
