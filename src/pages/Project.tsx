@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -42,11 +41,9 @@ const Project = () => {
       }
     },
     retry: 1,
-    onSettled: (data, error) => {
-      if (error) {
-        console.error("Project fetch error:", error);
-        toast.error(`Failed to load project: ${error.message}`);
-      }
+    onError: (error) => {
+      console.error("Project fetch error:", error);
+      toast.error(`Failed to load project: ${error.message}`);
     }
   });
 
@@ -80,7 +77,6 @@ const Project = () => {
     );
   }
 
-  // Add more fallback values to ensure UI stability
   const projectWithDefaults = {
     ...project,
     conclusion: project.conclusion || {
