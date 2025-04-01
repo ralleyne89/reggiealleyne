@@ -11,8 +11,8 @@ export const getDoggyDateProject = (): ProjectType => {
     image: "/lovable-uploads/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
     tags: ["Social", "Dating App", "Dog Lovers"],
     role: "UX, UI & Visual Design",
-    duration: "2 months",
-    year: "2023",
+    duration: "4 months",
+    year: "2016",
     challenge: "Users that are accustomed to dating apps are already using competitors. Finding a way to make the app unique and interactive so users will use it continuously.",
     process: [
       "Visited dog parks around Los Angeles to interview dog owners about their views on dating apps.",
@@ -27,8 +27,7 @@ export const getDoggyDateProject = (): ProjectType => {
       "User Personas", 
       "Wireframes", 
       "Interactive Prototype", 
-      "UI Kit", 
-      "Final App Design"
+      "User Interface"
     ],
     // Removed duplicate images - Each image now appears only once in the array
     images: [
@@ -46,7 +45,7 @@ export const getDoggyDateProject = (): ProjectType => {
       learnings: "The critical importance of creating a unique experience that differentiates from existing dating apps",
       nextSteps: "Implementing additional community-focused features and expanding to more cities"
     },
-    techStack: ["Sketch", "Photoshop", "InVision", "Figma"],
+    techStack: ["Photoshop", "Illustrator", "Adobe XD"],
     keyAchievements: [
       "Created a unique social network specifically for dog owners",
       "Developed 'Bark, Sniff & Lick' interactive notification system",
@@ -62,7 +61,7 @@ export const getDoggyDateProject = (): ProjectType => {
     ],
     teamSize: "2 members",
     methodologies: ["User Interviews", "Persona Creation", "Wireframing", "Prototyping", "User Testing"],
-    liveUrl: "https://www.doggydate.us/",
+    liveUrl: "https://projects.invisionapp.com/d/main?origin=v7#/console/9948914/212450288/preview?scrollOffset=145",
     githubUrl: null,
     summary: "Doggy Date is a social network and dating app for dog owners that enables them to connect with other local dog lovers, share hangout spots, and potentially find romance with someone who shares their passion for dogs."
   };
