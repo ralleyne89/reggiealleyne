@@ -1,3 +1,4 @@
+
 import { supabase } from '@/integrations/supabase/client';
 import { ProjectType } from '../types/project';
 
@@ -27,70 +28,71 @@ export const getProject = async (idOrSlug: number | string): Promise<ProjectType
   return getProjectById(idOrSlug);
 };
 
-const getProjectById = (id: number): Promise<ProjectType> => {
+const getProjectById = async (id: number): Promise<ProjectType> => {
   // Special case for Health@Home project
   if (id === 0) {
-    return Promise.resolve(getHealthHomeProject());
+    return getHealthHomeProject();
   }
   
   // Special case for TECH NOIR project
   if (id === 3) {
-    return Promise.resolve(getTechNoirProject());
+    return getTechNoirProject();
   }
   
   // Special case for DataViz Dashboard project
   if (id === 4) {
-    return Promise.resolve(getDataVizProject());
+    return getDataVizProject();
   }
   
   // Special case for CLLCTVE Platform project
   if (id === 1) {
-    return Promise.resolve(getCllctveProject());
+    return getCllctveProject();
   }
   
   // Special case for Tutor D project
   if (id === 2) {
-    return Promise.resolve(getTutorDProject());
+    return getTutorDProject();
   }
   
   // Special case for Improv Learning project
   if (id === 5) {
-    return Promise.resolve(getImprovLearningProject());
+    return getImprovLearningProject();
   }
   
   // Special case for Wristband project
   if (id === 6) {
-    return Promise.resolve(getWristbandProject());
+    return getWristbandProject();
   }
 
-  return supabase
+  // For other projects from Supabase
+  const { data, error } = await supabase
     .from('projects')
     .select('*')
     .eq('id', id)
-    .maybeSingle()
-    .then(({ data, error }) => {
-      if (error || !data) {
-        throw new Error('Project not found');
-      }
+    .maybeSingle();
 
-      return {
-        ...data,
-        fullDescription: data.full_description,
-        conclusion: {
-          impact: data.impact,
-          learnings: data.learnings,
-          nextSteps: data.next_steps
-        },
-        techStack: data.tech_stack,
-        keyAchievements: data.key_achievements,
-        githubUrl: data.github_url,
-        liveUrl: data.live_url,
-        problemSolved: data.problem_solved,
-        technicalHighlights: data.technical_highlights,
-        teamSize: data.team_size,
-        methodologies: data.methodologies
-      };
-    });
+  if (error || !data) {
+    throw new Error('Project not found');
+  }
+
+  // Create a ProjectType object from the Supabase data
+  return {
+    ...data,
+    fullDescription: data.full_description,
+    conclusion: {
+      impact: data.impact,
+      learnings: data.learnings,
+      nextSteps: data.next_steps
+    },
+    techStack: data.tech_stack,
+    keyAchievements: data.key_achievements,
+    githubUrl: data.github_url,
+    liveUrl: data.live_url,
+    problemSolved: data.problem_solved,
+    technicalHighlights: data.technical_highlights,
+    teamSize: data.team_size,
+    methodologies: data.methodologies
+  };
 };
 
 // Get pre-defined Health@Home project
