@@ -30,6 +30,7 @@ export type Database = {
           problem_solved: string | null
           process: string[] | null
           role: string
+          solution: string | null
           summary: string
           tags: string[] | null
           team_size: string | null
@@ -58,6 +59,7 @@ export type Database = {
           problem_solved?: string | null
           process?: string[] | null
           role: string
+          solution?: string | null
           summary: string
           tags?: string[] | null
           team_size?: string | null
@@ -86,6 +88,7 @@ export type Database = {
           problem_solved?: string | null
           process?: string[] | null
           role?: string
+          solution?: string | null
           summary?: string
           tags?: string[] | null
           team_size?: string | null
