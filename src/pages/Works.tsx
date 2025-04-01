@@ -19,11 +19,13 @@ const Works = () => {
   });
 
   // Handle project navigation
-  const handleProjectClick = (projectId: number) => {
-    if (projectId === 0) {
+  const handleProjectClick = (project) => {
+    if (project.slug) {
+      navigate(`/project/${project.slug}`);
+    } else if (project.id === 0) {
       navigate('/project/health-at-home');
     } else {
-      navigate(`/project/${projectId}`);
+      navigate(`/project/${project.id}`);
     }
   };
 
@@ -82,7 +84,7 @@ const Works = () => {
               <div 
                 key={project.id}
                 className="bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1 cursor-pointer h-full flex flex-col"
-                onClick={() => handleProjectClick(project.id)}
+                onClick={() => handleProjectClick(project)}
               >
                 <div className="relative h-48">
                   <img 

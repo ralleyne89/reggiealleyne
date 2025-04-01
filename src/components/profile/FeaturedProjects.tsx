@@ -23,18 +23,20 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
   }
 
   // Define the specific projects to show
-  const featuredProjectIds = [0, 1]; // Health@Home and CLLCTVE
+  const featuredProjectIds = [0, 6]; // Health@Home and WRISTBAND
   
   // Filter to get only the specified projects in the right order
   const featuredProjects = featuredProjectIds
     .map(id => projects?.find(project => project.id === id))
     .filter(project => project !== undefined) as ProjectType[];
 
-  const handleProjectClick = (projectId: number) => {
-    if (projectId === 0) {
+  const handleProjectClick = (project: ProjectType) => {
+    if (project.slug) {
+      navigate(`/project/${project.slug}`);
+    } else if (project.id === 0) {
       navigate('/project/health-at-home');
     } else {
-      navigate(`/project/${projectId}`);
+      navigate(`/project/${project.id}`);
     }
   };
 
@@ -59,7 +61,7 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
         ) : featuredProjects.map((project, index) => (
           <div 
             key={project.id}
-            onClick={() => handleProjectClick(project.id)}
+            onClick={() => handleProjectClick(project)}
             className="bg-[rgba(20,20,20,1)] border p-4 rounded-xl border-[rgba(255,255,255,0.05)] border-solid hover:bg-[rgba(25,25,25,1)] transition-all duration-300 hover:scale-[1.02] hover:shadow-lg animate-fade-in cursor-pointer w-full"
             style={{ animationDelay: `${index * 150}ms` }}
           >
