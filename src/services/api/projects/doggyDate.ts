@@ -1,3 +1,4 @@
+
 import { ProjectType } from '../../../types/project';
 
 export const getDoggyDateProject = (): ProjectType => {
@@ -33,7 +34,11 @@ export const getDoggyDateProject = (): ProjectType => {
       "/lovable-uploads/57c3f150-f310-44ad-b0c2-e88165c01417.png",
       "/lovable-uploads/748d7e06-f545-44ba-842c-6401bf2284d1.png",
       "/lovable-uploads/b9b62216-4a0c-4367-bdab-32f608350015.png",
-      "/lovable-uploads/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png"
+      "/lovable-uploads/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
+      "/lovable-uploads/1e4175fe-fcab-40ea-8334-7f71053c9e27.png",
+      "/lovable-uploads/1e5262b7-f4b4-42b2-a5b8-75ae974c6893.png",
+      "/lovable-uploads/430a2d53-8e58-4b70-8af0-4055ce165684.png",
+      "/lovable-uploads/d2647713-1d34-4235-8a9a-0e0b5b3645bd.png"
     ],
     conclusion: {
       impact: "Created a unique dating platform for dog lovers that has a strong community focus",

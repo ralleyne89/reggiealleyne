@@ -32,11 +32,11 @@ const ProjectDeliverables = ({ deliverables, images }: ProjectDeliverablesProps)
       {images?.length > 0 && (
         <div>
           <h2 className="text-2xl font-bold mb-6 text-[rgba(230,230,230,1)]">Project Images</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {images.map((image, index) => (
               <div 
                 key={index}
-                className="relative aspect-video overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)]"
+                className="relative aspect-video overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:border-[#9b87f5]"
               >
                 <img 
                   src={image} 
