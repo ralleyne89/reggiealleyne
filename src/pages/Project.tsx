@@ -126,9 +126,9 @@ const Project = () => {
       </div>
 
       <ProjectConclusion conclusion={{
-        impact: project.conclusion?.impact || project.impact || "The project had a significant positive impact on users.",
-        learnings: project.conclusion?.learnings || project.learnings || "We learned valuable lessons about user experience and implementation.",
-        nextSteps: project.conclusion?.nextSteps || project.next_steps || "Next steps include expanding features and improving performance."
+        impact: project.conclusion?.impact || "The project had a significant positive impact on users.",
+        learnings: project.conclusion?.learnings || "We learned valuable lessons about user experience and implementation.",
+        nextSteps: project.conclusion?.nextSteps || "Next steps include expanding features and improving performance."
       }} />
       <Footer />
     </div>

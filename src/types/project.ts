@@ -29,8 +29,4 @@ export interface ProjectType {
   teamSize?: string | null;
   methodologies?: string[] | null;
   summary: string;
-  // Adding direct properties for backward compatibility
-  impact?: string | null;
-  learnings?: string | null;
-  next_steps?: string | null;
 }
