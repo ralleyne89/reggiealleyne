@@ -31,8 +31,8 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
   }
 
   // Define the specific projects to show in the featured section
-  // Now featuring Health@Home, CLLCTVE Platform, and DoggyDate instead of Tutor D
-  const featuredProjectIds = [0, 1, 4]; // Health@Home, CLLCTVE Platform, and DoggyDate
+  // Now featuring Health@Home, CLLCTVE Platform, and Tutor D instead of DoggyDate
+  const featuredProjectIds = [0, 1, 2]; // Health@Home, CLLCTVE Platform, and Tutor D
   
   // Filter to get only the specified projects in the right order
   const featuredProjects = featuredProjectIds

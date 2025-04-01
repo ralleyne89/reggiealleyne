@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Star } from 'lucide-react';
 import { ProjectType } from '@/types/project';
@@ -22,9 +21,8 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
     );
   }
 
-  // Define the specific projects to show (including DoggyDate)
-  // Use Tutor D and DoggyDate now
-  const featuredProjectIds = [2, 4]; // Tutor D and DoggyDate
+  // Define the specific projects to show (Tutor D instead of DoggyDate)
+  const featuredProjectIds = [2, 3]; // Tutor D and Tech Noir
   
   // Filter to get only the specified projects in the right order
   const featuredProjects = featuredProjectIds
