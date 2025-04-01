@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -15,7 +14,6 @@ const Project = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Determine if we're on the wristband page
   const isWristband = location.pathname.includes('wristband');
   
   useEffect(() => {
@@ -74,7 +72,6 @@ const Project = () => {
     );
   }
 
-  // Ensure the project has all required fields before rendering
   const projectWithDefaults = {
     ...project,
     conclusion: project.conclusion || {
@@ -120,6 +117,7 @@ const Project = () => {
         <ProjectDeliverables 
           deliverables={projectWithDefaults.deliverables || []}
           images={projectWithDefaults.images || []}
+          projectId={projectWithDefaults.id || id}
         />
       </div>
 

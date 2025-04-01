@@ -2,9 +2,10 @@
 interface ProjectDeliverablesProps {
   deliverables: string[];
   images: string[];
+  projectId?: string | number;
 }
 
-const ProjectDeliverables = ({ deliverables, images }: ProjectDeliverablesProps) => {
+const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliverablesProps) => {
   // Return null only if both arrays are empty
   if (!deliverables?.length && !images?.length) {
     return null;
@@ -14,6 +15,9 @@ const ProjectDeliverables = ({ deliverables, images }: ProjectDeliverablesProps)
   const uniqueImages = images?.filter((image, index, self) => 
     self.findIndex(img => img === image) === index
   ) || [];
+  
+  // Check if this is the Doggy Date project (id: 4 or slug: doggy-date)
+  const isDoggyDateProject = projectId === 4 || projectId === 'doggy-date';
   
   return (
     <div className="mb-16">
@@ -34,7 +38,7 @@ const ProjectDeliverables = ({ deliverables, images }: ProjectDeliverablesProps)
         </div>
       )}
 
-      {uniqueImages.length > 0 && (
+      {uniqueImages.length > 0 && !isDoggyDateProject && (
         <div>
           <h2 className="text-2xl font-bold mb-6 text-[rgba(230,230,230,1)]">Project Images</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
