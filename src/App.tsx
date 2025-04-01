@@ -9,7 +9,16 @@ import Works from "./pages/Works";
 import Project from "./pages/Project";
 import HealthHomeProject from "./pages/HealthHomeProject";
 
-const queryClient = new QueryClient();
+// Create a new QueryClient instance with proper configuration
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: 1,
+      staleTime: 5 * 60 * 1000, // 5 minutes
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
