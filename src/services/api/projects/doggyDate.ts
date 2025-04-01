@@ -30,6 +30,7 @@ export const getDoggyDateProject = (): ProjectType => {
       "UI Kit", 
       "Final App Design"
     ],
+    // Removed duplicate images - Each image now appears only once in the array
     images: [
       "/lovable-uploads/57c3f150-f310-44ad-b0c2-e88165c01417.png",
       "/lovable-uploads/748d7e06-f545-44ba-842c-6401bf2284d1.png",
