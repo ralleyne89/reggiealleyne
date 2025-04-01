@@ -24,6 +24,7 @@ export interface ProjectType {
   githubUrl?: string | null;
   liveUrl?: string | null;
   problemSolved?: string | null;
+  solution?: string | null;
   technicalHighlights?: string[] | null;
   teamSize?: string | null;
   methodologies?: string[] | null;

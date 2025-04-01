@@ -305,7 +305,7 @@ const getImprovLearningProject = (): ProjectType => {
     ],
     images: [
       "https://images.unsplash.com/photo-1600267175161-cfaa711b4a81",
-      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e",
+      "https://images.unsplash.com/photo-1570125909232-9a054b0db644",
       "https://images.unsplash.com/photo-1505915230175-0754bfbab5d5"
     ],
     conclusion: {
@@ -376,7 +376,8 @@ const getWristbandProject = (): ProjectType => {
       "Implemented a flexible storytelling framework that supports multiple genres",
       "Designed micro-transaction system for premium content"
     ],
-    problemSolved: "By enlisting the help of freelance writers and artists, we will create engaging content that is more relatable to our users. Having these content creators from different cultures and backgrounds will have a more authentic storytelling experience. Users want to feel connected to the characters they play as, and we want to do our best to include our diverse number of users.",
+    problemSolved: "Many of the interactive storytelling games are very similar, causing users to only use it for a short time then delete it. When it comes to finding a wide variety of genres for the user, it tends to get repetitive. Users have found that the writing seems rushed with characters that look the same with different hair color.",
+    solution: "By enlisting the help of freelance writers and artists, we will create engaging content that is more relatable to our users. Having these content creators from different cultures and backgrounds will have a more authentic storytelling experience. Users want to feel connected to the characters they play as, and we want to do our best to include our diverse number of users.",
     technicalHighlights: [
       "Branching narrative system",
       "User profile and progress tracking",
