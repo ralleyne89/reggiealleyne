@@ -1,5 +1,7 @@
+
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 interface ProjectHeaderProps {
   image: string;
@@ -9,13 +11,21 @@ interface ProjectHeaderProps {
 }
 
 const ProjectHeader = ({ image, tags, title, description }: ProjectHeaderProps) => {
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    console.error(`Header image failed to load: ${image}`);
+    setImageError(true);
+  };
+
   return (
     <>
       <div className="relative h-[50vh] overflow-hidden">
         <img 
-          src={image} 
+          src={imageError ? "/placeholder.svg" : image} 
           alt={title}
           className="w-full h-full object-cover"
+          onError={handleImageError}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(5,5,5,1)]"></div>
       </div>

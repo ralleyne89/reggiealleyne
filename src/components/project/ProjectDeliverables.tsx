@@ -44,6 +44,7 @@ const ProjectDeliverables = ({ deliverables, images }: ProjectDeliverablesProps)
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     console.error(`Image failed to load: ${image}`);
+                    // Replace with a placeholder image
                     e.currentTarget.src = "/placeholder.svg";
                   }}
                 />
