@@ -12,7 +12,7 @@ export const getTechNoirProject = (): ProjectType => {
     tags: ["E-commerce", "Fashion", "Wearable Tech"],
     role: "UX, UI & Visual Design",
     duration: "2 months",
-    year: "2023",
+    year: "2017",
     challenge: "Create an engaging platform that educates users about wearable technology while offering fashionable products",
     process: [
       "Research showed that consumers have little knowledge of wearable technology and its benefits",
@@ -28,11 +28,11 @@ export const getTechNoirProject = (): ProjectType => {
       "https://images.unsplash.com/photo-1522542550221-31fd19575a2d"
     ],
     conclusion: {
-      impact: "28% increase in customer engagement with wearable tech products",
+      impact: "Increase in customer awareness and engagement with wearable tech products",
       learnings: "The importance of educational content in driving sales for innovative products",
       nextSteps: "Expanding product categories and implementing AR try-on features"
     },
-    techStack: ["Figma", "Shopify", "React", "TailwindCSS"],
+    techStack: ["Figma", "Shopify", "Photshop"],
     keyAchievements: ["Designed 'How to Wear' section", "Developed educational blog content", "Created exclusive designer collaborations section"],
     problemSolved: "Lack of consumer knowledge about wearable technology and its fashion applications",
     technicalHighlights: ["Product comparison tool", "Designer style guides", "Daily blog posts", "AR try-on experience"],

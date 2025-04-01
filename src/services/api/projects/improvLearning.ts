@@ -12,7 +12,7 @@ export const getImprovLearningProject = (): ProjectType => {
     tags: ["Web Design", "UX/UI", "Conversion Rate"],
     role: "Lead UX Designer",
     duration: "3 months",
-    year: "2023",
+    year: "2019",
     challenge: "Create a high-converting website that increases user sign-up rates while ensuring compliance with traffic school requirements",
     process: [
       "Conducted user research to understand pain points in existing traffic school experiences",
@@ -35,15 +35,15 @@ export const getImprovLearningProject = (): ProjectType => {
       "https://images.unsplash.com/photo-1505915230175-0754bfbab5d5"
     ],
     conclusion: {
-      impact: "42% increase in sign-up conversions, 28% reduction in course drop-off rates",
+      impact: "Increase in sign-up conversions, reduction in course drop-off rates",
       learnings: "The importance of streamlined form design and clear progress indicators for completion-focused experiences",
       nextSteps: "Expanding with additional course offerings and implementing gamification elements"
     },
-    techStack: ["Figma", "React", "TailwindCSS", "Node.js"],
+    techStack: ["Figma", "Illustrator"],
     keyAchievements: [
-      "Increased course completion rate by 35%",
-      "Reduced average completion time by 15%",
-      "Improved mobile conversion by 50%"
+      "Increased course completion rate",
+      "Reduced average completion time",
+      "Improved mobile conversion"
     ],
     problemSolved: "Low conversion and high abandonment rates in traditional traffic school websites",
     technicalHighlights: [
