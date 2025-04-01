@@ -4,6 +4,7 @@ import { ProjectType } from '../../../types/project';
 export const getHealthHomeProject = (): ProjectType => {
   return {
     id: 0,
+    slug: "health-at-home",
     title: "Health@Home Platform",
     description: "A comprehensive telehealth solution for Blue Shield of California, enabling remote patient monitoring during COVID-19.",
     fullDescription: "A full-featured telehealth platform designed to help patients connect with healthcare providers remotely during the COVID-19 pandemic, with robust monitoring capabilities.",
@@ -31,6 +32,7 @@ export const getHealthHomeProject = (): ProjectType => {
     technicalHighlights: ["HIPAA-compliant video conferencing", "Real-time vital monitoring", "Electronic health record integration"],
     teamSize: "8 members",
     methodologies: ["Design Thinking", "Agile", "User-Centered Design"],
-    summary: "A telehealth platform enabling remote patient monitoring during COVID-19 with significant impact on patient outcomes."
+    summary: "A telehealth platform enabling remote patient monitoring during COVID-19 with significant impact on patient outcomes.",
+    date: "2023-03-10"
   };
 };

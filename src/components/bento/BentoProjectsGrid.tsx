@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ProjectType } from '@/types/project';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -30,11 +29,8 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
     );
   }
 
-  // Define the specific projects to show in the featured section
-  // Now featuring Health@Home, CLLCTVE Platform, and Tutor D instead of DoggyDate
   const featuredProjectIds = [0, 1, 2]; // Health@Home, CLLCTVE Platform, and Tutor D
   
-  // Filter to get only the specified projects in the right order
   const featuredProjects = featuredProjectIds
     .map(id => projects?.find(project => project.id === id))
     .filter(project => project !== undefined) as ProjectType[];

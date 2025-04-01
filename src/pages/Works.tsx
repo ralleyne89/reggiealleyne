@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -33,12 +32,9 @@ const Works = () => {
   const handleProjectClick = (project) => {
     if (!project) return;
     
+    // Navigate to the project using its slug if available
     if (project.slug) {
       navigate(`/project/${project.slug}`);
-    } else if (project.id === 0) {
-      navigate('/project/health-at-home');
-    } else if (project.id === 6) {
-      navigate('/project/wristband');
     } else {
       navigate(`/project/${project.id}`);
     }

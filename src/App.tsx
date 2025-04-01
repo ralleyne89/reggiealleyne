@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -30,9 +29,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/works" element={<Works />} />
-          <Route path="/project/:id" element={<Project />} />
+          <Route path="/project/:slug" element={<Project />} />
+          {/* Keep the old routes for backward compatibility */}
           <Route path="/project/health-at-home" element={<HealthHomeProject />} />
-          <Route path="/project/wristband" element={<Project />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>

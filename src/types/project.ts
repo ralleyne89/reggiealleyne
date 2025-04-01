@@ -29,4 +29,5 @@ export interface ProjectType {
   teamSize?: string | null;
   methodologies?: string[] | null;
   summary: string;
+  date?: string;
 }

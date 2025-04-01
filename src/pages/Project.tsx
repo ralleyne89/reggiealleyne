@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -10,27 +11,23 @@ import Footer from '@/components/layout/Footer';
 import { getProject } from '../services/api';
 
 const Project = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  
-  const isWristband = location.pathname.includes('wristband');
   
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const { data: project, isLoading, error } = useQuery({
-    queryKey: ['project', id || (isWristband ? 'wristband' : '')],
+    queryKey: ['project', slug],
     queryFn: async () => {
       try {
-        console.log("Fetching project with ID:", id, "isWristband:", isWristband);
-        if (isWristband) {
-          return await getProject('wristband');
-        } else if (id) {
-          return await getProject(id);
+        console.log("Fetching project with slug:", slug);
+        if (slug) {
+          return await getProject(slug);
         } else {
-          throw new Error("No project ID or slug provided");
+          throw new Error("No project slug provided");
         }
       } catch (err) {
         console.error("Error fetching project:", err);
@@ -41,8 +38,7 @@ const Project = () => {
   });
 
   console.log("Project data:", project);
-  console.log("Project ID:", id);
-  console.log("Is Wristband:", isWristband);
+  console.log("Project slug:", slug);
   console.log("Error:", error);
 
   if (isLoading) {
@@ -117,7 +113,7 @@ const Project = () => {
         <ProjectDeliverables 
           deliverables={projectWithDefaults.deliverables || []}
           images={projectWithDefaults.images || []}
-          projectId={projectWithDefaults.id || id}
+          projectId={projectWithDefaults.slug || projectWithDefaults.id}
         />
       </div>
 

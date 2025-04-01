@@ -4,6 +4,7 @@ import { ProjectType } from '../../../types/project';
 export const getTutorDProject = (): ProjectType => {
   return {
     id: 2,
+    slug: "tutor-d",
     title: "Tutor D",
     description: "Educational platform connecting students with qualified tutors for personalized learning sessions.",
     fullDescription: "A comprehensive platform that matches students with expert tutors based on subject, learning style, and scheduling needs.",
@@ -32,6 +33,7 @@ export const getTutorDProject = (): ProjectType => {
     technicalHighlights: ["Real-time availability calendar", "In-app video conferencing", "Progress tracking dashboard"],
     teamSize: "4 members",
     methodologies: ["Lean UX", "Agile", "User Testing"],
-    summary: "Educational platform connecting students with qualified tutors for personalized learning."
+    summary: "Educational platform connecting students with qualified tutors for personalized learning.",
+    date: "2021-05-20"
   };
 };

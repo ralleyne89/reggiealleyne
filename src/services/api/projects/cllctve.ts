@@ -4,6 +4,7 @@ import { ProjectType } from '../../../types/project';
 export const getCllctveProject = (): ProjectType => {
   return {
     id: 1,
+    slug: "cllctve-platform",
     title: "CLLCTVE Platform",
     description: "A digital portfolio platform connecting college creators with brands seeking authentic content.",
     fullDescription: "CLLCTVE empowers the next generation of creatives by providing a platform to showcase their work and connect with brands looking for authentic content creators.",
@@ -31,6 +32,7 @@ export const getCllctveProject = (): ProjectType => {
     technicalHighlights: ["Creator analytics dashboard", "Automated contract generation", "Secure payment processing"],
     teamSize: "6 members",
     methodologies: ["Design Thinking", "Agile", "Usability Testing"],
-    summary: "Digital platform connecting college creators with brands for authentic content partnerships."
+    summary: "Digital platform connecting college creators with brands for authentic content partnerships.",
+    date: "2020-06-15"
   };
 };
