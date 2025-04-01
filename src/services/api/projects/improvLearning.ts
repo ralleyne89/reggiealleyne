@@ -4,6 +4,7 @@ import { ProjectType } from '../../../types/project';
 export const getImprovLearningProject = (): ProjectType => {
   return {
     id: 5,
+    slug: "improv-learning", // Added proper slug
     title: "Improv Learning - Traffic School",
     description: "A high-converting website for Geico's traffic school partnership focused on increasing user sign-up rates.",
     fullDescription: "A comprehensive website designed for the new traffic school partnership with Geico Insurance. The platform aims to create a seamless user experience that encourages completion of traffic school requirements while maintaining an engaging learning environment.",

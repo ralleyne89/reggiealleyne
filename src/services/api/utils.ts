@@ -16,9 +16,18 @@ export const sortProjectsByDate = (projects: ProjectType[]): ProjectType[] => {
 
 // Create a ProjectType object from the Supabase data
 export const mapSupabaseProjectToProjectType = (data: Tables<'projects'>): ProjectType => {
+  // Create a normalized slug from the title if available
+  const generateSlug = (title: string): string => {
+    return title
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')  // Remove special characters
+      .replace(/\s+/g, '-')      // Replace spaces with hyphens
+      .replace(/-+/g, '-');      // Remove consecutive hyphens
+  };
+
   return {
     id: data.id,
-    slug: `project-${data.id}`, // Generate a default slug using the id
+    slug: generateSlug(data.title),  // Generate a better slug from the title
     title: data.title,
     description: data.description,
     fullDescription: data.full_description || null,

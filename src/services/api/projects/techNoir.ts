@@ -4,6 +4,7 @@ import { ProjectType } from '../../../types/project';
 export const getTechNoirProject = (): ProjectType => {
   return {
     id: 3,
+    slug: "tech-noir", // Added proper slug
     title: "TECH NOIR",
     description: "A fashion & technology driven e-commerce app showcasing wearable technology and educating users on new trends.",
     fullDescription: "An e-commerce platform that merges fashion and wearable technology, educating users on new trends in both worlds while offering a seamless shopping experience. The platform addresses consumer knowledge gaps about wearable technology by showcasing how to integrate tech into fashion.",
