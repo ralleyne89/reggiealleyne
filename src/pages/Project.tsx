@@ -25,7 +25,9 @@ const Project = () => {
       try {
         console.log("Fetching project with slug:", slug);
         if (slug) {
-          return await getProject(slug);
+          const fetchedProject = await getProject(slug);
+          console.log("Fetched project details:", fetchedProject);
+          return fetchedProject;
         } else {
           throw new Error("No project slug provided");
         }
@@ -38,7 +40,7 @@ const Project = () => {
   });
 
   console.log("Project data:", project);
-  console.log("Project slug:", slug);
+  console.log("Project path params:", slug);
   console.log("Error:", error);
 
   if (isLoading) {
@@ -68,6 +70,7 @@ const Project = () => {
     );
   }
 
+  // Add more fallback values to ensure UI stability
   const projectWithDefaults = {
     ...project,
     conclusion: project.conclusion || {
@@ -76,7 +79,10 @@ const Project = () => {
       nextSteps: null
     },
     tags: project.tags || [],
-    techStack: project.techStack || []
+    techStack: project.techStack || [],
+    process: project.process || [],
+    deliverables: project.deliverables || [],
+    images: project.images || []
   };
 
   return (

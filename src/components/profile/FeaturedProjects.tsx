@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Star } from 'lucide-react';
 import { ProjectType } from '@/types/project';
@@ -21,7 +22,7 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
     );
   }
 
-  // Define the specific projects to show (Tutor D instead of DoggyDate)
+  // Define the specific projects to show (Tutor D and Tech Noir)
   const featuredProjectIds = [2, 3]; // Tutor D and Tech Noir
   
   // Filter to get only the specified projects in the right order
@@ -30,6 +31,8 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
     .filter(project => project !== undefined) as ProjectType[];
 
   const handleProjectClick = (project: ProjectType) => {
+    console.log("Featured - Navigating to project:", project.title, "with ID:", project.id, "and slug:", project.slug);
+    
     if (project.slug) {
       navigate(`/project/${project.slug}`);
     } else {

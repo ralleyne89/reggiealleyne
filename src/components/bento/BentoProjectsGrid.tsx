@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { ProjectType } from '@/types/project';
 import { Skeleton } from '@/components/ui/skeleton';
 import { BarChart, Lightbulb, Clock, Users } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface BentoProjectsGridProps {
   projects?: ProjectType[];
@@ -11,6 +12,8 @@ interface BentoProjectsGridProps {
 }
 
 const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProps) => {
+  const navigate = useNavigate();
+  
   if (error) {
     return (
       <div className="w-full bg-[rgba(16,16,16,1)] border rounded-xl p-5 border-[rgba(255,255,255,0.06)]">
@@ -34,14 +37,25 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
   const featuredProjects = featuredProjectIds
     .map(id => projects?.find(project => project.id === id))
     .filter(project => project !== undefined) as ProjectType[];
+  
+  const handleProjectClick = (project: ProjectType, e: React.MouseEvent) => {
+    e.preventDefault();
+    console.log("Bento - Navigating to project:", project.title, "with ID:", project.id, "and slug:", project.slug);
+    
+    if (project.slug) {
+      navigate(`/project/${project.slug}`);
+    } else {
+      navigate(`/project/${project.id}`);
+    }
+  };
 
   return (
     <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
       {featuredProjects.map((project, index) => (
-        <Link
+        <div
           key={project.id}
-          to={project.slug ? `/project/${project.slug}` : `/project/${project.id}`}
-          className={`group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] ${
+          onClick={(e) => handleProjectClick(project, e)}
+          className={`group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] cursor-pointer ${
             index === 0 
               ? 'md:col-span-2 lg:col-span-2 lg:row-span-2' 
               : ''
@@ -128,7 +142,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
               </div>
             </div>
           </div>
-        </Link>
+        </div>
       ))}
     </div>
   );

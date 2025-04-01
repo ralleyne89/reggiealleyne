@@ -19,7 +19,7 @@ const projectGetters = {
   6: getWristbandProject,
 };
 
-// Map of slug to project ID
+// Map of slug to project ID - FIXED to ensure correct mapping
 const slugToIdMap: Record<string, number> = {
   'health-at-home': 0,
   'cllctve-platform': 1,

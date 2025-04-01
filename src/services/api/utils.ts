@@ -22,12 +22,18 @@ export const mapSupabaseProjectToProjectType = (data: Tables<'projects'>): Proje
       .toLowerCase()
       .replace(/[^\w\s-]/g, '')  // Remove special characters
       .replace(/\s+/g, '-')      // Replace spaces with hyphens
-      .replace(/-+/g, '-');      // Remove consecutive hyphens
+      .replace(/-+/g, '-')       // Remove consecutive hyphens
+      .trim();                   // Trim any leading/trailing whitespace
   };
+
+  // Generate the project slug
+  const slug = generateSlug(data.title);
+  
+  console.log(`Generated slug for "${data.title}": ${slug}`);
 
   return {
     id: data.id,
-    slug: generateSlug(data.title),  // Generate a better slug from the title
+    slug: slug,  // Use the generated slug
     title: data.title,
     description: data.description,
     fullDescription: data.full_description || null,
