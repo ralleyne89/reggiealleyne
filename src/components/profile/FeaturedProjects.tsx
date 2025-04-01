@@ -23,7 +23,7 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
   }
 
   // Define the specific projects to show
-  const featuredProjectIds = [0, 6]; // Health@Home and WRISTBAND
+  const featuredProjectIds = [0, 1]; // Health@Home and CLLCTVE
   
   // Filter to get only the specified projects in the right order
   const featuredProjects = featuredProjectIds
@@ -33,8 +33,6 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
   const handleProjectClick = (project: ProjectType) => {
     if (project.slug) {
       navigate(`/project/${project.slug}`);
-    } else if (project.id === 0) {
-      navigate('/project/health-at-home');
     } else {
       navigate(`/project/${project.id}`);
     }

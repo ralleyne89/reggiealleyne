@@ -1,68 +1,96 @@
 import { supabase } from '@/integrations/supabase/client';
 import { ProjectType } from '../types/project';
 
-export const getProject = async (id: number): Promise<ProjectType> => {
+export const getProject = async (idOrSlug: number | string): Promise<ProjectType> => {
+  // Handle string slugs
+  if (typeof idOrSlug === 'string') {
+    // Map slugs to IDs
+    const slugMap: Record<string, number> = {
+      'health-at-home': 0,
+      'cllctve-platform': 1,
+      'tutor-d': 2,
+      'tech-noir': 3,
+      'dataviz-dashboard': 4,
+      'improv-learning': 5,
+      'wristband': 6
+    };
+    
+    const id = slugMap[idOrSlug];
+    if (id !== undefined) {
+      return getProjectById(id);
+    } else {
+      throw new Error('Project not found');
+    }
+  }
+  
+  // Handle numeric IDs
+  return getProjectById(idOrSlug);
+};
+
+const getProjectById = (id: number): Promise<ProjectType> => {
   // Special case for Health@Home project
   if (id === 0) {
-    return getHealthHomeProject();
+    return Promise.resolve(getHealthHomeProject());
   }
   
   // Special case for TECH NOIR project
   if (id === 3) {
-    return getTechNoirProject();
+    return Promise.resolve(getTechNoirProject());
   }
   
   // Special case for DataViz Dashboard project
   if (id === 4) {
-    return getDataVizProject();
+    return Promise.resolve(getDataVizProject());
   }
   
   // Special case for CLLCTVE Platform project
   if (id === 1) {
-    return getCllctveProject();
+    return Promise.resolve(getCllctveProject());
   }
   
   // Special case for Tutor D project
   if (id === 2) {
-    return getTutorDProject();
+    return Promise.resolve(getTutorDProject());
   }
   
   // Special case for Improv Learning project
   if (id === 5) {
-    return getImprovLearningProject();
+    return Promise.resolve(getImprovLearningProject());
+  }
+  
+  // Special case for Wristband project
+  if (id === 6) {
+    return Promise.resolve(getWristbandProject());
   }
 
-  const { data, error } = await supabase
+  return supabase
     .from('projects')
     .select('*')
     .eq('id', id)
-    .maybeSingle();
+    .maybeSingle()
+    .then(({ data, error }) => {
+      if (error || !data) {
+        throw new Error('Project not found');
+      }
 
-  if (error) {
-    throw new Error('Project not found');
-  }
-
-  if (!data) {
-    throw new Error('Project not found');
-  }
-
-  return {
-    ...data,
-    fullDescription: data.full_description,
-    conclusion: {
-      impact: data.impact,
-      learnings: data.learnings,
-      nextSteps: data.next_steps
-    },
-    techStack: data.tech_stack,
-    keyAchievements: data.key_achievements,
-    githubUrl: data.github_url,
-    liveUrl: data.live_url,
-    problemSolved: data.problem_solved,
-    technicalHighlights: data.technical_highlights,
-    teamSize: data.team_size,
-    methodologies: data.methodologies
-  };
+      return {
+        ...data,
+        fullDescription: data.full_description,
+        conclusion: {
+          impact: data.impact,
+          learnings: data.learnings,
+          nextSteps: data.next_steps
+        },
+        techStack: data.tech_stack,
+        keyAchievements: data.key_achievements,
+        githubUrl: data.github_url,
+        liveUrl: data.live_url,
+        problemSolved: data.problem_solved,
+        technicalHighlights: data.technical_highlights,
+        teamSize: data.team_size,
+        methodologies: data.methodologies
+      };
+    });
 };
 
 // Get pre-defined Health@Home project
@@ -303,6 +331,63 @@ const getImprovLearningProject = (): ProjectType => {
   };
 };
 
+// Get pre-defined Wristband project
+const getWristbandProject = (): ProjectType => {
+  return {
+    id: 6,
+    slug: 'wristband',
+    title: "WRISTBAND",
+    description: "An interactive storytelling game app with diverse narratives allowing users to choose their own path.",
+    fullDescription: "A fun and engaging game comprised of stories written from a variety of writers. Users can choose the path of each character in different stories, creating a unique experience for every user.",
+    image: "/lovable-uploads/e1039041-1639-470a-8b58-23636d0b7db4.png",
+    tags: ["Mobile App", "Game Design", "Storytelling"],
+    role: "UX, UI & Visual Design",
+    duration: "2 months",
+    year: "2022",
+    challenge: "Create a unique interactive storytelling experience that stands out from repetitive competitors in the market",
+    process: [
+      "Researched existing interactive storytelling games to identify pain points",
+      "Created low-fidelity sketches to establish key features",
+      "Developed wireframes for core screens and user flows",
+      "Designed high-fidelity mockups with focus on clean navigation",
+      "Prototyped interactive elements and choice-based narratives"
+    ],
+    deliverables: [
+      "Mobile App Design",
+      "User Interface",
+      "User Flows",
+      "Storytelling Framework",
+      "Interactive Prototype"
+    ],
+    images: [
+      "/lovable-uploads/cf7899a4-d533-456a-8a0e-f20b291403be.png",
+      "/lovable-uploads/06ceb6de-e82e-4d70-a4b3-f13cb937c9b5.png",
+      "/lovable-uploads/29f99b71-4c7f-464d-acc4-c04a03e8bb07.png"
+    ],
+    conclusion: {
+      impact: "Higher user retention compared to similar apps, with 40% longer session durations",
+      learnings: "The importance of diverse storytelling perspectives and character development in interactive narratives",
+      nextSteps: "Expanding story library and implementing user-generated content features"
+    },
+    techStack: ["Figma", "Adobe Photoshop", "Principle", "React Native"],
+    keyAchievements: [
+      "Created an engaging UI with distinctive yellow/black theme",
+      "Implemented a flexible storytelling framework that supports multiple genres",
+      "Designed micro-transaction system for premium content"
+    ],
+    problemSolved: "Repetitive and shallow storytelling experiences in existing interactive story apps",
+    technicalHighlights: [
+      "Branching narrative system",
+      "User profile and progress tracking",
+      "Social sharing capabilities",
+      "In-app purchases for premium stories"
+    ],
+    teamSize: "1 member",
+    methodologies: ["User-Centered Design", "Design Thinking", "Rapid Prototyping"],
+    summary: "An interactive storytelling app featuring diverse narratives and choice-based gameplay that creates unique user experiences."
+  };
+};
+
 export const getAllProjects = async (): Promise<ProjectType[]> => {
   const { data, error } = await supabase
     .from('projects')
@@ -315,7 +400,7 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
 
   // Process any other projects from Supabase that don't conflict with our predefined ones
   const otherProjects = data
-    .filter(project => ![0, 1, 2, 3, 4, 5].includes(project.id))
+    .filter(project => ![0, 1, 2, 3, 4, 5, 6].includes(project.id))
     .map(project => ({
       ...project,
       fullDescription: project.full_description,
@@ -341,7 +426,8 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
     getTutorDProject(),
     getTechNoirProject(),
     getDataVizProject(),
-    getImprovLearningProject()
+    getImprovLearningProject(),
+    getWristbandProject()
   ];
 
   // Remove potential duplicates based on project title
