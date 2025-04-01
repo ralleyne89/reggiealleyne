@@ -1,6 +1,6 @@
 
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import ProjectHeader from '../components/project/ProjectHeader';
 import ProjectDetails from '../components/project/ProjectDetails';
@@ -9,11 +9,11 @@ import ProjectDeliverables from '../components/project/ProjectDeliverables';
 import ProjectConclusion from '../components/project/ProjectConclusion';
 import Footer from '@/components/layout/Footer';
 import { getProject } from '../services/api';
+import { toast } from 'sonner';
 
 const Project = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,6 +27,11 @@ const Project = () => {
         if (slug) {
           const fetchedProject = await getProject(slug);
           console.log("Fetched project details:", fetchedProject);
+          
+          if (!fetchedProject) {
+            throw new Error(`Project with slug "${slug}" not found`);
+          }
+          
           return fetchedProject;
         } else {
           throw new Error("No project slug provided");
@@ -37,11 +42,14 @@ const Project = () => {
       }
     },
     retry: 1,
+    onError: (error) => {
+      console.error("Project fetch error:", error);
+      toast.error(`Failed to load project: ${error.message}`);
+    }
   });
 
   console.log("Project data:", project);
   console.log("Project path params:", slug);
-  console.log("Error:", error);
 
   if (isLoading) {
     return (

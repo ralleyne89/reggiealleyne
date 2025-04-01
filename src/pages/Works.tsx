@@ -1,10 +1,10 @@
-
 import React, { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
 import Footer from '@/components/layout/Footer';
+import { toast } from 'sonner';
 
 const Works = () => {
   const navigate = useNavigate();
@@ -31,7 +31,10 @@ const Works = () => {
 
   // Handle project navigation
   const handleProjectClick = (project) => {
-    if (!project) return;
+    if (!project) {
+      toast.error("Project information is missing");
+      return;
+    }
     
     console.log("Navigating to project:", project.title, "with ID:", project.id, "and slug:", project.slug);
     
@@ -78,10 +81,10 @@ const Works = () => {
     );
   }
 
-  // Process the projects array to remove duplicates
+  // Process the projects array to remove duplicates and ensure validity
   const uniqueProjects = projects ? 
     projects.filter((project, index, self) =>
-      index === self.findIndex((p) => p?.title === project?.title)
+      project && project.title && index === self.findIndex((p) => p?.title === project?.title)
     ) : [];
 
   return (
