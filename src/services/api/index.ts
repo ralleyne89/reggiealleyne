@@ -12,6 +12,11 @@ import { supabase } from '@/integrations/supabase/client';
 export const getProject = async (idOrSlug: number | string): Promise<ProjectType> => {
   // Handle string slugs
   if (typeof idOrSlug === 'string') {
+    // Handle specific slug for wristband
+    if (idOrSlug === 'wristband') {
+      return getWristbandProject();
+    }
+    
     // Map slugs to IDs
     const slugMap: Record<string, number> = {
       'health-at-home': 0,
@@ -36,6 +41,9 @@ export const getProject = async (idOrSlug: number | string): Promise<ProjectType
 };
 
 const getProjectById = async (id: number): Promise<ProjectType> => {
+  // Special case for wristband project
+  if (id === 6) return getWristbandProject();
+  
   // Special case for each predefined project
   if (id === 0) return getHealthHomeProject();
   if (id === 1) return getCllctveProject();
@@ -43,7 +51,6 @@ const getProjectById = async (id: number): Promise<ProjectType> => {
   if (id === 3) return getTechNoirProject();
   if (id === 4) return getDataVizProject();
   if (id === 5) return getImprovLearningProject();
-  if (id === 6) return getWristbandProject();
 
   // For other projects from Supabase
   const { data, error } = await supabase

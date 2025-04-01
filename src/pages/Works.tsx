@@ -24,6 +24,8 @@ const Works = () => {
       navigate(`/project/${project.slug}`);
     } else if (project.id === 0) {
       navigate('/project/health-at-home');
+    } else if (project.id === 6) {
+      navigate('/project/wristband');
     } else {
       navigate(`/project/${project.id}`);
     }

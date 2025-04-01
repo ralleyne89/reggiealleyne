@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import ProjectHeader from '../components/project/ProjectHeader';
 import ProjectDetails from '../components/project/ProjectDetails';
@@ -13,6 +13,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Project = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<string>('all');
   
   useEffect(() => {
@@ -21,7 +22,7 @@ const Project = () => {
 
   const { data: project, isLoading, error } = useQuery({
     queryKey: ['project', id],
-    queryFn: () => getProject(Number(id)),
+    queryFn: () => getProject(id || ''),
   });
 
   if (isLoading) {
@@ -33,16 +34,23 @@ const Project = () => {
   }
 
   if (error || !project) {
+    console.error("Project error:", error);
     return (
-      <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white flex items-center justify-center">
-        <p className="text-xl">Project not found</p>
+      <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white flex flex-col items-center justify-center">
+        <p className="text-xl mb-4">Project not found</p>
+        <button 
+          onClick={() => navigate('/works')}
+          className="px-4 py-2 bg-[#9b87f5] text-white rounded-lg hover:bg-[#7E69AB] transition-colors"
+        >
+          Go back to Works
+        </button>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white">
-      {project.techStack && project.techStack.length > 0 && project.id !== 7 && (
+      {project.techStack && project.techStack.length > 0 && (
         <div className="bg-[rgba(16,16,16,1)] border-b border-[rgba(255,255,255,0.1)] py-4">
           <div className="max-w-7xl mx-auto px-6">
             <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>
@@ -70,7 +78,7 @@ const Project = () => {
       
       <ProjectHeader 
         image={project.image}
-        tags={project.tags}
+        tags={project.tags || []}
         title={project.title}
         description={project.description}
       />
@@ -90,17 +98,19 @@ const Project = () => {
         />
         
         <ProjectProcess 
-          challenge={project.challenge}
-          process={project.process}
+          challenge={project.challenge || ''}
+          process={project.process || []}
           problemSolved={project.problemSolved}
           technicalHighlights={project.technicalHighlights}
           keyAchievements={project.keyAchievements}
         />
         
-        <ProjectDeliverables 
-          deliverables={project.deliverables}
-          images={project.images}
-        />
+        {project.deliverables && project.images && (
+          <ProjectDeliverables 
+            deliverables={project.deliverables || []}
+            images={project.images || []}
+          />
+        )}
       </div>
 
       <ProjectConclusion conclusion={project.conclusion} />
