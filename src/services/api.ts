@@ -1,4 +1,3 @@
-
 import { supabase } from '@/integrations/supabase/client';
 import { ProjectType } from '../types/project';
 
@@ -333,7 +332,7 @@ const getImprovLearningProject = (): ProjectType => {
   };
 };
 
-// Get pre-defined Wristband project
+// Get pre-defined Wristband project with updated content
 const getWristbandProject = (): ProjectType => {
   return {
     id: 6,
@@ -341,18 +340,17 @@ const getWristbandProject = (): ProjectType => {
     title: "WRISTBAND",
     description: "An interactive storytelling game app with diverse narratives allowing users to choose their own path.",
     fullDescription: "A fun and engaging game comprised of stories written from a variety of writers. Users can choose the path of each character in different stories, creating a unique experience for every user.",
-    image: "/lovable-uploads/e1039041-1639-470a-8b58-23636d0b7db4.png",
+    image: "/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
     tags: ["Mobile App", "Game Design", "Storytelling"],
     role: "UX, UI & Visual Design",
     duration: "2 months",
     year: "2022",
-    challenge: "Create a unique interactive storytelling experience that stands out from repetitive competitors in the market",
+    challenge: "Many of the interactive storytelling games are very similar, causing users to only use it for a short time then delete it. When it comes to finding a wide variety of genres for the user, it tends to get repetitive. Users have found that the writing seems rushed with characters that look the same with different hair color. How can we give users the missing element they are seeking?",
     process: [
-      "Researched existing interactive storytelling games to identify pain points",
+      "While coming up with the layout of the app, I began sketches to finalize some of the key features. After finding our MVP, I started the design process on those key pages.",
+      "After establishing a solid foundation, I began designing and prototyping the first round of development. Keeping a clean and easy to navigate layout was one of the main focuses while designing.",
       "Created low-fidelity sketches to establish key features",
-      "Developed wireframes for core screens and user flows",
-      "Designed high-fidelity mockups with focus on clean navigation",
-      "Prototyped interactive elements and choice-based narratives"
+      "Designed and prototyped with focus on clean navigation"
     ],
     deliverables: [
       "Mobile App Design",
@@ -362,14 +360,15 @@ const getWristbandProject = (): ProjectType => {
       "Interactive Prototype"
     ],
     images: [
-      "/lovable-uploads/cf7899a4-d533-456a-8a0e-f20b291403be.png",
-      "/lovable-uploads/06ceb6de-e82e-4d70-a4b3-f13cb937c9b5.png",
-      "/lovable-uploads/29f99b71-4c7f-464d-acc4-c04a03e8bb07.png"
+      "/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
+      "/lovable-uploads/aab1244b-de80-4758-8cbe-165d2b66ec19.png",
+      "/lovable-uploads/abd0fcfb-d3c7-4ea0-9f8c-05c8cf2759e9.png",
+      "/lovable-uploads/8ccc7ee6-c4de-44cc-8729-4090d34c7895.png"
     ],
     conclusion: {
-      impact: "Higher user retention compared to similar apps, with 40% longer session durations",
+      impact: "Higher user retention compared to similar apps, with more diverse storytelling perspectives",
       learnings: "The importance of diverse storytelling perspectives and character development in interactive narratives",
-      nextSteps: "Expanding story library and implementing user-generated content features"
+      nextSteps: "By enlisting the help of freelance writers and artists, we will create engaging content that is more relatable to our users. Having these content creators from different cultures and backgrounds will have a more authentic storytelling experience."
     },
     techStack: ["Figma", "Adobe Photoshop", "Principle", "React Native"],
     keyAchievements: [
@@ -377,7 +376,7 @@ const getWristbandProject = (): ProjectType => {
       "Implemented a flexible storytelling framework that supports multiple genres",
       "Designed micro-transaction system for premium content"
     ],
-    problemSolved: "Repetitive and shallow storytelling experiences in existing interactive story apps",
+    problemSolved: "By enlisting the help of freelance writers and artists, we will create engaging content that is more relatable to our users. Having these content creators from different cultures and backgrounds will have a more authentic storytelling experience. Users want to feel connected to the characters they play as, and we want to do our best to include our diverse number of users.",
     technicalHighlights: [
       "Branching narrative system",
       "User profile and progress tracking",

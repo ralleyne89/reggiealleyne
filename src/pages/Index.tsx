@@ -14,8 +14,8 @@ const Index = () => {
     queryFn: getAllProjects
   });
 
-  // Find the WRISTBAND project for the featured banner
-  const wristbandProject = projects?.find(project => project.id === 6);
+  // Find the TECH NOIR project for the featured banner instead of WRISTBAND
+  const techNoirProject = projects?.find(project => project.id === 3);
 
   return (
     <div className="bg-[rgba(5,5,5,1)] min-h-screen w-full overflow-hidden">
@@ -54,24 +54,24 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Featured WRISTBAND Project */}
-          {!isLoading && !error && wristbandProject && (
+          {/* Featured TECH NOIR Project instead of WRISTBAND */}
+          {!isLoading && !error && techNoirProject && (
             <Link 
-              to={`/project/${wristbandProject.slug || wristbandProject.id}`}
+              to={`/project/${techNoirProject.slug || techNoirProject.id}`}
               className="relative w-full bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-[rgba(145,108,231,0.3)] transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] block"
             >
               <div className="flex flex-col md:flex-row items-center">
                 <div className="w-full md:w-1/2 h-64 md:h-96 relative">
                   <img 
-                    src={wristbandProject.image} 
-                    alt={wristbandProject.title} 
+                    src={techNoirProject.image} 
+                    alt={techNoirProject.title} 
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,0,0,0.7)] to-transparent"></div>
                 </div>
                 <div className="w-full md:w-1/2 p-6 md:p-10">
                   <div className="flex gap-2 mb-3">
-                    {wristbandProject.tags?.slice(0, 2).map((tag, i) => (
+                    {techNoirProject.tags?.slice(0, 2).map((tag, i) => (
                       <span 
                         key={i} 
                         className="bg-[rgba(145,108,231,0.1)] text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium"
@@ -81,15 +81,15 @@ const Index = () => {
                     ))}
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-[rgba(230,230,230,1)] mb-3">
-                    {wristbandProject.title}
+                    {techNoirProject.title}
                   </h2>
                   <p className="text-[rgba(153,153,153,1)] md:text-lg mb-4">
-                    {wristbandProject.description}
+                    {techNoirProject.description}
                   </p>
                   <div className="flex items-center gap-4 text-sm text-[rgba(153,153,153,1)]">
-                    <span>{wristbandProject.role}</span>
+                    <span>{techNoirProject.role}</span>
                     <span className="bg-[rgba(145,108,231,0.1)] text-[#916CE7] px-2.5 py-1 rounded-full">
-                      {wristbandProject.year}
+                      {techNoirProject.year}
                     </span>
                   </div>
                 </div>
