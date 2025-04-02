@@ -26,9 +26,9 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
   if (isLoading) {
     return (
       <div className="grid w-full grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5">
-        <Skeleton className="md:col-span-8 h-[300px] sm:h-[400px] lg:h-[450px] rounded-xl" />
-        <Skeleton className="md:col-span-4 h-[200px] sm:h-[220px] rounded-xl" />
-        <Skeleton className="md:col-span-4 h-[200px] sm:h-[220px] rounded-xl" />
+        <Skeleton className="md:col-span-6 h-[300px] sm:h-[400px] rounded-xl" />
+        <Skeleton className="md:col-span-6 h-[200px] sm:h-[220px] rounded-xl" />
+        <Skeleton className="md:col-span-6 h-[200px] sm:h-[220px] rounded-xl" />
       </div>
     );
   }
@@ -55,23 +55,14 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
 
   return (
     <motion.div 
-      className="grid w-full grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5"
+      className="grid w-full grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
       {featuredProjects.map((project, index) => {
-        // Adjust grid span based on index
-        let colSpan = "md:col-span-6";
-        let rowSpan = "";
-        let height = "h-[220px] sm:h-[280px]";
-        
-        // First project (Tech NOIR) gets special treatment but not too stretched
-        if (index === 0) {
-          colSpan = "md:col-span-6";
-          rowSpan = "md:row-span-1";
-          height = "h-[300px] sm:h-[350px]";
-        }
+        // Determine if this is the first project (Tech NOIR)
+        const isFeatured = index === 0;
         
         return (
           <motion.div
@@ -80,7 +71,10 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
             onClick={(e) => handleProjectClick(project, e)}
-            className={`group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] cursor-pointer ${colSpan} ${rowSpan} ${height}`}
+            className={`group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] cursor-pointer ${isFeatured ? 'md:col-span-2' : ''}`}
+            style={{ 
+              height: isFeatured ? '350px' : '250px'
+            }}
           >
             <div className="absolute inset-0 w-full h-full">
               <img 
@@ -108,7 +102,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
               </div>
 
               <div className="space-y-3 w-full">
-                {index === 0 && (
+                {isFeatured && (
                   <div className="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
                       <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
