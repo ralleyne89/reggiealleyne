@@ -1,4 +1,3 @@
-
 import { ProjectType } from '../../types/project';
 import { Tables } from '@/integrations/supabase/types';
 
@@ -27,14 +26,15 @@ export const mapSupabaseProjectToProjectType = (
   try {
     return {
       id: data.id,
-      slug: data.slug,
+      // Use null coalescing for optional fields that might not exist in the database
+      slug: undefined, // Slug doesn't exist in the database, set to undefined
       title: data.title,
       description: data.description,
       summary: data.summary || null,
       fullDescription: data.full_description || null,
       image: data.image,
       tags: data.tags || [],
-      category: data.category || null,
+      category: null, // Category doesn't exist in the database, set to null
       role: data.role || '',
       duration: data.duration || '',
       year: data.year || '',
@@ -57,7 +57,7 @@ export const mapSupabaseProjectToProjectType = (
       date: data.created_at,
       githubUrl: data.github_url || null,
       liveUrl: data.live_url || null,
-      figmaUrl: data.figma_url || null
+      figmaUrl: null // Figma URL doesn't exist in the database, set to null
     };
   } catch (error) {
     console.error('Error mapping Supabase project to ProjectType:', error);

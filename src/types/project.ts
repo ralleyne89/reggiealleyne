@@ -97,6 +97,9 @@ export interface ProjectType {
   /** Link to live demo or deployed project */
   liveUrl?: string | null;
   
+  /** Link to Figma design */
+  figmaUrl?: string | null;
+  
   /**
    * Project conclusion and outcomes
    */
@@ -111,3 +114,4 @@ export interface ProjectType {
     nextSteps: string | null;
   };
 }
+
