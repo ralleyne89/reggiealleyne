@@ -83,9 +83,9 @@ const Navbar = () => {
               transition={{ type: 'spring', stiffness: 500 }}
             >
               <img 
-                src="/lovable-uploads/reggie-logo-2025.PNG" 
+                src="/lovable-uploads/d5f791c1-7299-4a0a-80e0-9e27c0362510.png" 
                 alt="Reggie Alleyne"
-                className="h-9 w-auto"
+                className="h-10 w-auto"
               />
             </motion.div>
           </Link>
