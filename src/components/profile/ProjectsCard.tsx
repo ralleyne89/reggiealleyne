@@ -20,7 +20,7 @@ const ProjectsCard = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,0.8)] to-transparent z-10" />
         <img
           loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/d2a196c42d26391473d2b9a645ee0f0f60cfa5a053ac0cba58cbad32789c3bb5"
+          src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356"
           className="w-full h-full object-cover object-center"
           alt="Projects gallery preview"
         />

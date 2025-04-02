@@ -73,7 +73,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
             onClick={(e) => handleProjectClick(project, e)}
             className={`group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] cursor-pointer ${isFeatured ? 'md:col-span-2' : ''}`}
             style={{ 
-              height: isFeatured ? '280px' : '250px' // Reduced height for main card
+              height: isFeatured ? '240px' : '220px' // Reduced height for better proportions
             }}
           >
             <div className="absolute inset-0 w-full h-full">
@@ -85,9 +85,9 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
               <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,1)] via-[rgba(16,16,16,0.85)] to-transparent"></div>
             </div>
 
-            <div className="relative z-10 p-4 sm:p-6 h-full w-full flex flex-col justify-between">
+            <div className="relative z-10 p-4 sm:p-5 h-full w-full flex flex-col justify-between">
               <div className="w-full">
-                <div className="flex flex-wrap gap-2 mb-2 sm:mb-3">
+                <div className="flex flex-wrap gap-2 mb-2">
                   {project.tags?.slice(0, 3).map((tag, i) => (
                     <span 
                       key={i} 
@@ -97,45 +97,45 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
                     </span>
                   ))}
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-[rgba(230,230,230,1)] mb-2">{project.title}</h3>
-                <p className="text-sm sm:text-base text-[rgba(153,153,153,1)] line-clamp-2 mb-4">{project.description}</p>
+                <h3 className="text-lg font-bold text-[rgba(230,230,230,1)] mb-2">{project.title}</h3>
+                <p className="text-sm text-[rgba(153,153,153,1)] line-clamp-2 mb-2">{project.description}</p>
               </div>
 
-              <div className="space-y-3 w-full">
+              <div className="space-y-2 w-full">
                 {isFeatured && (
-                  <div className="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
+                  <div className="hidden sm:grid grid-cols-3 gap-2">
+                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-2 flex items-center gap-2">
                       <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                        <Lightbulb className="w-4 h-4 text-[#916CE7]" />
+                        <Lightbulb className="w-3.5 h-3.5 text-[#916CE7]" />
                       </div>
                       <div className="flex flex-col">
                         <span className="text-xs text-[rgba(153,153,153,1)]">Problem</span>
-                        <span className="text-sm text-[rgba(230,230,230,1)] truncate">Remote healthcare</span>
+                        <span className="text-xs text-[rgba(230,230,230,1)] truncate">Remote healthcare</span>
                       </div>
                     </div>
-                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
+                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-2 flex items-center gap-2">
                       <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                        <Clock className="w-4 h-4 text-[#916CE7]" />
+                        <Clock className="w-3.5 h-3.5 text-[#916CE7]" />
                       </div>
                       <div className="flex flex-col">
                         <span className="text-xs text-[rgba(153,153,153,1)]">Timeline</span>
-                        <span className="text-sm text-[rgba(230,230,230,1)] truncate">{project.duration}</span>
+                        <span className="text-xs text-[rgba(230,230,230,1)] truncate">{project.duration}</span>
                       </div>
                     </div>
-                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
+                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-2 flex items-center gap-2">
                       <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                        <Users className="w-4 h-4 text-[#916CE7]" />
+                        <Users className="w-3.5 h-3.5 text-[#916CE7]" />
                       </div>
                       <div className="flex flex-col">
                         <span className="text-xs text-[rgba(153,153,153,1)]">Team</span>
-                        <span className="text-sm text-[rgba(230,230,230,1)] truncate max-w-full">{project.teamSize}</span>
+                        <span className="text-xs text-[rgba(230,230,230,1)] truncate max-w-full">{project.teamSize}</span>
                       </div>
                     </div>
                   </div>
                 )}
                 
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-xs sm:text-sm text-[rgba(153,153,153,1)] truncate max-w-[70%]">{project.role}</span>
+                  <span className="text-xs text-[rgba(153,153,153,1)] truncate max-w-[70%]">{project.role}</span>
                   <span className="bg-[rgba(145,108,231,0.2)] text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium">
                     {project.year}
                   </span>

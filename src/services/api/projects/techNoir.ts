@@ -6,9 +6,9 @@ export const getTechNoirProject = (): ProjectType => {
     id: 3,
     slug: "tech-noir", 
     title: "TECH NOIR",
-    description: "A fashion & technology driven e-commerce app showcasing wearable technology and educating users on new trends.",
+    description: "A fashion-tech e-commerce platform blending futuristic aesthetics with wearable technology for the modern consumer.",
     fullDescription: "An e-commerce platform that merges fashion and wearable technology, educating users on new trends in both worlds while offering a seamless shopping experience. The platform addresses consumer knowledge gaps about wearable technology by showcasing how to integrate tech into fashion.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f", // Updated to a more tech/cyberpunk image
     category: "E-commerce",
     tags: ["E-commerce", "Fashion", "Wearable Tech"],
     role: "UX, UI & Visual Design",
