@@ -89,7 +89,7 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
         (project, index, self) => index === self.findIndex((p) => p.title === project.title)
       );
 
-      // Sort projects by date (newest first)
+      // Sort projects by year (oldest first)
       return sortProjectsByDate(uniqueProjects);
     } catch (innerError) {
       console.error('Error fetching from Supabase:', innerError);
