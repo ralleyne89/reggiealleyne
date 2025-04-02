@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Download } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
@@ -61,10 +62,10 @@ const ProfileActions = () => {
     <div className="flex w-full gap-3 text-[13px] text-[rgba(204,204,204,1)] font-medium mt-[30px] flex-col sm:flex-row">
       <button 
         onClick={handleResumeDownload}
-        className="bg-[rgba(31,31,31,1)] flex items-center gap-2.5 justify-center flex-1 shrink basis-[0%] px-2.5 py-4 rounded-xl transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner"
+        className="bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white flex items-center gap-2.5 justify-center flex-1 shrink basis-[0%] px-2.5 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-95 active:shadow-inner"
       >
-        <Download className="w-4 h-4 text-[#916CE7]" />
-        <span>Resume</span>
+        <Download className="w-4 h-4 text-white" />
+        <span>Download Resume</span>
       </button>
       <button className="bg-[rgba(31,31,31,1)] gap-2.5 flex-1 shrink px-2.5 py-4 rounded-xl transition-all duration-300 hover:bg-[rgba(40,40,40,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner">
         WhatsApp Me

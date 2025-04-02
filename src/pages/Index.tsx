@@ -47,9 +47,10 @@ const Index = () => {
     offset: ["start start", "end start"]
   });
   
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
+  // Adjusted to make the effect happen later
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -334,20 +335,20 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            {/* Stats items */}
+            {/* Updated Stats items */}
             <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
               <div className="text-3xl font-heading font-bold text-white mb-1">10+</div>
               <div className="text-gray-400 text-sm">Years Experience</div>
             </div>
             
             <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
-              <div className="text-3xl font-heading font-bold text-white mb-1">50+</div>
+              <div className="text-3xl font-heading font-bold text-white mb-1">100+</div>
               <div className="text-gray-400 text-sm">Projects</div>
             </div>
             
             <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
-              <div className="text-3xl font-heading font-bold text-white mb-1">30+</div>
-              <div className="text-gray-400 text-sm">Happy Clients</div>
+              <div className="text-3xl font-heading font-bold text-white mb-1">40+</div>
+              <div className="text-gray-400 text-sm">UI/UX Solutions</div>
             </div>
             
             <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
@@ -356,8 +357,8 @@ const Index = () => {
             </div>
             
             <div className="hidden sm:block bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
-              <div className="text-3xl font-heading font-bold text-white mb-1">4.9</div>
-              <div className="text-gray-400 text-sm">Client Rating</div>
+              <div className="text-3xl font-heading font-bold text-white mb-1">25+</div>
+              <div className="text-gray-400 text-sm">Technologies</div>
             </div>
           </motion.div>
         </motion.div>

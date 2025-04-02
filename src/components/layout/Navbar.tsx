@@ -12,7 +12,8 @@ const Navbar = () => {
   
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      // Increase threshold for scroll effect to happen later
+      setScrolled(window.scrollY > 100);
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -75,7 +76,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link to="/" className="text-white font-bold text-2xl">
+          <Link to="/" className="text-white">
             <motion.div 
               className="flex items-center"
               whileHover={{ scale: 1.05 }}
@@ -84,9 +85,8 @@ const Navbar = () => {
               <img 
                 src="/reggie-logo-2025.PNG" 
                 alt="Reggie Alleyne"
-                className="h-9 w-auto mr-2"
+                className="h-9 w-auto"
               />
-              <span className="hidden sm:block">Reggie Alleyne</span>
             </motion.div>
           </Link>
           
@@ -106,30 +106,19 @@ const Navbar = () => {
                 </Link>
               </motion.li>
             ))}
-          </ul>
-          
-          {/* CTA Buttons */}
-          <motion.div 
-            className="hidden md:flex items-center space-x-2"
-            variants={itemVariants}
-          >
-            <motion.button
-              onClick={handleResumeDownload}
-              className="flex items-center gap-2 border border-[#7E69AB] text-[#9b87f5] px-4 py-2 rounded-full text-sm font-medium hover:bg-[#7E69AB]/10 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-            >
-              <Download size={16} />
-              Resume
-            </motion.button>
             
-            <motion.a 
-              href="mailto:reggiealleyne89@gmail.com"
-              className="bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white px-5 py-2 rounded-full text-sm font-medium hover:shadow-lg hover:from-[#7E69AB] hover:to-[#9b87f5] transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-            >
-              Hire Me
-            </motion.a>
-          </motion.div>
+            {/* Resume download button moved into the main navigation */}
+            <motion.li variants={itemVariants}>
+              <motion.button
+                onClick={handleResumeDownload}
+                className="flex items-center gap-2 bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white px-4 py-2 rounded-full text-sm font-medium hover:shadow-lg hover:from-[#7E69AB] hover:to-[#9b87f5] transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+              >
+                <Download size={16} />
+                Resume
+              </motion.button>
+            </motion.li>
+          </ul>
           
           {/* Mobile Menu Button */}
           <motion.button 
@@ -180,24 +169,11 @@ const Navbar = () => {
               >
                 <button 
                   onClick={handleResumeDownload}
-                  className="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-300 rounded-md text-sm font-medium hover:bg-[#7E69AB]/20 hover:text-white transition-all duration-300"
+                  className="flex items-center gap-2 w-full px-4 py-2 text-center bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white rounded-md text-sm font-medium"
                 >
                   <Download size={16} />
                   Download Resume
                 </button>
-              </motion.li>
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (navItems.length + 1) * 0.1 }}
-              >
-                <a 
-                  href="mailto:reggiealleyne89@gmail.com"
-                  className="block px-4 py-2 text-center bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white rounded-md text-sm font-medium"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Hire Me
-                </a>
               </motion.li>
             </ul>
           </div>

@@ -33,8 +33,11 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
     );
   }
 
-  const featuredProjectIds = [0, 1, 2]; // Health@Home, CLLCTVE Platform, and Tutor D
+  // Use specific IDs for projects we want to feature
+  const featuredProjectIds = [3, 2, 1]; // TECH NOIR, Tutor D, and one more
   
+  // Filter projects to get only those that match our featured IDs
+  // Preserve the order specified in featuredProjectIds
   const featuredProjects = featuredProjectIds
     .map(id => projects?.find(project => project.id === id))
     .filter(project => project !== undefined) as ProjectType[];
@@ -66,7 +69,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
           onClick={(e) => handleProjectClick(project, e)}
           className={`group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] cursor-pointer ${
             index === 0 
-              ? 'md:col-span-8 lg:row-span-2' 
+              ? 'md:col-span-8 md:row-span-2' 
               : 'md:col-span-4'
           } ${
             index === 0 

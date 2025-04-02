@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Database, Users, Calendar } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
@@ -12,12 +13,12 @@ const StatsCard = () => {
   const stats = [
     { 
       label: 'Projects', 
-      value: projects?.length.toString().padStart(2, '0') || '00', 
+      value: '100', 
       icon: <Database className="w-4 h-4 text-[#916CE7]" /> 
     },
     { 
-      label: 'Clients', 
-      value: '01', 
+      label: 'UI/UX Solutions', 
+      value: '40', 
       icon: <Users className="w-4 h-4 text-[#916CE7]" /> 
     },
     { 
