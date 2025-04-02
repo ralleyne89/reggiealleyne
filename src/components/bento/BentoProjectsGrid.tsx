@@ -73,7 +73,7 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
             onClick={(e) => handleProjectClick(project, e)}
             className={`group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] cursor-pointer ${isFeatured ? 'md:col-span-2' : ''}`}
             style={{ 
-              height: isFeatured ? '350px' : '250px'
+              height: isFeatured ? '280px' : '250px' // Reduced height for main card
             }}
           >
             <div className="absolute inset-0 w-full h-full">

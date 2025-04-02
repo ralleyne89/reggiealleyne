@@ -46,8 +46,8 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
       <div className="space-y-4 w-full">
         {isLoading ? (
           <>
-            <Skeleton className="h-32 w-full" />
-            <Skeleton className="h-32 w-full" />
+            <Skeleton className="h-24 w-full" />
+            <Skeleton className="h-24 w-full" />
           </>
         ) : (
           <div className="grid grid-cols-1 gap-4">
@@ -62,8 +62,8 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.3 }}
               >
-                <div className="flex gap-5 w-full">
-                  <div className="relative group w-32 h-20 flex-shrink-0 overflow-hidden rounded-lg">
+                <div className="flex gap-4 w-full">
+                  <div className="relative group w-20 h-20 md:w-24 md:h-20 flex-shrink-0 overflow-hidden rounded-lg">
                     <img 
                       src={project.image} 
                       alt={project.title}
@@ -78,7 +78,7 @@ const FeaturedProjects = ({ projects, isLoading, error }: FeaturedProjectsProps)
                     <p className="text-[rgba(153,153,153,1)] text-sm mt-1.5 line-clamp-2">
                       {project.description}
                     </p>
-                    <div className="flex gap-2 mt-3 flex-wrap">
+                    <div className="flex gap-2 mt-2 flex-wrap">
                       {project.tags?.slice(0, 2).map((tech, i) => (
                         <span 
                           key={i} 
