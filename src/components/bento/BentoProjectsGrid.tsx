@@ -4,6 +4,7 @@ import { ProjectType } from '@/types/project';
 import { Skeleton } from '@/components/ui/skeleton';
 import { BarChart, Lightbulb, Clock, Users } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 interface BentoProjectsGridProps {
   projects?: ProjectType[];
@@ -24,10 +25,10 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
 
   if (isLoading) {
     return (
-      <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-        <Skeleton className="h-[300px] sm:h-[400px] lg:h-[450px] lg:col-span-2 rounded-xl" />
-        <Skeleton className="h-[200px] sm:h-[220px] rounded-xl" />
-        <Skeleton className="h-[200px] sm:h-[220px] rounded-xl" />
+      <div className="grid w-full grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5">
+        <Skeleton className="md:col-span-8 h-[300px] sm:h-[400px] lg:h-[450px] rounded-xl" />
+        <Skeleton className="md:col-span-4 h-[200px] sm:h-[220px] rounded-xl" />
+        <Skeleton className="md:col-span-4 h-[200px] sm:h-[220px] rounded-xl" />
       </div>
     );
   }
@@ -50,15 +51,23 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
   };
 
   return (
-    <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+    <motion.div 
+      className="grid w-full grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       {featuredProjects.map((project, index) => (
-        <div
+        <motion.div
           key={project.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1, duration: 0.5 }}
           onClick={(e) => handleProjectClick(project, e)}
           className={`group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] cursor-pointer ${
             index === 0 
-              ? 'md:col-span-2 lg:col-span-2 lg:row-span-2' 
-              : ''
+              ? 'md:col-span-8 lg:row-span-2' 
+              : 'md:col-span-4'
           } ${
             index === 0 
               ? 'h-[300px] sm:h-[400px] lg:h-[450px]' 
@@ -92,46 +101,35 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
 
             <div className="space-y-3 w-full">
               {index === 0 && (
-                <>
-                  <div className="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
-                      <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                        <Lightbulb className="w-4 h-4 text-[#916CE7]" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-xs text-[rgba(153,153,153,1)]">Problem</span>
-                        <span className="text-sm text-[rgba(230,230,230,1)] truncate">Remote healthcare</span>
-                      </div>
-                    </div>
-                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
-                      <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                        <Clock className="w-4 h-4 text-[#916CE7]" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-xs text-[rgba(153,153,153,1)]">Timeline</span>
-                        <span className="text-sm text-[rgba(230,230,230,1)] truncate">{project.duration}</span>
-                      </div>
-                    </div>
-                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
-                      <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                        <Users className="w-4 h-4 text-[#916CE7]" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-xs text-[rgba(153,153,153,1)]">Team</span>
-                        <span className="text-sm text-[rgba(230,230,230,1)] truncate max-w-full">{project.teamSize}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="hidden sm:flex bg-[rgba(145,108,231,0.15)] rounded-lg p-3 items-center gap-2">
+                <div className="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
                     <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                      <BarChart className="w-4 h-4 text-[#916CE7]" />
+                      <Lightbulb className="w-4 h-4 text-[#916CE7]" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs text-[rgba(153,153,153,1)]">Impact</span>
-                      <span className="text-sm text-[rgba(230,230,230,1)] truncate max-w-full">{project.conclusion.impact?.split(',')[0]}</span>
+                      <span className="text-xs text-[rgba(153,153,153,1)]">Problem</span>
+                      <span className="text-sm text-[rgba(230,230,230,1)] truncate">Remote healthcare</span>
                     </div>
                   </div>
-                </>
+                  <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
+                    <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
+                      <Clock className="w-4 h-4 text-[#916CE7]" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-xs text-[rgba(153,153,153,1)]">Timeline</span>
+                      <span className="text-sm text-[rgba(230,230,230,1)] truncate">{project.duration}</span>
+                    </div>
+                  </div>
+                  <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
+                    <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
+                      <Users className="w-4 h-4 text-[#916CE7]" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-xs text-[rgba(153,153,153,1)]">Team</span>
+                      <span className="text-sm text-[rgba(230,230,230,1)] truncate max-w-full">{project.teamSize}</span>
+                    </div>
+                  </div>
+                </div>
               )}
               
               <div className="flex items-center justify-between w-full">
@@ -142,9 +140,9 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

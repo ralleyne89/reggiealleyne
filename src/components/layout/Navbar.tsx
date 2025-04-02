@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { toast } from 'sonner';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,12 +25,24 @@ const Navbar = () => {
   
   const navItems = [
     { title: 'Home', path: '/' },
-    { title: 'About', path: '/#about' },
-    { title: 'Services', path: '/#services' },
     { title: 'Portfolio', path: '/works' },
-    { title: 'Blog', path: '/#blog' },
     { title: 'Contact', path: '/#contact' }
   ];
+  
+  const handleResumeDownload = () => {
+    try {
+      const link = document.createElement('a');
+      link.href = '/reggie-alleyne-resume.pdf';
+      link.download = 'reggie-alleyne-resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      toast.success('Resume downloading...');
+    } catch (error) {
+      console.error('Error downloading resume:', error);
+      toast.error('Download failed. Please try again.');
+    }
+  };
   
   const navVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -50,7 +63,11 @@ const Navbar = () => {
 
   return (
     <motion.header 
-      className={`fixed top-0 left-0 right-0 z-50 ${scrolled ? 'bg-[#161623]/90 backdrop-blur-lg' : 'bg-transparent'} transition-all duration-300`}
+      className={`fixed top-0 left-0 right-0 z-50 ${
+        scrolled 
+          ? 'bg-[#161623]/90 backdrop-blur-lg border-b border-[#7E69AB]/20' 
+          : 'bg-transparent'
+      } transition-all duration-300`}
       initial="hidden"
       animate="visible"
       variants={navVariants}
@@ -64,15 +81,17 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: 'spring', stiffness: 500 }}
             >
-              <div className="h-9 w-9 rounded-full bg-[#7E69AB] flex items-center justify-center text-white mr-2">
-                RA
-              </div>
+              <img 
+                src="/reggie-logo-2025.PNG" 
+                alt="Reggie Alleyne"
+                className="h-9 w-auto mr-2"
+              />
               <span className="hidden sm:block">Reggie Alleyne</span>
             </motion.div>
           </Link>
           
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex space-x-1">
+          <ul className="hidden md:flex space-x-2">
             {navItems.map((item, index) => (
               <motion.li key={index} variants={itemVariants}>
                 <Link 
@@ -89,18 +108,27 @@ const Navbar = () => {
             ))}
           </ul>
           
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <motion.div 
-            className="hidden md:block"
+            className="hidden md:flex items-center space-x-2"
             variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
           >
-            <a 
+            <motion.button
+              onClick={handleResumeDownload}
+              className="flex items-center gap-2 border border-[#7E69AB] text-[#9b87f5] px-4 py-2 rounded-full text-sm font-medium hover:bg-[#7E69AB]/10 transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+            >
+              <Download size={16} />
+              Resume
+            </motion.button>
+            
+            <motion.a 
               href="mailto:reggiealleyne89@gmail.com"
               className="bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white px-5 py-2 rounded-full text-sm font-medium hover:shadow-lg hover:from-[#7E69AB] hover:to-[#9b87f5] transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
             >
               Hire Me
-            </a>
+            </motion.a>
           </motion.div>
           
           {/* Mobile Menu Button */}
@@ -117,7 +145,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <motion.div 
-          className="md:hidden bg-[#161623]/95 backdrop-blur-lg"
+          className="md:hidden bg-[#161623]/95 backdrop-blur-lg border-b border-[#7E69AB]/20"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
@@ -149,6 +177,19 @@ const Navbar = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navItems.length * 0.1 }}
+              >
+                <button 
+                  onClick={handleResumeDownload}
+                  className="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-300 rounded-md text-sm font-medium hover:bg-[#7E69AB]/20 hover:text-white transition-all duration-300"
+                >
+                  <Download size={16} />
+                  Download Resume
+                </button>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: (navItems.length + 1) * 0.1 }}
               >
                 <a 
                   href="mailto:reggiealleyne89@gmail.com"
