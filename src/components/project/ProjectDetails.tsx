@@ -13,8 +13,9 @@ interface ProjectDetailsProps {
   year: string;
   teamSize?: string;
   methodologies?: string[];
-  githubUrl?: string;
-  liveUrl?: string;
+  githubUrl?: string | null;
+  liveUrl?: string | null;
+  prototypeUrl?: string | null;  // Added this line
   summary: string;
   problem?: string;
   solution?: string;
@@ -28,6 +29,7 @@ const ProjectDetails = ({
   methodologies,
   githubUrl,
   liveUrl,
+  prototypeUrl, // Added this line
   summary,
   problem,
   solution
@@ -57,8 +59,12 @@ const ProjectDetails = ({
         <ProjectSolution solution={solution} />
       )}
 
-      {(githubUrl || liveUrl) && (
-        <ProjectLinks githubUrl={githubUrl} liveUrl={liveUrl} />
+      {(githubUrl || liveUrl || prototypeUrl) && (
+        <ProjectLinks 
+          githubUrl={githubUrl} 
+          liveUrl={liveUrl}
+          prototypeUrl={prototypeUrl}
+        />
       )}
     </div>
   );

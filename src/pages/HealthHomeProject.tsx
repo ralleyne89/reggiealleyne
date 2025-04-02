@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { ArrowLeft, BarChart2, Clock, Users, CheckCircle, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -250,6 +249,17 @@ const HealthHomeProject = () => {
               </div>
             </div>
           </div>
+        </div>
+        
+        <div className="mb-16 flex justify-center">
+          <a 
+            href="https://bs-hh.netlify.app/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-[#9b87f5] rounded-lg hover:bg-[#7E69AB] transition-colors duration-300"
+          >
+            View Interactive Prototype
+          </a>
         </div>
       </div>
 

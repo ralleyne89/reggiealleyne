@@ -1,3 +1,4 @@
+
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -7,9 +8,10 @@ interface ProjectConclusionProps {
     learnings: string;
     nextSteps: string;
   };
+  prototypeUrl?: string;
 }
 
-const ProjectConclusion = ({ conclusion }: ProjectConclusionProps) => {
+const ProjectConclusion = ({ conclusion, prototypeUrl }: ProjectConclusionProps) => {
   return (
     <div className="w-full bg-[rgba(5,5,5,1)] px-6">
       <div className="max-w-7xl mx-auto">
@@ -48,14 +50,16 @@ const ProjectConclusion = ({ conclusion }: ProjectConclusionProps) => {
           >
             View More Projects
           </Link>
-          <a 
-            href="https://prototype-url.com" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-[#9b87f5] border-2 border-[#9b87f5] rounded-lg hover:bg-[#9b87f5] hover:text-white transition-all duration-300 gap-2"
-          >
-            View Prototype <ExternalLink className="w-5 h-5" />
-          </a>
+          {prototypeUrl && (
+            <a 
+              href={prototypeUrl}
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-[#9b87f5] border-2 border-[#9b87f5] rounded-lg hover:bg-[#9b87f5] hover:text-white transition-all duration-300 gap-2"
+            >
+              View Prototype <ExternalLink className="w-5 h-5" />
+            </a>
+          )}
         </div>
       </div>
     </div>

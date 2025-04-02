@@ -28,6 +28,8 @@ export const getHealthHomeProject = (): ProjectType => {
     },
     techStack: ["React", "Node.js", "Material UI", "Figma"],
     keyAchievements: ["Led cross-functional team of principal level designers, content strategists, and reearchers", "Served 50,000+ patients"],
+    githubUrl: null,
+    liveUrl: "https://bs-hh.netlify.app/",
     problemSolved: "Inefficient remote healthcare delivery during pandemic restrictions",
     technicalHighlights: ["HIPAA-compliant video conferencing", "Real-time vital monitoring", "Electronic health record integration"],
     teamSize: "8 members",

@@ -1,11 +1,13 @@
+
 interface ProjectLinksProps {
-  githubUrl?: string;
-  liveUrl?: string;
+  githubUrl?: string | null;
+  liveUrl?: string | null;
+  prototypeUrl?: string | null;
 }
 
-const ProjectLinks = ({ githubUrl, liveUrl }: ProjectLinksProps) => {
+const ProjectLinks = ({ githubUrl, liveUrl, prototypeUrl }: ProjectLinksProps) => {
   return (
-    <div className="flex gap-4 mt-8">
+    <div className="flex flex-wrap gap-4 mt-8">
       {githubUrl && (
         <a 
           href={githubUrl}
@@ -24,6 +26,16 @@ const ProjectLinks = ({ githubUrl, liveUrl }: ProjectLinksProps) => {
           className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-[#9b87f5] rounded-lg hover:bg-[#7E69AB] transition-colors duration-300"
         >
           View Live Demo
+        </a>
+      )}
+      {prototypeUrl && (
+        <a 
+          href={prototypeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-[#9b87f5] bg-transparent border-2 border-[#9b87f5] rounded-lg hover:bg-[#9b87f5] hover:text-white transition-all duration-300"
+        >
+          View Prototype
         </a>
       )}
     </div>
