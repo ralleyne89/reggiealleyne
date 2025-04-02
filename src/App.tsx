@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import Works from "./pages/Works";
 import Project from "./pages/Project";
 import HealthHomeProject from "./pages/HealthHomeProject";
+import Navbar from "./components/layout/Navbar";
+import { AnimatePresence } from "framer-motion";
 
 // Create a new QueryClient instance with proper configuration
 const queryClient = new QueryClient({
@@ -26,14 +28,17 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/works" element={<Works />} />
-          <Route path="/project/:slug" element={<Project />} />
-          {/* Keep the old routes for backward compatibility */}
-          <Route path="/project/health-at-home" element={<HealthHomeProject />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <Navbar />
+        <AnimatePresence mode="wait">
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/works" element={<Works />} />
+            <Route path="/project/:slug" element={<Project />} />
+            {/* Keep the old routes for backward compatibility */}
+            <Route path="/project/health-at-home" element={<HealthHomeProject />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </AnimatePresence>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

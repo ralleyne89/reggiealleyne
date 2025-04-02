@@ -1,56 +1,134 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Github, Linkedin, Mail, Instagram, Twitter } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  
+  const footerLinks = [
+    { title: 'Home', path: '/' },
+    { title: 'About', path: '/#about' },
+    { title: 'Services', path: '/#services' },
+    { title: 'Portfolio', path: '/works' },
+    { title: 'Blog', path: '/#blog' },
+    { title: 'Contact', path: '/#contact' }
+  ];
+  
+  const socialLinks = [
+    { 
+      name: 'LinkedIn', 
+      icon: <Linkedin size={18} />, 
+      url: 'https://linkedin.com/in/reggiealleyne' 
+    },
+    { 
+      name: 'GitHub', 
+      icon: <Github size={18} />, 
+      url: 'https://github.com/ralleyne89' 
+    },
+    { 
+      name: 'Instagram', 
+      icon: <Instagram size={18} />, 
+      url: '#' 
+    },
+    { 
+      name: 'Twitter', 
+      icon: <Twitter size={18} />, 
+      url: '#' 
+    },
+    { 
+      name: 'Email', 
+      icon: <Mail size={18} />, 
+      url: 'mailto:reggiealleyne89@gmail.com' 
+    }
+  ];
 
   return (
-    <footer className="w-full bg-[rgba(15,15,15,1)] border-t border-[rgba(35,35,35,1)] mt-10 py-8">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
-        <div className="flex flex-col items-center justify-center space-y-6">
-          {/* Social Links */}
-          <div className="flex items-center space-x-6">
-            <a
-              href="https://github.com/ralleyne89"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[rgba(204,204,204,1)] hover:text-[#916CE7] transition-colors"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="https://linkedin.com/in/reggiealleyne"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[rgba(204,204,204,1)] hover:text-[#916CE7] transition-colors"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a
-              href="mailto:reggiealleyne89@gmail.com"
-              className="text-[rgba(204,204,204,1)] hover:text-[#916CE7] transition-colors"
-            >
-              <Mail className="w-5 h-5" />
-            </a>
-          </div>
-
-          {/* Navigation Links */}
-          <div className="flex items-center space-x-6 text-sm">
-            <Link to="/" className="text-[rgba(204,204,204,1)] hover:text-[#916CE7] transition-colors">
-              Home
+    <footer className="bg-secondary relative pt-20 pb-8 overflow-hidden">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+          <div className="md:col-span-2">
+            <Link to="/" className="flex items-center mb-6">
+              <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white mr-2">
+                RA
+              </div>
+              <span className="text-white font-bold text-xl">Reggie Alleyne</span>
             </Link>
-            <Link to="/works" className="text-[rgba(204,204,204,1)] hover:text-[#916CE7] transition-colors">
-              Works
-            </Link>
+            
+            <p className="text-gray-400 mb-6 max-w-md">
+              UI/UX Designer specializing in creating beautiful and functional digital experiences that drive business growth and delight users.
+            </p>
+            
+            <div className="flex space-x-4">
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-secondary-light text-gray-400 p-2 rounded-full hover:text-primary hover:bg-primary/10 transition-colors"
+                  whileHover={{ y: -5 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  {social.icon}
+                </motion.a>
+              ))}
+            </div>
           </div>
-
-          {/* Copyright */}
-          <div className="text-[rgba(153,153,153,1)] text-sm">
-            © {currentYear} Reggie Alleyne. All rights reserved.
+          
+          <div>
+            <h3 className="text-white font-semibold text-lg mb-6">Quick Links</h3>
+            <ul className="space-y-3">
+              {footerLinks.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    to={link.path}
+                    className="text-gray-400 hover:text-primary transition-colors flex items-center"
+                  >
+                    <motion.span 
+                      className="mr-2"
+                      initial={{ opacity: 0, x: -5 }}
+                      whileHover={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      →
+                    </motion.span>
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-white font-semibold text-lg mb-6">Contact Info</h3>
+            <ul className="space-y-3 text-gray-400">
+              <li>Los Angeles, CA</li>
+              <li>reggiealleyne89@gmail.com</li>
+              <li>Available for remote work</li>
+            </ul>
+            
+            <motion.button
+              className="mt-6 bg-primary text-white px-5 py-2 rounded-lg font-medium hover:bg-primary-dark transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Hire Me
+            </motion.button>
           </div>
         </div>
+        
+        <div className="border-t border-gray-800 pt-8 text-center">
+          <p className="text-gray-500 text-sm">
+            © {currentYear} Reggie Alleyne. All rights reserved.
+          </p>
+        </div>
       </div>
+      
+      {/* Background elements */}
+      <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
     </footer>
   );
 };
