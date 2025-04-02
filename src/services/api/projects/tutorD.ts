@@ -9,6 +9,7 @@ export const getTutorDProject = (): ProjectType => {
     description: "Educational platform connecting students with qualified tutors for personalized learning sessions.",
     fullDescription: "A comprehensive platform that matches students with expert tutors based on subject, learning style, and scheduling needs.",
     image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8",
+    category: "Education",
     tags: ["Education", "Marketplace", "SaaS"],
     role: "UI/UX Designer & Frontend Developer",
     duration: "6 months",

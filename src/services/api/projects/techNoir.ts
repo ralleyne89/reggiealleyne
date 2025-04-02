@@ -9,6 +9,7 @@ export const getTechNoirProject = (): ProjectType => {
     description: "A fashion & technology driven e-commerce app showcasing wearable technology and educating users on new trends.",
     fullDescription: "An e-commerce platform that merges fashion and wearable technology, educating users on new trends in both worlds while offering a seamless shopping experience. The platform addresses consumer knowledge gaps about wearable technology by showcasing how to integrate tech into fashion.",
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+    category: "E-commerce",
     tags: ["E-commerce", "Fashion", "Wearable Tech"],
     role: "UX, UI & Visual Design",
     duration: "2 months",

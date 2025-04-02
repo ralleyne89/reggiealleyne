@@ -2,7 +2,7 @@
 import { ProjectType } from '../../types/project';
 import { Tables } from '@/integrations/supabase/types';
 
-// Helper function to sort projects by year (newest first)
+// Helper function to sort projects by date (newest first)
 export const sortProjectsByDate = (projects: ProjectType[]): ProjectType[] => {
   return [...projects].sort((a, b) => {
     // Extract year from project and convert to number
@@ -39,6 +39,7 @@ export const mapSupabaseProjectToProjectType = (data: Tables<'projects'>): Proje
     fullDescription: data.full_description || null,
     image: data.image,
     tags: data.tags || [],
+    category: data.category || null, // Add category mapping
     role: data.role || '',
     duration: data.duration || '',
     year: data.year || '',

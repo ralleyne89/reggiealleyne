@@ -9,6 +9,7 @@ export const getHealthHomeProject = (): ProjectType => {
     description: "A comprehensive telehealth solution for Blue Shield of California, enabling remote patient monitoring during COVID-19.",
     fullDescription: "A full-featured telehealth platform designed to help patients connect with healthcare providers remotely during the COVID-19 pandemic, with robust monitoring capabilities.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+    category: "Healthcare",
     tags: ["Enterprise UX", "Healthcare", "Telehealth"],
     role: "Lead UX Designer",
     duration: "8 months",

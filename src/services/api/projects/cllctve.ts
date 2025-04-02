@@ -9,6 +9,7 @@ export const getCllctveProject = (): ProjectType => {
     description: "A digital portfolio platform connecting college creators with brands seeking authentic content.",
     fullDescription: "CLLCTVE empowers the next generation of creatives by providing a platform to showcase their work and connect with brands looking for authentic content creators.",
     image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d",
+    category: "Platform",
     tags: ["Platform", "Creative", "Marketplace"],
     role: "Frontend Developer & UI Designer",
     duration: "2 years",
