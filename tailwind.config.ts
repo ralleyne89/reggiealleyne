@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -20,6 +21,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Montserrat', 'sans-serif'],
+				display: ['Playfair Display', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -64,6 +66,27 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// New enhanced color palette
+				purple: {
+					light: '#B3A2F7',
+					DEFAULT: '#9b87f5',
+					dark: '#7E69AB'
+				},
+				teal: {
+					light: '#7FDEDC',
+					DEFAULT: '#3BBCB9',
+					dark: '#2A9491'
+				},
+				coral: {
+					light: '#FF8A8A',
+					DEFAULT: '#FF6B6B',
+					dark: '#E95757'
+				},
+				charcoal: {
+					light: '#383838',
+					DEFAULT: '#1A1A1A',
+					dark: '#121212'
 				}
 			},
 			borderRadius: {
@@ -87,11 +110,47 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'slide-in-right': {
+					'0%': { transform: 'translateX(20px)', opacity: '0' },
+					'100%': { transform: 'translateX(0)', opacity: '1' }
+				},
+				'slide-in-left': {
+					'0%': { transform: 'translateX(-20px)', opacity: '0' },
+					'100%': { transform: 'translateX(0)', opacity: '1' }
+				},
+				'scale-in': {
+					'0%': { transform: 'scale(0.95)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				pulse: {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'slide-in-right': 'slide-in-right 0.5s ease-out',
+				'slide-in-left': 'slide-in-left 0.5s ease-out',
+				'scale-in': 'scale-in 0.3s ease-out',
+				'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+			},
+			boxShadow: {
+				glow: '0 0 20px rgba(155, 135, 245, 0.5)',
+				'glow-teal': '0 0 20px rgba(63, 188, 185, 0.5)',
+				card: '0 10px 30px rgba(0, 0, 0, 0.1)'
 			}
 		}
 	},

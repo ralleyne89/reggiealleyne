@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ProfileHeader from './ProfileHeader';
 import ProfileTags from './ProfileTags';
@@ -5,7 +6,7 @@ import ProfileActions from './ProfileActions';
 
 const ProfileCard = () => {
   return (
-    <div className="bg-[rgba(16,16,16,1)] border w-full max-w-[463px] p-5 rounded-xl border-[rgba(255,255,255,0.06)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
+    <div className="glass-card w-full max-w-[463px] p-6 rounded-xl border-[rgba(255,255,255,0.1)] border-solid transition-all duration-500 hover:bg-[rgba(25,25,25,0.8)] hover:border-purple/40 hover:shadow-glow">
       <ProfileHeader />
       <ProfileTags />
       <ProfileActions />

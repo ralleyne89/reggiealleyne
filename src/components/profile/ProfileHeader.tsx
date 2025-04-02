@@ -24,16 +24,16 @@ const ProfileHeader = () => {
     <div className="flex w-full gap-[15px] flex-col sm:flex-row justify-between items-center">
       <div className="flex gap-5 items-center">
         <div className="relative w-[101px] h-[101px]">
+          <div className="absolute -inset-1 bg-gradient-to-r from-purple to-teal rounded-lg opacity-75 blur-sm animate-pulse-slow"></div>
           <img
             loading="lazy"
             src="/lovable-uploads/1686931266900.jpeg"
-            className="aspect-square object-cover w-full h-full rounded-lg"
+            className="relative aspect-square object-cover w-full h-full rounded-lg z-10"
             alt="Profile"
           />
-          <div className="absolute inset-0 rounded-lg border-2 border-[#9b87f5] glow-effect"></div>
         </div>
         <div className="flex flex-col">
-          <h1 className="text-[rgba(230,230,230,1)] text-[28px] font-semibold leading-none">
+          <h1 className="text-[rgba(230,230,230,1)] text-[28px] font-bold font-display leading-none">
             Reggie Alleyne
           </h1>
           <div className="flex items-center gap-1 text-sm mt-2.5">
@@ -44,7 +44,7 @@ const ProfileHeader = () => {
               {titles.map((title, index) => (
                 <div
                   key={index}
-                  className="absolute inset-x-0 transition-all duration-500 ease-in-out text-[rgba(145,108,231,1)] font-semibold whitespace-nowrap"
+                  className="absolute inset-x-0 transition-all duration-500 ease-in-out text-transparent bg-gradient-to-r from-purple to-teal-light bg-clip-text font-semibold whitespace-nowrap"
                   style={{
                     transform: `translateY(${(index - currentTitleIndex) * 100}%)`,
                     opacity: index === currentTitleIndex ? 1 : 0
@@ -57,30 +57,30 @@ const ProfileHeader = () => {
           </div>
           <div className="flex items-center gap-4 mt-2 text-xs text-[rgba(153,153,153,1)]">
             <div className="flex items-center gap-1">
-              <MapPin size={12} className="text-[#9b87f5]" />
+              <MapPin size={12} className="text-purple" />
               <span>Los Angeles, CA</span>
             </div>
             <div className="flex items-center gap-1">
-              <Briefcase size={12} className="text-[#9b87f5]" />
+              <Briefcase size={12} className="text-teal" />
               <span>10+ Years Experience</span>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-3">
-        <div className="bg-[rgba(20,20,20,1)] border flex items-center gap-2 text-sm text-[rgba(153,153,153,1)] px-4 py-2 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap">
+      <div className="flex items-center gap-3 mt-4 sm:mt-0">
+        <div className="glass-card flex items-center gap-2 text-sm text-[rgba(180,180,180,1)] px-4 py-2 rounded-[40px] whitespace-nowrap">
           <div className="relative">
-            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-            <div className="absolute inset-0 w-2 h-2 rounded-full border border-green-500 animate-ping"></div>
+            <div className="w-2 h-2 rounded-full bg-teal animate-pulse-slow"></div>
+            <div className="absolute inset-0 w-2 h-2 rounded-full border border-teal animate-ping"></div>
           </div>
           <span className="ml-2">Available To Work</span>
         </div>
         <Link 
           to="/works"
-          className="bg-[rgba(20,20,20,1)] hover:bg-[rgba(30,30,30,1)] border flex items-center gap-1 text-sm text-[#9b87f5] px-4 py-2 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap transition-colors duration-300"
+          className="bg-gradient-to-r from-purple to-teal hover:from-purple-dark hover:to-teal-dark flex items-center gap-1 text-sm text-white px-4 py-2 rounded-[40px] whitespace-nowrap transition-all duration-300 shadow-md hover:shadow-glow"
         >
           <span>Portfolio</span>
-          <ArrowRight size={14} />
+          <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </div>
     </div>
