@@ -15,7 +15,7 @@ interface ProjectDetailsProps {
   methodologies?: string[];
   githubUrl?: string | null;
   liveUrl?: string | null;
-  prototypeUrl?: string | null;
+  prototypeUrl?: string | null;  // Added this line
   summary: string;
   problem?: string;
   solution?: string;
@@ -29,58 +29,42 @@ const ProjectDetails = ({
   methodologies,
   githubUrl,
   liveUrl,
-  prototypeUrl,
+  prototypeUrl, // Added this line
   summary,
   problem,
   solution
 }: ProjectDetailsProps) => {
   return (
     <div className="mb-16">
-      <div className="mb-8 glass-card p-8 rounded-xl border border-white/10 animate-fade-in">
-        <h3 className="text-xl font-display font-semibold gradient-text mb-3">Project Summary</h3>
-        <p className="text-[rgba(180,180,180,1)] leading-relaxed">{summary}</p>
+      <div className="mb-8">
+        <h3 className="text-lg font-semibold text-[#9b87f5] mb-3">Project Summary</h3>
+        <p className="text-[rgba(153,153,153,1)]">{summary}</p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div className="glass-card p-6 rounded-xl border border-white/10 animate-slide-in-left" style={{ animationDelay: '100ms' }}>
-          <ProjectBasicInfo role={role} duration={duration} year={year} />
-        </div>
-        
-        {teamSize && (
-          <div className="glass-card p-6 rounded-xl border border-white/10 animate-slide-in-right" style={{ animationDelay: '200ms' }}>
-            <ProjectTeamInfo teamSize={teamSize} />
-          </div>
-        )}
-      </div>
-
-      {methodologies && methodologies.length > 0 && (
-        <div className="mb-8 glass-card p-6 rounded-xl border border-white/10 animate-fade-in" style={{ animationDelay: '300ms' }}>
-          <ProjectTechInfo methodologies={methodologies} />
-        </div>
+      <ProjectBasicInfo role={role} duration={duration} year={year} />
+      
+      {teamSize && (
+        <ProjectTeamInfo teamSize={teamSize} />
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        {problem && (
-          <div className="glass-card p-6 rounded-xl border border-white/10 animate-slide-in-left" style={{ animationDelay: '400ms' }}>
-            <ProjectProblem problem={problem} />
-          </div>
-        )}
+      {methodologies && methodologies.length > 0 && (
+        <ProjectTechInfo methodologies={methodologies} />
+      )}
 
-        {solution && (
-          <div className="glass-card p-6 rounded-xl border border-white/10 animate-slide-in-right" style={{ animationDelay: '500ms' }}>
-            <ProjectSolution solution={solution} />
-          </div>
-        )}
-      </div>
+      {problem && (
+        <ProjectProblem problem={problem} />
+      )}
+
+      {solution && (
+        <ProjectSolution solution={solution} />
+      )}
 
       {(githubUrl || liveUrl || prototypeUrl) && (
-        <div className="glass-card p-6 rounded-xl border border-white/10 animate-fade-in" style={{ animationDelay: '600ms' }}>
-          <ProjectLinks 
-            githubUrl={githubUrl} 
-            liveUrl={liveUrl}
-            prototypeUrl={prototypeUrl}
-          />
-        </div>
+        <ProjectLinks 
+          githubUrl={githubUrl} 
+          liveUrl={liveUrl}
+          prototypeUrl={prototypeUrl}
+        />
       )}
     </div>
   );

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Figma, Framer, PenTool, Layout, Layers } from 'lucide-react';
 
@@ -11,13 +10,13 @@ const TechStack = () => {
   ];
 
   return (
-    <div className="glass-card p-6 rounded-xl border-white/10 border-solid transition-all duration-300 hover:border-purple/40 hover:shadow-glow card-hover">
+    <div className="bg-[rgba(16,16,16,1)] border p-5 rounded-xl border-[rgba(255,255,255,0.05)] border-solid transition-all duration-300 hover:bg-[rgba(20,20,20,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1">
       <div className="flex w-full flex-col items-center mb-6">
-        <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(180,180,180,1)] font-medium px-2.5 py-1.5">
-          <Layers className="w-4 h-4 text-teal" />
+        <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium px-2.5 py-1.5">
+          <Layers className="w-4 h-4 text-[#916CE7]" />
           <span>My Stacks</span>
         </div>
-        <div className="gradient-text text-xl font-display font-semibold text-center">
+        <div className="text-[rgba(230,230,230,1)] text-xl font-semibold">
           Tech Arsenal
         </div>
       </div>
@@ -26,13 +25,13 @@ const TechStack = () => {
           {tools.map((tool, index) => (
             <div 
               key={index} 
-              className="glass-card bg-gradient-to-r from-charcoal-light/50 to-charcoal/50 flex items-center px-4 py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-md hover:from-charcoal-light hover:to-charcoal animate-fade-in cursor-pointer"
+              className="bg-[rgba(25,25,25,1)] flex items-center px-4 py-3 rounded-xl transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:scale-[1.02] hover:shadow-lg animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="bg-gradient-to-br from-purple/20 to-teal/20 p-2 rounded-lg mr-3 border border-white/10">
+              <div className="bg-[#333333] p-2 rounded-lg mr-3">
                 {tool.icon}
               </div>
-              <span className="text-[rgba(230,230,230,1)] font-medium">
+              <span className="text-[rgba(204,204,204,1)] font-medium">
                 {tool.name}
               </span>
             </div>

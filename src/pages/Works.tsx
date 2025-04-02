@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -6,12 +5,9 @@ import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
 import Footer from '@/components/layout/Footer';
 import { toast } from 'sonner';
-import useScrollReveal from '@/hooks/useScrollReveal';
 
 const Works = () => {
   const navigate = useNavigate();
-  const headerReveal = useScrollReveal();
-  const projectsReveal = useScrollReveal({ threshold: 0.1 });
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -52,14 +48,14 @@ const Works = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[rgba(5,5,5,1)] subtle-pattern text-white p-6 md:p-8">
+      <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white p-6 md:p-8">
         <div className="max-w-7xl mx-auto">
           <div className="animate-pulse space-y-4">
-            <div className="h-8 w-32 bg-gray-700/50 rounded"></div>
-            <div className="h-12 w-64 bg-gray-700/50 rounded"></div>
+            <div className="h-8 w-32 bg-gray-700 rounded"></div>
+            <div className="h-12 w-64 bg-gray-700 rounded"></div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="h-96 bg-gray-700/30 rounded-xl backdrop-blur-lg"></div>
+                <div key={i} className="h-96 bg-gray-700 rounded-xl"></div>
               ))}
             </div>
           </div>
@@ -71,12 +67,12 @@ const Works = () => {
   if (error) {
     console.error('Projects error:', error);
     return (
-      <div className="min-h-screen bg-[rgba(5,5,5,1)] subtle-pattern text-white p-6 md:p-8">
+      <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white p-6 md:p-8">
         <div className="max-w-7xl mx-auto">
           <p className="text-red-500">Error loading projects: {error instanceof Error ? error.message : 'Unknown error'}</p>
           <button 
             onClick={() => navigate('/')}
-            className="mt-4 px-4 py-2 bg-gradient-to-r from-purple to-teal text-white rounded-lg hover:shadow-glow transition-all duration-300"
+            className="mt-4 px-4 py-2 bg-[#9b87f5] text-white rounded-lg hover:bg-[#7E69AB] transition-colors"
           >
             Return to Home
           </button>
@@ -92,57 +88,56 @@ const Works = () => {
     ) : [];
 
   return (
-    <div className="min-h-screen bg-[rgba(5,5,5,1)] subtle-pattern text-white">
+    <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white">
       <div className="p-6 md:p-8">
         <div className="max-w-7xl mx-auto">
-          <div {...headerReveal} className="mb-8">
+          <div className="mb-8">
             <Link 
               to="/" 
-              className="inline-flex items-center text-white bg-purple/20 px-4 py-2 rounded-full border border-purple/30 hover:bg-purple/40 transition-all duration-300 hover:shadow-glow"
+              className="inline-flex items-center text-[#9b87f5] hover:text-[#7E69AB] transition-colors"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Home
             </Link>
-            <h1 className="text-3xl font-display font-bold mt-4 text-transparent bg-gradient-to-r from-white via-white to-white/70 bg-clip-text">Works Gallery</h1>
-            <p className="text-[rgba(180,180,180,1)] mt-2">A collection of my recent projects and works</p>
+            <h1 className="text-3xl font-bold mt-4 text-[rgba(230,230,230,1)]">Works Gallery</h1>
+            <p className="text-[rgba(153,153,153,1)] mt-2">A collection of my recent projects and works</p>
           </div>
 
-          <div {...projectsReveal} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {uniqueProjects && uniqueProjects.length > 0 ? (
-              uniqueProjects.map((project, index) => (
+              uniqueProjects.map((project) => (
                 project && (
                   <div 
                     key={project.id}
-                    className="glass-card border-white/10 rounded-xl overflow-hidden transition-all duration-500 hover:border-purple/30 hover:shadow-glow hover:-translate-y-2 cursor-pointer h-full flex flex-col transform"
+                    className="bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1 cursor-pointer h-full flex flex-col"
                     onClick={() => handleProjectClick(project)}
-                    style={{ transitionDelay: `${index * 50}ms` }}
                   >
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-48">
                       <img 
                         src={project.image} 
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                        className="w-full h-full object-cover"
                         onError={(e) => {
                           console.error(`Image failed to load: ${project.image}`);
                           e.currentTarget.src = "/placeholder.svg";
                         }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,0.9)] to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,1)] to-transparent opacity-50"></div>
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
-                      <h3 className="text-xl font-display font-semibold mb-2 text-transparent bg-gradient-to-r from-white to-white/80 bg-clip-text">{project.title}</h3>
-                      <p className="text-[rgba(180,180,180,1)] mb-4 line-clamp-3 flex-grow leading-relaxed">{project.description}</p>
+                      <h3 className="text-xl font-semibold mb-2 text-[rgba(230,230,230,1)]">{project.title}</h3>
+                      <p className="text-[rgba(153,153,153,1)] mb-4 line-clamp-3 flex-grow">{project.description}</p>
                       <div className="flex flex-wrap gap-2 mt-auto">
-                        {project.tags?.slice(0, 3).map((tag, tagIndex) => (
+                        {project.tags?.slice(0, 3).map((tag, index) => (
                           <span 
-                            key={tagIndex}
-                            className="px-3 py-1 text-sm bg-gradient-to-r from-purple/10 to-purple/20 border border-purple/20 rounded-full text-white truncate max-w-[100px] transition-all duration-300 hover:border-purple/40"
+                            key={index}
+                            className="px-3 py-1 text-sm bg-[rgba(20,20,20,1)] border border-[rgba(255,255,255,0.05)] rounded-full text-[#9b87f5] truncate max-w-[100px]"
                           >
                             {tag}
                           </span>
                         ))}
                         {project.tags && project.tags.length > 3 && (
-                          <span className="px-3 py-1 text-sm bg-gradient-to-r from-teal/10 to-teal/20 border border-teal/20 rounded-full text-white transition-all duration-300 hover:border-teal/40">
+                          <span className="px-3 py-1 text-sm bg-[rgba(20,20,20,1)] border border-[rgba(255,255,255,0.05)] rounded-full text-[rgba(153,153,153,1)]">
                             +{project.tags.length - 3}
                           </span>
                         )}
