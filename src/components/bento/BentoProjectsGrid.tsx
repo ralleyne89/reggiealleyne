@@ -60,91 +60,97 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      {featuredProjects.map((project, index) => (
-        <motion.div
-          key={project.id}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1, duration: 0.5 }}
-          onClick={(e) => handleProjectClick(project, e)}
-          className={`group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] cursor-pointer ${
-            index === 0 
-              ? 'md:col-span-8 md:row-span-2' 
-              : 'md:col-span-4'
-          } ${
-            index === 0 
-              ? 'h-[300px] sm:h-[400px] lg:h-[450px]' 
-              : 'h-[200px] sm:h-[220px]'
-          }`}
-        >
-          <div className="absolute inset-0 w-full h-full">
-            <img 
-              src={project.image} 
-              alt={project.title}
-              className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${index === 0 ? 'opacity-50 group-hover:opacity-30' : 'opacity-40 group-hover:opacity-25'}`}
-            />
-            <div className={`absolute inset-0 ${index === 0 ? 'bg-gradient-to-t from-[rgba(16,16,16,1)] via-[rgba(16,16,16,0.85)] to-transparent' : 'bg-gradient-to-t from-[rgba(16,16,16,1)] via-[rgba(16,16,16,0.8)] to-transparent'}`}></div>
-          </div>
-
-          <div className="relative z-10 p-4 sm:p-6 h-full w-full flex flex-col justify-between">
-            <div className="w-full">
-              <div className="flex flex-wrap gap-2 mb-2 sm:mb-3">
-                {project.tags?.slice(0, 3).map((tag, i) => (
-                  <span 
-                    key={i} 
-                    className={`${index === 0 ? 'bg-[rgba(145,108,231,0.2)]' : 'bg-[rgba(25,25,25,0.8)]'} text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium`}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <h3 className={`${index === 0 ? 'text-xl sm:text-2xl' : 'text-lg sm:text-xl'} font-bold text-[rgba(230,230,230,1)] mb-2`}>{project.title}</h3>
-              <p className="text-sm sm:text-base text-[rgba(153,153,153,1)] line-clamp-2 mb-4">{project.description}</p>
+      {featuredProjects.map((project, index) => {
+        // Adjust grid span based on index
+        let colSpan = "md:col-span-6";
+        let rowSpan = "";
+        let height = "h-[220px] sm:h-[280px]";
+        
+        // First project (Tech NOIR) gets special treatment but not too stretched
+        if (index === 0) {
+          colSpan = "md:col-span-6";
+          rowSpan = "md:row-span-1";
+          height = "h-[300px] sm:h-[350px]";
+        }
+        
+        return (
+          <motion.div
+            key={project.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+            onClick={(e) => handleProjectClick(project, e)}
+            className={`group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] cursor-pointer ${colSpan} ${rowSpan} ${height}`}
+          >
+            <div className="absolute inset-0 w-full h-full">
+              <img 
+                src={project.image} 
+                alt={project.title}
+                className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-40 group-hover:opacity-25`}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,1)] via-[rgba(16,16,16,0.85)] to-transparent"></div>
             </div>
 
-            <div className="space-y-3 w-full">
-              {index === 0 && (
-                <div className="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
-                    <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                      <Lightbulb className="w-4 h-4 text-[#916CE7]" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-xs text-[rgba(153,153,153,1)]">Problem</span>
-                      <span className="text-sm text-[rgba(230,230,230,1)] truncate">Remote healthcare</span>
-                    </div>
-                  </div>
-                  <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
-                    <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                      <Clock className="w-4 h-4 text-[#916CE7]" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-xs text-[rgba(153,153,153,1)]">Timeline</span>
-                      <span className="text-sm text-[rgba(230,230,230,1)] truncate">{project.duration}</span>
-                    </div>
-                  </div>
-                  <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
-                    <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                      <Users className="w-4 h-4 text-[#916CE7]" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-xs text-[rgba(153,153,153,1)]">Team</span>
-                      <span className="text-sm text-[rgba(230,230,230,1)] truncate max-w-full">{project.teamSize}</span>
-                    </div>
-                  </div>
+            <div className="relative z-10 p-4 sm:p-6 h-full w-full flex flex-col justify-between">
+              <div className="w-full">
+                <div className="flex flex-wrap gap-2 mb-2 sm:mb-3">
+                  {project.tags?.slice(0, 3).map((tag, i) => (
+                    <span 
+                      key={i} 
+                      className="bg-[rgba(145,108,231,0.2)] text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              )}
-              
-              <div className="flex items-center justify-between w-full">
-                <span className="text-xs sm:text-sm text-[rgba(153,153,153,1)] truncate max-w-[70%]">{project.role}</span>
-                <span className={`${index === 0 ? 'bg-[rgba(145,108,231,0.2)]' : 'bg-[rgba(145,108,231,0.1)]'} text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium`}>
-                  {project.year}
-                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-[rgba(230,230,230,1)] mb-2">{project.title}</h3>
+                <p className="text-sm sm:text-base text-[rgba(153,153,153,1)] line-clamp-2 mb-4">{project.description}</p>
+              </div>
+
+              <div className="space-y-3 w-full">
+                {index === 0 && (
+                  <div className="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
+                      <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
+                        <Lightbulb className="w-4 h-4 text-[#916CE7]" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-xs text-[rgba(153,153,153,1)]">Problem</span>
+                        <span className="text-sm text-[rgba(230,230,230,1)] truncate">Remote healthcare</span>
+                      </div>
+                    </div>
+                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
+                      <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
+                        <Clock className="w-4 h-4 text-[#916CE7]" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-xs text-[rgba(153,153,153,1)]">Timeline</span>
+                        <span className="text-sm text-[rgba(230,230,230,1)] truncate">{project.duration}</span>
+                      </div>
+                    </div>
+                    <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-3 flex items-center gap-2">
+                      <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
+                        <Users className="w-4 h-4 text-[#916CE7]" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-xs text-[rgba(153,153,153,1)]">Team</span>
+                        <span className="text-sm text-[rgba(230,230,230,1)] truncate max-w-full">{project.teamSize}</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-xs sm:text-sm text-[rgba(153,153,153,1)] truncate max-w-[70%]">{project.role}</span>
+                  <span className="bg-[rgba(145,108,231,0.2)] text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium">
+                    {project.year}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
-      ))}
+          </motion.div>
+        );
+      })}
     </motion.div>
   );
 };

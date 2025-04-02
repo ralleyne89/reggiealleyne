@@ -107,7 +107,7 @@ const Navbar = () => {
               </motion.li>
             ))}
             
-            {/* Resume download button moved into the main navigation */}
+            {/* Resume download button moved to the main navigation */}
             <motion.li variants={itemVariants}>
               <motion.button
                 onClick={handleResumeDownload}

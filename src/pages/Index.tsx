@@ -1,9 +1,9 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
 import { Link, useNavigate } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Code, Palette, Layout, Monitor, ArrowUpRight, ChevronRight, Mail, Star, User, CalendarDays, BookOpen, Award } from 'lucide-react';
 import ServiceCard from '@/components/home/ServiceCard';
 import ProjectCard from '@/components/home/ProjectCard';
@@ -38,19 +38,44 @@ const buttonVariants = {
   tap: { scale: 0.95 }
 };
 
+const roleVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5 }
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: { duration: 0.3 }
+  }
+};
+
 const Index = () => {
   const navigate = useNavigate();
   const targetRef = useRef<HTMLDivElement>(null);
+  const [roleIndex, setRoleIndex] = useState(0);
+  const roles = ["UI/UX Designer", "Frontend Developer", "Graphic Designer"];
+  
+  // Role text animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, []);
   
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end start"]
   });
   
-  // Adjusted to make the effect happen later - changed from [0, 0.3] to [0, 0.5]
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
+  // Adjusted to make the effect happen even later - changed from [0, 0.5] to [0, 0.7]
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.7], [1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 0.7], [0, 100]);
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -93,19 +118,19 @@ const Index = () => {
   const techNoirProject = projects?.find(project => project.id === 3);
   const tutorDProject = projects?.find(project => project.id === 2);
   
-  // Service data
+  // Service data with updated images
   const services = [
     {
       title: "UI/UX Design",
       description: "Creating intuitive and engaging user experiences with a focus on usability and visual appeal",
       icon: <Palette className="text-primary" size={20} />,
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1481487196290-c152efe083f5?q=80&w=2000&auto=format&fit=crop"
     },
     {
       title: "Frontend Development",
       description: "Building responsive and performant user interfaces using modern web technologies",
       icon: <Code className="text-primary" size={20} />,
-      image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2000&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2000&auto=format&fit=crop"
     },
     {
       title: "Prototyping",
@@ -146,30 +171,30 @@ const Index = () => {
     }
   ];
   
-  // Testimonials data
+  // Testimonials data updated with professionals instead of clients
   const testimonials = [
     {
       name: "Sarah Johnson",
-      role: "Product Manager",
+      role: "Design Director",
       company: "TechCorp",
       avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-      text: "Reggie's design work transformed our product. The UI is now intuitive, visually appealing, and our user engagement metrics have improved by 45%.",
+      text: "Reggie's design work is exceptional. His ability to translate complex requirements into intuitive interfaces made our product stand out.",
       rating: 5
     },
     {
       name: "David Chen",
-      role: "Startup Founder",
+      role: "Project Lead",
       company: "InnovateLab",
       avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-      text: "Working with Reggie was a game-changer for our startup. He understood our vision and delivered a design that exceeded our expectations.",
+      text: "Working with Reggie was a pleasure. His technical skills and eye for design created a seamless development experience for our team.",
       rating: 5
     },
     {
       name: "Amanda Lopez",
-      role: "Marketing Director",
+      role: "Senior Engineer",
       company: "CreativeAgency",
       avatar: "https://randomuser.me/api/portraits/women/42.jpg",
-      text: "Reggie is not just a designer but a strategic partner. His insights helped us create a product that truly resonates with our target audience.",
+      text: "Reggie is an excellent collaborator. His designs are not just beautiful but also highly implementable from an engineering perspective.",
       rating: 4.5
     }
   ];
@@ -235,7 +260,21 @@ const Index = () => {
               <motion.div variants={fadeInUp} className="mb-6">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight text-white">
                   I'm <span className="text-primary">Reggie Alleyne</span>, 
-                  <br />UI/UX Designer
+                  <br />
+                  <span className="h-[40px] md:h-[50px] lg:h-[60px] inline-flex items-center">
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={roleIndex}
+                        variants={roleVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        className="inline-block"
+                      >
+                        {roles[roleIndex]}
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
                 </h1>
               </motion.div>
               
