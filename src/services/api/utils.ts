@@ -2,15 +2,15 @@
 import { ProjectType } from '../../types/project';
 import { Tables } from '@/integrations/supabase/types';
 
-// Helper function to sort projects by year (oldest first)
+// Helper function to sort projects by year (newest first)
 export const sortProjectsByDate = (projects: ProjectType[]): ProjectType[] => {
   return [...projects].sort((a, b) => {
     // Extract year from project and convert to number
     const yearA = typeof a.year === 'string' ? parseInt(a.year, 10) : 0;
     const yearB = typeof b.year === 'string' ? parseInt(b.year, 10) : 0;
     
-    // Compare years (older years first)
-    return yearA - yearB;
+    // Compare years (newer years first)
+    return yearB - yearA;
   });
 };
 
