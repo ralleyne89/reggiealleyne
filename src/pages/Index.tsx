@@ -47,10 +47,10 @@ const Index = () => {
     offset: ["start start", "end start"]
   });
   
-  // Adjusted to make the effect happen later
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
-  const y = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
+  // Adjusted to make the effect happen later - changed from [0, 0.3] to [0, 0.5]
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
   
   useEffect(() => {
     window.scrollTo(0, 0);
