@@ -33,8 +33,8 @@ const BentoProjectsGrid = ({ projects, isLoading, error }: BentoProjectsGridProp
     );
   }
 
-  // Use specific IDs for projects we want to feature
-  const featuredProjectIds = [3, 2, 1]; // TECH NOIR, Tutor D, and one more
+  // Use specific IDs for projects we want to feature (removed Health@Home)
+  const featuredProjectIds = [3, 2, 1]; // TECH NOIR, Tutor D, Cllctve
   
   // Filter projects to get only those that match our featured IDs
   // Preserve the order specified in featuredProjectIds

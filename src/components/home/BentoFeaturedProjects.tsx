@@ -16,7 +16,7 @@ interface BentoFeaturedProjectsProps {
 const projectIcons = {
   2: Palette, // Tutor D - UI/UX Design focus
   3: Code,    // Tech Noir - Development focus
-  1: Layout,  // Health Home
+  1: Layout,  // Cllctve
   4: Monitor  // Other projects
 };
 
@@ -45,8 +45,8 @@ const BentoFeaturedProjects = ({ projects, isLoading, error }: BentoFeaturedProj
     );
   }
 
-  // Define the specific projects to show
-  const featuredProjectIds = [3, 2, 1]; // Tech Noir, Tutor D, Health Home
+  // Define the specific projects to show (removed Health@Home and ChillVibes)
+  const featuredProjectIds = [3, 2, 1]; // Tech Noir, Tutor D, Cllctve
   
   // Filter to get only the specified projects in the right order
   const featuredProjects = featuredProjectIds

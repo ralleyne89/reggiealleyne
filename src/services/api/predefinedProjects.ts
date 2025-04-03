@@ -1,36 +1,30 @@
 
 import { ProjectType } from '../../types/project';
-import { getHealthHomeProject } from './projects/healthHome';
 import { getCllctveProject } from './projects/cllctve';
 import { getTutorDProject } from './projects/tutorD';
 import { getTechNoirProject } from './projects/techNoir';
 import { getDoggyDateProject } from './projects/doggyDate';
 import { getImprovLearningProject } from './projects/improvLearning';
 import { getWristbandProject } from './projects/wristband';
-import { getChillVibesProject } from './projects/chillVibes';
 
 // Map of ID to project getter functions
 const projectGetters = {
-  0: getHealthHomeProject,
   1: getCllctveProject,
   2: getTutorDProject,
   3: getTechNoirProject,
   4: getDoggyDateProject,
   5: getImprovLearningProject,
   6: getWristbandProject,
-  7: getChillVibesProject,
 };
 
 // Map of slug to project ID - FIXED to ensure correct mapping
 const slugToIdMap: Record<string, number> = {
-  'health-at-home': 0,
   'cllctve-platform': 1,
   'tutor-d': 2,
   'tech-noir': 3,
   'doggy-date': 4,
   'improv-learning': 5,
   'wristband': 6,
-  'chill-vibes-music-player': 7,
 };
 
 // Get a predefined project by ID

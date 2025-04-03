@@ -25,7 +25,11 @@ const Works = () => {
         console.log('Fetching all projects');
         const projects = await getAllProjects();
         console.log('Fetched projects:', projects);
-        return projects;
+        
+        // Filter out Health@Home project (id: 0)
+        const filteredProjects = projects.filter(project => project.id !== 0);
+        
+        return filteredProjects;
       } catch (err) {
         console.error('Error fetching projects:', err);
         throw err;
