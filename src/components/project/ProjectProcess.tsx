@@ -1,5 +1,5 @@
 
-import { Lightbulb, Users, Check, BarChart2, Star, Layers, Eye } from 'lucide-react';
+import { Lightbulb, Users, Check, BarChart2, Star, Layers, Award, Eye } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 
 interface ProjectProcessProps {
