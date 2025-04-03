@@ -2,19 +2,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Instagram, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
-  const footerLinks = [
-    { title: 'Home', path: '/' },
-    { title: 'About', path: '/#about' },
-    { title: 'Services', path: '/#services' },
-    { title: 'Portfolio', path: '/works' },
-    { title: 'Blog', path: '/#blog' },
-    { title: 'Contact', path: '/#contact' }
-  ];
   
   const socialLinks = [
     { 
@@ -28,16 +19,6 @@ const Footer = () => {
       url: 'https://github.com/ralleyne89' 
     },
     { 
-      name: 'Instagram', 
-      icon: <Instagram size={18} />, 
-      url: '#' 
-    },
-    { 
-      name: 'Twitter', 
-      icon: <Twitter size={18} />, 
-      url: '#' 
-    },
-    { 
       name: 'Email', 
       icon: <Mail size={18} />, 
       url: 'mailto:reggiealleyne89@gmail.com' 
@@ -47,13 +28,14 @@ const Footer = () => {
   return (
     <footer className="bg-secondary relative pt-20 pb-8 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+          <div className="md:col-span-1">
             <Link to="/" className="flex items-center mb-6">
-              <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white mr-2">
-                RA
-              </div>
-              <span className="text-white font-bold text-xl">Reggie Alleyne</span>
+              <img 
+                src="/lovable-uploads/reggie-logo-2025.PNG" 
+                alt="Reggie Alleyne Logo" 
+                className="h-10"
+              />
             </Link>
             
             <p className="text-gray-400 mb-6 max-w-md">
@@ -75,30 +57,6 @@ const Footer = () => {
                 </motion.a>
               ))}
             </div>
-          </div>
-          
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-6">Quick Links</h3>
-            <ul className="space-y-3">
-              {footerLinks.map((link, index) => (
-                <li key={index}>
-                  <Link 
-                    to={link.path}
-                    className="text-gray-400 hover:text-primary transition-colors flex items-center"
-                  >
-                    <motion.span 
-                      className="mr-2"
-                      initial={{ opacity: 0, x: -5 }}
-                      whileHover={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      →
-                    </motion.span>
-                    {link.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
           
           <div>

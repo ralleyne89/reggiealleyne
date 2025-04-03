@@ -1,3 +1,4 @@
+
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { Resend } from "https://esm.sh/@resend/node@0.16.0"
 
@@ -20,7 +21,7 @@ serve(async (req) => {
 
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'reggiealleyne89@gmail.com', // Using the logged-in user's email
+      to: 'reggiealleyne89@gmail.com', // Using your email directly
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
