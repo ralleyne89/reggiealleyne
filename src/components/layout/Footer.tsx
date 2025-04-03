@@ -32,7 +32,7 @@ const Footer = () => {
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center mb-6">
               <img 
-                src="/lovable-uploads/reggie-logo-2025.PNG" 
+                src="/lovable-uploads/reggie-logo-white-2025.PNG" 
                 alt="Reggie Alleyne Logo" 
                 className="h-10 brightness-200 filter"
               />
@@ -60,20 +60,25 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-white font-semibold text-lg mb-6">Contact Info</h3>
-            <ul className="space-y-3 text-gray-400">
-              <li>Los Angeles, CA</li>
-              <li>reggiealleyne89@gmail.com</li>
-              <li>Available for remote work</li>
-            </ul>
+            <h3 className="text-white font-semibold text-lg mb-6">Current Status</h3>
+            <div className="space-y-3 text-gray-400">
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <span>Available for new projects</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                <span>Based in Los Angeles, CA</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                <span>Remote collaboration worldwide</span>
+              </div>
+            </div>
             
-            <motion.button
-              className="mt-6 bg-primary text-white px-5 py-2 rounded-lg font-medium hover:bg-primary-dark transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Hire Me
-            </motion.button>
+            <div className="mt-6 text-gray-400 text-sm">
+              <p>For inquiries: reggiealleyne89@gmail.com</p>
+            </div>
           </div>
         </div>
         

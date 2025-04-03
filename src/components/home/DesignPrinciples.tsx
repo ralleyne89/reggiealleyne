@@ -63,10 +63,6 @@ const DesignPrinciples = () => {
             {index === 0 && (
               <p className="text-gray-400 text-sm mb-3">{principle.description}</p>
             )}
-            <a href="#" className="text-primary text-sm font-medium inline-flex items-center gap-1 hover:underline">
-              Learn more about {principle.title}
-              <Sparkles size={14} />
-            </a>
           </div>
         </motion.div>
       ))}

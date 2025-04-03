@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MapPin, Palette, PenTool, GraduationCap, Clock, Sparkles } from 'lucide-react';
+import { MapPin, Palette, PenTool, GraduationCap, Clock, Sparkles, Layout, BookOpen, Briefcase, Code } from 'lucide-react';
 
 const ProfileTags = () => {
   return (

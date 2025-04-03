@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { 
   ArrowRight, Code, Palette, Layers, Monitor, ArrowUpRight, ChevronRight, Mail, 
   Star, User, CalendarDays, BookOpen, Award, Briefcase, Coffee, PenTool,
-  Lightbulb, Rocket, Target, Users
+  Lightbulb, Rocket, Target, Users, Pen, FileSpreadsheet, Layout, Smartphone, Database
 } from 'lucide-react';
 import ServiceCard from '@/components/home/ServiceCard';
 import ProjectCard from '@/components/home/ProjectCard';
@@ -143,11 +143,11 @@ const Index = () => {
   ];
   
   const skills = [
-    { name: "UI Design", image: "/lovable-uploads/1e5262b7-f4b4-42b2-a5b8-75ae974c6893.png" },
-    { name: "UX Research", image: "/lovable-uploads/abd0fcfb-d3c7-4ea0-9f8c-05c8cf2759e9.png" },
-    { name: "Prototyping", image: "/lovable-uploads/d2647713-1d34-4235-8a9a-0e0b5b3645bd.png" },
-    { name: "Frontend Dev", image: "/lovable-uploads/430a2d53-8e58-4b70-8af0-4055ce165684.png" },
-    { name: "Design Systems", image: "/lovable-uploads/748d7e06-f545-44ba-842c-6401bf2284d1.png" }
+    { name: "UI Design", icon: <Pen className="h-6 w-6 text-primary" /> },
+    { name: "UX Research", icon: <Users className="h-6 w-6 text-primary" /> },
+    { name: "Prototyping", icon: <Smartphone className="h-6 w-6 text-primary" /> },
+    { name: "Frontend Dev", icon: <Code className="h-6 w-6 text-primary" /> },
+    { name: "Design Systems", icon: <Layout className="h-6 w-6 text-primary" /> }
   ];
   
   const education = [
@@ -600,7 +600,7 @@ const Index = () => {
                     whileHover={{ x: 5 }}
                   >
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <img src={skill.image} alt={skill.name} className="w-6 h-6" />
+                      {skill.icon}
                     </div>
                     <span className="text-white font-medium">{skill.name}</span>
                   </motion.div>
@@ -731,7 +731,7 @@ const Index = () => {
                   </div>
                 </div>
                 
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute -bottom-24 -right-24 w-40 h-40 bg-primary/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.div>
             ))}
           </div>
@@ -881,16 +881,6 @@ const Index = () => {
                     whileTap={{ scale: 0.95 }}
                   >
                     View My Projects
-                    <ChevronRight size={16} />
-                  </motion.a>
-                  
-                  <motion.a
-                    href="#"
-                    className="bg-primary/10 text-primary px-5 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 hover:bg-primary/20 transition-all duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Download Resume
                     <ChevronRight size={16} />
                   </motion.a>
                 </div>
