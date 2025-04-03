@@ -1,3 +1,4 @@
+
 import { ProjectType } from '../../types/project';
 import { getSupabaseProjectBySlug, getSupabaseProjectById, getSupabaseProjects } from './supabaseProjects';
 import { 
