@@ -1,5 +1,5 @@
 
-import { Lightbulb, Users, Check, BarChart2, Star, Layers, Award, Eye } from 'lucide-react';
+import { Lightbulb, Users, Check, BarChart2, Star, Layers, Eye } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 
 interface ProjectProcessProps {
@@ -39,6 +39,9 @@ const ProjectProcess = ({
     <Star className="h-6 w-6 text-primary" />
   ];
   
+  // Only show problemSolved if it's different from challenge and not empty
+  const showProblemSolved = problemSolved && problemSolved !== challenge && problemSolved !== '';
+  
   return (
     <>
       {challenge && (
@@ -53,7 +56,7 @@ const ProjectProcess = ({
             <p className="text-[rgba(200,200,200,0.9)] max-w-3xl leading-relaxed">{challenge}</p>
 
             {/* Only show problemSolved if it's different from challenge */}
-            {problemSolved && problemSolved !== challenge && (
+            {showProblemSolved && (
               <div className="mt-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
