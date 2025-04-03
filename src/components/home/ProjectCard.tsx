@@ -31,15 +31,7 @@ const ProjectCard = ({ title, description, image, slug, tags = [], featured = fa
         />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
         
-        <motion.div
-          className="absolute bottom-4 right-4 bg-primary text-white p-2 rounded-full opacity-0 group-hover:opacity-100"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-          whileHover={{ scale: 1.1, rotate: 15 }}
-        >
-          <ArrowUpRight size={18} />
-        </motion.div>
+        {/* Removed the floating button that was here */}
       </div>
       
       <div className="p-6">
