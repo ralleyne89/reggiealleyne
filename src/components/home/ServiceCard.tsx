@@ -42,19 +42,7 @@ const ServiceCard = ({ title, description, icon, image, index, link = '#' }: Ser
       <h3 className="text-xl font-heading font-semibold text-white mb-2">{title}</h3>
       <p className="text-gray-400 text-sm mb-4 flex-grow">{description}</p>
       
-      <Link 
-        to={link}
-        className="flex items-center text-primary text-sm font-medium mt-auto"
-      >
-        Learn More
-        <motion.div
-          className="ml-2 bg-primary text-white p-2 rounded-full"
-          whileHover={{ x: 5, y: -5 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-        >
-          <ArrowUpRight size={14} />
-        </motion.div>
-      </Link>
+      {/* Removed the "Learn More" link that was here */}
       
       <div className="absolute -bottom-2 -right-2 w-24 h-24 bg-primary/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
     </motion.div>
