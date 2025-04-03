@@ -95,12 +95,16 @@ const Project = () => {
     deliverables: project.deliverables || [],
     images: project.images || []
   };
+  
+  // Determine if there's a prototype URL - try different possible locations
+  const prototypeUrl = projectWithDefaults.figmaUrl || 
+                      (projectWithDefaults.id === 0 ? "https://bs-hh.netlify.app/" : null);
 
   return (
-    <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white">      
+    <div className="min-h-screen bg-gradient-to-b from-[rgba(5,5,5,1)] to-[rgba(10,10,15,1)] text-white">      
       <ProjectHeader 
         image={projectWithDefaults.image}
-        tags={projectWithDefaults.tags || []}
+        tags={projectWithDefaults.tags}
         title={projectWithDefaults.title}
         description={projectWithDefaults.description}
       />
@@ -114,6 +118,7 @@ const Project = () => {
           methodologies={projectWithDefaults.methodologies || []}
           githubUrl={projectWithDefaults.githubUrl}
           liveUrl={projectWithDefaults.liveUrl}
+          prototypeUrl={prototypeUrl}
           summary={projectWithDefaults.summary || projectWithDefaults.description}
           problem={projectWithDefaults.problemSolved || ""}
           solution={projectWithDefaults.solution || ""}
@@ -134,11 +139,14 @@ const Project = () => {
         />
       </div>
 
-      <ProjectConclusion conclusion={{
-        impact: projectWithDefaults.conclusion?.impact || "The project had a significant positive impact on users.",
-        learnings: projectWithDefaults.conclusion?.learnings || "We learned valuable lessons about user experience and implementation.",
-        nextSteps: projectWithDefaults.conclusion?.nextSteps || "Next steps include expanding features and improving performance."
-      }} />
+      <ProjectConclusion 
+        conclusion={{
+          impact: projectWithDefaults.conclusion?.impact || "The project had a significant positive impact on users.",
+          learnings: projectWithDefaults.conclusion?.learnings || "We learned valuable lessons about user experience and implementation.",
+          nextSteps: projectWithDefaults.conclusion?.nextSteps || "Next steps include expanding features and improving performance."
+        }}
+        prototypeUrl={prototypeUrl}
+      />
       <Footer />
     </div>
   );

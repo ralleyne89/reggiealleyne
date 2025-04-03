@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ProjectType } from '@/types/project';
-import { Eye } from 'lucide-react';
+import { Eye, ArrowUpRight } from 'lucide-react';
 
 interface ProjectCardProps {
   project: ProjectType;
@@ -12,7 +12,7 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
   return (
     <div 
-      className="h-full bg-secondary border border-gray-800 rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
+      className="h-full bg-[rgba(16,16,16,0.7)] backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
       onClick={() => onProjectClick(project)}
     >
       <div className="relative h-52">
@@ -25,12 +25,12 @@ const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
             e.currentTarget.src = "/placeholder.svg";
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,1)] via-transparent to-transparent"></div>
         
         <div className="absolute opacity-0 group-hover:opacity-100 inset-0 flex items-center justify-center bg-black/40 transition-opacity duration-300">
           <span className="bg-primary text-white font-medium px-4 py-2 rounded-full flex items-center gap-2">
             <Eye size={16} />
-            View Project
+            View Case Study
           </span>
         </div>
       </div>
@@ -52,8 +52,9 @@ const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
           )}
         </div>
         
-        <h3 className="text-xl font-heading font-semibold mb-2 text-white group-hover:text-primary transition-colors">
+        <h3 className="text-xl font-heading font-semibold mb-2 text-white group-hover:text-primary transition-colors flex items-center gap-2">
           {project.title}
+          <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
         </h3>
         
         <p className="text-gray-400 text-sm mb-4 line-clamp-2">{project.description}</p>

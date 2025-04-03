@@ -1,5 +1,5 @@
 
-import { Lightbulb, Users, Check, BarChart2 } from 'lucide-react';
+import { Lightbulb, Users, Check, BarChart2, Star, Layers, Award, Eye } from 'lucide-react';
 
 interface ProjectProcessProps {
   challenge: string;
@@ -27,69 +27,64 @@ const ProjectProcess = ({
     "Evaluation & Iteration"
   ];
 
-  // Standard insights that can be customized based on project type
-  const stepInsights = [
-    "User interviews and market research revealed key pain points that informed our approach.",
-    "Defined project scope, requirements, and created a comprehensive roadmap for execution.",
-    "Created wireframes and prototypes to visualize solutions and gather feedback.",
-    "Built the core functionality with focus on performance and user experience.",
-    "Conducted thorough testing to identify and address usability issues.",
-    "Deployed the solution and provided documentation for seamless adoption.",
-    "Gathered feedback to identify areas for improvement and future features."
+  // Icons for each step
+  const stepIcons = [
+    <Eye className="h-6 w-6 text-[#9b87f5]" />,
+    <Lightbulb className="h-6 w-6 text-[#9b87f5]" />,
+    <Layers className="h-6 w-6 text-[#9b87f5]" />,
+    <Users className="h-6 w-6 text-[#9b87f5]" />,
+    <Check className="h-6 w-6 text-[#9b87f5]" />,
+    <Award className="h-6 w-6 text-[#9b87f5]" />,
+    <Star className="h-6 w-6 text-[#9b87f5]" />
   ];
   
   return (
     <>
-      <div className="mb-16">
-        <div className="flex items-center gap-3 mb-4">
+      <div className="mb-16 bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl p-8">
+        <div className="flex items-center gap-3 mb-6">
           <div className="bg-[#333333] p-2 rounded-lg">
             <Lightbulb className="w-5 h-5 text-[#9b87f5]" />
           </div>
           <h2 className="text-2xl font-bold text-[rgba(230,230,230,1)]">The Challenge</h2>
         </div>
         <p className="text-[rgba(153,153,153,1)] max-w-3xl">{challenge}</p>
-      </div>
 
-      {problemSolved && (
-        <div className="mb-16">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="bg-[#333333] p-2 rounded-lg">
-              <Check className="w-5 h-5 text-[#9b87f5]" />
+        {problemSolved && (
+          <div className="mt-8">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-[#333333] p-2 rounded-lg">
+                <Check className="w-5 h-5 text-[#9b87f5]" />
+              </div>
+              <h2 className="text-2xl font-bold text-[rgba(230,230,230,1)]">Problem Solved</h2>
             </div>
-            <h2 className="text-2xl font-bold text-[rgba(230,230,230,1)]">Problem Solved</h2>
+            <p className="text-[rgba(153,153,153,1)] max-w-3xl">{problemSolved}</p>
           </div>
-          <p className="text-[rgba(153,153,153,1)] max-w-3xl">{problemSolved}</p>
-        </div>
-      )}
+        )}
+      </div>
 
       <div className="mb-16">
         <h2 className="text-2xl font-bold mb-6 text-[rgba(230,230,230,1)]">Design Process</h2>
         
-        <div className="border-l-2 border-[rgba(255,255,255,0.1)] pl-6 space-y-12 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {process.map((step, index) => (
-            <div key={index} className="relative">
-              <div className="absolute left-[-27px] top-0 w-6 h-6 rounded-full bg-[#9b87f5] border-4 border-[rgba(5,5,5,1)]"></div>
-              <h3 className="text-xl font-semibold mb-3 text-[rgba(230,230,230,1)]">
-                {stepNames[index % stepNames.length]}
-              </h3>
-              <p className="text-[rgba(153,153,153,1)] mb-4">{step}</p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-[rgba(20,20,20,1)] border border-[rgba(255,255,255,0.05)] rounded-lg p-4">
-                  <h4 className="text-sm font-medium text-[#9b87f5] mb-2">Key Insight</h4>
-                  <p className="text-sm text-[rgba(153,153,153,1)]">
-                    {stepInsights[index % stepInsights.length]}
-                  </p>
+            <div key={index} className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl p-6 hover:border-[rgba(155,135,245,0.3)] hover:shadow-[0_0_15px_rgba(155,135,245,0.15)] transition-all duration-300">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-[rgba(25,25,25,0.8)] p-3 rounded-lg">
+                  {stepIcons[index % stepIcons.length]}
                 </div>
+                <h3 className="text-xl font-semibold text-[rgba(230,230,230,1)]">
+                  {stepNames[index % stepNames.length]}
+                </h3>
               </div>
+              <p className="text-[rgba(153,153,153,1)]">{step}</p>
             </div>
           ))}
         </div>
       </div>
 
       {technicalHighlights && technicalHighlights.length > 0 && (
-        <div className="mb-16">
-          <div className="flex items-center gap-3 mb-4">
+        <div className="mb-16 bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl p-8">
+          <div className="flex items-center gap-3 mb-6">
             <div className="bg-[#333333] p-2 rounded-lg">
               <Users className="w-5 h-5 text-[#9b87f5]" />
             </div>
@@ -99,7 +94,7 @@ const ProjectProcess = ({
             {technicalHighlights.map((highlight, index) => (
               <div 
                 key={index}
-                className="flex items-start gap-3 bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4"
+                className="flex items-start gap-3 bg-[rgba(25,25,25,0.8)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4"
               >
                 <div className="h-2 w-2 rounded-full bg-[#9b87f5] mt-2"></div>
                 <span className="text-[rgba(230,230,230,1)]">{highlight}</span>
@@ -110,8 +105,8 @@ const ProjectProcess = ({
       )}
 
       {keyAchievements && keyAchievements.length > 0 && (
-        <div className="mb-16">
-          <div className="flex items-center gap-3 mb-4">
+        <div className="mb-16 bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl p-8">
+          <div className="flex items-center gap-3 mb-6">
             <div className="bg-[#333333] p-2 rounded-lg">
               <BarChart2 className="w-5 h-5 text-[#9b87f5]" />
             </div>
@@ -121,7 +116,7 @@ const ProjectProcess = ({
             {keyAchievements.map((achievement, index) => (
               <div 
                 key={index}
-                className="flex items-start gap-3 bg-[rgba(16,16,16,1)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4"
+                className="flex items-start gap-3 bg-[rgba(25,25,25,0.8)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4"
               >
                 <div className="h-2 w-2 rounded-full bg-[#9b87f5] mt-2"></div>
                 <span className="text-[rgba(230,230,230,1)]">{achievement}</span>
