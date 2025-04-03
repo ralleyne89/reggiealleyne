@@ -100,6 +100,9 @@ const Project = () => {
   const prototypeUrl = projectWithDefaults.figmaUrl || 
                       (projectWithDefaults.id === 0 ? "https://bs-hh.netlify.app/" : null);
 
+  // Use either challenge or problemSolved, not both
+  const challengeText = projectWithDefaults.challenge || projectWithDefaults.problemSolved || '';
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[rgba(5,5,5,1)] to-[rgba(10,10,15,1)] text-white">      
       <ProjectHeader 
@@ -125,9 +128,9 @@ const Project = () => {
         />
         
         <ProjectProcess 
-          challenge={projectWithDefaults.challenge || ''}
+          challenge={challengeText}
           process={projectWithDefaults.process || []}
-          problemSolved={projectWithDefaults.problemSolved || ''}
+          problemSolved={""} // Removed the duplication
           technicalHighlights={projectWithDefaults.technicalHighlights || []}
           keyAchievements={projectWithDefaults.keyAchievements || []}
         />

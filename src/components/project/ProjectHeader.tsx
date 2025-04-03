@@ -3,7 +3,6 @@ import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 interface ProjectHeaderProps {
   image: string;
@@ -42,30 +41,10 @@ const ProjectHeader = ({ image, tags, title, description }: ProjectHeaderProps) 
       <div className="max-w-7xl mx-auto px-6 -mt-16 mb-12 relative z-10">
         <div className="flex flex-wrap justify-between items-center">
           <div className="mb-6">
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link to="/">Home</Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link to="/works">Works</Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <span className="text-white/70">{title}</span>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
-            
             <Button 
               asChild
               variant="secondary" 
-              className="mt-4 bg-[rgba(20,20,20,0.8)] backdrop-blur-sm text-primary hover:bg-[rgba(30,30,30,0.8)] hover:text-white"
+              className="bg-[rgba(20,20,20,0.8)] backdrop-blur-sm text-primary hover:bg-[rgba(30,30,30,0.8)] hover:text-white"
             >
               <Link to="/works">
                 <ArrowLeft className="mr-2 h-4 w-4" />
