@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
@@ -12,6 +13,8 @@ import ServiceCard from '@/components/home/ServiceCard';
 import ProjectCard from '@/components/home/ProjectCard';
 import Footer from '@/components/layout/Footer';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
+import BentoFeaturedProjects from '@/components/home/BentoFeaturedProjects';
 
 // Animation variants
 const fadeInUp = {
@@ -726,3 +729,239 @@ const Index = () => {
               className="text-3xl md:text-4xl font-heading font-bold text-white mb-4"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              Client <span className="text-primary">Testimonials</span>
+            </motion.h2>
+            
+            <motion.p 
+              className="text-gray-400"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              What professionals say about working with me and the results we've achieved together.
+            </motion.p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                className="bg-secondary rounded-xl p-6 relative z-10 overflow-hidden group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <div className="flex items-center mb-4">
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        size={16}
+                        className={`${
+                          i < Math.floor(testimonial.rating)
+                            ? "text-yellow-500 fill-yellow-500"
+                            : i < testimonial.rating
+                            ? "text-yellow-500 fill-yellow-500 opacity-50"
+                            : "text-gray-600"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+                
+                <p className="text-gray-300 mb-6 italic">"{testimonial.text}"</p>
+                
+                <div className="flex items-center">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-10 h-10 rounded-full object-cover mr-3"
+                  />
+                  <div>
+                    <h4 className="text-white font-medium">{testimonial.name}</h4>
+                    <p className="text-primary text-sm">{testimonial.role}, {testimonial.company}</p>
+                  </div>
+                </div>
+                
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-secondary-dark relative">
+        <div className="container mx-auto px-4">
+          <div className="max-w-xl mx-auto text-center mb-16">
+            <motion.h2 
+              className="text-3xl md:text-4xl font-heading font-bold text-white mb-4"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              Let's <span className="text-primary">Connect</span>
+            </motion.h2>
+            
+            <motion.p 
+              className="text-gray-400"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              Have a project in mind or want to discuss a potential collaboration? Reach out and let's chat.
+            </motion.p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <motion.div
+              className="bg-secondary rounded-3xl p-8 overflow-hidden relative"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <h3 className="text-2xl font-heading font-semibold text-white mb-6">Send A Message</h3>
+              
+              <form onSubmit={handleSubmitContactForm} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-white mb-2">Your Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full px-4 py-3 bg-secondary-dark border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="John Doe"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-white mb-2">Your Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-3 bg-secondary-dark border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="john@example.com"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-white mb-2">Your Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={5}
+                    className="w-full px-4 py-3 bg-secondary-dark border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                    placeholder="Hello, I'd like to discuss a project..."
+                  ></textarea>
+                </div>
+                
+                <motion.button
+                  type="submit"
+                  className="bg-primary text-white px-6 py-3 rounded-lg font-medium w-full transition-colors hover:bg-primary-dark"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Send Message
+                </motion.button>
+              </form>
+              
+              <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+            </motion.div>
+            
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <div className="bg-secondary rounded-3xl p-8 overflow-hidden relative">
+                <h3 className="text-2xl font-heading font-semibold text-white mb-6">Contact Info</h3>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <div className="bg-primary/10 p-3 rounded-lg mr-4">
+                      <Mail className="text-primary h-5 w-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-medium mb-1">Email</h4>
+                      <a href="mailto:reggiealleyne89@gmail.com" className="text-gray-400 hover:text-primary">reggiealleyne89@gmail.com</a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="bg-primary/10 p-3 rounded-lg mr-4">
+                      <User className="text-primary h-5 w-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-medium mb-1">Location</h4>
+                      <p className="text-gray-400">Los Angeles, CA</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="bg-primary/10 p-3 rounded-lg mr-4">
+                      <CalendarDays className="text-primary h-5 w-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-medium mb-1">Availability</h4>
+                      <p className="text-gray-400">Available for remote work</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+              </div>
+              
+              <div className="bg-secondary rounded-3xl p-8 overflow-hidden">
+                <h3 className="text-2xl font-heading font-semibold text-white mb-6">Let's Build Something Amazing</h3>
+                <p className="text-gray-400 mb-6">
+                  Looking for a UI/UX designer who can turn your vision into reality? Whether you need a complete design system, a website overhaul, or a brand new application, I'm here to help.
+                </p>
+                
+                <div className="flex flex-wrap gap-4">
+                  <motion.a
+                    href="#projects"
+                    className="bg-secondary-dark border border-gray-700 text-white px-5 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 hover:bg-primary/10 hover:border-primary transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    View My Projects
+                    <ChevronRight size={16} />
+                  </motion.a>
+                  
+                  <motion.a
+                    href="#"
+                    className="bg-primary/10 text-primary px-5 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 hover:bg-primary/20 transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Download Resume
+                    <ChevronRight size={16} />
+                  </motion.a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Footer */}
+      <Footer />
+    </>
+  );
+};
+
+export default Index;
