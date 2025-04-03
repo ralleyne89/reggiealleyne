@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { MapPin, Layout, Palette, GraduationCap, Clock, Sparkles } from 'lucide-react';
+import { MapPin, Palette, PenTool, GraduationCap, Clock, Sparkles } from 'lucide-react';
 
 const ProfileTags = () => {
   return (
@@ -9,8 +10,8 @@ const ProfileTags = () => {
         Los Angeles
       </span>
       <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
-        <Layout size={14} className="text-[#916CE7]" />
-        UX/UI Developer
+        <PenTool size={14} className="text-[#916CE7]" />
+        UX/UI Designer
       </span>
       <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
         <Sparkles size={14} className="text-[#916CE7]" />
@@ -18,7 +19,7 @@ const ProfileTags = () => {
       </span>
       <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
         <GraduationCap size={14} className="text-[#916CE7]" />
-        Art Institute LA
+        Art Institute CA
       </span>
       <span className="bg-[rgba(25,25,25,1)] border flex items-center gap-1.5 px-2.5 py-1.5 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid">
         <Clock size={14} className="text-[#916CE7]" />

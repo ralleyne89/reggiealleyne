@@ -1,11 +1,10 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { 
-  ArrowRight, Code, Palette, Layout, Monitor, ArrowUpRight, ChevronRight, Mail, 
+  ArrowRight, Code, Palette, Layers, Monitor, ArrowUpRight, ChevronRight, Mail, 
   Star, User, CalendarDays, BookOpen, Award, Briefcase, Coffee, PenTool,
   Lightbulb, Rocket, Target, Users
 } from 'lucide-react';
@@ -15,8 +14,10 @@ import Footer from '@/components/layout/Footer';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
 import BentoFeaturedProjects from '@/components/home/BentoFeaturedProjects';
+import DesignProcess from '@/components/home/DesignProcess';
+import Methodology from '@/components/home/Methodology';
+import DesignPrinciples from '@/components/home/DesignPrinciples';
 
-// Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
   visible: { 
@@ -64,7 +65,6 @@ const Index = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const roles = ["UI/UX Designer", "Frontend Developer", "Graphic Designer"];
   
-  // Role text animation
   useEffect(() => {
     const interval = setInterval(() => {
       setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
@@ -78,7 +78,6 @@ const Index = () => {
     offset: ["start start", "end start"]
   });
   
-  // Further adjusted to make the effect happen even later
   const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.9], [1, 0.8]);
   const y = useTransform(scrollYProgress, [0, 0.9], [0, 100]);
@@ -86,7 +85,6 @@ const Index = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     
-    // Initialize scroll reveal effect
     const revealElements = document.querySelectorAll('.reveal');
     const revealOnScroll = () => {
       for (let i = 0; i < revealElements.length; i++) {
@@ -120,11 +118,9 @@ const Index = () => {
     retry: 1
   });
 
-  // Find the TECH NOIR project for the featured spot
   const techNoirProject = projects?.find(project => project.id === 3);
   const tutorDProject = projects?.find(project => project.id === 2);
   
-  // Service data with updated images
   const services = [
     {
       title: "UI/UX Design",
@@ -146,7 +142,6 @@ const Index = () => {
     }
   ];
   
-  // Skills data with updated icons
   const skills = [
     { name: "UI Design", image: "/lovable-uploads/1e5262b7-f4b4-42b2-a5b8-75ae974c6893.png" },
     { name: "UX Research", image: "/lovable-uploads/abd0fcfb-d3c7-4ea0-9f8c-05c8cf2759e9.png" },
@@ -155,12 +150,11 @@ const Index = () => {
     { name: "Design Systems", image: "/lovable-uploads/748d7e06-f545-44ba-842c-6401bf2284d1.png" }
   ];
   
-  // Education data - Updated with correct information
   const education = [
     {
       year: "2014",
       title: "Bachelor of Arts in Graphic Design",
-      school: "Art Institute of Los Angeles",
+      school: "Art Institute of California – Los Angeles",
       description: "Studied UX/UI design principles, interaction design, and frontend development"
     },
     {
@@ -177,7 +171,6 @@ const Index = () => {
     }
   ];
   
-  // Testimonials data updated with professionals instead of clients
   const testimonials = [
     {
       name: "Sarah Johnson",
@@ -205,7 +198,6 @@ const Index = () => {
     }
   ];
   
-  // Project case studies - Replacing blog posts
   const caseStudies = [
     {
       title: "User Experience Overhaul",
@@ -230,7 +222,6 @@ const Index = () => {
     }
   ];
 
-  // Featured clients - Another section to replace blog content
   const featuredClients = [
     {
       name: "TechCorp Inc.",
@@ -299,7 +290,6 @@ const Index = () => {
 
   return (
     <>
-      {/* Hero Section */}
       <motion.div
         ref={targetRef}
         className="min-h-screen w-full pt-28 pb-16 relative overflow-hidden"
@@ -415,7 +405,6 @@ const Index = () => {
                 </div>
               </div>
               
-              {/* Floating elements */}
               <motion.div 
                 className="absolute -top-10 -right-10 w-24 h-24 bg-primary/20 rounded-full blur-xl"
                 animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.7, 0.5] }}
@@ -437,7 +426,6 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            {/* Updated Stats items */}
             <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
               <div className="text-3xl font-heading font-bold text-white mb-1">10+</div>
               <div className="text-gray-400 text-sm">Years Experience</div>
@@ -465,7 +453,6 @@ const Index = () => {
           </motion.div>
         </motion.div>
         
-        {/* Scroll indicator */}
         <motion.div 
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
           animate={{ y: [0, 10, 0] }}
@@ -482,7 +469,6 @@ const Index = () => {
         </motion.div>
       </motion.div>
       
-      {/* Services Section */}
       <section id="services" className="py-20 bg-secondary-dark relative">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto text-center mb-16">
@@ -522,7 +508,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Featured Projects Section */}
       <section id="projects" className="py-20 bg-secondary-dark relative">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto text-center mb-16">
@@ -563,7 +548,7 @@ const Index = () => {
                   image={project.image}
                   slug={project.slug || project.id.toString()}
                   tags={project.tags}
-                  featured={project.id === 3} // TECH NOIR is featured
+                  featured={project.id === 3}
                   index={index}
                 />
               ))}
@@ -584,7 +569,8 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Skills Section */}
+      <DesignProcess />
+      
       <section id="skills" className="py-20 bg-secondary-dark relative">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -622,55 +608,13 @@ const Index = () => {
               </div>
             </motion.div>
             
-            <motion.div
-              className="grid grid-cols-2 gap-4"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              {caseStudies.map((study, index) => (
-                <motion.div 
-                  key={index}
-                  className={`bg-secondary rounded-xl overflow-hidden ${index === 0 ? 'col-span-2 row-span-2' : ''}`}
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="relative h-40 overflow-hidden">
-                    <img 
-                      src={study.image} 
-                      alt={study.title}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                    />
-                    <div className="absolute top-2 left-2 bg-primary/80 text-white text-xs px-2 py-1 rounded">
-                      {study.tag}
-                    </div>
-                  </div>
-                  
-                  <div className="p-4">
-                    <div className="text-gray-400 text-xs mb-2 flex items-center">
-                      <Target size={12} className="mr-1" />
-                      {study.metric}
-                    </div>
-                    <h3 className="text-white font-medium mb-2 line-clamp-2">
-                      {study.title}
-                    </h3>
-                    {index === 0 && (
-                      <p className="text-gray-400 text-sm mb-3 line-clamp-2">{study.excerpt}</p>
-                    )}
-                    <a href="#" className="text-primary text-sm font-medium inline-flex items-center gap-1 hover:underline">
-                      View Case Study
-                      <ChevronRight size={14} />
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+            <DesignPrinciples />
           </div>
         </div>
       </section>
       
-      {/* Education Section */}
+      <Methodology />
+      
       <section id="education" className="py-20 bg-secondary-dark relative">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto text-center mb-16">
@@ -721,7 +665,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Testimonials Section */}
       <section id="testimonials" className="py-20 bg-secondary-dark relative">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto text-center mb-16">
@@ -795,7 +738,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Contact Section */}
       <section id="contact" className="py-20 bg-secondary-dark relative">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto text-center mb-16">
@@ -958,7 +900,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Footer */}
       <Footer />
     </>
   );

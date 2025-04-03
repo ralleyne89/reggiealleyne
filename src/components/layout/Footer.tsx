@@ -34,7 +34,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/reggie-logo-2025.PNG" 
                 alt="Reggie Alleyne Logo" 
-                className="h-10"
+                className="h-10 brightness-200 filter"
               />
             </Link>
             
