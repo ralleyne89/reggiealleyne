@@ -32,9 +32,9 @@ const Footer = () => {
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center mb-6">
               <img 
-                src="/lovable-uploads/reggie-logo-white-2025.PNG" 
+                src="/lovable-uploads/d5f791c1-7299-4a0a-80e0-9e27c0362510.png" 
                 alt="Reggie Alleyne Logo" 
-                className="h-10 brightness-200 filter"
+                className="h-10 w-auto"
               />
             </Link>
             
