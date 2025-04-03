@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ProjectType } from '@/types/project';
+import { Eye } from 'lucide-react';
 
 interface ProjectCardProps {
   project: ProjectType;
@@ -10,18 +11,9 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
   return (
-    <motion.div 
-      className="bg-secondary border border-gray-800 rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
+    <div 
+      className="h-full bg-secondary border border-gray-800 rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
       onClick={() => onProjectClick(project)}
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { 
-          opacity: 1, 
-          y: 0,
-          transition: { duration: 0.5 }
-        }
-      }}
-      whileHover={{ y: -5 }}
     >
       <div className="relative h-52">
         <img 
@@ -34,6 +26,13 @@ const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+        
+        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 flex items-center justify-center bg-black/40 transition-opacity duration-300">
+          <span className="bg-primary text-white font-medium px-4 py-2 rounded-full flex items-center gap-2">
+            <Eye size={16} />
+            View Project
+          </span>
+        </div>
       </div>
       
       <div className="p-6">
@@ -61,10 +60,12 @@ const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
         
         <div className="flex justify-between items-center">
           <span className="text-sm text-gray-500">{project.year}</span>
-          <span className="text-primary text-sm font-medium">View Project</span>
+          <span className="text-primary text-sm font-medium">
+            {project.role || "UX/UI Designer"}
+          </span>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import WorksHeader from '@/components/works/WorksHeader';
 import WorksLoadingSkeleton from '@/components/works/WorksLoadingSkeleton';
-import ProjectsCategory from '@/components/works/ProjectsCategory';
+import ProjectCard from '@/components/works/ProjectCard';
 import { ProjectType } from '@/types/project';
 
 const Works = () => {
@@ -94,21 +94,13 @@ const Works = () => {
     projects.filter((project, index, self) =>
       project && project.title && index === self.findIndex((p) => p?.title === project?.title)
     ) : [];
-
-  // Group projects by category
-  const categories: Record<string, ProjectType[]> = {};
-  uniqueProjects.forEach(project => {
-    if (!project.category) return;
     
-    if (!categories[project.category]) {
-      categories[project.category] = [];
-    }
-    
-    categories[project.category].push(project);
+  // Sort projects by year in descending order (newest first)
+  const sortedProjects = [...uniqueProjects].sort((a, b) => {
+    const yearA = a.year ? parseInt(a.year.toString()) : 0;
+    const yearB = b.year ? parseInt(b.year.toString()) : 0;
+    return yearB - yearA;
   });
-  
-  // Projects without category
-  const uncategorizedProjects = uniqueProjects.filter(project => !project.category);
 
   return (
     <div className="min-h-screen bg-secondary-dark text-white pt-24">
@@ -119,26 +111,32 @@ const Works = () => {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="space-y-16"
+          className="my-12"
         >
-          {/* Display projects by category */}
-          {Object.keys(categories).map((category) => (
-            <ProjectsCategory 
-              key={category} 
-              categoryTitle={category} 
-              projects={categories[category]} 
-              onProjectClick={handleProjectClick} 
-            />
-          ))}
+          <h2 className="text-2xl font-heading font-semibold mb-8 text-white">
+            My Projects
+          </h2>
           
-          {/* Display projects without category */}
-          {uncategorizedProjects.length > 0 && (
-            <ProjectsCategory 
-              categoryTitle="Other Projects" 
-              projects={uncategorizedProjects} 
-              onProjectClick={handleProjectClick} 
-            />
-          )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sortedProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { duration: 0.5, delay: index * 0.1 }
+                  }
+                }}
+              >
+                <ProjectCard 
+                  project={project} 
+                  onProjectClick={handleProjectClick} 
+                />
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
       
