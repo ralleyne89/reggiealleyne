@@ -39,9 +39,9 @@ export const getCllctveProject = (): ProjectType => {
     },
     techStack: ["React.js", "MongoDB", "Ant Design", "Axios", "Styled Components"],
     keyAchievements: [
-      "Helped onboard 1,000+ Gen Z users", 
-      "Supported multiple brand partnerships", 
-      "30%+ increase in returning users after UI enhancements"
+      "Improved page load time by 40% through code optimization and asset management",
+      "Implemented responsive design system that increased mobile engagement by 25%", 
+      "Delivered 4 major UI feature launches with zero critical bugs"
     ],
     problemSolved: "The gap between young creative talent and professional opportunities, providing Gen Z creators with a platform that feels like home for their work.",
     technicalHighlights: [
