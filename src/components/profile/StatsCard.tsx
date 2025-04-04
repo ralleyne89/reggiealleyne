@@ -18,7 +18,7 @@ const StatsCard = () => {
     },
     { 
       label: 'UI/UX Solutions', 
-      value: '40', 
+      value: '30', 
       icon: <Users className="w-4 h-4 text-[#916CE7]" /> 
     },
     { 
