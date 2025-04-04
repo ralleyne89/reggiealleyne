@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
@@ -241,10 +242,11 @@ const Index = () => {
 
   const handleContactFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formElement = e.currentTarget;
     const formData = {
-      name: e.currentTarget.name.value,
-      email: e.currentTarget.email.value,
-      message: e.currentTarget.message.value
+      name: formElement.name.value,
+      email: formElement.email.value,
+      message: formElement.message.value
     };
 
     if (!formData.name || !formData.email || !formData.message) {
@@ -262,7 +264,7 @@ const Index = () => {
       if (error) throw error;
 
       toast.success("Message sent! I'll get back to you as soon as possible.");
-      e.currentTarget.reset();
+      formElement.reset();
     } catch (error) {
       console.error('Error sending email:', error);
       toast.error("Failed to send email. Please try again later.");
