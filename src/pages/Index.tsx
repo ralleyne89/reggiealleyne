@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
@@ -672,7 +671,7 @@ const Index = () => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">Email</p>
-                    <a href="mailto:hello@reggiealleyne.com" className="text-white hover:text-primary transition-colors">hello@reggiealleyne.com</a>
+                    <a href="mailto:reggiealleyne89@gmail.com" className="text-white hover:text-primary transition-colors">reggiealleyne89@gmail.com</a>
                   </div>
                 </div>
                 
