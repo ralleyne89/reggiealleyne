@@ -8,7 +8,7 @@ export const getImprovLearningProject = (): ProjectType => {
     title: "Improv Learning - Traffic School",
     description: "A high-converting website for Geico's traffic school partnership focused on increasing user sign-up rates.",
     fullDescription: "A comprehensive website designed for the new traffic school partnership with Geico Insurance. The platform aims to create a seamless user experience that encourages completion of traffic school requirements while maintaining an engaging learning environment.",
-    image: "https://images.unsplash.com/photo-1526401485004-46910ecc8e51",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
     tags: ["Web Design", "UX/UI", "Conversion Rate"],
     role: "Lead UX Designer",
     duration: "3 months",
