@@ -1,60 +1,17 @@
 
 import React from 'react';
 import { Download } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 
 const ProfileActions = () => {
-  const handleResumeDownload = async () => {
+  const handleResumeDownload = () => {
     try {
-      const fileName = 'Reginald Alleyne Resume 2025';
-      
-      // First check if the file exists
-      const { data: fileExists } = await supabase
-        .storage
-        .from('documents')
-        .list('', {
-          limit: 1,
-          search: fileName
-        });
-
-      if (!fileExists || fileExists.length === 0) {
-        toast.error('Resume is currently unavailable. Please try again later.');
-        return;
-      }
-
-      // Get the actual file name from the list results
-      const actualFileName = fileExists[0].name;
-
-      const { data, error } = await supabase.storage
-        .from('documents')
-        .download(actualFileName);
-
-      if (error) {
-        console.error('Download error:', error);
-        throw error;
-      }
-
-      // Create a URL for the downloaded blob
-      const url = window.URL.createObjectURL(data);
-      
-      // Create a temporary link element
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'reggie-alleyne-resume.pdf'; // The name that will be used when saving
-      
-      // Append to document, click, and cleanup
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // Cleanup the blob URL
-      window.URL.revokeObjectURL(url);
-      
-      toast.success('Resume downloaded successfully!');
+      // Direct link to Google Drive file
+      window.open('https://drive.google.com/file/d/1pK4gD27rABnUArntEHFJLVUu3WyCLBQb/view?usp=drive_link', '_blank');
+      toast.success('Resume opened successfully!');
     } catch (error) {
-      console.error('Error downloading resume:', error);
-      toast.error('Failed to download resume. Please try again later.');
+      console.error('Error opening resume:', error);
+      toast.error('Failed to open resume. Please try again later.');
     }
   };
 

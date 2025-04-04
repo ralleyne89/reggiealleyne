@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Download } from 'lucide-react';
@@ -32,16 +31,12 @@ const Navbar = () => {
   
   const handleResumeDownload = () => {
     try {
-      const link = document.createElement('a');
-      link.href = '/reggie-alleyne-resume.pdf';
-      link.download = 'reggie-alleyne-resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      toast.success('Resume downloading...');
+      // Direct link to Google Drive file
+      window.open('https://drive.google.com/file/d/1pK4gD27rABnUArntEHFJLVUu3WyCLBQb/view?usp=drive_link', '_blank');
+      toast.success('Resume opened successfully!');
     } catch (error) {
-      console.error('Error downloading resume:', error);
-      toast.error('Download failed. Please try again.');
+      console.error('Error opening resume:', error);
+      toast.error('Failed to open resume. Please try again later.');
     }
   };
   
