@@ -88,12 +88,6 @@ const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliver
                     e.currentTarget.src = "/placeholder.svg";
                   }}
                 />
-                <div className="absolute inset-0 flex items-end justify-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-primary text-white font-medium px-4 py-2 rounded-full flex items-center gap-2">
-                    <Eye size={16} />
-                    View Full Size
-                  </div>
-                </div>
               </div>
             ))}
           </div>
