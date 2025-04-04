@@ -153,7 +153,7 @@ const Index = () => {
   const education = [
     {
       year: "2014",
-      title: "Bachelor of Arts in Graphic Design",
+      title: "Bachelor of Science in Graphic Design",
       school: "Art Institute of California – Los Angeles",
       description: "Studied UX/UI design principles, interaction design, and frontend development"
     },
