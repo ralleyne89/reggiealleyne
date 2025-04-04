@@ -289,7 +289,7 @@ const Index = () => {
   };
 
   return (
-    <>
+    <React.Fragment>
       <motion.div
         ref={targetRef}
         className="min-h-screen w-full pt-28 pb-16 relative overflow-hidden"
@@ -738,4 +738,115 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              viewport={{ once: true, amount:
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              Get in <span className="text-primary">Touch</span>
+            </motion.h2>
+            
+            <motion.p 
+              className="text-gray-400"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              Have a project in mind or want to discuss potential collaborations? I'd love to hear from you!
+            </motion.p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <motion.div
+              className="bg-secondary rounded-xl p-6"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <h3 className="text-xl font-heading font-semibold text-white mb-4">Contact Information</h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Mail className="text-primary" size={18} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400">Email</p>
+                    <a href="mailto:hello@reggiealleyne.com" className="text-white hover:text-primary transition-colors">hello@reggiealleyne.com</a>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <User className="text-primary" size={18} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400">Social</p>
+                    <div className="flex gap-3 mt-1">
+                      <a href="#" className="text-gray-400 hover:text-primary transition-colors">Twitter</a>
+                      <a href="#" className="text-gray-400 hover:text-primary transition-colors">LinkedIn</a>
+                      <a href="#" className="text-gray-400 hover:text-primary transition-colors">Dribbble</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <form onSubmit={handleSubmitContactForm} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="text-white block mb-2">Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required
+                    className="w-full px-4 py-3 rounded-lg bg-secondary border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="text-white block mb-2">Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    className="w-full px-4 py-3 rounded-lg bg-secondary border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="text-white block mb-2">Message</label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    rows={5} 
+                    required
+                    className="w-full px-4 py-3 rounded-lg bg-secondary border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit"
+                  className="bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-full font-medium inline-flex items-center gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all"
+                >
+                  Send Message
+                  <ArrowRight size={18} />
+                </button>
+              </form>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      
+      <Footer />
+    </React.Fragment>
+  );
+};
+
+export default Index;
