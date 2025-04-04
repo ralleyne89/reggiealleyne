@@ -13,7 +13,7 @@ export const getCllctveProject = (): ProjectType => {
     tags: ["Platform", "Creative", "Gen Z", "Portfolio"],
     role: "Frontend Developer",
     duration: "1 year, 10 months",
-    year: "2022",
+    year: "2020",
     challenge: "How do we give Gen Z creators a platform that feels like home for their creative work—and one that connects them with real opportunities? Many portfolio platforms lack the visual appeal, interactivity, and network-building features Gen Z users want. CLLCTVE needed to stand out as a hybrid between portfolio, discovery, and challenge platform.",
     process: [
       "User Research & Strategy - Identified key user behaviors: mobile-first, visual-heavy interaction, low barrier to entry. Needed a platform that 'felt fun,' but still provided career value.",
@@ -52,7 +52,7 @@ export const getCllctveProject = (): ProjectType => {
     teamSize: "4 members",
     methodologies: ["Agile", "Bi-weekly Sprints", "User Testing", "React.js", "Figma", "Ant Design"],
     summary: "CLLCTVE is a leading portfolio platform connecting Gen Z creatives to their next opportunity through an intuitive, highly visual portfolio experience.",
-    date: "2022-06-15",
+    date: "2020-06-15",
     solution: "Built an intuitive, highly visual portfolio platform that connects Gen Z creatives with brands through hosted challenges, while providing a sense of community and career development."
   };
 };
