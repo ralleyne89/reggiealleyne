@@ -47,10 +47,7 @@ const DesignPrinciples = () => {
               className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-secondary to-transparent"></div>
-            <div className="absolute top-2 left-2 bg-primary/80 text-white text-xs px-2 py-1 rounded flex items-center gap-1">
-              {React.cloneElement(principle.icon, { size: 12 })}
-              {principle.title}
-            </div>
+            {/* Badge removed from here */}
           </div>
           
           <div className="p-4">
