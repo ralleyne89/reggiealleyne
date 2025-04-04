@@ -45,7 +45,7 @@ const BentoFeaturedProjects = ({ projects, isLoading, error }: BentoFeaturedProj
     );
   }
 
-  // Define the specific projects to show (removed Health@Home and ChillVibes)
+  // Define the specific projects to show (removed Improv Learning)
   const featuredProjectIds = [3, 2, 1]; // Tech Noir, Tutor D, Cllctve
   
   // Filter to get only the specified projects in the right order
