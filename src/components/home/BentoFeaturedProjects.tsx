@@ -74,7 +74,7 @@ const BentoFeaturedProjects = ({ projects, isLoading, error }: BentoFeaturedProj
         </div>
       ),
       className: project.id === 3 
-        ? "md:col-span-2 lg:col-span-2" // Tech Noir spans 2 columns
+        ? "md:col-span-2" // Tech Noir spans 2 columns on medium screens
         : "col-span-1",
     };
   });
@@ -86,7 +86,7 @@ const BentoFeaturedProjects = ({ projects, isLoading, error }: BentoFeaturedProj
       transition={{ duration: 0.5 }}
       className="w-full"
     >
-      <BentoGrid className="md:grid-rows-2">
+      <BentoGrid className="md:auto-rows-auto grid-rows-auto">
         {bentoFeatures.map((feature) => (
           <BentoCard key={feature.name} {...feature} />
         ))}

@@ -3,7 +3,6 @@ import React from 'react';
 import { ProjectType } from '@/types/project';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
-import { BentoGrid } from '@/components/ui/bento-grid';
 
 interface ProjectsCategoryProps {
   categoryTitle: string;

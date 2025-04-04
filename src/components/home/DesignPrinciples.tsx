@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Eye, Layers, Zap, UserCheck, Sliders, Sparkles } from 'lucide-react';
@@ -26,7 +27,7 @@ const principles = [
 const DesignPrinciples = () => {
   return (
     <motion.div
-      className="grid grid-cols-2 gap-4"
+      className="grid grid-cols-1 md:grid-cols-3 gap-4"
       initial={{ opacity: 0, x: 50 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
@@ -35,7 +36,7 @@ const DesignPrinciples = () => {
       {principles.map((principle, index) => (
         <motion.div 
           key={index}
-          className={`bg-secondary rounded-xl overflow-hidden ${index === 0 ? 'col-span-2 row-span-2' : ''}`}
+          className="bg-secondary rounded-xl overflow-hidden h-full"
           whileHover={{ y: -5 }}
           transition={{ duration: 0.3 }}
         >
@@ -46,7 +47,6 @@ const DesignPrinciples = () => {
               className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-secondary to-transparent"></div>
-            {/* Badge removed from here */}
           </div>
           
           <div className="p-4">
@@ -56,9 +56,7 @@ const DesignPrinciples = () => {
                 {principle.title}
               </h3>
             </div>
-            {index === 0 && (
-              <p className="text-gray-400 text-sm mb-3">{principle.description}</p>
-            )}
+            <p className="text-gray-400 text-sm mb-2">{principle.description}</p>
           </div>
         </motion.div>
       ))}
