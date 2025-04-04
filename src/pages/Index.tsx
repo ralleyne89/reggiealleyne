@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
@@ -171,33 +172,6 @@ const Index = () => {
     }
   ];
   
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Design Director",
-      company: "TechCorp",
-      avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-      text: "Reggie's design work is exceptional. His ability to translate complex requirements into intuitive interfaces made our product stand out.",
-      rating: 5
-    },
-    {
-      name: "David Chen",
-      role: "Project Lead",
-      company: "InnovateLab",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-      text: "Working with Reggie was a pleasure. His technical skills and eye for design created a seamless development experience for our team.",
-      rating: 5
-    },
-    {
-      name: "Amanda Lopez",
-      role: "Senior Engineer",
-      company: "CreativeAgency",
-      avatar: "https://randomuser.me/api/portraits/women/42.jpg",
-      text: "Reggie is an excellent collaborator. His designs are not just beautiful but also highly implementable from an engineering perspective.",
-      rating: 4.5
-    }
-  ];
-  
   const caseStudies = [
     {
       title: "User Experience Overhaul",
@@ -289,7 +263,7 @@ const Index = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <motion.div
         ref={targetRef}
         className="min-h-screen w-full pt-28 pb-16 relative overflow-hidden"
@@ -732,4 +706,47 @@ const Index = () => {
                     id="name" 
                     name="name" 
                     required
-                    className="w-full px-4 py
+                    className="w-full px-4 py-3 bg-secondary border border-gray-700 rounded-lg text-white focus:outline-none focus:border-primary"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="text-white block mb-2">Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    className="w-full px-4 py-3 bg-secondary border border-gray-700 rounded-lg text-white focus:outline-none focus:border-primary"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="text-white block mb-2">Message</label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    rows={4}
+                    required
+                    className="w-full px-4 py-3 bg-secondary border border-gray-700 rounded-lg text-white focus:outline-none focus:border-primary"
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-lg font-medium shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-shadow"
+                >
+                  Send Message
+                </button>
+              </form>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      
+      <Footer />
+    </>
+  );
+};
+
+export default Index;
