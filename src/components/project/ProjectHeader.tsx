@@ -24,10 +24,7 @@ const ProjectHeader = ({ image, tags, title, description }: ProjectHeaderProps) 
   );
 
   // Check specifically for the Chill Vibes project by image path or title
-  const isChillVibesProject = image && (
-    image.includes('chill-vibes-menu') ||
-    title === "Chill Vibes Music Player"
-  );
+  const isChillVibesProject = title === "Chill Vibes Music Player";
 
   const handleImageError = () => {
     console.error(`Header image failed to load: ${image}`);
