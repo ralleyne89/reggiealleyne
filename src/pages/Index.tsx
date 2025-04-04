@@ -63,6 +63,7 @@ const Index = () => {
   const navigate = useNavigate();
   const targetRef = useRef<HTMLDivElement>(null);
   const [roleIndex, setRoleIndex] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const roles = ["UI/UX Designer", "Frontend Developer", "Graphic Designer"];
   
   useEffect(() => {
@@ -238,14 +239,21 @@ const Index = () => {
     }
   };
 
-  const handleSubmitContactForm = async (e) => {
+  const handleContactFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value
+      name: e.currentTarget.name.value,
+      email: e.currentTarget.email.value,
+      message: e.currentTarget.message.value
     };
 
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error("Please fill in all fields");
+      return;
+    }
+
+    setIsSubmitting(true);
+    
     try {
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: formData,
@@ -253,11 +261,13 @@ const Index = () => {
       
       if (error) throw error;
 
-      toast.success("Email sent! I'll get back to you as soon as possible.");
-      e.target.reset();
+      toast.success("Message sent! I'll get back to you as soon as possible.");
+      e.currentTarget.reset();
     } catch (error) {
       console.error('Error sending email:', error);
       toast.error("Failed to send email. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -696,7 +706,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <form onSubmit={handleSubmitContactForm} className="space-y-4">
+              <form onSubmit={handleContactFormSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="text-white block mb-2">Name</label>
                   <input 
@@ -732,9 +742,10 @@ const Index = () => {
                 
                 <button 
                   type="submit"
+                  disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-lg font-medium shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-shadow"
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </motion.div>
