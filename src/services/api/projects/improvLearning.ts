@@ -5,7 +5,7 @@ export const getImprovLearningProject = (): ProjectType => {
   return {
     id: 5,
     slug: "improv-learning",
-    title: "Improv Traffic School – High-Converting Website for GEICO Partnership",
+    title: "Improv Learning – Traffic School Landing Page",
     description: "A simplified landing experience for driving education and insurance savings",
     fullDescription: "Improv Traffic School partnered with GEICO to create a conversion-optimized landing page for their online defensive driving course. The goal was to boost signups by clearly communicating course benefits while maintaining trust and usability across all devices.",
     image: "/lovable-uploads/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
