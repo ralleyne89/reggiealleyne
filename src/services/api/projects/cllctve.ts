@@ -32,7 +32,7 @@ export const getCllctveProject = (): ProjectType => {
       "/lovable-uploads/bb480e3a-f008-47a7-ab1f-621a3954be31.png"
     ],
     conclusion: {
-      impact: "Helped onboard 1,000+ Gen Z users during early-stage rollout. Supported multiple brand partnerships (e.g., student-focused startups). Saw a significant increase in returning users after UI and performance enhancements.",
+      impact: "The platform successfully created a community of creative talent, resulting in numerous brand partnerships and collaborations. User engagement metrics showed strong retention, with creators regularly updating their portfolios and participating in challenges.",
       learnings: "CLLCTVE pushed me to grow as a developer and collaborator. I learned how user research drives design decisions, how to build components that scale with product goals, and how to balance brand expression with accessibility.",
       nextSteps: "This project reinforced the importance of shipping fast—but thoughtfully—with real users in mind."
     },
