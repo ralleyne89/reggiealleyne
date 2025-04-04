@@ -1,4 +1,3 @@
-
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -34,7 +33,7 @@ const ProjectHeader = ({ image, tags, title, description }: ProjectHeaderProps) 
         <img 
           src={imageError ? "/placeholder.svg" : image} 
           alt={title}
-          className={`w-full h-full ${isChillVibesImage ? 'object-contain' : 'object-cover'}`}
+          className={`w-full h-full ${isChillVibesImage ? 'object-contain bg-black' : 'object-cover'}`}
           onError={handleImageError}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[rgba(5,5,5,1)]"></div>
