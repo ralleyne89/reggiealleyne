@@ -1,37 +1,7 @@
+
 import React from 'react';
 import { MessageSquare } from 'lucide-react';
 import { ScrollArea } from "@/components/ui/scroll-area";
-
-const reviews = [
-  {
-    name: "Emily Parker",
-    location: "San Francisco, CA",
-    date: "11, Apr 2024",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-    text: "Reggie is a remarkable UX/UI Designer, renowned for his exceptional UI skills and creating Awwwards-worthy websites. I highly recommend Reggie for any UX/UI Designer role that requires a talented and dedicated professional with a focus on UI skills."
-  },
-  {
-    name: "Michael Thompson",
-    location: "New York, NY",
-    date: "10, Apr 2024",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
-    text: "Working with Reggie was an absolute pleasure. His attention to detail and innovative approach to Frontend Development transformed our project completely. His ability to understand and implement complex requirements while maintaining aesthetic appeal is remarkable."
-  },
-  {
-    name: "Sarah Williams",
-    location: "Seattle, WA",
-    date: "9, Apr 2024",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
-    text: "Reggie's expertise in creating responsive and intuitive designs is outstanding. As a Frontend Developer, he not only delivered exactly what we needed but also provided valuable insights that improved our initial concept. A true professional who goes above and beyond."
-  },
-  {
-    name: "James Anderson",
-    location: "Boston, MA",
-    date: "8, Apr 2024",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
-    text: "I've worked with many designers, but Reggie stands out for his exceptional creativity and technical proficiency as a UX/UI Designer. His designs are not just beautiful but also highly functional and user-friendly. Looking forward to collaborating on more projects!"
-  }
-];
 
 const TestimonialsCard = () => {
   return (
@@ -39,46 +9,20 @@ const TestimonialsCard = () => {
       <div className="flex w-full flex-col items-center mb-6">
         <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium px-2.5 py-1.5">
           <MessageSquare className="w-4 h-4 text-[#916CE7]" />
-          <span>Testimonials</span>
+          <span>Portfolio Highlights</span>
         </div>
         <div className="text-[rgba(230,230,230,1)] text-xl font-semibold">
-          Reviews Showcase
+          Featured Projects
         </div>
       </div>
       <ScrollArea className="h-[280px] w-full pr-4">
-        <div className="space-y-4">
-          {reviews.map((review, index) => (
-            <div 
-              key={index}
-              className="bg-[rgba(25,25,25,1)] border p-4 rounded-xl border-[rgba(255,255,255,0.06)] border-solid animate-fade-in"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="flex justify-between items-center pb-3 border-b border-[rgba(255,255,255,0.06)]">
-                <div className="flex items-center gap-3">
-                  <img
-                    loading="lazy"
-                    src={review.image}
-                    className="w-10 h-10 rounded-full object-cover"
-                    alt={`${review.name}'s avatar`}
-                  />
-                  <div>
-                    <div className="text-[rgba(230,230,230,1)] text-sm font-medium">
-                      {review.name}
-                    </div>
-                    <div className="text-[rgba(153,153,153,1)] text-xs">
-                      {review.location}
-                    </div>
-                  </div>
-                </div>
-                <div className="text-[rgba(153,153,153,1)] text-xs">
-                  {review.date}
-                </div>
-              </div>
-              <p className="text-[rgba(204,204,204,1)] text-sm mt-3 leading-relaxed">
-                {review.text}
-              </p>
-            </div>
-          ))}
+        <div className="flex flex-col items-center justify-center h-full text-center p-6">
+          <p className="text-[rgba(204,204,204,1)] text-lg">
+            Browse my portfolio to see my latest work and projects
+          </p>
+          <p className="text-[rgba(153,153,153,1)] text-sm mt-2">
+            Each project showcases my approach to problem-solving through design and development
+          </p>
         </div>
       </ScrollArea>
     </div>
