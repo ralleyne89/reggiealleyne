@@ -6,34 +6,54 @@ export const getCllctveProject = (): ProjectType => {
     id: 1,
     slug: "cllctve-platform",
     title: "CLLCTVE Platform",
-    description: "A digital portfolio platform connecting college creators with brands seeking authentic content.",
-    fullDescription: "CLLCTVE empowers the next generation of creatives by providing a platform to showcase their work and connect with brands looking for authentic content creators.",
+    description: "The #1 portfolio platform connecting Gen Z creatives to their next opportunity.",
+    fullDescription: "CLLCTVE is a digital portfolio platform built to empower Gen Z creators. It provides a space for users to showcase their work, grow their professional network, and connect with brands through creative challenges. The platform bridges the gap between young talent and professional opportunities—offering rewards, exposure, and a home for their evolving digital identity.",
     image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d",
     category: "Platform",
-    tags: ["Platform", "Creative", "Marketplace"],
-    role: "Frontend Developer & UI Designer",
-    duration: "2 years",
+    tags: ["Platform", "Creative", "Gen Z", "Portfolio"],
+    role: "Frontend Developer",
+    duration: "1 year, 10 months",
     year: "2020",
-    challenge: "Build a portfolio platform that meets the needs of both creators and brands",
-    process: ["Discovery", "User Interviews", "Design Sprint", "Testing"],
-    deliverables: ["Design System", "User Flows", "Interactive Prototype, Web Application"],
+    challenge: "How do we give Gen Z creators a platform that feels like home for their creative work—and one that connects them with real opportunities? Many portfolio platforms lack the visual appeal, interactivity, and network-building features Gen Z users want. CLLCTVE needed to stand out as a hybrid between portfolio, discovery, and challenge platform.",
+    process: [
+      "User Research & Strategy - Identified key user behaviors: mobile-first, visual-heavy interaction, low barrier to entry. Needed a platform that 'felt fun,' but still provided career value.",
+      "Design Collaboration - Converted wireframes to modular, scalable UI components. Used Ant Design for quick prototyping, paired with custom Styled Components for brand fit.",
+      "Frontend Development - Built pages: Onboarding, Challenge Discovery, Profile, and Brand Collab. Axios used for data calls to MongoDB.",
+      "Iteration & Feedback - Beta tested with Gen Z creators. Improved mobile load times and simplified challenge submission flow based on feedback."
+    ],
+    deliverables: [
+      "Interactive Challenge Flow – Multi-step submission with real-time validation",
+      "Modular Portfolios – Creators can visually organize work by category",
+      "Branded Pages – Custom-styled areas for brand-hosted challenges",
+      "Notification Panel – Keeps users updated on challenges and opportunities"
+    ],
     images: [
       "https://images.unsplash.com/photo-1542744094-3a31f272c490",
       "https://images.unsplash.com/photo-1497091071254-cc9b2ba7c48a",
       "https://images.unsplash.com/photo-1535586453970-bd8fb0d2d2fc"
     ],
     conclusion: {
-      impact: "5,000+ creator portfolios, 50+ brand partnerships",
-      learnings: "Creator discovery and curation are critical for platform success",
-      nextSteps: "Expanding into video content and international markets"
+      impact: "Helped onboard 1,000+ Gen Z users during early-stage rollout. Supported multiple brand partnerships (e.g., student-focused startups). Saw a 30%+ increase in returning users after UI and performance enhancements.",
+      learnings: "CLLCTVE pushed me to grow as a developer and collaborator. I learned how user research drives design decisions, how to build components that scale with product goals, and how to balance brand expression with accessibility.",
+      nextSteps: "This project reinforced the importance of shipping fast—but thoughtfully—with real users in mind."
     },
-    techStack: ["React", "GraphQL", "Ant Design", "React Query", "Figma"],
-    keyAchievements: ["Raised $1.2M in funding", "Featured in TechCrunch", "5,000+ user base"],
-    problemSolved: "Gap between college creators and brands seeking authentic content",
-    technicalHighlights: ["Creator analytics dashboard", "Automated contract generation", "Secure payment processing"],
-    teamSize: "6 members",
-    methodologies: ["Design Thinking", "Agile", "Usability Testing"],
-    summary: "Digital platform connecting college creators with brands for authentic content partnerships.",
-    date: "2020-06-15"
+    techStack: ["React.js", "MongoDB", "Ant Design", "Axios", "Styled Components"],
+    keyAchievements: [
+      "Helped onboard 1,000+ Gen Z users", 
+      "Supported multiple brand partnerships", 
+      "30%+ increase in returning users after UI enhancements"
+    ],
+    problemSolved: "The gap between young creative talent and professional opportunities, providing Gen Z creators with a platform that feels like home for their work.",
+    technicalHighlights: [
+      "Built responsive layouts with Styled Components",
+      "Performance tuning for mobile experience",
+      "Implemented real-time validation in challenge flows",
+      "Scalable front-end architecture as product grew"
+    ],
+    teamSize: "4 members",
+    methodologies: ["Agile", "Bi-weekly Sprints", "User Testing"],
+    summary: "CLLCTVE is the #1 portfolio platform connecting Gen Z creatives to their next opportunity through an intuitive, highly visual portfolio experience.",
+    date: "2020-06-15",
+    solution: "Built an intuitive, highly visual portfolio platform that connects Gen Z creatives with brands through hosted challenges, while providing a sense of community and career development."
   };
 };
