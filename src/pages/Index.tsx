@@ -682,9 +682,8 @@ const Index = () => {
                   <div>
                     <p className="text-sm text-gray-400">Social</p>
                     <div className="flex gap-3 mt-1">
-                      <a href="#" className="text-gray-400 hover:text-primary transition-colors">Twitter</a>
-                      <a href="#" className="text-gray-400 hover:text-primary transition-colors">LinkedIn</a>
-                      <a href="#" className="text-gray-400 hover:text-primary transition-colors">Dribbble</a>
+                      <a href="https://github.com/ralleyne89" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">GitHub</a>
+                      <a href="https://linkedin.com/in/reggiealleyne" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">LinkedIn</a>
                     </div>
                   </div>
                 </div>
