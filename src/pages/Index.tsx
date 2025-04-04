@@ -377,7 +377,11 @@ const Index = () => {
                     </div>
                     
                     <div className="flex gap-2">
-                      <span className="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full">
+                      <span className="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full flex items-center gap-1.5">
+                        <div className="relative">
+                          <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                          <div className="absolute inset-0 w-1.5 h-1.5 rounded-full border border-green-500 animate-ping"></div>
+                        </div>
                         Available
                       </span>
                     </div>
