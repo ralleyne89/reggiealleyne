@@ -33,14 +33,14 @@ export const getCllctveProject = (): ProjectType => {
       "https://images.unsplash.com/photo-1535586453970-bd8fb0d2d2fc"
     ],
     conclusion: {
-      impact: "Helped onboard 1,000+ Gen Z users during early-stage rollout. Supported multiple brand partnerships (e.g., student-focused startups). Saw a 30%+ increase in returning users after UI and performance enhancements.",
+      impact: "Helped onboard 1,000+ Gen Z users during early-stage rollout. Supported multiple brand partnerships (e.g., student-focused startups). Saw a significant increase in returning users after UI and performance enhancements.",
       learnings: "CLLCTVE pushed me to grow as a developer and collaborator. I learned how user research drives design decisions, how to build components that scale with product goals, and how to balance brand expression with accessibility.",
       nextSteps: "This project reinforced the importance of shipping fast—but thoughtfully—with real users in mind."
     },
     techStack: ["React.js", "MongoDB", "Ant Design", "Axios", "Styled Components"],
     keyAchievements: [
-      "Improved page load time by 40% through code optimization and asset management",
-      "Implemented responsive design system that increased mobile engagement by 25%", 
+      "Improved page load time through code optimization and asset management",
+      "Implemented responsive design system that increased mobile engagement", 
       "Delivered 4 major UI feature launches with zero critical bugs"
     ],
     problemSolved: "The gap between young creative talent and professional opportunities, providing Gen Z creators with a platform that feels like home for their work.",
