@@ -1,4 +1,3 @@
-
 import { ProjectType } from '../../../types/project';
 
 export const getWristbandProject = (): ProjectType => {
@@ -12,7 +11,7 @@ export const getWristbandProject = (): ProjectType => {
     tags: ["Mobile App", "Game Design", "Storytelling"],
     role: "UX, UI & Visual Design",
     duration: "4 months",
-    year: "2018",
+    year: "2019",
     challenge: "Many of the interactive storytelling games are very similar, causing users to only use it for a short time then delete it. When it comes to finding a wide variety of genres for the user, it tends to get repetitive. Users have found that the writing seems rushed with characters that look the same with different hair color. How can we give users the missing element they are seeking?",
     process: [
       "While coming up with the layout of the app, I began sketches to finalize some of the key features. After finding our MVP, I started the design process on those key pages.",

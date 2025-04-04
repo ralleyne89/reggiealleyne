@@ -13,7 +13,7 @@ export const getTechNoirProject = (): ProjectType => {
     tags: ["E-commerce", "Fashion", "Wearable Tech", "UX/UI Design"],
     role: "UX, UI & Visual Designer",
     duration: "2 months",
-    year: "2023",
+    year: "2016",
     challenge: "Wearable tech is misunderstood and underexplored in e-commerce. Many users don't know what wearable tech is, how it works, or how to incorporate it into their wardrobe. If consumers don't understand its function, they won't see it as fashionable.",
     process: [
       "Research & Discovery - Conducted surveys and field research to gauge wearable tech awareness. Found that most users had heard of it, but didn't know how to style it. Majority preferred in-store purchases due to uncertainty.",
