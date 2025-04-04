@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Eye, Layers, Zap, UserCheck, Sliders, Sparkles } from 'lucide-react';
@@ -8,19 +7,19 @@ const principles = [
     icon: <Eye className="h-8 w-8 text-primary" />,
     title: "Visual Hierarchy",
     description: "Thoughtful organization of elements to guide users through content naturally and enhance comprehension.",
-    image: "/lovable-uploads/57c3f150-f310-44ad-b0c2-e88165c01417.png" // Updated to UX design layout image
+    image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1470&auto=format&fit=crop" // Updated to UI wireframe/mockup image
   },
   {
     icon: <Layers className="h-8 w-8 text-primary" />,
     title: "Consistent Patterns",
     description: "Creating coherent experiences through repeatable design elements that feel familiar and intuitive.",
-    image: "/lovable-uploads/1e5262b7-f4b4-42b2-a5b8-75ae974c6893.png" // Updated to design system image
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=1470&auto=format&fit=crop" // Updated to UI components/design system image
   },
   {
     icon: <UserCheck className="h-8 w-8 text-primary" />,
     title: "Accessibility",
     description: "Ensuring designs are inclusive and usable for people of all abilities through thoughtful implementation.",
-    image: "/lovable-uploads/aab1244b-de80-4758-8cbe-165d2b66ec19.png" // Updated to accessibility image
+    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1469&auto=format&fit=crop" // Updated to accessibility image
   }
 ];
 
