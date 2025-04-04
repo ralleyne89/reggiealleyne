@@ -1,3 +1,4 @@
+
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -19,7 +20,13 @@ const ProjectHeader = ({ image, tags, title, description }: ProjectHeaderProps) 
     image.includes('6c61f05a-9d32-4df9-bcbe-d5187f822b51') ||
     image.includes('6f0c29e0-049e-4fed-addf-089a0fd9abbe') ||
     image.includes('77847d00-98c9-4081-9595-ed324d71c1e6') ||
-    image.includes('3de67e2b-ce27-44a5-9aaf-41e553506578') // Added the new image to the Chill Vibes image check
+    image.includes('3de67e2b-ce27-44a5-9aaf-41e553506578')
+  );
+
+  // Check specifically for the Chill Vibes project by image path or title
+  const isChillVibesProject = image && (
+    image.includes('3de67e2b-ce27-44a5-9aaf-41e553506578') ||
+    title === "Chill Vibes Music Player"
   );
 
   const handleImageError = () => {
@@ -31,7 +38,11 @@ const ProjectHeader = ({ image, tags, title, description }: ProjectHeaderProps) 
     <>
       <div className="relative h-[60vh] overflow-hidden">
         <img 
-          src={imageError ? "/placeholder.svg" : image} 
+          src={
+            isChillVibesProject 
+              ? "/lovable-uploads/3de67e2b-ce27-44a5-9aaf-41e553506578.png" 
+              : (imageError ? "/placeholder.svg" : image)
+          } 
           alt={title}
           className={`w-full h-full ${isChillVibesImage ? 'object-contain bg-black' : 'object-cover'}`}
           onError={handleImageError}
