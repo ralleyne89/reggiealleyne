@@ -8,7 +8,7 @@ export const getChillVibesProject = (): ProjectType => {
     title: "Chill Vibes Music Player",
     description: "A minimalist React-based music app designed for focus and flow, featuring clean UI and lofi hip hop to help users concentrate without distractions.",
     fullDescription: "Chill Vibes is a personal project created to explore how simple, thoughtful design can enhance everyday routines. Built as a responsive web app, it plays calming lofi hip hop to help users focus, relax, or just vibe out—no ads, no distractions, just good energy.",
-    image: "/lovable-uploads/3de67e2b-ce27-44a5-9aaf-41e553506578.png",
+    image: "/lovable-uploads/chill-vibes-menu.png",
     tags: ["Music", "UX/UI", "React.js", "Firebase"],
     role: "Frontend Engineer & Designer",
     duration: "1 month",
@@ -34,8 +34,7 @@ export const getChillVibesProject = (): ProjectType => {
       "/lovable-uploads/7c5ca8bf-a2f4-41e8-a3fa-71e0099a2adf.png",
       "/lovable-uploads/6c61f05a-9d32-4df9-bcbe-d5187f822b51.png",
       "/lovable-uploads/6f0c29e0-049e-4fed-addf-089a0fd9abbe.png",
-      "/lovable-uploads/77847d00-98c9-4081-9595-ed324d71c1e6.png",
-      "/lovable-uploads/3de67e2b-ce27-44a5-9aaf-41e553506578.png"
+      "/lovable-uploads/77847d00-98c9-4081-9595-ed324d71c1e6.png"
     ],
     conclusion: {
       impact: "Chill Vibes reminded me how impactful small projects can be. I got to combine design thinking with front-end implementation in a way that felt fun and personal.",
