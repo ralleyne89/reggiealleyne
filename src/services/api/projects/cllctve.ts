@@ -22,7 +22,7 @@ export const getCllctveProject = (): ProjectType => {
       "Iteration & Feedback - Beta tested with Gen Z creators. Improved mobile load times and simplified challenge submission flow based on feedback."
     ],
     deliverables: [
-      "Interactive Challenge Flow – Multi-step submission with real-time validation",
+      "Custom Portfolio Builder – Drag-and-drop interface for content arrangement",
       "Modular Portfolios – Creators can visually organize work by category",
       "Branded Pages – Custom-styled areas for brand-hosted challenges",
       "Notification Panel – Keeps users updated on challenges and opportunities"
