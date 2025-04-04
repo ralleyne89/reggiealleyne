@@ -52,7 +52,7 @@ export const getImprovLearningProject = (): ProjectType => {
       "Seamless Geico account integration",
       "Auto-save feature to prevent data loss"
     ],
-    teamSize: "5 members",
+    teamSize: "4 members",
     methodologies: ["User-Centered Design", "Agile", "A/B Testing"],
     summary: "A high-converting traffic school website for Geico Insurance that significantly improved sign-up and completion rates through intuitive design."
   };
