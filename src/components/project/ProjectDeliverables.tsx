@@ -24,6 +24,8 @@ const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliver
   
   // Check if this is the Doggy Date project (id: 4 or slug: doggy-date)
   const isDoggyDateProject = projectId === 4 || projectId === 'doggy-date';
+  // Check if this is the Chill Vibes project (id: 7 or slug: chill-vibes-music-player)
+  const isChillVibesProject = projectId === 7 || projectId === 'chill-vibes-music-player';
   
   const handleImageClick = (image: string) => {
     setSelectedImage(image);
@@ -80,7 +82,7 @@ const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliver
                 <img 
                   src={image} 
                   alt={`Project visual ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className={`w-full h-full ${isChillVibesProject ? 'object-contain' : 'object-cover'} transition-transform duration-700 group-hover:scale-110`}
                   onError={(e) => {
                     console.error(`Image failed to load: ${image}`);
                     e.currentTarget.src = "/placeholder.svg";
@@ -106,7 +108,7 @@ const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliver
                 <img 
                   src={selectedImage} 
                   alt="Full size project visual" 
-                  className="w-full h-full object-contain"
+                  className={`w-full h-full ${isChillVibesProject ? 'object-contain' : 'object-cover'}`}
                   onError={(e) => {
                     console.error(`Modal image failed to load: ${selectedImage}`);
                     e.currentTarget.src = "/placeholder.svg";
