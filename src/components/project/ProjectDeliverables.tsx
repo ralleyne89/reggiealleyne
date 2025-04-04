@@ -82,7 +82,7 @@ const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliver
                 <img 
                   src={image} 
                   alt={`Project visual ${index + 1}`}
-                  className={`w-full h-full ${isChillVibesProject ? 'object-contain' : 'object-cover'} transition-transform duration-700 group-hover:scale-110`}
+                  className={`w-full h-full ${isChillVibesProject ? 'object-contain bg-gray-900' : 'object-cover'}`}
                   onError={(e) => {
                     console.error(`Image failed to load: ${image}`);
                     e.currentTarget.src = "/placeholder.svg";
