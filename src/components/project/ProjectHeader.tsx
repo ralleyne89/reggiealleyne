@@ -20,10 +20,10 @@ const ProjectHeader = ({ image, tags, title, description }: ProjectHeaderProps) 
     image.includes('6c61f05a-9d32-4df9-bcbe-d5187f822b51') ||
     image.includes('6f0c29e0-049e-4fed-addf-089a0fd9abbe') ||
     image.includes('77847d00-98c9-4081-9595-ed324d71c1e6') ||
-    image.includes('chill vibes menu.PNG')
+    image.includes('chill-vibes-menu')
   );
 
-  // Check specifically for the Chill Vibes project by title
+  // Check specifically for the Chill Vibes project by image path or title
   const isChillVibesProject = title === "Chill Vibes Music Player";
 
   const handleImageError = () => {
@@ -37,7 +37,7 @@ const ProjectHeader = ({ image, tags, title, description }: ProjectHeaderProps) 
         <img 
           src={
             isChillVibesProject 
-              ? "/lovable-uploads/chill vibes menu.PNG" 
+              ? "/lovable-uploads/chill-vibes-menu.png" 
               : (imageError ? "/placeholder.svg" : image)
           } 
           alt={title}
