@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Download, Handshake, Mail } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
@@ -46,12 +47,30 @@ const ContactCard = () => {
 
   const handleResumeDownload = () => {
     try {
-      // Direct link to Google Drive file
-      window.open('https://drive.google.com/file/d/1pK4gD27rABnUArntEHFJLVUu3WyCLBQb/view?usp=drive_link', '_blank');
-      toast.success('Resume opened successfully!');
+      // Using the fetch API to download the file
+      fetch('https://drive.google.com/uc?export=download&id=1pK4gD27rABnUArntEHFJLVUu3WyCLBQb')
+        .then(response => response.blob())
+        .then(blob => {
+          // Create a blob URL for the file
+          const url = window.URL.createObjectURL(blob);
+          // Create a temporary link element
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'Reggie_Alleyne_Resume.pdf'; // Set the filename
+          document.body.appendChild(link);
+          link.click(); // Trigger the download
+          // Clean up
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(url);
+          toast.success('Resume downloaded successfully!');
+        })
+        .catch(error => {
+          console.error('Error downloading resume:', error);
+          toast.error('Failed to download resume. Please try again later.');
+        });
     } catch (error) {
-      console.error('Error opening resume:', error);
-      toast.error('Failed to open resume. Please try again later.');
+      console.error('Error downloading resume:', error);
+      toast.error('Failed to download resume. Please try again later.');
     }
   };
 

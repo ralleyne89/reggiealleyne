@@ -11,7 +11,6 @@ const Navbar = () => {
   
   useEffect(() => {
     const handleScroll = () => {
-      // Increase threshold for scroll effect to happen later
       setScrolled(window.scrollY > 100);
     };
     
@@ -31,12 +30,26 @@ const Navbar = () => {
   
   const handleResumeDownload = () => {
     try {
-      // Direct link to Google Drive file
-      window.open('https://drive.google.com/file/d/1pK4gD27rABnUArntEHFJLVUu3WyCLBQb/view?usp=drive_link', '_blank');
-      toast.success('Resume opened successfully!');
+      fetch('https://drive.google.com/uc?export=download&id=1pK4gD27rABnUArntEHFJLVUu3WyCLBQb')
+        .then(response => response.blob())
+        .then(blob => {
+          const url = window.URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'Reggie_Alleyne_Resume.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(url);
+          toast.success('Resume downloaded successfully!');
+        })
+        .catch(error => {
+          console.error('Error downloading resume:', error);
+          toast.error('Failed to download resume. Please try again later.');
+        });
     } catch (error) {
-      console.error('Error opening resume:', error);
-      toast.error('Failed to open resume. Please try again later.');
+      console.error('Error downloading resume:', error);
+      toast.error('Failed to download resume. Please try again later.');
     }
   };
   
@@ -70,7 +83,6 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between py-4">
-          {/* Logo */}
           <Link to="/" className="text-white">
             <motion.div 
               className="flex items-center"
@@ -85,7 +97,6 @@ const Navbar = () => {
             </motion.div>
           </Link>
           
-          {/* Desktop Navigation */}
           <ul className="hidden md:flex space-x-2">
             {navItems.map((item, index) => (
               <motion.li key={index} variants={itemVariants}>
@@ -102,7 +113,6 @@ const Navbar = () => {
               </motion.li>
             ))}
             
-            {/* Resume download button moved to the main navigation */}
             <motion.li variants={itemVariants}>
               <motion.button
                 onClick={handleResumeDownload}
@@ -115,7 +125,6 @@ const Navbar = () => {
             </motion.li>
           </ul>
           
-          {/* Mobile Menu Button */}
           <motion.button 
             className="md:hidden text-white focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
@@ -126,7 +135,6 @@ const Navbar = () => {
         </nav>
       </div>
       
-      {/* Mobile Menu */}
       {isOpen && (
         <motion.div 
           className="md:hidden bg-[#161623]/95 backdrop-blur-lg border-b border-[#7E69AB]/20"
