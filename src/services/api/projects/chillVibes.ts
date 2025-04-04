@@ -8,7 +8,7 @@ export const getChillVibesProject = (): ProjectType => {
     title: "Chill Vibes Music Player",
     description: "A minimalist music player app designed for ambient and lo-fi music enthusiasts, featuring playlist curation and mood-based recommendations.",
     fullDescription: "Chill Vibes is a specialized music streaming application focused on providing a distraction-free listening experience for ambient, lo-fi, and meditation music. The app features intelligent mood detection, custom playlist creation, and integration with multiple streaming platforms.",
-    image: "/lovable-uploads/7c5ca8bf-a2f4-41e8-a3fa-71e0099a2adf.png",
+    image: "/lovable-uploads/6f0c29e0-049e-4fed-addf-089a0fd9abbe.png", // Changed the main image to the "chill vibes homepage" image
     tags: ["Music", "UX/UI", "Mobile App"],
     role: "Developer & UI Designer",
     duration: "2 months",
