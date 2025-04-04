@@ -32,12 +32,20 @@ const Navbar = () => {
   
   const handleResumeDownload = () => {
     try {
+      // Direct link to the resume PDF
+      const resumeUrl = "https://drive.google.com/uc?export=download&id=1YRYQ_4FHtQRqLIzJTQeZQZ4kHJ3D8r7n";
+      
+      // Create temporary link element
       const link = document.createElement('a');
-      link.href = '/reggie-alleyne-resume.pdf';
-      link.download = 'reggie-alleyne-resume.pdf';
+      link.href = resumeUrl;
+      link.download = 'reggie-alleyne-resume.pdf'; // The name that will be used when saving
+      link.target = '_blank'; // Open in new tab
+      
+      // Append to document, click, and cleanup
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      
       toast.success('Resume downloading...');
     } catch (error) {
       console.error('Error downloading resume:', error);
