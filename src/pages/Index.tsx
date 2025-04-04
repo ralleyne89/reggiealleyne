@@ -167,7 +167,7 @@ const Index = () => {
       year: "2018",
       title: "Fullstack Web Development",
       school: "UCLA Extension",
-      description: "Completed a comprehensive full stack web development program"
+      description: "Comprehensive full stack web development program"
     }
   ];
   
