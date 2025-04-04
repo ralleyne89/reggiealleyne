@@ -10,6 +10,9 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
+  // Check if this is the Chill Vibes project
+  const isChillVibesProject = project.title === "Chill Vibes Music Player";
+  
   return (
     <div 
       className="h-full bg-[rgba(16,16,16,0.7)] backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
@@ -17,9 +20,9 @@ const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
     >
       <div className="relative h-52">
         <img 
-          src={project.image} 
+          src={isChillVibesProject ? "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png" : project.image} 
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className={`w-full h-full ${isChillVibesProject ? 'object-contain bg-black' : 'object-cover'} transition-transform duration-700 group-hover:scale-110`}
           onError={(e) => {
             console.error(`Image failed to load: ${project.image}`);
             e.currentTarget.src = "/placeholder.svg";

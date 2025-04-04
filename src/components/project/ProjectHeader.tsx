@@ -14,16 +14,7 @@ interface ProjectHeaderProps {
 const ProjectHeader = ({ image, tags, title, description }: ProjectHeaderProps) => {
   const [imageError, setImageError] = useState(false);
   
-  // Check if this is the Chill Vibes project image
-  const isChillVibesImage = image && (
-    image.includes('7c5ca8bf-a2f4-41e8-a3fa-71e0099a2adf') || 
-    image.includes('6c61f05a-9d32-4df9-bcbe-d5187f822b51') ||
-    image.includes('6f0c29e0-049e-4fed-addf-089a0fd9abbe') ||
-    image.includes('77847d00-98c9-4081-9595-ed324d71c1e6') ||
-    image.includes('chill-vibes-menu')
-  );
-
-  // Check specifically for the Chill Vibes project by image path or title
+  // Check if this is the Chill Vibes project by title
   const isChillVibesProject = title === "Chill Vibes Music Player";
 
   const handleImageError = () => {
@@ -37,11 +28,11 @@ const ProjectHeader = ({ image, tags, title, description }: ProjectHeaderProps) 
         <img 
           src={
             isChillVibesProject 
-              ? "/lovable-uploads/chill-vibes-menu.png" 
+              ? "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png" 
               : (imageError ? "/placeholder.svg" : image)
           } 
           alt={title}
-          className={`w-full h-full ${isChillVibesImage ? 'object-contain bg-black' : 'object-cover'}`}
+          className={`w-full h-full ${isChillVibesProject ? 'object-contain bg-black' : 'object-cover'}`}
           onError={handleImageError}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[rgba(5,5,5,1)]"></div>

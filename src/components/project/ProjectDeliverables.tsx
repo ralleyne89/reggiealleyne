@@ -82,7 +82,7 @@ const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliver
                 <img 
                   src={image} 
                   alt={`Project visual ${index + 1}`}
-                  className={`w-full h-full ${isChillVibesProject ? 'object-contain' : 'object-cover'} transition-transform duration-700 group-hover:scale-110`}
+                  className={`w-full h-full ${isChillVibesProject ? 'object-contain bg-black' : 'object-cover'}`}
                   onError={(e) => {
                     console.error(`Image failed to load: ${image}`);
                     e.currentTarget.src = "/placeholder.svg";
@@ -108,7 +108,7 @@ const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliver
                 <img 
                   src={selectedImage} 
                   alt="Full size project visual" 
-                  className={`w-full h-full ${isChillVibesProject ? 'object-contain' : 'object-cover'}`}
+                  className={`w-full h-full ${isChillVibesProject ? 'object-contain bg-black' : 'object-cover'}`}
                   onError={(e) => {
                     console.error(`Modal image failed to load: ${selectedImage}`);
                     e.currentTarget.src = "/placeholder.svg";
