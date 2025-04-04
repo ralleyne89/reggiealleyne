@@ -8,19 +8,19 @@ const principles = [
     icon: <Eye className="h-8 w-8 text-primary" />,
     title: "Visual Hierarchy",
     description: "Thoughtful organization of elements to guide users through content naturally and enhance comprehension.",
-    image: "/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png"
+    image: "/lovable-uploads/57c3f150-f310-44ad-b0c2-e88165c01417.png" // Updated to UX design layout image
   },
   {
     icon: <Layers className="h-8 w-8 text-primary" />,
     title: "Consistent Patterns",
     description: "Creating coherent experiences through repeatable design elements that feel familiar and intuitive.",
-    image: "/lovable-uploads/cb582645-1a6e-4846-8a2e-72b2dffd49a8.png"
+    image: "/lovable-uploads/1e5262b7-f4b4-42b2-a5b8-75ae974c6893.png" // Updated to design system image
   },
   {
     icon: <UserCheck className="h-8 w-8 text-primary" />,
     title: "Accessibility",
     description: "Ensuring designs are inclusive and usable for people of all abilities through thoughtful implementation.",
-    image: "/lovable-uploads/b9b62216-4a0c-4367-bdab-32f608350015.png"
+    image: "/lovable-uploads/aab1244b-de80-4758-8cbe-165d2b66ec19.png" // Updated to accessibility image
   }
 ];
 
