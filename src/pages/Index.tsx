@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getAllProjects } from '@/services/api';
@@ -243,10 +242,14 @@ const Index = () => {
   const handleContactFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formElement = e.currentTarget;
+    const nameInput = formElement.elements.namedItem('name') as HTMLInputElement;
+    const emailInput = formElement.elements.namedItem('email') as HTMLInputElement;
+    const messageInput = formElement.elements.namedItem('message') as HTMLTextAreaElement;
+    
     const formData = {
-      name: formElement.name.value,
-      email: formElement.email.value,
-      message: formElement.message.value
+      name: nameInput.value,
+      email: emailInput.value,
+      message: messageInput.value
     };
 
     if (!formData.name || !formData.email || !formData.message) {
