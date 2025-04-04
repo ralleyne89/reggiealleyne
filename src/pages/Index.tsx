@@ -155,7 +155,7 @@ const Index = () => {
       year: "2014",
       title: "Bachelor of Science in Graphic Design",
       school: "Art Institute of California – Los Angeles",
-      description: "Studied UX/UI design principles, interaction design, and frontend development"
+      description: "Studied graphic design principles, design thinking, and interaction design"
     },
     {
       year: "2016",
