@@ -161,13 +161,13 @@ const Index = () => {
       year: "2016",
       title: "UX Design Certification",
       school: "General Assembly",
-      description: "Advanced certification in user experience design methodologies"
+      description: "Certification in user experience design methodologies"
     },
     {
       year: "2018",
       title: "Fullstack Web Development",
       school: "UCLA Extension",
-      description: "Mastered React.js, TypeScript, and modern frontend technologies"
+      description: "Completed a comprehensive full stack web development program"
     }
   ];
   
