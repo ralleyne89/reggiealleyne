@@ -108,7 +108,8 @@ const ProjectConclusion = ({ conclusion, prototypeUrl, liveUrl }: ProjectConclus
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                {liveUrl === "https://chill-vibes.web.app/" ? "Open Web App" : "View Live Demo"}
+                {liveUrl === "https://chill-vibes.web.app/" ? "Open Web App" : 
+                 liveUrl === "https://tutord.io/" ? "Visit TutorD" : "View Live Demo"}
                 <ExternalLink className="ml-2 h-5 w-5" />
               </a>
             </Button>

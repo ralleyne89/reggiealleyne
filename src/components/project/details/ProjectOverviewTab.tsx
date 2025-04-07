@@ -25,6 +25,13 @@ const ProjectOverviewTab = ({
   liveUrl,
   prototypeUrl
 }: ProjectOverviewTabProps) => {
+  // Determine the label for the live URL based on the URL
+  const getLiveLabel = () => {
+    if (liveUrl === "https://chill-vibes.web.app/") return "Open Web App";
+    if (liveUrl === "https://tutord.io/") return "Visit TutorD";
+    return "View Live Demo";
+  };
+  
   return (
     <TabsContent value="overview" className="p-8 m-0">
       <h2 className="text-2xl font-semibold text-white mb-4">Project Summary</h2>
@@ -81,7 +88,7 @@ const ProjectOverviewTab = ({
             githubUrl={githubUrl}
             liveUrl={liveUrl}
             prototypeUrl={prototypeUrl}
-            liveLabel={liveUrl === "https://chill-vibes.web.app/" ? "Open Web App" : "View Live Demo"}
+            liveLabel={getLiveLabel()}
           />
         </div>
       )}
