@@ -13,6 +13,9 @@ const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
   // Check if this is the Chill Vibes project
   const isChillVibesProject = project.title === "Chill Vibes Music Player";
   
+  // Format the year display to show ranges like "2020 - 2022" if the year contains a hyphen
+  const formattedYear = project.year || "";
+  
   return (
     <div 
       className="h-full bg-[rgba(16,16,16,0.7)] backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
@@ -63,7 +66,7 @@ const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
         <p className="text-gray-400 text-sm mb-4 line-clamp-2">{project.description}</p>
         
         <div className="flex justify-between items-center">
-          <span className="text-sm text-gray-500">{project.year}</span>
+          <span className="text-sm text-gray-500">{formattedYear}</span>
           <span className="text-primary text-sm font-medium">
             {project.role || "UX/UI Designer"}
           </span>
