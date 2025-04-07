@@ -68,7 +68,7 @@ const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
         <div className="flex justify-between items-center">
           <span className="text-sm text-gray-500">{formattedYear}</span>
           <span className="text-primary text-sm font-medium">
-            {project.role || "UX/UI Designer"}
+            {project.role || "UI/UX Designer"}
           </span>
         </div>
       </div>
