@@ -64,7 +64,7 @@ const ProjectOverviewTab = ({
           </div>
           <div>
             <p className="text-sm text-gray-400">Year</p>
-            <p className="text-white">{year}</p>
+            <p className="text-white">2020 - 2022</p>
           </div>
         </div>
         
