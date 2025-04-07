@@ -1,4 +1,3 @@
-
 import { ProjectType } from '../../../types/project';
 
 export const getTechNoirProject = (): ProjectType => {
@@ -8,7 +7,7 @@ export const getTechNoirProject = (): ProjectType => {
     title: "TECH NOIR",
     description: "A Fashion & Technology Driven E-Commerce App bringing high fashion and wearable tech together in one stylish, educational platform.",
     fullDescription: "Tech Noir is a mobile e-commerce experience created to merge the worlds of wearable technology and high fashion. The app not only showcases trend-setting fashion-tech pieces but also educates users on how to wear and understand them. It's designed to inspire, inform, and sell—bridging the gap between style and innovation.",
-    image: "/lovable-uploads/fb4255d4-cbcb-4174-b175-79f29efbc498.png",
+    image: "/lovable-uploads/fb4255d4-cbcb-4174-b175-79f29efbc498.png", // Main thumbnail image
     category: "E-commerce",
     tags: ["E-commerce", "Fashion", "Wearable Tech", "UX/UI Design"],
     role: "UX, UI & Visual Designer",

@@ -70,6 +70,10 @@ const BentoFeaturedProjects = ({ projects, isLoading, error }: BentoFeaturedProj
             src={project.image} 
             alt={project.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            onError={(e) => {
+              console.error(`Image failed to load: ${project.image}`);
+              e.currentTarget.src = "/placeholder.svg";
+            }}
           />
         </div>
       ),
