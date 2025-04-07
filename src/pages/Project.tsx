@@ -149,6 +149,7 @@ const Project = () => {
           nextSteps: projectWithDefaults.conclusion?.nextSteps || "Next steps include expanding features and improving performance."
         }}
         prototypeUrl={prototypeUrl}
+        liveUrl={projectWithDefaults.liveUrl}
       />
       <Footer />
     </div>

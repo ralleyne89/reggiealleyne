@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { TabsContent } from "@/components/ui/tabs";
-import { User, Clock, Calendar, Users, ExternalLink } from 'lucide-react';
+import { User, Clock, Calendar, Users } from 'lucide-react';
+import ProjectLinks from './ProjectLinks';
 
 interface ProjectOverviewTabProps {
   role: string;
@@ -76,43 +77,12 @@ const ProjectOverviewTab = ({
       {(githubUrl || liveUrl || prototypeUrl) && (
         <div className="mt-8">
           <h3 className="text-lg font-semibold text-white mb-4">Project Links</h3>
-          <div className="flex flex-wrap gap-3">
-            {githubUrl && (
-              <a 
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-[rgba(30,30,30,0.8)] text-primary rounded-lg hover:bg-[rgba(155,135,245,0.2)] transition-colors"
-              >
-                <span>View Source Code</span>
-                <ExternalLink size={16} />
-              </a>
-            )}
-            
-            {liveUrl && (
-              <a 
-                href={liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-colors"
-              >
-                <span>Live Demo</span>
-                <ExternalLink size={16} />
-              </a>
-            )}
-            
-            {prototypeUrl && (
-              <a 
-                href={prototypeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-[rgba(30,30,30,0.8)] text-primary border border-primary/30 rounded-lg hover:bg-[rgba(155,135,245,0.2)] transition-colors"
-              >
-                <span>View Prototype</span>
-                <ExternalLink size={16} />
-              </a>
-            )}
-          </div>
+          <ProjectLinks 
+            githubUrl={githubUrl}
+            liveUrl={liveUrl}
+            prototypeUrl={prototypeUrl}
+            liveLabel={liveUrl === "https://chill-vibes.web.app/" ? "Open Web App" : "View Live Demo"}
+          />
         </div>
       )}
     </TabsContent>

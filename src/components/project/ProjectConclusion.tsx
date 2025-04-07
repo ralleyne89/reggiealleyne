@@ -1,8 +1,9 @@
 
-import { ExternalLink, ArrowLeft, Star, Lightbulb, TrendingUp } from 'lucide-react';
+import { ArrowLeft, Star, Lightbulb, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from "@/components/ui/card";
+import ProjectLinks from './details/ProjectLinks';
 
 interface ProjectConclusionProps {
   conclusion: {
@@ -10,10 +11,11 @@ interface ProjectConclusionProps {
     learnings: string;
     nextSteps: string;
   };
-  prototypeUrl?: string;
+  prototypeUrl?: string | null;
+  liveUrl?: string | null;
 }
 
-const ProjectConclusion = ({ conclusion, prototypeUrl }: ProjectConclusionProps) => {
+const ProjectConclusion = ({ conclusion, prototypeUrl, liveUrl }: ProjectConclusionProps) => {
   return (
     <div className="w-full bg-gradient-to-t from-[#161220] to-[rgba(5,5,5,0.8)] px-6 py-16">
       <div className="max-w-7xl mx-auto">
@@ -78,7 +80,7 @@ const ProjectConclusion = ({ conclusion, prototypeUrl }: ProjectConclusionProps)
             </Link>
           </Button>
           
-          {prototypeUrl && (
+          {prototypeUrl && !liveUrl && (
             <Button 
               asChild
               variant="outline"
@@ -90,6 +92,23 @@ const ProjectConclusion = ({ conclusion, prototypeUrl }: ProjectConclusionProps)
                 rel="noopener noreferrer"
               >
                 View Prototype
+                <ExternalLink className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
+          )}
+          
+          {liveUrl && (
+            <Button 
+              asChild
+              variant="outline" 
+              className="px-8 py-7 text-lg font-medium text-primary border-2 border-primary bg-transparent hover:bg-primary/10 rounded-lg w-full sm:w-auto"
+            >
+              <a 
+                href={liveUrl}
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                {liveUrl === "https://chill-vibes.web.app/" ? "Open Web App" : "View Live Demo"}
                 <ExternalLink className="ml-2 h-5 w-5" />
               </a>
             </Button>
