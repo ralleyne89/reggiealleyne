@@ -49,7 +49,7 @@ export const getCllctveProject = (): ProjectType => {
       "Implemented real-time validation in challenge flows",
       "Scalable front-end architecture as product grew"
     ],
-    teamSize: "4 members",
+    teamSize: "6 members",
     methodologies: ["Agile", "Bi-weekly Sprints", "User Testing", "React.js", "Figma", "Ant Design"],
     summary: "CLLCTVE is a leading portfolio platform connecting Gen Z creatives to their next opportunity through an intuitive, highly visual portfolio experience.",
     date: "2020-06-15",

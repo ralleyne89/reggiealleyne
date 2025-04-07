@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TabsContent } from "@/components/ui/tabs";
 import { User, Clock, Calendar, Users } from 'lucide-react';
@@ -64,7 +63,7 @@ const ProjectOverviewTab = ({
           </div>
           <div>
             <p className="text-sm text-gray-400">Year</p>
-            <p className="text-white">2020 - 2022</p>
+            <p className="text-white">{year}</p>
           </div>
         </div>
         
@@ -75,7 +74,7 @@ const ProjectOverviewTab = ({
             </div>
             <div>
               <p className="text-sm text-gray-400">Team Size</p>
-              <p className="text-white">{teamSize}</p>
+              <p className="text-white">6 members</p>
             </div>
           </div>
         )}
