@@ -160,7 +160,7 @@ const Index = () => {
     },
     {
       year: "2016",
-      title: "UX/UI Design Certification",
+      title: "UX/UI Design",
       school: "General Assembly",
       description: "Certification in user experience design methodologies"
     },
