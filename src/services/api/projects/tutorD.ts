@@ -1,4 +1,3 @@
-
 import { ProjectType } from '../../../types/project';
 
 export const getTutorDProject = (): ProjectType => {
@@ -11,7 +10,7 @@ export const getTutorDProject = (): ProjectType => {
     image: "/lovable-uploads/781889c9-57f2-4a2c-9ce3-a3951cb2a777.png",
     category: "Education",
     tags: ["Education", "Distance Learning", "Accessibility"],
-    role: "Frontend Developer",
+    role: "Frontend Developer & UI/UX Designer",
     duration: "11 months",
     year: "2020-2021",
     challenge: "In many school districts, particularly underserved communities, students don't have access to internet-based learning platforms. Traditional online classrooms don't reach students using basic cell phones. Educators needed a way to send, track, and manage assignments sent via SMS, while still maintaining visibility into student progress and engagement.",

@@ -1,4 +1,3 @@
-
 import { ProjectType } from '../../../types/project';
 
 export const getChillVibesProject = (): ProjectType => {
@@ -10,7 +9,7 @@ export const getChillVibesProject = (): ProjectType => {
     fullDescription: "Chill Vibes is a personal project created to explore how simple, thoughtful design can enhance everyday routines. Built as a responsive web app, it plays calming lofi hip hop to help users focus, relax, or just vibe out—no ads, no distractions, just good energy.",
     image: "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
     tags: ["Music", "UX/UI", "React.js", "Firebase"],
-    role: "Frontend Engineer & Designer",
+    role: "Developer & UI/UX Designer",
     duration: "1 month",
     year: "2020",
     challenge: "Music apps often come loaded with too many features, popups, or clutter. For people who just want something simple and low-maintenance, especially while working or studying, there aren't many clean, browser-based options that just play calming music and get out of the way.",
