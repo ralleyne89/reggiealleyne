@@ -7,6 +7,7 @@ import ProjectDetails from '../components/project/ProjectDetails';
 import ProjectProcess from '../components/project/ProjectProcess';
 import ProjectDeliverables from '../components/project/ProjectDeliverables';
 import ProjectConclusion from '../components/project/ProjectConclusion';
+import ProjectVideo from '../components/project/ProjectVideo';
 import Footer from '@/components/layout/Footer';
 import { getProject } from '../services/api';
 import { toast } from 'sonner';
@@ -140,6 +141,12 @@ const Project = () => {
           images={projectWithDefaults.images || []}
           projectId={projectWithDefaults.slug || projectWithDefaults.id}
         />
+        
+        {projectWithDefaults.videoUrl && (
+          <ProjectVideo 
+            videoUrl={projectWithDefaults.videoUrl}
+          />
+        )}
       </div>
 
       <ProjectConclusion 

@@ -8,7 +8,7 @@ export const getTechNoirProject = (): ProjectType => {
     title: "TECH NOIR",
     description: "A Fashion & Technology Driven E-Commerce App bringing high fashion and wearable tech together in one stylish, educational platform.",
     fullDescription: "Tech Noir is a mobile e-commerce experience created to merge the worlds of wearable technology and high fashion. The app not only showcases trend-setting fashion-tech pieces but also educates users on how to wear and understand them. It's designed to inspire, inform, and sell—bridging the gap between style and innovation.",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f",
+    image: "/lovable-uploads/fb4255d4-cbcb-4174-b175-79f29efbc498.png",
     category: "E-commerce",
     tags: ["E-commerce", "Fashion", "Wearable Tech", "UX/UI Design"],
     role: "UX, UI & Visual Designer",
@@ -29,9 +29,12 @@ export const getTechNoirProject = (): ProjectType => {
       "Blog - Trend insights, tech news, and daily posts about fashion & wearables"
     ],
     images: [
-      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
-      "https://images.unsplash.com/photo-1522542550221-31fd19575a2d"
+      "/lovable-uploads/9e3be8d8-c9d0-4857-a786-b488a8b288c1.png",
+      "/lovable-uploads/d0f10fb1-b1eb-4e30-b666-c68f00716676.png",
+      "/lovable-uploads/e047ad0c-5a06-4795-938c-c65d62909828.png",
+      "/lovable-uploads/a473ef7d-6076-4386-af99-13262b6e684f.png",
+      "/lovable-uploads/5291bbb5-d2b2-4171-b287-9a1d6735805b.png",
+      "/lovable-uploads/fb4255d4-cbcb-4174-b175-79f29efbc498.png"
     ],
     conclusion: {
       impact: "75% of testers said they felt more confident exploring wearable tech. Strong positive feedback on the luxury aesthetic and video styling modules. Research-informed personas led to better content structure and usability.",
@@ -54,6 +57,7 @@ export const getTechNoirProject = (): ProjectType => {
     teamSize: "3 members",
     methodologies: ["User Research", "Competitive Analysis", "Persona Creation", "Prototyping", "Usability Testing"],
     summary: "Tech Noir is a mobile e-commerce experience bringing high fashion and wearable tech together in one stylish, educational platform that inspires, informs, and sells.",
-    solution: "Built an intuitive mobile e-commerce platform that not only sells wearable technology fashion items but educates users on how to style and incorporate them into their wardrobes, with features like AR try-on, designer collections, and educational content."
+    solution: "Built an intuitive mobile e-commerce platform that not only sells wearable technology fashion items but educates users on how to style and incorporate them into their wardrobes, with features like AR try-on, designer collections, and educational content.",
+    videoUrl: "https://drive.google.com/file/d/17QHz02DcNbzIJYMpO2d5rtkfWZ_aw_H8/view?usp=sharing"
   };
 };

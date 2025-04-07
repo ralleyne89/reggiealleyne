@@ -88,6 +88,9 @@ export interface ProjectType {
   /** Additional project images */
   images: string[] | null;
   
+  /** URL to demo video */
+  videoUrl?: string;
+  
   /**
    * External links
    */
@@ -114,4 +117,3 @@ export interface ProjectType {
     nextSteps: string | null;
   };
 }
-
