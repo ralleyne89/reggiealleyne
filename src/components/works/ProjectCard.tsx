@@ -13,8 +13,8 @@ const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
   // Check if this is the Chill Vibes project
   const isChillVibesProject = project.title === "Chill Vibes Music Player";
   
-  // Format the year display to show ranges like "2020 - 2022" if the year contains a hyphen
-  const formattedYear = project.year || "";
+  // Always format the year display to show "2020 - 2022" regardless of the actual year value
+  const formattedYear = "2020 - 2022";
   
   return (
     <div 
