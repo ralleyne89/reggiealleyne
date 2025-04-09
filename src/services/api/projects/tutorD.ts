@@ -1,3 +1,4 @@
+
 import { ProjectType } from '../../../types/project';
 
 export const getTutorDProject = (): ProjectType => {
@@ -12,7 +13,7 @@ export const getTutorDProject = (): ProjectType => {
     tags: ["Education", "Distance Learning", "Accessibility"],
     role: "Frontend Developer & UI/UX Designer",
     duration: "11 months",
-    year: "2020-2021",
+    year: "2022",
     challenge: "In many school districts, particularly underserved communities, students don't have access to internet-based learning platforms. Traditional online classrooms don't reach students using basic cell phones. Educators needed a way to send, track, and manage assignments sent via SMS, while still maintaining visibility into student progress and engagement.",
     process: [
       "Collaborated with the product lead to define MVP features based on teacher feedback. Focused on designing for low-tech, high-stress environments: speed, clarity, and functionality were key.",
@@ -55,7 +56,7 @@ export const getTutorDProject = (): ProjectType => {
     teamSize: "2 members",
     methodologies: ["Agile", "User Testing", "Iterative Design"],
     summary: "A distance learning platform supporting student learning in underserved communities through SMS-based technology. The educator-facing web dashboard helps teachers manage student progress, engagement, and communication.",
-    date: "2021-06-01",
+    date: "2022-06-01",
     liveUrl: "https://tutord.io/"
   };
 };
