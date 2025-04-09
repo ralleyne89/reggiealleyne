@@ -8,7 +8,7 @@ export const getBobsBigBreakProject = (): ProjectType => {
     title: "Bob's Big Break",
     description: "A low-effort, high-reward idle game for the moments in life when your brain needs a break—but your hustle doesn't.",
     fullDescription: "An incremental clicker game designed for short attention spans and mobile-friendly interaction. Players help Bob, a scrappy entrepreneur, earn Coins through hustles or by hiring hustlers for passive income.",
-    image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff",
+    image: "/lovable-uploads/5781b45f-6194-4ef3-8af9-739f2b1fd2e0.png", // Updated to use the Bob's logo image
     category: "Game Development",
     tags: ["React", "Node.js", "Game Design", "School Project"],
     role: "UX/UI Designer & Web Developer",
@@ -22,9 +22,11 @@ export const getBobsBigBreakProject = (): ProjectType => {
     ],
     deliverables: ["UX/UI Design", "Frontend Development", "Backend Integration", "Game Economy Design", "Character Art"],
     images: [
-      "https://images.unsplash.com/photo-1607799279861-4dd421887fb3",
-      "https://images.unsplash.com/photo-1600132806370-bf17e65e942f",
-      "https://images.unsplash.com/photo-1553481187-be93c21490a9"
+      "/lovable-uploads/40c6444f-3a5c-4327-a0d3-aabd6091463e.png", // Game screens mockup
+      "/lovable-uploads/34473ac0-d26b-48a0-ba58-51bfc4ed23e1.png", // Final mockup screens
+      "/lovable-uploads/71cb9624-eeb6-4af5-a137-8a38307549f4.png", // Bob logo
+      "/lovable-uploads/1b895fd4-28b2-4f60-a662-5e34d47cdccc.png", // Bob character full body
+      "/lovable-uploads/6193fe4b-899f-488a-aa0f-30ace572badd.png"  // Bob character portrait
     ],
     conclusion: {
       impact: "Successfully delivered a playable game prototype as part of a school project",
