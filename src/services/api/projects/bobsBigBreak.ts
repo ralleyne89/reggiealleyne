@@ -11,7 +11,7 @@ export const getBobsBigBreakProject = (): ProjectType => {
     image: "/lovable-uploads/71cb9624-eeb6-4af5-a137-8a38307549f4.png", // Updated to use Bob logo for banner/thumbnail
     category: "Game Development",
     tags: ["React", "Node.js", "Game Design", "School Project"],
-    role: "UX/UI Designer & Web Developer",
+    role: "UI/UX Designer & Web Developer",
     duration: "2 weeks",
     year: "2020",
     challenge: "Whether it's a tired commuter on the way home, a parent entertaining a curious child, or a user waiting on a phone call, there are times when people want a game that doesn't demand much focus but still feels rewarding.",
