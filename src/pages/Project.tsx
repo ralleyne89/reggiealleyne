@@ -146,6 +146,7 @@ const Project = () => {
         {projectWithDefaults.videoUrl && (
           <ProjectVideo 
             videoUrl={projectWithDefaults.videoUrl}
+            projectTitle={projectWithDefaults.title}
           />
         )}
       </div>

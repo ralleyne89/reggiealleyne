@@ -5,9 +5,10 @@ import { Video } from 'lucide-react';
 
 interface ProjectVideoProps {
   videoUrl: string;
+  projectTitle?: string;
 }
 
-const ProjectVideo = ({ videoUrl }: ProjectVideoProps) => {
+const ProjectVideo = ({ videoUrl, projectTitle = "Project" }: ProjectVideoProps) => {
   // Check if the URL is a Google Drive video link
   const isGoogleDriveLink = videoUrl && videoUrl.includes('drive.google.com/file/d/');
   
@@ -44,12 +45,12 @@ const ProjectVideo = ({ videoUrl }: ProjectVideoProps) => {
               className="w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              title="Tech Noir Project Demo"
+              title={`${projectTitle} Project Demo`}
             ></iframe>
           </div>
           
           <p className="text-[rgba(200,200,200,0.9)] text-sm mt-4 text-center">
-            Video mockup demonstration of the Tech Noir application
+            Video mockup demonstration of the {projectTitle} application
           </p>
         </CardContent>
       </Card>
