@@ -44,7 +44,7 @@ const BentoFeaturedProjects = ({ projects, isLoading, error }: BentoFeaturedProj
     );
   }
 
-  // Define the specific projects to show (removed Improv Learning)
+  // Define the specific projects to show
   const featuredProjectIds = [3, 2, 1]; // Tech Noir, Tutor D, Cllctve
   
   // Filter to get only the specified projects in the right order
