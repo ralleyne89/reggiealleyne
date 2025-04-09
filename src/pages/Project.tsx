@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -45,7 +44,6 @@ const Project = () => {
     retry: 1
   });
 
-  // Handle error separately
   React.useEffect(() => {
     if (error) {
       console.error("Project fetch error:", error);
@@ -97,11 +95,9 @@ const Project = () => {
     images: project.images || []
   };
   
-  // Determine if there's a prototype URL - try different possible locations
   const prototypeUrl = projectWithDefaults.figmaUrl || 
                       (projectWithDefaults.id === 0 ? "https://bs-hh.netlify.app/" : null);
 
-  // Use either challenge or problemSolved, not both
   const challengeText = projectWithDefaults.challenge || projectWithDefaults.problemSolved || '';
 
   return (
@@ -159,6 +155,7 @@ const Project = () => {
         }}
         prototypeUrl={prototypeUrl}
         liveUrl={projectWithDefaults.liveUrl}
+        projectSlug={projectWithDefaults.slug}  // Add the project slug here
       />
       <Footer />
     </div>

@@ -61,7 +61,7 @@ export const getDoggyDateProject = (): ProjectType => {
     ],
     teamSize: "4 members",
     methodologies: ["User Interviews", "Persona Creation", "Wireframing", "Prototyping", "User Testing"],
-    liveUrl: "https://projects.invisionapp.com/d/main?origin=v7#/console/9948914/212450288/preview?scrollOffset=145",
+    // Removed liveUrl property
     githubUrl: null,
     summary: "Doggy Date is a social network and dating app for dog owners that enables them to connect with other local dog lovers, share hangout spots, and potentially find romance with someone who shares their passion for dogs."
   };

@@ -13,9 +13,13 @@ interface ProjectConclusionProps {
   };
   prototypeUrl?: string | null;
   liveUrl?: string | null;
+  projectSlug?: string; // Added parameter for project slug
 }
 
-const ProjectConclusion = ({ conclusion, prototypeUrl, liveUrl }: ProjectConclusionProps) => {
+const ProjectConclusion = ({ conclusion, prototypeUrl, liveUrl, projectSlug }: ProjectConclusionProps) => {
+  // Don't show Live Demo button for Doggy Date project
+  const shouldShowLiveDemo = projectSlug !== "doggy-date" && liveUrl;
+  
   return (
     <div className="w-full bg-gradient-to-t from-[#161220] to-[rgba(5,5,5,0.8)] px-6 py-16">
       <div className="max-w-7xl mx-auto">
@@ -80,7 +84,7 @@ const ProjectConclusion = ({ conclusion, prototypeUrl, liveUrl }: ProjectConclus
             </Link>
           </Button>
           
-          {prototypeUrl && !liveUrl && (
+          {prototypeUrl && !shouldShowLiveDemo && (
             <Button 
               asChild
               variant="outline"
@@ -97,7 +101,7 @@ const ProjectConclusion = ({ conclusion, prototypeUrl, liveUrl }: ProjectConclus
             </Button>
           )}
           
-          {liveUrl && (
+          {shouldShowLiveDemo && (
             <Button 
               asChild
               variant="outline" 

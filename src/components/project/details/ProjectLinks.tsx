@@ -35,6 +35,9 @@ const ProjectLinks = ({
 
   // Don't show GitHub button for Bob's Big Break project
   const shouldShowGithub = projectSlug !== "bobs-big-break" && githubUrl;
+  
+  // Don't show Live Demo button for Doggy Date project
+  const shouldShowLiveDemo = projectSlug !== "doggy-date" && liveUrl;
 
   return (
     <div className="flex flex-wrap gap-4 mt-8">
@@ -49,7 +52,7 @@ const ProjectLinks = ({
           <ExternalLink className="ml-2 h-4 w-4" />
         </a>
       )}
-      {liveUrl && (
+      {shouldShowLiveDemo && (
         <a 
           href={liveUrl}
           target="_blank"
