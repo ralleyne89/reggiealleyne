@@ -13,7 +13,7 @@ interface ProjectOverviewTabProps {
   githubUrl?: string | null;
   liveUrl?: string | null;
   prototypeUrl?: string | null;
-  projectSlug?: string; // Added property for project slug
+  projectSlug?: string;
 }
 
 const ProjectOverviewTab = ({
@@ -25,7 +25,7 @@ const ProjectOverviewTab = ({
   githubUrl,
   liveUrl,
   prototypeUrl,
-  projectSlug // Added parameter
+  projectSlug
 }: ProjectOverviewTabProps) => {
   // Determine the label for the live URL based on the URL
   const getLiveLabel = () => {
@@ -33,6 +33,10 @@ const ProjectOverviewTab = ({
     if (liveUrl === "https://tutord.io/") return "Visit TutorD";
     return "View Live Demo";
   };
+
+  // Check if we should show the project links section
+  // For Doggy Date, we don't show links section at all
+  const shouldShowLinks = projectSlug !== "doggy-date" && (githubUrl || liveUrl || prototypeUrl);
 
   return <TabsContent value="overview" className="p-8 m-0">
       <h2 className="text-2xl font-semibold text-white mb-4">Project Summary</h2>
@@ -80,16 +84,18 @@ const ProjectOverviewTab = ({
           </div>}
       </div>
       
-      {(githubUrl || liveUrl || prototypeUrl) && <div className="mt-8">
+      {shouldShowLinks && (
+        <div className="mt-8">
           <h3 className="text-lg font-semibold text-white mb-4">Project Links</h3>
           <ProjectLinks 
             githubUrl={githubUrl} 
             liveUrl={liveUrl} 
             prototypeUrl={prototypeUrl} 
             liveLabel={getLiveLabel()} 
-            projectSlug={projectSlug} // Pass the project slug
+            projectSlug={projectSlug}
           />
-        </div>}
+        </div>
+      )}
     </TabsContent>;
 };
 
