@@ -53,7 +53,7 @@ export const getTutorDProject = (): ProjectType => {
       "Implemented real-time updates for teacher tools",
       "Built responsive interfaces for mobile and desktop use"
     ],
-    teamSize: "2 members",
+    teamSize: "3 developers",
     methodologies: ["Agile", "User Testing", "Iterative Design"],
     summary: "A distance learning platform supporting student learning in underserved communities through SMS-based technology. The educator-facing web dashboard helps teachers manage student progress, engagement, and communication.",
     date: "2021-06-01",

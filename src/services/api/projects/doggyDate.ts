@@ -59,7 +59,7 @@ export const getDoggyDateProject = (): ProjectType => {
       "Location-based meetup suggestions",
       "Dual profile system for owners and dogs"
     ],
-    teamSize: "2 members",
+    teamSize: "4 members",
     methodologies: ["User Interviews", "Persona Creation", "Wireframing", "Prototyping", "User Testing"],
     liveUrl: "https://projects.invisionapp.com/d/main?origin=v7#/console/9948914/212450288/preview?scrollOffset=145",
     githubUrl: null,

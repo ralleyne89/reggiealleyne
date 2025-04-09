@@ -55,7 +55,7 @@ export const getImprovLearningProject = (): ProjectType => {
       "FAQ Accordion for addressing objections",
       "Trust Bar featuring logos from NBC, PBS, and NY Times"
     ],
-    teamSize: "3 members",
+    teamSize: "3 people",
     methodologies: ["Mobile-First Design", "Visual Hierarchy", "Conversion Rate Optimization"],
     summary: "A simplified landing experience for Improv Traffic School's GEICO partnership focused on boosting course enrollment through clear communication of benefits and trust-building design elements."
   };

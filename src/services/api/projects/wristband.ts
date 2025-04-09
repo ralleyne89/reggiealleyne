@@ -1,3 +1,4 @@
+
 import { ProjectType } from '../../../types/project';
 
 export const getWristbandProject = (): ProjectType => {

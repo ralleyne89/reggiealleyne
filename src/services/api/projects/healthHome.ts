@@ -33,7 +33,7 @@ export const getHealthHomeProject = (): ProjectType => {
     liveUrl: "https://bs-hh.netlify.app/",
     problemSolved: "Inefficient remote healthcare delivery during pandemic restrictions",
     technicalHighlights: ["HIPAA-compliant video conferencing", "Real-time vital monitoring", "Electronic health record integration"],
-    teamSize: "8 members",
+    teamSize: "8 designers",
     methodologies: ["Design Thinking", "Agile", "User-Centered Design"],
     summary: "A telehealth platform enabling remote patient monitoring during COVID-19 with significant impact on patient outcomes.",
     date: "2023-03-10"
