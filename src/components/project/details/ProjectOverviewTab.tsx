@@ -69,7 +69,7 @@ const ProjectOverviewTab = ({
             </div>
             <div>
               <p className="text-sm text-gray-400">Team Size</p>
-              <p className="text-white">1 member</p>
+              <p className="text-white">6 members</p>
             </div>
           </div>}
       </div>
