@@ -1,5 +1,5 @@
 
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Code } from 'lucide-react';
 
 interface ProjectLinksProps {
   githubUrl?: string | null;
@@ -8,6 +8,7 @@ interface ProjectLinksProps {
   liveLabel?: string;
   githubLabel?: string;
   prototypeLabel?: string;
+  projectSlug?: string; // Added parameter to identify the project
 }
 
 const ProjectLinks = ({ 
@@ -16,7 +17,8 @@ const ProjectLinks = ({
   prototypeUrl,
   liveLabel,
   githubLabel = "View Source Code",
-  prototypeLabel = "View Prototype"
+  prototypeLabel = "View Prototype",
+  projectSlug
 }: ProjectLinksProps) => {
   // Determine the appropriate label for the live URL
   const determineLiveLabel = () => {
@@ -31,11 +33,14 @@ const ProjectLinks = ({
     }
   };
 
+  // Don't show GitHub button for Bob's Big Break project
+  const shouldShowGithub = projectSlug !== "bobs-big-break" && githubUrl;
+
   return (
     <div className="flex flex-wrap gap-4 mt-8">
-      {githubUrl && (
+      {shouldShowGithub && (
         <a 
-          href={githubUrl}
+          href={githubUrl!}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-[#9b87f5] border-2 border-[#9b87f5] rounded-lg hover:bg-[#9b87f5] hover:text-white transition-all duration-300"

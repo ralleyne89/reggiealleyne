@@ -126,6 +126,7 @@ const Project = () => {
           summary={projectWithDefaults.summary || projectWithDefaults.description}
           problem={projectWithDefaults.problemSolved || ""}
           solution={projectWithDefaults.solution || ""}
+          projectSlug={projectWithDefaults.slug} // Pass the project slug
         />
         
         <ProjectProcess 

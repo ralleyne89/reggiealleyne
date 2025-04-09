@@ -19,6 +19,7 @@ interface ProjectDetailsProps {
   summary: string;
   problem?: string;
   solution?: string;
+  projectSlug?: string; // Added property for project slug
 }
 
 const ProjectDetails = ({ 
@@ -32,7 +33,8 @@ const ProjectDetails = ({
   prototypeUrl,
   summary,
   problem,
-  solution
+  solution,
+  projectSlug  // Added parameter
 }: ProjectDetailsProps) => {
   const [activeTab, setActiveTab] = useState("overview");
   const hasProblemSolution = Boolean(problem && solution);
@@ -57,6 +59,7 @@ const ProjectDetails = ({
               githubUrl={githubUrl}
               liveUrl={liveUrl}
               prototypeUrl={prototypeUrl}
+              projectSlug={projectSlug} // Pass the project slug
             />
           
             {hasProblemSolution && (

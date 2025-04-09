@@ -3,6 +3,7 @@ import React from 'react';
 import { TabsContent } from "@/components/ui/tabs";
 import { User, Clock, Calendar, Users } from 'lucide-react';
 import ProjectLinks from './ProjectLinks';
+
 interface ProjectOverviewTabProps {
   role: string;
   duration: string;
@@ -12,7 +13,9 @@ interface ProjectOverviewTabProps {
   githubUrl?: string | null;
   liveUrl?: string | null;
   prototypeUrl?: string | null;
+  projectSlug?: string; // Added property for project slug
 }
+
 const ProjectOverviewTab = ({
   role,
   duration,
@@ -21,7 +24,8 @@ const ProjectOverviewTab = ({
   summary,
   githubUrl,
   liveUrl,
-  prototypeUrl
+  prototypeUrl,
+  projectSlug // Added parameter
 }: ProjectOverviewTabProps) => {
   // Determine the label for the live URL based on the URL
   const getLiveLabel = () => {
@@ -29,6 +33,7 @@ const ProjectOverviewTab = ({
     if (liveUrl === "https://tutord.io/") return "Visit TutorD";
     return "View Live Demo";
   };
+
   return <TabsContent value="overview" className="p-8 m-0">
       <h2 className="text-2xl font-semibold text-white mb-4">Project Summary</h2>
       <p className="text-[rgba(200,200,200,0.9)] leading-relaxed">{summary}</p>
@@ -77,8 +82,15 @@ const ProjectOverviewTab = ({
       
       {(githubUrl || liveUrl || prototypeUrl) && <div className="mt-8">
           <h3 className="text-lg font-semibold text-white mb-4">Project Links</h3>
-          <ProjectLinks githubUrl={githubUrl} liveUrl={liveUrl} prototypeUrl={prototypeUrl} liveLabel={getLiveLabel()} />
+          <ProjectLinks 
+            githubUrl={githubUrl} 
+            liveUrl={liveUrl} 
+            prototypeUrl={prototypeUrl} 
+            liveLabel={getLiveLabel()} 
+            projectSlug={projectSlug} // Pass the project slug
+          />
         </div>}
     </TabsContent>;
 };
+
 export default ProjectOverviewTab;
