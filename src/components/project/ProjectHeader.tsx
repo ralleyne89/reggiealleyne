@@ -16,6 +16,9 @@ const ProjectHeader = ({ image, tags, title, description }: ProjectHeaderProps) 
   
   // Check if this is the Chill Vibes project by title
   const isChillVibesProject = title === "Chill Vibes Music Player";
+  
+  // Check if this is the Bob's Big Break project by title
+  const isBobsProject = title === "Bob's Big Break";
 
   const handleImageError = () => {
     console.error(`Header image failed to load: ${image}`);
@@ -29,10 +32,12 @@ const ProjectHeader = ({ image, tags, title, description }: ProjectHeaderProps) 
           src={
             isChillVibesProject 
               ? "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png" 
-              : (imageError ? "/placeholder.svg" : image)
+              : (isBobsProject 
+                  ? "/lovable-uploads/71cb9624-eeb6-4af5-a137-8a38307549f4.png"
+                  : (imageError ? "/placeholder.svg" : image))
           } 
           alt={title}
-          className={`w-full h-full ${isChillVibesProject ? 'object-contain bg-black' : 'object-cover'}`}
+          className={`w-full h-full ${isChillVibesProject || isBobsProject ? 'object-contain bg-black' : 'object-cover'}`}
           onError={handleImageError}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[rgba(5,5,5,1)]"></div>

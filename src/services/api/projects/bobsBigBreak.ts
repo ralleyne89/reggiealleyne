@@ -8,7 +8,7 @@ export const getBobsBigBreakProject = (): ProjectType => {
     title: "Bob's Big Break",
     description: "A low-effort, high-reward idle game for the moments in life when your brain needs a break—but your hustle doesn't.",
     fullDescription: "An incremental clicker game designed for short attention spans and mobile-friendly interaction. Players help Bob, a scrappy entrepreneur, earn Coins through hustles or by hiring hustlers for passive income.",
-    image: "/lovable-uploads/5781b45f-6194-4ef3-8af9-739f2b1fd2e0.png", // Updated to use the Bob's logo image
+    image: "/lovable-uploads/71cb9624-eeb6-4af5-a137-8a38307549f4.png", // Updated to use Bob logo for banner/thumbnail
     category: "Game Development",
     tags: ["React", "Node.js", "Game Design", "School Project"],
     role: "UX/UI Designer & Web Developer",
