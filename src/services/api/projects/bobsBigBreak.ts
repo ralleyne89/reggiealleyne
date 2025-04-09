@@ -29,7 +29,7 @@ export const getBobsBigBreakProject = (): ProjectType => {
     conclusion: {
       impact: "Successfully delivered a playable game prototype as part of a school project",
       learnings: "Balancing complexity in idle mechanics taught me how to scale features without overwhelming users. Designing for low-attention states challenged my UX instincts and helped me think more empathetically about user context.",
-      nextSteps: "User testing with casual players, achievements or social sharing to increase player retention, mobile optimization for even more intuitive thumb-first interaction"
+      nextSteps: "User testing with casual players, to fine-tune engagement pacing, achievements or social sharing to increase player retention, mobile optimization for even more intuitive thumb-first interaction"
     },
     techStack: ["React", "Node.js", "Express.js", "MongoDB", "Bulma"],
     keyAchievements: [
@@ -38,7 +38,7 @@ export const getBobsBigBreakProject = (): ProjectType => {
       "Implemented data persistence using MongoDB to save player progress"
     ],
     githubUrl: "https://github.com/username/bobs-big-break",
-    liveUrl: null,
+    liveUrl: "https://bobsbigbreak.netlify.app/",
     problemSolved: "Creating an engaging game experience for low-attention, short-session moments",
     technicalHighlights: [
       "Tap or Idle Play: Earn coins by clicking or passively through investments",
