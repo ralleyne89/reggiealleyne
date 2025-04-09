@@ -54,6 +54,7 @@ export const getWristbandProject = (): ProjectType => {
     ],
     teamSize: "1 member",
     methodologies: ["User-Centered Design", "Design Thinking", "Rapid Prototyping"],
-    summary: "An interactive storytelling app featuring diverse narratives and choice-based gameplay that creates unique user experiences."
+    summary: "An interactive storytelling app featuring diverse narratives and choice-based gameplay that creates unique user experiences.",
+    videoUrl: "https://drive.google.com/file/d/1jB5GJrLwyqUL8KAaPd9_TirxRrW7vI8r/view?usp=sharing"
   };
 };
