@@ -16,11 +16,6 @@ export const getProject = async (idOrSlug: number | string): Promise<ProjectType
   try {
     // Handle string slugs
     if (typeof idOrSlug === 'string') {
-      // Skip Health@Home project
-      if (idOrSlug === 'health-at-home') {
-        throw new Error(`Project with slug "${idOrSlug}" not found`);
-      }
-      
       // First check predefined projects
       const predefinedProject = getPredefinedProjectBySlug(idOrSlug);
       if (predefinedProject) {
@@ -52,11 +47,6 @@ export const getProject = async (idOrSlug: number | string): Promise<ProjectType
 
 const getProjectById = async (id: number): Promise<ProjectType> => {
   console.log('Getting project by ID:', id);
-  
-  // Skip Health@Home project
-  if (id === 0) {
-    throw new Error(`Project with ID ${id} not found`);
-  }
   
   // First check predefined projects
   if (isPredefinedProject(id)) {
@@ -99,20 +89,12 @@ export const getAllProjects = async (): Promise<ProjectType[]> => {
         (project, index, self) => index === self.findIndex((p) => p.title === project.title)
       );
 
-      // Filter out Health@Home project
-      const filteredProjects = uniqueProjects.filter(project => 
-        project.id !== 0 && project.slug !== 'health-at-home'
-      );
-
       // Sort projects by year (newest first)
-      return sortProjectsByDate(filteredProjects);
+      return sortProjectsByDate(uniqueProjects);
     } catch (innerError) {
       console.error('Error fetching from Supabase:', innerError);
       // Fall back to just predefined projects (filtered)
-      const filteredPredefinedProjects = predefinedProjects.filter(project => 
-        project.id !== 0 && project.slug !== 'health-at-home'
-      );
-      return sortProjectsByDate(filteredPredefinedProjects);
+      return sortProjectsByDate(predefinedProjects);
     }
   } catch (error) {
     console.error('Error in getAllProjects:', error);
