@@ -165,7 +165,7 @@ const Index = () => {
       description: "Certification in user experience design methodologies"
     },
     {
-      year: "2018",
+      year: "2020",
       title: "Fullstack Web Development",
       school: "UCLA Extension",
       description: "Comprehensive full stack web development program"
