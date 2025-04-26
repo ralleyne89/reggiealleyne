@@ -3,19 +3,23 @@ import { Lightbulb, Users, Check, BarChart2, Star, Layers, Award, Eye } from 'lu
 import { Card, CardContent } from "@/components/ui/card";
 
 interface ProjectProcessProps {
-  challenge: string;
-  process: string[];
+  challenge?: string;
+  process?: string[];
+  problem?: string;
   problemSolved?: string;
   technicalHighlights?: string[];
   keyAchievements?: string[];
+  methodologies?: string[];
 }
 
 const ProjectProcess = ({ 
   challenge, 
   process,
+  problem,
   problemSolved,
   technicalHighlights,
-  keyAchievements
+  keyAchievements,
+  methodologies
 }: ProjectProcessProps) => {
   // Define standard step names that make sense for most design/development projects
   const stepNames = [
@@ -39,12 +43,15 @@ const ProjectProcess = ({
     <Star className="h-6 w-6 text-primary" />
   ];
   
+  // Use problem if challenge is not provided
+  const displayChallenge = challenge || problem;
+  
   // Only show problemSolved if it's different from challenge and not empty
-  const showProblemSolved = problemSolved && problemSolved !== challenge && problemSolved !== '';
+  const showProblemSolved = problemSolved && problemSolved !== displayChallenge && problemSolved !== '';
   
   return (
     <>
-      {challenge && (
+      {displayChallenge && (
         <Card className="mb-16 bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
           <CardContent className="p-8">
             <div className="flex items-center gap-3 mb-6">
@@ -53,7 +60,7 @@ const ProjectProcess = ({
               </div>
               <h2 className="text-2xl font-bold text-white">The Challenge</h2>
             </div>
-            <p className="text-[rgba(200,200,200,0.9)] max-w-3xl leading-relaxed">{challenge}</p>
+            <p className="text-[rgba(200,200,200,0.9)] max-w-3xl leading-relaxed">{displayChallenge}</p>
 
             {/* Only show problemSolved if it's different from challenge */}
             {showProblemSolved && (
@@ -108,6 +115,32 @@ const ProjectProcess = ({
             </div>
           </div>
         </div>
+      )}
+
+      {methodologies && methodologies.length > 0 && (
+        <Card className="mb-16 bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
+          <CardContent className="p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
+                <Users className="w-5 h-5 text-primary" />
+              </div>
+              <h2 className="text-2xl font-bold text-white">Methodologies</h2>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {methodologies.map((methodology, index) => (
+                <div 
+                  key={index}
+                  className="flex items-center gap-3 bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4 hover:border-primary/20 hover:bg-[rgba(155,135,245,0.05)] transition-all duration-300"
+                >
+                  <div className="bg-[rgba(155,135,245,0.1)] p-2 rounded-full">
+                    <div className="h-2 w-2 rounded-full bg-primary"></div>
+                  </div>
+                  <span className="text-[rgba(200,200,200,0.9)]">{methodology}</span>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       )}
 
       {technicalHighlights && technicalHighlights.length > 0 && (

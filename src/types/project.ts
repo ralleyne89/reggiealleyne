@@ -17,7 +17,7 @@ export interface ProjectType {
   description: string;
   
   /** Comprehensive project description */
-  fullDescription: string | null;
+  fullDescription?: string | null;
   
   /** URL to the primary project image */
   image: string;
@@ -62,19 +62,19 @@ export interface ProjectType {
    * Project details
    */
   /** Problem the project aimed to solve */
-  challenge: string | null;
+  challenge?: string | null;
   
   /** Alternative field for problem statement */
-  problemSolved?: string | null;
+  problem?: string | null;
   
   /** Solution provided by the project */
   solution?: string | null;
   
   /** Key steps in the development process */
-  process: string[] | null;
+  process?: string[] | null;
   
   /** End products or artifacts produced */
-  deliverables: string[] | null;
+  deliverables?: string[] | null;
   
   /** Notable technical features */
   technicalHighlights?: string[] | null;
@@ -86,10 +86,10 @@ export interface ProjectType {
    * Project media
    */
   /** Additional project images */
-  images: string[] | null;
+  images?: string[] | null;
   
   /** URL to demo video */
-  videoUrl?: string;
+  videoUrl?: string | null;
   
   /**
    * External links
@@ -103,10 +103,13 @@ export interface ProjectType {
   /** Link to Figma design */
   figmaUrl?: string | null;
   
+  /** Link to prototype */
+  prototypeUrl?: string | null;
+  
   /**
    * Project conclusion and outcomes
    */
-  conclusion: {
+  conclusion?: {
     /** Project's measurable impact */
     impact: string | null;
     

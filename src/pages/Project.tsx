@@ -19,6 +19,7 @@ const Project = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const [showHeaderImage, setShowHeaderImage] = useState(true);
+  const [showCaseStudy, setShowCaseStudy] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -60,6 +61,13 @@ const Project = () => {
     // Special handling for projects that might need to hide the header image
     if (project?.title === "Bob's Big Break") {
       setShowHeaderImage(true);
+    }
+    
+    // Check if this is the SymptomCheckr project to show full case study
+    if (project?.slug === 'symptom-checkr') {
+      setShowCaseStudy(true);
+    } else {
+      setShowCaseStudy(false);
     }
   }, [project]);
   
@@ -114,17 +122,18 @@ const Project = () => {
     summary,
     problem,
     solution,
+    challenge,
+    process,
     deliverables = [],
     images = [],
     videoUrl,
     githubUrl,
     liveUrl,
     prototypeUrl,
-    conclusion = { impact: '', learnings: '', nextSteps: '' }
+    conclusion = { impact: '', learnings: '', nextSteps: '' },
+    technicalHighlights,
+    keyAchievements
   } = project as ProjectType;
-
-  // Check if this is the SymptomCheckr project
-  const isSymptomCheckr = project?.slug === 'symptom-checkr';
 
   return (
     <motion.div
@@ -144,8 +153,25 @@ const Project = () => {
       )}
       
       <div className="max-w-7xl mx-auto px-6 py-12">
-        {isSymptomCheckr ? (
-          <SymptomCheckrCaseStudy />
+        {showCaseStudy ? (
+          <>
+            <ProjectDetails
+              role={role}
+              duration={duration}
+              year={year}
+              teamSize={teamSize}
+              methodologies={methodologies}
+              githubUrl={githubUrl}
+              liveUrl={liveUrl}
+              prototypeUrl={prototypeUrl}
+              summary={summary}
+              problem={problem}
+              solution={solution}
+              projectSlug={project.slug}
+            />
+            
+            <SymptomCheckrCaseStudy />
+          </>
         ) : (
           <>
             <ProjectDetails
@@ -163,7 +189,14 @@ const Project = () => {
               projectSlug={project.slug}
             />
             
-            <ProjectProcess methodologies={methodologies} />
+            <ProjectProcess 
+              challenge={challenge}
+              problem={problem}
+              process={process}
+              methodologies={methodologies}
+              technicalHighlights={technicalHighlights}
+              keyAchievements={keyAchievements}
+            />
             
             <ProjectDeliverables 
               deliverables={deliverables} 
