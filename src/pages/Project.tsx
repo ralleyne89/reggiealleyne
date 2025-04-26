@@ -1,164 +1,192 @@
-import React, { useEffect } from 'react';
+
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import ProjectHeader from '../components/project/ProjectHeader';
-import ProjectDetails from '../components/project/ProjectDetails';
-import ProjectProcess from '../components/project/ProjectProcess';
-import ProjectDeliverables from '../components/project/ProjectDeliverables';
-import ProjectConclusion from '../components/project/ProjectConclusion';
-import ProjectVideo from '../components/project/ProjectVideo';
-import Footer from '@/components/layout/Footer';
-import { getProject } from '../services/api';
 import { toast } from 'sonner';
+import Footer from '@/components/layout/Footer';
+import { getProject } from '@/services/api';
+import { motion } from 'framer-motion';
+import ProjectHeader from '@/components/project/ProjectHeader';
+import ProjectDetails from '@/components/project/ProjectDetails';
+import ProjectProcess from '@/components/project/ProjectProcess';
+import ProjectDeliverables from '@/components/project/ProjectDeliverables';
+import ProjectVideo from '@/components/project/ProjectVideo';
+import ProjectConclusion from '@/components/project/ProjectConclusion';
+import SymptomCheckrCaseStudy from '@/components/project/SymptomCheckrCaseStudy';
+import { ProjectType } from '@/types/project';
 
 const Project = () => {
-  const { slug } = useParams();
+  const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  
+  const [showHeaderImage, setShowHeaderImage] = useState(true);
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
 
+    // Handle invalid slug
+    if (!slug) {
+      toast.error("Project ID is missing");
+      navigate('/works');
+      return;
+    }
+  }, [slug, navigate]);
+
+  // Fetch project data
   const { data: project, isLoading, error } = useQuery({
     queryKey: ['project', slug],
     queryFn: async () => {
       try {
-        console.log("Fetching project with slug:", slug);
-        if (slug) {
-          const fetchedProject = await getProject(slug);
-          console.log("Fetched project details:", fetchedProject);
-          
-          if (!fetchedProject) {
-            throw new Error(`Project with slug "${slug}" not found`);
-          }
-          
-          return fetchedProject;
-        } else {
-          throw new Error("No project slug provided");
+        // Determine if slug is numeric or string
+        const isNumeric = !isNaN(Number(slug));
+        console.log(`Fetching project with ${isNumeric ? 'ID' : 'slug'}: ${slug}`);
+        const project = await getProject(isNumeric ? Number(slug) : slug);
+        console.log('Fetched project:', project);
+        
+        if (!project) {
+          toast.error(`Project not found: ${slug}`);
+          throw new Error(`Project not found: ${slug}`);
         }
+        
+        return project;
       } catch (err) {
-        console.error("Error fetching project:", err);
+        console.error('Error fetching project:', err);
         throw err;
       }
     },
     retry: 1
   });
 
-  React.useEffect(() => {
-    if (error) {
-      console.error("Project fetch error:", error);
-      toast.error(`Failed to load project: ${error instanceof Error ? error.message : "Unknown error"}`);
+  useEffect(() => {
+    // Special handling for projects that might need to hide the header image
+    if (project?.title === "Bob's Big Break") {
+      setShowHeaderImage(true);
     }
-  }, [error]);
-
-  console.log("Project data:", project);
-  console.log("Project path params:", slug);
-
+  }, [project]);
+  
+  // Handle loading state
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white flex items-center justify-center">
-        <div className="flex flex-col items-center">
-          <div className="w-16 h-16 border-4 border-[#9b87f5] border-t-transparent rounded-full animate-spin mb-4"></div>
-          <p className="text-xl">Loading project details...</p>
+      <div className="min-h-screen bg-secondary-dark text-white pt-24 px-4">
+        <div className="container mx-auto">
+          <div className="animate-pulse">
+            <div className="h-[60vh] bg-gray-800 rounded-lg mb-12"></div>
+            <div className="h-8 bg-gray-800 rounded w-1/2 mb-4"></div>
+            <div className="h-4 bg-gray-800 rounded w-3/4 mb-8"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="h-32 bg-gray-800 rounded"></div>
+              <div className="h-32 bg-gray-800 rounded"></div>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 
+  // Handle error state
   if (error || !project) {
-    console.error("Project error:", error);
+    console.error('Project error:', error);
     return (
-      <div className="min-h-screen bg-[rgba(5,5,5,1)] text-white flex flex-col items-center justify-center">
-        <p className="text-xl mb-4">Project not found</p>
-        <p className="text-gray-400 mb-6">Error: {error instanceof Error ? error.message : "Unable to load project data"}</p>
-        <button 
-          onClick={() => navigate('/works')}
-          className="px-4 py-2 bg-[#9b87f5] text-white rounded-lg hover:bg-[#7E69AB] transition-colors"
-        >
-          Go back to Works
-        </button>
+      <div className="min-h-screen bg-secondary-dark text-white pt-24 px-4">
+        <div className="container mx-auto">
+          <p className="text-red-500 mb-4">Error loading project: {error instanceof Error ? error.message : 'Unknown error'}</p>
+          <button 
+            onClick={() => navigate('/works')}
+            className="px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
+          >
+            Return to Works
+          </button>
+        </div>
       </div>
     );
   }
 
-  const projectWithDefaults = {
-    ...project,
-    conclusion: project.conclusion || {
-      impact: null,
-      learnings: null,
-      nextSteps: null
-    },
-    tags: project.tags || [],
-    techStack: project.techStack || [],
-    process: project.process || [],
-    deliverables: project.deliverables || [],
-    images: project.images || []
-  };
-  
-  const prototypeUrl = projectWithDefaults.figmaUrl || 
-                      (projectWithDefaults.id === 0 ? "https://bs-hh.netlify.app/" : null);
+  // Destructure project properties
+  const {
+    title,
+    description,
+    image,
+    tags = [],
+    role,
+    duration,
+    year,
+    teamSize,
+    methodologies,
+    summary,
+    problem,
+    solution,
+    deliverables = [],
+    images = [],
+    videoUrl,
+    githubUrl,
+    liveUrl,
+    prototypeUrl,
+    conclusion = { impact: '', learnings: '', nextSteps: '' }
+  } = project as ProjectType;
 
-  const challengeText = projectWithDefaults.challenge || projectWithDefaults.problemSolved || '';
+  // Check if this is the SymptomCheckr project
+  const isSymptomCheckr = project?.slug === 'symptom-checkr';
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[rgba(5,5,5,1)] to-[rgba(10,10,15,1)] text-white">      
-      <ProjectHeader 
-        image={projectWithDefaults.image}
-        tags={projectWithDefaults.tags}
-        title={projectWithDefaults.title}
-        description={projectWithDefaults.description}
-      />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="bg-secondary-dark text-white min-h-screen"
+    >
+      {showHeaderImage && (
+        <ProjectHeader
+          image={image}
+          tags={tags}
+          title={title}
+          description={description}
+        />
+      )}
       
-      <div className="max-w-7xl mx-auto px-6">
-        <ProjectDetails 
-          role={projectWithDefaults.role}
-          duration={projectWithDefaults.duration}
-          year={projectWithDefaults.year}
-          teamSize={projectWithDefaults.teamSize || ""}
-          methodologies={projectWithDefaults.methodologies || []}
-          githubUrl={projectWithDefaults.githubUrl}
-          liveUrl={projectWithDefaults.liveUrl}
-          prototypeUrl={prototypeUrl}
-          summary={projectWithDefaults.summary || projectWithDefaults.description}
-          problem={projectWithDefaults.problemSolved || ""}
-          solution={projectWithDefaults.solution || ""}
-          projectSlug={projectWithDefaults.slug} // Pass the project slug
-        />
-        
-        <ProjectProcess 
-          challenge={challengeText}
-          process={projectWithDefaults.process || []}
-          problemSolved={""} // Removed the duplication
-          technicalHighlights={projectWithDefaults.technicalHighlights || []}
-          keyAchievements={projectWithDefaults.keyAchievements || []}
-        />
-        
-        <ProjectDeliverables 
-          deliverables={projectWithDefaults.deliverables || []}
-          images={projectWithDefaults.images || []}
-          projectId={projectWithDefaults.slug || projectWithDefaults.id}
-        />
-        
-        {projectWithDefaults.videoUrl && (
-          <ProjectVideo 
-            videoUrl={projectWithDefaults.videoUrl}
-            projectTitle={projectWithDefaults.title}
-          />
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        {isSymptomCheckr ? (
+          <SymptomCheckrCaseStudy />
+        ) : (
+          <>
+            <ProjectDetails
+              role={role}
+              duration={duration}
+              year={year}
+              teamSize={teamSize}
+              methodologies={methodologies}
+              githubUrl={githubUrl}
+              liveUrl={liveUrl}
+              prototypeUrl={prototypeUrl}
+              summary={summary}
+              problem={problem}
+              solution={solution}
+              projectSlug={project.slug}
+            />
+            
+            <ProjectProcess methodologies={methodologies} />
+            
+            <ProjectDeliverables 
+              deliverables={deliverables} 
+              images={images} 
+              projectId={project.slug || project.id} 
+            />
+            
+            {videoUrl && (
+              <ProjectVideo videoUrl={videoUrl} projectTitle={title} />
+            )}
+          </>
         )}
       </div>
-
+      
       <ProjectConclusion 
-        conclusion={{
-          impact: projectWithDefaults.conclusion?.impact || "The project had a significant positive impact on users.",
-          learnings: projectWithDefaults.conclusion?.learnings || "We learned valuable lessons about user experience and implementation.",
-          nextSteps: projectWithDefaults.conclusion?.nextSteps || "Next steps include expanding features and improving performance."
-        }}
+        conclusion={conclusion} 
+        liveUrl={liveUrl} 
         prototypeUrl={prototypeUrl}
-        liveUrl={projectWithDefaults.liveUrl}
-        projectSlug={projectWithDefaults.slug}  // Add the project slug here
+        projectSlug={project.slug}
       />
+      
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
