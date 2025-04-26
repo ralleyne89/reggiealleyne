@@ -40,7 +40,7 @@ export const getSymptomCheckrProject = (): ProjectType => {
     conclusion: {
       impact: 'SymptomCheckr has the potential to reduce unnecessary medical visits while ensuring users feel confident in their health decisions. User testing revealed a 78% reduction in anxiety around minor symptoms and a 92% satisfaction rate with the ease of use.',
       learnings: 'This project reinforced the importance of transparent AI design. Users are willing to trust AI with health information if they understand how it works and see clear disclaimers about its limitations. The balance between providing enough information without overwhelming the user was a key challenge.',
-      nextSteps: 'Future iterations would include telehealth integration, saved report history, and symptom tracking over time. Additionally, implementing a medically-reviewed feedback system to continuously improve the AI's accuracy would strengthen the platform's reliability.'
+      nextSteps: 'Future iterations would include telehealth integration, saved report history, and symptom tracking over time. Additionally, implementing a medically-reviewed feedback system to continuously improve the AI\'s accuracy would strengthen the platform\'s reliability.'
     }
   };
 };
