@@ -2,7 +2,7 @@
 
 Reggie Alleyne Portfolio
 
-**URL**: https://lovable.dev/projects/b5ddfbf2-9efa-4a01-a1f7-a9e3d0d019eb
+**URL**: https://reggiealleyne.com
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
