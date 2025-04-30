@@ -1,19 +1,19 @@
-
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import { toast } from 'sonner';
-import Footer from '@/components/layout/Footer';
-import { getProject } from '@/services/api';
-import { motion } from 'framer-motion';
-import ProjectHeader from '@/components/project/ProjectHeader';
-import ProjectDetails from '@/components/project/ProjectDetails';
-import ProjectProcess from '@/components/project/ProjectProcess';
-import ProjectDeliverables from '@/components/project/ProjectDeliverables';
-import ProjectVideo from '@/components/project/ProjectVideo';
-import ProjectConclusion from '@/components/project/ProjectConclusion';
-import SymptomCheckrCaseStudy from '@/components/project/SymptomCheckrCaseStudy';
-import { ProjectType } from '@/types/project';
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { toast } from "sonner";
+import Footer from "@/components/layout/Footer";
+import { getProject } from "@/services/api";
+import { motion } from "framer-motion";
+import ProjectHeader from "@/components/project/ProjectHeader";
+import ProjectDetails from "@/components/project/ProjectDetails";
+import ProjectProcess from "@/components/project/ProjectProcess";
+import ProjectDeliverables from "@/components/project/ProjectDeliverables";
+import ProjectVideo from "@/components/project/ProjectVideo";
+import ProjectConclusion from "@/components/project/ProjectConclusion";
+import SymptomCheckrCaseStudy from "@/components/project/SymptomCheckrCaseStudy";
+import TutorDCaseStudy from "@/components/project/TutorDCaseStudy";
+import { ProjectType } from "@/types/project";
 
 const Project = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -27,34 +27,40 @@ const Project = () => {
     // Handle invalid slug
     if (!slug) {
       toast.error("Project ID is missing");
-      navigate('/works');
+      navigate("/works");
       return;
     }
   }, [slug, navigate]);
 
   // Fetch project data
-  const { data: project, isLoading, error } = useQuery({
-    queryKey: ['project', slug],
+  const {
+    data: project,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["project", slug],
     queryFn: async () => {
       try {
         // Determine if slug is numeric or string
         const isNumeric = !isNaN(Number(slug));
-        console.log(`Fetching project with ${isNumeric ? 'ID' : 'slug'}: ${slug}`);
+        console.log(
+          `Fetching project with ${isNumeric ? "ID" : "slug"}: ${slug}`
+        );
         const project = await getProject(isNumeric ? Number(slug) : slug);
-        console.log('Fetched project:', project);
-        
+        console.log("Fetched project:", project);
+
         if (!project) {
           toast.error(`Project not found: ${slug}`);
           throw new Error(`Project not found: ${slug}`);
         }
-        
+
         return project;
       } catch (err) {
-        console.error('Error fetching project:', err);
+        console.error("Error fetching project:", err);
         throw err;
       }
     },
-    retry: 1
+    retry: 1,
   });
 
   useEffect(() => {
@@ -62,15 +68,15 @@ const Project = () => {
     if (project?.title === "Bob's Big Break") {
       setShowHeaderImage(true);
     }
-    
-    // Check if this is the SymptomCheckr project to show full case study
-    if (project?.slug === 'symptom-checkr') {
+
+    // Check if this is a project with a full case study
+    if (project?.slug === "symptom-checkr" || project?.slug === "tutor-d") {
       setShowCaseStudy(true);
     } else {
       setShowCaseStudy(false);
     }
   }, [project]);
-  
+
   // Handle loading state
   if (isLoading) {
     return (
@@ -92,13 +98,16 @@ const Project = () => {
 
   // Handle error state
   if (error || !project) {
-    console.error('Project error:', error);
+    console.error("Project error:", error);
     return (
       <div className="min-h-screen bg-secondary-dark text-white pt-24 px-4">
         <div className="container mx-auto">
-          <p className="text-red-500 mb-4">Error loading project: {error instanceof Error ? error.message : 'Unknown error'}</p>
-          <button 
-            onClick={() => navigate('/works')}
+          <p className="text-red-500 mb-4">
+            Error loading project:{" "}
+            {error instanceof Error ? error.message : "Unknown error"}
+          </p>
+          <button
+            onClick={() => navigate("/works")}
             className="px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
           >
             Return to Works
@@ -130,9 +139,9 @@ const Project = () => {
     githubUrl,
     liveUrl,
     prototypeUrl,
-    conclusion = { impact: '', learnings: '', nextSteps: '' },
+    conclusion = { impact: "", learnings: "", nextSteps: "" },
     technicalHighlights,
-    keyAchievements
+    keyAchievements,
   } = project as ProjectType;
 
   return (
@@ -151,7 +160,7 @@ const Project = () => {
           description={description}
         />
       )}
-      
+
       <div className="max-w-7xl mx-auto px-6 py-12">
         {showCaseStudy ? (
           <>
@@ -169,8 +178,9 @@ const Project = () => {
               solution={solution}
               projectSlug={project.slug}
             />
-            
-            <SymptomCheckrCaseStudy />
+
+            {project?.slug === "symptom-checkr" && <SymptomCheckrCaseStudy />}
+            {project?.slug === "tutor-d" && <TutorDCaseStudy />}
           </>
         ) : (
           <>
@@ -188,8 +198,8 @@ const Project = () => {
               solution={solution}
               projectSlug={project.slug}
             />
-            
-            <ProjectProcess 
+
+            <ProjectProcess
               challenge={challenge}
               problem={problem}
               process={process}
@@ -197,27 +207,27 @@ const Project = () => {
               technicalHighlights={technicalHighlights}
               keyAchievements={keyAchievements}
             />
-            
-            <ProjectDeliverables 
-              deliverables={deliverables} 
-              images={images} 
-              projectId={project.slug || project.id} 
+
+            <ProjectDeliverables
+              deliverables={deliverables}
+              images={images}
+              projectId={project.slug || project.id}
             />
-            
+
             {videoUrl && (
               <ProjectVideo videoUrl={videoUrl} projectTitle={title} />
             )}
           </>
         )}
       </div>
-      
-      <ProjectConclusion 
-        conclusion={conclusion} 
-        liveUrl={liveUrl} 
+
+      <ProjectConclusion
+        conclusion={conclusion}
+        liveUrl={liveUrl}
         prototypeUrl={prototypeUrl}
         projectSlug={project.slug}
       />
-      
+
       <Footer />
     </motion.div>
   );
