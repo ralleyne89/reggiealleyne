@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Search,
@@ -14,9 +14,20 @@ import {
   Smartphone,
   Lightbulb,
   BarChart,
+  X,
 } from "lucide-react";
 
 const TutorDCaseStudy = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const handleImageClick = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <div className="mt-8 mb-16">
       {/* Research & Discovery Section */}
@@ -279,10 +290,17 @@ const TutorDCaseStudy = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                <h4 className="text-primary font-medium mb-3">
+                  <h4 className="text-primary font-medium mb-3">
                     Landing Page
                   </h4>
-                  <div className="aspect-[16/9] overflow-hidden rounded-lg border border-gray-700">
+                  <div
+                    className="aspect-[16/9] overflow-hidden rounded-lg border border-gray-700 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+                    onClick={() =>
+                      handleImageClick(
+                        "/lovable-uploads/TutorD-Landing-Page.jpg"
+                      )
+                    }
+                  >
                     <img
                       src="/lovable-uploads/TutorD-Landing-Page.jpg"
                       alt="Landing Page Wireframe"
@@ -292,9 +310,16 @@ const TutorDCaseStudy = () => {
                   <h4 className="text-primary font-medium mb-3">
                     Lesson Planner Screen
                   </h4>
-                  <div className="aspect-[16/9] overflow-hidden rounded-lg border border-gray-700">
+                  <div
+                    className="aspect-[16/9] overflow-hidden rounded-lg border border-gray-700 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+                    onClick={() =>
+                      handleImageClick(
+                        "/lovable-uploads/TutorD-Lesson-Planner.jpg"
+                      )
+                    }
+                  >
                     <img
-                      src="/lovable-uploads/TutorD-LessonPlanner.jpg"
+                      src="/lovable-uploads/TutorD-Lesson-Planner.jpg"
                       alt="Lesson Planner Wireframe"
                       className="w-full h-full object-cover"
                     />
@@ -305,7 +330,12 @@ const TutorDCaseStudy = () => {
                   <h4 className="text-primary font-medium mb-3">
                     Progress Dashboard
                   </h4>
-                  <div className="aspect-[16/9] overflow-hidden rounded-lg border border-gray-700">
+                  <div
+                    className="aspect-[16/9] overflow-hidden rounded-lg border border-gray-700 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+                    onClick={() =>
+                      handleImageClick("/lovable-uploads/TutorD-Dashboard.jpg")
+                    }
+                  >
                     <img
                       src="/lovable-uploads/TutorD-Dashboard.jpg"
                       alt="Progress Dashboard Wireframe"
@@ -338,7 +368,14 @@ const TutorDCaseStudy = () => {
             </p>
 
             <div className="mb-8">
-              <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-700 mb-3">
+              <div
+                className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-700 mb-3 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+                onClick={() =>
+                  handleImageClick(
+                    "/lovable-uploads/781889c9-57f2-4a2c-9ce3-a3951cb2a777.png"
+                  )
+                }
+              >
                 <img
                   src="/lovable-uploads/781889c9-57f2-4a2c-9ce3-a3951cb2a777.png"
                   alt="TutorD Dashboard UI"
@@ -629,6 +666,31 @@ const TutorDCaseStudy = () => {
           </CardContent>
         </Card>
       </section>
+
+      {/* Modal for full-size image view */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
+          onClick={closeModal}
+        >
+          <div
+            className="relative max-w-7xl max-h-[90vh] w-full h-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage}
+              alt="Full size image"
+              className="w-full h-full object-contain"
+            />
+            <button
+              className="absolute top-4 right-4 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center"
+              onClick={closeModal}
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

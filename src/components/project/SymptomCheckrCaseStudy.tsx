@@ -233,22 +233,23 @@ const SymptomCheckrCaseStudy = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-primary font-medium mb-3">Symptom Input Screen</h4>
+                  <h4 className="text-primary font-medium mb-3">Symptom Checkr Homepage</h4>
                   <img 
-                    src="/lovable-uploads/e83fa335-86a8-4dab-988a-116e0c1ef5cf.png" 
-                    alt="Symptom Input Wireframe" 
+                    src="/lovable-uploads/Symptom-Checkr-Home.jpg" 
+                    alt="Symptom Checkr Homepage Wireframe" 
                     className="rounded-lg border border-gray-700"
                   />
                 </div>
                 
                 <div>
-                  <h4 className="text-primary font-medium mb-3">Results Screen</h4>
+                  <h4 className="text-primary font-medium mb-3">My Reports Saved</h4>
                   <img 
-                    src="/lovable-uploads/6076ebd2-73e4-4c56-a5ff-ddb97c49961e.png" 
+                    src="/lovable-uploads/Symptom-Checkr-My-Reports-saved.jpg" 
                     alt="Results Screen Wireframe" 
                     className="rounded-lg border border-gray-700"
                   />
                 </div>
+                
               </div>
             </div>
           </CardContent>

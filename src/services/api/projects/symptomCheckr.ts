@@ -36,10 +36,10 @@ export const getSymptomCheckrProject = (): ProjectType => {
     ],
     images: [
       '/lovable-uploads/8faa2a57-61a6-4ad4-a3c4-77c15b8982c8.png',
-      '/lovable-uploads/6076ebd2-73e4-4c56-a5ff-ddb97c49961e.png',
-      '/lovable-uploads/e83fa335-86a8-4dab-988a-116e0c1ef5cf.png',
-      '/lovable-uploads/8f53157c-f6d4-46bf-9e0f-173619ca60c1.png',
-      '/lovable-uploads/4086d5d5-7778-4d3d-bf84-232e19d977f2.png'
+      '/lovable-uploads/Symptom-Checkr-My-Reports-saved.jpg',
+      '/lovable-uploads/Symptom-Checkr-My-Reports-empty.jpg',
+      '/lovable-uploads/Symptom-Checkr-Contact.jpg',
+      '/lovable-uploads/Symptom-Checkr-Home.jpg'
     ],
     videoUrl: null,
     githubUrl: null,
