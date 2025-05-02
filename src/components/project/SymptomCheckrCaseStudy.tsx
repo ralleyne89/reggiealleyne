@@ -13,11 +13,281 @@ import {
   Image,
   CheckCircle,
   Lock,
+  Briefcase,
+  Clock,
+  Monitor,
+  Smartphone,
+  Code,
 } from "lucide-react";
 
 const SymptomCheckrCaseStudy = () => {
   return (
     <div className="mt-8 mb-16">
+      {/* Project Overview Section */}
+      <section className="mb-16">
+        <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
+          <CardContent className="p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
+                <Briefcase className="w-5 h-5 text-primary" />
+              </div>
+              <h2 className="text-2xl font-bold text-white">
+                Project Overview
+              </h2>
+            </div>
+
+            <p className="text-[rgba(200,200,200,0.9)] leading-relaxed mb-6">
+              Symptom Checkr is a digital triage and symptom-checking tool
+              designed to improve the way users access care. The tool leverages
+              conversational AI and clinical intelligence to guide users from "I
+              don't feel well" to appropriate care in a seamless, intuitive, and
+              personalized way.
+            </p>
+
+            <p className="text-[rgba(200,200,200,0.9)] leading-relaxed mb-8">
+              In response to the COVID-19 pandemic and rising telehealth demand,
+              we were tasked with reimagining the digital "front door" to
+              healthcare for a major health insurer. Our goal: create a
+              compelling, trustworthy, and user-friendly interface for symptom
+              checking that enhances health outcomes while reducing unnecessary
+              care utilization.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <h3 className="text-lg font-semibold text-white mb-3">
+                    Project Details
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full mt-0.5">
+                        <Briefcase className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-gray-400 text-sm">Role</p>
+                        <p className="text-white">UX/UI Designer</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full mt-0.5">
+                        <Users className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-gray-400 text-sm">Team</p>
+                        <p className="text-white">
+                          Product Strategist, Clinical Innovation Lead, AI
+                          Engineer, Marketing Analyst
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full mt-0.5">
+                        <Clock className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-gray-400 text-sm">Duration</p>
+                        <p className="text-white">8 weeks</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <h3 className="text-lg font-semibold text-white mb-3">
+                    Tools & Platform
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full mt-0.5">
+                        <Image className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-gray-400 text-sm">Design Tools</p>
+                        <p className="text-white">
+                          Figma, Miro, Adobe Suite, After Effects
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full mt-0.5">
+                        <Monitor className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-gray-400 text-sm">Platform</p>
+                        <p className="text-white">Web + Mobile App</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full mt-0.5">
+                        <Briefcase className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-gray-400 text-sm">Client</p>
+                        <p className="text-white">
+                          Confidential U.S. Health Plan Provider
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Problem Space Section */}
+      <section className="mb-16">
+        <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
+          <CardContent className="p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
+                <AlertCircle className="w-5 h-5 text-primary" />
+              </div>
+              <h2 className="text-2xl font-bold text-white">Problem Space</h2>
+            </div>
+
+            <p className="text-[rgba(200,200,200,0.9)] leading-relaxed mb-6">
+              72% of Americans search online first when sick—often encountering
+              conflicting information and misdiagnosing themselves.
+            </p>
+
+            <h3 className="text-xl font-semibold text-white mb-4">
+              Challenges Identified
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="bg-primary/10 p-2 rounded-full">
+                    <AlertCircle className="w-4 h-4 text-primary" />
+                  </div>
+                  <h4 className="text-white font-medium">Trust Deficit</h4>
+                </div>
+                <p className="text-gray-300 text-sm">
+                  Users lack trust in existing symptom checkers, often
+                  questioning their accuracy and reliability.
+                </p>
+              </div>
+
+              <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="bg-primary/10 p-2 rounded-full">
+                    <AlertCircle className="w-4 h-4 text-primary" />
+                  </div>
+                  <h4 className="text-white font-medium">
+                    Fragmented Experience
+                  </h4>
+                </div>
+                <p className="text-gray-300 text-sm">
+                  Traditional health plan portals are fragmented, confusing, and
+                  difficult to navigate.
+                </p>
+              </div>
+
+              <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="bg-primary/10 p-2 rounded-full">
+                    <AlertCircle className="w-4 h-4 text-primary" />
+                  </div>
+                  <h4 className="text-white font-medium">Unnecessary Care</h4>
+                </div>
+                <p className="text-gray-300 text-sm">
+                  Members often default to urgent care or ER unnecessarily,
+                  increasing costs and wait times.
+                </p>
+              </div>
+
+              <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="bg-primary/10 p-2 rounded-full">
+                    <AlertCircle className="w-4 h-4 text-primary" />
+                  </div>
+                  <h4 className="text-white font-medium">
+                    Missed Opportunities
+                  </h4>
+                </div>
+                <p className="text-gray-300 text-sm">
+                  Health plans miss the opportunity to guide users early in
+                  their care journey.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold text-white mb-4">
+                Design Goals
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <Target className="w-4 h-4 text-primary" />
+                    </div>
+                    <h4 className="text-white font-medium">Build Trust</h4>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    Create an empathetic, conversational UI that users feel
+                    comfortable sharing health information with.
+                  </p>
+                </div>
+
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <Target className="w-4 h-4 text-primary" />
+                    </div>
+                    <h4 className="text-white font-medium">Reduce Friction</h4>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    Streamline the symptom assessment process to make it
+                    intuitive and efficient.
+                  </p>
+                </div>
+
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <Target className="w-4 h-4 text-primary" />
+                    </div>
+                    <h4 className="text-white font-medium">
+                      Increase Self-Service
+                    </h4>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    Encourage appropriate self-care without sacrificing medical
+                    accuracy.
+                  </p>
+                </div>
+
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <Target className="w-4 h-4 text-primary" />
+                    </div>
+                    <h4 className="text-white font-medium">
+                      Seamless Integration
+                    </h4>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    Connect with existing care tools (telehealth, coaching,
+                    in-network finders).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
       {/* Research & Discovery Section */}
       <section className="mb-16">
         <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
@@ -33,12 +303,72 @@ const SymptomCheckrCaseStudy = () => {
 
             <div className="space-y-6">
               <p className="text-[rgba(200,200,200,0.9)] leading-relaxed">
-                The research phase began with a competitive analysis of existing
-                symptom checker tools including WebMD, Ada, and Buoy Health.
-                While these platforms provide valuable medical information, they
-                often overwhelm users with complex interfaces and alarming
-                results that increase anxiety rather than provide clarity.
+                The research phase began with a comprehensive analysis of how
+                users seek care when symptoms arise and a competitive audit of
+                existing symptom checker tools.
               </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <h3 className="text-lg font-semibold text-white mb-3">
+                    User Research
+                  </h3>
+                  <ul className="space-y-2 text-gray-300">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        Interviewed 8 members (ages 25–60) about how they seek
+                        care when symptoms arise
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        Synthesized data into key personas like Sarah Mitchell
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        Reviewed behavioral data on search and care-seeking
+                        habits
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <h3 className="text-lg font-semibold text-white mb-3">
+                    Competitive Audit
+                  </h3>
+                  <p className="text-gray-300 mb-3">
+                    Analyzed tools like Ada, Buoy, Conversa, and K Health. Key
+                    findings:
+                  </p>
+                  <ul className="space-y-2 text-gray-300">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        Ada showed the highest accuracy but had a dense UX
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        Buoy had a friendly tone but felt impersonal after the
+                        first interaction
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        Conversa had strong provider integration but lacked
+                        visual polish
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                 <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
@@ -69,6 +399,161 @@ const SymptomCheckrCaseStudy = () => {
                     Most competitors lack visual input options, limiting
                     accessibility for certain symptoms.
                   </p>
+                </div>
+              </div>
+
+              <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5 mt-8">
+                <h3 className="text-lg font-semibold text-white mb-3">
+                  Internal Stakeholder Goals
+                </h3>
+                <ul className="space-y-2 text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span>
+                      Encourage early engagement with health resources
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span>Reduce ER visits and medical spend</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span>
+                      Integrate with existing care resources and analytics
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Ideation & Strategy Section */}
+      <section className="mb-16">
+        <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
+          <CardContent className="p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
+                <Lightbulb className="w-5 h-5 text-primary" />
+              </div>
+              <h2 className="text-2xl font-bold text-white">
+                Ideation & Strategy
+              </h2>
+            </div>
+
+            <p className="text-[rgba(200,200,200,0.9)] leading-relaxed mb-6">
+              We used a whiteboarding session to map the end-to-end care journey
+              and develop the strategy for the symptom checker experience.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-white mb-3">
+                  Key Insights
+                </h3>
+                <div className="space-y-3">
+                  <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                    <p className="text-gray-300">
+                      <span className="text-primary font-medium">
+                        Users must feel guided and in control.
+                      </span>{" "}
+                      The interface should provide clear direction while
+                      allowing users to feel they're making informed decisions
+                      about their health.
+                    </p>
+                  </div>
+
+                  <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                    <p className="text-gray-300">
+                      <span className="text-primary font-medium">
+                        Triaging must feel human, not like a form.
+                      </span>{" "}
+                      The conversational interface should adapt to user
+                      responses and feel like a helpful consultation rather than
+                      a clinical questionnaire.
+                    </p>
+                  </div>
+
+                  <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                    <p className="text-gray-300">
+                      <span className="text-primary font-medium">
+                        Success hinges on cross-platform consistency.
+                      </span>{" "}
+                      The experience must be equally effective on mobile and
+                      desktop to meet users where they are when symptoms arise.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-4">
+                  Interaction Flow
+                </h3>
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full mt-0.5 shrink-0">
+                        <span className="text-primary font-bold">1</span>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium">
+                          Symptom Onset → Opens app or mobile web
+                        </p>
+                        <p className="text-gray-300 text-sm mt-1">
+                          User experiences symptoms and accesses the tool
+                          through their health plan portal or direct link
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full mt-0.5 shrink-0">
+                        <span className="text-primary font-bold">2</span>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium">
+                          Conversational Assessment → AI asks adaptive questions
+                        </p>
+                        <p className="text-gray-300 text-sm mt-1">
+                          The system guides users through relevant questions
+                          based on their initial symptom description
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full mt-0.5 shrink-0">
+                        <span className="text-primary font-bold">3</span>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium">
+                          Triaged Recommendation → Actionable next steps
+                        </p>
+                        <p className="text-gray-300 text-sm mt-1">
+                          User receives personalized care options (self-care,
+                          telehealth, in-network clinic)
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full mt-0.5 shrink-0">
+                        <span className="text-primary font-bold">4</span>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium">
+                          Optional Follow-up → Share report with PCP
+                        </p>
+                        <p className="text-gray-300 text-sm mt-1">
+                          Users can save or share their symptom report with
+                          healthcare providers
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -287,16 +772,16 @@ const SymptomCheckrCaseStudy = () => {
                   </div>
                   <div className="w-px h-8 bg-gray-600"></div>
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full">
-                    <div className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center">
+                    <div className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center" style={{border: '1px solid #9B87F5'}}>
                       Symptom Input
                     </div>
-                    <div className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center">
+                    <div className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center" style={{border: '1px solid #9B87F5'}}>
                       My Reports
                     </div>
-                    <div className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center">
+                    <div className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center" style={{border: '1px solid #9B87F5'}}>
                       How It Works
                     </div>
-                    <div className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center">
+                    <div className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center" style={{border: '1px solid #9B87F5'}}>
                       Contact
                     </div>
                   </div>
@@ -353,11 +838,47 @@ const SymptomCheckrCaseStudy = () => {
               <h2 className="text-2xl font-bold text-white">Final UI Design</h2>
             </div>
 
-            <p className="text-[rgba(200,200,200,0.9)] mb-8 leading-relaxed">
+            <p className="text-[rgba(200,200,200,0.9)] mb-6 leading-relaxed">
               The final UI design emphasizes clarity, trust, and accessibility.
               A calming color palette with clear visual hierarchies guides users
               through the symptom checking process while minimizing anxiety.
             </p>
+
+            <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5 mb-8">
+              <h3 className="text-lg font-semibold text-white mb-3">
+                Design Execution Highlights
+              </h3>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>
+                    Soft color palette for approachability and reduced clinical
+                    feel
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>
+                    Rounded UI elements to reduce clinical stiffness and create
+                    a more friendly interface
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>
+                    Micro-animations signal thinking, responding, and guidance
+                    for user state
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>
+                    Design system aligned with WCAG 2.1 AA accessibility
+                    standards
+                  </span>
+                </li>
+              </ul>
+            </div>
 
             <div className="mb-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -471,7 +992,7 @@ const SymptomCheckrCaseStudy = () => {
       </section>
 
       {/* How It Works */}
-      <section className="mb-16">
+      {/* <section className="mb-16">
         <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
           <CardContent className="p-8">
             <div className="flex items-center gap-3 mb-6">
@@ -527,10 +1048,100 @@ const SymptomCheckrCaseStudy = () => {
             </div>
           </CardContent>
         </Card>
-      </section>
+      </section> */}
+
+      {/* Outcomes & Impact */}
+      {/* <section className="mb-16">
+        <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
+          <CardContent className="p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
+                <BarChart className="w-5 h-5 text-primary" />
+              </div>
+              <h2 className="text-2xl font-bold text-white">
+                Outcomes & Impact
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <BarChart className="w-4 h-4 text-primary" />
+                    </div>
+                    <h4 className="text-white font-medium">
+                      Telehealth Utilization
+                    </h4>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-3xl font-bold text-primary">
+                      +42%
+                    </span>
+                    <p className="text-gray-300 text-sm ml-3">
+                      increase in telehealth utilization among pilot group
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <BarChart className="w-4 h-4 text-primary" />
+                    </div>
+                    <h4 className="text-white font-medium">
+                      ER Visit Reduction
+                    </h4>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-3xl font-bold text-primary">
+                      -16%
+                    </span>
+                    <p className="text-gray-300 text-sm ml-3">
+                      ER visits for minor symptoms in test region
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                    </div>
+                    <h4 className="text-white font-medium">
+                      User Satisfaction
+                    </h4>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-3xl font-bold text-primary">94%</span>
+                    <p className="text-gray-300 text-sm ml-3">
+                      user satisfaction rate from in-app surveys
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <Briefcase className="w-4 h-4 text-primary" />
+                    </div>
+                    <h4 className="text-white font-medium">Business Impact</h4>
+                  </div>
+                  <p className="text-gray-300">
+                    New contracts secured with two national employer groups
+                    based on digital capabilities
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section> */}
 
       {/* Challenges & Learnings */}
-      <section>
+      <section className="mb-16">
         <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
           <CardContent className="p-8">
             <div className="flex items-center gap-3 mb-6">
@@ -538,14 +1149,14 @@ const SymptomCheckrCaseStudy = () => {
                 <Lightbulb className="w-5 h-5 text-primary" />
               </div>
               <h2 className="text-2xl font-bold text-white">
-                Challenges & Learnings
+                Key Insights & Learnings
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div>
                 <h3 className="text-xl font-semibold text-white mb-4">
-                  Challenges
+                  Insights
                 </h3>
 
                 <div className="space-y-4">
@@ -686,6 +1297,61 @@ const SymptomCheckrCaseStudy = () => {
           </CardContent>
         </Card>
       </section>
+
+      {/* Reflection Section */}
+      {/* <section className="mb-16">
+        <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
+          <CardContent className="p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
+                <Lightbulb className="w-5 h-5 text-primary" />
+              </div>
+              <h2 className="text-2xl font-bold text-white">Reflection</h2>
+            </div>
+
+            <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-6">
+              <p className="text-[rgba(200,200,200,0.9)] leading-relaxed">
+                Symptom Checkr taught me how to design for complexity with
+                compassion. It pushed my skillset in systems thinking,
+                accessibility, and human-centered AI. I'm proud that we not only
+                created a better interface but helped people feel more informed
+                and supported in a moment of vulnerability.
+              </p>
+
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-[rgba(35,35,35,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
+                  <p className="text-gray-300 text-sm">
+                    <span className="text-primary font-medium block mb-2">
+                      Healthcare Design Insight
+                    </span>
+                    Designing for healthcare means balancing clarity and empathy
+                    at every click.
+                  </p>
+                </div>
+
+                <div className="bg-[rgba(35,35,35,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
+                  <p className="text-gray-300 text-sm">
+                    <span className="text-primary font-medium block mb-2">
+                      Conversational UI
+                    </span>
+                    Chat-based UIs must manage tone, not just logic.
+                  </p>
+                </div>
+
+                <div className="bg-[rgba(35,35,35,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
+                  <p className="text-gray-300 text-sm">
+                    <span className="text-primary font-medium block mb-2">
+                      Collaboration
+                    </span>
+                    Cross-functional input (especially from clinical partners)
+                    is essential early in the design process.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section> */}
     </div>
   );
 };
