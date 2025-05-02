@@ -1,9 +1,9 @@
 import React from "react";
 import ChallengesLearningsComponent from "../common/ChallengesLearnings";
-import { symptomCheckrChallengesData } from "@/data/projects/symptomCheckrData";
+import { tutorDChallengesData } from "@/data/projects/tutorDData";
 
 const ChallengesLearnings = () => {
-  return <ChallengesLearningsComponent {...symptomCheckrChallengesData} />;
+  return <ChallengesLearningsComponent {...tutorDChallengesData} />;
 };
 
 export default ChallengesLearnings;

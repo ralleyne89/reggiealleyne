@@ -1,9 +1,9 @@
 import React from "react";
 import OutcomesImpactComponent from "../common/OutcomesImpact";
-import { symptomCheckrOutcomesData } from "@/data/projects/symptomCheckrData";
+import { tutorDOutcomesData } from "@/data/projects/tutorDData";
 
 const OutcomesImpact = () => {
-  return <OutcomesImpactComponent {...symptomCheckrOutcomesData} />;
+  // return <OutcomesImpactComponent {...tutorDOutcomesData} />;
 };
 
 export default OutcomesImpact;

@@ -1,9 +1,9 @@
 import React from "react";
 import IdeationStrategyComponent from "../common/IdeationStrategy";
-import { symptomCheckrIdeationData } from "@/data/projects/symptomCheckrData";
+import { tutorDIdeationData } from "@/data/projects/tutorDData";
 
 const IdeationStrategy = () => {
-  return <IdeationStrategyComponent {...symptomCheckrIdeationData} />;
+  return <IdeationStrategyComponent {...tutorDIdeationData} />;
 };
 
 export default IdeationStrategy;

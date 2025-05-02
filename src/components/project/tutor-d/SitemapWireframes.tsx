@@ -1,9 +1,9 @@
 import React from "react";
 import SitemapWireframesComponent from "../common/SitemapWireframes";
-import { symptomCheckrSitemapData } from "@/data/projects/symptomCheckrData";
+import { tutorDSitemapData } from "@/data/projects/tutorDData";
 
 const SitemapWireframes = () => {
-  return <SitemapWireframesComponent {...symptomCheckrSitemapData} />;
+  return <SitemapWireframesComponent {...tutorDSitemapData} />;
 };
 
 export default SitemapWireframes;

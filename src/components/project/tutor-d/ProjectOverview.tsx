@@ -1,9 +1,9 @@
 import React from "react";
 import ProjectOverviewComponent from "../common/ProjectOverview";
-import { symptomCheckrOverviewData } from "@/data/projects/symptomCheckrData";
+import { tutorDOverviewData } from "@/data/projects/tutorDData";
 
 const ProjectOverview = () => {
-  return <ProjectOverviewComponent {...symptomCheckrOverviewData} />;
+  return <ProjectOverviewComponent {...tutorDOverviewData} />;
 };
 
 export default ProjectOverview;

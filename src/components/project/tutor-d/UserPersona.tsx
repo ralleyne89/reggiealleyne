@@ -1,9 +1,9 @@
 import React from "react";
 import UserPersonaComponent from "../common/UserPersona";
-import { symptomCheckrPersonaData } from "@/data/projects/symptomCheckrData";
+import { tutorDPersonaData } from "@/data/projects/tutorDData";
 
 const UserPersona = () => {
-  return <UserPersonaComponent {...symptomCheckrPersonaData} />;
+  return <UserPersonaComponent {...tutorDPersonaData} />;
 };
 
 export default UserPersona;
