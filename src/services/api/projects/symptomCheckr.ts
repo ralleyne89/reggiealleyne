@@ -44,7 +44,7 @@ export const getSymptomCheckrProject = (): ProjectType => {
     videoUrl: null,
     githubUrl: null,
     liveUrl: null,
-    prototypeUrl: 'https://www.figma.com/proto/SymptomCheckrDemo',
+    prototypeUrl: 'https://symptom-checkr.web.app/',
     keyAchievements: [
       '78% reduction in user anxiety around minor symptoms based on before/after user testing',
       '92% satisfaction rate with the ease of use compared to 43% for competitor tools',

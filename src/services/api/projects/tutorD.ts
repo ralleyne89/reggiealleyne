@@ -8,7 +8,7 @@ export const getTutorDProject = (): ProjectType => {
     title: "Tutor D",
     description: "Educational platform connecting students with qualified tutors for personalized learning sessions.",
     fullDescription: "A distance learning platform designed to close the homework and accessibility gap in education. By leveraging SMS technology, it enables students without reliable internet or smart devices to receive assignments, engage with lessons, and stay on track—remotely.",
-    image: "/lovable-uploads/781889c9-57f2-4a2c-9ce3-a3951cb2a777.png",
+    image: "/lovable-uploads/TutorD-Hero.png",
     category: "Education",
     tags: ["Education", "Distance Learning", "Accessibility"],
     role: "Frontend Developer & UI/UX Designer",
@@ -30,8 +30,12 @@ export const getTutorDProject = (): ProjectType => {
       "Messaging Tools for lesson reminders and feedback"
     ],
     images: [
-      "/lovable-uploads/227c9dea-f39a-4dcf-a387-b9089523692f.png",
-      "/lovable-uploads/781889c9-57f2-4a2c-9ce3-a3951cb2a777.png"
+      "/lovable-uploads/TutorD-Landing-Page-Final.jpg",
+      "/lovable-uploads/TutorD-Dashboard-Final.jpg",
+      "/lovable-uploads/TutorD-Lesson-Planner-Final.jpg",
+      "/lovable-uploads/TutorD-Landing-Page.jpg",
+      "/lovable-uploads/TutorD-Dashboard.jpg",
+      "/lovable-uploads/TutorD-Lesson-Planner.jpg"
     ],
     conclusion: {
       impact: "Helped teachers support their students during a time when traditional systems weren't enough, improving accessibility in underserved communities.",
@@ -57,6 +61,6 @@ export const getTutorDProject = (): ProjectType => {
     methodologies: ["Agile", "User Testing", "Iterative Design"],
     summary: "A distance learning platform supporting student learning in underserved communities through SMS-based technology. The educator-facing web dashboard helps teachers manage student progress, engagement, and communication.",
     date: "2021-06-01",
-    liveUrl: "https://tutord.io/"
+    liveUrl: "https://tutord-demo.web.app/"
   };
 };

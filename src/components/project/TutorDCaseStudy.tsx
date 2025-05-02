@@ -261,16 +261,28 @@ const TutorDCaseStudy = () => {
                   </div>
                   <div className="w-px h-8 bg-gray-600"></div>
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full">
-                    <div className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center">
+                    <div
+                      className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center"
+                      style={{ border: "1px solid #9B87F5" }}
+                    >
                       Lesson Planner
                     </div>
-                    <div className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center">
+                    <div
+                      className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center"
+                      style={{ border: "1px solid #9B87F5" }}
+                    >
                       Student Progress
                     </div>
-                    <div className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center">
+                    <div
+                      className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center"
+                      style={{ border: "1px solid #9B87F5" }}
+                    >
                       Messaging
                     </div>
-                    <div className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center">
+                    <div
+                      className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center"
+                      style={{ border: "1px solid #9B87F5" }}
+                    >
                       Reports
                     </div>
                   </div>
@@ -367,24 +379,60 @@ const TutorDCaseStudy = () => {
               lessons.
             </p>
 
-            <div className="mb-8">
-              <div
-                className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-700 mb-3 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
-                onClick={() =>
-                  handleImageClick(
-                    "/lovable-uploads/781889c9-57f2-4a2c-9ce3-a3951cb2a777.png"
-                  )
-                }
-              >
-                <img
-                  src="/lovable-uploads/781889c9-57f2-4a2c-9ce3-a3951cb2a777.png"
-                  alt="TutorD Dashboard UI"
-                  className="w-full h-full object-cover"
-                />
+            <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-primary font-medium mb-3">Landing Page</h4>
+                <div
+                  className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-700 mb-3 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+                  onClick={() =>
+                    handleImageClick(
+                      "/lovable-uploads/TutorD-Landing-Page-Final.jpg"
+                    )
+                  }
+                >
+                  <img
+                    src="/lovable-uploads/TutorD-Landing-Page-Final.jpg"
+                    alt="TutorD Dashboard UI"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-              <p className="text-gray-400 text-sm text-center">
-                Final UI design showcasing the dashboard and lesson planner
-              </p>
+              <div>
+                <h4 className="text-primary font-medium mb-3">Dashboard</h4>
+                <div
+                  className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-700 mb-3 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+                  onClick={() =>
+                    handleImageClick(
+                      "/lovable-uploads/TutorD-Dashboard-Final.jpg"
+                    )
+                  }
+                >
+                  <img
+                    src="/lovable-uploads/TutorD-Dashboard-Final.jpg"
+                    alt="TutorD Dashboard UI"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div>
+                <h4 className="text-primary font-medium mb-3">
+                  Lesson Planner
+                </h4>
+                <div
+                  className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-700 mb-3 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+                  onClick={() =>
+                    handleImageClick(
+                      "/lovable-uploads/TutorD-Lesson-Planner-Final.jpg"
+                    )
+                  }
+                >
+                  <img
+                    src="/lovable-uploads/TutorD-Lesson-Planner-Final.jpg"
+                    alt="TutorD Dashboard UI"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
             </div>
 
             <div className="mt-8">
