@@ -9,10 +9,8 @@ import IdeationStrategy from "./tutor-d/IdeationStrategy";
 import UserPersona from "./tutor-d/UserPersona";
 import UserJourneyMap from "./tutor-d/UserJourneyMap";
 import SitemapWireframes from "./tutor-d/SitemapWireframes";
-import FinalUIDesign from "./tutor-d/FinalUIDesign";
-import OutcomesImpact from "./tutor-d/OutcomesImpact";
 import ChallengesLearnings from "./tutor-d/ChallengesLearnings";
-import Reflection from "./tutor-d/Reflection";
+import DirectUIImages from "./tutor-d/DirectUIImages";
 
 const TutorDCaseStudy = () => {
   // Preserve the image modal functionality
@@ -35,11 +33,9 @@ const TutorDCaseStudy = () => {
       <UserPersona />
       <UserJourneyMap />
       <SitemapWireframes />
-      <FinalUIDesign />
-      <OutcomesImpact />
+      <DirectUIImages handleImageClick={handleImageClick} />
       <ChallengesLearnings />
-      <Reflection />
-      
+
       {/* Modal for full-size image view */}
       {selectedImage && (
         <div
