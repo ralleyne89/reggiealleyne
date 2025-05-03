@@ -1,6 +1,6 @@
 import React from "react";
 import UserPersonaComponent from "../common/UserPersona";
-import { tutorDPersonaData } from "@/data/projects/tutorDData";
+import { tutorDPersonaData } from "@/projects/tutor-d/data/tutorDData";
 
 const UserPersona = () => {
   return <UserPersonaComponent {...tutorDPersonaData} />;

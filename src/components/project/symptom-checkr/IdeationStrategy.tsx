@@ -1,6 +1,6 @@
 import React from "react";
 import IdeationStrategyComponent from "../common/IdeationStrategy";
-import { symptomCheckrIdeationData } from "@/data/projects/symptomCheckrData";
+import { symptomCheckrIdeationData } from "@/projects/symptom-checkr/data/symptomCheckrData";
 
 const IdeationStrategy = () => {
   return <IdeationStrategyComponent {...symptomCheckrIdeationData} />;

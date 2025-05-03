@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 
 // Import all section components
-import ProjectOverview from "./tutor-d/ProjectOverview";
-import ProblemSpace from "./tutor-d/ProblemSpace";
-import ResearchDiscovery from "./tutor-d/ResearchDiscovery";
-import IdeationStrategy from "./tutor-d/IdeationStrategy";
-import UserPersona from "./tutor-d/UserPersona";
-import UserJourneyMap from "./tutor-d/UserJourneyMap";
-import SitemapWireframes from "./tutor-d/SitemapWireframes";
-import ChallengesLearnings from "./tutor-d/ChallengesLearnings";
-import DirectUIImages from "./tutor-d/DirectUIImages";
+import ProjectOverview from "@/components/project/tutor-d/ProjectOverview";
+import ProblemSpace from "@/components/project/tutor-d/ProblemSpace";
+import ResearchDiscovery from "@/components/project/tutor-d/ResearchDiscovery";
+import IdeationStrategy from "@/components/project/tutor-d/IdeationStrategy";
+import UserPersona from "@/components/project/tutor-d/UserPersona";
+import UserJourneyMap from "@/components/project/tutor-d/UserJourneyMap";
+import SitemapWireframes from "@/components/project/tutor-d/SitemapWireframes";
+import ChallengesLearnings from "@/components/project/tutor-d/ChallengesLearnings";
+import DirectUIImages from "@/components/project/tutor-d/DirectUIImages";
 
 const TutorDCaseStudy = () => {
   // Preserve the image modal functionality

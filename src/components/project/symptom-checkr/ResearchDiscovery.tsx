@@ -1,6 +1,6 @@
 import React from "react";
 import ResearchDiscoveryComponent from "../common/ResearchDiscovery";
-import { symptomCheckrResearchData } from "@/data/projects/symptomCheckrData";
+import { symptomCheckrResearchData } from "@/projects/symptom-checkr/data/symptomCheckrData";
 
 const ResearchDiscovery = () => {
   return <ResearchDiscoveryComponent {...symptomCheckrResearchData} />;

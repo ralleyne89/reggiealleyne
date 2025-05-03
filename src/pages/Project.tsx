@@ -11,8 +11,8 @@ import ProjectProcess from "@/components/project/ProjectProcess";
 import ProjectDeliverables from "@/components/project/ProjectDeliverables";
 import ProjectVideo from "@/components/project/ProjectVideo";
 import ProjectConclusion from "@/components/project/ProjectConclusion";
-import SymptomCheckrCaseStudy from "@/components/project/SymptomCheckrCaseStudy";
-import TutorDCaseStudy from "@/components/project/TutorDCaseStudy";
+import { SymptomCheckrCaseStudy } from "@/projects/symptom-checkr";
+import { TutorDCaseStudy } from "@/projects/tutor-d";
 import { ProjectType } from "@/types/project";
 
 const Project = () => {

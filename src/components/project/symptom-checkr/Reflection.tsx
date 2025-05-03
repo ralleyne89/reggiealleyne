@@ -1,6 +1,6 @@
 import React from "react";
 import ReflectionComponent from "../common/Reflection";
-import { symptomCheckrReflectionData } from "@/data/projects/symptomCheckrData";
+import { symptomCheckrReflectionData } from "@/projects/symptom-checkr/data/symptomCheckrData";
 
 const Reflection = () => {
   return <ReflectionComponent {...symptomCheckrReflectionData} />;

@@ -1,6 +1,6 @@
 import React from "react";
 import OutcomesImpactComponent from "../common/OutcomesImpact";
-import { symptomCheckrOutcomesData } from "@/data/projects/symptomCheckrData";
+import { symptomCheckrOutcomesData } from "@/projects/symptom-checkr/data/symptomCheckrData";
 
 const OutcomesImpact = () => {
   return <OutcomesImpactComponent {...symptomCheckrOutcomesData} />;

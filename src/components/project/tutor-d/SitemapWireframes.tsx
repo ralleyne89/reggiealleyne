@@ -1,6 +1,6 @@
 import React from "react";
 import SitemapWireframesComponent from "../common/SitemapWireframes";
-import { tutorDSitemapData } from "@/data/projects/tutorDData";
+import { tutorDSitemapData } from "@/projects/tutor-d/data/tutorDData";
 
 const SitemapWireframes = () => {
   return <SitemapWireframesComponent {...tutorDSitemapData} />;

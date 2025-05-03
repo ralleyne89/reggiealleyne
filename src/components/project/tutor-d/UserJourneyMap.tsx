@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Workflow } from "lucide-react";
-import TutorDJourneyMap from "../TutorDJourneyMap";
+import { TutorDJourneyMap } from "@/projects/tutor-d";
 
 const UserJourneyMap = () => {
   return (
