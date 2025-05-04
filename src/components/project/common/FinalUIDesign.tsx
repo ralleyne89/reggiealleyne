@@ -137,7 +137,14 @@ const FinalUIDesign: React.FC<FinalUIDesignProps> = ({
               </div>
             ) : mainImageSrc ? (
               <>
-                <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-700 mb-3">
+                <div
+                  className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-700 mb-3 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+                  onClick={() => {
+                    if (handleImageClick && mainImageSrc) {
+                      handleImageClick(mainImageSrc);
+                    }
+                  }}
+                >
                   <img
                     src={mainImageSrc}
                     alt={mainImageAlt}

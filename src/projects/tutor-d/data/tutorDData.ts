@@ -249,7 +249,7 @@ export const tutorDIdeationData: IdeationStrategyProps = {
 // User Persona Data
 export const tutorDPersonaData: UserPersonaProps = {
   title: "User Persona",
-  imageSrc: "/lovable-uploads/teacher-persona.png",
+  imageSrc: "/lovable-uploads/Ms-Rodriguez-Persona.png",
   imageAlt: "Ms. Rodriguez Persona",
   name: "Ms. Rodriguez",
   details: [
@@ -308,126 +308,126 @@ export const tutorDPersonaData: UserPersonaProps = {
 // User Journey Map Data
 export const tutorDJourneyData: UserJourneyMapProps = {
   title: "User Journey Map",
-  introduction: "This journey map follows Ms. Rodriguez as she creates and manages assignments through TutorD, highlighting key touchpoints and opportunities for design intervention.",
-  journeyTitle: "User Journey: Ms. Rodriguez's Experience with TutorD",
-  journeyDescription: "Following a middle school teacher as she uses TutorD to create and manage SMS-based lessons for students with limited internet access.",
+  introduction: "This journey map follows Ms. Rodriguez as she navigates adopting a tool that uses SMS-based lesson delivery and real-time tracking to better serve students with limited internet access.",
+  journeyTitle: "User Journey: Ms. Rodriguez's Experience",
+  journeyDescription: "Following Ms. Rodriguez as she navigates adopting a tool that uses SMS-based lesson delivery and real-time tracking to better serve students with limited internet access.",
   stages: [
-    { name: "Planning" },
-    { name: "Creation" },
-    { name: "Distribution" },
-    { name: "Tracking" },
-    { name: "Feedback" }
+    { name: "Problem" },
+    { name: "Discovery" },
+    { name: "Interaction" },
+    { name: "Solution" },
+    { name: "Application" }
   ],
   userActions: [
     {
       icon: FileText,
-      description: "Creates lesson plans with clear, SMS-friendly content"
+      description: "Struggles to track assignment completion across students with varying tech access"
+    },
+    {
+      icon: Search,
+      description: "Hears from a colleague about a tool that uses SMS for lesson delivery and tracking"
     },
     {
       icon: MessageSquare,
-      description: "Uses the dashboard to format assignments for SMS delivery"
-    },
-    {
-      icon: Clock,
-      description: "Schedules automated sending of assignments to student phones"
+      description: "Tests the tool with a small group, sends out first SMS-based lesson"
     },
     {
       icon: BarChart,
-      description: "Monitors student response rates and engagement in real-time"
+      description: "Receives real-time responses and analytics on student engagement"
     },
     {
       icon: CheckCircle,
-      description: "Provides personalized feedback based on student responses"
+      description: "Uses tool consistently to send lessons and provide feedback, notices improved engagement"
     }
   ],
   emotionalStates: [
+    {
+      icon: Frown,
+      iconColor: "text-red-400",
+      description: "Overwhelmed & Frustrated"
+    },
+    {
+      icon: Meh,
+      iconColor: "text-yellow-400",
+      description: "Curious but Skeptical"
+    },
     {
       icon: Meh,
       iconColor: "text-yellow-400",
       description: "Cautiously Optimistic"
     },
     {
-      icon: Meh,
-      iconColor: "text-yellow-400",
-      description: "Focused & Determined"
+      icon: Smile,
+      iconColor: "text-green-400",
+      description: "Encouraged & Empowered"
     },
     {
       icon: Smile,
       iconColor: "text-green-400",
-      description: "Relieved & Efficient"
-    },
-    {
-      icon: Smile,
-      iconColor: "text-green-400",
-      description: "Informed & Engaged"
-    },
-    {
-      icon: Smile,
-      iconColor: "text-green-400",
-      description: "Satisfied & Effective"
+      description: "Confident & Efficient"
     }
   ],
   painPoints: [
     {
       points: [
-        "Uncertainty about SMS character limitations",
-        "Concern about creating effective lessons in text-only format"
+        "Manual tracking is time-consuming and error-prone",
+        "Struggles to support students with no internet"
       ]
     },
     {
       points: [
-        "Time pressure to create multiple assignments",
-        "Worry about technical issues with the system"
+        "Uncertain if the tool will work with basic phones",
+        "Concerned about learning curve"
       ]
     },
     {
       points: [
-        "Concern about message delivery reliability",
-        "Uncertainty if all students will receive assignments"
+        "Unsure how students will respond to SMS-based lessons",
+        "Worried about managing replies"
       ]
     },
     {
       points: [
-        "Difficulty interpreting engagement metrics",
-        "Need to identify struggling students quickly"
+        "Not all students respond immediately",
+        "Some feedback is still delayed"
       ]
     },
     {
       points: [
-        "Limited feedback options via SMS",
-        "Challenge of personalizing responses at scale"
+        "Needs to expand usage while maintaining quality",
+        "Wants to integrate into her regular routine"
       ]
     }
   ],
   designOpportunities: [
     {
       points: [
-        "SMS-optimized templates",
-        "Character count indicators"
+        "Auto-track assignment completion via SMS",
+        "Offline-friendly dashboard"
       ]
     },
     {
       points: [
-        "Batch assignment creation",
-        "Content library for reusable elements"
+        "Simple onboarding with example use cases",
+        "Low-tech training resources"
       ]
     },
     {
       points: [
-        "Delivery confirmation system",
-        "Flexible scheduling options"
+        "Templates for SMS lessons",
+        "Auto-grouping of responses by student"
       ]
     },
     {
       points: [
-        "Visual analytics dashboard",
-        "Student engagement alerts"
+        "Quick reply shortcuts",
+        "Flag students needing follow-up"
       ]
     },
     {
       points: [
-        "Templated feedback responses",
-        "Bulk messaging with personalization"
+        "Weekly engagement summary",
+        "Lesson scheduler with reminders"
       ]
     }
   ]

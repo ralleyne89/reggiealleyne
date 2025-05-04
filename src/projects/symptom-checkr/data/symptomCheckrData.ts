@@ -231,7 +231,7 @@ export const symptomCheckrIdeationData: IdeationStrategyProps = {
 // User Persona Data
 export const symptomCheckrPersonaData: UserPersonaProps = {
   title: "User Persona",
-  imageSrc: "/lovable-uploads/4086d5d5-7778-4d3d-bf84-232e19d977f2.png",
+  imageSrc: "/lovable-uploads/Sarah-Mitchell-Persona.png",
   imageAlt: "Sarah Mitchell Persona",
   name: "Sarah Mitchell",
   details: [
@@ -480,10 +480,32 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
     {
       title: "Likelihood-Based Results",
       description: "Results are clearly organized by likelihood, with actionable next steps for each potential cause.",
-      tags: ["Clear Hierarchy", "Actionable Information", "No Alarmism"]
+      tags: ["Clear Hierarchy", "Actionable Information"]
     }
   ],
-  mainImageSrc: "/lovable-uploads/8faa2a57-61a6-4ad4-a3c4-77c15b8982c8.png",
+  uiImages: [
+    {
+      title: "Home Screen",
+      src: "/lovable-uploads/Symptom-Checkr-Home-Final.jpg",
+      alt: "SymptomCheckr Home screen"
+    },
+    {
+      title: "My Reports - Saved",
+      src: "/lovable-uploads/Symptom-Checkr-My-Reports- Saved-Final.jpg",
+      alt: "SymptomCheckr My Reports with saved reports"
+    },
+    {
+      title: "My Reports - Empty",
+      src: "/lovable-uploads/Symptom-Checkr-My-Reports-Empty-Final.jpg",
+      alt: "SymptomCheckr My Reports empty state"
+    },
+    {
+      title: "Contact Screen",
+      src: "/lovable-uploads/Symptom-Checkr-Contact-Final.jpg",
+      alt: "SymptomCheckr Contact screen"
+    }
+  ],
+  mainImageSrc: "/lovable-uploads/Symptom-Checkr-Home-Final.jpg",
   mainImageAlt: "SymptomCheckr Final UI",
   imageCaption: "Final UI design showcasing the symptom input and results screens",
   uiFeatures: [
