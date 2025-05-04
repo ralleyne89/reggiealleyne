@@ -491,7 +491,7 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
     },
     {
       title: "My Reports - Saved",
-      src: "/lovable-uploads/Symptom-Checkr-My-Reports- Saved-Final.jpg",
+      src: "/lovable-uploads/Symptom-Checkr-My-Reports-Saved-Final.jpg",
       alt: "SymptomCheckr My Reports with saved reports"
     },
     {
