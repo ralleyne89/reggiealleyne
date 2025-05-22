@@ -67,6 +67,9 @@ export interface ProjectType {
   /** Alternative field for problem statement */
   problem?: string | null;
   
+  /** Problem the project solved - specific outcome-focused description */
+  problemSolved?: string | null;
+  
   /** Solution provided by the project */
   solution?: string | null;
   
