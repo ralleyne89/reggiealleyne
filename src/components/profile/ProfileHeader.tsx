@@ -37,10 +37,10 @@ const ProfileHeader = () => {
             Reggie Alleyne
           </h1>
           <div className="text-[rgba(145,108,231,1)] font-semibold mt-2.5">
-            Bridging vision with code to create intuitive experiences
+            I shape digital experiences that make complexity feel intuitive
           </div>
           <div className="text-[rgba(153,153,153,1)] text-sm mt-1.5">
-            Principal Designer with a coding habit, crafting thoughtful digital solutions in Healthcare and Education for over a decade.
+            Principal Designer who codes, translating complex healthcare and education challenges into elegant solutions since 2013.
           </div>
           <div className="flex items-center gap-4 mt-2 text-xs text-[rgba(153,153,153,1)]">
             <div className="flex items-center gap-1">
