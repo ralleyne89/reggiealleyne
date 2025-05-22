@@ -4,9 +4,9 @@ import { ArrowRight, Award, Briefcase, MapPin, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const titles = [
-  "UI/UX Designer",
+  "Principal Designer",
   "Frontend Developer",
-  "Graphic Designer"
+  "Design Strategist"
 ];
 
 const ProfileHeader = () => {
@@ -36,24 +36,11 @@ const ProfileHeader = () => {
           <h1 className="text-[rgba(230,230,230,1)] text-[28px] font-semibold leading-none">
             Reggie Alleyne
           </h1>
-          <div className="flex items-center gap-1 text-sm mt-2.5">
-            <span className="text-[rgba(153,153,153,1)] font-medium">
-              I'm a
-            </span>
-            <div className="relative h-6 overflow-hidden" style={{ minWidth: '160px' }}>
-              {titles.map((title, index) => (
-                <div
-                  key={index}
-                  className="absolute inset-x-0 transition-all duration-500 ease-in-out text-[rgba(145,108,231,1)] font-semibold whitespace-nowrap"
-                  style={{
-                    transform: `translateY(${(index - currentTitleIndex) * 100}%)`,
-                    opacity: index === currentTitleIndex ? 1 : 0
-                  }}
-                >
-                  {title}
-                </div>
-              ))}
-            </div>
+          <div className="text-[rgba(145,108,231,1)] font-semibold mt-2.5">
+            Bridging vision with code to create intuitive experiences
+          </div>
+          <div className="text-[rgba(153,153,153,1)] text-sm mt-1.5">
+            Principal Designer with a coding habit, crafting thoughtful digital solutions in Healthcare and Education for over a decade.
           </div>
           <div className="flex items-center gap-4 mt-2 text-xs text-[rgba(153,153,153,1)]">
             <div className="flex items-center gap-1">
@@ -73,7 +60,7 @@ const ProfileHeader = () => {
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
             <div className="absolute inset-0 w-2 h-2 rounded-full border border-green-500 animate-ping"></div>
           </div>
-          <span className="ml-2">Available To Work</span>
+          <span className="ml-2">Available For Projects</span>
         </div>
         <Link 
           to="/works"
