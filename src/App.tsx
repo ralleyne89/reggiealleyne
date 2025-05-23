@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Index from "./pages/Index";
+import SimplifiedIndex from "./pages/SimplifiedIndex";
 import Works from "./pages/Works";
 import Project from "./pages/Project";
 import Navbar from "./components/layout/Navbar";
@@ -31,7 +31,7 @@ const App = () => (
         <Navbar />
         <AnimatePresence mode="wait">
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<SimplifiedIndex />} />
             <Route path="/works" element={<Works />} />
             <Route path="/project/:slug" element={<Project />} />
             <Route path="*" element={<Navigate to="/" replace />} />

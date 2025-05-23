@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Download } from "lucide-react";
@@ -37,7 +38,7 @@ const Navbar = () => {
 
   const navItems: NavItem[] = [
     { title: "Home", path: "/" },
-    { title: "Portfolio", path: "/works" },
+    { title: "Work", path: "/works" },
     { title: "Contact", path: "#", onClick: handleContactClick },
   ];
 
