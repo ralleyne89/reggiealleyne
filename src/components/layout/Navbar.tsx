@@ -118,11 +118,11 @@ const Navbar = () => {
                 <Link
                   to={item.path}
                   onClick={item.onClick}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 text-sm font-medium transition-colors ${
                     location.pathname === item.path ||
                     (item.path !== "/" &&
                       location.pathname.startsWith(item.path))
-                      ? "bg-[#7E69AB] text-white"
+                      ? "text-[#7E69AB] border-b-2 border-[#7E69AB]"
                       : "text-gray-300 hover:text-white hover:bg-[#7E69AB]/20"
                   }`}
                 >
@@ -161,11 +161,11 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.path}
-                    className={`block px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                    className={`block px-4 py-2 text-sm font-medium transition-colors ${
                       location.pathname === item.path ||
                       (item.path !== "/" &&
                         location.pathname.startsWith(item.path))
-                        ? "bg-[#7E69AB] text-white"
+                        ? "text-[#7E69AB] border-b-2 border-[#7E69AB]"
                         : "text-gray-300 hover:text-white hover:bg-[#7E69AB]/20"
                     }`}
                     onClick={(e) => {
