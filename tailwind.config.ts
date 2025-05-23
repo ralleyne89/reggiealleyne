@@ -29,15 +29,23 @@ export default {
 			},
 			colors: {
 				primary: {
-					DEFAULT: '#9b87f5',
-					dark: '#7E69AB',
-					light: '#b8a8f8'
+					DEFAULT: '#0891B2', // Teal Blue (main accent)
+					dark: '#0E7490',    // Darker teal for pressed states
+					light: '#06B6D4'    // Lighter teal for hover states
 				},
 				secondary: {
-					DEFAULT: '#21202d',
-					dark: '#161623',
-					light: '#2d2c3e'
+					DEFAULT: '#1E293B', // Secondary background
+					dark: '#111827',    // Main dark background
+					light: '#334155'    // Lighter background/borders
 				},
+				text: {
+					light: '#F8FAFC',   // Primary text on dark backgrounds
+					muted: '#94A3B8'    // Secondary/muted text
+				},
+				success: '#10B981',     // Green for success/complete states
+				warning: '#F59E0B',     // Amber for warnings/in progress
+				error: '#EF4444',       // Red for errors/important
+				info: '#3B82F6',        // Blue for info/neutral
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -110,13 +118,13 @@ export default {
 				'spacing': 'margin, padding',
 			},
 			dropShadow: {
-				'glow': '0 0 5px rgba(155, 135, 245, 0.5)'
+				'glow': '0 0 5px rgba(8, 145, 178, 0.5)'
 			},
 			backgroundImage: {
 				'hero-pattern': "url('/lovable-uploads/5d4d8a8f-272c-4d4c-be34-6f692f07cbf0.png')",
-				'gradient-purple': 'linear-gradient(135deg, #9b87f5 0%, #7E69AB 100%)',
-				'gradient-dark': 'linear-gradient(to bottom, #161623 0%, #0c0c14 100%)',
-				'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239b87f5' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+				'gradient-teal': 'linear-gradient(135deg, #0891B2 0%, #0E7490 100%)',
+				'gradient-dark': 'linear-gradient(to bottom, #111827 0%, #0F172A 100%)',
+				'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230891B2' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
 			}
 		}
 	},

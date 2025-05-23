@@ -97,17 +97,17 @@
   }
 
   body {
-    @apply bg-[#161623] text-foreground;
+    @apply bg-secondary-dark text-text-light;
     font-family: 'Poppins', sans-serif;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', sans-serif;
   }
 }
 
 .glow-effect {
-  box-shadow: 0 0 10px rgba(155, 135, 245, 0.3);
+  box-shadow: 0 0 10px rgba(8, 145, 178, 0.3);
 }
 
 /* Scroll reveal animation */
@@ -137,7 +137,7 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #9b87f5;
+  background-color: #0891B2;
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
 }
@@ -167,12 +167,12 @@
 }
 
 /* Background gradients */
-.bg-purple-gradient {
-  background: linear-gradient(135deg, #9b87f5 0%, #7E69AB 100%);
+.bg-teal-gradient {
+  background: linear-gradient(135deg, #0891B2 0%, #0E7490 100%);
 }
 
 .bg-dark-gradient {
-  background: linear-gradient(to bottom, #161623 0%, #0c0c14 100%);
+  background: linear-gradient(to bottom, #111827 0%, #0F172A 100%);
 }
 
 /* Text scramble effect */

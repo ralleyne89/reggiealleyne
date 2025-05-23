@@ -37,7 +37,7 @@ const Navbar = () => {
 
   const navItems: NavItem[] = [
     { title: "Home", path: "/" },
-    { title: "Portfolio", path: "/works" },
+    { title: "Work", path: "/works" },
     { title: "Contact", path: "#", onClick: handleContactClick },
   ];
 
@@ -130,17 +130,6 @@ const Navbar = () => {
                 </Link>
               </motion.li>
             ))}
-
-            <motion.li variants={itemVariants}>
-              <motion.button
-                onClick={handleResumeDownload}
-                className="flex items-center gap-2 bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white px-4 py-2 rounded-full text-sm font-medium hover:shadow-lg hover:from-[#7E69AB] hover:to-[#9b87f5] transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-              >
-                <Download size={16} />
-                Resume
-              </motion.button>
-            </motion.li>
           </ul>
 
           <motion.button
@@ -190,19 +179,6 @@ const Navbar = () => {
                   </Link>
                 </motion.li>
               ))}
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navItems.length * 0.1 }}
-              >
-                <button
-                  onClick={handleResumeDownload}
-                  className="flex items-center gap-2 w-full px-4 py-2 text-center bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white rounded-md text-sm font-medium"
-                >
-                  <Download size={16} />
-                  Download Resume
-                </button>
-              </motion.li>
             </ul>
           </div>
         </motion.div>
