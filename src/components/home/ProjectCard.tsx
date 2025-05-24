@@ -25,7 +25,7 @@ const ProjectCard = ({
   return (
     <Link to={`/project/${slug}`}>
       <motion.div
-        className={`bg-secondary rounded-3xl overflow-hidden group cursor-pointer h-80 flex flex-col ${
+        className={`bg-white rounded-3xl overflow-hidden group cursor-pointer h-80 flex flex-col border border-gray-200 hover:border-primary/20 transition-all duration-300 shadow-sm hover:shadow-lg ${
           featured ? "col-span-2 row-span-2" : ""
         }`}
         initial={{ opacity: 0, y: 50 }}
@@ -40,7 +40,7 @@ const ProjectCard = ({
             alt={title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
 
           {/* Removed the floating button that was here */}
         </div>
@@ -57,11 +57,11 @@ const ProjectCard = ({
             ))}
           </div>
 
-          <h3 className="text-xl font-heading font-semibold text-text-light mb-2 group-hover:text-primary transition-colors duration-300">
+          <h3 className="text-xl font-heading font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors duration-300">
             {title}
           </h3>
 
-          <p className="text-text-muted text-sm line-clamp-3 flex-grow">
+          <p className="text-text-secondary text-sm line-clamp-3 flex-grow">
             {description}
           </p>
         </div>

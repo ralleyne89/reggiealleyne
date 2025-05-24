@@ -43,7 +43,7 @@ const Footer = () => {
               <img
                 src="/lovable-uploads/d5f791c1-7299-4a0a-80e0-9e27c0362510.png"
                 alt="Reggie Alleyne Logo"
-                className="h-8 w-auto"
+                className="h-10 w-auto"
               />
             </Link>
 
@@ -61,7 +61,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="group relative flex items-center justify-center w-12 h-12 bg-secondary border border-gray-700 rounded-xl text-gray-400 hover:text-white hover:border-primary/50 transition-all duration-300"
+                  className="group relative flex items-center justify-center w-12 h-12 bg-secondary-dark border-2 border-gray-600 rounded-xl text-gray-300 hover:text-white hover:border-white hover:bg-gray-800 transition-all duration-300"
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -124,7 +124,7 @@ const Footer = () => {
             </div>
 
             {/* Contact Email */}
-            <div className="bg-secondary border border-gray-700 rounded-xl p-4">
+            <div className="bg-secondary-dark border-2 border-gray-600 rounded-xl p-4 hover:border-white transition-colors duration-300">
               <p className="text-gray-400 text-xs mb-1">Get in touch</p>
               <a
                 href="mailto:reggiealleyne89@gmail.com"

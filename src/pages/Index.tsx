@@ -411,12 +411,9 @@ const Index = () => {
     <>
       <motion.div
         ref={targetRef}
-        className="min-h-screen w-full pt-28 pb-16 relative overflow-hidden"
-        style={{
-          background: "linear-gradient(to bottom, #111827, #0F172A)",
-        }}
+        className="min-h-screen w-full pt-28 pb-16 relative overflow-hidden bg-white"
       >
-        <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
         <motion.div
           className="container mx-auto px-4 relative z-10"
@@ -430,10 +427,10 @@ const Index = () => {
               variants={staggerContainer}
             >
               <motion.div variants={fadeInUp} className="mb-6">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight text-text-light">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight text-text-primary">
                   I'm <span className="text-primary">Reggie Alleyne</span>,
                   <br />
-                  <span className="text-text-light">
+                  <span className="text-text-primary">
                     Principal Designer who{" "}
                     <span className="text-primary">codes</span>
                   </span>
@@ -442,7 +439,7 @@ const Index = () => {
 
               <motion.p
                 variants={fadeInUp}
-                className="text-text-muted text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0 mt-6"
+                className="text-text-secondary text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0 mt-6"
               >
                 Bridging the gap between vision and execution in the Tech world
                 for over a decade.
@@ -454,7 +451,7 @@ const Index = () => {
               >
                 <motion.a
                   href="#projects"
-                  className="bg-gradient-to-r from-primary to-primary-dark text-text-light px-6 py-3 rounded-full font-medium inline-flex items-center gap-2 shadow-lg shadow-primary/20"
+                  className="bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-full font-medium inline-flex items-center gap-2 shadow-lg shadow-primary/20"
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
@@ -465,7 +462,7 @@ const Index = () => {
 
                 <motion.a
                   href="#contact"
-                  className="bg-transparent border border-gray-600 text-text-light px-6 py-3 rounded-full font-medium inline-flex items-center gap-2 hover:border-primary transition-colors duration-300"
+                  className="bg-transparent border border-gray-300 text-text-primary px-6 py-3 rounded-full font-medium inline-flex items-center gap-2 hover:border-primary transition-colors duration-300"
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
@@ -484,7 +481,7 @@ const Index = () => {
               {/* Main Profile Container */}
               <div className="relative">
                 {/* Profile Image with Modern Frame */}
-                <div className="relative rounded-3xl overflow-hidden w-full h-[400px] border border-white/10 shadow-2xl">
+                <div className="relative rounded-3xl overflow-hidden w-full h-[400px] border border-gray-200 shadow-2xl">
                   <img
                     src="/lovable-uploads/1686931266900.jpeg"
                     alt="Reggie Alleyne - Principal Designer"
@@ -585,25 +582,27 @@ const Index = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center max-w-2xl">
-              <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
-                <div className="text-3xl font-heading font-bold text-white mb-1">
+              <div className="bg-secondary backdrop-blur-sm rounded-xl p-4 border border-gray-200">
+                <div className="text-3xl font-heading font-bold text-text-primary mb-1">
                   100+
                 </div>
-                <div className="text-gray-400 text-sm">Projects</div>
+                <div className="text-text-secondary text-sm">Projects</div>
               </div>
 
-              <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
-                <div className="text-3xl font-heading font-bold text-white mb-1">
+              <div className="bg-secondary backdrop-blur-sm rounded-xl p-4 border border-gray-200">
+                <div className="text-3xl font-heading font-bold text-text-primary mb-1">
                   25+
                 </div>
-                <div className="text-gray-400 text-sm">Technologies</div>
+                <div className="text-text-secondary text-sm">Technologies</div>
               </div>
 
-              <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
-                <div className="text-3xl font-heading font-bold text-white mb-1">
+              <div className="bg-secondary backdrop-blur-sm rounded-xl p-4 border border-gray-200">
+                <div className="text-3xl font-heading font-bold text-text-primary mb-1">
                   10+
                 </div>
-                <div className="text-gray-400 text-sm">Years Experience</div>
+                <div className="text-text-secondary text-sm">
+                  Years Experience
+                </div>
               </div>
             </div>
           </motion.div>
@@ -614,8 +613,8 @@ const Index = () => {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
-          <div className="text-gray-400 text-sm mb-2">Scroll Down</div>
-          <div className="w-6 h-10 rounded-full border-2 border-gray-400 flex justify-center pt-1">
+          <div className="text-text-secondary text-sm mb-2">Scroll Down</div>
+          <div className="w-6 h-10 rounded-full border-2 border-text-secondary flex justify-center pt-1">
             <motion.div
               className="w-1.5 h-1.5 rounded-full bg-primary"
               animate={{ y: [0, 12, 0] }}
@@ -625,11 +624,11 @@ const Index = () => {
         </motion.div>
       </motion.div>
 
-      <section id="projects" className="py-20 bg-secondary-dark relative">
+      <section id="projects" className="py-20 bg-secondary relative">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto text-center mb-16">
             <motion.h2
-              className="text-3xl md:text-4xl font-heading font-bold text-text-light mb-4 reveal"
+              className="text-3xl md:text-4xl font-heading font-bold text-text-primary mb-4 reveal"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -639,7 +638,7 @@ const Index = () => {
             </motion.h2>
 
             <motion.p
-              className="text-text-muted reveal"
+              className="text-text-secondary reveal"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -685,7 +684,7 @@ const Index = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to="/works"
-                className="inline-flex items-center gap-2 bg-secondary border border-secondary-light text-text-light px-6 py-3 rounded-full font-medium hover:border-primary transition-colors duration-300"
+                className="inline-flex items-center gap-2 bg-white border border-gray-300 text-text-primary px-6 py-3 rounded-full font-medium hover:border-primary transition-colors duration-300"
               >
                 View All Projects
                 <ArrowRight size={18} />
@@ -754,7 +753,7 @@ const Index = () => {
                         {skill.icon}
                       </div>
                       <div>
-                        <h4 className="text-white font-medium mb-1">
+                        <h4 className="text-black font-medium mb-1">
                           {skill.name}
                         </h4>
                         <p className="text-gray-400 text-sm">
@@ -798,7 +797,7 @@ const Index = () => {
                         {skill.icon}
                       </div>
                       <div>
-                        <h4 className="text-white font-medium mb-1">
+                        <h4 className="text-black font-medium mb-1">
                           {skill.name}
                         </h4>
                         <p className="text-gray-400 text-sm">
@@ -844,7 +843,7 @@ const Index = () => {
                         {step.icon}
                       </div>
                       <div>
-                        <h4 className="text-white font-medium mb-1">
+                        <h4 className="text-black font-medium mb-1">
                           {step.name}
                         </h4>
                         <p className="text-gray-400 text-sm">
@@ -888,7 +887,7 @@ const Index = () => {
                         {experience.icon}
                       </div>
                       <div>
-                        <h4 className="text-white font-medium mb-1">
+                        <h4 className="text-black font-medium mb-1">
                           {experience.name}
                         </h4>
                         <p className="text-gray-400 text-sm">
@@ -915,10 +914,10 @@ const Index = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-text-primary mb-6">
                 Hey, I'm <span className="text-primary">Reggie</span>.
               </h2>
-              <p className="text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-xl text-text-secondary leading-relaxed max-w-2xl mx-auto">
                 Nice to meet you.
               </p>
             </motion.div>
@@ -931,7 +930,7 @@ const Index = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-lg text-text-secondary leading-relaxed">
                 I'm a{" "}
                 <span className="text-primary font-semibold">
                   Principal UX/UI Designer
@@ -943,7 +942,7 @@ const Index = () => {
                 (though I do love a good color palette).
               </p>
 
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-lg text-text-secondary leading-relaxed">
                 Born and raised in LA, I'm a family man who believes the best
                 solutions come from understanding people—whether that's users
                 struggling with healthcare navigation or teammates trying to
@@ -952,7 +951,7 @@ const Index = () => {
                 building tools that actually matter to people's lives.
               </p>
 
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-lg text-text-secondary leading-relaxed">
                 But here's the thing—I'm dreaming bigger. I want to design for
                 the industries that first made me fall in love with great
                 experiences:{" "}
@@ -973,7 +972,7 @@ const Index = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <h3 className="text-2xl font-heading font-bold text-white mb-8 text-center">
+              <h3 className="text-2xl font-heading font-bold text-text-primary mb-8 text-center">
                 What I'm About
               </h3>
 
@@ -981,7 +980,7 @@ const Index = () => {
                 {aboutMeValues.map((value, index) => (
                   <motion.div
                     key={index}
-                    className="bg-secondary-dark p-6 rounded-xl border border-gray-800 hover:border-primary/20 transition-colors"
+                    className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors shadow-sm"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -992,10 +991,10 @@ const Index = () => {
                         {value.icon}
                       </div>
                       <div>
-                        <h4 className="font-semibold text-white mb-2">
+                        <h4 className="font-semibold text-text-primary mb-2">
                           {value.title}
                         </h4>
-                        <p className="text-gray-300 text-sm">
+                        <p className="text-text-secondary text-sm">
                           {value.description}
                         </p>
                       </div>
@@ -1013,14 +1012,14 @@ const Index = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <h3 className="text-2xl font-heading font-bold text-white mb-8 text-center">
+              <h3 className="text-2xl font-heading font-bold text-text-primary mb-8 text-center">
                 When I'm Not Designing
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {interests.map((interest, index) => (
                   <motion.div
                     key={index}
-                    className="bg-secondary-dark p-6 rounded-xl border border-gray-800 hover:border-primary/20 transition-colors text-center"
+                    className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors text-center shadow-sm"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -1029,10 +1028,10 @@ const Index = () => {
                     <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
                       {interest.icon}
                     </div>
-                    <h4 className="font-semibold text-white mb-2">
+                    <h4 className="font-semibold text-text-primary mb-2">
                       {interest.title}
                     </h4>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-text-secondary text-sm">
                       {interest.description}
                     </p>
                   </motion.div>
@@ -1042,7 +1041,7 @@ const Index = () => {
 
             {/* What I'm Looking For */}
             <motion.div
-              className="bg-secondary-dark rounded-xl p-8 border border-gray-800"
+              className="bg-secondary-dark rounded-xl p-8 border border-gray-700"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
@@ -1137,7 +1136,7 @@ const Index = () => {
                   {item.year}
                 </div>
 
-                <h3 className="text-xl font-heading font-semibold text-white mb-2">
+                <h3 className="text-xl font-heading font-semibold text-black mb-2">
                   {item.title}
                 </h3>
                 <p className="text-primary mb-3 text-sm">{item.school}</p>
@@ -1183,7 +1182,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <h3 className="text-xl font-heading font-semibold text-white mb-4">
+              <h3 className="text-xl font-heading font-semibold text-black mb-4">
                 Contact Information
               </h3>
 
@@ -1196,7 +1195,7 @@ const Index = () => {
                     <p className="text-sm text-gray-400">Email</p>
                     <a
                       href="mailto:reggiealleyne89@gmail.com"
-                      className="text-white hover:text-primary transition-colors"
+                      className="text-text-secondary hover:text-primary transition-colors"
                     >
                       reggiealleyne89@gmail.com
                     </a>
@@ -1214,7 +1213,7 @@ const Index = () => {
                         href="https://github.com/ralleyne89"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-primary transition-colors"
+                        className="text-text-secondary hover:text-primary transition-colors"
                       >
                         GitHub
                       </a>
@@ -1222,7 +1221,7 @@ const Index = () => {
                         href="https://linkedin.com/in/reggiealleyne"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-primary transition-colors"
+                        className="text-text-secondary hover:text-primary transition-colors"
                       >
                         LinkedIn
                       </a>
@@ -1248,7 +1247,8 @@ const Index = () => {
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-3 bg-secondary border border-gray-700 rounded-lg text-white focus:outline-none focus:border-primary"
+                    placeholder="Your full name"
+                    className="w-full px-4 py-3 bg-secondary border border-gray-700 rounded-lg text-black placeholder:text-gray-500 focus:outline-none focus:border-primary"
                   />
                 </div>
 
@@ -1261,7 +1261,8 @@ const Index = () => {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 bg-secondary border border-gray-700 rounded-lg text-white focus:outline-none focus:border-primary"
+                    placeholder="your@email.com"
+                    className="w-full px-4 py-3 bg-secondary border border-gray-700 rounded-lg text-black placeholder:text-gray-500 focus:outline-none focus:border-primary"
                   />
                 </div>
 
@@ -1274,7 +1275,8 @@ const Index = () => {
                     name="message"
                     rows={4}
                     required
-                    className="w-full px-4 py-3 bg-secondary border border-gray-700 rounded-lg text-white focus:outline-none focus:border-primary"
+                    placeholder="Tell me about your project or what you'd like to discuss..."
+                    className="w-full px-4 py-3 bg-secondary border border-gray-700 rounded-lg text-black placeholder:text-gray-500 focus:outline-none focus:border-primary"
                   ></textarea>
                 </div>
 

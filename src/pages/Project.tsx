@@ -80,15 +80,15 @@ const Project = () => {
   // Handle loading state
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-secondary-dark text-white pt-24 px-4">
+      <div className="min-h-screen bg-white text-text-primary pt-24 px-4">
         <div className="container mx-auto">
           <div className="animate-pulse">
-            <div className="h-[60vh] bg-gray-800 rounded-lg mb-12"></div>
-            <div className="h-8 bg-gray-800 rounded w-1/2 mb-4"></div>
-            <div className="h-4 bg-gray-800 rounded w-3/4 mb-8"></div>
+            <div className="h-[60vh] bg-gray-200 rounded-lg mb-12"></div>
+            <div className="h-8 bg-gray-200 rounded w-1/2 mb-4"></div>
+            <div className="h-4 bg-gray-200 rounded w-3/4 mb-8"></div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="h-32 bg-gray-800 rounded"></div>
-              <div className="h-32 bg-gray-800 rounded"></div>
+              <div className="h-32 bg-gray-200 rounded"></div>
+              <div className="h-32 bg-gray-200 rounded"></div>
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ const Project = () => {
   if (error || !project) {
     console.error("Project error:", error);
     return (
-      <div className="min-h-screen bg-secondary-dark text-white pt-24 px-4">
+      <div className="min-h-screen bg-white text-text-primary pt-24 px-4">
         <div className="container mx-auto">
           <p className="text-red-500 mb-4">
             Error loading project:{" "}
@@ -150,7 +150,7 @@ const Project = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-secondary-dark text-white min-h-screen"
+      className="bg-white text-text-primary min-h-screen"
     >
       {showHeaderImage && (
         <ProjectHeader

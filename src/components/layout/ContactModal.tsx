@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import ContactForm from '@/components/profile/ContactForm';
-import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/hooks/use-toast';
-import type { ContactFormData } from '@/components/profile/ContactForm';
+import ContactForm from "@/components/profile/ContactForm";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+import type { ContactFormData } from "@/components/profile/ContactForm";
 
 interface ContactModalProps {
   open: boolean;
@@ -22,10 +22,13 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
   const handleSubmit = async (formData: ContactFormData) => {
     setIsLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData,
-      });
-      
+      const { data, error } = await supabase.functions.invoke(
+        "send-contact-email",
+        {
+          body: formData,
+        }
+      );
+
       if (error) throw error;
 
       toast({
@@ -34,7 +37,7 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
       });
       onOpenChange(false);
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error("Error sending email:", error);
       toast({
         variant: "destructive",
         title: "Error",
@@ -47,12 +50,15 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-secondary-dark border-gray-700 text-white">
+      <DialogContent className="bg-secondary-dark border-gray-700 text-white max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-white text-xl">Get in Touch</DialogTitle>
+          <DialogTitle className="text-white text-xl font-semibold">
+            Get in Touch
+          </DialogTitle>
         </DialogHeader>
-        <p className="text-gray-400 mb-4">
-          Have a project in mind or want to discuss potential collaborations? I'd love to hear from you!
+        <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+          Have a project in mind or want to discuss potential collaborations?
+          I'd love to hear from you!
         </p>
         <ContactForm onSubmit={handleSubmit} isLoading={isLoading} />
       </DialogContent>

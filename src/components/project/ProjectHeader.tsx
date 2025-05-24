@@ -124,7 +124,7 @@ const ProjectHeader = ({
             <Button
               asChild
               variant="secondary"
-              className="bg-[rgba(20,20,20,0.8)] backdrop-blur-sm text-primary hover:bg-[rgba(30,30,30,0.8)] hover:text-white"
+              className="bg-[rgba(20,20,20,0.9)] backdrop-blur-sm text-primary hover:bg-[rgba(30,30,30,0.9)] hover:text-white border border-gray-600"
             >
               <Link to="/works">
                 <ArrowLeft className="mr-2 h-4 w-4" />
@@ -137,7 +137,7 @@ const ProjectHeader = ({
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-3 py-1 text-sm bg-[rgba(20,20,20,0.8)] backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-full text-primary"
+                className="px-3 py-1 text-sm bg-[rgba(20,20,20,0.9)] backdrop-blur-sm border border-[rgba(255,255,255,0.2)] rounded-full text-primary font-medium"
               >
                 {tag}
               </span>

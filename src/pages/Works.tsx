@@ -87,36 +87,6 @@ const Works = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [projects]);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-secondary-dark text-white pt-24">
-        <div className="container mx-auto px-4">
-          <WorksLoadingSkeleton />
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    console.error("Projects error:", error);
-    return (
-      <div className="min-h-screen bg-secondary-dark text-white pt-24 px-4">
-        <div className="container mx-auto">
-          <p className="text-red-500 mb-4">
-            Error loading projects:{" "}
-            {error instanceof Error ? error.message : "Unknown error"}
-          </p>
-          <button
-            onClick={() => navigate("/")}
-            className="px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
-          >
-            Return to Home
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   // Process the projects array to remove duplicates and ensure validity
   const uniqueProjects = projects
     ? projects.filter(
@@ -139,7 +109,7 @@ const Works = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-secondary-dark text-white pt-24">
+      <div className="min-h-screen bg-white text-text-primary pt-24">
         <div className="container mx-auto px-4">
           <WorksHeader />
           <WorksLoadingSkeleton />
@@ -150,14 +120,14 @@ const Works = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-secondary-dark text-white pt-24">
+      <div className="min-h-screen bg-white text-text-primary pt-24">
         <div className="container mx-auto px-4">
           <WorksHeader />
           <div className="text-center py-20">
             <h2 className="text-2xl font-bold text-red-400 mb-4">
               Error loading projects
             </h2>
-            <p className="text-gray-400">
+            <p className="text-text-secondary">
               Please try refreshing the page or contact support if the problem
               persists.
             </p>
@@ -168,7 +138,7 @@ const Works = () => {
   }
 
   return (
-    <div className="min-h-screen bg-secondary-dark text-white">
+    <div className="min-h-screen bg-white text-text-primary">
       <div className="pt-24">
         <div className="container mx-auto px-4">
           <WorksHeader />
@@ -176,12 +146,13 @@ const Works = () => {
 
         {/* Main Content with Sticky Layout */}
         <div className="container mx-auto px-4 mt-16">
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold mb-16 text-white">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold mb-16 text-text-primary">
             Selected Work
           </h2>
           <div className="mb-16">
-            <p className="text-lg text-gray-400 max-w-2xl leading-relaxed">
-              Check out a curated selection of my work, there have been a lot but these are my favorites.
+            <p className="text-lg text-text-secondary max-w-2xl leading-relaxed">
+              Check out a curated selection of my work, there have been a lot
+              but these are my favorites.
             </p>
           </div>
 
@@ -198,7 +169,7 @@ const Works = () => {
                 >
                   {/* Year and Category */}
                   <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-8">
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-text-muted">
                       {activeProject.year}
                     </div>
                     <div className="text-sm text-primary font-medium uppercase tracking-wider">
@@ -209,19 +180,19 @@ const Works = () => {
                   </div>
 
                   {/* Project Title */}
-                  <h3 className="text-3xl lg:text-5xl font-heading font-bold text-white">
+                  <h3 className="text-3xl lg:text-5xl font-heading font-bold text-text-primary">
                     {activeProject.title}
                   </h3>
 
                   {/* Project Description */}
                   <div className="space-y-6">
-                    <p className="text-gray-300 text-lg leading-relaxed">
+                    <p className="text-text-secondary text-lg leading-relaxed">
                       {activeProject.fullDescription ||
                         activeProject.description}
                     </p>
 
                     {activeProject.solution && (
-                      <p className="text-gray-400 text-base leading-relaxed">
+                      <p className="text-text-muted text-base leading-relaxed">
                         {activeProject.solution}
                       </p>
                     )}
@@ -230,19 +201,23 @@ const Works = () => {
                   {/* Project Metadata */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
                     <div>
-                      <div className="text-gray-500 mb-2">Role</div>
-                      <div className="text-white">{activeProject.role}</div>
+                      <div className="text-text-muted mb-2">Role</div>
+                      <div className="text-text-primary">
+                        {activeProject.role}
+                      </div>
                     </div>
 
                     <div>
-                      <div className="text-gray-500 mb-2">Duration</div>
-                      <div className="text-white">{activeProject.duration}</div>
+                      <div className="text-text-muted mb-2">Duration</div>
+                      <div className="text-text-primary">
+                        {activeProject.duration}
+                      </div>
                     </div>
 
                     {activeProject.teamSize && (
                       <div>
-                        <div className="text-gray-500 mb-2">Team</div>
-                        <div className="text-white">
+                        <div className="text-text-muted mb-2">Team</div>
+                        <div className="text-text-primary">
                           {activeProject.teamSize}
                         </div>
                       </div>
@@ -250,7 +225,9 @@ const Works = () => {
 
                     {activeProject.liveUrl && (
                       <div>
-                        <div className="text-gray-500 mb-2">Visit Website</div>
+                        <div className="text-text-muted mb-2">
+                          Visit Website
+                        </div>
                         <a
                           href={activeProject.liveUrl}
                           target="_blank"

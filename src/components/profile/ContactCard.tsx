@@ -1,8 +1,7 @@
-
-import React, { useState } from 'react';
-import { Download, Handshake, Mail } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/hooks/use-toast';
+import React, { useState } from "react";
+import { Download, Handshake, Mail } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import {
   Dialog,
   DialogContent,
@@ -10,9 +9,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import ContactForm from './ContactForm';
-import type { ContactFormData } from './ContactForm';
-import { toast } from 'sonner';
+import ContactForm from "./ContactForm";
+import type { ContactFormData } from "./ContactForm";
+import { toast } from "sonner";
 
 const ContactCard = () => {
   const { toast: uiToast } = useToast();
@@ -22,10 +21,13 @@ const ContactCard = () => {
   const handleEmailMe = async (formData: ContactFormData) => {
     setIsLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData,
-      });
-      
+      const { data, error } = await supabase.functions.invoke(
+        "send-contact-email",
+        {
+          body: formData,
+        }
+      );
+
       if (error) throw error;
 
       uiToast({
@@ -34,7 +36,7 @@ const ContactCard = () => {
       });
       setIsOpen(false);
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error("Error sending email:", error);
       uiToast({
         variant: "destructive",
         title: "Error",
@@ -48,29 +50,31 @@ const ContactCard = () => {
   const handleResumeDownload = () => {
     try {
       // Using the fetch API to download the file
-      fetch('https://drive.google.com/uc?export=download&id=1pK4gD27rABnUArntEHFJLVUu3WyCLBQb')
-        .then(response => response.blob())
-        .then(blob => {
+      fetch(
+        "https://drive.google.com/uc?export=download&id=1pK4gD27rABnUArntEHFJLVUu3WyCLBQb"
+      )
+        .then((response) => response.blob())
+        .then((blob) => {
           // Create a blob URL for the file
           const url = window.URL.createObjectURL(blob);
           // Create a temporary link element
-          const link = document.createElement('a');
+          const link = document.createElement("a");
           link.href = url;
-          link.download = 'Reggie_Alleyne_Resume.pdf'; // Set the filename
+          link.download = "Reggie_Alleyne_Resume.pdf"; // Set the filename
           document.body.appendChild(link);
           link.click(); // Trigger the download
           // Clean up
           document.body.removeChild(link);
           window.URL.revokeObjectURL(url);
-          toast.success('Resume downloaded successfully!');
+          toast.success("Resume downloaded successfully!");
         })
-        .catch(error => {
-          console.error('Error downloading resume:', error);
-          toast.error('Failed to download resume. Please try again later.');
+        .catch((error) => {
+          console.error("Error downloading resume:", error);
+          toast.error("Failed to download resume. Please try again later.");
         });
     } catch (error) {
-      console.error('Error downloading resume:', error);
-      toast.error('Failed to download resume. Please try again later.');
+      console.error("Error downloading resume:", error);
+      toast.error("Failed to download resume. Please try again later.");
     }
   };
 
@@ -88,24 +92,26 @@ const ContactCard = () => {
       <div className="w-full space-y-3">
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>
-            <button className="bg-[rgba(25,25,25,1)] w-full gap-2.5 p-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner">
+            <button className="bg-[rgba(25,25,25,1)] w-full gap-2.5 p-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner border border-gray-700">
               <Mail className="w-4 h-4 text-[#916CE7]" />
-              <span className="text-[rgba(204,204,204,1)] font-medium">Email Me</span>
+              <span className="text-gray-200 font-medium">Email Me</span>
             </button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="bg-secondary-dark border-gray-700 text-white max-w-md">
             <DialogHeader>
-              <DialogTitle>Send me a message</DialogTitle>
+              <DialogTitle className="text-white text-xl font-semibold">
+                Send me a message
+              </DialogTitle>
             </DialogHeader>
             <ContactForm onSubmit={handleEmailMe} isLoading={isLoading} />
           </DialogContent>
         </Dialog>
-        <button 
+        <button
           onClick={handleResumeDownload}
-          className="bg-[rgba(25,25,25,1)] w-full gap-2.5 p-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner"
+          className="bg-[rgba(25,25,25,1)] w-full gap-2.5 p-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner border border-gray-700"
         >
           <Download className="w-4 h-4 text-[#916CE7]" />
-          <span className="text-[rgba(204,204,204,1)] font-medium">Download Resume</span>
+          <span className="text-gray-200 font-medium">Download Resume</span>
         </button>
       </div>
     </div>
