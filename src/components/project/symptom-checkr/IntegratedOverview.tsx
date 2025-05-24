@@ -1,51 +1,29 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { LucideIcon } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { symptomCheckrOverviewData } from "@/projects/symptom-checkr/data/symptomCheckrData";
 
-// Define types for the project data
-export interface ProjectDetail {
-  label: string;
-  value: string;
-  icon: LucideIcon;
-}
+const IntegratedOverview = () => {
+  const { title, description, projectDetails, toolDetails } = symptomCheckrOverviewData;
 
-export interface ToolDetail {
-  label: string;
-  value: string;
-  icon: LucideIcon;
-}
-
-export interface ProjectOverviewProps {
-  title?: string;
-  description: string[];
-  projectDetails: ProjectDetail[];
-  toolDetails: ToolDetail[];
-}
-
-const ProjectOverview: React.FC<ProjectOverviewProps> = ({
-  title = "Project Overview",
-  description,
-  projectDetails,
-  toolDetails,
-}) => {
   return (
-    <motion.section
+    <motion.section 
       className="mb-20"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-6xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+        {/* Main Description */}
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-8">
             {title}
           </h2>
-
+          
           <div className="space-y-6">
             {description.map((paragraph, index) => (
-              <p
-                key={index}
+              <p 
+                key={index} 
                 className="text-lg text-gray-300 leading-relaxed max-w-4xl"
               >
                 {paragraph}
@@ -56,16 +34,17 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({
 
         {/* Project Details Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Project Details */}
-          <motion.div
+          {/* Project Info */}
+          <motion.div 
             className="space-y-6"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-xl font-semibold text-white mb-6 pb-3 border-b border-gray-800">
-              Project Details
+            <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-800">
+              Project Info
             </h3>
+            
             <div className="space-y-6">
               {projectDetails.map((detail, index) => {
                 const Icon = detail.icon;
@@ -85,17 +64,18 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({
               })}
             </div>
           </motion.div>
-
+          
           {/* Tools & Platform */}
-          <motion.div
+          <motion.div 
             className="space-y-6"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h3 className="text-xl font-semibold text-white mb-6 pb-3 border-b border-gray-800">
-              Tools & Platform
+            <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-800">
+              Tools & Tech
             </h3>
+            
             <div className="space-y-6">
               {toolDetails.map((detail, index) => {
                 const Icon = detail.icon;
@@ -114,6 +94,20 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({
                 );
               })}
             </div>
+
+            {/* Quick Links */}
+            <div className="mt-8 pt-6 border-t border-gray-800">
+              <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
+              <div className="space-y-3">
+                <a
+                  href="#final-design"
+                  className="inline-flex items-center gap-2 text-primary hover:text-primary-light transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  View Final Design
+                </a>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -121,4 +115,4 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({
   );
 };
 
-export default ProjectOverview;
+export default IntegratedOverview;

@@ -164,21 +164,6 @@ const Project = () => {
       <div className="max-w-7xl mx-auto px-6 py-12">
         {showCaseStudy ? (
           <>
-            <ProjectDetails
-              role={role}
-              duration={duration}
-              year={year}
-              teamSize={teamSize}
-              methodologies={methodologies}
-              githubUrl={githubUrl}
-              liveUrl={liveUrl}
-              prototypeUrl={prototypeUrl}
-              summary={summary}
-              problem={problem}
-              solution={solution}
-              projectSlug={project.slug}
-            />
-
             {project?.slug === "symptom-checkr" && <SymptomCheckrCaseStudy />}
             {project?.slug === "tutor-d" && <TutorDCaseStudy />}
           </>

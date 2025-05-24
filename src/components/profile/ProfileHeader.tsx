@@ -1,13 +1,8 @@
+import React, { useState, useEffect } from "react";
+import { ArrowRight, Award, Briefcase, MapPin, Download } from "lucide-react";
+import { Link } from "react-router-dom";
 
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, Award, Briefcase, MapPin, Download } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
-const titles = [
-  "UI/UX Designer",
-  "Frontend Developer",
-  "Graphic Designer"
-];
+const titles = ["UI/UX Designer", "Frontend Developer", "Graphic Designer"];
 
 const ProfileHeader = () => {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
@@ -30,7 +25,7 @@ const ProfileHeader = () => {
             className="aspect-square object-cover w-full h-full rounded-lg"
             alt="Profile"
           />
-          <div className="absolute inset-0 rounded-lg border-2 border-[#9b87f5] glow-effect"></div>
+          <div className="absolute inset-0 rounded-lg border-2 border-[#0D7377] glow-effect"></div>
         </div>
         <div className="flex flex-col">
           <h1 className="text-[rgba(230,230,230,1)] text-[28px] font-semibold leading-none">
@@ -40,14 +35,19 @@ const ProfileHeader = () => {
             <span className="text-[rgba(153,153,153,1)] font-medium">
               I'm a
             </span>
-            <div className="relative h-6 overflow-hidden" style={{ minWidth: '160px' }}>
+            <div
+              className="relative h-6 overflow-hidden"
+              style={{ minWidth: "160px" }}
+            >
               {titles.map((title, index) => (
                 <div
                   key={index}
                   className="absolute inset-x-0 transition-all duration-500 ease-in-out text-[rgba(145,108,231,1)] font-semibold whitespace-nowrap"
                   style={{
-                    transform: `translateY(${(index - currentTitleIndex) * 100}%)`,
-                    opacity: index === currentTitleIndex ? 1 : 0
+                    transform: `translateY(${
+                      (index - currentTitleIndex) * 100
+                    }%)`,
+                    opacity: index === currentTitleIndex ? 1 : 0,
                   }}
                 >
                   {title}
@@ -75,9 +75,9 @@ const ProfileHeader = () => {
           </div>
           <span className="ml-2">Available To Work</span>
         </div>
-        <Link 
+        <Link
           to="/works"
-          className="bg-[rgba(20,20,20,1)] hover:bg-[rgba(30,30,30,1)] border flex items-center gap-1 text-sm text-[#9b87f5] px-4 py-2 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap transition-colors duration-300"
+          className="bg-[rgba(20,20,20,1)] hover:bg-[rgba(30,30,30,1)] border flex items-center gap-1 text-sm text-[#0D7377] px-4 py-2 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap transition-colors duration-300"
         >
           <span>Portfolio</span>
           <ArrowRight size={14} />

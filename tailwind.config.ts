@@ -29,18 +29,23 @@ export default {
 			},
 			colors: {
 				primary: {
-					DEFAULT: '#0891B2', // Teal Blue (main accent)
-					dark: '#0E7490',    // Darker teal for pressed states
-					light: '#06B6D4'    // Lighter teal for hover states
+					DEFAULT: '#0D7377', // Deep Teal (main accent)
+					dark: '#0A5D61',    // Darker teal for pressed states
+					light: '#14A085'    // Light Teal for hover states
 				},
 				secondary: {
-					DEFAULT: '#1E293B', // Secondary background
+					DEFAULT: '#1F2937', // Charcoal (secondary background)
 					dark: '#111827',    // Main dark background
-					light: '#334155'    // Lighter background/borders
+					light: '#64748B'    // Slate (lighter backgrounds/borders)
 				},
 				text: {
 					light: '#F8FAFC',   // Primary text on dark backgrounds
-					muted: '#94A3B8'    // Secondary/muted text
+					muted: '#64748B'    // Secondary/muted text (Slate)
+				},
+				accent: {
+					DEFAULT: '#0D7377', // Deep Teal
+					light: '#A7F3D0',   // Teal Mist for subtle backgrounds/tags
+					hover: '#14A085'    // Light Teal for hover states
 				},
 				success: '#10B981',     // Green for success/complete states
 				warning: '#F59E0B',     // Amber for warnings/in progress
@@ -118,13 +123,13 @@ export default {
 				'spacing': 'margin, padding',
 			},
 			dropShadow: {
-				'glow': '0 0 5px rgba(8, 145, 178, 0.5)'
+				'glow': '0 0 5px rgba(13, 115, 119, 0.5)'
 			},
 			backgroundImage: {
 				'hero-pattern': "url('/lovable-uploads/5d4d8a8f-272c-4d4c-be34-6f692f07cbf0.png')",
-				'gradient-teal': 'linear-gradient(135deg, #0891B2 0%, #0E7490 100%)',
+				'gradient-teal': 'linear-gradient(135deg, #0D7377 0%, #14A085 100%)',
 				'gradient-dark': 'linear-gradient(to bottom, #111827 0%, #0F172A 100%)',
-				'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230891B2' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+				'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230D7377' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
 			}
 		}
 	},

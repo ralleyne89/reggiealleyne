@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Lightbulb, CheckCircle, Target, LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
+import { CheckCircle, LucideIcon } from "lucide-react";
 
 export interface Challenge {
   title: string;
@@ -35,93 +35,132 @@ const ChallengesLearnings: React.FC<ChallengesLearningsProps> = ({
   nextSteps,
   challengesTitle = "Insights",
   learningsTitle = "Learnings",
-  nextStepsTitle = "Next Steps & Improvements"
+  nextStepsTitle = "Next Steps & Improvements",
 }) => {
   return (
-    <section className="mb-16">
-      <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
-        <CardContent className="p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
-              <Lightbulb className="w-5 h-5 text-primary" />
-            </div>
-            <h2 className="text-2xl font-bold text-white">
-              {title}
-            </h2>
-          </div>
+    <motion.section
+      className="mb-20"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+            {title}
+          </h2>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-4">
-                {challengesTitle}
-              </h3>
-
-              <div className="space-y-4">
-                {challenges.map((challenge, index) => (
-                  <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
-                    <h4 className="text-primary font-semibold mb-2">
-                      {challenge.title}
-                    </h4>
-                    <p className="text-gray-300 text-sm">
-                      {challenge.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-4">
-                {learningsTitle}
-              </h3>
-
-              <div className="space-y-4">
-                {learnings.map((learning, index) => (
-                  <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
-                    <div className="flex items-center gap-2 mb-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <h4 className="text-primary font-semibold">
-                        {learning.title}
-                      </h4>
-                    </div>
-                    <p className="text-gray-300 text-sm">
-                      {learning.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8">
-            <h3 className="text-xl font-semibold text-white mb-4">
-              {nextStepsTitle}
+        {/* Challenges and Learnings Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          {/* Challenges/Insights */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-800">
+              {challengesTitle}
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {nextSteps.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="bg-primary/10 p-2 rounded-full">
-                        <Icon className="w-4 h-4 text-primary" />
-                      </div>
-                      <h4 className="text-white font-medium">
-                        {step.title}
-                      </h4>
-                    </div>
-                    <p className="text-gray-300 text-sm">
-                      {step.description}
-                    </p>
-                  </div>
-                );
-              })}
+            <div className="space-y-6">
+              {challenges.map((challenge, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-primary/30 transition-colors duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  <h4 className="text-xl font-semibold text-white mb-4">
+                    {challenge.title}
+                  </h4>
+                  <p className="text-gray-300 leading-relaxed">
+                    {challenge.description}
+                  </p>
+                </motion.div>
+              ))}
             </div>
+          </motion.div>
+
+          {/* Learnings */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-800">
+              {learningsTitle}
+            </h3>
+
+            <div className="space-y-6">
+              {learnings.map((learning, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-primary/30 transition-colors duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  <div className="flex items-start gap-4 mb-4">
+                    <CheckCircle className="w-6 h-6 text-green-400 mt-1 flex-shrink-0" />
+                    <h4 className="text-xl font-semibold text-white">
+                      {learning.title}
+                    </h4>
+                  </div>
+                  <p className="text-gray-300 leading-relaxed">
+                    {learning.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Next Steps */}
+        <div>
+          <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-800">
+            {nextStepsTitle}
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {nextSteps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <motion.div
+                  key={index}
+                  className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-primary/30 transition-colors duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h4 className="text-xl font-semibold text-white leading-tight">
+                      {step.title}
+                    </h4>
+                  </div>
+                  <p className="text-gray-300 leading-relaxed">
+                    {step.description}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
-        </CardContent>
-      </Card>
-    </section>
+        </div>
+      </div>
+    </motion.section>
   );
 };
 

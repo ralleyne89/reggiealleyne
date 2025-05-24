@@ -38,6 +38,7 @@ const Navbar = () => {
   const navItems: NavItem[] = [
     { title: "Home", path: "/" },
     { title: "Work", path: "/works" },
+    { title: "About", path: "/about" },
     { title: "Contact", path: "#", onClick: handleContactClick },
   ];
 
@@ -89,7 +90,7 @@ const Navbar = () => {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 ${
         scrolled
-          ? "bg-[#161623]/90 backdrop-blur-lg border-b border-[#7E69AB]/20"
+          ? "bg-[#1F2937]/90 backdrop-blur-lg border-b border-[#0D7377]/20"
           : "bg-transparent"
       } transition-all duration-300`}
       initial="hidden"
@@ -104,6 +105,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 500 }}
             >
+              <p>REGGIE ALLEYNE</p>
               <img
                 src="/lovable-uploads/d5f791c1-7299-4a0a-80e0-9e27c0362510.png"
                 alt="Reggie Alleyne"
@@ -118,12 +120,12 @@ const Navbar = () => {
                 <Link
                   to={item.path}
                   onClick={item.onClick}
-                  className={`px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 text-sm font-medium transition-colors animated-underline ${
                     location.pathname === item.path ||
                     (item.path !== "/" &&
                       location.pathname.startsWith(item.path))
-                      ? "text-[#7E69AB] border-b-2 border-[#7E69AB]"
-                      : "text-gray-300 hover:text-white hover:bg-[#7E69AB]/20"
+                      ? "text-[#0D7377]"
+                      : "text-gray-300 hover:text-white"
                   }`}
                 >
                   {item.title}
@@ -144,7 +146,7 @@ const Navbar = () => {
 
       {isOpen && (
         <motion.div
-          className="md:hidden bg-[#161623]/95 backdrop-blur-lg border-b border-[#7E69AB]/20"
+          className="md:hidden bg-[#1F2937]/95 backdrop-blur-lg border-b border-[#0D7377]/20"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
@@ -161,12 +163,12 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.path}
-                    className={`block px-4 py-2 text-sm font-medium transition-colors ${
+                    className={`block px-4 py-2 text-sm font-medium transition-colors animated-underline ${
                       location.pathname === item.path ||
                       (item.path !== "/" &&
                         location.pathname.startsWith(item.path))
-                        ? "text-[#7E69AB] border-b-2 border-[#7E69AB]"
-                        : "text-gray-300 hover:text-white hover:bg-[#7E69AB]/20"
+                        ? "text-[#0D7377]"
+                        : "text-gray-300 hover:text-white"
                     }`}
                     onClick={(e) => {
                       setIsOpen(false);

@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
 
-// Import all section components
-import ProjectOverview from "@/components/project/symptom-checkr/ProjectOverview";
+// Import key section components
+import IntegratedOverview from "@/components/project/symptom-checkr/IntegratedOverview";
 import ProblemSpace from "@/components/project/symptom-checkr/ProblemSpace";
 import ResearchDiscovery from "@/components/project/symptom-checkr/ResearchDiscovery";
-import IdeationStrategy from "@/components/project/symptom-checkr/IdeationStrategy";
 import UserPersona from "@/components/project/symptom-checkr/UserPersona";
-import UserJourneyMap from "@/components/project/symptom-checkr/UserJourneyMap";
-import SitemapWireframes from "@/components/project/symptom-checkr/SitemapWireframes";
 import FinalUIDesign from "@/components/project/symptom-checkr/FinalUIDesign";
 import ChallengesLearnings from "@/components/project/symptom-checkr/ChallengesLearnings";
 
@@ -25,13 +22,10 @@ const SymptomCheckrCaseStudy = () => {
 
   return (
     <div className="mt-8 mb-16">
-      <ProjectOverview />
+      <IntegratedOverview />
       <ProblemSpace />
       <ResearchDiscovery />
-      <IdeationStrategy />
       <UserPersona />
-      <UserJourneyMap />
-      <SitemapWireframes />
       <FinalUIDesign handleImageClick={handleImageClick} />
       <ChallengesLearnings />
 

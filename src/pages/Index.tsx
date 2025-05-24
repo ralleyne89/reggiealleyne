@@ -12,41 +12,29 @@ import {
   ArrowRight,
   Code,
   Palette,
-  Layers,
-  Monitor,
-  ArrowUpRight,
-  ChevronRight,
   Mail,
-  Star,
-  User,
-  CalendarDays,
   BookOpen,
-  Award,
-  Briefcase,
-  Coffee,
-  PenTool,
-  Lightbulb,
-  Rocket,
   Target,
   Users,
   Pen,
-  FileSpreadsheet,
   Layout,
   Smartphone,
-  Database,
   Zap,
-  Flag,
-  ArrowUp,
-  MessageSquare,
   Search,
   Repeat,
+  Heart,
+  Shield,
+  Sparkles,
+  Brain,
+  Workflow,
+  Lightbulb,
+  Gamepad2,
+  Coffee,
 } from "lucide-react";
-import ServiceCard from "@/components/home/ServiceCard";
 import ProjectCard from "@/components/home/ProjectCard";
 import Footer from "@/components/layout/Footer";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import DesignPrinciples from "@/components/home/DesignPrinciples";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -129,71 +117,153 @@ const Index = () => {
     retry: 1,
   });
 
-  const techNoirProject = projects?.find((project) => project.id === 3);
-  const tutorDProject = projects?.find((project) => project.id === 2);
-
-  const services = [
+  // Comprehensive Skills Data
+  const expertiseSkills = [
     {
-      title: "Design-to-Code Fluency",
+      name: "UI/UX Design",
+      icon: <Pen className="h-6 w-6 text-primary" />,
       description:
-        "I speak both languages fluently—translating complex UX challenges into clean, maintainable code without the usual handoff headaches",
-      icon: <Code className="text-primary" size={20} />,
-      image:
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2000&auto=format&fit=crop",
+        "Creating intuitive interfaces with thoughtful user experiences",
     },
     {
-      title: "Healthcare UX Expertise",
-      description:
-        "Crafting interfaces that make complex medical data accessible to both clinicians and patients—where clarity isn't just nice, it's critical",
-      icon: <PenTool className="text-primary" size={20} />,
-      image:
-        "https://images.unsplash.com/photo-1481487196290-c152efe083f5?q=80&w=2000&auto=format&fit=crop",
+      name: "Frontend Development",
+      icon: <Code className="h-6 w-6 text-primary" />,
+      description: "React, TypeScript, and modern web technologies",
     },
-    {
-      title: "Education-Focused Design",
-      description:
-        "Building learning tools that actually work in real classrooms—where teacher time is precious and student engagement is everything",
-      icon: <Lightbulb className="text-primary" size={20} />,
-      image:
-        "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=2000&auto=format&fit=crop",
-    },
-    {
-      title: "Rapid Prototyping",
-      description:
-        "Turning abstract ideas into testable prototypes in days, not weeks—because seeing beats explaining every time",
-      icon: <Zap className="text-primary" size={20} />,
-      image:
-        "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1470&auto=format&fit=crop",
-    },
-    {
-      title: "Design Systems Architecture",
-      description:
-        "Building component libraries that scale with your product—where developers actually want to use what designers create",
-      icon: <Layers className="text-primary" size={20} />,
-      image:
-        "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=1470&auto=format&fit=crop",
-    },
-    {
-      title: "User-Centered Process",
-      description:
-        "Leading research-driven design that starts with real people, not assumptions—because the best solutions come from understanding the problem first",
-      icon: <Users className="text-primary" size={20} />,
-      image:
-        "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1469&auto=format&fit=crop",
-    },
-  ];
-
-  const skills = [
-    { name: "UI Design", icon: <Pen className="h-6 w-6 text-primary" /> },
-    { name: "UX Research", icon: <Users className="h-6 w-6 text-primary" /> },
-    {
-      name: "Prototyping",
-      icon: <Smartphone className="h-6 w-6 text-primary" />,
-    },
-    { name: "Frontend Dev", icon: <Code className="h-6 w-6 text-primary" /> },
     {
       name: "Design Systems",
       icon: <Layout className="h-6 w-6 text-primary" />,
+      description: "Scalable component libraries and design tokens",
+    },
+    {
+      name: "Prototyping",
+      icon: <Smartphone className="h-6 w-6 text-primary" />,
+      description: "High-fidelity interactive prototypes and wireframes",
+    },
+    {
+      name: "User Research",
+      icon: <Users className="h-6 w-6 text-primary" />,
+      description: "User interviews, usability testing, and data analysis",
+    },
+    {
+      name: "Accessibility",
+      icon: <Shield className="h-6 w-6 text-primary" />,
+      description: "WCAG compliance and inclusive design practices",
+    },
+  ];
+
+  const methodologySkills = [
+    {
+      name: "User-Centered Design",
+      icon: <Users className="h-6 w-6 text-primary" />,
+      description: "Prioritizing user needs throughout the design process",
+    },
+    {
+      name: "Design Thinking",
+      icon: <Brain className="h-6 w-6 text-primary" />,
+      description: "Empathy-driven problem solving and innovation",
+    },
+    {
+      name: "Agile Methodology",
+      icon: <Workflow className="h-6 w-6 text-primary" />,
+      description: "Iterative development and cross-functional collaboration",
+    },
+    {
+      name: "Data-Driven Decisions",
+      icon: <Target className="h-6 w-6 text-primary" />,
+      description: "Analytics and metrics to validate design choices",
+    },
+  ];
+
+  const processSteps = [
+    {
+      name: "Research & Discovery",
+      icon: <Search className="h-6 w-6 text-primary" />,
+      description: "Understanding problems before jumping to solutions",
+    },
+    {
+      name: "Design & Prototype",
+      icon: <Palette className="h-6 w-6 text-primary" />,
+      description: "Creating testable solutions and user experiences",
+    },
+    {
+      name: "Build & Implement",
+      icon: <Code className="h-6 w-6 text-primary" />,
+      description: "Translating designs into production-ready code",
+    },
+    {
+      name: "Test & Iterate",
+      icon: <Repeat className="h-6 w-6 text-primary" />,
+      description: "Continuous improvement based on user feedback",
+    },
+  ];
+
+  const uniqueExperiences = [
+    {
+      name: "Healthcare UX",
+      icon: <Heart className="h-6 w-6 text-primary" />,
+      description: "Making complex medical data accessible and trustworthy",
+    },
+    {
+      name: "Education Technology",
+      icon: <BookOpen className="h-6 w-6 text-primary" />,
+      description: "Learning tools that work in real classroom environments",
+    },
+    {
+      name: "Design-to-Code Fluency",
+      icon: <Zap className="h-6 w-6 text-primary" />,
+      description:
+        "Bridging the gap between design vision and technical reality",
+    },
+    {
+      name: "Rapid Prototyping",
+      icon: <Sparkles className="h-6 w-6 text-primary" />,
+      description: "Turning ideas into testable prototypes in days, not weeks",
+    },
+  ];
+
+  // About Me Data
+  const aboutMeValues = [
+    {
+      icon: <Zap className="w-6 h-6 text-primary" />,
+      title: "Building AI Tools That Don't Suck",
+      description:
+        "I'm fascinated by AI's potential to solve real problems—not just generate more content. I want to design interfaces that make AI feel helpful, not overwhelming.",
+    },
+    {
+      icon: <Users className="w-6 h-6 text-primary" />,
+      title: "Leading Through Collaboration",
+      description:
+        "I believe the best ideas come from diverse perspectives. I'm the designer who asks developers 'what if we tried this?' and actually listens to the answer.",
+    },
+    {
+      icon: <Target className="w-6 h-6 text-primary" />,
+      title: "Solving Problems, Not Just Making Mockups",
+      description:
+        "I dig deep into user research, prototype rapidly, and iterate based on real feedback. Pretty designs are great, but usable ones change lives.",
+    },
+  ];
+
+  const interests = [
+    {
+      icon: <Gamepad2 className="w-6 h-6 text-primary" />,
+      title: "Gaming",
+      description: "From indie gems to AAA titles",
+    },
+    {
+      icon: <Heart className="w-6 h-6 text-primary" />,
+      title: "Anime",
+      description: "Studio Ghibli to Attack on Titan",
+    },
+    {
+      icon: <Coffee className="w-6 h-6 text-primary" />,
+      title: "Sushi",
+      description: "Always hunting for the best spots",
+    },
+    {
+      icon: <Lightbulb className="w-6 h-6 text-primary" />,
+      title: "Learning",
+      description: "New tools, frameworks, and techniques",
     },
   ];
 
@@ -395,7 +465,7 @@ const Index = () => {
 
                 <motion.a
                   href="#contact"
-                  className="bg-secondary border border-secondary-light text-text-light px-6 py-3 rounded-full font-medium inline-flex items-center gap-2 hover:border-primary transition-colors duration-300"
+                  className="bg-transparent border border-gray-600 text-text-light px-6 py-3 rounded-full font-medium inline-flex items-center gap-2 hover:border-primary transition-colors duration-300"
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
@@ -411,98 +481,136 @@ const Index = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="bg-secondary/50 backdrop-blur-md rounded-3xl p-4 border border-white/5 shadow-xl">
-                <div className="relative rounded-2xl overflow-hidden w-full h-[400px]">
+              {/* Main Profile Container */}
+              <div className="relative">
+                {/* Profile Image with Modern Frame */}
+                <div className="relative rounded-3xl overflow-hidden w-full h-[400px] border border-white/10 shadow-2xl">
                   <img
                     src="/lovable-uploads/1686931266900.jpeg"
-                    alt="Reggie Alleyne"
+                    alt="Reggie Alleyne - Principal Designer"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
-                </div>
 
-                <div className="mt-4 px-2">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-text-light font-heading font-semibold text-lg">
-                        Reggie Alleyne
-                      </h3>
-                      <p className="text-primary text-sm">Principal Designer</p>
-                    </div>
+                  {/* Subtle overlay for better contrast */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
 
-                    <div className="flex gap-2">
-                      <span className="bg-primary/10 text-primary text-xs px-2.5 py-1 rounded-full flex items-center gap-1.5">
-                        <div className="relative">
-                          <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-                          <div className="absolute inset-0 w-1.5 h-1.5 rounded-full border border-green-500 animate-ping"></div>
-                        </div>
-                        Available
+                  {/* Floating Status Badge */}
+                  <motion.div
+                    className="absolute top-4 right-4 bg-black/40 backdrop-blur-md rounded-full px-3 py-2 border border-white/20"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1, duration: 0.5 }}
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="relative">
+                        <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                        <div className="absolute inset-0 w-2 h-2 rounded-full border border-green-400 animate-ping"></div>
+                      </div>
+                      <span className="text-white text-xs font-medium">
+                        Available for work
                       </span>
                     </div>
-                  </div>
+                  </motion.div>
+
+                  {/* Location Badge */}
+                  <motion.div
+                    className="absolute bottom-4 left-4 bg-black/40 backdrop-blur-md rounded-full px-3 py-2 border border-white/20"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.2, duration: 0.5 }}
+                  >
+                    <span className="text-white text-xs font-medium">
+                      📍 Los Angeles, CA
+                    </span>
+                  </motion.div>
+
+                  {/* Interactive Hover Overlay */}
+                  <motion.div
+                    className="absolute inset-0 bg-primary/10 opacity-0 transition-opacity duration-300 hover:opacity-100 flex items-center justify-center"
+                    whileHover={{ opacity: 1 }}
+                  >
+                    <motion.div
+                      className="text-white text-center"
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      whileHover={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="text-sm font-medium mb-1">
+                        Let's create something amazing
+                      </div>
+                      <div className="text-xs opacity-80">Hover to connect</div>
+                    </motion.div>
+                  </motion.div>
                 </div>
+
+                {/* Floating Design Elements */}
+                <motion.div
+                  className="absolute -top-6 -right-6 w-20 h-20 bg-primary/20 rounded-full blur-xl"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.4, 0.6, 0.4],
+                    rotate: [0, 180, 360],
+                  }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                />
+
+                <motion.div
+                  className="absolute -bottom-4 -left-4 w-16 h-16 bg-secondary/30 rounded-full blur-lg"
+                  animate={{
+                    scale: [1, 1.3, 1],
+                    opacity: [0.3, 0.5, 0.3],
+                    x: [0, 10, 0],
+                  }}
+                  transition={{ duration: 6, repeat: Infinity, delay: 1 }}
+                />
+
+                {/* Geometric Accent */}
+                <motion.div
+                  className="absolute top-1/2 -left-8 w-3 h-3 bg-primary rounded-full"
+                  animate={{
+                    y: [-10, 10, -10],
+                    opacity: [0.5, 1, 0.5],
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                />
               </div>
-
-              <motion.div
-                className="absolute -top-10 -right-10 w-24 h-24 bg-primary/20 rounded-full blur-xl"
-                animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.7, 0.5] }}
-                transition={{ duration: 4, repeat: Infinity }}
-              />
-
-              <motion.div
-                className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary/10 rounded-full blur-xl"
-                animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
-                transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-              />
             </motion.div>
           </div>
 
           <motion.div
-            className="mt-16 md:mt-24 grid grid-cols-2 sm:grid-cols-3 gap-6 md:grid-cols-5 text-center"
+            className="mt-16 md:mt-24 flex justify-center"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
-              <div className="text-3xl font-heading font-bold text-white mb-1">
-                10+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center max-w-2xl">
+              <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
+                <div className="text-3xl font-heading font-bold text-white mb-1">
+                  100+
+                </div>
+                <div className="text-gray-400 text-sm">Projects</div>
               </div>
-              <div className="text-gray-400 text-sm">Years Experience</div>
-            </div>
 
-            <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
-              <div className="text-3xl font-heading font-bold text-white mb-1">
-                100+
+              <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
+                <div className="text-3xl font-heading font-bold text-white mb-1">
+                  25+
+                </div>
+                <div className="text-gray-400 text-sm">Technologies</div>
               </div>
-              <div className="text-gray-400 text-sm">Projects</div>
-            </div>
 
-            <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
-              <div className="text-3xl font-heading font-bold text-white mb-1">
-                30+
+              <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
+                <div className="text-3xl font-heading font-bold text-white mb-1">
+                  10+
+                </div>
+                <div className="text-gray-400 text-sm">Years Experience</div>
               </div>
-              <div className="text-gray-400 text-sm">UI/UX Solutions</div>
-            </div>
-
-            <div className="bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
-              <div className="text-3xl font-heading font-bold text-white mb-1">
-                12+
-              </div>
-              <div className="text-gray-400 text-sm">Design Tools</div>
-            </div>
-
-            <div className="hidden sm:block bg-secondary/30 backdrop-blur-sm rounded-xl p-4 border border-white/5">
-              <div className="text-3xl font-heading font-bold text-white mb-1">
-                25+
-              </div>
-              <div className="text-gray-400 text-sm">Technologies</div>
             </div>
           </motion.div>
         </motion.div>
 
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+          className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
@@ -517,160 +625,6 @@ const Index = () => {
         </motion.div>
       </motion.div>
 
-      <section id="services" className="py-20 bg-secondary-dark relative">
-        <div className="container mx-auto px-4">
-          <div className="max-w-xl mx-auto text-center mb-16">
-            <motion.h2
-              className="text-3xl md:text-4xl font-heading font-bold text-text-light mb-4 reveal"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              How I <span className="text-primary">Work</span>
-            </motion.h2>
-
-            <motion.p
-              className="text-text-muted reveal"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              As a Principal Designer who codes, I bridge the gap between design
-              and development— creating solutions that look great, work
-              flawlessly, and actually ship on time.
-            </motion.p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                image={service.image}
-                index={index}
-              />
-            ))}
-          </div>
-
-          <div className="mt-20 max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-2xl font-heading font-bold text-white mb-6 flex items-center">
-                  <span className="bg-primary/10 p-2 rounded-lg mr-3">
-                    <Search className="text-primary h-6 w-6" />
-                  </span>
-                  My Process
-                </h3>
-                <div className="space-y-6">
-                  <div className="bg-secondary p-4 rounded-xl border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3">
-                        <span className="text-primary font-bold">1</span>
-                      </div>
-                      <h4 className="text-white font-medium">
-                        Research & Discovery
-                      </h4>
-                    </div>
-                    <p className="text-gray-400 text-sm pl-11">
-                      I dig deep to understand the real problem before jumping
-                      to solutions—talking to users, analyzing data, and mapping
-                      out the technical landscape.
-                    </p>
-                  </div>
-
-                  <div className="bg-secondary p-4 rounded-xl border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3">
-                        <span className="text-primary font-bold">2</span>
-                      </div>
-                      <h4 className="text-white font-medium">
-                        Design & Prototype
-                      </h4>
-                    </div>
-                    <p className="text-gray-400 text-sm pl-11">
-                      I create high-fidelity designs and working prototypes that
-                      let stakeholders experience the solution before a single
-                      line of production code is written.
-                    </p>
-                  </div>
-
-                  <div className="bg-secondary p-4 rounded-xl border border-gray-800">
-                    <div className="flex items-center mb-2">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3">
-                        <span className="text-primary font-bold">3</span>
-                      </div>
-                      <h4 className="text-white font-medium">
-                        Build & Implement
-                      </h4>
-                    </div>
-                    <p className="text-gray-400 text-sm pl-11">
-                      I bridge the design-development gap by writing clean,
-                      component-based code that brings designs to life exactly
-                      as intended—no translation loss.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-heading font-bold text-white mb-6 flex items-center">
-                  <span className="bg-primary/10 p-2 rounded-lg mr-3">
-                    <Target className="text-primary h-6 w-6" />
-                  </span>
-                  My Approach
-                </h3>
-                <div className="space-y-4">
-                  <div className="bg-secondary p-4 rounded-xl border border-gray-800">
-                    <p className="text-white">
-                      <span className="text-primary font-bold">
-                        User-Centered:
-                      </span>{" "}
-                      Every decision starts with the people who'll actually use
-                      the product—their needs drive everything.
-                    </p>
-                  </div>
-
-                  <div className="bg-secondary p-4 rounded-xl border border-gray-800">
-                    <p className="text-white">
-                      <span className="text-primary font-bold">
-                        Data-Informed:
-                      </span>{" "}
-                      I balance intuition with analytics, using real-world
-                      metrics to validate design decisions and measure success.
-                    </p>
-                  </div>
-
-                  <div className="bg-secondary p-4 rounded-xl border border-gray-800">
-                    <p className="text-white">
-                      <span className="text-primary font-bold">
-                        Systems Thinking:
-                      </span>{" "}
-                      I build scalable design systems and component libraries
-                      that grow with your product and maintain consistency.
-                    </p>
-                  </div>
-
-                  <div className="bg-secondary p-4 rounded-xl border border-gray-800">
-                    <p className="text-white">
-                      <span className="text-primary font-bold">
-                        Accessibility First:
-                      </span>{" "}
-                      I design for everyone—ensuring products work for people of
-                      all abilities because inclusive design is just good
-                      design.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="projects" className="py-20 bg-secondary-dark relative">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto text-center mb-16">
@@ -681,7 +635,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              Featured <span className="text-primary">Works</span>
+              Featured <span className="text-primary">Work</span>
             </motion.h2>
 
             <motion.p
@@ -699,23 +653,31 @@ const Index = () => {
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-pulse">
               {[1, 2, 3].map((n) => (
-                <div key={n} className="bg-secondary rounded-3xl h-72"></div>
+                <div key={n} className="bg-secondary rounded-3xl h-80"></div>
               ))}
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projects?.slice(0, 6).map((project, index) => (
-                <ProjectCard
-                  key={project.id}
-                  title={project.title}
-                  description={project.description}
-                  image={project.image}
-                  slug={project.slug || project.id.toString()}
-                  tags={project.tags}
-                  featured={project.id === 3}
-                  index={index}
-                />
-              ))}
+              {(() => {
+                // Filter for only the 3 specific projects: Symptom Checker (9), CLLCTVE (1), Tutor D (2)
+                const featuredProjectIds = [9, 1, 2]; // Symptom Checker, CLLCTVE, Tutor D
+                const featuredProjects = featuredProjectIds
+                  .map((id) => projects?.find((project) => project.id === id))
+                  .filter((project) => project !== undefined);
+
+                return featuredProjects.map((project, index) => (
+                  <ProjectCard
+                    key={project.id}
+                    title={project.title}
+                    description={project.description}
+                    image={project.image}
+                    slug={project.slug || project.id.toString()}
+                    tags={project.tags}
+                    featured={false}
+                    index={index}
+                  />
+                ));
+              })()}
             </div>
           )}
 
@@ -735,47 +697,402 @@ const Index = () => {
 
       <section id="skills" className="py-20 bg-secondary-dark relative">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-xl mx-auto text-center mb-16">
+            <motion.h2
+              className="text-3xl md:text-4xl font-heading font-bold text-text-light mb-4"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              What I Bring to{" "}
+              <span className="text-primary">Every Project</span>
+            </motion.h2>
+
+            <motion.p
+              className="text-text-muted"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              As a Principal Designer who codes, I combine deep expertise,
+              proven methodologies, streamlined processes, and specialized
+              experience to deliver solutions that work.
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Expertise Section */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-text-light mb-4">
-                <span className="text-primary">Technical</span> skills that set
-                me apart
-              </h2>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-primary/10 p-3 rounded-lg">
+                  <Zap className="text-primary h-6 w-6" />
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-white">
+                  Core Expertise
+                </h3>
+              </div>
 
-              <p className="text-text-muted mb-8">
-                My dual expertise in design and development allows me to create
-                solutions that are both visually compelling and technically
-                sound. Here are the key skills I bring to every project:
-              </p>
-
-              <div className="space-y-4">
-                {skills.map((skill, index) => (
+              <div className="grid grid-cols-1 gap-4">
+                {expertiseSkills.map((skill, index) => (
                   <motion.div
                     key={index}
-                    className="bg-secondary p-4 rounded-xl flex items-center gap-4"
+                    className="bg-secondary p-4 rounded-xl border border-gray-800 hover:border-primary/20 transition-colors"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     viewport={{ once: true, amount: 0.3 }}
-                    whileHover={{ x: 5 }}
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      {skill.icon}
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        {skill.icon}
+                      </div>
+                      <div>
+                        <h4 className="text-white font-medium mb-1">
+                          {skill.name}
+                        </h4>
+                        <p className="text-gray-400 text-sm">
+                          {skill.description}
+                        </p>
+                      </div>
                     </div>
-                    <span className="text-text-light font-medium">
-                      {skill.name}
-                    </span>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
 
-            <DesignPrinciples />
+            {/* Methodology Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-primary/10 p-3 rounded-lg">
+                  <Brain className="text-primary h-6 w-6" />
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-white">
+                  Methodology
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4">
+                {methodologySkills.map((skill, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-secondary p-4 rounded-xl border border-gray-800 hover:border-primary/20 transition-colors"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        {skill.icon}
+                      </div>
+                      <div>
+                        <h4 className="text-white font-medium mb-1">
+                          {skill.name}
+                        </h4>
+                        <p className="text-gray-400 text-sm">
+                          {skill.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+            {/* Process Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-primary/10 p-3 rounded-lg">
+                  <Workflow className="text-primary h-6 w-6" />
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-white">
+                  My Process
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4">
+                {processSteps.map((step, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-secondary p-4 rounded-xl border border-gray-800 hover:border-primary/20 transition-colors"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        {step.icon}
+                      </div>
+                      <div>
+                        <h4 className="text-white font-medium mb-1">
+                          {step.name}
+                        </h4>
+                        <p className="text-gray-400 text-sm">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Unique Experiences Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-primary/10 p-3 rounded-lg">
+                  <Sparkles className="text-primary h-6 w-6" />
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-white">
+                  Unique Digital Experiences
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4">
+                {uniqueExperiences.map((experience, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-secondary p-4 rounded-xl border border-gray-800 hover:border-primary/20 transition-colors"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        {experience.icon}
+                      </div>
+                      <div>
+                        <h4 className="text-white font-medium mb-1">
+                          {experience.name}
+                        </h4>
+                        <p className="text-gray-400 text-sm">
+                          {experience.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="py-20 bg-secondary relative">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+                Hey, I'm <span className="text-primary">Reggie</span>.
+              </h2>
+              <p className="text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
+                Nice to meet you.
+              </p>
+            </motion.div>
+
+            {/* About Content */}
+            <motion.div
+              className="space-y-8 mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <p className="text-lg text-gray-300 leading-relaxed">
+                I'm a{" "}
+                <span className="text-primary font-semibold">
+                  Principal UX/UI Designer
+                </span>{" "}
+                who codes—because sometimes the best way to solve a design
+                problem is to build it yourself. With 10+ years of experience
+                turning complex problems into delightful user experiences, I've
+                learned that great design isn't just about making things pretty
+                (though I do love a good color palette).
+              </p>
+
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Born and raised in LA, I'm a family man who believes the best
+                solutions come from understanding people—whether that's users
+                struggling with healthcare navigation or teammates trying to
+                ship features on deadline. I've spent my career in{" "}
+                <span className="text-primary">Education and Healthcare</span>,
+                building tools that actually matter to people's lives.
+              </p>
+
+              <p className="text-lg text-gray-300 leading-relaxed">
+                But here's the thing—I'm dreaming bigger. I want to design for
+                the industries that first made me fall in love with great
+                experiences:{" "}
+                <span className="text-primary font-semibold">
+                  gaming and anime
+                </span>
+                . There's something magical about creating worlds and characters
+                that people connect with emotionally. Plus, who wouldn't want
+                their work to involve more mechs and fewer medical forms?
+              </p>
+            </motion.div>
+
+            {/* What I'm About */}
+            <motion.div
+              className="mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <h3 className="text-2xl font-heading font-bold text-white mb-8 text-center">
+                What I'm About
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {aboutMeValues.map((value, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-secondary-dark p-6 rounded-xl border border-gray-800 hover:border-primary/20 transition-colors"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        {value.icon}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-white mb-2">
+                          {value.title}
+                        </h4>
+                        <p className="text-gray-300 text-sm">
+                          {value.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Interests */}
+            <motion.div
+              className="mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <h3 className="text-2xl font-heading font-bold text-white mb-8 text-center">
+                When I'm Not Designing
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {interests.map((interest, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-secondary-dark p-6 rounded-xl border border-gray-800 hover:border-primary/20 transition-colors text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                      {interest.icon}
+                    </div>
+                    <h4 className="font-semibold text-white mb-2">
+                      {interest.title}
+                    </h4>
+                    <p className="text-gray-400 text-sm">
+                      {interest.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* What I'm Looking For */}
+            <motion.div
+              className="bg-secondary-dark rounded-xl p-8 border border-gray-800"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <h3 className="text-2xl font-heading font-bold text-white mb-6 text-center">
+                What I'm Looking For
+              </h3>
+
+              <div className="space-y-4 max-w-3xl mx-auto">
+                <p className="text-gray-300 leading-relaxed">
+                  I want to join a team that's{" "}
+                  <span className="text-primary font-semibold">
+                    building something meaningful
+                  </span>
+                  —whether that's the next great gaming experience, an AI tool
+                  that actually helps people, or a platform that brings
+                  communities together.
+                </p>
+
+                <p className="text-gray-300 leading-relaxed">
+                  I thrive in environments where{" "}
+                  <span className="text-primary">collaboration beats ego</span>,
+                  where we ship fast but think deeply, and where "that's how
+                  we've always done it" isn't a valid argument. Give me complex
+                  problems, tight deadlines, and a team that's not afraid to
+                  experiment.
+                </p>
+
+                <p className="text-gray-300 leading-relaxed">
+                  Bonus points if you're in{" "}
+                  <span className="text-primary font-semibold">
+                    gaming, entertainment, or AI
+                  </span>
+                  . Double bonus if you have a good coffee machine and don't
+                  mind the occasional anime reference in Slack.
+                </p>
+              </div>
+
+              <div className="text-center mt-8">
+                <motion.a
+                  href="#contact"
+                  className="inline-flex items-center px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Let's Build Something Great
+                </motion.a>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -888,7 +1205,7 @@ const Index = () => {
 
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <User className="text-primary" size={18} />
+                    <Users className="text-primary" size={18} />
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">Social</p>
