@@ -1,7 +1,6 @@
-
-import React from 'react';
-import { FolderGit2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { FolderGit2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ProjectsCard = () => {
   return (
@@ -9,13 +8,13 @@ const ProjectsCard = () => {
       <div className="self-stretch z-0 flex w-full flex-col items-center mb-4">
         <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium whitespace-nowrap px-2.5 py-1">
           <FolderGit2 className="w-4 h-4 text-[#916CE7]" />
-          <span>Projects</span>
+          <span>Work</span>
         </div>
         <div className="text-[rgba(230,230,230,1)] text-xl font-semibold">
           Works Gallery
         </div>
       </div>
-      
+
       <div className="relative w-full h-[100px] overflow-hidden rounded-lg">
         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,0.8)] to-transparent z-10" />
         <img
@@ -26,7 +25,7 @@ const ProjectsCard = () => {
         />
       </div>
 
-      <Link 
+      <Link
         to="/works"
         className="absolute left-1/2 -translate-x-1/2 bottom-4 bg-[rgba(145,108,231,1)] gap-2.5 text-sm text-white font-medium px-8 py-2.5 rounded-xl border-[rgba(16,16,16,1)] border-solid border-2 transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-inner"
       >

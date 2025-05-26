@@ -1,104 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
-import { toast } from "sonner";
 import ContactModal from "./ContactModal";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
-  const [isDarkBackground, setIsDarkBackground] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     setIsOpen(false);
-  }, [location]);
-
-  useEffect(() => {
-    const detectBackgroundColor = () => {
-      // Get the navbar height to check what's behind it
-      const navbarHeight = 80; // Approximate navbar height
-      const checkPoint = navbarHeight + 10; // Check slightly below navbar
-
-      // Get element at the center of the screen, just below navbar
-      const centerX = window.innerWidth / 2;
-      const elementBelow = document.elementFromPoint(centerX, checkPoint);
-
-      if (elementBelow) {
-        // Get computed styles of the element
-        const styles = window.getComputedStyle(elementBelow);
-        const backgroundColor = styles.backgroundColor;
-
-        // Check if it's a dark background
-        let isDark = false;
-
-        // Check for explicit dark backgrounds
-        if (
-          backgroundColor &&
-          backgroundColor !== "rgba(0, 0, 0, 0)" &&
-          backgroundColor !== "transparent"
-        ) {
-          // Parse RGB values
-          const rgbMatch = backgroundColor.match(
-            /rgba?\((\d+),\s*(\d+),\s*(\d+)/
-          );
-          if (rgbMatch) {
-            const [, r, g, b] = rgbMatch.map(Number);
-            // Calculate luminance
-            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-            isDark = luminance < 0.5;
-          }
-        }
-
-        // Check for dark class names or IDs that indicate dark sections
-        let currentElement = elementBelow;
-        while (currentElement && currentElement !== document.body) {
-          const className = currentElement.className || "";
-          const id = currentElement.id || "";
-
-          if (
-            className.includes("bg-secondary") ||
-            className.includes("bg-gray-900") ||
-            className.includes("bg-black") ||
-            className.includes("dark") ||
-            id.includes("dark")
-          ) {
-            isDark = true;
-            break;
-          }
-
-          if (
-            className.includes("bg-white") ||
-            className.includes("bg-gray-50") ||
-            className.includes("light")
-          ) {
-            isDark = false;
-            break;
-          }
-
-          currentElement = currentElement.parentElement;
-        }
-
-        setIsDarkBackground(isDark);
-      }
-    };
-
-    // Initial check
-    detectBackgroundColor();
-
-    // Check on scroll
-    const handleScroll = () => {
-      detectBackgroundColor();
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", detectBackgroundColor, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", detectBackgroundColor);
-    };
   }, [location]);
 
   interface NavItem {
@@ -119,33 +31,6 @@ const Navbar = () => {
     { title: "Contact", path: "#", onClick: handleContactClick },
   ];
 
-  const handleResumeDownload = () => {
-    try {
-      fetch(
-        "https://drive.google.com/uc?export=download&id=1pK4gD27rABnUArntEHFJLVUu3WyCLBQb"
-      )
-        .then((response) => response.blob())
-        .then((blob) => {
-          const url = window.URL.createObjectURL(blob);
-          const link = document.createElement("a");
-          link.href = url;
-          link.download = "Reggie_Alleyne_Resume.pdf";
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          window.URL.revokeObjectURL(url);
-          toast.success("Resume downloaded successfully!");
-        })
-        .catch((error) => {
-          console.error("Error downloading resume:", error);
-          toast.error("Failed to download resume. Please try again later.");
-        });
-    } catch (error) {
-      console.error("Error downloading resume:", error);
-      toast.error("Failed to download resume. Please try again later.");
-    }
-  };
-
   const navVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: {
@@ -165,32 +50,29 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 bg-white/20 backdrop-blur-xl border-b border-white/20 shadow-lg shadow-black/5 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg shadow-black/5 transition-all duration-300"
       initial="hidden"
       animate="visible"
       variants={navVariants}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between py-4">
-          <Link
-            to="/"
-            className={isDarkBackground ? "text-white" : "text-black"}
-          >
+          <Link to="/" className="text-black">
             <motion.div
               className="flex items-center gap-3"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 500 }}
             >
               <img
-                src={isDarkBackground ? "/ra-logo-white.svg" : "/ra-logo.svg"}
+                src="/ra-logo.svg"
                 alt="Reggie Alleyne Logo"
                 className="h-10 w-10 transition-all duration-300"
+                onError={(e) => {
+                  console.error("Logo failed to load, using fallback");
+                  e.currentTarget.src = "/placeholder.svg";
+                }}
               />
-              <p
-                className={`font-bold text-lg drop-shadow-sm transition-colors duration-300 ${
-                  isDarkBackground ? "text-white" : "text-black"
-                }`}
-              >
+              <p className="font-bold text-lg drop-shadow-sm transition-colors duration-300 text-black">
                 REGGIE ALLEYNE
               </p>
             </motion.div>
@@ -207,8 +89,6 @@ const Navbar = () => {
                     (item.path !== "/" &&
                       location.pathname.startsWith(item.path))
                       ? "text-primary font-semibold"
-                      : isDarkBackground
-                      ? "text-gray-200 hover:text-white font-medium"
                       : "text-gray-800 hover:text-black font-medium"
                   }`}
                 >
@@ -219,9 +99,7 @@ const Navbar = () => {
           </ul>
 
           <motion.button
-            className={`md:hidden focus:outline-none drop-shadow-sm transition-colors duration-300 ${
-              isDarkBackground ? "text-white" : "text-black"
-            }`}
+            className="md:hidden focus:outline-none drop-shadow-sm transition-colors duration-300 text-black"
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.9 }}
           >
@@ -232,7 +110,7 @@ const Navbar = () => {
 
       {isOpen && (
         <motion.div
-          className="md:hidden bg-white/20 backdrop-blur-xl border-b border-white/20 shadow-lg shadow-black/5"
+          className="md:hidden bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg shadow-black/5"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
@@ -254,8 +132,6 @@ const Navbar = () => {
                       (item.path !== "/" &&
                         location.pathname.startsWith(item.path))
                         ? "text-primary font-semibold"
-                        : isDarkBackground
-                        ? "text-gray-200 hover:text-white font-medium"
                         : "text-gray-800 hover:text-black font-medium"
                     }`}
                     onClick={(e) => {

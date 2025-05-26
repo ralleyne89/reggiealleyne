@@ -13,6 +13,7 @@ import ProjectVideo from "@/components/project/ProjectVideo";
 import ProjectConclusion from "@/components/project/ProjectConclusion";
 import { SymptomCheckrCaseStudy } from "@/projects/symptom-checkr";
 import { TutorDCaseStudy } from "@/projects/tutor-d";
+import { TechNoirCaseStudy } from "@/projects/tech-noir";
 import { ProjectType } from "@/types/project";
 
 const Project = () => {
@@ -70,7 +71,11 @@ const Project = () => {
     }
 
     // Check if this is a project with a full case study
-    if (project?.slug === "symptom-checkr" || project?.slug === "tutor-d") {
+    if (
+      project?.slug === "symptom-checkr" ||
+      project?.slug === "tutor-d" ||
+      project?.slug === "tech-noir"
+    ) {
       setShowCaseStudy(true);
     } else {
       setShowCaseStudy(false);
@@ -166,6 +171,7 @@ const Project = () => {
           <>
             {project?.slug === "symptom-checkr" && <SymptomCheckrCaseStudy />}
             {project?.slug === "tutor-d" && <TutorDCaseStudy />}
+            {project?.slug === "tech-noir" && <TechNoirCaseStudy />}
           </>
         ) : (
           <>
@@ -206,12 +212,15 @@ const Project = () => {
         )}
       </div>
 
-      <ProjectConclusion
-        conclusion={conclusion}
-        liveUrl={liveUrl}
-        prototypeUrl={prototypeUrl}
-        projectSlug={project.slug}
-      />
+      {/* Only show ProjectConclusion for non-case study projects */}
+      {!showCaseStudy && (
+        <ProjectConclusion
+          conclusion={conclusion}
+          liveUrl={liveUrl}
+          prototypeUrl={prototypeUrl}
+          projectSlug={project.slug}
+        />
+      )}
 
       <Footer />
     </motion.div>

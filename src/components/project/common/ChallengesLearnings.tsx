@@ -48,7 +48,7 @@ const ChallengesLearnings: React.FC<ChallengesLearningsProps> = ({
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
             {title}
           </h2>
         </div>
@@ -63,7 +63,7 @@ const ChallengesLearnings: React.FC<ChallengesLearningsProps> = ({
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-800">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-8 pb-3 border-b border-gray-200">
               {challengesTitle}
             </h3>
 
@@ -71,16 +71,16 @@ const ChallengesLearnings: React.FC<ChallengesLearningsProps> = ({
               {challenges.map((challenge, index) => (
                 <motion.div
                   key={index}
-                  className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-primary/30 transition-colors duration-300"
+                  className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:border-primary/30 transition-colors duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
-                  <h4 className="text-xl font-semibold text-white mb-4">
+                  <h4 className="text-xl font-semibold text-gray-900 mb-4">
                     {challenge.title}
                   </h4>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed">
                     {challenge.description}
                   </p>
                 </motion.div>
@@ -96,7 +96,7 @@ const ChallengesLearnings: React.FC<ChallengesLearningsProps> = ({
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-800">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-8 pb-3 border-b border-gray-200">
               {learningsTitle}
             </h3>
 
@@ -104,19 +104,19 @@ const ChallengesLearnings: React.FC<ChallengesLearningsProps> = ({
               {learnings.map((learning, index) => (
                 <motion.div
                   key={index}
-                  className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-primary/30 transition-colors duration-300"
+                  className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:border-primary/30 transition-colors duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <CheckCircle className="w-6 h-6 text-green-400 mt-1 flex-shrink-0" />
-                    <h4 className="text-xl font-semibold text-white">
+                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                    <h4 className="text-xl font-semibold text-gray-900">
                       {learning.title}
                     </h4>
                   </div>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed">
                     {learning.description}
                   </p>
                 </motion.div>
@@ -127,7 +127,7 @@ const ChallengesLearnings: React.FC<ChallengesLearningsProps> = ({
 
         {/* Next Steps */}
         <div>
-          <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-800">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-8 pb-3 border-b border-gray-200">
             {nextStepsTitle}
           </h3>
 
@@ -137,7 +137,7 @@ const ChallengesLearnings: React.FC<ChallengesLearningsProps> = ({
               return (
                 <motion.div
                   key={index}
-                  className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-primary/30 transition-colors duration-300"
+                  className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:border-primary/30 transition-colors duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -147,11 +147,11 @@ const ChallengesLearnings: React.FC<ChallengesLearningsProps> = ({
                     <div className="bg-primary/10 p-3 rounded-lg">
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
-                    <h4 className="text-xl font-semibold text-white leading-tight">
+                    <h4 className="text-xl font-semibold text-gray-900 leading-tight">
                       {step.title}
                     </h4>
                   </div>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed">
                     {step.description}
                   </p>
                 </motion.div>

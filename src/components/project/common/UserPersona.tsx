@@ -47,7 +47,7 @@ const UserPersona: React.FC<UserPersonaProps> = ({
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
             {title}
           </h2>
         </div>
@@ -61,22 +61,24 @@ const UserPersona: React.FC<UserPersonaProps> = ({
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
               <img
                 src={imageSrc}
                 alt={imageAlt}
                 className="rounded-lg w-full mb-6"
               />
 
-              <h3 className="text-2xl font-semibold text-white mb-6">{name}</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                {name}
+              </h3>
 
               <div className="space-y-4">
                 {details.map((detail, index) => (
                   <div key={index}>
-                    <p className="text-gray-400 text-sm font-medium uppercase tracking-wider mb-1">
+                    <p className="text-gray-600 text-sm font-medium uppercase tracking-wider mb-1">
                       {detail.label}
                     </p>
-                    <p className="text-white text-lg">{detail.value}</p>
+                    <p className="text-gray-900 text-lg">{detail.value}</p>
                   </div>
                 ))}
               </div>
@@ -94,14 +96,14 @@ const UserPersona: React.FC<UserPersonaProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Goals */}
               <div className="space-y-4">
-                <h4 className="text-xl font-semibold text-white pb-3 border-b border-gray-800">
+                <h4 className="text-xl font-semibold text-gray-900 pb-3 border-b border-gray-200">
                   Goals
                 </h4>
                 <ul className="space-y-3">
                   {goals.map((goal, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-green-400 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-300 leading-relaxed">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0"></div>
+                      <span className="text-gray-700 leading-relaxed">
                         {goal.text}
                       </span>
                     </li>
@@ -111,14 +113,14 @@ const UserPersona: React.FC<UserPersonaProps> = ({
 
               {/* Frustrations */}
               <div className="space-y-4">
-                <h4 className="text-xl font-semibold text-white pb-3 border-b border-gray-800">
+                <h4 className="text-xl font-semibold text-gray-900 pb-3 border-b border-gray-200">
                   Frustrations
                 </h4>
                 <ul className="space-y-3">
                   {frustrations.map((frustration, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-red-400 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-300 leading-relaxed">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
+                      <span className="text-gray-700 leading-relaxed">
                         {frustration.text}
                       </span>
                     </li>
@@ -128,14 +130,14 @@ const UserPersona: React.FC<UserPersonaProps> = ({
 
               {/* Needs */}
               <div className="space-y-4">
-                <h4 className="text-xl font-semibold text-white pb-3 border-b border-gray-800">
+                <h4 className="text-xl font-semibold text-gray-900 pb-3 border-b border-gray-200">
                   Needs
                 </h4>
                 <ul className="space-y-3">
                   {needs.map((need, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-300 leading-relaxed">
+                      <span className="text-gray-700 leading-relaxed">
                         {need.text}
                       </span>
                     </li>
