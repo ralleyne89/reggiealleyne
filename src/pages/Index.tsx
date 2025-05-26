@@ -686,7 +686,7 @@ const Index = () => {
                 to="/works"
                 className="inline-flex items-center gap-2 bg-white border border-gray-300 text-text-primary px-6 py-3 rounded-full font-medium hover:border-primary transition-colors duration-300"
               >
-                View All Projects
+                View All Work
                 <ArrowRight size={18} />
               </Link>
             </motion.div>

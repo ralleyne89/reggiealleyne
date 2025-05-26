@@ -63,15 +63,12 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 500 }}
             >
-              <img
+              {/* <img
                 src="/ra-logo.svg"
                 alt="Reggie Alleyne Logo"
                 className="h-10 w-10 transition-all duration-300"
-                onError={(e) => {
-                  console.error("Logo failed to load, using fallback");
-                  e.currentTarget.src = "/placeholder.svg";
-                }}
-              />
+                
+              /> */}
               <p className="font-bold text-lg drop-shadow-sm transition-colors duration-300 text-black">
                 REGGIE ALLEYNE
               </p>

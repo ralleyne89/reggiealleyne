@@ -8,7 +8,7 @@ const ProjectsCard = () => {
       <div className="self-stretch z-0 flex w-full flex-col items-center mb-4">
         <div className="self-stretch flex items-center justify-center gap-2 text-sm text-[rgba(153,153,153,1)] font-medium whitespace-nowrap px-2.5 py-1">
           <FolderGit2 className="w-4 h-4 text-[#916CE7]" />
-          <span>Work</span>
+          <span>Projects</span>
         </div>
         <div className="text-[rgba(230,230,230,1)] text-xl font-semibold">
           Works Gallery
