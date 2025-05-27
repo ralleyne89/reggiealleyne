@@ -1,19 +1,23 @@
+
 import React, { useState } from "react";
 import { X } from "lucide-react";
 
-// Import all section components
+// Import restructured components following Minto's Pyramid
 import ProjectOverview from "@/components/project/tutor-d/ProjectOverview";
+import ResultsImpact from "@/components/project/tutor-d/ResultsImpact";
+import KeyActions from "@/components/project/tutor-d/KeyActions";
 import ProblemSpace from "@/components/project/tutor-d/ProblemSpace";
 import ResearchDiscovery from "@/components/project/tutor-d/ResearchDiscovery";
 import IdeationStrategy from "@/components/project/tutor-d/IdeationStrategy";
 import UserPersona from "@/components/project/tutor-d/UserPersona";
 import UserJourneyMap from "@/components/project/tutor-d/UserJourneyMap";
 import SitemapWireframes from "@/components/project/tutor-d/SitemapWireframes";
+import TechnicalImplementation from "@/components/project/tutor-d/TechnicalImplementation";
 import ChallengesLearnings from "@/components/project/tutor-d/ChallengesLearnings";
+import Reflection from "@/components/project/tutor-d/Reflection";
 import DirectUIImages from "@/components/project/tutor-d/DirectUIImages";
 
 const TutorDCaseStudy = () => {
-  // Preserve the image modal functionality
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleImageClick = (imageSrc: string) => {
@@ -27,14 +31,18 @@ const TutorDCaseStudy = () => {
   return (
     <div className="mt-8 mb-16">
       <ProjectOverview />
+      <ResultsImpact />
+      <KeyActions />
       <ProblemSpace />
       <ResearchDiscovery />
       <IdeationStrategy />
       <UserPersona />
       <UserJourneyMap />
       <SitemapWireframes />
+      <TechnicalImplementation handleImageClick={handleImageClick} />
       <DirectUIImages handleImageClick={handleImageClick} />
       <ChallengesLearnings />
+      <Reflection />
 
       {/* Modal for full-size image view */}
       {selectedImage && (
