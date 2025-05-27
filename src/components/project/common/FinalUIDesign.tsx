@@ -1,13 +1,10 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText } from "lucide-react";
-
 export interface DesignHighlight {
   text: string;
 }
-
 export interface UIFeature {
   title: string;
   description: string;
@@ -15,13 +12,11 @@ export interface UIFeature {
     className?: string;
   }>;
 }
-
 export interface UIImage {
   src: string;
   alt: string;
   title: string;
 }
-
 export interface FinalUIDesignProps {
   title: string;
   introduction: string;
@@ -30,7 +25,6 @@ export interface FinalUIDesignProps {
   uiImages: UIImage[];
   handleImageClick?: (imageSrc: string) => void;
 }
-
 const FinalUIDesign = ({
   title,
   introduction,
@@ -111,7 +105,7 @@ const FinalUIDesign = ({
 
         {/* UI Features */}
         <div>
-          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8 text-center">
+          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8 text-left">
             Key Features
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -146,5 +140,4 @@ const FinalUIDesign = ({
       </div>
     </motion.section>;
 };
-
 export default FinalUIDesign;
