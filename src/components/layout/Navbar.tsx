@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -25,7 +26,6 @@ const Navbar = () => {
   };
 
   const navItems: NavItem[] = [
-    { title: "Home", path: "/" },
     { title: "Work", path: "/works" },
     { title: "About", path: "/about" },
     { title: "Contact", path: "#", onClick: handleContactClick },
