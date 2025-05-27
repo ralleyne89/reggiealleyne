@@ -2,14 +2,12 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
 
-// Import key section components
-import IntegratedOverview from "@/components/project/cllctve/IntegratedOverview";
-import ProblemSpace from "@/components/project/cllctve/ProblemSpace";
-import ResearchDiscovery from "@/components/project/cllctve/ResearchDiscovery";
-import IdeationStrategy from "@/components/project/cllctve/IdeationStrategy";
-import SitemapWireframes from "@/components/project/cllctve/SitemapWireframes";
-import FinalUIDesign from "@/components/project/cllctve/FinalUIDesign";
-import ChallengesLearnings from "@/components/project/cllctve/ChallengesLearnings";
+// Import restructured components following Minto's Pyramid
+import ProjectOverview from "@/components/project/cllctve/ProjectOverview";
+import ResultsImpact from "@/components/project/cllctve/ResultsImpact";
+import KeyActions from "@/components/project/cllctve/KeyActions";
+import DetailedProcess from "@/components/project/cllctve/DetailedProcess";
+import TechnicalImplementation from "@/components/project/cllctve/TechnicalImplementation";
 import Reflection from "@/components/project/cllctve/Reflection";
 
 const CllctveCaseStudy = () => {
@@ -25,13 +23,11 @@ const CllctveCaseStudy = () => {
 
   return (
     <div className="mt-8 mb-16">
-      <IntegratedOverview />
-      <ProblemSpace />
-      <ResearchDiscovery />
-      <IdeationStrategy />
-      <SitemapWireframes />
-      <FinalUIDesign handleImageClick={handleImageClick} />
-      <ChallengesLearnings />
+      <ProjectOverview />
+      <ResultsImpact />
+      <KeyActions />
+      <DetailedProcess />
+      <TechnicalImplementation handleImageClick={handleImageClick} />
       <Reflection />
 
       {/* Modal for full-size image view */}
