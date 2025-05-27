@@ -87,10 +87,10 @@ const FinalUIDesign = ({
             amount: 0.3
           }}>
                   <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                    {index === 0 ? "User Profile" : image.title}
+                    {index === 0 ? "User Profile" : index === 1 ? "Homepage" : image.title}
                   </h4>
-                  <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.(index === 0 ? "/lovable-uploads/bbf348a7-ca89-49ba-95b0-b836d12b8752.png" : image.src)}>
-                    <img src={index === 0 ? "/lovable-uploads/bbf348a7-ca89-49ba-95b0-b836d12b8752.png" : image.src} alt={index === 0 ? "User Profile Interface" : image.alt} className="w-full h-full object-cover" />
+                  <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.(index === 0 ? "/lovable-uploads/bbf348a7-ca89-49ba-95b0-b836d12b8752.png" : index === 1 ? "/lovable-uploads/8a96d760-1e4f-4c90-a893-33c4538e3031.png" : image.src)}>
+                    <img src={index === 0 ? "/lovable-uploads/bbf348a7-ca89-49ba-95b0-b836d12b8752.png" : index === 1 ? "/lovable-uploads/8a96d760-1e4f-4c90-a893-33c4538e3031.png" : image.src} alt={index === 0 ? "User Profile Interface" : index === 1 ? "Homepage Interface" : image.alt} className="w-full h-full object-cover" />
                   </div>
                 </motion.div>)}
             </div>
