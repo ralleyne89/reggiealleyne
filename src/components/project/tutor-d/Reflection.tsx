@@ -1,37 +1,35 @@
-
 import React from "react";
 import { motion } from "framer-motion";
-
 const Reflection = () => {
-  const insights = [
-    {
-      title: "Accessibility-First Design",
-      description: "Learned that designing for the most constrained environments often leads to cleaner, more focused solutions that benefit all users."
-    },
-    {
-      title: "Technical Constraint Innovation",
-      description: "SMS limitations forced us to distill educational content to its essence, resulting in more effective and concise communication."
-    },
-    {
-      title: "Impact-Driven Development",
-      description: "Seeing how our work directly helped teachers support students during challenging times reinforced the value of purpose-driven projects."
-    }
-  ];
-
-  return (
-    <motion.section 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="py-16 bg-gray-50"
-    >
+  const insights = [{
+    title: "Accessibility-First Design",
+    description: "Learned that designing for the most constrained environments often leads to cleaner, more focused solutions that benefit all users."
+  }, {
+    title: "Technical Constraint Innovation",
+    description: "SMS limitations forced us to distill educational content to its essence, resulting in more effective and concise communication."
+  }, {
+    title: "Impact-Driven Development",
+    description: "Seeing how our work directly helped teachers support students during challenging times reinforced the value of purpose-driven projects."
+  }];
+  return <motion.section initial={{
+    opacity: 0,
+    y: 20
+  }} animate={{
+    opacity: 1,
+    y: 0
+  }} transition={{
+    duration: 0.6
+  }} className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6
+      }} className="mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
             Reflection
           </h2>
@@ -41,38 +39,47 @@ const Reflection = () => {
         </motion.div>
 
         {/* Professional Growth Insights */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-12"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6,
+        delay: 0.2
+      }} className="mb-12">
           <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
             Professional Growth & Insights
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {insights.map((insight, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-300"
-              >
+            {insights.map((insight, index) => <motion.div key={index} initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.3 + index * 0.1
+          }} className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-300">
                 <h4 className="font-semibold text-gray-900 mb-3">{insight.title}</h4>
                 <p className="text-gray-700 leading-relaxed">{insight.description}</p>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </motion.div>
 
         {/* Next Steps */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="bg-white rounded-xl p-8 border border-gray-200"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6,
+        delay: 0.5
+      }} className="bg-white rounded-xl p-8 border border-gray-200">
           <h3 className="text-xl font-semibold text-gray-900 mb-4">
             Future Enhancements
           </h3>
@@ -81,8 +88,6 @@ const Reflection = () => {
           </p>
         </motion.div>
       </div>
-    </motion.section>
-  );
+    </motion.section>;
 };
-
 export default Reflection;
