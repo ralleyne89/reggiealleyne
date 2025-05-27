@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -81,7 +82,7 @@ const FinalUIDesign = ({
             once: true,
             amount: 0.3
           }}>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">{image.title}</h4>
+                  <h4 className="text-xl font-semibold text-gray-900 mb-4">Landing Page</h4>
                   <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.(image.src)}>
                     <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
                   </div>
@@ -140,3 +141,4 @@ const FinalUIDesign = ({
     </motion.section>;
 };
 export default FinalUIDesign;
+
