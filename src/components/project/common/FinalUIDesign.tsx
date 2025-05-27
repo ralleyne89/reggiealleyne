@@ -1,12 +1,13 @@
 
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText } from "lucide-react";
+
 export interface DesignHighlight {
   text: string;
 }
+
 export interface UIFeature {
   title: string;
   description: string;
@@ -14,11 +15,13 @@ export interface UIFeature {
     className?: string;
   }>;
 }
+
 export interface UIImage {
   src: string;
   alt: string;
   title: string;
 }
+
 export interface FinalUIDesignProps {
   title: string;
   introduction: string;
@@ -27,6 +30,7 @@ export interface FinalUIDesignProps {
   uiImages: UIImage[];
   handleImageClick?: (imageSrc: string) => void;
 }
+
 const FinalUIDesign = ({
   title,
   introduction,
@@ -82,9 +86,11 @@ const FinalUIDesign = ({
             once: true,
             amount: 0.3
           }}>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">User Profile</h4>
-                  <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.("/lovable-uploads/bbf348a7-ca89-49ba-95b0-b836d12b8752.png")}>
-                    <img src="/lovable-uploads/bbf348a7-ca89-49ba-95b0-b836d12b8752.png" alt="User Profile Interface" className="w-full h-full object-cover" />
+                  <h4 className="text-xl font-semibold text-gray-900 mb-4">
+                    {index === 0 ? "User Profile" : image.title}
+                  </h4>
+                  <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.(index === 0 ? "/lovable-uploads/bbf348a7-ca89-49ba-95b0-b836d12b8752.png" : image.src)}>
+                    <img src={index === 0 ? "/lovable-uploads/bbf348a7-ca89-49ba-95b0-b836d12b8752.png" : image.src} alt={index === 0 ? "User Profile Interface" : image.alt} className="w-full h-full object-cover" />
                   </div>
                 </motion.div>)}
             </div>
@@ -140,5 +146,5 @@ const FinalUIDesign = ({
       </div>
     </motion.section>;
 };
-export default FinalUIDesign;
 
+export default FinalUIDesign;
