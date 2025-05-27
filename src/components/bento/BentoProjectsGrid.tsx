@@ -1,8 +1,8 @@
 import React from "react";
 import { ProjectType } from "@/types/project";
 import { Skeleton } from "@/components/ui/skeleton";
-import { BarChart, Lightbulb, Clock, Users } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Lightbulb, Clock, Users } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 interface BentoProjectsGridProps {
@@ -108,7 +108,7 @@ const BentoProjectsGrid = ({
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 hidden sm:grid">
+          <div className="hidden sm:grid grid-cols-3 gap-2">
             <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-2 flex items-center gap-2">
               <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
                 <Lightbulb className="w-3.5 h-3.5 text-[#916CE7]" />

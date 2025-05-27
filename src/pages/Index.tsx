@@ -1,13 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getAllProjects } from "@/services/api";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from "framer-motion";
+import { Link } from "react-router-dom";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   Code,
@@ -64,7 +59,6 @@ const buttonVariants = {
 };
 
 const Index = () => {
-  const navigate = useNavigate();
   const targetRef = useRef<HTMLDivElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -99,11 +93,7 @@ const Index = () => {
     return () => window.removeEventListener("scroll", revealOnScroll);
   }, []);
 
-  const {
-    data: projects,
-    isLoading,
-    error,
-  } = useQuery({
+  const { data: projects, isLoading } = useQuery({
     queryKey: ["projects"],
     queryFn: async () => {
       try {
@@ -289,76 +279,6 @@ const Index = () => {
     },
   ];
 
-  const caseStudies = [
-    {
-      title: "User Experience Overhaul",
-      excerpt:
-        "How I improved conversion rates by 35% through strategic UX improvements",
-      image: "/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
-      tag: "UX Optimization",
-      metric: "+35% Conversion",
-    },
-    {
-      title: "Mobile-First Approach",
-      excerpt:
-        "Creating responsive designs that work flawlessly across all devices",
-      image: "/lovable-uploads/cb582645-1a6e-4846-8a2e-72b2dffd49a8.png",
-      tag: "Responsive Design",
-      metric: "4.8/5 User Rating",
-    },
-    {
-      title: "Design System Implementation",
-      excerpt:
-        "How I created a scalable design system that improved development efficiency by 40%",
-      image: "/lovable-uploads/b9b62216-4a0c-4367-bdab-32f608350015.png",
-      tag: "Design Systems",
-      metric: "40% Dev Efficiency",
-    },
-  ];
-
-  const featuredClients = [
-    {
-      name: "TechCorp Inc.",
-      logo: "https://placehold.co/100x50/333/white?text=TechCorp",
-      industry: "Software",
-    },
-    {
-      name: "HealthTrack",
-      logo: "https://placehold.co/100x50/333/white?text=HealthTrack",
-      industry: "Healthcare",
-    },
-    {
-      name: "FinSolutions",
-      logo: "https://placehold.co/100x50/333/white?text=FinSolutions",
-      industry: "Finance",
-    },
-    {
-      name: "MediaPulse",
-      logo: "https://placehold.co/100x50/333/white?text=MediaPulse",
-      industry: "Media",
-    },
-    {
-      name: "EduLearn",
-      logo: "https://placehold.co/100x50/333/white?text=EduLearn",
-      industry: "Education",
-    },
-    {
-      name: "RetailNow",
-      logo: "https://placehold.co/100x50/333/white?text=RetailNow",
-      industry: "Retail",
-    },
-  ];
-
-  const handleProjectClick = (project) => {
-    if (!project) return;
-
-    if (project.slug) {
-      navigate(`/project/${project.slug}`);
-    } else {
-      navigate(`/project/${project.id}`);
-    }
-  };
-
   const handleContactFormSubmit = async (
     e: React.FormEvent<HTMLFormElement>
   ) => {
@@ -388,12 +308,9 @@ const Index = () => {
     setIsSubmitting(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke(
-        "send-contact-email",
-        {
-          body: formData,
-        }
-      );
+      const { error } = await supabase.functions.invoke("send-contact-email", {
+        body: formData,
+      });
 
       if (error) throw error;
 
