@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { X, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -44,15 +43,13 @@ const TutorDCaseStudy = () => {
       <ChallengesLearnings />
       <Reflection />
 
-      {/* Back to Works Button */}
-      <div className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <Button asChild variant="outline" size="lg">
-            <Link to="/works" className="inline-flex items-center gap-2">
-              <ArrowLeft className="h-4 w-4" />
-              Back to Works
-            </Link>
-          </Button>
+      {/* Back to Works Link */}
+      <div className="py-8 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <Link to="/works" className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Works
+          </Link>
         </div>
       </div>
 
