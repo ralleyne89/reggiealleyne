@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, LucideIcon } from "lucide-react";
@@ -41,7 +42,7 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
   painPoints,
   designOpportunities
 }) => {
-  return <motion.section className="mb-20" initial={{
+  return <motion.section className="py-16 bg-white" initial={{
     opacity: 0,
     y: 20
   }} whileInView={{
@@ -53,14 +54,14 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
     once: true,
     amount: 0.3
   }}>
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="w-full px-6">
         {/* Section Header */}
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-gray-800">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-gray-900">
             {title}
           </h2>
 
-          <p className="text-lg leading-relaxed max-w-4xl mb-8 text-gray-500">
+          <p className="text-lg leading-relaxed max-w-4xl mb-8 text-gray-700">
             {introduction}
           </p>
 
@@ -71,7 +72,7 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
         </div>
 
         {/* Journey Map Visual */}
-        <motion.div className="bg-gray-900/30 border border-gray-800 rounded-xl p-8 overflow-x-auto" initial={{
+        <motion.div className="bg-gray-50 border border-gray-200 rounded-xl p-8 overflow-x-auto" initial={{
         opacity: 0,
         y: 20
       }} whileInView={{
@@ -110,7 +111,7 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
             <div className="grid grid-cols-5 gap-4 mb-6">
               {userActions.map((action, index) => {
               const Icon = action.icon;
-              return <motion.div key={index} className="bg-gray-800/50 border border-gray-700 rounded-xl p-4" initial={{
+              return <motion.div key={index} className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm" initial={{
                 opacity: 0,
                 y: 20
               }} whileInView={{
@@ -124,8 +125,8 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
                 amount: 0.3
               }}>
                     <div className="flex flex-col items-center text-center">
-                      <Icon className="w-6 h-6 text-white mb-3" />
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <Icon className="w-6 h-6 text-gray-800 mb-3" />
+                      <p className="text-gray-700 text-sm leading-relaxed">
                         {action.description}
                       </p>
                     </div>
@@ -136,8 +137,8 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
             {/* Connecting Arrows */}
             <div className="grid grid-cols-5 gap-4 mb-6 px-12">
               {[0, 1, 2, 3].map((_, index) => <div key={index} className="flex justify-center items-center">
-                  <div className="w-full h-px bg-gray-600"></div>
-                  <ArrowRight className="w-5 h-5 text-gray-400" />
+                  <div className="w-full h-px bg-gray-400"></div>
+                  <ArrowRight className="w-5 h-5 text-gray-500" />
                 </div>)}
               <div></div>
             </div>
@@ -146,7 +147,7 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
             <div className="grid grid-cols-5 gap-4 mb-6">
               {emotionalStates.map((state, index) => {
               const Icon = state.icon;
-              return <motion.div key={index} className="bg-gray-800/30 border border-gray-700 rounded-xl p-4" initial={{
+              return <motion.div key={index} className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm" initial={{
                 opacity: 0,
                 y: 20
               }} whileInView={{
@@ -161,7 +162,7 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
               }}>
                     <div className="flex flex-col items-center text-center">
                       <Icon className={`w-6 h-6 ${state.iconColor} mb-3`} />
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <p className="text-gray-700 text-sm leading-relaxed">
                         {state.description}
                       </p>
                     </div>
@@ -171,7 +172,7 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
 
             {/* Pain Points */}
             <div className="grid grid-cols-5 gap-4 mb-6">
-              {painPoints.map((painPoint, index) => <motion.div key={index} className="bg-red-500/5 border border-red-500/20 rounded-xl p-4" initial={{
+              {painPoints.map((painPoint, index) => <motion.div key={index} className="bg-red-50 border border-red-200 rounded-xl p-4" initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
@@ -184,13 +185,13 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
               once: true,
               amount: 0.3
             }}>
-                  <h5 className="text-red-400 text-sm font-semibold mb-3">
+                  <h5 className="text-red-600 text-sm font-semibold mb-3">
                     Pain Points
                   </h5>
                   <ul className="space-y-2">
                     {painPoint.points.map((point, pointIndex) => <li key={pointIndex} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-red-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-300 text-xs leading-relaxed">
+                        <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700 text-xs leading-relaxed">
                           {point}
                         </span>
                       </li>)}
@@ -200,7 +201,7 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
 
             {/* Design Opportunities */}
             <div className="grid grid-cols-5 gap-4">
-              {designOpportunities.map((opportunity, index) => <motion.div key={index} className="bg-primary/5 border border-primary/20 rounded-xl p-4" initial={{
+              {designOpportunities.map((opportunity, index) => <motion.div key={index} className="bg-green-50 border border-green-200 rounded-xl p-4" initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
@@ -213,13 +214,13 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
               once: true,
               amount: 0.3
             }}>
-                  <h5 className="text-primary text-sm font-semibold mb-3">
+                  <h5 className="text-green-600 text-sm font-semibold mb-3">
                     Design Opportunities
                   </h5>
                   <ul className="space-y-2">
                     {opportunity.points.map((point, pointIndex) => <li key={pointIndex} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-300 text-xs leading-relaxed">
+                        <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700 text-xs leading-relaxed">
                           {point}
                         </span>
                       </li>)}
