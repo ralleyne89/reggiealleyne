@@ -1,4 +1,5 @@
 
+
 import React, { useState } from "react";
 import { X } from "lucide-react";
 
@@ -24,12 +25,21 @@ const BobsBigBreakCaseStudy = () => {
 
   return (
     <div className="mt-8 mb-16">
+      {/* 1. Project Overview */}
       <IntegratedOverview />
+      
+      {/* 2. RESULTS & IMPACT - Lead with the outcome */}
       <ResultsImpact />
+      
+      {/* 3. KEY ACTIONS - What moved the needle */}
       <KeyActions />
+      
+      {/* 4. IN-DEPTH EXPLANATION - How it was achieved with visuals */}
       <TechnicalImplementation handleImageClick={handleImageClick} />
       <GameDesignProcess handleImageClick={handleImageClick} />
       <FinalGameplay handleImageClick={handleImageClick} />
+      
+      {/* 5. Reflection & Learnings */}
       <ChallengesLearnings />
 
       {/* Modal for full-size image view */}
@@ -61,3 +71,4 @@ const BobsBigBreakCaseStudy = () => {
 };
 
 export default BobsBigBreakCaseStudy;
+
