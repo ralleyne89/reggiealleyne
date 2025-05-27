@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -56,7 +57,7 @@ const FinalUIDesign = ({
         duration: 0.6
       }} className="mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            {title}
+            Interface Design
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
             {introduction}
