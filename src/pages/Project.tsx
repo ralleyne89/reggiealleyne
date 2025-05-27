@@ -15,6 +15,7 @@ import { SymptomCheckrCaseStudy } from "@/projects/symptom-checkr";
 import { TutorDCaseStudy } from "@/projects/tutor-d";
 import { TechNoirCaseStudy } from "@/projects/tech-noir";
 import { CllctveCaseStudy } from "@/projects/cllctve";
+import { BobsBigBreakCaseStudy } from "@/projects/bobs-big-break";
 import { ProjectType } from "@/types/project";
 
 const Project = () => {
@@ -76,7 +77,8 @@ const Project = () => {
       project?.slug === "symptom-checkr" ||
       project?.slug === "tutor-d" ||
       project?.slug === "tech-noir" ||
-      project?.slug === "cllctve-platform"
+      project?.slug === "cllctve-platform" ||
+      project?.slug === "bobs-big-break"
     ) {
       setShowCaseStudy(true);
     } else {
@@ -175,6 +177,7 @@ const Project = () => {
             {project?.slug === "tutor-d" && <TutorDCaseStudy />}
             {project?.slug === "tech-noir" && <TechNoirCaseStudy />}
             {project?.slug === "cllctve-platform" && <CllctveCaseStudy />}
+            {project?.slug === "bobs-big-break" && <BobsBigBreakCaseStudy />}
           </>
         ) : (
           <>
