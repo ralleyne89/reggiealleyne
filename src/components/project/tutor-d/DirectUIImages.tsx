@@ -1,4 +1,6 @@
+
 import React from "react";
+import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText } from "lucide-react";
 
@@ -26,7 +28,13 @@ const DirectUIImages: React.FC<DirectUIImagesProps> = ({ handleImageClick }) => 
   ];
 
   return (
-    <section className="mb-16">
+    <motion.section 
+      className="mb-16"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
       <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
         <CardContent className="p-8">
           <div className="flex items-center gap-3 mb-6">
@@ -42,7 +50,14 @@ const DirectUIImages: React.FC<DirectUIImagesProps> = ({ handleImageClick }) => 
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {images.map((image, index) => (
-              <div key={index} className="space-y-2">
+              <motion.div 
+                key={index} 
+                className="space-y-2"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
                 <h4 className="text-primary font-medium mb-2">{image.title}</h4>
                 <div 
                   className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-700 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
@@ -54,12 +69,12 @@ const DirectUIImages: React.FC<DirectUIImagesProps> = ({ handleImageClick }) => 
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </CardContent>
       </Card>
-    </section>
+    </motion.section>
   );
 };
 
