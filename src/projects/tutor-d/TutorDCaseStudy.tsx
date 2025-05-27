@@ -29,31 +29,26 @@ const TutorDCaseStudy = () => {
   };
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
-      <main role="main" aria-label="TutorD Case Study">
-        <ProjectOverview />
-        <ResultsImpact />
-        <KeyActions />
-        <ProblemSpace />
-        <ResearchDiscovery />
-        <IdeationStrategy />
-        <UserPersona />
-        <UserJourneyMap />
-        <SitemapWireframes />
-        <TechnicalImplementation handleImageClick={handleImageClick} />
-        <DirectUIImages handleImageClick={handleImageClick} />
-        <ChallengesLearnings />
-        <Reflection />
-      </main>
+    <div className="bg-white text-gray-900">
+      <ProjectOverview />
+      <ResultsImpact />
+      <KeyActions />
+      <ProblemSpace />
+      <ResearchDiscovery />
+      <IdeationStrategy />
+      <UserPersona />
+      <UserJourneyMap />
+      <SitemapWireframes />
+      <TechnicalImplementation handleImageClick={handleImageClick} />
+      <DirectUIImages handleImageClick={handleImageClick} />
+      <ChallengesLearnings />
+      <Reflection />
 
       {/* Modal for full-size image view */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={closeModal}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Full size image viewer"
         >
           <div
             className="relative max-w-7xl max-h-[90vh] w-full h-full"
@@ -61,13 +56,12 @@ const TutorDCaseStudy = () => {
           >
             <img
               src={selectedImage}
-              alt="Full size project image"
+              alt="Full size image"
               className="w-full h-full object-contain"
             />
             <button
-              className="absolute top-4 right-4 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
+              className="absolute top-4 right-4 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center"
               onClick={closeModal}
-              aria-label="Close image viewer"
             >
               <X className="w-5 h-5" />
             </button>

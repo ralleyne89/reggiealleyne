@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -37,18 +36,16 @@ const SitemapWireframes: React.FC<SitemapWireframesProps> = ({
 
   return (
     <motion.section
-      className="py-16 bg-gray-900"
+      className="mb-20"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount: 0.3 }}
-      role="region"
-      aria-labelledby="sitemap-wireframes-title"
     >
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className="mb-12">
-          <h2 id="sitemap-wireframes-title" className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
             {title}
           </h2>
         </div>
@@ -62,18 +59,18 @@ const SitemapWireframes: React.FC<SitemapWireframesProps> = ({
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-700">
+            <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-800">
               {sitemapTitle}
             </h3>
 
-            <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-8">
-              <div className="flex flex-col items-center space-y-6" role="img" aria-label="Site navigation structure">
+            <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-8">
+              <div className="flex flex-col items-center space-y-6">
                 {primaryItem && (
                   <>
                     <div className="bg-primary/10 border border-primary/20 text-primary px-6 py-3 rounded-xl font-semibold text-lg">
                       {primaryItem.name}
                     </div>
-                    <div className="w-px h-8 bg-gray-500" aria-hidden="true"></div>
+                    <div className="w-px h-8 bg-gray-600"></div>
                   </>
                 )}
 
@@ -81,14 +78,11 @@ const SitemapWireframes: React.FC<SitemapWireframesProps> = ({
                   {secondaryItems.map((item, index) => (
                     <motion.div
                       key={index}
-                      className="bg-gray-700/50 border border-gray-600 text-white px-4 py-3 rounded-xl font-medium text-center hover:border-primary/30 transition-colors duration-300 focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-gray-900"
+                      className="bg-gray-800/50 border border-gray-700 text-white px-4 py-3 rounded-xl font-medium text-center hover:border-primary/30 transition-colors duration-300"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true, amount: 0.3 }}
-                      tabIndex={0}
-                      role="button"
-                      aria-label={`Navigation item: ${item.name}`}
                     >
                       {item.name}
                     </motion.div>
@@ -106,7 +100,7 @@ const SitemapWireframes: React.FC<SitemapWireframesProps> = ({
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-700">
+            <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-800">
               {wireframesTitle}
             </h3>
 
@@ -127,12 +121,11 @@ const SitemapWireframes: React.FC<SitemapWireframesProps> = ({
                   <h4 className="text-lg font-semibold text-white">
                     {image.title}
                   </h4>
-                  <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-4 hover:border-primary/30 transition-colors duration-300">
+                  <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 hover:border-primary/30 transition-colors duration-300">
                     <img
                       src={image.imageSrc}
                       alt={image.imageAlt}
                       className="w-full rounded-lg"
-                      loading="lazy"
                     />
                   </div>
                 </motion.div>

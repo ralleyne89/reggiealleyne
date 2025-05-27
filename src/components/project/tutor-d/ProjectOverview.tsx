@@ -45,9 +45,7 @@ const ProjectOverview = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="py-16 bg-gray-900"
-      role="region"
-      aria-labelledby="project-overview-title"
+      className="py-16 bg-white"
     >
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
@@ -57,14 +55,14 @@ const ProjectOverview = () => {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <h2 id="project-overview-title" className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
             Project Overview
           </h2>
           <div className="space-y-6">
-            <p className="text-lg text-gray-300 leading-relaxed max-w-4xl">
+            <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
               A distance learning platform designed to close the homework and accessibility gap in education. By leveraging SMS technology, it enables students without reliable internet or smart devices to receive assignments, engage with lessons, and stay on track—remotely.
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed max-w-4xl">
+            <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
               The educator-facing web dashboard helps teachers manage student progress, engagement, and communication in underserved communities where traditional online learning platforms fall short.
             </p>
           </div>
@@ -79,7 +77,7 @@ const ProjectOverview = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-xl font-semibold text-white mb-6 pb-3 border-b border-gray-700">
+            <h3 className="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">
               Project Details
             </h3>
             <div className="space-y-6">
@@ -88,13 +86,13 @@ const ProjectOverview = () => {
                 return (
                   <div key={index} className="flex items-start gap-4">
                     <div className="bg-primary/10 p-3 rounded-lg mt-1">
-                      <Icon className="w-5 h-5 text-primary" aria-hidden="true" />
+                      <Icon className="w-5 h-5 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-gray-400 text-sm font-medium mb-1 uppercase tracking-wider">
+                      <p className="text-gray-600 text-sm font-medium mb-1 uppercase tracking-wider">
                         {detail.label}
                       </p>
-                      <p className="text-white text-lg">{detail.value}</p>
+                      <p className="text-gray-900 text-lg">{detail.value}</p>
                     </div>
                   </div>
                 );
@@ -109,7 +107,7 @@ const ProjectOverview = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h3 className="text-xl font-semibold text-white mb-6 pb-3 border-b border-gray-700">
+            <h3 className="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">
               Tools & Platform
             </h3>
             <div className="space-y-6">
@@ -118,13 +116,13 @@ const ProjectOverview = () => {
                 return (
                   <div key={index} className="flex items-start gap-4">
                     <div className="bg-primary/10 p-3 rounded-lg mt-1">
-                      <Icon className="w-5 h-5 text-primary" aria-hidden="true" />
+                      <Icon className="w-5 h-5 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-gray-400 text-sm font-medium mb-1 uppercase tracking-wider">
+                      <p className="text-gray-600 text-sm font-medium mb-1 uppercase tracking-wider">
                         {detail.label}
                       </p>
-                      <p className="text-white text-lg">{detail.value}</p>
+                      <p className="text-gray-900 text-lg">{detail.value}</p>
                     </div>
                   </div>
                 );
