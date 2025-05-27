@@ -1,3 +1,4 @@
+
 import {
   Briefcase,
   Users,
@@ -119,6 +120,7 @@ export const symptomCheckrResearchData: ResearchDiscoveryProps = {
   researchSections: [
     {
       title: "User Interviews",
+      description: "Insights from 8 participants about their symptom-checking habits and pain points.",
       items: [
         {
           text: "People Google symptoms first, panic second, then either ignore it or rush to urgent care"
@@ -181,7 +183,6 @@ export const symptomCheckrIdeationData: IdeationStrategyProps = {
       description: "People check symptoms on their phones at 2 AM. Design for that moment of worry, not the doctor's office."
     }
   ],
-  flowTitle: "How It Actually Works",
   flowSteps: [
     {
       number: 1,
@@ -449,16 +450,21 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
       text: "Accessible design that works for everyone, not just people with perfect vision"
     }
   ],
-  designFeatures: [
+  uiFeatures: [
     {
-      title: "Text & Image Input",
-      description: "Users can choose between text description or image upload for symptoms, increasing accessibility and accuracy.",
-      tags: ["Dual Input Methods", "Privacy First", "Accessibility"]
+      title: "Show, Don't Tell",
+      description: "Upload a photo of that weird rash instead of trying to describe it. Sometimes a picture really is worth a thousand words.",
+      icon: Image
     },
     {
-      title: "Likelihood-Based Results",
-      description: "Results are clearly organized by likelihood, with actionable next steps for each potential cause.",
-      tags: ["Clear Hierarchy", "Actionable Information"]
+      title: "Honest Probabilities",
+      description: "No more 'you might have 47 different diseases.' Clear likelihood indicators for each possibility.",
+      icon: BarChart
+    },
+    {
+      title: "Your Data, Your Choice",
+      description: "Delete everything when you're done, or save it to share with your doctor. Total transparency, no hidden data collection.",
+      icon: Lock
     }
   ],
   uiImages: [
@@ -481,26 +487,6 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
       title: "Contact Screen",
       src: "/lovable-uploads/Symptom-Checkr-Contact-Final.jpg",
       alt: "SymptomCheckr Contact screen"
-    }
-  ],
-  mainImageSrc: "/lovable-uploads/Symptom-Checkr-Home-Final.jpg",
-  mainImageAlt: "SymptomCheckr Final UI",
-  imageCaption: "Final UI design showcasing the symptom input and results screens",
-  uiFeatures: [
-    {
-      title: "Show, Don't Tell",
-      description: "Upload a photo of that weird rash instead of trying to describe it. Sometimes a picture really is worth a thousand words.",
-      icon: Image
-    },
-    {
-      title: "Honest Probabilities",
-      description: "No more 'you might have 47 different diseases.' Clear likelihood indicators for each possibility.",
-      icon: BarChart
-    },
-    {
-      title: "Your Data, Your Choice",
-      description: "Delete everything when you're done, or save it to share with your doctor. Total transparency, no hidden data collection.",
-      icon: Lock
     }
   ]
 };

@@ -1,3 +1,4 @@
+
 import {
   Briefcase,
   Users,
@@ -148,6 +149,7 @@ export const tutorDResearchData: ResearchDiscoveryProps = {
   researchSections: [
     {
       title: "User Research",
+      description: "Primary research with educators and students in underserved communities.",
       items: [
         {
           text: "Interviewed teachers from underserved school districts about remote learning challenges"
@@ -189,17 +191,6 @@ export const tutorDResearchData: ResearchDiscoveryProps = {
       title: "Key Finding 3",
       description: "Existing SMS-based solutions lacked proper integration with teacher workflows and progress tracking capabilities."
     }
-  ],
-  stakeholderGoals: [
-    {
-      text: "Create a web platform that makes it easy for teachers to plan, send, and track SMS-based lessons"
-    },
-    {
-      text: "Improve student learning outcomes through consistency and accessibility"
-    },
-    {
-      text: "Reduce barriers for educators trying to support students remotely"
-    }
   ]
 };
 
@@ -221,7 +212,6 @@ export const tutorDIdeationData: IdeationStrategyProps = {
       description: "Teachers need clear visibility into student response rates and engagement metrics to adjust their teaching strategies."
     }
   ],
-  flowTitle: "Teacher Workflow",
   flowSteps: [
     {
       number: 1,
@@ -494,35 +484,6 @@ export const tutorDUIData: FinalUIDesignProps = {
       text: "Fully responsive design for teachers to use on desktop or mobile devices"
     }
   ],
-  designFeatures: [
-    {
-      title: "Teacher-Centered UX",
-      description: "The interface is designed to minimize additional work for teachers while maximizing their ability to reach and engage students.",
-      tags: ["Efficiency", "Workflow Optimization", "Time-Saving"]
-    },
-    {
-      title: "Data Visualization",
-      description: "Clear visual representations of student engagement and response rates help teachers identify trends and adjust strategies.",
-      tags: ["Analytics", "Progress Tracking", "Engagement Metrics"]
-    }
-  ],
-  uiImages: [
-    {
-      src: "/lovable-uploads/TutorD-Landing-Page-Final.jpg",
-      alt: "TutorD Landing Page Final UI Design",
-      title: "Landing Page"
-    },
-    {
-      src: "/lovable-uploads/TutorD-Dashboard-Final.jpg",
-      alt: "TutorD Dashboard Final UI Design",
-      title: "Teacher Dashboard"
-    },
-    {
-      src: "/lovable-uploads/TutorD-Lesson-Planner-Final.jpg",
-      alt: "TutorD Lesson Planner Final UI Design",
-      title: "Lesson Planner"
-    }
-  ],
   uiFeatures: [
     {
       title: "Lesson Planner",
@@ -543,6 +504,23 @@ export const tutorDUIData: FinalUIDesignProps = {
       title: "Student Management",
       description: "Tools for organizing students into classes, tracking individual progress, and managing contact information.",
       icon: Users
+    }
+  ],
+  uiImages: [
+    {
+      src: "/lovable-uploads/TutorD-Landing-Page-Final.jpg",
+      alt: "TutorD Landing Page Final UI Design",
+      title: "Landing Page"
+    },
+    {
+      src: "/lovable-uploads/TutorD-Dashboard-Final.jpg",
+      alt: "TutorD Dashboard Final UI Design",
+      title: "Teacher Dashboard"
+    },
+    {
+      src: "/lovable-uploads/TutorD-Lesson-Planner-Final.jpg",
+      alt: "TutorD Lesson Planner Final UI Design",
+      title: "Lesson Planner"
     }
   ]
 };
