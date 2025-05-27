@@ -135,16 +135,6 @@ export const cllctveResearchData = {
         { text: "Researched platform loyalty factors" },
         { text: "Identified engagement triggers" }
       ]
-    },
-    {
-      title: "Market Analysis",
-      description: "Examined the creator economy and brand collaboration trends.",
-      items: [
-        { text: "Researched creator economy growth trends" },
-        { text: "Analyzed brand-creator collaboration models" },
-        { text: "Studied monetization preferences" },
-        { text: "Identified market gaps" }
-      ]
     }
   ],
   keyFindings: [
@@ -244,30 +234,6 @@ export const cllctveUIData = {
     { text: "Mobile-first responsive design optimized for touch interactions and smaller screens" },
     { text: "Dynamic theming system that permits brand customization within defined parameters and design guidelines" }
   ],
-  designFeatures: [
-    {
-      title: "Portfolio Builder",
-      description: "Drag-and-drop interface for creative portfolio management",
-      tags: ["React", "Styled Components", "Responsive"]
-    },
-    {
-      title: "Challenge System",
-      description: "Brand-integrated challenge hosting and discovery platform",
-      tags: ["API Integration", "Real-time", "Customizable"]
-    }
-  ],
-  uiImages: [
-    {
-      src: "/lovable-uploads/66a4a04b-aa90-4553-b44c-c75f89b3b3d4.png",
-      alt: "CLLCTVE portfolio builder interface",
-      title: "Portfolio Builder"
-    },
-    {
-      src: "/lovable-uploads/bb480e3a-f008-47a7-ab1f-621a3954be31.png",
-      alt: "CLLCTVE challenge discovery interface",
-      title: "Challenge Discovery"
-    }
-  ],
   uiFeatures: [
     {
       title: "Drag-and-Drop Builder",
@@ -298,6 +264,18 @@ export const cllctveUIData = {
       title: "Performance Focused",
       description: "Optimized loading and interactions for rich visual content and dynamic layouts.",
       icon: Cpu
+    }
+  ],
+  uiImages: [
+    {
+      src: "/lovable-uploads/66a4a04b-aa90-4553-b44c-c75f89b3b3d4.png",
+      alt: "CLLCTVE portfolio builder interface",
+      title: "Portfolio Builder"
+    },
+    {
+      src: "/lovable-uploads/bb480e3a-f008-47a7-ab1f-621a3954be31.png",
+      alt: "CLLCTVE challenge discovery interface",
+      title: "Challenge Discovery"
     }
   ]
 };
