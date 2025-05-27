@@ -86,7 +86,7 @@ const SitemapWireframes: React.FC<SitemapWireframesProps> = ({
                       viewport={{ once: true, amount: 0.3 }}
                     >
                       {item.name}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
