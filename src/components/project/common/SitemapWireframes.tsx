@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Layers } from "lucide-react";
+import { motion } from "framer-motion";
 
 export interface SitemapItem {
   name: string;
@@ -28,78 +27,114 @@ const SitemapWireframes: React.FC<SitemapWireframesProps> = ({
   sitemapItems,
   wireframesTitle = "Wireframes",
   wireframesDescription,
-  wireframeImages
+  wireframeImages,
 }) => {
   // Find the primary item (usually "Home")
-  const primaryItem = sitemapItems.find(item => item.isPrimary);
+  const primaryItem = sitemapItems.find((item) => item.isPrimary);
   // Filter out secondary items
-  const secondaryItems = sitemapItems.filter(item => !item.isPrimary);
+  const secondaryItems = sitemapItems.filter((item) => !item.isPrimary);
 
   return (
-    <section className="mb-16">
-      <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
-        <CardContent className="p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
-              <Layers className="w-5 h-5 text-primary" />
-            </div>
-            <h2 className="text-2xl font-bold text-white">
-              {title}
-            </h2>
-          </div>
+    <motion.section
+      className="mb-20"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+            {title}
+          </h2>
+        </div>
 
-          <div className="mb-8">
-            <h3 className="text-xl text-white font-semibold mb-4">{sitemapTitle}</h3>
-            <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-6">
-              <div className="flex flex-col items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Sitemap */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-800">
+              {sitemapTitle}
+            </h3>
+
+            <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-8">
+              <div className="flex flex-col items-center space-y-6">
                 {primaryItem && (
                   <>
-                    <div className="bg-primary/20 text-primary px-6 py-3 rounded-lg font-medium mb-4">
+                    <div className="bg-primary/10 border border-primary/20 text-primary px-6 py-3 rounded-xl font-semibold text-lg">
                       {primaryItem.name}
                     </div>
                     <div className="w-px h-8 bg-gray-600"></div>
                   </>
                 )}
-                <div className={`grid grid-cols-1 md:grid-cols-${Math.min(secondaryItems.length, 4)} gap-4 w-full`}>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                   {secondaryItems.map((item, index) => (
-                    <div 
-                      key={index} 
-                      className="bg-[rgba(25,25,25,0.8)] text-white px-4 py-3 rounded-lg font-medium text-center border border-[#9B87F5]"
+                    <motion.div
+                      key={index}
+                      className="bg-gray-800/50 border border-gray-700 text-white px-4 py-3 rounded-xl font-medium text-center hover:border-primary/30 transition-colors duration-300"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      viewport={{ once: true, amount: 0.3 }}
                     >
                       {item.name}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div>
-            <h3 className="text-xl text-white font-semibold mb-4">
+          {/* Wireframes */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <h3 className="text-2xl font-semibold text-white mb-8 pb-3 border-b border-gray-800">
               {wireframesTitle}
             </h3>
-            <p className="text-[rgba(200,200,200,0.9)] mb-6">
+
+            <p className="text-lg text-gray-300 leading-relaxed mb-8">
               {wireframesDescription}
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-8">
               {wireframeImages.map((image, index) => (
-                <div key={index}>
-                  <h4 className="text-primary font-medium mb-3">
+                <motion.div
+                  key={index}
+                  className="space-y-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  <h4 className="text-lg font-semibold text-white">
                     {image.title}
                   </h4>
-                  <img
-                    src={image.imageSrc}
-                    alt={image.imageAlt}
-                    className="rounded-lg border border-gray-700"
-                  />
-                </div>
+                  <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 hover:border-primary/30 transition-colors duration-300">
+                    <img
+                      src={image.imageSrc}
+                      alt={image.imageAlt}
+                      className="w-full rounded-lg"
+                    />
+                  </div>
+                </motion.div>
               ))}
             </div>
-          </div>
-        </CardContent>
-      </Card>
-    </section>
+          </motion.div>
+        </div>
+      </div>
+    </motion.section>
   );
 };
 

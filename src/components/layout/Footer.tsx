@@ -1,97 +1,159 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, MapPin, Coffee } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   const socialLinks = [
-    { 
-      name: 'LinkedIn', 
-      icon: <Linkedin size={18} />, 
-      url: 'https://linkedin.com/in/reggiealleyne' 
+    {
+      name: "LinkedIn",
+      icon: <Linkedin size={20} />,
+      url: "https://linkedin.com/in/reggiealleyne",
+      label: "Connect on LinkedIn",
     },
-    { 
-      name: 'GitHub', 
-      icon: <Github size={18} />, 
-      url: 'https://github.com/ralleyne89' 
+    {
+      name: "GitHub",
+      icon: <Github size={20} />,
+      url: "https://github.com/ralleyne89",
+      label: "View code on GitHub",
     },
-    { 
-      name: 'Email', 
-      icon: <Mail size={18} />, 
-      url: 'mailto:reggiealleyne89@gmail.com' 
-    }
+    {
+      name: "Email",
+      icon: <Mail size={20} />,
+      url: "mailto:reggiealleyne89@gmail.com",
+      label: "Send me an email",
+    },
+  ];
+
+  const quickLinks = [
+    { name: "Work", href: "/works" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
-    <footer className="bg-secondary relative pt-20 pb-8 overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
-          <div className="md:col-span-1">
-            <Link to="/" className="flex items-center mb-6">
-              <img 
-                src="/lovable-uploads/d5f791c1-7299-4a0a-80e0-9e27c0362510.png" 
-                alt="Reggie Alleyne Logo" 
+    <footer className="bg-secondary-dark relative overflow-hidden">
+      {/* Main Footer Content */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* Brand Section */}
+          <div className="lg:col-span-5">
+            <Link to="/" className="inline-block mb-6">
+              <img
+                src="/lovable-uploads/d5f791c1-7299-4a0a-80e0-9e27c0362510.png"
+                alt="Reggie Alleyne Logo"
                 className="h-10 w-auto"
               />
             </Link>
-            
-            <p className="text-gray-400 mb-6 max-w-md">
-              UI/UX Designer specializing in creating beautiful and functional digital experiences that drive business growth and delight users.
+
+            <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-md">
+              Principal Designer who codes, creating digital experiences that
+              bridge the gap between vision and execution.
             </p>
-            
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
+
+            {/* Social Links */}
+            <div className="flex items-center gap-4">
+              {socialLinks.map((social) => (
                 <motion.a
-                  key={index}
+                  key={social.name}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-secondary-light text-gray-400 p-2 rounded-full hover:text-primary hover:bg-primary/10 transition-colors"
-                  whileHover={{ y: -5 }}
-                  whileTap={{ scale: 0.9 }}
+                  aria-label={social.label}
+                  className="group relative flex items-center justify-center w-12 h-12 bg-secondary-dark border-2 border-gray-600 rounded-xl text-gray-300 hover:text-white hover:border-white hover:bg-gray-800 transition-all duration-300"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {social.icon}
+                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                    {social.label}
+                  </div>
                 </motion.a>
               ))}
             </div>
           </div>
-          
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-6">Current Status</h3>
-            <div className="space-y-3 text-gray-400">
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                <span>Available for new projects</span>
+
+          {/* Quick Links */}
+          <div className="lg:col-span-3">
+            <h3 className="text-white font-semibold text-lg mb-6">
+              Quick Links
+            </h3>
+            <nav className="space-y-4">
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="block text-gray-400 hover:text-primary transition-colors duration-200 text-sm"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Status & Contact */}
+          <div className="lg:col-span-4">
+            <h3 className="text-white font-semibold text-lg mb-6">
+              Let's Connect
+            </h3>
+
+            {/* Status Indicators */}
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                  <div className="w-2.5 h-2.5 bg-green-400 rounded-full"></div>
+                  <div className="absolute inset-0 w-2.5 h-2.5 bg-green-400 rounded-full animate-ping opacity-75"></div>
+                </div>
+                <span className="text-gray-300 text-sm">
+                  Available for new projects
+                </span>
               </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
-                <span>Based in Los Angeles, CA</span>
+
+              <div className="flex items-center gap-3">
+                <MapPin size={12} className="text-primary" />
+                <span className="text-gray-400 text-sm">Los Angeles, CA</span>
               </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                <span>Remote collaboration worldwide</span>
+
+              <div className="flex items-center gap-3">
+                <Coffee size={12} className="text-primary" />
+                <span className="text-gray-400 text-sm">
+                  Remote collaboration worldwide
+                </span>
               </div>
             </div>
-            
-            <div className="mt-6 text-gray-400 text-sm">
-              <p>For inquiries: reggiealleyne89@gmail.com</p>
+
+            {/* Contact Email */}
+            <div className="bg-secondary-dark border-2 border-gray-600 rounded-xl p-4 hover:border-white transition-colors duration-300">
+              <p className="text-gray-400 text-xs mb-1">Get in touch</p>
+              <a
+                href="mailto:reggiealleyne89@gmail.com"
+                className="text-primary hover:text-primary-light transition-colors duration-200 font-medium"
+              >
+                reggiealleyne89@gmail.com
+              </a>
             </div>
           </div>
         </div>
-        
-        <div className="border-t border-gray-800 pt-8 text-center">
-          <p className="text-gray-500 text-sm">
-            © {currentYear} Reggie Alleyne. All rights reserved.
-          </p>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-800">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-gray-500 text-sm">
+              © {currentYear} Reggie Alleyne. Crafted with care in Los Angeles.
+            </p>
+            <p className="text-gray-500 text-sm">
+              Built with React, TypeScript & Tailwind CSS
+            </p>
+          </div>
         </div>
       </div>
-      
-      {/* Background elements */}
-      <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      {/* Subtle Background Elements */}
+      <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-primary/3 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -top-32 -right-32 w-64 h-64 bg-primary/3 rounded-full blur-3xl pointer-events-none"></div>
     </footer>
   );
 };

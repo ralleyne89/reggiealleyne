@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Search, LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 export interface ResearchItem {
   text: string;
@@ -36,81 +35,127 @@ const ResearchDiscovery: React.FC<ResearchDiscoveryProps> = ({
   researchSections,
   keyFindings,
   stakeholderGoals,
-  stakeholderGoalsTitle = "Internal Stakeholder Goals"
+  stakeholderGoalsTitle = "Internal Stakeholder Goals",
 }) => {
   return (
-    <section className="mb-16">
-      <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
-        <CardContent className="p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
-              <Search className="w-5 h-5 text-primary" />
-            </div>
-            <h2 className="text-2xl font-bold text-white">
-              {title}
-            </h2>
-          </div>
+    <motion.section
+      className="mb-20"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+            {title}
+          </h2>
 
-          <div className="space-y-6">
-            <p className="text-[rgba(200,200,200,0.9)] leading-relaxed">
-              {introduction}
-            </p>
+          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
+            {introduction}
+          </p>
+        </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-              {researchSections.map((section, index) => (
-                <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
-                  <h3 className="text-lg font-semibold text-white mb-3">
+        {/* Research Sections */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-8 pb-3 border-b border-gray-200">
+            Research Methods
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {researchSections.map((section, index) => (
+              <motion.div
+                key={index}
+                className="group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:border-primary/30 transition-colors duration-300">
+                  <h4 className="text-xl font-semibold text-gray-900 mb-4">
                     {section.title}
-                  </h3>
+                  </h4>
                   {section.description && (
-                    <p className="text-gray-300 mb-3">
+                    <p className="text-gray-700 mb-4 leading-relaxed">
                       {section.description}
                     </p>
                   )}
-                  <ul className="space-y-2 text-gray-300">
+                  <ul className="space-y-3">
                     {section.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
-                        <span>{item.text}</span>
+                      <li key={itemIndex} className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                        <span className="text-gray-700 leading-relaxed">
+                          {item.text}
+                        </span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              ))}
-            </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              {keyFindings.map((finding, index) => (
-                <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
-                  <h3 className="text-lg font-semibold text-white mb-3">
+        {/* Key Findings */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-8 pb-3 border-b border-gray-200">
+            Key Findings
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {keyFindings.map((finding, index) => (
+              <motion.div
+                key={index}
+                className="group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:border-primary/30 transition-colors duration-300">
+                  <h4 className="text-xl font-semibold text-gray-900 mb-4">
                     {finding.title}
-                  </h3>
-                  <p className="text-gray-300">
+                  </h4>
+                  <p className="text-gray-700 leading-relaxed">
                     {finding.description}
                   </p>
                 </div>
-              ))}
-            </div>
-
-            {stakeholderGoals && stakeholderGoals.length > 0 && (
-              <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5 mt-8">
-                <h3 className="text-lg font-semibold text-white mb-3">
-                  {stakeholderGoalsTitle}
-                </h3>
-                <ul className="space-y-2 text-gray-300">
-                  {stakeholderGoals.map((goal, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>{goal.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+              </motion.div>
+            ))}
           </div>
-        </CardContent>
-      </Card>
-    </section>
+        </div>
+
+        {/* Stakeholder Goals */}
+        {stakeholderGoals && stakeholderGoals.length > 0 && (
+          <div>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-8 pb-3 border-b border-gray-200">
+              {stakeholderGoalsTitle}
+            </h3>
+
+            <motion.div
+              className="bg-gray-50 border border-gray-200 rounded-xl p-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {stakeholderGoals.map((goal, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 leading-relaxed">
+                      {goal.text}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </div>
+    </motion.section>
   );
 };
 

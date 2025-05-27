@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 
 // Import key section components
-import IntegratedOverview from "@/components/project/symptom-checkr/IntegratedOverview";
-import ProblemSpace from "@/components/project/symptom-checkr/ProblemSpace";
-import ResearchDiscovery from "@/components/project/symptom-checkr/ResearchDiscovery";
-import UserPersona from "@/components/project/symptom-checkr/UserPersona";
-import FinalUIDesign from "@/components/project/symptom-checkr/FinalUIDesign";
-import ChallengesLearnings from "@/components/project/symptom-checkr/ChallengesLearnings";
+import IntegratedOverview from "@/components/project/tech-noir/IntegratedOverview";
+import TechNoirProblemSpace from "@/components/project/tech-noir/ProblemSpace";
+import TechNoirResearchDiscovery from "@/components/project/tech-noir/ResearchDiscovery";
+import TechNoirUserPersona from "@/components/project/tech-noir/UserPersona";
+import TechNoirFinalUIDesign from "@/components/project/tech-noir/FinalUIDesign";
+import TechNoirChallengesLearnings from "@/components/project/tech-noir/ChallengesLearnings";
 
-const SymptomCheckrCaseStudy = () => {
+const TechNoirCaseStudy = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleImageClick = (imageSrc: string) => {
@@ -20,14 +20,16 @@ const SymptomCheckrCaseStudy = () => {
     setSelectedImage(null);
   };
 
+  console.log("TechNoirCaseStudy is rendering");
+
   return (
     <div className="mt-8 mb-16">
       <IntegratedOverview />
-      <ProblemSpace />
-      <ResearchDiscovery />
-      <UserPersona />
-      <FinalUIDesign handleImageClick={handleImageClick} />
-      <ChallengesLearnings />
+      <TechNoirProblemSpace />
+      <TechNoirResearchDiscovery />
+      <TechNoirUserPersona />
+      <TechNoirFinalUIDesign handleImageClick={handleImageClick} />
+      <TechNoirChallengesLearnings />
 
       {/* Modal for full-size image view */}
       {selectedImage && (
@@ -57,4 +59,4 @@ const SymptomCheckrCaseStudy = () => {
   );
 };
 
-export default SymptomCheckrCaseStudy;
+export default TechNoirCaseStudy;

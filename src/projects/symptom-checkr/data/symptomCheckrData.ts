@@ -15,8 +15,7 @@ import {
   Smile,
   Meh,
   BarChart,
-  Lock,
-  Lightbulb
+  Lock
 } from "lucide-react";
 import { ProjectOverviewProps } from "@/components/project/common/ProjectOverview";
 import { ProblemSpaceProps } from "@/components/project/common/ProblemSpace";
@@ -32,42 +31,42 @@ import { ReflectionProps } from "@/components/project/common/Reflection";
 
 // Project Overview Data
 export const symptomCheckrOverviewData: ProjectOverviewProps = {
-  title: "Project Overview",
+  title: "The Challenge",
   description: [
-    "Symptom Checkr is a digital triage and symptom-checking tool designed to improve the way users access care. The tool leverages conversational AI and clinical intelligence to guide users from \"I don't feel well\" to appropriate care in a seamless, intuitive, and personalized way.",
-    "In response to the COVID-19 pandemic and rising telehealth demand, we were tasked with reimagining the digital \"front door\" to healthcare for a major health insurer. Our goal: create a compelling, trustworthy, and user-friendly interface for symptom checking that enhances health outcomes while reducing unnecessary care utilization."
+    "Picture this: You wake up with a weird rash, your kid has a fever, or you've got chest pain that's probably nothing but... what if it's not? Most people's first instinct is to Google their symptoms and spiral into WebMD doom. 72% of Americans do exactly this—and usually end up more confused than when they started.",
+    "A major health insurer asked me to design something better: a symptom checker that actually helps instead of terrifies. The goal? Guide people from \"I don't feel well\" to the right care without the panic-inducing detour through Dr. Google's house of horrors."
   ],
   projectDetails: [
     {
-      label: "Role",
-      value: "UX/UI Designer & Frontend Developer",
+      label: "My Role",
+      value: "Designer who codes (the best kind)",
       icon: Briefcase
     },
     {
-      label: "Team",
-      value: "1 member",
+      label: "Team Size",
+      value: "Just me (and a lot of coffee)",
       icon: Users
     },
     {
-      label: "Duration",
-      value: "8 weeks",
+      label: "Timeline",
+      value: "8 weeks of intense problem-solving",
       icon: Clock
     }
   ],
   toolDetails: [
     {
-      label: "Tools",
-      value: "Figma, React.js, Shadcn UI",
+      label: "Design Tools",
+      value: "Figma for design, React for reality",
       icon: Image
     },
     {
       label: "Platform",
-      value: "Web + Mobile App",
+      value: "Mobile-first (because anxiety doesn't wait)",
       icon: Monitor
     },
     {
       label: "Client",
-      value: "Confidential Health Care Provider",
+      value: "Major health insurer (can't name names)",
       icon: Briefcase
     }
   ]
@@ -75,49 +74,39 @@ export const symptomCheckrOverviewData: ProjectOverviewProps = {
 
 // Problem Space Data
 export const symptomCheckrProblemSpaceData: ProblemSpaceProps = {
-  title: "Problem Space",
-  introduction: "72% of Americans search online first when sick—often encountering conflicting information and misdiagnosing themselves.",
+  title: "The Real Problem",
+  introduction: "Existing symptom checkers are basically digital hypochondriac factories. They either tell you everything is cancer or that you're fine when you're clearly not. People don't trust them, and honestly, they shouldn't.",
   challenges: [
     {
-      title: "Trust Deficit",
-      description: "Users lack trust in existing symptom checkers, often questioning their accuracy and reliability.",
+      title: "The Trust Issue",
+      description: "Would you trust a symptom checker that looks like it was designed in 2003? Neither would your users. Most tools feel clinical, cold, and about as trustworthy as a fortune cookie.",
       icon: AlertCircle
     },
     {
-      title: "Fragmented Experience",
-      description: "Traditional health plan portals are fragmented, confusing, and difficult to navigate.",
+      title: "The Panic Problem",
+      description: "Current tools either send everyone to the ER or tell them they're fine. There's no middle ground, no nuance, and definitely no chill.",
       icon: AlertCircle
     },
     {
-      title: "Unnecessary Care",
-      description: "Members often default to urgent care or ER unnecessarily, increasing costs and wait times.",
-      icon: AlertCircle
-    },
-    {
-      title: "Missed Opportunities",
-      description: "Health plans miss the opportunity to guide users early in their care journey.",
+      title: "The Fragmentation Frustration",
+      description: "Health portals are digital mazes. Users get lost trying to find what they need, give up, and just go to urgent care instead.",
       icon: AlertCircle
     }
   ],
   designGoals: [
     {
-      title: "Build Trust",
-      description: "Create an empathetic, conversational UI that users feel comfortable sharing health information with.",
+      title: "Make It Human",
+      description: "Design something that feels like talking to a knowledgeable friend, not filling out a medical form.",
       icon: Target
     },
     {
-      title: "Reduce Friction",
-      description: "Streamline the symptom assessment process to make it intuitive and efficient.",
+      title: "Build Actual Trust",
+      description: "Be transparent about how the AI works and what it can't do. Honesty is the best UX policy.",
       icon: Target
     },
     {
-      title: "Increase Self-Service",
-      description: "Encourage appropriate self-care without sacrificing medical accuracy.",
-      icon: Target
-    },
-    {
-      title: "Seamless Integration",
-      description: "Connect with existing care tools (telehealth, coaching, in-network finders).",
+      title: "Guide, Don't Guess",
+      description: "Help people make informed decisions instead of wild guesses about their health.",
       icon: Target
     }
   ]
@@ -126,163 +115,152 @@ export const symptomCheckrProblemSpaceData: ProblemSpaceProps = {
 // Research & Discovery Data
 export const symptomCheckrResearchData: ResearchDiscoveryProps = {
   title: "Research & Discovery",
-  introduction: "The research phase began with a comprehensive analysis of how users seek care when symptoms arise and a competitive audit of existing symptom checker tools.",
+  introduction: "I talked to 8 people about their symptom-checking habits and audited every major competitor. Spoiler alert: everyone's doing it wrong.",
   researchSections: [
     {
-      title: "User Research",
+      title: "User Interviews",
       items: [
         {
-          text: "Interviewed 8 members (ages 25–60) about how they seek care when symptoms arise"
+          text: "People Google symptoms first, panic second, then either ignore it or rush to urgent care"
         },
         {
-          text: "Synthesized data into key personas like \"Anxious Googler Anna\" and \"Busy Parent Ben\""
+          text: "They want something that feels trustworthy but not intimidating (think helpful nurse, not robot doctor)"
         },
         {
-          text: "Reviewed behavioral data on search and care-seeking habits"
+          text: "Visual symptoms are hard to describe in text—they want to show, not tell"
         }
       ]
     },
     {
-      title: "Competitive Audit",
-      description: "Analyzed tools like Ada, Buoy, Conversa, and K Health. Key findings:",
+      title: "Competitive Analysis",
+      description: "I tested Ada, Buoy, K Health, and others. Here's what I found:",
       items: [
         {
-          text: "Ada showed the highest accuracy but had a dense UX"
+          text: "Ada: Accurate but feels like taking a medical exam"
         },
         {
-          text: "Buoy had a friendly tone but felt impersonal after the first interaction"
+          text: "Buoy: Friendly at first, then becomes a cold questionnaire"
         },
         {
-          text: "Conversa had strong provider integration but lacked visual polish"
+          text: "K Health: Good integration but looks like a 2015 startup"
         }
       ]
     }
   ],
   keyFindings: [
     {
-      title: "Key Finding 1",
-      description: "Existing tools often provide too much medical jargon without explaining implications clearly."
+      title: "Insight #1: Jargon is the Enemy",
+      description: "Medical terms without context just create more anxiety. People need plain English explanations."
     },
     {
-      title: "Key Finding 2",
-      description: "Users want transparency about how symptom analysis works to build trust in the results."
+      title: "Insight #2: Show Your Work",
+      description: "Users want to understand how the AI reached its conclusions. Black box = no trust."
     },
     {
-      title: "Key Finding 3",
-      description: "Most competitors lack visual input options, limiting accessibility for certain symptoms."
-    }
-  ],
-  stakeholderGoals: [
-    {
-      text: "Encourage early engagement with health resources"
-    },
-    {
-      text: "Reduce ER visits and medical spend"
-    },
-    {
-      text: "Integrate with existing care resources and analytics"
+      title: "Insight #3: Pictures Worth 1000 Words",
+      description: "Rashes, bumps, and weird spots are hard to describe. Let people upload photos."
     }
   ]
 };
 
 // Ideation & Strategy Data
 export const symptomCheckrIdeationData: IdeationStrategyProps = {
-  title: "Ideation & Strategy",
-  introduction: "We used a whiteboarding session to map the end-to-end care journey and develop the strategy for the symptom checker experience.",
+  title: "The Strategy",
+  introduction: "After mapping out the user journey (and realizing how broken the current experience is), I focused on three core principles that would make this actually useful.",
   keyInsights: [
     {
-      highlight: "Users must feel guided and in control.",
-      description: "The interface should provide clear direction while allowing users to feel they're making informed decisions about their health."
+      highlight: "Make it conversational, not clinical.",
+      description: "Nobody wants to feel like they're filling out insurance paperwork when they're worried about their health."
     },
     {
-      highlight: "Triaging must feel human, not like a form.",
-      description: "The conversational interface should adapt to user responses and feel like a helpful consultation rather than a clinical questionnaire."
+      highlight: "Transparency builds trust.",
+      description: "Show users how the AI works and what it can't do. Mystery algorithms are scary algorithms."
     },
     {
-      highlight: "Success hinges on cross-platform consistency.",
-      description: "The experience must be equally effective on mobile and desktop to meet users where they are when symptoms arise."
+      highlight: "Mobile-first, anxiety-second.",
+      description: "People check symptoms on their phones at 2 AM. Design for that moment of worry, not the doctor's office."
     }
   ],
-  flowTitle: "Interaction Flow",
+  flowTitle: "How It Actually Works",
   flowSteps: [
     {
       number: 1,
-      title: "Symptom Onset → Opens app or mobile web",
-      description: "User experiences symptoms and accesses the tool through their health plan portal or direct link"
+      title: "Something's Wrong",
+      description: "User notices symptoms and opens the app instead of Googling 'is this cancer'"
     },
     {
       number: 2,
-      title: "Conversational Assessment → AI asks adaptive questions",
-      description: "The system guides users through relevant questions based on their initial symptom description"
+      title: "Smart Questions",
+      description: "AI asks relevant follow-ups based on what they describe (no 50-question surveys)"
     },
     {
       number: 3,
-      title: "Triaged Recommendation → Actionable next steps",
-      description: "User receives personalized care options (self-care, telehealth, in-network clinic)"
+      title: "Clear Guidance",
+      description: "Get specific next steps: self-care, telehealth, or 'yes, go to the ER now'"
     },
     {
       number: 4,
-      title: "Optional Follow-up → Share report with PCP",
-      description: "Users can save or share their symptom report with healthcare providers"
+      title: "Follow Through",
+      description: "Save the report, share with doctors, or set reminders to check symptoms again"
     }
   ]
 };
 
 // User Persona Data
 export const symptomCheckrPersonaData: UserPersonaProps = {
-  title: "User Persona",
+  title: "Meet Sarah",
   imageSrc: "/lovable-uploads/Sarah-Mitchell-Persona.png",
   imageAlt: "Sarah Mitchell Persona",
   name: "Sarah Mitchell",
   details: [
     {
       label: "Age",
-      value: "38"
+      value: "30"
     },
     {
-      label: "Occupation",
-      value: "Working Parent, Marketing Manager"
+      label: "Life",
+      value: "Mom of 3, juggling everything"
     },
     {
-      label: "Tech Comfort",
-      value: "Medium-High"
+      label: "Tech Skills",
+      value: "Pretty good, but no time for complicated apps"
     },
     {
-      label: "Health Behavior",
-      value: "Cautious, researches before seeking care"
+      label: "Health Style",
+      value: "Cautious but practical"
     }
   ],
   goals: [
     {
-      text: "Understand symptoms quickly without rushing to urgent care"
+      text: "Figure out if her kid's fever is 'call the doctor' serious or 'give it a day' normal"
     },
     {
-      text: "Save time and avoid unnecessary appointments"
+      text: "Avoid the urgent care waiting room if possible (have you seen those germs?)"
     },
     {
-      text: "Feel reassured she's making the right call"
+      text: "Make smart health decisions without a medical degree"
     }
   ],
   frustrations: [
     {
-      text: "Medical sites are overwhelming or vague"
+      text: "WebMD thinks everything is either nothing or cancer"
     },
     {
-      text: "Doesn't want to self-diagnose, but needs guidance"
+      text: "Health portals are designed by people who clearly never use them"
     },
     {
-      text: "Worries about trusting unknown health tools"
+      text: "Can't tell if symptoms are 'normal parent worry' or 'actual concern'"
     }
   ],
   needs: [
     {
-      text: "A clean, friendly UI that feels trustworthy and private"
+      text: "Something that doesn't look like it was designed in a hospital"
     },
     {
-      text: "Fast results with actionable advice"
+      text: "Straight answers, not medical riddles"
     },
     {
-      text: "Transparency about how AI works"
+      text: "Confidence that the AI isn't just guessing"
     }
   ]
 };
@@ -455,20 +433,20 @@ export const symptomCheckrSitemapData: SitemapWireframesProps = {
 
 // Final UI Design Data
 export const symptomCheckrUIData: FinalUIDesignProps = {
-  title: "Final UI Design",
-  introduction: "The final UI design emphasizes clarity, trust, and accessibility. A calming color palette with clear visual hierarchies guides users through the symptom checking process while minimizing anxiety.",
+  title: "The Final Design",
+  introduction: "I designed something that feels more like a helpful conversation than a medical interrogation. Soft colors, clear language, and just enough personality to make people feel comfortable sharing their health concerns.",
   designHighlights: [
     {
-      text: "Soft color palette for approachability and reduced clinical feel"
+      text: "Calming colors that don't scream 'MEDICAL EMERGENCY' at every interaction"
     },
     {
-      text: "Rounded UI elements to reduce clinical stiffness and create a more friendly interface"
+      text: "Rounded corners because sharp edges feel aggressive when you're already anxious"
     },
     {
-      text: "Micro-animations signal thinking, responding, and guidance for user state"
+      text: "Subtle animations that show the AI is 'thinking' (because waiting in silence is terrifying)"
     },
     {
-      text: "Design system aligned with WCAG 2.1 AA accessibility standards"
+      text: "Accessible design that works for everyone, not just people with perfect vision"
     }
   ],
   designFeatures: [
@@ -510,18 +488,18 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
   imageCaption: "Final UI design showcasing the symptom input and results screens",
   uiFeatures: [
     {
-      title: "Dual Input Options",
-      description: "Text description or image upload for different types of symptoms and user preferences.",
+      title: "Show, Don't Tell",
+      description: "Upload a photo of that weird rash instead of trying to describe it. Sometimes a picture really is worth a thousand words.",
       icon: Image
     },
     {
-      title: "Likelihood Indicators",
-      description: "Visual scales showing probability of each potential cause based on symptom analysis.",
+      title: "Honest Probabilities",
+      description: "No more 'you might have 47 different diseases.' Clear likelihood indicators for each possibility.",
       icon: BarChart
     },
     {
-      title: "Privacy Controls",
-      description: "Clear consent flows and options to delete data after each session.",
+      title: "Your Data, Your Choice",
+      description: "Delete everything when you're done, or save it to share with your doctor. Total transparency, no hidden data collection.",
       icon: Lock
     }
   ]
@@ -560,49 +538,49 @@ export const symptomCheckrOutcomesData: OutcomesImpactProps = {
 
 // Challenges & Learnings Data
 export const symptomCheckrChallengesData: ChallengesLearningsProps = {
-  title: "Challenges & Learnings",
+  title: "What I Learned",
   challenges: [
     {
-      title: "Building User Trust",
-      description: "Creating a health tool that users would trust with sensitive information required extensive research on trust indicators and transparent design."
+      title: "Trust is Everything",
+      description: "People won't share health info with something that looks sketchy. Every design decision had to scream 'trustworthy' without being boring."
     },
     {
-      title: "Balancing Detail vs. Clarity",
-      description: "Finding the right level of medical detail without overwhelming users or oversimplifying conditions was a constant challenge."
+      title: "The Goldilocks Problem",
+      description: "Too much medical detail = panic. Too little = useless. Finding the 'just right' amount of information was like threading a needle."
     },
     {
-      title: "Avoiding Unused Features",
-      description: "Initial testing revealed that several planned features were rarely used, requiring a streamlined redesign to focus on core functionality."
+      title: "Feature Creep is Real",
+      description: "Stakeholders wanted to add everything. Users wanted simplicity. Guess who won? (Hint: it wasn't the stakeholders.)"
     }
   ],
   learnings: [
     {
-      title: "Transparency Builds Trust",
-      description: "Users were far more willing to trust the system when they understood how the AI worked and its limitations."
+      title: "Show Your Work",
+      description: "When users understand how the AI reaches conclusions, they trust it more. Black boxes are scary in healthcare."
     },
     {
-      title: "Visual Communication is Key",
-      description: "Visual hierarchy and clear iconography significantly improved user comprehension of medical information."
+      title: "Design for Anxiety",
+      description: "People using symptom checkers are worried. Every interaction should reduce anxiety, not increase it."
     },
     {
-      title: "Ethical Design is Non-Negotiable",
-      description: "In health tech, ethical considerations must be built into every aspect of the design process, not added as an afterthought."
+      title: "Ethics First, Features Second",
+      description: "In health tech, 'move fast and break things' can literally break people. Ethical design isn't optional."
     }
   ],
   nextSteps: [
     {
-      title: "Telehealth Integration",
-      description: "Connect users with healthcare providers for follow-up when symptoms warrant medical attention.",
+      title: "Better Integration",
+      description: "Connect directly to telehealth platforms so users don't have to start over when they need a real doctor.",
       icon: Target
     },
     {
       title: "Symptom Tracking",
-      description: "Allow users to monitor symptoms over time to identify patterns and changes for more accurate assessments.",
+      description: "Let people track symptoms over time to spot patterns (because 'it started Tuesday' is more helpful than 'recently').",
       icon: Target
     },
     {
-      title: "Expanded AI Training",
-      description: "Further train the AI model on diverse datasets to improve accuracy across different demographics and conditions.",
+      title: "Smarter AI",
+      description: "Train the model on more diverse data so it works better for everyone, not just the people in the original dataset.",
       icon: Target
     }
   ]

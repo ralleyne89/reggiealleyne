@@ -1,9 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { ProjectType } from '@/types/project';
-import { BentoCard, BentoGrid } from '@/components/ui/bento-grid';
-import { Code, Palette, Layout, Monitor, ArrowUpRight } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { ProjectType } from "@/types/project";
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { Code, Palette, Layout, Monitor, ArrowUpRight } from "lucide-react";
 
 interface BentoFeaturedProjectsProps {
   projects?: ProjectType[];
@@ -14,12 +14,16 @@ interface BentoFeaturedProjectsProps {
 // Map of project ID to icon component
 const projectIcons = {
   2: Palette, // Tutor D - UI/UX Design focus
-  3: Code,    // Tech Noir - Development focus
-  1: Layout,  // Cllctve
-  4: Monitor  // Other projects
+  3: Code, // Tech Noir - Development focus
+  1: Layout, // Cllctve
+  4: Monitor, // Other projects
 };
 
-const BentoFeaturedProjects = ({ projects, isLoading, error }: BentoFeaturedProjectsProps) => {
+const BentoFeaturedProjects = ({
+  projects,
+  isLoading,
+  error,
+}: BentoFeaturedProjectsProps) => {
   const navigate = useNavigate();
 
   if (error) {
@@ -46,27 +50,28 @@ const BentoFeaturedProjects = ({ projects, isLoading, error }: BentoFeaturedProj
 
   // Define the specific projects to show
   const featuredProjectIds = [3, 2, 1]; // Tech Noir, Tutor D, Cllctve
-  
+
   // Filter to get only the specified projects in the right order
   const featuredProjects = featuredProjectIds
-    .map(id => projects?.find(project => project.id === id))
-    .filter(project => project !== undefined) as ProjectType[];
+    .map((id) => projects?.find((project) => project.id === id))
+    .filter((project) => project !== undefined) as ProjectType[];
 
   // Prepare data for the BentoGrid
   const bentoFeatures = featuredProjects.map((project) => {
     const IconComponent = projectIcons[project.id] || Monitor;
-    
+
     return {
       name: project.title,
       description: project.description,
       Icon: IconComponent,
-      href: project.slug ? `/project/${project.slug}` : `/project/${project.id}`,
-      cta: "View Project",
+      href: project.slug
+        ? `/project/${project.slug}`
+        : `/project/${project.id}`,
       background: (
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/60 z-10"></div>
-          <img 
-            src={project.image} 
+          <img
+            src={project.image}
             alt={project.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             onError={(e) => {
@@ -76,9 +81,10 @@ const BentoFeaturedProjects = ({ projects, isLoading, error }: BentoFeaturedProj
           />
         </div>
       ),
-      className: project.id === 3 
-        ? "md:col-span-2" // Tech Noir spans 2 columns on medium screens
-        : "col-span-1",
+      className:
+        project.id === 3
+          ? "md:col-span-2" // Tech Noir spans 2 columns on medium screens
+          : "col-span-1",
     };
   });
 

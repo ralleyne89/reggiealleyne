@@ -1,8 +1,7 @@
-
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ProjectType } from '@/types/project';
-import { Eye, ArrowUpRight } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { ProjectType } from "@/types/project";
+import { ExternalLink } from "lucide-react";
 
 interface ProjectCardProps {
   project: ProjectType;
@@ -10,73 +9,153 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
-  // Check if this is the Chill Vibes project
+  // Get the primary category/tag for display
+  const primaryCategory =
+    project.category || (project.tags && project.tags[0]) || "Product";
+
+  // Check if this is the Chill Vibes project for special image handling
   const isChillVibesProject = project.title === "Chill Vibes Music Player";
-  
-  // Check if this is the Bob's Big Break project
   const isBobsProject = project.title === "Bob's Big Break";
-  
+
   return (
-    <div 
-      className="h-full bg-[rgba(16,16,16,0.7)] backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
+    <motion.div
+      className="group cursor-pointer py-16 border-b border-gray-800/30 last:border-b-0"
       onClick={() => onProjectClick(project)}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
     >
-      <div className="relative h-52">
-        <img 
-          src={
-            isChillVibesProject 
-              ? "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png" 
-              : project.image
-          } 
-          alt={project.title}
-          className={`w-full h-full ${isChillVibesProject || isBobsProject ? 'object-contain bg-black' : 'object-cover'} transition-transform duration-700 group-hover:scale-110`}
-          onError={(e) => {
-            console.error(`Image failed to load: ${project.image}`);
-            e.currentTarget.src = "/placeholder.svg";
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(16,16,16,1)] via-transparent to-transparent"></div>
-        
-        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 flex items-center justify-center bg-black/40 transition-opacity duration-300">
-          <span className="bg-primary text-white font-medium px-4 py-2 rounded-full flex items-center gap-2">
-            <Eye size={16} />
-            View Case Study
-          </span>
+      {/* Year and Category Header */}
+      <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-8 mb-8">
+        <div className="text-sm text-gray-500">{project.year}</div>
+        <div className="text-sm text-primary font-medium uppercase tracking-wider">
+          {primaryCategory}
         </div>
       </div>
-      
-      <div className="p-6">
-        <div className="flex flex-wrap gap-2 mb-3">
-          {project.tags?.slice(0, 3).map((tag, index) => (
-            <span 
-              key={index}
-              className="px-3 py-1 text-xs bg-primary/10 rounded-full text-primary"
-            >
-              {tag}
-            </span>
-          ))}
-          {project.tags && project.tags.length > 3 && (
-            <span className="px-3 py-1 text-xs bg-gray-800 rounded-full text-gray-400">
-              +{project.tags.length - 3}
-            </span>
+
+      {/* Project Title */}
+      <h2 className="text-3xl lg:text-5xl font-heading font-bold text-white group-hover:text-primary transition-colors duration-300 mb-12">
+        {project.title}
+      </h2>
+
+      {/* Main Content Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        {/* Left Column - Project Details */}
+        <div className="space-y-8">
+          {/* Project Description */}
+          <div className="space-y-6">
+            <p className="text-gray-300 text-lg leading-relaxed">
+              {project.fullDescription || project.description}
+            </p>
+
+            {/* Additional description if available */}
+            {project.solution && (
+              <p className="text-gray-400 text-base leading-relaxed">
+                {project.solution}
+              </p>
+            )}
+          </div>
+
+          {/* Project Metadata */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+            <div>
+              <div className="text-gray-500 mb-2">Role</div>
+              <div className="text-white">{project.role}</div>
+            </div>
+
+            <div>
+              <div className="text-gray-500 mb-2">Duration</div>
+              <div className="text-white">{project.duration}</div>
+            </div>
+
+            {project.deliverables && project.deliverables.length > 0 && (
+              <div className="sm:col-span-2">
+                <div className="text-gray-500 mb-2">Deliverables</div>
+                <div className="text-white">
+                  {project.deliverables.join(", ")}
+                </div>
+              </div>
+            )}
+
+            {project.teamSize && (
+              <div>
+                <div className="text-gray-500 mb-2">Team</div>
+                <div className="text-white">{project.teamSize}</div>
+              </div>
+            )}
+
+            {project.liveUrl && (
+              <div>
+                <div className="text-gray-500 mb-2">Visit Website</div>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:text-primary-light transition-colors flex items-center gap-1"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {project.liveUrl.replace(/^https?:\/\//, "")}
+                  <ExternalLink size={14} />
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Right Column - Project Images */}
+        <div className="space-y-4">
+          {/* Main Project Image */}
+          <div className="relative group/image">
+            <img
+              src={
+                isChillVibesProject
+                  ? "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png"
+                  : project.image
+              }
+              alt={project.title}
+              className={`w-full h-auto rounded-lg transition-transform duration-500 group-hover:scale-[1.02] ${
+                isChillVibesProject || isBobsProject
+                  ? "object-contain bg-gray-900"
+                  : "object-cover"
+              }`}
+              onError={(e) => {
+                console.error(`Image failed to load: ${project.image}`);
+                e.currentTarget.src = "/placeholder.svg";
+              }}
+            />
+          </div>
+
+          {/* Additional Images if available */}
+          {project.images && project.images.length > 0 && (
+            <div className="grid grid-cols-2 gap-4">
+              {project.images.slice(0, 4).map((image, index) => (
+                <div key={index} className="relative group/image">
+                  <img
+                    src={image}
+                    alt={`${project.title} - Image ${index + 1}`}
+                    className="w-full h-32 object-cover rounded-lg transition-transform duration-500 group-hover:scale-[1.02]"
+                    onError={(e) => {
+                      e.currentTarget.src = "/placeholder.svg";
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
           )}
         </div>
-        
-        <h3 className="text-xl font-heading font-semibold mb-2 text-white group-hover:text-primary transition-colors flex items-center gap-2">
-          {project.title}
-          <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-        </h3>
-        
-        <p className="text-gray-400 text-sm mb-4 line-clamp-2">{project.description}</p>
-        
-        <div className="flex justify-between items-center">
-          <span className="text-sm text-gray-500">{project.year}</span>
-          <span className="text-primary text-sm font-medium">
-            {project.role || "UI/UX Designer"}
-          </span>
-        </div>
       </div>
-    </div>
+
+      {/* Result/Status Indicator */}
+      {project.conclusion?.impact && (
+        <div className="mt-8 pt-6 border-t border-gray-800/30">
+          <div className="text-sm">
+            <span className="text-gray-500">Result</span>
+            <br />
+            <span className="text-white">{project.conclusion.impact}</span>
+          </div>
+        </div>
+      )}
+    </motion.div>
   );
 };
 
