@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, LucideIcon } from "lucide-react";
@@ -126,7 +125,7 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
               }}>
                     <div className="flex flex-col items-center text-center">
                       <Icon className="w-6 h-6 text-gray-800 mb-3" />
-                      <p className="text-gray-700 text-sm leading-relaxed">
+                      <p className="text-gray-700 text-sm leading-relaxed text-left">
                         {action.description}
                       </p>
                     </div>
