@@ -30,7 +30,7 @@ const ProjectHeader = ({
   const isCaseStudy =
     title.includes("SymptomCheckr") || 
     title.includes("Tutor D") || 
-    title === "CLLCTVE";
+    title === "CLLCTVE Platform";
 
   const handleImageError = () => {
     console.error(`Header image failed to load: ${image}`);
