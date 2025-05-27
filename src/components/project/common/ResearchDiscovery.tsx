@@ -1,18 +1,18 @@
 
 import React from "react";
 
-interface ResearchSection {
+export interface ResearchSection {
   title: string;
   description: string;
   items: { text: string }[];
 }
 
-interface KeyFinding {
+export interface KeyFinding {
   title: string;
   description: string;
 }
 
-interface ResearchDiscoveryProps {
+export interface ResearchDiscoveryProps {
   title: string;
   introduction: string;
   researchSections: ResearchSection[];

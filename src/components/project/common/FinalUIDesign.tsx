@@ -1,23 +1,23 @@
 
 import React from "react";
 
-interface DesignHighlight {
+export interface DesignHighlight {
   text: string;
 }
 
-interface UIFeature {
+export interface UIFeature {
   title: string;
   description: string;
   icon: React.ComponentType<{ className?: string }>;
 }
 
-interface UIImage {
+export interface UIImage {
   src: string;
   alt: string;
   title: string;
 }
 
-interface FinalUIDesignProps {
+export interface FinalUIDesignProps {
   title: string;
   introduction: string;
   designHighlights: DesignHighlight[];

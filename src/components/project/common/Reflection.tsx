@@ -1,12 +1,12 @@
 
 import React from "react";
 
-interface Insight {
+export interface Insight {
   title: string;
   description: string;
 }
 
-interface ReflectionProps {
+export interface ReflectionProps {
   title: string;
   content: string;
   insights: Insight[];

@@ -1,19 +1,19 @@
 
 import React from "react";
 
-interface Challenge {
+export interface Challenge {
   title: string;
   description: string;
   icon: React.ComponentType<{ className?: string }>;
 }
 
-interface DesignGoal {
+export interface DesignGoal {
   title: string;
   description: string;
   icon: React.ComponentType<{ className?: string }>;
 }
 
-interface ProblemSpaceProps {
+export interface ProblemSpaceProps {
   title: string;
   introduction: string;
   challenges: Challenge[];

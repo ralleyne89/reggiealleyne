@@ -1,18 +1,18 @@
 
 import React from "react";
 
-interface KeyInsight {
+export interface KeyInsight {
   highlight: string;
   description: string;
 }
 
-interface FlowStep {
+export interface FlowStep {
   number: number;
   title: string;
   description: string;
 }
 
-interface IdeationStrategyProps {
+export interface IdeationStrategyProps {
   title: string;
   introduction: string;
   keyInsights: KeyInsight[];
