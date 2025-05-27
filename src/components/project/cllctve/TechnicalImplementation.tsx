@@ -36,7 +36,18 @@ const TechnicalImplementation = ({
     },
   ];
 
-  const images = [];
+  const images = [
+    {
+      src: "/lovable-uploads/65856eaa-3e77-4597-a085-470d7bab7736.png",
+      alt: "CLLCTVE platform profile interface",
+      title: "User Profile Interface",
+    },
+    {
+      src: "/lovable-uploads/64ebd4e8-68f6-4485-b384-d7a200ebce06.png",
+      alt: "CLLCTVE platform landing page",
+      title: "Platform Landing Page",
+    },
+  ];
 
   return (
     <motion.section
@@ -91,6 +102,39 @@ const TechnicalImplementation = ({
             );
           })}
         </div>
+
+        {/* Visual Evidence */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mb-8"
+        >
+          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
+            Visual Implementation
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {images.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                onClick={() => handleImageClick(image.src)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-64 object-cover"
+                />
+                <div className="p-4">
+                  <h4 className="font-semibold text-gray-900">{image.title}</h4>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </motion.section>
   );

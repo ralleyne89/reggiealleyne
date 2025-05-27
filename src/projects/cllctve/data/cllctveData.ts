@@ -209,7 +209,18 @@ export const cllctveSitemapData = {
     { name: "Profile Management" }
   ],
   wireframesDescription: "The platform architecture was designed to seamlessly blend portfolio management with opportunity discovery.",
-  wireframeImages: []
+  wireframeImages: [
+    {
+      title: "Portfolio Builder Interface",
+      imageSrc: "/lovable-uploads/66a4a04b-aa90-4553-b44c-c75f89b3b3d4.png",
+      imageAlt: "CLLCTVE portfolio builder wireframe"
+    },
+    {
+      title: "Challenge Discovery Feed",
+      imageSrc: "/lovable-uploads/bb480e3a-f008-47a7-ab1f-621a3954be31.png",
+      imageAlt: "CLLCTVE challenge discovery wireframe"
+    }
+  ]
 };
 
 export const cllctveUIData = {
@@ -255,7 +266,18 @@ export const cllctveUIData = {
       icon: Cpu
     }
   ],
-  uiImages: []
+  uiImages: [
+    {
+      src: "/lovable-uploads/66a4a04b-aa90-4553-b44c-c75f89b3b3d4.png",
+      alt: "CLLCTVE portfolio builder interface",
+      title: "Portfolio Builder"
+    },
+    {
+      src: "/lovable-uploads/bb480e3a-f008-47a7-ab1f-621a3954be31.png",
+      alt: "CLLCTVE challenge discovery interface",
+      title: "Challenge Discovery"
+    }
+  ]
 };
 
 export const cllctveChallengesData = {

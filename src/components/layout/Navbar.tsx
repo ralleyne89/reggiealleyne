@@ -64,7 +64,7 @@ const Navbar = () => {
               transition={{ type: "spring", stiffness: 500 }}
             >
               {/* <img
-                src="/ra-logo.svg"
+                src="../lovable-uploads/reggie-logo-2025.PNG"
                 alt="Reggie Alleyne Logo"
                 className="h-10 w-10 transition-all duration-300"
                 
