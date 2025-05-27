@@ -11,7 +11,6 @@ import ResearchDiscovery from "@/components/project/tutor-d/ResearchDiscovery";
 import IdeationStrategy from "@/components/project/tutor-d/IdeationStrategy";
 import UserPersona from "@/components/project/tutor-d/UserPersona";
 import UserJourneyMap from "@/components/project/tutor-d/UserJourneyMap";
-import SitemapWireframes from "@/components/project/tutor-d/SitemapWireframes";
 import TechnicalImplementation from "@/components/project/tutor-d/TechnicalImplementation";
 import ChallengesLearnings from "@/components/project/tutor-d/ChallengesLearnings";
 import Reflection from "@/components/project/tutor-d/Reflection";
@@ -38,7 +37,6 @@ const TutorDCaseStudy = () => {
       <IdeationStrategy />
       <UserPersona />
       <UserJourneyMap />
-      <SitemapWireframes />
       <TechnicalImplementation handleImageClick={handleImageClick} />
       <DirectUIImages handleImageClick={handleImageClick} />
       <ChallengesLearnings />
