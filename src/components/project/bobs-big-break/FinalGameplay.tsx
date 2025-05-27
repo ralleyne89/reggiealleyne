@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Play, MousePointer, DollarSign, TrendingUp } from "lucide-react";
@@ -38,7 +37,7 @@ const FinalGameplay = ({ handleImageClick }: FinalGameplayProps) => {
       transition={{ duration: 0.6 }}
       className="py-16 bg-gray-50"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="w-full px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
