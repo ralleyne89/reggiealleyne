@@ -39,104 +39,107 @@ const FinalUIDesign = ({
 }: FinalUIDesignProps) => {
   return (
     <motion.section 
-      className="mb-16"
+      className="py-16 bg-white"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount: 0.3 }}
     >
-      <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
-        <CardContent className="p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
-              <FileText className="w-5 h-5 text-primary" />
-            </div>
-            <h2 className="text-2xl font-bold text-white">{title}</h2>
-          </div>
-
-          <p className="text-[rgba(200,200,200,0.9)] mb-6 leading-relaxed">
+      <div className="w-full px-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+            {title}
+          </h2>
+          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
             {introduction}
           </p>
+        </motion.div>
 
-          {/* Design Highlights */}
-          <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5 mb-8">
-            <h3 className="text-lg font-semibold text-white mb-3">
-              Design Highlights
+        {/* Design Highlights */}
+        <div className="bg-gray-50 rounded-xl p-8 mb-16">
+          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-6">
+            Design Highlights
+          </h3>
+          <ul className="space-y-3 text-gray-700">
+            {designHighlights.map((highlight, index) => (
+              <li key={index} className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></div>
+                <span className="leading-relaxed">{highlight.text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* UI Images */}
+        {uiImages && uiImages.length > 0 && (
+          <div className="mb-16">
+            <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8 text-center">
+              Interface Design
             </h3>
-            <ul className="space-y-2 text-gray-300">
-              {designHighlights.map((highlight, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
-                  <span>{highlight.text}</span>
-                </li>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {uiImages.map((image, index) => (
+                <motion.div 
+                  key={index} 
+                  className="space-y-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  <h4 className="text-xl font-semibold text-gray-900 mb-4">{image.title}</h4>
+                  <div 
+                    className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50"
+                    onClick={() => handleImageClick?.(image.src)}
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </motion.div>
               ))}
-            </ul>
-          </div>
-
-          {/* UI Images */}
-          {uiImages && uiImages.length > 0 && (
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold text-white mb-4">
-                Interface Screenshots
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {uiImages.map((image, index) => (
-                  <motion.div 
-                    key={index} 
-                    className="space-y-2"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                  >
-                    <h4 className="text-primary font-medium mb-2">{image.title}</h4>
-                    <div 
-                      className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-700 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
-                      onClick={() => handleImageClick?.(image.src)}
-                    >
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* UI Features */}
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-4">
-              Key Features
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {uiFeatures.map((feature, index) => {
-                const IconComponent = feature.icon;
-                return (
-                  <motion.div 
-                    key={index} 
-                    className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                  >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="bg-primary/10 p-2 rounded-full">
-                        <IconComponent className="w-4 h-4 text-primary" />
-                      </div>
-                      <h4 className="text-white font-medium">{feature.title}</h4>
-                    </div>
-                    <p className="text-gray-300 text-sm">{feature.description}</p>
-                  </motion.div>
-                );
-              })}
             </div>
           </div>
-        </CardContent>
-      </Card>
+        )}
+
+        {/* UI Features */}
+        <div>
+          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8 text-center">
+            Key Features
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {uiFeatures.map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <motion.div 
+                  key={index} 
+                  className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                      <IconComponent className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h4>
+                      <p className="text-gray-700 leading-relaxed">{feature.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </motion.section>
   );
 };
