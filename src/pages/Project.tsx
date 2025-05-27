@@ -14,6 +14,7 @@ import ProjectConclusion from "@/components/project/ProjectConclusion";
 import { SymptomCheckrCaseStudy } from "@/projects/symptom-checkr";
 import { TutorDCaseStudy } from "@/projects/tutor-d";
 import { TechNoirCaseStudy } from "@/projects/tech-noir";
+import { CllctveCaseStudy } from "@/projects/cllctve";
 import { ProjectType } from "@/types/project";
 
 const Project = () => {
@@ -74,7 +75,8 @@ const Project = () => {
     if (
       project?.slug === "symptom-checkr" ||
       project?.slug === "tutor-d" ||
-      project?.slug === "tech-noir"
+      project?.slug === "tech-noir" ||
+      project?.slug === "cllctve-platform"
     ) {
       setShowCaseStudy(true);
     } else {
@@ -172,6 +174,7 @@ const Project = () => {
             {project?.slug === "symptom-checkr" && <SymptomCheckrCaseStudy />}
             {project?.slug === "tutor-d" && <TutorDCaseStudy />}
             {project?.slug === "tech-noir" && <TechNoirCaseStudy />}
+            {project?.slug === "cllctve-platform" && <CllctveCaseStudy />}
           </>
         ) : (
           <>
