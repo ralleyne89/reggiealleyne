@@ -26,11 +26,12 @@ const ProjectHeader = ({
   // Check if this is the Bob's Big Break project by title
   const isBobsProject = title === "Bob's Big Break";
 
-  // Check if this is a case study project (Symptom Checkr, TutorD, or CLLCTVE)
+  // Check if this is a case study project (Symptom Checkr, TutorD, CLLCTVE, or Bob's Big Break)
   const isCaseStudy =
     title.includes("SymptomCheckr") || 
     title.includes("Tutor D") || 
-    title === "CLLCTVE Platform";
+    title === "CLLCTVE Platform" ||
+    title === "Bob's Big Break";
 
   const handleImageError = () => {
     console.error(`Header image failed to load: ${image}`);
