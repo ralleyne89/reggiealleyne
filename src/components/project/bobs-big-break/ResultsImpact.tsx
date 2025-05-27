@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Trophy, Target, Zap, Users } from "lucide-react";
@@ -45,7 +46,7 @@ const ResultsImpact = () => {
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6 text-left">
             Results & Impact
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto text-left">
+          <p className="text-lg text-gray-700 leading-relaxed text-left">
             Bob's Big Break successfully delivered an engaging idle game experience that demonstrated 
             both technical proficiency and user-centered design thinking within academic constraints.
           </p>
