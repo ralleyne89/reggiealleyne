@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Code, Database, Smartphone, Zap } from "lucide-react";
@@ -33,9 +32,9 @@ const TechnicalImplementation = ({ handleImageClick }: TechnicalImplementationPr
 
   const images = [
     {
-      src: "/lovable-uploads/66a4a04b-aa90-4553-b44c-c75f89b3b3d4.png",
-      alt: "CLLCTVE portfolio builder interface",
-      title: "Portfolio Builder Interface"
+      src: "/lovable-uploads/65856eaa-3e77-4597-a085-470d7bab7736.png",
+      alt: "CLLCTVE platform profile interface",
+      title: "User Profile Interface"
     },
     {
       src: "/lovable-uploads/bb480e3a-f008-47a7-ab1f-621a3954be31.png",
