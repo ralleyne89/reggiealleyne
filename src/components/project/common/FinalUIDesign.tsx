@@ -1,25 +1,22 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText } from "lucide-react";
-
 export interface DesignHighlight {
   text: string;
 }
-
 export interface UIFeature {
   title: string;
   description: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{
+    className?: string;
+  }>;
 }
-
 export interface UIImage {
   src: string;
   alt: string;
   title: string;
 }
-
 export interface FinalUIDesignProps {
   title: string;
   introduction: string;
@@ -28,30 +25,36 @@ export interface FinalUIDesignProps {
   uiImages: UIImage[];
   handleImageClick?: (imageSrc: string) => void;
 }
-
-const FinalUIDesign = ({ 
-  title, 
-  introduction, 
-  designHighlights, 
-  uiFeatures, 
-  uiImages, 
-  handleImageClick 
+const FinalUIDesign = ({
+  title,
+  introduction,
+  designHighlights,
+  uiFeatures,
+  uiImages,
+  handleImageClick
 }: FinalUIDesignProps) => {
-  return (
-    <motion.section 
-      className="py-16 bg-white"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true, amount: 0.3 }}
-    >
+  return <motion.section className="py-16 bg-white" initial={{
+    opacity: 0,
+    y: 20
+  }} whileInView={{
+    opacity: 1,
+    y: 0
+  }} transition={{
+    duration: 0.6
+  }} viewport={{
+    once: true,
+    amount: 0.3
+  }}>
       <div className="w-full px-6">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6
+      }} className="mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
             {title}
           </h2>
@@ -61,37 +64,29 @@ const FinalUIDesign = ({
         </motion.div>
 
         {/* UI Images */}
-        {uiImages && uiImages.length > 0 && (
-          <div className="mb-16">
-            <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8 text-center">
-              Interface Design
-            </h3>
+        {uiImages && uiImages.length > 0 && <div className="mb-16">
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {uiImages.map((image, index) => (
-                <motion.div 
-                  key={index} 
-                  className="space-y-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
+              {uiImages.map((image, index) => <motion.div key={index} className="space-y-4" initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.5,
+            delay: index * 0.1
+          }} viewport={{
+            once: true,
+            amount: 0.3
+          }}>
                   <h4 className="text-xl font-semibold text-gray-900 mb-4">{image.title}</h4>
-                  <div 
-                    className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50"
-                    onClick={() => handleImageClick?.(image.src)}
-                  >
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.(image.src)}>
+                    <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
                   </div>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </div>
-          </div>
-        )}
+          </div>}
 
         {/* Design Highlights */}
         <div className="bg-gray-50 rounded-xl p-8 mb-16">
@@ -99,12 +94,10 @@ const FinalUIDesign = ({
             Design Highlights
           </h3>
           <ul className="space-y-3 text-gray-700">
-            {designHighlights.map((highlight, index) => (
-              <li key={index} className="flex items-start gap-3">
+            {designHighlights.map((highlight, index) => <li key={index} className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></div>
                 <span className="leading-relaxed">{highlight.text}</span>
-              </li>
-            ))}
+              </li>)}
           </ul>
         </div>
 
@@ -115,16 +108,20 @@ const FinalUIDesign = ({
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {uiFeatures.map((feature, index) => {
-              const IconComponent = feature.icon;
-              return (
-                <motion.div 
-                  key={index} 
-                  className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
+            const IconComponent = feature.icon;
+            return <motion.div key={index} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm" initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.5,
+              delay: index * 0.1
+            }} viewport={{
+              once: true,
+              amount: 0.3
+            }}>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
                       <IconComponent className="w-6 h-6 text-primary" />
@@ -134,14 +131,11 @@ const FinalUIDesign = ({
                       <p className="text-gray-700 leading-relaxed">{feature.description}</p>
                     </div>
                   </div>
-                </motion.div>
-              );
-            })}
+                </motion.div>;
+          })}
           </div>
         </div>
       </div>
-    </motion.section>
-  );
+    </motion.section>;
 };
-
 export default FinalUIDesign;
