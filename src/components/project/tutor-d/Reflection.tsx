@@ -45,6 +45,7 @@ const Reflection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-12"
         >
           <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
             Professional Growth & Insights
@@ -70,7 +71,7 @@ const Reflection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-12 bg-white rounded-xl p-8 border border-gray-200"
+          className="bg-white rounded-xl p-8 border border-gray-200"
         >
           <h3 className="text-xl font-semibold text-gray-900 mb-4">
             Future Enhancements

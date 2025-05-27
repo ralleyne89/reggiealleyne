@@ -29,7 +29,7 @@ const TutorDCaseStudy = () => {
   };
 
   return (
-    <div className="mt-8 mb-16">
+    <div className="bg-white text-gray-900">
       <ProjectOverview />
       <ResultsImpact />
       <KeyActions />
