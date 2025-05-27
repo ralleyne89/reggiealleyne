@@ -82,9 +82,9 @@ const FinalUIDesign = ({
             once: true,
             amount: 0.3
           }}>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">Landing Page</h4>
-                  <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.(image.src)}>
-                    <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
+                  <h4 className="text-xl font-semibold text-gray-900 mb-4">User Profile</h4>
+                  <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.("/lovable-uploads/bbf348a7-ca89-49ba-95b0-b836d12b8752.png")}>
+                    <img src="/lovable-uploads/bbf348a7-ca89-49ba-95b0-b836d12b8752.png" alt="User Profile Interface" className="w-full h-full object-cover" />
                   </div>
                 </motion.div>)}
             </div>
