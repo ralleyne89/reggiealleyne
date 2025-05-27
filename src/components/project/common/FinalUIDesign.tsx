@@ -60,21 +60,6 @@ const FinalUIDesign = ({
           </p>
         </motion.div>
 
-        {/* Design Highlights */}
-        <div className="bg-gray-50 rounded-xl p-8 mb-16">
-          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-6">
-            Design Highlights
-          </h3>
-          <ul className="space-y-3 text-gray-700">
-            {designHighlights.map((highlight, index) => (
-              <li key={index} className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></div>
-                <span className="leading-relaxed">{highlight.text}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         {/* UI Images */}
         {uiImages && uiImages.length > 0 && (
           <div className="mb-16">
@@ -107,6 +92,21 @@ const FinalUIDesign = ({
             </div>
           </div>
         )}
+
+        {/* Design Highlights */}
+        <div className="bg-gray-50 rounded-xl p-8 mb-16">
+          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-6">
+            Design Highlights
+          </h3>
+          <ul className="space-y-3 text-gray-700">
+            {designHighlights.map((highlight, index) => (
+              <li key={index} className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></div>
+                <span className="leading-relaxed">{highlight.text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* UI Features */}
         <div>
