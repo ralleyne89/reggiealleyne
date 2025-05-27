@@ -1,7 +1,6 @@
-
 import React from "react";
 import { motion } from "framer-motion";
-import { Sketch, Users, Cog, Target } from "lucide-react";
+import { Lightbulb, Users, Cog, Target } from "lucide-react";
 
 interface GameDesignProcessProps {
   handleImageClick: (imageSrc: string) => void;
@@ -10,7 +9,7 @@ interface GameDesignProcessProps {
 const GameDesignProcess = ({ handleImageClick }: GameDesignProcessProps) => {
   const processSteps = [
     {
-      icon: Sketch,
+      icon: Lightbulb,
       title: "Concept & Whiteboarding",
       description: "Defined user journey and core game mechanics through collaborative whiteboarding sessions",
       details: ["User flow mapping", "Game economy design", "Core loop definition"]
