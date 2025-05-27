@@ -56,9 +56,8 @@ const GameDesignProcess = ({ handleImageClick }: GameDesignProcessProps) => {
             Our design process focused on creating an engaging idle game experience that would work seamlessly 
             across devices while maintaining player interest through balanced progression mechanics.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Process Steps */}
         <div className="space-y-12 mb-16">
           {processSteps.map((step, index) => {
             const IconComponent = step.icon;
@@ -98,7 +97,6 @@ const GameDesignProcess = ({ handleImageClick }: GameDesignProcessProps) => {
           })}
         </div>
 
-        {/* Character Design Showcase */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

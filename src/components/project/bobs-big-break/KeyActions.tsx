@@ -51,7 +51,7 @@ const KeyActions = () => {
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
             Four critical initiatives that transformed the initial concept into a fully functional game prototype.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {keyActions.map((action, index) => {
