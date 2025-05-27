@@ -1,73 +1,46 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { LucideIcon } from "lucide-react";
 
-export interface DesignHighlight {
+import React from "react";
+
+interface DesignHighlight {
   text: string;
 }
 
-export interface DesignFeature {
+interface UIFeature {
   title: string;
   description: string;
-  tags: string[];
+  icon: React.ComponentType<{ className?: string }>;
 }
 
-export interface UIFeature {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}
-
-export interface UIImage {
+interface UIImage {
   src: string;
   alt: string;
   title: string;
 }
 
-export interface FinalUIDesignProps {
-  title?: string;
+interface FinalUIDesignProps {
+  title: string;
   introduction: string;
   designHighlights: DesignHighlight[];
-  designFeatures: DesignFeature[];
-  mainImageSrc?: string;
-  mainImageAlt?: string;
-  imageCaption?: string;
-  uiImages?: UIImage[];
   uiFeatures: UIFeature[];
-  highlightsTitle?: string;
-  featuresTitle?: string;
+  uiImages: UIImage[];
   handleImageClick?: (imageSrc: string) => void;
 }
 
-const FinalUIDesign: React.FC<FinalUIDesignProps> = ({
-  title = "Final UI Design",
-  introduction,
-  designHighlights,
-  designFeatures,
-  mainImageSrc,
-  mainImageAlt,
-  imageCaption,
-  uiImages,
-  uiFeatures,
-  highlightsTitle = "Design Execution Highlights",
-  featuresTitle = "Key UI Features",
-  handleImageClick,
-}) => {
+const FinalUIDesign = ({ 
+  title, 
+  introduction, 
+  designHighlights, 
+  uiFeatures, 
+  uiImages, 
+  handleImageClick 
+}: FinalUIDesignProps) => {
   return (
-    <motion.section
-      className="mb-20"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true, amount: 0.3 }}
-    >
+    <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Section Header */}
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
             {title}
           </h2>
-
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
             {introduction}
           </p>
@@ -75,132 +48,67 @@ const FinalUIDesign: React.FC<FinalUIDesignProps> = ({
 
         {/* Design Highlights */}
         <div className="mb-16">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-8 pb-3 border-b border-gray-200">
-            {highlightsTitle}
+          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
+            Design Highlights
           </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-4">
             {designHighlights.map((highlight, index) => (
-              <motion.div
-                key={index}
-                className="flex items-start gap-3"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
+              <div key={index} className="flex gap-4">
                 <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                <p className="text-gray-700 leading-relaxed">
-                  {highlight.text}
-                </p>
-              </motion.div>
+                <p className="text-gray-700 leading-relaxed">{highlight.text}</p>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* UI Images Gallery */}
-        {uiImages && (
+        {/* UI Images */}
+        {uiImages && uiImages.length > 0 && (
           <div className="mb-16">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-8 pb-3 border-b border-gray-200">
-              Interface Showcase
+            <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
+              Interface Screenshots
             </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {uiImages.map((image, index) => (
-                <motion.div
-                  key={index}
-                  className="group"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
-                  <div className="space-y-4">
-                    <h4 className="text-lg font-semibold text-gray-900">
-                      {image.title}
-                    </h4>
-                    <div
-                      className="aspect-[9/16] w-full overflow-hidden rounded-xl border border-gray-200 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 group-hover:scale-[1.02]"
-                      onClick={() => {
-                        if (handleImageClick) {
-                          handleImageClick(image.src);
-                        }
-                      }}
-                    >
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
+                <div key={index} className="space-y-4">
+                  <div 
+                    className="bg-gray-50 rounded-xl p-4 border border-gray-200 cursor-pointer hover:shadow-md transition-shadow"
+                    onClick={() => handleImageClick?.(image.src)}
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-auto rounded-lg"
+                    />
                   </div>
-                </motion.div>
+                  <h4 className="font-semibold text-gray-900 text-center">{image.title}</h4>
+                </div>
               ))}
             </div>
           </div>
         )}
 
-        {/* Main Image (if no uiImages) */}
-        {!uiImages && mainImageSrc && (
-          <div className="mb-16">
-            <div
-              className="aspect-[16/9] w-full overflow-hidden rounded-xl border border-gray-200 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10"
-              onClick={() => {
-                if (handleImageClick && mainImageSrc) {
-                  handleImageClick(mainImageSrc);
-                }
-              }}
-            >
-              <img
-                src={mainImageSrc}
-                alt={mainImageAlt}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            {imageCaption && (
-              <p className="text-gray-600 text-center mt-4">{imageCaption}</p>
-            )}
-          </div>
-        )}
-
-        {/* Key Features */}
+        {/* UI Features */}
         <div>
-          <h3 className="text-2xl font-semibold text-gray-900 mb-8 pb-3 border-b border-gray-200">
-            {featuresTitle}
+          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
+            Key Features
           </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {uiFeatures.map((feature, index) => {
-              const Icon = feature.icon;
+              const IconComponent = feature.icon;
               return (
-                <motion.div
-                  key={index}
-                  className="group"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
-                  <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 h-full hover:border-primary/30 transition-colors duration-300">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="bg-primary/10 p-3 rounded-lg">
-                        <Icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <h4 className="text-gray-900 font-semibold text-lg leading-tight">
-                        {feature.title}
-                      </h4>
-                    </div>
-                    <p className="text-gray-700 leading-relaxed">
-                      {feature.description}
-                    </p>
+                <div key={index} className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <IconComponent className="w-6 h-6 text-primary" />
                   </div>
-                </motion.div>
+                  <h4 className="font-semibold text-gray-900 mb-3">{feature.title}</h4>
+                  <p className="text-gray-700 leading-relaxed">{feature.description}</p>
+                </div>
               );
             })}
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

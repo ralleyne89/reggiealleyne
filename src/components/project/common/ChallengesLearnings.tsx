@@ -1,166 +1,91 @@
+
 import React from "react";
-import { motion } from "framer-motion";
-import { CheckCircle, LucideIcon } from "lucide-react";
 
-export interface Challenge {
+interface Challenge {
   title: string;
   description: string;
 }
 
-export interface Learning {
+interface Learning {
   title: string;
   description: string;
 }
 
-export interface NextStep {
+interface NextStep {
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
-export interface ChallengesLearningsProps {
-  title?: string;
+interface ChallengesLearningsProps {
+  title: string;
   challenges: Challenge[];
   learnings: Learning[];
   nextSteps: NextStep[];
-  challengesTitle?: string;
-  learningsTitle?: string;
-  nextStepsTitle?: string;
 }
 
-const ChallengesLearnings: React.FC<ChallengesLearningsProps> = ({
-  title = "Key Insights & Learnings",
-  challenges,
-  learnings,
-  nextSteps,
-  challengesTitle = "Insights",
-  learningsTitle = "Learnings",
-  nextStepsTitle = "Next Steps & Improvements",
-}) => {
+const ChallengesLearnings = ({ title, challenges, learnings, nextSteps }: ChallengesLearningsProps) => {
   return (
-    <motion.section
-      className="mb-20"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true, amount: 0.3 }}
-    >
+    <section className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Section Header */}
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
             {title}
           </h2>
         </div>
 
-        {/* Challenges and Learnings Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Challenges/Insights */}
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <h3 className="text-2xl font-semibold text-gray-900 mb-8 pb-3 border-b border-gray-200">
-              {challengesTitle}
-            </h3>
+        {/* Challenges */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
+            Key Challenges
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {challenges.map((challenge, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                <h4 className="font-semibold text-gray-900 mb-3">{challenge.title}</h4>
+                <p className="text-gray-700 leading-relaxed">{challenge.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
-            <div className="space-y-6">
-              {challenges.map((challenge, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:border-primary/30 transition-colors duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                    {challenge.title}
-                  </h4>
-                  <p className="text-gray-700 leading-relaxed">
-                    {challenge.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Learnings */}
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <h3 className="text-2xl font-semibold text-gray-900 mb-8 pb-3 border-b border-gray-200">
-              {learningsTitle}
-            </h3>
-
-            <div className="space-y-6">
-              {learnings.map((learning, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:border-primary/30 transition-colors duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
-                  <div className="flex items-start gap-4 mb-4">
-                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
-                    <h4 className="text-xl font-semibold text-gray-900">
-                      {learning.title}
-                    </h4>
-                  </div>
-                  <p className="text-gray-700 leading-relaxed">
-                    {learning.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+        {/* Learnings */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
+            Key Learnings
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {learnings.map((learning, index) => (
+              <div key={index} className="bg-green-50 rounded-xl p-6 border border-green-200">
+                <h4 className="font-semibold text-gray-900 mb-3">{learning.title}</h4>
+                <p className="text-gray-700 leading-relaxed">{learning.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Next Steps */}
         <div>
-          <h3 className="text-2xl font-semibold text-gray-900 mb-8 pb-3 border-b border-gray-200">
-            {nextStepsTitle}
+          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
+            Next Steps
           </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {nextSteps.map((step, index) => {
-              const Icon = step.icon;
+              const IconComponent = step.icon;
               return (
-                <motion.div
-                  key={index}
-                  className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:border-primary/30 transition-colors duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="bg-primary/10 p-3 rounded-lg">
-                      <Icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <h4 className="text-xl font-semibold text-gray-900 leading-tight">
-                      {step.title}
-                    </h4>
+                <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <IconComponent className="w-6 h-6 text-blue-600" />
                   </div>
-                  <p className="text-gray-700 leading-relaxed">
-                    {step.description}
-                  </p>
-                </motion.div>
+                  <h4 className="font-semibold text-gray-900 mb-3">{step.title}</h4>
+                  <p className="text-gray-700 leading-relaxed">{step.description}</p>
+                </div>
               );
             })}
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

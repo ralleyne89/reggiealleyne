@@ -1,54 +1,45 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Lightbulb } from "lucide-react";
 
-export interface ReflectionInsight {
+import React from "react";
+
+interface Insight {
   title: string;
   description: string;
 }
 
-export interface ReflectionProps {
-  title?: string;
+interface ReflectionProps {
+  title: string;
   content: string;
-  insights: ReflectionInsight[];
+  insights: Insight[];
 }
 
-const Reflection: React.FC<ReflectionProps> = ({
-  title = "Reflection",
-  content,
-  insights
-}) => {
+const Reflection = ({ title, content, insights }: ReflectionProps) => {
   return (
-    <section className="mb-16">
-      <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
-        <CardContent className="p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
-              <Lightbulb className="w-5 h-5 text-primary" />
-            </div>
-            <h2 className="text-2xl font-bold text-white">{title}</h2>
-          </div>
+    <section className="py-16 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+            {title}
+          </h2>
+          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
+            {content}
+          </p>
+        </div>
 
-          <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-6">
-            <p className="text-[rgba(200,200,200,0.9)] leading-relaxed">
-              {content}
-            </p>
-
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-              {insights.map((insight, index) => (
-                <div key={index} className="bg-[rgba(35,35,35,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-                  <p className="text-gray-300 text-sm">
-                    <span className="text-primary font-medium block mb-2">
-                      {insight.title}
-                    </span>
-                    {insight.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+        {/* Professional Growth Insights */}
+        <div>
+          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
+            Professional Growth
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {insights.map((insight, index) => (
+              <div key={index} className="bg-primary/5 rounded-xl p-6 border border-primary/20">
+                <h4 className="font-semibold text-gray-900 mb-3">{insight.title}</h4>
+                <p className="text-gray-700 leading-relaxed">{insight.description}</p>
+              </div>
+            ))}
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </section>
   );
 };
