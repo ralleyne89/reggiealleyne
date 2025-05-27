@@ -1,3 +1,4 @@
+
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -289,13 +290,13 @@ const Works = () => {
                     </div>
 
                     {/* Additional Images if available */}
-                    {project.images && project.images.length > 0 && (
+                    {project.images && project.images.length > 1 && (
                       <div className="grid grid-cols-2 gap-4">
-                        {project.images.slice(0, 4).map((image, imgIndex) => (
+                        {project.images.slice(1, 5).map((image, imgIndex) => (
                           <div key={imgIndex} className="relative">
                             <img
                               src={image}
-                              alt={`${project.title} - Image ${imgIndex + 1}`}
+                              alt={`${project.title} - Image ${imgIndex + 2}`}
                               className="w-full h-48 object-cover rounded-lg transition-transform duration-500 hover:scale-[1.02]"
                               onError={(e) => {
                                 e.currentTarget.src = "/placeholder.svg";
