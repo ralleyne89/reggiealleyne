@@ -1,3 +1,4 @@
+
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -25,9 +26,11 @@ const ProjectHeader = ({
   // Check if this is the Bob's Big Break project by title
   const isBobsProject = title === "Bob's Big Break";
 
-  // Check if this is a case study project (Symptom Checkr or TutorD)
+  // Check if this is a case study project (Symptom Checkr, TutorD, or CLLCTVE)
   const isCaseStudy =
-    title.includes("SymptomCheckr") || title.includes("Tutor D");
+    title.includes("SymptomCheckr") || 
+    title.includes("Tutor D") || 
+    title === "CLLCTVE";
 
   const handleImageError = () => {
     console.error(`Header image failed to load: ${image}`);
