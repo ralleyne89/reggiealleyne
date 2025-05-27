@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Code, Database, Smartphone, Zap } from "lucide-react";
@@ -37,9 +38,9 @@ const TechnicalImplementation = ({ handleImageClick }: TechnicalImplementationPr
       title: "User Profile Interface"
     },
     {
-      src: "/lovable-uploads/bb480e3a-f008-47a7-ab1f-621a3954be31.png",
-      alt: "CLLCTVE challenge discovery interface",
-      title: "Challenge Discovery Feed"
+      src: "/lovable-uploads/64ebd4e8-68f6-4485-b384-d7a200ebce06.png",
+      alt: "CLLCTVE platform landing page",
+      title: "Platform Landing Page"
     }
   ];
 
