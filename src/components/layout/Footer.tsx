@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MapPin, Coffee } from "lucide-react";
@@ -140,12 +141,9 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="flex justify-center">
             <p className="text-gray-500 text-sm">
-              © {currentYear} Reggie Alleyne. Crafted with care in Los Angeles.
-            </p>
-            <p className="text-gray-500 text-sm">
-              Built with React, TypeScript & Tailwind CSS
+              © {currentYear} Reggie Alleyne.
             </p>
           </div>
         </div>
