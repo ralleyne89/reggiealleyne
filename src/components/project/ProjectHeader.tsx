@@ -1,7 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 interface ProjectHeaderProps {
@@ -62,16 +61,13 @@ const ProjectHeader = ({
               transition={{ duration: 0.6 }}
             >
               <div className="mb-8">
-                <Button
-                  asChild
-                  variant="ghost"
-                  className="text-gray-300 hover:text-white hover:bg-white/10 p-0"
+                <Link 
+                  to="/works" 
+                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
                 >
-                  <Link to="/works" className="inline-flex items-center gap-2">
-                    <ArrowLeft className="h-4 w-4" />
-                    Back to Works
-                  </Link>
-                </Button>
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Works
+                </Link>
               </div>
 
               <div className="space-y-6">
@@ -110,16 +106,13 @@ const ProjectHeader = ({
             transition={{ duration: 0.6 }}
           >
             <div className="mb-8">
-              <Button
-                asChild
-                variant="ghost"
-                className="text-gray-400 hover:text-white hover:bg-gray-800/50 p-0"
+              <Link 
+                to="/works" 
+                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200"
               >
-                <Link to="/works" className="inline-flex items-center gap-2">
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </Button>
+                <ArrowLeft className="h-4 w-4" />
+                Back to Works
+              </Link>
             </div>
 
             <div className="space-y-6">
