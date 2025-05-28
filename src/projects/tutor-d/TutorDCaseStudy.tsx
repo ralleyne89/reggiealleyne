@@ -1,6 +1,7 @@
-
 import React, { useState } from "react";
-import { X } from "lucide-react";
+import { X, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 // Import restructured components following Minto's Pyramid
 import ProjectOverview from "@/components/project/tutor-d/ProjectOverview";
@@ -41,6 +42,16 @@ const TutorDCaseStudy = () => {
       <DirectUIImages handleImageClick={handleImageClick} />
       <ChallengesLearnings />
       <Reflection />
+
+      {/* Back to Works Link */}
+      <div className="py-8 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <Link to="/works" className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Works
+          </Link>
+        </div>
+      </div>
 
       {/* Modal for full-size image view */}
       {selectedImage && (

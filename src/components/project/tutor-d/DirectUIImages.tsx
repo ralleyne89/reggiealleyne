@@ -33,9 +33,7 @@ const DirectUIImages: React.FC<DirectUIImagesProps> = ({
     once: true,
     amount: 0.3
   }}>
-      <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
-        
-      </Card>
+      
     </motion.section>;
 };
 export default DirectUIImages;

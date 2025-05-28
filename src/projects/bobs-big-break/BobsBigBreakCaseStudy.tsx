@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
-import { X } from "lucide-react";
+import { X, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Import key section components
 import IntegratedOverview from "@/components/project/bobs-big-break/IntegratedOverview";
@@ -24,13 +25,33 @@ const BobsBigBreakCaseStudy = () => {
 
   return (
     <div className="mt-8 mb-16">
+      {/* 1. Project Overview */}
       <IntegratedOverview />
+      
+      {/* 2. RESULTS & IMPACT - Lead with the outcome */}
       <ResultsImpact />
+      
+      {/* 3. KEY ACTIONS - What moved the needle */}
       <KeyActions />
+      
+      {/* 4. IN-DEPTH EXPLANATION - How it was achieved with visuals */}
       <TechnicalImplementation handleImageClick={handleImageClick} />
       <GameDesignProcess handleImageClick={handleImageClick} />
       <FinalGameplay handleImageClick={handleImageClick} />
+      
+      {/* 5. Reflection & Learnings */}
       <ChallengesLearnings />
+
+      {/* Back to Works link */}
+      <div className="max-w-6xl mx-auto px-6 pt-16">
+        <Link
+          to="/works"
+          className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Works
+        </Link>
+      </div>
 
       {/* Modal for full-size image view */}
       {selectedImage && (
