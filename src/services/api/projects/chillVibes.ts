@@ -11,7 +11,7 @@ export const getChillVibesProject = (): ProjectType => {
     image: "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
     tags: ["Music", "UX/UI", "React.js", "Firebase"],
     role: "Web Developer & UI/UX Designer",
-    duration: "1 month",
+    duration: "6 months",
     year: "2020",
     challenge: "Music apps often come loaded with too many features, popups, or clutter. For people who just want something simple and low-maintenance, especially while working or studying, there aren't many clean, browser-based options that just play calming music and get out of the way.",
     process: [
