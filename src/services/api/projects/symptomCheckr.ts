@@ -1,4 +1,5 @@
 
+
 import { ProjectType } from '../../../types/project';
 
 export const getSymptomCheckrProject = (): ProjectType => {
@@ -7,10 +8,10 @@ export const getSymptomCheckrProject = (): ProjectType => {
     slug: 'symptom-checkr',
     title: 'SymptomCheckr – AI-Powered Health Assistant',
     description: 'An AI-driven health assessment tool that helps users understand possible causes for their symptoms through text or image input.',
-    role: 'UX/UI Designer',
+    role: 'UI/UX Designer',
     year: '2024',
     duration: '8 weeks',
-    teamSize: 'Solo Project',
+    teamSize: '4',
     tags: ['UX Research', 'UI Design', 'Health Tech', 'AI', 'User Testing'],
     image: '/lovable-uploads/Symptom-Checkr-Home-Final.jpg',
     summary: 'SymptomCheckr is an AI-powered health assessment tool designed to help users understand potential causes for their symptoms through an intuitive interface. The application allows users to input health symptoms via text or upload images, then leverages advanced AI to analyze and present possible causes with likelihood indicators and recommended next steps.',
@@ -61,3 +62,4 @@ export const getSymptomCheckrProject = (): ProjectType => {
     ]
   };
 };
+

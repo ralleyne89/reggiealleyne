@@ -40,12 +40,12 @@ export const symptomCheckrOverviewData: ProjectOverviewProps = {
   projectDetails: [
     {
       label: "My Role",
-      value: "Designer who codes (the best kind)",
+      value: "UI/UX Designer",
       icon: Briefcase
     },
     {
       label: "Team Size",
-      value: "Just me (and a lot of coffee)",
+      value: "4",
       icon: Users
     },
     {
@@ -62,7 +62,7 @@ export const symptomCheckrOverviewData: ProjectOverviewProps = {
     },
     {
       label: "Platform",
-      value: "Mobile-first (because anxiety doesn't wait)",
+      value: "Desktop & Mobile responsive",
       icon: Monitor
     },
     {
