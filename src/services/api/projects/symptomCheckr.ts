@@ -47,7 +47,7 @@ export const getSymptomCheckrProject = (): ProjectType => {
     ],
     videoUrl: null,
     githubUrl: null,
-    liveUrl: null,
+    liveUrl: 'https://symptom-checkr.web.app/',
     prototypeUrl: 'https://symptom-checkr.web.app/',
     keyAchievements: [
       '78% reduction in user anxiety around minor symptoms based on before/after user testing',
