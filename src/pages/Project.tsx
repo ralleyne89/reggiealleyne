@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -17,6 +18,7 @@ import { TechNoirCaseStudy } from "@/projects/tech-noir";
 import { CllctveCaseStudy } from "@/projects/cllctve";
 import { BobsBigBreakCaseStudy } from "@/projects/bobs-big-break";
 import { ChillVibesCaseStudy } from "@/projects/chill-vibes";
+import { WristbandCaseStudy } from "@/projects/wristband";
 import { ProjectType } from "@/types/project";
 
 const Project = () => {
