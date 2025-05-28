@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -82,7 +81,8 @@ const Project = () => {
       project?.slug === "tech-noir" ||
       project?.slug === "cllctve-platform" ||
       project?.slug === "bobs-big-break" ||
-      project?.slug === "chill-vibes-music-player"
+      project?.slug === "chill-vibes-music-player" ||
+      project?.slug === "wristband"
     ) {
       setShowCaseStudy(true);
     } else {
@@ -104,6 +104,8 @@ const Project = () => {
         return <BobsBigBreakCaseStudy />;
       case "chill-vibes-music-player":
         return <ChillVibesCaseStudy />;
+      case "wristband":
+        return <WristbandCaseStudy />;
       default:
         return (
           <div className="min-h-screen bg-white flex items-center justify-center">
