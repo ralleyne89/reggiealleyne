@@ -16,6 +16,7 @@ import { TutorDCaseStudy } from "@/projects/tutor-d";
 import { TechNoirCaseStudy } from "@/projects/tech-noir";
 import { CllctveCaseStudy } from "@/projects/cllctve";
 import { BobsBigBreakCaseStudy } from "@/projects/bobs-big-break";
+import { ChillVibesCaseStudy } from "@/projects/chill-vibes";
 import { ProjectType } from "@/types/project";
 
 const Project = () => {
@@ -78,13 +79,44 @@ const Project = () => {
       project?.slug === "tutor-d" ||
       project?.slug === "tech-noir" ||
       project?.slug === "cllctve-platform" ||
-      project?.slug === "bobs-big-break"
+      project?.slug === "bobs-big-break" ||
+      project?.slug === "chill-vibes-music-player"
     ) {
       setShowCaseStudy(true);
     } else {
       setShowCaseStudy(false);
     }
   }, [project]);
+
+  const renderCaseStudy = () => {
+    switch (slug) {
+      case "tutor-d":
+        return <TutorDCaseStudy />;
+      case "cllctve-platform":
+        return <CllctveCaseStudy />;
+      case "symptom-checkr":
+        return <SymptomCheckrCaseStudy />;
+      case "tech-noir":
+        return <TechNoirCaseStudy />;
+      case "bobs-big-break":
+        return <BobsBigBreakCaseStudy />;
+      case "chill-vibes-music-player":
+        return <ChillVibesCaseStudy />;
+      default:
+        return (
+          <div className="min-h-screen bg-white flex items-center justify-center">
+            <div className="text-center">
+              <h1 className="text-2xl font-bold text-gray-900 mb-4">
+                Case Study Coming Soon
+              </h1>
+              <p className="text-gray-600">
+                This case study is currently being developed.
+              </p>
+            </div>
+          </div>
+        );
+    }
+  };
 
   // Handle loading state
   if (isLoading) {
@@ -173,11 +205,7 @@ const Project = () => {
       <div className="max-w-7xl mx-auto px-6 py-12">
         {showCaseStudy ? (
           <>
-            {project?.slug === "symptom-checkr" && <SymptomCheckrCaseStudy />}
-            {project?.slug === "tutor-d" && <TutorDCaseStudy />}
-            {project?.slug === "tech-noir" && <TechNoirCaseStudy />}
-            {project?.slug === "cllctve-platform" && <CllctveCaseStudy />}
-            {project?.slug === "bobs-big-break" && <BobsBigBreakCaseStudy />}
+            {renderCaseStudy()}
           </>
         ) : (
           <>
