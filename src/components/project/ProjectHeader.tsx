@@ -179,16 +179,13 @@ const ProjectHeader = ({
       <div className="max-w-7xl mx-auto px-6 -mt-16 mb-12 relative z-10">
         <div className="flex flex-wrap justify-between items-center">
           <div className="mb-6">
-            <Button
-              asChild
-              variant="secondary"
-              className="bg-[rgba(20,20,20,0.9)] backdrop-blur-sm text-primary hover:bg-[rgba(30,30,30,0.9)] hover:text-white border border-gray-600"
+            <Link
+              to="/works"
+              className="inline-flex items-center gap-2 bg-[rgba(20,20,20,0.9)] backdrop-blur-sm text-primary hover:bg-[rgba(30,30,30,0.9)] hover:text-white border border-gray-600 px-4 py-2 rounded-md transition-colors duration-200"
             >
-              <Link to="/works">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Works
-              </Link>
-            </Button>
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Works
+            </Link>
           </div>
 
           <div className="flex flex-wrap gap-2 mb-4">
