@@ -43,10 +43,10 @@ const FinalGameplay = ({
       }} transition={{
         duration: 0.6
       }} className="mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6 text-left">
             Final Gameplay Experience
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 leading-relaxed max-w-full mx-auto text-left">
             The completed game offers a balanced idle experience with both active engagement and passive progression, 
             designed to be enjoyable in short bursts or extended play sessions.
           </p>

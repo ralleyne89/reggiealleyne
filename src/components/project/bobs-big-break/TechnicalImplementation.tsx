@@ -41,7 +41,7 @@ const TechnicalImplementation = ({
     y: 0
   }} transition={{
     duration: 0.6
-  }} className="py-16 bg-gray-50 rounded-xl">
+  }} className="py-16 rounded-xl bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div initial={{
         opacity: 0,
