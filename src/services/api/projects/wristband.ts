@@ -6,26 +6,27 @@ export const getWristbandProject = (): ProjectType => {
     id: 6,
     slug: 'wristband',
     title: "WRISTBAND",
-    description: "An interactive storytelling game app with diverse narratives allowing users to choose their own path.",
-    fullDescription: "A fun and engaging game comprised of stories written from a variety of writers. Users can choose the path of each character in different stories, creating a unique experience for every user.",
+    description: "A client prototype for an interactive storytelling game app with diverse narratives—never launched but proved the concept.",
+    fullDescription: "A prototype interactive storytelling app designed for a client who wanted to revolutionize mobile narratives. While the project never launched due to shifting business priorities, the MVP demonstrated how diverse writers and authentic character development could transform user engagement in the storytelling space.",
     image: "/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
-    tags: ["Mobile App", "Game Design", "Storytelling"],
-    role: "UX, UI & Visual Design",
+    tags: ["Client Prototype", "Mobile App", "Game Design", "Storytelling"],
+    role: "Lead UX/UI Designer & Strategist",
     duration: "4 months",
-    year: "2019",
-    challenge: "Many of the interactive storytelling games are very similar, causing users to only use it for a short time then delete it. When it comes to finding a wide variety of genres for the user, it tends to get repetitive. Users have found that the writing seems rushed with characters that look the same with different hair color. How can we give users the missing element they are seeking?",
+    year: "2020",
+    challenge: "The interactive storytelling market was saturated with repetitive content and shallow characters. Our client wanted to create something different—an app that featured authentic diverse narratives and meaningful character development. The challenge was proving this concept could work commercially while never making it to market.",
     process: [
-      "While coming up with the layout of the app, I began sketches to finalize some of the key features. After finding our MVP, I started the design process on those key pages.",
-      "After establishing a solid foundation, I began designing and prototyping the first round of development. Keeping a clean and easy to navigate layout was one of the main focuses while designing.",
-      "Created low-fidelity sketches to establish key features",
-      "Designed and prototyped with focus on clean navigation"
+      "Started with extensive user research to understand why people were abandoning story apps so quickly",
+      "Collaborated with diverse freelance writers and artists to develop authentic character concepts",
+      "Created a content strategy that prioritized quality storytelling over quantity production",
+      "Designed an intuitive interface that enhanced narrative flow without overwhelming users",
+      "Developed a monetization model that fairly compensated creators while providing user value"
     ],
     deliverables: [
-      "Mobile App Design",
-      "User Interface",
-      "User Flows",
-      "Storytelling Framework",
-      "Interactive Prototype"
+      "Interactive Prototype",
+      "User Experience Strategy",
+      "Content Creator Framework",
+      "Mobile App Design System",
+      "Monetization Strategy"
     ],
     images: [
       "/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
@@ -34,27 +35,28 @@ export const getWristbandProject = (): ProjectType => {
       "/lovable-uploads/8ccc7ee6-c4de-44cc-8729-4090d34c7895.png"
     ],
     conclusion: {
-      impact: "Higher user retention compared to similar apps, with more diverse storytelling perspectives",
-      learnings: "The importance of diverse storytelling perspectives and character development in interactive narratives",
-      nextSteps: "By enlisting the help of freelance writers and artists, we will create engaging content that is more relatable to our users. Having these content creators from different cultures and backgrounds will have a more authentic storytelling experience."
+      impact: "While never launched, the prototype validated that authentic diverse storytelling could significantly improve user engagement and retention in the interactive narrative space.",
+      learnings: "Building diversity into the foundation of content creation yields more authentic results than surface-level representation. Quality storytelling with cultural depth resonates more powerfully than quantity-focused content strategies.",
+      nextSteps: "The concept proved viable for future applications—creator-centered platforms with authentic narratives represent a significant market opportunity for the right client with long-term vision."
     },
     techStack: ["Figma", "Adobe Photoshop", "Principle", "React Native"],
     keyAchievements: [
-      "Created an engaging UI with distinctive yellow/black theme",
-      "Implemented a flexible storytelling framework that supports multiple genres",
-      "Designed micro-transaction system for premium content"
+      "Validated demand for authentic diverse storytelling in interactive media",
+      "Created a scalable content creator collaboration framework",
+      "Designed an engaging UI system that enhanced narrative immersion",
+      "Developed a sustainable monetization model for creator compensation"
     ],
-    problemSolved: "Many of the interactive storytelling games are very similar, causing users to only use it for a short time then delete it. When it comes to finding a wide variety of genres for the user, it tends to get repetitive. Users have found that the writing seems rushed with characters that look the same with different hair color.",
-    solution: "By enlisting the help of freelance writers and artists, we will create engaging content that is more relatable to our users. Having these content creators from different cultures and backgrounds will have a more authentic storytelling experience. Users want to feel connected to the characters they play as, and we want to do our best to include our diverse number of users.",
+    problemSolved: "The interactive storytelling market lacked authentic diverse narratives and meaningful character development, causing high user abandonment rates.",
+    solution: "Created a platform concept that prioritized authentic storytelling through diverse creator collaboration, quality character development, and user-centric design that put narrative experience first.",
     technicalHighlights: [
-      "Branching narrative system",
-      "User profile and progress tracking",
-      "Social sharing capabilities",
-      "In-app purchases for premium stories"
+      "Branching narrative system with meaningful choice consequences",
+      "Creator profile integration with user following capabilities",
+      "Smart content recommendation engine",
+      "Fair creator compensation tracking system"
     ],
-    teamSize: "1 member",
-    methodologies: ["User-Centered Design", "Design Thinking", "Rapid Prototyping"],
-    summary: "An interactive storytelling app featuring diverse narratives and choice-based gameplay that creates unique user experiences.",
+    teamSize: "Solo designer with client stakeholder collaboration",
+    methodologies: ["User-Centered Design", "Design Thinking", "Agile Prototyping", "Creator-Centered Strategy"],
+    summary: "A client prototype for an interactive storytelling platform that never launched but successfully demonstrated how authentic diverse narratives could transform user engagement in mobile storytelling apps.",
     videoUrl: "https://drive.google.com/file/d/1jB5GJrLwyqUL8KAaPd9_TirxRrW7vI8r/view?usp=sharing"
   };
 };

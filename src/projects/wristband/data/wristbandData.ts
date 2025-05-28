@@ -48,18 +48,18 @@ import { ChallengesLearningsProps } from "@/components/project/common/Challenges
 export const wristbandOverviewData: ProjectOverviewProps = {
   title: "Project Overview",
   description: [
-    "WRISTBAND is an interactive storytelling game app that revolutionizes the narrative gaming experience by offering diverse, culturally authentic stories written by a variety of freelance writers and artists.",
-    "The platform enables users to choose their own path through different character narratives, creating unique experiences that foster deeper connections with characters from various backgrounds and cultures."
+    "WRISTBAND was a client prototype that dared to shake up the stale world of interactive storytelling. While the app never made it to launch (client priorities shifted faster than a plot twist), this MVP proved that authentic, diverse narratives could actually make people care about mobile storytelling again.",
+    "The concept was simple yet revolutionary: create an interactive storytelling platform where users don't just read stories—they live them. By collaborating with freelance writers and artists from diverse backgrounds, we aimed to craft narratives that felt real, relatable, and ridiculously engaging."
   ],
   projectDetails: [
     {
       label: "Role",
-      value: "UX, UI & Visual Designer",
+      value: "Lead UX/UI Designer & Strategist",
       icon: Briefcase
     },
     {
-      label: "Team",
-      value: "Solo project",
+      label: "Client Project",
+      value: "MVP Prototype (Not Launched)",
       icon: Users
     },
     {
@@ -69,23 +69,23 @@ export const wristbandOverviewData: ProjectOverviewProps = {
     },
     {
       label: "Year",
-      value: "2019",
+      value: "2020",
       icon: Calendar
     }
   ],
   toolDetails: [
     {
-      label: "Design Tools",
+      label: "Design Arsenal",
       value: "Figma, Adobe Photoshop, Principle",
       icon: Image
     },
     {
-      label: "Development",
+      label: "Prototype Tech",
       value: "React Native",
       icon: Code
     },
     {
-      label: "Platform",
+      label: "Target Platform",
       value: "Mobile (iOS & Android)",
       icon: Smartphone
     }
@@ -94,49 +94,49 @@ export const wristbandOverviewData: ProjectOverviewProps = {
 
 // Problem Space Data
 export const wristbandProblemSpaceData: ProblemSpaceProps = {
-  title: "Problem Space",
-  introduction: "Interactive storytelling games in the market suffer from repetitive content, rushed writing, and lack of diversity, causing users to lose interest quickly and delete apps after short-term use.",
+  title: "The Problem We Tackled",
+  introduction: "The interactive storytelling market was drowning in mediocrity. Users were fed up with cookie-cutter characters, predictable plots, and stories that felt about as authentic as a three-dollar bill. Our client wanted to crack this code.",
   challenges: [
     {
-      title: "Repetitive Content",
-      description: "Most interactive storytelling games follow similar patterns and storylines, making the experience predictable and boring for users.",
+      title: "Story Déjà Vu",
+      description: "Every app felt like a carbon copy. Same plots, same twists, same yawn-inducing predictability that made users delete apps faster than you could say 'choose your adventure.'",
       icon: Layers
     },
     {
-      title: "Poor Character Development",
-      description: "Characters often look the same with only superficial differences like hair color, lacking authentic representation and depth.",
+      title: "Character Copy-Paste Syndrome",
+      description: "Characters were basically the same person with different hair colors. About as diverse as a boy band and twice as shallow.",
       icon: Users
     },
     {
-      title: "Rushed Writing Quality",
-      description: "Stories feel hurried and lack the depth needed to create meaningful connections between users and characters.",
+      title: "Rush Job Writing",
+      description: "Stories felt like they were written during lunch breaks. No depth, no soul, no reason for users to actually give a damn about what happened next.",
       icon: PenTool
     },
     {
-      title: "Limited Genre Variety",
-      description: "Existing platforms don't offer enough variety in storytelling genres, leading to a narrow and repetitive user experience.",
+      title: "Genre Desert",
+      description: "Limited variety meant users got bored faster than a goldfish. The same three genres recycled ad nauseam.",
       icon: Book
     }
   ],
   designGoals: [
     {
-      title: "Authentic Storytelling",
-      description: "Create engaging content with diverse perspectives from writers and artists of different cultural backgrounds.",
+      title: "Authentic Storytelling Revolution",
+      description: "Partner with diverse creators to build stories that actually reflect the beautiful complexity of real human experiences.",
       icon: Globe
     },
     {
-      title: "Quality Character Design",
-      description: "Develop distinctive characters that users can relate to and feel genuinely connected with throughout their journey.",
+      title: "Characters Worth Caring About",
+      description: "Design memorable characters that users would actually want to spend time with—not just look at.",
       icon: Palette
     },
     {
-      title: "Engaging User Experience",
-      description: "Design an intuitive interface that enhances the storytelling experience without overwhelming the narrative.",
+      title: "Intuitive Story Navigation",
+      description: "Create an interface so smooth that users forget they're using an app and get lost in the story instead.",
       icon: Gamepad2
     },
     {
-      title: "Sustainable Monetization",
-      description: "Implement a thoughtful premium content system that provides value while supporting content creators.",
+      title: "Smart Monetization",
+      description: "Build a premium model that doesn't feel like highway robbery while supporting the creators who make it all possible.",
       icon: DollarSign
     }
   ]
@@ -145,100 +145,100 @@ export const wristbandProblemSpaceData: ProblemSpaceProps = {
 // Research & Discovery Data
 export const wristbandResearchData: ResearchDiscoveryProps = {
   title: "Research & Discovery",
-  introduction: "Conducted extensive research on interactive storytelling platforms and user engagement patterns to identify key pain points and opportunities for creating more authentic and diverse narrative experiences.",
+  introduction: "We dove deep into the interactive storytelling ecosystem to understand why users were bouncing faster than a rubber ball. The findings were eye-opening and a little depressing.",
   researchSections: [
     {
-      title: "User Research",
-      description: "Primary research with interactive story game users and content consumers.",
+      title: "User Deep Dive",
+      description: "We talked to real humans about their storytelling app experiences:",
       items: [
         {
-          text: "Interviewed 25+ users of existing interactive storytelling platforms about their experiences"
+          text: "Interviewed 25+ interactive story game enthusiasts who weren't shy about their frustrations"
         },
         {
-          text: "Analyzed user behavior patterns and story completion rates across different genres"
+          text: "Analyzed user behavior patterns that revealed some harsh truths about engagement"
         },
         {
-          text: "Surveyed users about character representation and cultural authenticity preferences"
+          text: "Surveyed users about what they actually wanted in character representation (spoiler: authenticity)"
         }
       ]
     },
     {
-      title: "Competitive Analysis",
-      description: "Evaluated existing interactive storytelling platforms and their content approaches:",
+      title: "Competitive Reality Check",
+      description: "We dissected the competition to see what they were doing wrong:",
       items: [
         {
-          text: "Analyzed major platforms like Episode, Choices, and Chapters for content quality and diversity"
+          text: "Analyzed Episode, Choices, and Chapters—found more patterns than a wallpaper store"
         },
         {
-          text: "Identified gaps in character representation and story authenticity"
+          text: "Identified massive gaps in authentic representation and quality storytelling"
         },
         {
-          text: "Studied successful monetization strategies and user retention techniques"
+          text: "Studied monetization strategies that actually worked without annoying users"
         }
       ]
     }
   ],
   keyFindings: [
     {
-      title: "Key Finding 1",
-      description: "78% of users abandoned apps within 2 weeks due to repetitive storylines and lack of authentic character development."
+      title: "The Two-Week Death Spiral",
+      description: "78% of users abandoned apps within 2 weeks due to repetitive storylines and characters with the depth of a puddle."
     },
     {
-      title: "Key Finding 2",
-      description: "Users strongly preferred stories that featured characters from diverse backgrounds with authentic cultural representation."
+      title: "Authenticity Hunger",
+      description: "Users craved stories featuring characters from diverse backgrounds with genuine cultural representation—imagine that!"
     },
     {
-      title: "Key Finding 3",
-      description: "Premium content purchases increased by 45% when users felt emotionally connected to well-developed characters."
+      title: "Emotional Investment = Money",
+      description: "Premium content purchases jumped 45% when users actually cared about well-developed characters. Go figure."
     }
   ]
 };
 
 // Ideation & Strategy Data
 export const wristbandIdeationData: IdeationStrategyProps = {
-  title: "Planning & Strategy",
-  introduction: "Developed a content-creator-centered approach that prioritizes authentic storytelling through diverse voices, ensuring users can find characters and narratives that genuinely resonate with their experiences.",
+  title: "Strategy & Game Plan",
+  introduction: "We flipped the script by putting creators at the center of everything. Instead of churning out content, we focused on building relationships between storytellers and story-lovers.",
   keyInsights: [
     {
-      highlight: "Diversity drives engagement and authenticity.",
-      description: "Users connect more deeply with stories when they see authentic representation of different cultures and backgrounds."
+      highlight: "Diversity isn't a buzzword—it's a business advantage.",
+      description: "Authentic representation creates deeper emotional connections, which translates to longer engagement and higher conversion rates."
     },
     {
-      highlight: "Quality over quantity in content creation.",
-      description: "Well-crafted stories with meaningful character development outperform numerous shallow narratives."
+      highlight: "Quality beats quantity every single time.",
+      description: "One well-crafted story with compelling characters outperforms ten shallow narratives that nobody remembers."
     },
     {
-      highlight: "Creator collaboration enhances storytelling.",
-      description: "Working with freelance writers and artists from diverse backgrounds creates more authentic and engaging content."
+      highlight: "Creator collaboration is the secret sauce.",
+      description: "When writers and artists from different backgrounds collaborate, magic happens. Stories become windows into new worlds."
     }
   ],
   flowSteps: [
     {
       number: 1,
-      title: "Discovery → Find stories that resonate",
-      description: "Users browse diverse story collections curated by writers from different cultural backgrounds"
+      title: "Discovery → Find your story soulmate",
+      description: "Users browse curated collections from creators who know how to tell stories that actually matter"
     },
     {
       number: 2,
-      title: "Engagement → Make meaningful choices",
-      description: "Interactive decision-making system allows users to shape character journeys in authentic ways"
+      title: "Engagement → Make choices that count",
+      description: "Every decision shapes not just the plot, but character relationships in meaningful ways"
     },
     {
       number: 3,
-      title: "Connection → Build character relationships",
-      description: "Deep character development creates emotional connections that keep users invested in storylines"
+      title: "Connection → Fall for the characters",
+      description: "Rich character development creates emotional investment that keeps users coming back for more"
     },
     {
       number: 4,
-      title: "Progression → Unlock premium content",
-      description: "Thoughtful monetization system rewards engagement while supporting content creators"
+      title: "Investment → Support great storytelling",
+      description: "Premium content that's actually worth paying for while supporting the creators behind it"
     }
   ]
 };
 
 // User Persona Data
 export const wristbandPersonaData: UserPersonaProps = {
-  title: "User Persona",
+  title: "Meet Our Target User",
   imageSrc: "/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
   imageAlt: "Maya Story Enthusiast Persona",
   name: "Maya Rodriguez",
@@ -252,34 +252,34 @@ export const wristbandPersonaData: UserPersonaProps = {
       value: "Marketing Coordinator"
     },
     {
-      label: "Experience",
-      value: "Avid reader and mobile game player for 6+ years"
+      label: "Story Experience",
+      value: "6+ years of mobile gaming & reading"
     },
     {
-      label: "Tech Comfort",
-      value: "High, enjoys discovering new apps and storytelling platforms"
+      label: "Tech Savviness",
+      value: "High—always hunting for the next great app"
     }
   ],
   goals: [
     {
-      text: "Find interactive stories that feature diverse characters and authentic cultural representation"
+      text: "Discover interactive stories that feature authentic characters instead of cardboard cutouts"
     },
     {
-      text: "Engage with meaningful narrative choices that impact character development and story outcomes"
+      text: "Make narrative choices that actually impact story outcomes (revolutionary concept, right?)"
     },
     {
-      text: "Support content creators who produce quality, authentic storytelling experiences"
+      text: "Support content creators who craft quality, authentic storytelling experiences"
     }
   ],
   frustrations: [
     {
-      text: "Tired of repetitive storylines and shallow character development in existing apps"
+      text: "Sick of repetitive storylines that could be written by a tired intern"
     },
     {
-      text: "Disappointed by lack of authentic cultural representation in most story games"
+      text: "Fed up with token diversity that feels more like checking boxes than authentic representation"
     },
     {
-      text: "Frustrated with poor writing quality and rushed content in popular platforms"
+      text: "Disappointed by rushed content that prioritizes quantity over any semblance of quality"
     }
   ],
   needs: [
@@ -287,10 +287,10 @@ export const wristbandPersonaData: UserPersonaProps = {
       text: "Access to diverse, well-written stories that reflect different cultural perspectives"
     },
     {
-      text: "Characters that feel authentic and relatable, not just cosmetic variations"
+      text: "Characters that feel like real people, not just different outfits on the same mannequin"
     },
     {
-      text: "A platform that values quality storytelling over quantity of content"
+      text: "A platform that values storytelling craft over content mill production"
     }
   ]
 };
@@ -298,88 +298,88 @@ export const wristbandPersonaData: UserPersonaProps = {
 // User Journey Map Data
 export const wristbandJourneyData: UserJourneyMapProps = {
   title: "User Journey Map",
-  introduction: "This journey map follows Maya as she discovers WRISTBAND and transitions from frustration with repetitive story apps to finding authentic, diverse narratives that truly resonate with her.",
-  journeyTitle: "User Journey: Maya's Experience",
-  journeyDescription: "Following Maya as she discovers WRISTBAND and moves from disappointment with shallow storytelling apps to engaging with authentic, diverse narratives.",
+  introduction: "Follow Maya's journey from frustrated app-hopper to engaged storytelling enthusiast as she discovers what happens when someone actually gives a damn about quality.",
+  journeyTitle: "Maya's WRISTBAND Discovery",
+  journeyDescription: "From eye-rolling at another disappointing story app to finding narratives that actually make her care about fictional characters.",
   stages: [
-    { name: "Problem" },
+    { name: "Frustration" },
     { name: "Discovery" },
-    { name: "First Story" },
-    { name: "Exploration" },
+    { name: "First Taste" },
+    { name: "Deep Dive" },
     { name: "Commitment" }
   ],
   userActions: [
     {
       icon: Frown,
-      description: "Frustrated with repetitive stories and poor character development in current apps"
+      description: "Rage-deletes another story app with characters as flat as day-old soda"
     },
     {
       icon: Search,
-      description: "Searches for interactive storytelling apps with better diversity and quality writing"
+      description: "Searches for 'actually good interactive stories' with low expectations"
     },
     {
       icon: Play,
-      description: "Downloads WRISTBAND and starts first story, notices authentic character representation"
+      description: "Downloads WRISTBAND skeptically, starts first story, notices something different"
     },
     {
       icon: Book,
-      description: "Explores different story genres and discovers writers from various cultural backgrounds"
+      description: "Explores multiple story genres, discovers creators with actual talent"
     },
     {
       icon: Gamepad2,
-      description: "Becomes regular user, purchases premium stories, and follows favorite content creators"
+      description: "Becomes invested user, purchases premium stories, follows favorite writers"
     }
   ],
   emotionalStates: [
     {
       icon: Frown,
       iconColor: "text-red-400",
-      description: "Frustrated & Disappointed"
+      description: "Frustrated & Fed Up"
     },
     {
       icon: Meh,
       iconColor: "text-yellow-400",
-      description: "Hopeful but Skeptical"
+      description: "Cautiously Hopeful"
     },
     {
       icon: Smile,
       iconColor: "text-green-400",
-      description: "Intrigued & Engaged"
+      description: "Pleasantly Surprised"
     },
     {
       icon: Smile,
       iconColor: "text-green-400",
-      description: "Excited & Invested"
+      description: "Genuinely Excited"
     },
     {
       icon: Smile,
       iconColor: "text-green-400",
-      description: "Satisfied & Loyal"
+      description: "Happily Hooked"
     }
   ],
   painPoints: [
     {
       points: [
-        "Current apps have boring, repetitive storylines",
-        "Characters lack authentic cultural representation"
+        "Every story app feels like déjà vu",
+        "Characters lack any authentic cultural depth"
       ]
     },
     {
       points: [
         "Skeptical about finding truly diverse content",
-        "Worried about another disappointing app experience"
+        "Expects another disappointing experience"
       ]
     },
     {
       points: [
-        "Learning new interface and story mechanics",
-        "Unsure about content quality and authenticity"
+        "Learning new interface while guarding expectations",
+        "Wondering if the quality claims are real"
       ]
     },
     {
       points: [
-        "Wants to explore all available story genres",
-        "Deciding which premium content is worth purchasing"
+        "Wants to explore all genres without wasting time",
+        "Deciding which premium content deserves money"
       ]
     },
     {
@@ -392,32 +392,32 @@ export const wristbandJourneyData: UserJourneyMapProps = {
   designOpportunities: [
     {
       points: [
-        "Curated diverse story collections",
-        "Authentic character design and development"
+        "Showcase diverse story collections prominently",
+        "Highlight authentic character development"
       ]
     },
     {
       points: [
-        "Clear content quality indicators",
-        "Featured diverse content creators"
+        "Clear quality indicators and creator spotlights",
+        "Social proof from other satisfied users"
       ]
     },
     {
       points: [
-        "Intuitive story navigation",
-        "Quality preview system for stories"
+        "Intuitive onboarding with quality story previews",
+        "Easy navigation between different storylines"
       ]
     },
     {
       points: [
-        "Personalized story recommendations",
-        "Creator spotlight and following features"
+        "Smart story recommendations based on preferences",
+        "Creator profiles with behind-the-scenes content"
       ]
     },
     {
       points: [
-        "Story progress tracking and organization",
-        "Fair and transparent premium content pricing"
+        "Story progress tracking and bookmarking",
+        "Transparent and fair premium pricing"
       ]
     }
   ]
@@ -425,49 +425,49 @@ export const wristbandJourneyData: UserJourneyMapProps = {
 
 // Challenges & Learnings Data
 export const wristbandChallengesData: ChallengesLearningsProps = {
-  title: "Key Insights & Learnings",
+  title: "Challenges & Hard-Won Insights",
   challenges: [
     {
-      title: "Content Creator Coordination",
-      description: "Managing relationships with multiple freelance writers and artists while maintaining consistent quality standards and authentic representation across diverse story collections."
+      title: "Herding Creative Cats",
+      description: "Managing multiple freelance writers and artists while maintaining quality standards was like conducting an orchestra where everyone plays different instruments. Rewarding, but exhausting."
     },
     {
-      title: "Balancing Monetization with Accessibility",
-      description: "Creating a sustainable premium content model that fairly compensates creators while keeping the app accessible to users with different spending capacities."
+      title: "The Monetization Tightrope",
+      description: "Creating a revenue model that fairly compensates creators without making users feel like they're being nickel-and-dimed required more finesse than a diplomatic summit."
     },
     {
-      title: "Cultural Authenticity Validation",
-      description: "Ensuring that diverse cultural representations in stories are authentic and respectful, requiring careful review processes and cultural sensitivity considerations."
+      title: "Authenticity Police Duty",
+      description: "Ensuring cultural representations were authentic and respectful meant becoming a cultural sensitivity detective—necessary, but time-consuming."
     }
   ],
   learnings: [
     {
-      title: "Diversity as a Design Foundation",
-      description: "Building diversity into the core content creation process from the beginning, rather than adding it as an afterthought, results in more authentic and engaging storytelling."
+      title: "Diversity as Design DNA",
+      description: "Building diversity into the foundation from day one creates more authentic results than trying to sprinkle it on top like seasoning."
     },
     {
-      title: "Creator-User Connection Value",
-      description: "Facilitating connections between content creators and users through creator profiles and behind-the-scenes content significantly increases user engagement and premium purchases."
+      title: "Creator-User Bridge Building",
+      description: "Connecting content creators directly with users through profiles and behind-the-scenes content dramatically increases engagement and purchase rates."
     },
     {
-      title: "Quality Curation Over Volume",
-      description: "Users prefer fewer, high-quality stories with authentic character development over large volumes of shallow, repetitive content."
+      title: "Quality Curation Wins",
+      description: "Users would rather have fewer, exceptional stories than a library full of forgettable content. Less really can be more."
     }
   ],
   nextSteps: [
     {
       title: "Creator Mentorship Program",
-      description: "Develop a program to support emerging diverse writers and artists in creating authentic storytelling content.",
+      description: "Build a program to nurture emerging diverse writers and artists in authentic storytelling.",
       icon: GraduationCap
     },
     {
-      title: "Community Features",
-      description: "Add user discussion forums and creator Q&A sessions to build community around authentic storytelling.",
+      title: "Community Building",
+      description: "Add discussion forums and creator Q&As to build community around quality storytelling.",
       icon: Users
     },
     {
-      title: "Advanced Personalization",
-      description: "Implement AI-driven story recommendations based on user preferences for cultural themes and narrative styles.",
+      title: "Smart Personalization",
+      description: "Implement AI-driven recommendations based on cultural themes and narrative preferences.",
       icon: Zap
     }
   ]
