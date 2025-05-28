@@ -1,5 +1,7 @@
+
 import React, { useState } from "react";
-import { X } from "lucide-react";
+import { X, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Import key section components
 import IntegratedOverview from "@/components/project/tech-noir/IntegratedOverview";
@@ -30,6 +32,17 @@ const TechNoirCaseStudy = () => {
       <TechNoirUserPersona />
       <TechNoirFinalUIDesign handleImageClick={handleImageClick} />
       <TechNoirChallengesLearnings />
+
+      {/* Back to Works link */}
+      <div className="max-w-6xl mx-auto px-6 pt-16">
+        <Link
+          to="/works"
+          className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Works
+        </Link>
+      </div>
 
       {/* Modal for full-size image view */}
       {selectedImage && (
