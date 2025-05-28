@@ -70,7 +70,7 @@ export const chillVibesOverviewData: ProjectOverviewProps = {
     },
     {
       label: "Year",
-      value: "2023",
+      value: "2020",
       icon: Calendar
     }
   ],
