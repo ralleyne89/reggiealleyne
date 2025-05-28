@@ -1,3 +1,4 @@
+
 import { ProjectType } from '../../../types/project';
 
 export const getCllctveProject = (): ProjectType => {
@@ -55,6 +56,7 @@ export const getCllctveProject = (): ProjectType => {
     methodologies: ["Agile", "Bi-weekly Sprints", "User Testing", "React.js", "Figma", "Ant Design"],
     summary: "CLLCTVE is a leading portfolio platform connecting Gen Z creatives to their next opportunity through an intuitive, highly visual portfolio experience.",
     date: "2022-06-15",
-    solution: "Built an intuitive, highly visual portfolio platform that connects Gen Z creatives with brands through hosted challenges, while providing a sense of community and career development."
+    solution: "Built an intuitive, highly visual portfolio platform that connects Gen Z creatives with brands through hosted challenges, while providing a sense of community and career development.",
+    liveUrl: "https://cllctve-demo.web.app"
   };
 };
