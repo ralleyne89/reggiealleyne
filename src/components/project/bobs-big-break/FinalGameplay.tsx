@@ -28,6 +28,16 @@ const FinalGameplay = ({ handleImageClick }: FinalGameplayProps) => {
 
   const uiImages = [
     {
+      src: "/lovable-uploads/aa567c1c-6747-4cac-a70c-13fc4791def9.png",
+      alt: "Bob's Big Break home page interface",
+      title: "Home Page Interface"
+    },
+    {
+      src: "/lovable-uploads/ea29fa97-2c32-4ae6-8ba3-247cf34726a8.png",
+      alt: "Bob's Big Break login page interface",
+      title: "Login Page Interface"
+    },
+    {
       src: "/lovable-uploads/6d034732-5293-42a4-a01b-fef0af194695.png",
       alt: "Bob's Big Break main game interface",
       title: "Main Game Interface"
