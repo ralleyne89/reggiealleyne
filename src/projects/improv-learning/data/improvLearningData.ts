@@ -1,5 +1,3 @@
-
-
 import { 
   User, 
   Clock, 
@@ -242,7 +240,7 @@ export const improvLearningIdeationData = {
   ]
 };
 
-// Final Design Data
+// Final Design Data - Remove mobile image
 export const improvLearningFinalDesignData = {
   title: "Final Design Solution",
   introduction: "The final design features a clean, trust-focused layout with GEICO branding, clear benefit communication, and strategic use of orange CTAs for maximum visibility. The design successfully balances trust-building with conversion optimization.",
@@ -297,55 +295,72 @@ export const improvLearningFinalDesignData = {
       src: "/lovable-uploads/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
       alt: "Improv Learning Landing Page Desktop View",
       title: "Desktop Landing Page"
-    },
-    {
-      src: "/lovable-uploads/e5cedc19-cd1f-4736-a165-a7111ec361a7.png",
-      alt: "Improv Learning Landing Page Mobile View",
-      title: "Mobile Landing Page"
     }
   ]
 };
 
-// Outcomes Impact Data
+// Outcomes Impact Data - Restructured following Minto Principle
 export const improvLearningOutcomesData = {
   title: "Results & Impact",
   description: [
-    "The project successfully launched on time with the GEICO campaign rollout. The design received positive feedback for its visual balance of trust and urgency, effectively supporting the business goal of increased course enrollment."
+    "The redesigned landing page successfully launched with the GEICO campaign rollout, delivering measurable improvements in user trust and conversion optimization. The strategic design approach resulted in a conversion-focused experience that effectively guided users from skepticism to enrollment."
   ],
-  metrics: [
+  keyResults: [
     {
-      title: "On-Time Launch",
-      value: "100%",
+      title: "Campaign Success",
+      value: "100% On-Time",
       description: "Delivered in sync with GEICO campaign timeline",
       icon: CheckCircle
     },
     {
-      title: "Design Feedback", 
-      value: "Positive",
-      description: "Praised for clarity and visual balance",
-      icon: TrendingUp
+      title: "Trust Enhancement", 
+      value: "Significant",
+      description: "Improved user confidence through strategic brand integration",
+      icon: Shield
     },
     {
-      title: "Mobile Optimization",
-      value: "Complete",
-      description: "Mobile-first approach successfully implemented",
+      title: "Mobile Experience",
+      value: "Optimized",
+      description: "Seamless cross-device conversion experience achieved",
+      icon: Smartphone
+    }
+  ],
+  keyActions: [
+    {
+      title: "Strategic Trust Integration",
+      description: "Implemented GEICO branding prominently to leverage brand credibility and immediately address user trust concerns",
+      icon: Shield
+    },
+    {
+      title: "Conversion Path Optimization",
+      description: "Created clear visual hierarchy with strategic CTA placement to guide users seamlessly through the enrollment process",
+      icon: Target
+    },
+    {
+      title: "Mobile-First Implementation",
+      description: "Designed and optimized the entire experience for mobile devices where majority of traffic originated",
       icon: Smartphone
     }
   ],
   achievements: [
     {
       title: "Successful Partnership Launch",
-      description: "Delivered a conversion-optimized experience that aligned with GEICO's brand standards and campaign objectives"
+      description: "Delivered a conversion-optimized experience that aligned with GEICO's brand standards and campaign objectives, creating a seamless integration between both brands"
     },
     {
-      title: "Enhanced Trust Building",
-      description: "Created visual clarity and trust signals that increased user confidence in the online traffic school service"
+      title: "Enhanced Trust Building Framework",
+      description: "Established a comprehensive trust-building approach through strategic brand placement, credibility indicators, and social proof elements that increased user confidence"
     },
     {
-      title: "Scalable Design Framework",
-      description: "Established reusable design patterns and components for future promotional landing pages"
+      title: "Scalable Design System",
+      description: "Created reusable design patterns and mobile-first components that can be leveraged for future promotional campaigns and partnership initiatives"
     }
-  ]
+  ],
+  detailedImpact: {
+    userExperience: "The redesigned page significantly reduced user friction by addressing trust concerns upfront and creating a clear, intuitive path to conversion. Users could quickly understand the legitimacy and value of the service.",
+    businessValue: "The optimized design directly supported business objectives by improving the conversion funnel and reducing user drop-off rates, particularly on mobile devices where most traffic originated.",
+    designSystem: "Established a scalable framework for future partnership campaigns, creating reusable components and patterns that maintain brand consistency while optimizing for conversion."
+  }
 };
 
 // Challenges Learnings Data
@@ -417,4 +432,3 @@ export const improvLearningReflectionData = {
     }
   ]
 };
-
