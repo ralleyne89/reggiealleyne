@@ -66,29 +66,56 @@ const FinalUIDesign = ({
 
         {/* UI Images */}
         {uiImages && uiImages.length > 0 && <div className="mb-16">
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {uiImages.map((image, index) => <motion.div key={index} className="space-y-4" initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5,
-            delay: index * 0.1
-          }} viewport={{
-            once: true,
-            amount: 0.3
-          }}>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                    {image.title}
-                  </h4>
-                  <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.(image.src)}>
-                    <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
-                  </div>
-                </motion.div>)}
-            </div>
+            <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-6">
+              Landing Page
+            </h3>
+            {uiImages.length === 1 ? (
+              <motion.div 
+                className="w-full" 
+                initial={{
+                  opacity: 0,
+                  y: 20
+                }} 
+                whileInView={{
+                  opacity: 1,
+                  y: 0
+                }} 
+                transition={{
+                  duration: 0.5
+                }} 
+                viewport={{
+                  once: true,
+                  amount: 0.3
+                }}
+              >
+                <div className="w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.(uiImages[0].src)}>
+                  <img src={uiImages[0].src} alt={uiImages[0].alt} className="w-full h-full object-cover" />
+                </div>
+              </motion.div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {uiImages.map((image, index) => <motion.div key={index} className="space-y-4" initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.5,
+              delay: index * 0.1
+            }} viewport={{
+              once: true,
+              amount: 0.3
+            }}>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-4">
+                      {image.title}
+                    </h4>
+                    <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.(image.src)}>
+                      <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
+                    </div>
+                  </motion.div>)}
+              </div>
+            )}
           </div>}
 
         {/* Design Highlights */}
