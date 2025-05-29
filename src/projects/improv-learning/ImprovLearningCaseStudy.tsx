@@ -1,88 +1,76 @@
 
-import React from "react";
-import { motion } from "framer-motion";
-import ProjectOverview from "@/projects/shared/ProjectOverview";
-import ProblemSpace from "@/projects/shared/ProblemSpace";
-import ResearchDiscovery from "@/projects/shared/ResearchDiscovery";
-import IdeationStrategy from "@/projects/shared/IdeationStrategy";
-import FinalUIDesign from "@/projects/shared/FinalUIDesign";
-import OutcomesImpact from "@/projects/shared/OutcomesImpact";
-import ChallengesLearnings from "@/projects/shared/ChallengesLearnings";
-import Reflection from "@/projects/shared/Reflection";
-import { improvLearningData } from "./data/improvLearningData";
+import React, { useState } from "react";
+import { X, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const ImprovLearningCaseStudy: React.FC = () => {
+// Import structured components
+import IntegratedOverview from "@/components/project/improv-learning/IntegratedOverview";
+import ProblemSpace from "@/components/project/improv-learning/ProblemSpace";
+import ResearchDiscovery from "@/components/project/improv-learning/ResearchDiscovery";
+import IdeationStrategy from "@/components/project/improv-learning/IdeationStrategy";
+import FinalUIDesign from "@/components/project/improv-learning/FinalUIDesign";
+import OutcomesImpact from "@/components/project/improv-learning/OutcomesImpact";
+import ChallengesLearnings from "@/components/project/improv-learning/ChallengesLearnings";
+import Reflection from "@/components/project/improv-learning/Reflection";
+
+const ImprovLearningCaseStudy = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const handleImageClick = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
   return (
-    <motion.div
-      className="min-h-screen bg-white"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        {/* Project Overview */}
-        <ProjectOverview
-          title="Project Overview"
-          description={improvLearningData.overview.description}
-          projectDetails={improvLearningData.overview.projectDetails}
-          toolDetails={improvLearningData.overview.toolDetails}
-        />
+    <div className="mt-8 mb-16">
+      <IntegratedOverview />
+      <ProblemSpace />
+      <ResearchDiscovery />
+      <IdeationStrategy />
+      <FinalUIDesign handleImageClick={handleImageClick} />
+      <OutcomesImpact />
+      <ChallengesLearnings />
+      <Reflection />
 
-        {/* Problem Space */}
-        <ProblemSpace
-          title="The Challenge"
-          description={improvLearningData.problemSpace.description}
-          painPoints={improvLearningData.problemSpace.painPoints}
-        />
-
-        {/* Research & Discovery */}
-        <ResearchDiscovery
-          title="Research & Analysis"
-          description={improvLearningData.research.description}
-          insights={improvLearningData.research.insights}
-          methods={improvLearningData.research.methods}
-        />
-
-        {/* Design Strategy */}
-        <IdeationStrategy
-          title="Design Strategy"
-          description={improvLearningData.strategy.description}
-          strategies={improvLearningData.strategy.strategies}
-        />
-
-        {/* Final UI Design */}
-        <FinalUIDesign
-          title="Final Design Solution"
-          description={improvLearningData.finalDesign.description}
-          features={improvLearningData.finalDesign.features}
-          images={improvLearningData.finalDesign.images}
-        />
-
-        {/* Results & Impact */}
-        <OutcomesImpact
-          title="Results & Impact"
-          description={improvLearningData.outcomes.description}
-          metrics={improvLearningData.outcomes.metrics}
-          achievements={improvLearningData.outcomes.achievements}
-        />
-
-        {/* Challenges & Learnings */}
-        <ChallengesLearnings
-          title="Challenges & Learnings"
-          challenges={improvLearningData.challenges.challenges}
-          learnings={improvLearningData.challenges.learnings}
-          nextSteps={improvLearningData.challenges.nextSteps}
-        />
-
-        {/* Reflection */}
-        <Reflection
-          title="Reflection"
-          description={improvLearningData.reflection.description}
-          keyTakeaways={improvLearningData.reflection.keyTakeaways}
-          futureConsiderations={improvLearningData.reflection.futureConsiderations}
-        />
+      {/* Back to Works link */}
+      <div className="max-w-6xl mx-auto px-6 pt-16">
+        <Link
+          to="/works"
+          className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Works
+        </Link>
       </div>
-    </motion.div>
+
+      {/* Modal for full-size image view */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
+          onClick={closeModal}
+        >
+          <div
+            className="relative max-w-7xl max-h-[90vh] w-full h-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage}
+              alt="Full size image"
+              className="w-full h-full object-contain"
+            />
+            <button
+              className="absolute top-4 right-4 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center"
+              onClick={closeModal}
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
