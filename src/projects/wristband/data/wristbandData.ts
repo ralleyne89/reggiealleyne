@@ -212,7 +212,7 @@ export const wristbandJourneyData = {
     },
     {
       name: "Jordan Rivera",
-      role: "Content Creator",
+      role: "Content Creator", 
       description: "Emerging storyteller looking to build an audience"
     }
   ],
@@ -222,7 +222,7 @@ export const wristbandJourneyData = {
       description: "How users find and join the platform",
       touchpoints: [
         "Social media recommendations",
-        "App store discovery",
+        "App store discovery", 
         "Word-of-mouth referrals"
       ],
       opportunities: [
@@ -274,10 +274,50 @@ export const wristbandJourneyData = {
       ]
     }
   ],
-  userActions: [],
-  emotions: [],
-  painPoints: [],
-  touchPoints: []
+  userActions: [
+    "Discovers platform through social media",
+    "Signs up and completes onboarding",
+    "Reads first interactive story",
+    "Follows favorite creators",
+    "Shares content with friends",
+    "Becomes active community member"
+  ],
+  emotions: [
+    "Curious about new platform",
+    "Excited by interactive features", 
+    "Engaged with story choices",
+    "Connected to creators",
+    "Satisfied with experience",
+    "Enthusiastic advocate"
+  ],
+  painPoints: [
+    "Complex signup process",
+    "Confusing interface",
+    "Limited content variety",
+    "Poor content discovery",
+    "Lack of creator interaction",
+    "Technical issues"
+  ],
+  touchPoints: [
+    "Social media ads",
+    "App store listing",
+    "Onboarding flow",
+    "Story reader interface",
+    "Creator profiles", 
+    "Community features"
+  ],
+  emotionalStates: [
+    { stage: "Discovery", emotion: "Curiosity", intensity: 3 },
+    { stage: "First Experience", emotion: "Excitement", intensity: 4 },
+    { stage: "Engagement", emotion: "Satisfaction", intensity: 4 },
+    { stage: "Advocacy", emotion: "Enthusiasm", intensity: 5 }
+  ],
+  designOpportunities: [
+    "Simplify onboarding process",
+    "Improve content discovery algorithms",
+    "Enhance creator-reader interaction",
+    "Optimize mobile reading experience"
+  ]
 };
 
 export const wristbandPersonaData = {
@@ -286,27 +326,33 @@ export const wristbandPersonaData = {
   imageSrc: "/lovable-uploads/d5de6ddf-336f-45cb-84e5-4cb556419e53.png",
   imageAlt: "Maya Samuels - Primary User Persona",
   name: "Maya Samuels",
-  details: {
-    age: 26,
-    location: "Austin, TX",
-    occupation: "Marketing Coordinator"
-  },
+  details: [
+    { label: "Age", value: "26" },
+    { label: "Location", value: "Austin, TX" },
+    { label: "Occupation", value: "Marketing Coordinator" }
+  ],
   bio: "Maya is a young professional who loves consuming diverse digital content during her commute and free time. She's particularly interested in stories that offer different perspectives and allow her to engage actively rather than passively consume content.",
   goals: [
-    "Discover authentic stories from diverse creators",
-    "Have agency in how stories unfold and develop",
-    "Connect with like-minded community members",
-    "Support creators whose work resonates with her"
+    { text: "Discover authentic stories from diverse creators" },
+    { text: "Have agency in how stories unfold and develop" },
+    { text: "Connect with like-minded community members" },
+    { text: "Support creators whose work resonates with her" }
   ],
   frustrations: [
-    "Difficulty finding diverse content on mainstream platforms",
-    "Passive consumption experiences that don't engage her",
-    "Algorithmic feeds that don't match her interests",
-    "Limited ways to support emerging creators"
+    { text: "Difficulty finding diverse content on mainstream platforms" },
+    { text: "Passive consumption experiences that don't engage her" },
+    { text: "Algorithmic feeds that don't match her interests" },
+    { text: "Limited ways to support emerging creators" }
+  ],
+  needs: [
+    { text: "Authentic representation in digital media" },
+    { text: "Interactive storytelling experiences" },
+    { text: "Community connections with creators and readers" },
+    { text: "Easy ways to discover and support diverse voices" }
   ],
   motivations: [
     "Seeking authentic representation in digital media",
-    "Wanting to participate in story progression",
+    "Wanting to participate in story progression", 
     "Building connections with creators and other readers",
     "Discovering new perspectives and voices"
   ],
@@ -326,7 +372,7 @@ export const wristbandChallengesData = {
       learnings: "Learned the importance of setting realistic expectations early and using rapid prototyping to test big ideas before committing to full development. Client education became as important as the design work itself."
     },
     {
-      title: "Building for Diversity Without Tokenism",
+      title: "Building for Diversity Without Tokenism", 
       description: "Creating authentic representation in characters and stories meant going beyond surface-level diversity. We had to develop processes for working with diverse creators and ensuring their voices weren't diluted through our design process.",
       learnings: "Discovered that authentic diversity requires involving diverse voices from the beginning, not just at the content creation stage. Design systems and workflows need to support, not constrain, cultural authenticity."
     },
@@ -341,6 +387,16 @@ export const wristbandChallengesData = {
       learnings: "Project success isn't always measured by launch metrics. The skills developed, relationships built, and concepts proven can be just as valuable as a live product."
     }
   ],
-  learnings: [],
-  nextSteps: []
+  learnings: [
+    "Client prototypes require different success metrics than shipped products",
+    "Diverse representation must be built into the process, not added as an afterthought", 
+    "Flexible system design is crucial when business models are uncertain",
+    "Team motivation requires clear communication about project goals and constraints"
+  ],
+  nextSteps: [
+    "Apply learnings about inclusive design to future projects",
+    "Develop better frameworks for client expectation management",
+    "Create more robust prototyping processes for testing big ideas",
+    "Build portfolio pieces that showcase the design thinking process"
+  ]
 };
