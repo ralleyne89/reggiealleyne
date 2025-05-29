@@ -13,11 +13,15 @@ import {
   TrendingUp,
   CheckCircle,
   AlertCircle,
-  ArrowRight
+  ArrowRight,
+  Search,
+  UserPlus,
+  Coffee
 } from "lucide-react";
 
 export const doggyDateData = {
   overview: {
+    title: "Project Overview",
     description: [
       "Doggy Date is a social network for dog owners with a dating app component designed to connect dog lovers through their shared passion for their furry companions. The platform creates a unique community where users can discover local dog owners, arrange meetups, and potentially find romance.",
       "This project focused on creating an engaging, interactive experience that differentiates from traditional dating apps by centering the experience around dogs and creating authentic connections through shared pet experiences."
@@ -59,10 +63,11 @@ export const doggyDateData = {
   },
   
   problemSpace: {
-    description: [
+    title: "The Challenge",
+    introduction: [
       "Users that are accustomed to dating apps are already using competitors. Finding a way to make the app unique and interactive so users will use it continuously rather than abandoning it for more established platforms."
     ],
-    painPoints: [
+    challenges: [
       {
         title: "Market Saturation",
         description: "Dating app market dominated by established competitors like Tinder and Bumble",
@@ -83,14 +88,59 @@ export const doggyDateData = {
         description: "Dog owners seek genuine connections based on shared lifestyle and values",
         icon: Heart
       }
+    ],
+    designGoals: [
+      {
+        title: "Unique Interaction Model",
+        description: "Replace traditional swiping with dog-themed interactions like 'Bark, Sniff & Lick'",
+        icon: Heart
+      },
+      {
+        title: "Dual Profile System",
+        description: "Allow users to create profiles for both themselves and their dogs",
+        icon: UserPlus
+      },
+      {
+        title: "Community Features",
+        description: "Build social networking elements that encourage ongoing engagement",
+        icon: Users
+      },
+      {
+        title: "Local Meetup Integration",
+        description: "Connect users through dog-friendly locations and events",
+        icon: MapPin
+      }
     ]
   },
 
   research: {
-    description: [
+    title: "Research & Discovery",
+    introduction: [
       "I visited dog parks around Los Angeles to interview dog owners about their views on dating apps and their experiences meeting other dog owners. This field research provided valuable insights into user needs and behaviors."
     ],
-    insights: [
+    researchSections: [
+      {
+        title: "Field Interviews",
+        description: "Conducted interviews at dog parks across Los Angeles to understand user behaviors and needs.",
+        items: [
+          { text: "Dog owners prioritize partners who understand pet care commitments" },
+          { text: "Natural conversation starters occur through dog interactions" },
+          { text: "Strong preference for community-focused over competitive experiences" },
+          { text: "Desire for authentic connections based on shared lifestyle values" }
+        ]
+      },
+      {
+        title: "Competitive Analysis",
+        description: "Analyzed existing dating apps and pet-focused social platforms to identify opportunities.",
+        items: [
+          { text: "Traditional dating apps lack unique differentiation" },
+          { text: "No existing platforms specifically serve dog owner communities" },
+          { text: "Payment barriers often prevent genuine connections" },
+          { text: "Location-based features are underutilized for pet communities" }
+        ]
+      }
+    ],
+    keyFindings: [
       {
         title: "Shared Lifestyle Values",
         description: "Dog owners prioritize partners who understand and share their commitment to pet care"
@@ -103,52 +153,58 @@ export const doggyDateData = {
         title: "Community Over Competition",
         description: "Users preferred collaborative, community-focused experiences over competitive matching"
       }
-    ],
-    methods: [
-      {
-        title: "Field Interviews",
-        description: "Conducted interviews at dog parks across Los Angeles"
-      },
-      {
-        title: "Persona Development",
-        description: "Created detailed user personas based on research findings"
-      },
-      {
-        title: "Competitive Analysis",
-        description: "Analyzed existing dating apps and pet-focused social platforms"
-      }
     ]
   },
 
   strategy: {
-    description: [
+    title: "Design Strategy & Ideation",
+    introduction: [
       "The design strategy centered on creating a dual-profile system for both owners and their dogs, implementing unique interaction mechanisms like 'Bark, Sniff & Lick' instead of traditional swiping, and building community features that encourage ongoing engagement."
     ],
-    strategies: [
+    keyInsights: [
       {
-        title: "Dual Profile System",
-        description: "Allow users to create profiles for both themselves and their dogs",
-        icon: Users
+        highlight: "Dual Profile Innovation",
+        description: "Create comprehensive profiles for both dog owners and their pets to facilitate better matching based on compatibility"
       },
       {
-        title: "Unique Interaction Model",
-        description: "Replace traditional swiping with dog-themed interactions",
-        icon: Heart
+        highlight: "Playful Interaction Model",
+        description: "Replace traditional swiping with dog-themed interactions that make the experience fun and memorable"
       },
       {
-        title: "Location-Based Meetups",
-        description: "Integrate local hangout suggestions and community events",
-        icon: MapPin
+        highlight: "Community-Centered Approach",
+        description: "Build features that encourage social networking and local meetups beyond just dating functionality"
       },
       {
-        title: "Free Messaging",
-        description: "Remove payment barriers to encourage genuine connections",
-        icon: MessageCircle
+        highlight: "Free Communication Model",
+        description: "Remove payment barriers to encourage authentic connections and ongoing engagement"
+      }
+    ],
+    flowSteps: [
+      {
+        number: 1,
+        title: "Profile Creation",
+        description: "Users create detailed profiles for themselves and their dogs with photos and preferences"
+      },
+      {
+        number: 2,
+        title: "Discovery & Interaction",
+        description: "Browse local dog owners and interact using 'Bark, Sniff & Lick' instead of traditional likes"
+      },
+      {
+        number: 3,
+        title: "Community Engagement",
+        description: "Discover local hangout spots, events, and connect with the broader dog owner community"
+      },
+      {
+        number: 4,
+        title: "Connection & Meetup",
+        description: "Message freely and arrange meetups at dog-friendly locations for both pets and owners"
       }
     ]
   },
 
   finalDesign: {
+    title: "Final Design & Features",
     description: [
       "The final design features a playful, dog-themed interface with unique interaction patterns, dual profile capabilities, and integrated community features. The design balances fun, engaging elements with practical dating and social networking functionality."
     ],
@@ -187,24 +243,31 @@ export const doggyDateData = {
   },
 
   outcomes: {
-    description: [
-      "The project successfully created a unique social platform that differentiated itself from traditional dating apps through dog-focused features and community building. The design provided a strong foundation for building an engaged user community."
-    ],
+    title: "Outcomes & Impact",
     metrics: [
       {
         title: "Unique Features",
         value: "5+",
-        description: "Dog-themed interactive features implemented"
+        description: "Dog-themed interactive features implemented",
+        icon: Zap
       },
       {
         title: "User Profiles",
         value: "Dual",
-        description: "Both owner and dog profile capabilities"
+        description: "Both owner and dog profile capabilities",
+        icon: Users
       },
       {
         title: "Community Focus",
         value: "Strong",
-        description: "Beyond dating functionality"
+        description: "Beyond dating functionality",
+        icon: Heart
+      },
+      {
+        title: "Market Position",
+        value: "Unique",
+        description: "Distinctive platform in crowded market",
+        icon: Target
       }
     ],
     achievements: [
@@ -224,6 +287,7 @@ export const doggyDateData = {
   },
 
   challenges: {
+    title: "Challenges & Learnings",
     challenges: [
       {
         title: "Market Differentiation",
@@ -272,6 +336,7 @@ export const doggyDateData = {
   },
 
   reflection: {
+    title: "Project Reflection",
     description: [
       "This project taught me the value of niche market focus and the importance of direct user research. Working on Doggy Date showed how understanding specific user communities can lead to innovative design solutions that create genuine value."
     ],

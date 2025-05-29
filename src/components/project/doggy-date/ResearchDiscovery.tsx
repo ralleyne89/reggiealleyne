@@ -1,10 +1,10 @@
 
 import React from "react";
 import ResearchDiscoveryComponent from "../common/ResearchDiscovery";
-import { techNoirData } from "@/projects/tech-noir/data/techNoirData";
+import { doggyDateData } from "@/projects/doggy-date/data/doggyDateData";
 
 const ResearchDiscovery = () => {
-  return <ResearchDiscoveryComponent {...techNoirData.research} />;
+  return <ResearchDiscoveryComponent {...doggyDateData.research} />;
 };
 
 export default ResearchDiscovery;

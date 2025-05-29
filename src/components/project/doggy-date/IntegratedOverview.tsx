@@ -1,10 +1,10 @@
 
 import React from "react";
 import ProjectOverviewComponent from "../common/ProjectOverview";
-import { techNoirData } from "@/projects/tech-noir/data/techNoirData";
+import { doggyDateData } from "@/projects/doggy-date/data/doggyDateData";
 
 const IntegratedOverview = () => {
-  return <ProjectOverviewComponent {...techNoirData.overview} />;
+  return <ProjectOverviewComponent {...doggyDateData.overview} />;
 };
 
 export default IntegratedOverview;

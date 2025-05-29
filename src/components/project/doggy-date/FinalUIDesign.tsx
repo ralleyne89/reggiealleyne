@@ -1,7 +1,7 @@
 
 import React from "react";
 import FinalUIDesignComponent from "../common/FinalUIDesign";
-import { techNoirData } from "@/projects/tech-noir/data/techNoirData";
+import { doggyDateData } from "@/projects/doggy-date/data/doggyDateData";
 
 interface FinalUIDesignProps {
   handleImageClick?: (imageSrc: string) => void;
@@ -10,14 +10,14 @@ interface FinalUIDesignProps {
 const FinalUIDesign = ({ handleImageClick }: FinalUIDesignProps) => {
   const uiData = {
     title: "Interface Design",
-    introduction: techNoirData.finalDesign.description[0],
-    designHighlights: techNoirData.finalDesign.features.map(feature => ({
+    introduction: doggyDateData.finalDesign.description[0],
+    designHighlights: doggyDateData.finalDesign.features.map(feature => ({
       text: `${feature.title}: ${feature.description}`
     })),
     uiFeatures: [],
-    uiImages: techNoirData.finalDesign.images.map((image, index) => ({
+    uiImages: doggyDateData.finalDesign.images.map((image, index) => ({
       src: image,
-      alt: `Tech Noir Design ${index + 1}`,
+      alt: `Doggy Date Design ${index + 1}`,
       title: `Screen ${index + 1}`
     }))
   };

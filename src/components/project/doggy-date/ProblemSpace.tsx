@@ -1,10 +1,10 @@
 
 import React from "react";
 import ProblemSpaceComponent from "../common/ProblemSpace";
-import { techNoirData } from "@/projects/tech-noir/data/techNoirData";
+import { doggyDateData } from "@/projects/doggy-date/data/doggyDateData";
 
 const ProblemSpace = () => {
-  return <ProblemSpaceComponent {...techNoirData.problemSpace} />;
+  return <ProblemSpaceComponent {...doggyDateData.problemSpace} />;
 };
 
 export default ProblemSpace;
