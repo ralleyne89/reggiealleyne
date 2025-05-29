@@ -65,9 +65,7 @@ export const techNoirData = {
   
   problemSpace: {
     title: "The Challenge",
-    introduction: [
-      "Wearable tech is misunderstood and underexplored in e-commerce. Many users don't know what wearable tech is, how it works, or how to incorporate it into their wardrobe. If consumers don't understand its function, they won't see it as fashionable."
-    ],
+    introduction: "Wearable tech is misunderstood and underexplored in e-commerce. Many users don't know what wearable tech is, how it works, or how to incorporate it into their wardrobe. If consumers don't understand its function, they won't see it as fashionable.",
     challenges: [
       {
         title: "Market Education Gap",
@@ -116,9 +114,7 @@ export const techNoirData = {
 
   research: {
     title: "Research & Discovery",
-    introduction: [
-      "I conducted surveys and field research to gauge wearable tech awareness and analyzed competitive e-commerce platforms to understand user expectations and industry standards."
-    ],
+    introduction: "I conducted surveys and field research to gauge wearable tech awareness and analyzed competitive e-commerce platforms to understand user expectations and industry standards.",
     researchSections: [
       {
         title: "User Surveys & Interviews",
@@ -159,9 +155,7 @@ export const techNoirData = {
 
   strategy: {
     title: "Design Strategy & Ideation",
-    introduction: [
-      "The design strategy focused on creating a luxury e-commerce experience that educates users about wearable technology through visual storytelling, designer collaborations, and comprehensive styling guides."
-    ],
+    introduction: "The design strategy focused on creating a luxury e-commerce experience that educates users about wearable technology through visual storytelling, designer collaborations, and comprehensive styling guides.",
     keyInsights: [
       {
         highlight: "Educational Commerce Model",

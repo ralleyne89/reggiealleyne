@@ -64,9 +64,7 @@ export const doggyDateData = {
   
   problemSpace: {
     title: "The Challenge",
-    introduction: [
-      "Users that are accustomed to dating apps are already using competitors. Finding a way to make the app unique and interactive so users will use it continuously rather than abandoning it for more established platforms."
-    ],
+    introduction: "Users that are accustomed to dating apps are already using competitors. Finding a way to make the app unique and interactive so users will use it continuously rather than abandoning it for more established platforms.",
     challenges: [
       {
         title: "Market Saturation",
@@ -115,9 +113,7 @@ export const doggyDateData = {
 
   research: {
     title: "Research & Discovery",
-    introduction: [
-      "I visited dog parks around Los Angeles to interview dog owners about their views on dating apps and their experiences meeting other dog owners. This field research provided valuable insights into user needs and behaviors."
-    ],
+    introduction: "I visited dog parks around Los Angeles to interview dog owners about their views on dating apps and their experiences meeting other dog owners. This field research provided valuable insights into user needs and behaviors.",
     researchSections: [
       {
         title: "Field Interviews",
@@ -158,9 +154,7 @@ export const doggyDateData = {
 
   strategy: {
     title: "Design Strategy & Ideation",
-    introduction: [
-      "The design strategy centered on creating a dual-profile system for both owners and their dogs, implementing unique interaction mechanisms like 'Bark, Sniff & Lick' instead of traditional swiping, and building community features that encourage ongoing engagement."
-    ],
+    introduction: "The design strategy centered on creating a dual-profile system for both owners and their dogs, implementing unique interaction mechanisms like 'Bark, Sniff & Lick' instead of traditional swiping, and building community features that encourage ongoing engagement.",
     keyInsights: [
       {
         highlight: "Dual Profile Innovation",
@@ -347,7 +341,7 @@ export const doggyDateData = {
       "Community building features can increase user retention and engagement"
     ],
     futureConsiderations: [
-      "Explore integration with pet care services and veterinary platforms",
+      "Explore partnerships with pet care services and veterinary platforms",
       "Develop AI-powered matching based on dog compatibility and owner lifestyle",
       "Create augmented reality features for dog park interactions",
       "Build partnerships with local pet businesses and dog-friendly venues"
