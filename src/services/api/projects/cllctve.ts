@@ -1,4 +1,3 @@
-
 import { ProjectType } from '../../../types/project';
 
 export const getCllctveProject = (): ProjectType => {
@@ -30,7 +29,7 @@ export const getCllctveProject = (): ProjectType => {
     images: [
       "/lovable-uploads/96e0002f-13cc-470b-925d-2e1d627aa695.png",
       "/lovable-uploads/fbb376a0-30ad-4530-8445-159e6767e748.png",
-      "/lovable-uploads/b1ef10bb-d85b-4368-91b9-03baf5a58d03.png"
+      "/lovable-uploads/009d9393-dfb9-453e-8811-1f52d78bf7f1.png"
     ],
     conclusion: {
       impact: "The platform successfully created a community of creative talent, resulting in numerous brand partnerships and collaborations. User engagement metrics showed strong retention, with creators regularly updating their portfolios and participating in challenges.",
