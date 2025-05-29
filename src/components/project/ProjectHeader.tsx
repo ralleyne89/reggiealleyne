@@ -43,19 +43,19 @@ const ProjectHeader = ({
   const isDoggyDateProject = title === "Doggy Date";
 
   // Check if this is the Tech Noir project by title
-  const isTechNoirProject = title === "Tech Noir";
+  const isTechNoirProject = title === "TECH NOIR";
 
   // Check if this is a case study project
   const isCaseStudy =
-    title.includes("SymptomCheckr") || 
-    title.includes("Tutor D") || 
+    title.includes("SymptomCheckr") ||
+    title.includes("Tutor D") ||
     title === "CLLCTVE Platform" ||
     title === "Bob's Big Break" ||
     title === "Chill Vibes Music Player" ||
     title === "WRISTBAND" ||
     title.includes("Improv Learning") ||
     title === "Doggy Date" ||
-    title === "Tech Noir";
+    title === "TECH NOIR";
 
   const handleImageError = () => {
     console.error(`Header image failed to load: ${image}`);
@@ -66,15 +66,15 @@ const ProjectHeader = ({
     // Special styling for SymptomCheckr with background image
     if (isSymptomCheckrProject) {
       return (
-        <div 
+        <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/441aff50-0a80-413b-80af-cc94a0718412.png')`
+            backgroundImage: `url('/lovable-uploads/441aff50-0a80-413b-80af-cc94a0718412.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-          
+
           <div className="max-w-6xl mx-auto px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -82,8 +82,8 @@ const ProjectHeader = ({
               transition={{ duration: 0.6 }}
             >
               <div className="mb-8">
-                <Link 
-                  to="/works" 
+                <Link
+                  to="/works"
                   className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
                 >
                   <ArrowLeft className="h-4 w-4" />
@@ -120,15 +120,15 @@ const ProjectHeader = ({
     // Special styling for Tech Noir with background image - EXACT SAME STYLE AS SYMPTOM CHECKER
     if (isTechNoirProject) {
       return (
-        <div 
+        <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png')`
+            backgroundImage: `url('/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-          
+
           <div className="max-w-6xl mx-auto px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -136,8 +136,8 @@ const ProjectHeader = ({
               transition={{ duration: 0.6 }}
             >
               <div className="mb-8">
-                <Link 
-                  to="/works" 
+                <Link
+                  to="/works"
                   className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
                 >
                   <ArrowLeft className="h-4 w-4" />
@@ -174,15 +174,15 @@ const ProjectHeader = ({
     // Special styling for WRISTBAND with background image
     if (isWristbandProject) {
       return (
-        <div 
+        <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/58637294-5300-47d9-918b-91da32843369.png')`
+            backgroundImage: `url('/lovable-uploads/58637294-5300-47d9-918b-91da32843369.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-          
+
           <div className="max-w-6xl mx-auto px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -190,8 +190,8 @@ const ProjectHeader = ({
               transition={{ duration: 0.6 }}
             >
               <div className="mb-8">
-                <Link 
-                  to="/works" 
+                <Link
+                  to="/works"
                   className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
                 >
                   <ArrowLeft className="h-4 w-4" />
@@ -216,7 +216,9 @@ const ProjectHeader = ({
                 </h1>
 
                 <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  An interactive storytelling platform designed to democratize content creation and provide diverse representation in digital narratives through choice-driven experiences.
+                  An interactive storytelling platform designed to democratize
+                  content creation and provide diverse representation in digital
+                  narratives through choice-driven experiences.
                 </p>
               </div>
             </motion.div>
@@ -228,15 +230,15 @@ const ProjectHeader = ({
     // Special styling for Improv Learning with background image
     if (isImprovLearningProject) {
       return (
-        <div 
+        <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png')`
+            backgroundImage: `url('/lovable-uploads/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-          
+
           <div className="max-w-6xl mx-auto px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -244,8 +246,8 @@ const ProjectHeader = ({
               transition={{ duration: 0.6 }}
             >
               <div className="mb-8">
-                <Link 
-                  to="/works" 
+                <Link
+                  to="/works"
                   className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
                 >
                   <ArrowLeft className="h-4 w-4" />
@@ -282,15 +284,15 @@ const ProjectHeader = ({
     // Special styling for Doggy Date with background image
     if (isDoggyDateProject) {
       return (
-        <div 
+        <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png')`
+            backgroundImage: `url('/lovable-uploads/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-          
+
           <div className="max-w-6xl mx-auto px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -298,8 +300,8 @@ const ProjectHeader = ({
               transition={{ duration: 0.6 }}
             >
               <div className="mb-8">
-                <Link 
-                  to="/works" 
+                <Link
+                  to="/works"
                   className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
                 >
                   <ArrowLeft className="h-4 w-4" />
@@ -336,15 +338,15 @@ const ProjectHeader = ({
     // Special styling for Chill Vibes with background image
     if (isChillVibesProject) {
       return (
-        <div 
+        <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/85ce6121-b2ba-435d-b8cd-2606e0e3cc63.png')`
+            backgroundImage: `url('/lovable-uploads/85ce6121-b2ba-435d-b8cd-2606e0e3cc63.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-          
+
           <div className="max-w-6xl mx-auto px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -352,8 +354,8 @@ const ProjectHeader = ({
               transition={{ duration: 0.6 }}
             >
               <div className="mb-8">
-                <Link 
-                  to="/works" 
+                <Link
+                  to="/works"
                   className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
                 >
                   <ArrowLeft className="h-4 w-4" />
@@ -390,15 +392,15 @@ const ProjectHeader = ({
     // Special styling for CLLCTVE with background image
     if (isCllctveProject) {
       return (
-        <div 
+        <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/7f203bc1-d77d-484d-a6fd-bef5e6adf027.png')`
+            backgroundImage: `url('/lovable-uploads/7f203bc1-d77d-484d-a6fd-bef5e6adf027.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-          
+
           <div className="max-w-6xl mx-auto px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -406,8 +408,8 @@ const ProjectHeader = ({
               transition={{ duration: 0.6 }}
             >
               <div className="mb-8">
-                <Link 
-                  to="/works" 
+                <Link
+                  to="/works"
                   className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
                 >
                   <ArrowLeft className="h-4 w-4" />
@@ -444,15 +446,15 @@ const ProjectHeader = ({
     // Special styling for Tutor D with background image
     if (isTutorDProject) {
       return (
-        <div 
+        <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/bfe72208-e9fa-458d-9323-791c39cf2292.png')`
+            backgroundImage: `url('/lovable-uploads/bfe72208-e9fa-458d-9323-791c39cf2292.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-          
+
           <div className="max-w-6xl mx-auto px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -460,8 +462,8 @@ const ProjectHeader = ({
               transition={{ duration: 0.6 }}
             >
               <div className="mb-8">
-                <Link 
-                  to="/works" 
+                <Link
+                  to="/works"
                   className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
                 >
                   <ArrowLeft className="h-4 w-4" />
@@ -505,8 +507,8 @@ const ProjectHeader = ({
             transition={{ duration: 0.6 }}
           >
             <div className="mb-8">
-              <Link 
-                to="/works" 
+              <Link
+                to="/works"
                 className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200"
               >
                 <ArrowLeft className="h-4 w-4" />
