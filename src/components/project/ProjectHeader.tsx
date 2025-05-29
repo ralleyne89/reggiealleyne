@@ -117,7 +117,7 @@ const ProjectHeader = ({
       );
     }
 
-    // Special styling for Tech Noir with background image - USING SYMPTOM CHECKER LAYOUT
+    // Special styling for Tech Noir with background image - EXACT SAME STYLE AS SYMPTOM CHECKER
     if (isTechNoirProject) {
       return (
         <div 
