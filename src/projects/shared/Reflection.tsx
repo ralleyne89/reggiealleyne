@@ -1,23 +1,23 @@
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Lightbulb } from "lucide-react";
 
-export interface ReflectionInsight {
-  title: string;
-  description: string;
-}
-
 export interface ReflectionProps {
   title?: string;
-  content: string;
-  insights: ReflectionInsight[];
+  description: string | string[];
+  keyTakeaways: string[];
+  futureConsiderations: string[];
 }
 
 const Reflection: React.FC<ReflectionProps> = ({
   title = "Reflection",
-  content,
-  insights
+  description,
+  keyTakeaways,
+  futureConsiderations
 }) => {
+  const descriptionText = Array.isArray(description) ? description.join(' ') : description;
+
   return (
     <section className="mb-16">
       <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
@@ -29,22 +29,31 @@ const Reflection: React.FC<ReflectionProps> = ({
             <h2 className="text-2xl font-bold text-white">{title}</h2>
           </div>
 
-          <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-6">
-            <p className="text-[rgba(200,200,200,0.9)] leading-relaxed">
-              {content}
-            </p>
+          <p className="text-[rgba(200,200,200,0.9)] leading-relaxed mb-8">
+            {descriptionText}
+          </p>
 
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-              {insights.map((insight, index) => (
-                <div key={index} className="bg-[rgba(35,35,35,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
-                  <p className="text-gray-300 text-sm">
-                    <span className="text-primary font-medium block mb-2">
-                      {insight.title}
-                    </span>
-                    {insight.description}
-                  </p>
-                </div>
-              ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-4">Key Takeaways</h3>
+              <div className="space-y-3">
+                {keyTakeaways && keyTakeaways.map((takeaway, index) => (
+                  <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
+                    <p className="text-gray-300 text-sm">{takeaway}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-4">Future Considerations</h3>
+              <div className="space-y-3">
+                {futureConsiderations && futureConsiderations.map((consideration, index) => (
+                  <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4">
+                    <p className="text-gray-300 text-sm">{consideration}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </CardContent>

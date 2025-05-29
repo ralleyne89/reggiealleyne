@@ -1,43 +1,33 @@
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Search, LucideIcon } from "lucide-react";
+import { Search } from "lucide-react";
 
-export interface ResearchItem {
-  text: string;
-}
-
-export interface ResearchSection {
-  title: string;
-  description?: string;
-  items: ResearchItem[];
-}
-
-export interface KeyFinding {
+export interface ResearchInsight {
   title: string;
   description: string;
 }
 
-export interface StakeholderGoal {
-  text: string;
+export interface ResearchMethod {
+  title: string;
+  description: string;
 }
 
 export interface ResearchDiscoveryProps {
   title?: string;
-  introduction: string;
-  researchSections: ResearchSection[];
-  keyFindings: KeyFinding[];
-  stakeholderGoals?: StakeholderGoal[];
-  stakeholderGoalsTitle?: string;
+  description: string | string[];
+  insights: ResearchInsight[];
+  methods: ResearchMethod[];
 }
 
 const ResearchDiscovery: React.FC<ResearchDiscoveryProps> = ({
   title = "Research & Discovery",
-  introduction,
-  researchSections,
-  keyFindings,
-  stakeholderGoals,
-  stakeholderGoalsTitle = "Internal Stakeholder Goals"
+  description,
+  insights,
+  methods
 }) => {
+  const descriptionText = Array.isArray(description) ? description.join(' ') : description;
+
   return (
     <section className="mb-16">
       <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
@@ -46,67 +36,35 @@ const ResearchDiscovery: React.FC<ResearchDiscoveryProps> = ({
             <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
               <Search className="w-5 h-5 text-primary" />
             </div>
-            <h2 className="text-2xl font-bold text-white">
-              {title}
-            </h2>
+            <h2 className="text-2xl font-bold text-white">{title}</h2>
+          </div>
+          
+          <p className="text-[rgba(200,200,200,0.9)] leading-relaxed mb-8">
+            {descriptionText}
+          </p>
+
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold text-white mb-4">Key Insights</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {insights && insights.map((insight, index) => (
+                <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
+                  <h4 className="text-white font-medium mb-2">{insight.title}</h4>
+                  <p className="text-gray-300 text-sm">{insight.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="space-y-6">
-            <p className="text-[rgba(200,200,200,0.9)] leading-relaxed">
-              {introduction}
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-              {researchSections.map((section, index) => (
+          <div>
+            <h3 className="text-xl font-semibold text-white mb-4">Research Methods</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {methods && methods.map((method, index) => (
                 <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
-                  <h3 className="text-lg font-semibold text-white mb-3">
-                    {section.title}
-                  </h3>
-                  {section.description && (
-                    <p className="text-gray-300 mb-3">
-                      {section.description}
-                    </p>
-                  )}
-                  <ul className="space-y-2 text-gray-300">
-                    {section.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
-                        <span>{item.text}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <h4 className="text-white font-medium mb-2">{method.title}</h4>
+                  <p className="text-gray-300 text-sm">{method.description}</p>
                 </div>
               ))}
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              {keyFindings.map((finding, index) => (
-                <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
-                  <h3 className="text-lg font-semibold text-white mb-3">
-                    {finding.title}
-                  </h3>
-                  <p className="text-gray-300">
-                    {finding.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {stakeholderGoals && stakeholderGoals.length > 0 && (
-              <div className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5 mt-8">
-                <h3 className="text-lg font-semibold text-white mb-3">
-                  {stakeholderGoalsTitle}
-                </h3>
-                <ul className="space-y-2 text-gray-300">
-                  {stakeholderGoals.map((goal, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>{goal.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </div>
         </CardContent>
       </Card>
