@@ -29,32 +29,38 @@ const ProjectVideo = ({ videoUrl, projectTitle = "Project" }: ProjectVideoProps)
   const embedUrl = getEmbedUrl(videoUrl);
 
   return (
-    <div className="mb-16">
-      <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
-        <CardContent className="p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
-              <Video className="w-5 h-5 text-primary" />
+    <section className="mb-16">
+      <div className="bg-white">
+        <div className="px-[24px]">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+            Project Demo
+          </h2>
+          
+          <div className="bg-gray-50 rounded-xl p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-primary/10 p-3 rounded-lg">
+                <Video className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900">Video Demonstration</h3>
             </div>
-            <h2 className="text-2xl font-bold text-white">Project Demo</h2>
+            
+            <div className="aspect-video w-full rounded-lg overflow-hidden border border-gray-200">
+              <iframe
+                src={embedUrl}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title={`${projectTitle} Project Demo`}
+              ></iframe>
+            </div>
+            
+            <p className="text-gray-700 text-sm mt-4 text-center">
+              Video mockup demonstration of the {projectTitle} application
+            </p>
           </div>
-          
-          <div className="aspect-video w-full rounded-lg overflow-hidden">
-            <iframe
-              src={embedUrl}
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title={`${projectTitle} Project Demo`}
-            ></iframe>
-          </div>
-          
-          <p className="text-[rgba(200,200,200,0.9)] text-sm mt-4 text-center">
-            Video mockup demonstration of the {projectTitle} application
-          </p>
-        </CardContent>
-      </Card>
-    </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

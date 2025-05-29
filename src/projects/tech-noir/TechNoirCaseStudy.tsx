@@ -9,6 +9,7 @@ import ProblemSpace from "@/components/project/tech-noir/ProblemSpace";
 import ResearchDiscovery from "@/components/project/tech-noir/ResearchDiscovery";
 import IdeationStrategy from "@/components/project/tech-noir/IdeationStrategy";
 import FinalUIDesign from "@/components/project/tech-noir/FinalUIDesign";
+import ProjectVideo from "@/components/project/ProjectVideo";
 import OutcomesImpact from "@/components/project/tech-noir/OutcomesImpact";
 import ChallengesLearnings from "@/components/project/tech-noir/ChallengesLearnings";
 import Reflection from "@/components/project/tech-noir/Reflection";
@@ -33,6 +34,10 @@ const TechNoirCaseStudy = () => {
       <ResearchDiscovery />
       <IdeationStrategy />
       <FinalUIDesign handleImageClick={handleImageClick} />
+      <ProjectVideo 
+        videoUrl="https://drive.google.com/file/d/17QHz02DcNbzIJYMpO2d5rtkfWZ_aw_H8/view?usp=sharing" 
+        projectTitle="Tech Noir" 
+      />
       <OutcomesImpact />
       <ChallengesLearnings />
       <Reflection />
