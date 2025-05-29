@@ -1,27 +1,26 @@
-
 import React from "react";
-
 export interface KeyInsight {
   highlight: string;
   description: string;
 }
-
 export interface FlowStep {
   number: number;
   title: string;
   description: string;
 }
-
 export interface IdeationStrategyProps {
   title: string;
   introduction: string;
   keyInsights: KeyInsight[];
   flowSteps: FlowStep[];
 }
-
-const IdeationStrategy = ({ title, introduction, keyInsights, flowSteps }: IdeationStrategyProps) => {
-  return (
-    <section className="py-16 bg-gray-50">
+const IdeationStrategy = ({
+  title,
+  introduction,
+  keyInsights,
+  flowSteps
+}: IdeationStrategyProps) => {
+  return <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
@@ -38,8 +37,7 @@ const IdeationStrategy = ({ title, introduction, keyInsights, flowSteps }: Ideat
             Strategic Insights
           </h3>
           <div className="space-y-6">
-            {keyInsights.map((insight, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+            {keyInsights.map((insight, index) => <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
                 <div className="flex gap-4">
                   <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-semibold text-sm">{index + 1}</span>
@@ -49,8 +47,7 @@ const IdeationStrategy = ({ title, introduction, keyInsights, flowSteps }: Ideat
                     <p className="text-gray-700 leading-relaxed">{insight.description}</p>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
@@ -60,8 +57,7 @@ const IdeationStrategy = ({ title, introduction, keyInsights, flowSteps }: Ideat
             User Flow Strategy
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {flowSteps.map((step, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+            {flowSteps.map((step, index) => <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-blue-600 font-bold text-lg">{step.number}</span>
@@ -71,13 +67,10 @@ const IdeationStrategy = ({ title, introduction, keyInsights, flowSteps }: Ideat
                     <p className="text-gray-700 leading-relaxed">{step.description}</p>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default IdeationStrategy;
