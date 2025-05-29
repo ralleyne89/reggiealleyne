@@ -1,4 +1,5 @@
 
+
 import { 
   User, 
   Clock, 
@@ -178,19 +179,23 @@ export const improvLearningIdeationData = {
   keyInsights: [
     {
       title: "Trust-First Approach",
-      description: "Users prioritize trust validation before exploring benefits"
+      description: "Users prioritize trust validation before exploring benefits",
+      highlight: "Trust validation is the primary user concern"
     },
     {
       title: "Mobile-First Design",
-      description: "Mobile-first design approach essential for conversion success"
+      description: "Mobile-first design approach essential for conversion success",
+      highlight: "Majority of traffic comes from mobile devices"
     },
     {
       title: "Clear Visual Hierarchy",
-      description: "Clear visual hierarchy reduces cognitive load and friction"
+      description: "Clear visual hierarchy reduces cognitive load and friction",
+      highlight: "Simplified information architecture improves conversions"
     },
     {
       title: "Partnership Credibility",
-      description: "GEICO partnership provides significant credibility boost"
+      description: "GEICO partnership provides significant credibility boost",
+      highlight: "Brand association enhances user trust immediately"
     }
   ],
   flowSteps: [
@@ -240,81 +245,61 @@ export const improvLearningFinalDesignData = {
   introduction: "The final design features a clean, trust-focused layout with GEICO branding, clear benefit communication, and strategic use of orange CTAs for maximum visibility. The design successfully balances trust-building with conversion optimization.",
   designHighlights: [
     {
-      title: "Trust-Focused Branding",
-      description: "Strategic use of GEICO branding for immediate trust building"
+      text: "Strategic use of GEICO branding for immediate trust building"
     },
     {
-      title: "High-Visibility CTAs",
-      description: "Orange CTA buttons for maximum visibility and conversion"
+      text: "Orange CTA buttons for maximum visibility and conversion"
     },
     {
-      title: "Clear Visual Hierarchy",
-      description: "Clean visual hierarchy that guides user attention"
+      text: "Clean visual hierarchy that guides user attention"
     },
     {
-      title: "Mobile Optimization",
-      description: "Mobile-optimized layout for seamless cross-device experience"
+      text: "Mobile-optimized layout for seamless cross-device experience"
     }
   ],
   uiFeatures: [
     {
       title: "Flash Sale Module",
-      description: "Timed promotional block to create urgency and drive immediate action"
+      description: "Timed promotional block to create urgency and drive immediate action",
+      icon: Zap
     },
     {
       title: "Benefit Overview Section",
-      description: "Clear showcase of 'DMV Approved,' 'No Final Exam,' 'Save on Insurance'"
+      description: "Clear showcase of 'DMV Approved,' 'No Final Exam,' 'Save on Insurance'",
+      icon: CheckCircle
     },
     {
       title: "Trust Bar with Media Logos",
-      description: "Credibility indicators from NBC, PBS, and NY Times for enhanced trust"
+      description: "Credibility indicators from NBC, PBS, and NY Times for enhanced trust",
+      icon: Shield
     },
     {
       title: "FAQ Accordion",
-      description: "Addresses common objections and concerns to reduce conversion friction"
+      description: "Addresses common objections and concerns to reduce conversion friction",
+      icon: Target
     },
     {
       title: "Customer Testimonials",
-      description: "User reviews with avatars and highlights to build social proof"
+      description: "User reviews with avatars and highlights to build social proof",
+      icon: Users
     },
     {
       title: "Mobile-Optimized CTAs",
-      description: "Prominent orange buttons optimized for mobile interaction and visibility"
+      description: "Prominent orange buttons optimized for mobile interaction and visibility",
+      icon: Smartphone
     }
   ],
   uiImages: [
-    "/lovable-uploads/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
-    "/lovable-uploads/e5cedc19-cd1f-4736-a165-a7111ec361a7.png"
-  ],
-  features: [
     {
-      title: "Flash Sale Module",
-      description: "Timed promotional block to create urgency and drive immediate action"
+      src: "/lovable-uploads/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
+      alt: "Improv Learning Landing Page Desktop View",
+      title: "Desktop Landing Page"
     },
     {
-      title: "Benefit Overview Section",
-      description: "Clear showcase of 'DMV Approved,' 'No Final Exam,' 'Save on Insurance'"
-    },
-    {
-      title: "Trust Bar with Media Logos",
-      description: "Credibility indicators from NBC, PBS, and NY Times for enhanced trust"
-    },
-    {
-      title: "FAQ Accordion",
-      description: "Addresses common objections and concerns to reduce conversion friction"
-    },
-    {
-      title: "Customer Testimonials",
-      description: "User reviews with avatars and highlights to build social proof"
-    },
-    {
-      title: "Mobile-Optimized CTAs",
-      description: "Prominent orange buttons optimized for mobile interaction and visibility"
+      src: "/lovable-uploads/e5cedc19-cd1f-4736-a165-a7111ec361a7.png",
+      alt: "Improv Learning Landing Page Mobile View",
+      title: "Mobile Landing Page"
     }
-  ],
-  images: [
-    "/lovable-uploads/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
-    "/lovable-uploads/e5cedc19-cd1f-4736-a165-a7111ec361a7.png"
   ]
 };
 
@@ -429,3 +414,4 @@ export const improvLearningReflectionData = {
     }
   ]
 };
+
