@@ -1,4 +1,3 @@
-
 import {
   Briefcase,
   Users,
@@ -239,9 +238,9 @@ export const wristbandIdeationData: IdeationStrategyProps = {
 // User Persona Data
 export const wristbandPersonaData: UserPersonaProps = {
   title: "Meet Our Target User",
-  imageSrc: "/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
+  imageSrc: "/lovable-uploads/d5de6ddf-336f-45cb-84e5-4cb556419e53.png",
   imageAlt: "Maya Story Enthusiast Persona",
-  name: "Maya Rodriguez",
+  name: "Maya Samuels",
   details: [
     {
       label: "Age",
