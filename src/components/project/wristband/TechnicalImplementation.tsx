@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Smartphone, Palette, Database } from "lucide-react";
+import ProjectVideo from "@/components/project/ProjectVideo";
 
 interface TechnicalImplementationProps {
   handleImageClick: (imageSrc: string) => void;
@@ -78,6 +79,19 @@ const TechnicalImplementation: React.FC<TechnicalImplementationProps> = ({
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mb-8">
             WRISTBAND was built using React Native for cross-platform compatibility, with a focus on creating smooth interactive storytelling experiences and supporting diverse content creators.
           </p>
+        </motion.div>
+
+        {/* Project Video */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-12"
+        >
+          <ProjectVideo 
+            videoUrl="https://drive.google.com/file/d/1jB5GJrLwyqUL8KAaPd9_TirxRrW7vI8r/view?usp=sharing"
+            projectTitle="WRISTBAND"
+          />
         </motion.div>
 
         {/* Technical Highlights */}
