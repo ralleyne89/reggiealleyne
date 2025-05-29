@@ -24,6 +24,7 @@ export const getBobsBigBreakProject = (): ProjectType => {
     images: [
       "/lovable-uploads/40c6444f-3a5c-4327-a0d3-aabd6091463e.png", // Game screens mockup
       "/lovable-uploads/34473ac0-d26b-48a0-ba58-51bfc4ed23e1.png", // Final mockup screens
+      "/lovable-uploads/6d034732-5293-42a4-a01b-fef0af194695.png", // New main interface
       "/lovable-uploads/71cb9624-eeb6-4af5-a137-8a38307549f4.png", // Bob logo
       "/lovable-uploads/1b895fd4-28b2-4f60-a662-5e34d47cdccc.png", // Bob character full body
       "/lovable-uploads/6193fe4b-899f-488a-aa0f-30ace572badd.png"  // Bob character portrait
