@@ -21,13 +21,15 @@ import { WristbandCaseStudy } from "@/projects/wristband";
 import { ImprovLearningCaseStudy } from "@/projects/improv-learning";
 import { DoggyDateCaseStudy } from "@/projects/doggy-date";
 import { ProjectType } from "@/types/project";
-
 const Project = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const {
+    slug
+  } = useParams<{
+    slug: string;
+  }>();
   const navigate = useNavigate();
   const [showHeaderImage, setShowHeaderImage] = useState(true);
   const [showCaseStudy, setShowCaseStudy] = useState(false);
-
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -43,33 +45,28 @@ const Project = () => {
   const {
     data: project,
     isLoading,
-    error,
+    error
   } = useQuery({
     queryKey: ["project", slug],
     queryFn: async () => {
       try {
         // Determine if slug is numeric or string
         const isNumeric = !isNaN(Number(slug));
-        console.log(
-          `Fetching project with ${isNumeric ? "ID" : "slug"}: ${slug}`
-        );
+        console.log(`Fetching project with ${isNumeric ? "ID" : "slug"}: ${slug}`);
         const project = await getProject(isNumeric ? Number(slug) : slug);
         console.log("Fetched project:", project);
-
         if (!project) {
           toast.error(`Project not found: ${slug}`);
           throw new Error(`Project not found: ${slug}`);
         }
-
         return project;
       } catch (err) {
         console.error("Error fetching project:", err);
         throw err;
       }
     },
-    retry: 1,
+    retry: 1
   });
-
   useEffect(() => {
     // Special handling for projects that might need to hide the header image
     if (project?.title === "Bob's Big Break") {
@@ -77,23 +74,12 @@ const Project = () => {
     }
 
     // Check if this is a project with a full case study
-    if (
-      project?.slug === "symptom-checkr" ||
-      project?.slug === "tutor-d" ||
-      project?.slug === "tech-noir" ||
-      project?.slug === "cllctve-platform" ||
-      project?.slug === "bobs-big-break" ||
-      project?.slug === "chill-vibes-music-player" ||
-      project?.slug === "wristband" ||
-      project?.slug === "improv-learning" ||
-      project?.slug === "doggy-date"
-    ) {
+    if (project?.slug === "symptom-checkr" || project?.slug === "tutor-d" || project?.slug === "tech-noir" || project?.slug === "cllctve-platform" || project?.slug === "bobs-big-break" || project?.slug === "chill-vibes-music-player" || project?.slug === "wristband" || project?.slug === "improv-learning" || project?.slug === "doggy-date") {
       setShowCaseStudy(true);
     } else {
       setShowCaseStudy(false);
     }
   }, [project]);
-
   const renderCaseStudy = () => {
     switch (slug) {
       case "tutor-d":
@@ -115,8 +101,7 @@ const Project = () => {
       case "doggy-date":
         return <DoggyDateCaseStudy />;
       default:
-        return (
-          <div className="min-h-screen bg-white flex items-center justify-center">
+        return <div className="min-h-screen bg-white flex items-center justify-center">
             <div className="text-center">
               <h1 className="text-2xl font-bold text-gray-900 mb-4">
                 Case Study Coming Soon
@@ -125,15 +110,13 @@ const Project = () => {
                 This case study is currently being developed.
               </p>
             </div>
-          </div>
-        );
+          </div>;
     }
   };
 
   // Handle loading state
   if (isLoading) {
-    return (
-      <div className="min-h-screen bg-white text-text-primary pt-24 px-4">
+    return <div className="min-h-screen bg-white text-text-primary pt-24 px-4">
         <div className="container mx-auto">
           <div className="animate-pulse">
             <div className="h-[60vh] bg-gray-200 rounded-lg mb-12"></div>
@@ -145,29 +128,23 @@ const Project = () => {
             </div>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 
   // Handle error state
   if (error || !project) {
     console.error("Project error:", error);
-    return (
-      <div className="min-h-screen bg-white text-text-primary pt-24 px-4">
+    return <div className="min-h-screen bg-white text-text-primary pt-24 px-4">
         <div className="container mx-auto">
           <p className="text-red-500 mb-4">
             Error loading project:{" "}
             {error instanceof Error ? error.message : "Unknown error"}
           </p>
-          <button
-            onClick={() => navigate("/works")}
-            className="px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
-          >
+          <button onClick={() => navigate("/works")} className="px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">
             Return to Works
           </button>
         </div>
-      </div>
-    );
+      </div>;
   }
 
   // Destructure project properties
@@ -192,85 +169,43 @@ const Project = () => {
     githubUrl,
     liveUrl,
     prototypeUrl,
-    conclusion = { impact: "", learnings: "", nextSteps: "" },
+    conclusion = {
+      impact: "",
+      learnings: "",
+      nextSteps: ""
+    },
     technicalHighlights,
-    keyAchievements,
+    keyAchievements
   } = project as ProjectType;
+  return <motion.div initial={{
+    opacity: 0
+  }} animate={{
+    opacity: 1
+  }} exit={{
+    opacity: 0
+  }} transition={{
+    duration: 0.3
+  }} className="bg-white text-text-primary min-h-screen">
+      {showHeaderImage && <ProjectHeader image={image} tags={tags} title={title} description={description} />}
 
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      className="bg-white text-text-primary min-h-screen"
-    >
-      {showHeaderImage && (
-        <ProjectHeader
-          image={image}
-          tags={tags}
-          title={title}
-          description={description}
-        />
-      )}
-
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        {showCaseStudy ? (
-          <>
+      <div className="max-w-7xl mx-auto px-6 py-1">
+        {showCaseStudy ? <>
             {renderCaseStudy()}
-          </>
-        ) : (
-          <>
-            <ProjectDetails
-              role={role}
-              duration={duration}
-              year={year}
-              teamSize={teamSize}
-              methodologies={methodologies}
-              githubUrl={githubUrl}
-              liveUrl={liveUrl}
-              prototypeUrl={prototypeUrl}
-              summary={summary}
-              problem={problem}
-              solution={solution}
-              projectSlug={project.slug}
-            />
+          </> : <>
+            <ProjectDetails role={role} duration={duration} year={year} teamSize={teamSize} methodologies={methodologies} githubUrl={githubUrl} liveUrl={liveUrl} prototypeUrl={prototypeUrl} summary={summary} problem={problem} solution={solution} projectSlug={project.slug} />
 
-            <ProjectProcess
-              challenge={challenge}
-              problem={problem}
-              process={process}
-              methodologies={methodologies}
-              technicalHighlights={technicalHighlights}
-              keyAchievements={keyAchievements}
-            />
+            <ProjectProcess challenge={challenge} problem={problem} process={process} methodologies={methodologies} technicalHighlights={technicalHighlights} keyAchievements={keyAchievements} />
 
-            <ProjectDeliverables
-              deliverables={deliverables}
-              images={images}
-              projectId={project.slug || project.id}
-            />
+            <ProjectDeliverables deliverables={deliverables} images={images} projectId={project.slug || project.id} />
 
-            {videoUrl && (
-              <ProjectVideo videoUrl={videoUrl} projectTitle={title} />
-            )}
-          </>
-        )}
+            {videoUrl && <ProjectVideo videoUrl={videoUrl} projectTitle={title} />}
+          </>}
       </div>
 
       {/* Only show ProjectConclusion for non-case study projects */}
-      {!showCaseStudy && (
-        <ProjectConclusion
-          conclusion={conclusion}
-          liveUrl={liveUrl}
-          prototypeUrl={prototypeUrl}
-          projectSlug={project.slug}
-        />
-      )}
+      {!showCaseStudy && <ProjectConclusion conclusion={conclusion} liveUrl={liveUrl} prototypeUrl={prototypeUrl} projectSlug={project.slug} />}
 
       <Footer />
-    </motion.div>
-  );
+    </motion.div>;
 };
-
 export default Project;
