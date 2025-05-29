@@ -1,7 +1,16 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom font for navbar name */
+@font-face {
+  font-family: "18thCtrKurStart";
+  src: url("./fonts/18thCtrKurStart.ttf") format("truetype"),
+       url("/fonts/18thCtrKurStart.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 @layer base {
   :root {
@@ -98,16 +107,21 @@
 
   body {
     @apply bg-white text-text-primary;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Outfit", sans-serif;
   }
 
   /* Enhanced focus indicators for accessibility */
   *:focus-visible {
-    outline: 2px solid #8B5CF6;
+    outline: 2px solid #8b5cf6;
     outline-offset: 2px;
   }
 
@@ -116,7 +130,7 @@
   a:focus-visible,
   input:focus-visible,
   textarea:focus-visible {
-    outline: 2px solid #8B5CF6;
+    outline: 2px solid #8b5cf6;
     outline-offset: 2px;
   }
 }
@@ -149,14 +163,14 @@
 }
 
 .animated-underline::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   transform: scaleX(0);
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #8B5CF6;
+  background-color: #8b5cf6;
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
 }
@@ -187,15 +201,15 @@
 
 /* Background gradients */
 .bg-purple-gradient {
-  background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
 }
 
 .bg-teal-gradient {
-  background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
 }
 
 .bg-dark-gradient {
-  background: linear-gradient(to bottom, #111827 0%, #0F172A 100%);
+  background: linear-gradient(to bottom, #111827 0%, #0f172a 100%);
 }
 
 /* Text scramble effect */
@@ -205,17 +219,35 @@
 
 /* Animated dots */
 .animated-dots::after {
-  content: '...';
+  content: "...";
   animation: dots 1.5s infinite;
 }
 
 @keyframes dots {
-  0%, 20% { content: '.'; }
-  40% { content: '..'; }
-  60%, 100% { content: '...'; }
+  0%,
+  20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60%,
+  100% {
+    content: "...";
+  }
 }
 
 /* Cursor follow effect */
 .cursor-follow {
   transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Custom navbar name font */
+.navbar-name {
+  font-family: '18thCtrKurStart', 'Arial', sans-serif !important;
+}
+
+/* Ensure the font loads properly */
+.font-navbar {
+  font-family: '18thCtrKurStart', 'Arial', sans-serif !important;
 }

@@ -26,6 +26,7 @@ export default {
 			fontFamily: {
 				sans: ['Poppins', 'sans-serif'],
 				heading: ['Outfit', 'sans-serif'],
+				navbar: ['18thCtrKurStart', 'sans-serif'],
 			},
 			colors: {
 				primary: {

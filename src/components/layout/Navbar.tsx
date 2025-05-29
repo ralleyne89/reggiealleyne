@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -67,7 +66,7 @@ const Navbar = () => {
                 src="/ra-logo.svg"
                 alt="Reggie Alleyne Logo"
                 className="h-10 w-10 transition-all duration-300"
-                
+
               /> */}
               <p className="font-bold text-lg drop-shadow-sm transition-colors duration-300 text-black">
                 REGGIE ALLEYNE
