@@ -1,13 +1,10 @@
-
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { TrendingUp, Users, Eye, Lightbulb } from "lucide-react";
-
 const OutcomesImpact = () => {
-  return (
-    <section className="mb-16">
+  return <section className="mb-16">
       <div className="bg-white">
-        <div className="mb-12">
+        <div className="mb-12 px-[24px]">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
             Results & Impact
           </h2>
@@ -197,8 +194,6 @@ const OutcomesImpact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default OutcomesImpact;
