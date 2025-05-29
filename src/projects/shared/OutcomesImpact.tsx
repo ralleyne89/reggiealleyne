@@ -36,7 +36,7 @@ const OutcomesImpact: React.FC<OutcomesImpactProps> = ({
 
           {metrics && metrics.length > 0 && <div className="mb-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Key Metrics</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                 {metrics.map((metric, index) => <div key={index} className="bg-gray-50 border border-gray-100 rounded-lg p-5 text-center">
                     <div className="text-2xl font-bold text-primary mb-2">{metric.value}</div>
                     <h4 className="text-gray-900 font-medium mb-2">{metric.title}</h4>
@@ -46,8 +46,8 @@ const OutcomesImpact: React.FC<OutcomesImpactProps> = ({
             </div>}
 
           {achievements && achievements.length > 0 && <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Key Achievements</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 mx-[24px]">Key Achievements</h3>
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-6 mx-[24px]">
                 {achievements.map((achievement, index) => <div key={index} className="bg-gray-50 border border-gray-100 rounded-lg p-5">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="bg-primary/10 p-2 rounded-full">
