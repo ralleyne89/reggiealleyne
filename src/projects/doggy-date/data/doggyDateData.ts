@@ -238,6 +238,7 @@ export const doggyDateData = {
 
   outcomes: {
     title: "Outcomes & Impact",
+    description: "The Doggy Date project successfully created a unique platform in the crowded dating app market by focusing on dog owners and their pets. The innovative interaction model and community features differentiated the app from traditional dating platforms.",
     metrics: [
       {
         title: "Unique Features",
