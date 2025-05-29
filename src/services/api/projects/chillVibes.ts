@@ -31,6 +31,8 @@ export const getChillVibesProject = (): ProjectType => {
       "Firebase Hosted - Fast, scalable, and live online at all times"
     ],
     images: [
+      "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
+      "/lovable-uploads/668e3d64-e2f9-4f31-9499-72d8db2269f0.png",
       "/lovable-uploads/7c5ca8bf-a2f4-41e8-a3fa-71e0099a2adf.png",
       "/lovable-uploads/6c61f05a-9d32-4df9-bcbe-d5187f822b51.png",
       "/lovable-uploads/6f0c29e0-049e-4fed-addf-089a0fd9abbe.png",

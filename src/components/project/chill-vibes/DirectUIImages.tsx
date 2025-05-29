@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,6 +13,10 @@ const DirectUIImages: React.FC<DirectUIImagesProps> = ({
     src: "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
     alt: "Chill Vibes Music Player Interface",
     title: "Main Interface"
+  }, {
+    src: "/lovable-uploads/668e3d64-e2f9-4f31-9499-72d8db2269f0.png",
+    alt: "Chill Vibes Login Page",
+    title: "Login Page"
   }];
   return <motion.section className="mb-16" initial={{
     opacity: 0,
