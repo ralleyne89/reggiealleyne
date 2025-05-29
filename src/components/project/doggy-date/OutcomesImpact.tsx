@@ -1,6 +1,6 @@
 
 import React from "react";
-import OutcomesImpactComponent from "../common/OutcomesImpact";
+import OutcomesImpactComponent from "../../shared/OutcomesImpact";
 import { doggyDateData } from "@/projects/doggy-date/data/doggyDateData";
 
 const OutcomesImpact = () => {
