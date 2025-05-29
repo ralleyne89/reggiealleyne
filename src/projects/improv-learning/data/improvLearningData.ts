@@ -200,16 +200,19 @@ export const improvLearningIdeationData = {
   ],
   flowSteps: [
     {
+      number: 1,
       title: "Trust Establishment",
       description: "Lead with GEICO branding and credibility signals",
       icon: Shield
     },
     {
+      number: 2,
       title: "Value Communication", 
       description: "Clearly present key benefits and course advantages",
       icon: CheckCircle
     },
     {
+      number: 3,
       title: "Action Facilitation",
       description: "Guide users to conversion with prominent CTAs",
       icon: ArrowRight
