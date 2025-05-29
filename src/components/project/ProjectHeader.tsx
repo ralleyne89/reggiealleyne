@@ -117,7 +117,7 @@ const ProjectHeader = ({
       );
     }
 
-    // Special styling for Tech Noir with background image
+    // Special styling for Tech Noir with background image - EXACT SAME STYLE AS SYMPTOM CHECKER
     if (isTechNoirProject) {
       return (
         <div 
@@ -170,6 +170,7 @@ const ProjectHeader = ({
         </div>
       );
     }
+
     // Special styling for WRISTBAND with background image
     if (isWristbandProject) {
       return (
