@@ -8,6 +8,13 @@ interface FinalUIDesignProps {
 }
 
 const FinalUIDesign = ({ handleImageClick }: FinalUIDesignProps) => {
+  const imageLabels = [
+    "Mobile mockup",
+    "Mobile layout", 
+    "Character design",
+    "Logo design"
+  ];
+
   const uiData = {
     title: "Interface Design",
     introduction: doggyDateData.finalDesign.description[0],
@@ -17,8 +24,8 @@ const FinalUIDesign = ({ handleImageClick }: FinalUIDesignProps) => {
     uiFeatures: [],
     uiImages: doggyDateData.finalDesign.images.map((image, index) => ({
       src: image,
-      alt: `Doggy Date Design ${index + 1}`,
-      title: `Screen ${index + 1}`
+      alt: `Doggy Date ${imageLabels[index]}`,
+      title: imageLabels[index]
     }))
   };
 
