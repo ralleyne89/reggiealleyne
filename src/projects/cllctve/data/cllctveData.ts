@@ -268,14 +268,14 @@ export const cllctveUIData = {
   ],
   uiImages: [
     {
-      src: "/lovable-uploads/66a4a04b-aa90-4553-b44c-c75f89b3b3d4.png",
-      alt: "CLLCTVE portfolio builder interface",
-      title: "Portfolio Builder"
+      src: "/lovable-uploads/96e0002f-13cc-470b-925d-2e1d627aa695.png",
+      alt: "CLLCTVE main interface",
+      title: "Platform Overview"
     },
     {
-      src: "/lovable-uploads/bb480e3a-f008-47a7-ab1f-621a3954be31.png",
-      alt: "CLLCTVE challenge discovery interface",
-      title: "Challenge Discovery"
+      src: "/lovable-uploads/fbb376a0-30ad-4530-8445-159e6767e748.png",
+      alt: "CLLCTVE portfolio interface",
+      title: "Portfolio Interface"
     }
   ]
 };
