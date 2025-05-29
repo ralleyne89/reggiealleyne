@@ -65,9 +65,7 @@ const FinalUIDesign = ({
 
         {/* UI Images */}
         {uiImages && uiImages.length > 0 && <div className="mb-16">
-            <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-6">
-              Landing Page
-            </h3>
+            
             {uiImages.length === 1 ? <motion.div className="w-full" initial={{
           opacity: 0,
           y: 20
