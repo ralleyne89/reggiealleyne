@@ -1,13 +1,18 @@
+
 import React, { useState } from "react";
-import { X } from "lucide-react";
+import { X, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Import key section components
 import IntegratedOverview from "@/components/project/tech-noir/IntegratedOverview";
-import TechNoirProblemSpace from "@/components/project/tech-noir/ProblemSpace";
-import TechNoirResearchDiscovery from "@/components/project/tech-noir/ResearchDiscovery";
-import TechNoirUserPersona from "@/components/project/tech-noir/UserPersona";
-import TechNoirFinalUIDesign from "@/components/project/tech-noir/FinalUIDesign";
-import TechNoirChallengesLearnings from "@/components/project/tech-noir/ChallengesLearnings";
+import ProblemSpace from "@/components/project/tech-noir/ProblemSpace";
+import ResearchDiscovery from "@/components/project/tech-noir/ResearchDiscovery";
+import IdeationStrategy from "@/components/project/tech-noir/IdeationStrategy";
+import FinalUIDesign from "@/components/project/tech-noir/FinalUIDesign";
+import ProjectVideo from "@/components/project/ProjectVideo";
+import OutcomesImpact from "@/components/project/tech-noir/OutcomesImpact";
+import ChallengesLearnings from "@/components/project/tech-noir/ChallengesLearnings";
+import Reflection from "@/components/project/tech-noir/Reflection";
 
 const TechNoirCaseStudy = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -25,11 +30,28 @@ const TechNoirCaseStudy = () => {
   return (
     <div className="mt-8 mb-16">
       <IntegratedOverview />
-      <TechNoirProblemSpace />
-      <TechNoirResearchDiscovery />
-      <TechNoirUserPersona />
-      <TechNoirFinalUIDesign handleImageClick={handleImageClick} />
-      <TechNoirChallengesLearnings />
+      <ProblemSpace />
+      <ResearchDiscovery />
+      <IdeationStrategy />
+      <FinalUIDesign handleImageClick={handleImageClick} />
+      <ProjectVideo 
+        videoUrl="https://drive.google.com/file/d/17QHz02DcNbzIJYMpO2d5rtkfWZ_aw_H8/view?usp=sharing" 
+        projectTitle="Tech Noir" 
+      />
+      <OutcomesImpact />
+      <ChallengesLearnings />
+      <Reflection />
+
+      {/* Back to Works link */}
+      <div className="max-w-6xl mx-auto px-6 pt-16">
+        <Link
+          to="/works"
+          className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Works
+        </Link>
+      </div>
 
       {/* Modal for full-size image view */}
       {selectedImage && (

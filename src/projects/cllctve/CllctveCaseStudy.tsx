@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { X } from "lucide-react";
+import { X, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Import key section components following SymptomCheckr structure
 import IntegratedOverview from "@/components/project/cllctve/IntegratedOverview";
@@ -26,18 +27,6 @@ const CllctveCaseStudy = () => {
       <ResearchDiscovery />
       <FinalUIDesign handleImageClick={handleImageClick} />
       <ChallengesLearnings />
-
-      {/* Back to Works Link */}
-      <div className="max-w-6xl mx-auto px-6 mt-16 mb-8">
-        <div className="flex justify-start">
-          <a
-            href="/works"
-            className="inline-flex items-center gap-2 text-[#8B5CF6] hover:text-[#7C3AED] transition-colors duration-300 font-medium"
-          >
-            ← Back to Works
-          </a>
-        </div>
-      </div>
 
       {/* Modal for full-size image view */}
       {selectedImage && (

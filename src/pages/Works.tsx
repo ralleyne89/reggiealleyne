@@ -145,19 +145,133 @@ const Works = () => {
           <WorksHeader />
         </div>
 
-        {/* Main Content with Sticky Layout */}
-        <div className="container mx-auto px-4 mt-16">
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold mb-16 text-text-primary">
+        {/* Main Content with Mobile-Optimized Layout */}
+        <div className="container mx-auto px-4 mt-8 lg:mt-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-8 lg:mb-16 text-text-primary">
             Selected Work
           </h2>
-          <div className="mb-16">
-            <p className="text-lg text-text-secondary max-w-2xl leading-relaxed">
+          <div className="mb-8 lg:mb-16">
+            <p className="text-base lg:text-lg text-text-secondary max-w-2xl leading-relaxed">
               Check out a curated selection of my work, there have been a lot
               but these are my favorites.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Mobile: Stack Layout */}
+          <div className="block lg:hidden space-y-12">
+            {sortedProjects.map((project, index) => {
+              const isChillVibesProject = project.title === "Chill Vibes Music Player";
+              const isBobsProject = project.title === "Bob's Big Break";
+
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="space-y-6"
+                >
+                  {/* Project Image */}
+                  <div className="relative">
+                    <img
+                      src={
+                        isChillVibesProject
+                          ? "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png"
+                          : project.image
+                      }
+                      alt={project.title}
+                      className={`w-full h-auto rounded-lg ${
+                        isChillVibesProject || isBobsProject
+                          ? "object-contain bg-gray-900"
+                          : "object-cover"
+                      }`}
+                      onError={(e) => {
+                        console.error(`Image failed to load: ${project.image}`);
+                        e.currentTarget.src = "/placeholder.svg";
+                      }}
+                    />
+                  </div>
+
+                  {/* Project Details */}
+                  <div className="space-y-4">
+                    {/* Year and Category */}
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                      <div className="text-sm text-text-muted">{project.year}</div>
+                      <div className="text-sm text-primary font-medium uppercase tracking-wider">
+                        {project.category ||
+                          (project.tags && project.tags[0]) ||
+                          "Product"}
+                      </div>
+                    </div>
+
+                    {/* Project Title */}
+                    <h3 className="text-2xl md:text-3xl font-heading font-bold text-text-primary">
+                      {project.title}
+                    </h3>
+
+                    {/* Project Description */}
+                    <div className="space-y-4">
+                      <p className="text-text-secondary text-base leading-relaxed">
+                        {project.fullDescription || project.description}
+                      </p>
+
+                      {project.solution && (
+                        <p className="text-text-muted text-sm leading-relaxed">
+                          {project.solution}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Project Metadata */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <div className="text-text-muted mb-1">Role</div>
+                        <div className="text-text-primary">{project.role}</div>
+                      </div>
+
+                      <div>
+                        <div className="text-text-muted mb-1">Duration</div>
+                        <div className="text-text-primary">{project.duration}</div>
+                      </div>
+
+                      {project.teamSize && (
+                        <div>
+                          <div className="text-text-muted mb-1">Team</div>
+                          <div className="text-text-primary">{project.teamSize}</div>
+                        </div>
+                      )}
+
+                      {project.liveUrl && (
+                        <div>
+                          <div className="text-text-muted mb-1">Visit Website</div>
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-primary hover:text-primary-light transition-colors flex items-center gap-1"
+                          >
+                            {project.liveUrl.replace(/^https?:\/\//, "")}
+                            <ExternalLink size={14} />
+                          </a>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* View Project Button */}
+                    <button
+                      onClick={() => handleProjectClick(project)}
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark transition-colors"
+                    >
+                      View Project Details
+                    </button>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Desktop: Two Column Layout */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-16">
             {/* Left Column - Sticky Project Details */}
             <div className="lg:sticky lg:top-24 lg:h-screen lg:overflow-hidden">
               {activeProject && (

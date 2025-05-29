@@ -66,8 +66,23 @@ const FinalUIDesign = ({
         {/* UI Images */}
         {uiImages && uiImages.length > 0 && <div className="mb-16">
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {uiImages.map((image, index) => <motion.div key={index} className="space-y-4" initial={{
+            {uiImages.length === 1 ? <motion.div className="w-full" initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.5
+        }} viewport={{
+          once: true,
+          amount: 0.3
+        }}>
+                <div className="w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.(uiImages[0].src)}>
+                  <img src={uiImages[0].src} alt={uiImages[0].alt} className="w-full h-full object-cover" />
+                </div>
+              </motion.div> : <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {uiImages.map((image, index) => <motion.div key={index} className="space-y-4" initial={{
             opacity: 0,
             y: 20
           }} whileInView={{
@@ -80,14 +95,14 @@ const FinalUIDesign = ({
             once: true,
             amount: 0.3
           }}>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                    {index === 0 ? "User Profile" : index === 1 ? "Homepage" : image.title}
-                  </h4>
-                  <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.(index === 0 ? "/lovable-uploads/bbf348a7-ca89-49ba-95b0-b836d12b8752.png" : index === 1 ? "/lovable-uploads/8a96d760-1e4f-4c90-a893-33c4538e3031.png" : image.src)}>
-                    <img src={index === 0 ? "/lovable-uploads/bbf348a7-ca89-49ba-95b0-b836d12b8752.png" : index === 1 ? "/lovable-uploads/8a96d760-1e4f-4c90-a893-33c4538e3031.png" : image.src} alt={index === 0 ? "User Profile Interface" : index === 1 ? "Homepage Interface" : image.alt} className="w-full h-full object-cover" />
-                  </div>
-                </motion.div>)}
-            </div>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-4">
+                      {image.title}
+                    </h4>
+                    <div className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50" onClick={() => handleImageClick?.(image.src)}>
+                      <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
+                    </div>
+                  </motion.div>)}
+              </div>}
           </div>}
 
         {/* Design Highlights */}
@@ -104,39 +119,7 @@ const FinalUIDesign = ({
         </div>
 
         {/* UI Features */}
-        <div>
-          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8 text-left">
-            Key Features
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {uiFeatures.map((feature, index) => {
-            const IconComponent = feature.icon;
-            return <motion.div key={index} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm" initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.5,
-              delay: index * 0.1
-            }} viewport={{
-              once: true,
-              amount: 0.3
-            }}>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                      <IconComponent className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h4>
-                      <p className="text-gray-700 leading-relaxed">{feature.description}</p>
-                    </div>
-                  </div>
-                </motion.div>;
-          })}
-          </div>
-        </div>
+        
       </div>
     </motion.section>;
 };
