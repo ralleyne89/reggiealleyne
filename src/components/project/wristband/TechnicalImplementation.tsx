@@ -2,8 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Smartphone, Palette, Database } from "lucide-react";
-import ProjectVideo from "@/components/project/ProjectVideo";
+import { Code, Smartphone, Palette, Database, Video } from "lucide-react";
 
 interface TechnicalImplementationProps {
   handleImageClick: (imageSrc: string) => void;
@@ -81,17 +80,41 @@ const TechnicalImplementation: React.FC<TechnicalImplementationProps> = ({
           </p>
         </motion.div>
 
-        {/* Project Video */}
+        {/* Project Demo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-12"
         >
-          <ProjectVideo 
-            videoUrl="https://drive.google.com/file/d/1jB5GJrLwyqUL8KAaPd9_TirxRrW7vI8r/view?usp=sharing"
-            projectTitle="WRISTBAND"
-          />
+          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
+            Interactive Prototype Demo
+          </h3>
+          <Card className="border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+            <CardContent className="p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                  <Video className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Concept Demonstration</h4>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    A walkthrough of the interactive storytelling concept and user experience design.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="aspect-video w-full rounded-lg overflow-hidden">
+                <iframe
+                  src="https://drive.google.com/file/d/1jB5GJrLwyqUL8KAaPd9_TirxRrW7vI8r/preview"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="WRISTBAND Interactive Prototype Demo"
+                ></iframe>
+              </div>
+            </CardContent>
+          </Card>
         </motion.div>
 
         {/* Technical Highlights */}
