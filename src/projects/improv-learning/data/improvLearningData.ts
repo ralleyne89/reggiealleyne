@@ -64,16 +64,48 @@ export const improvLearningProblemSpaceData = {
   title: "The Challenge",
   introduction: "Users visiting the site were either unfamiliar with online traffic schools or unsure whether the course was legitimate and easy to complete. The landing page needed to remove friction, build trust, and guide users to sign up quickly—especially from mobile devices.",
   challenges: [
-    "Users questioned the legitimacy of online traffic school courses",
-    "Visitors couldn't quickly understand what they would get from the course", 
-    "The signup process needed to work seamlessly on mobile devices",
-    "Too much information created friction in the conversion process"
+    {
+      title: "Trust Concerns",
+      description: "Users questioned the legitimacy of online traffic school courses",
+      icon: AlertCircle
+    },
+    {
+      title: "Unclear Value Proposition", 
+      description: "Visitors couldn't quickly understand what they would get from the course",
+      icon: Target
+    },
+    {
+      title: "Mobile Experience Issues",
+      description: "The signup process needed to work seamlessly on mobile devices",
+      icon: Smartphone
+    },
+    {
+      title: "Information Overload",
+      description: "Too much information created friction in the conversion process",
+      icon: Zap
+    }
   ],
   designGoals: [
-    "Build immediate trust and credibility with users",
-    "Create clear value proposition communication",
-    "Optimize mobile conversion experience",
-    "Reduce information overload and friction"
+    {
+      title: "Build Trust and Credibility",
+      description: "Create immediate trust and credibility with users through clear branding and social proof",
+      icon: Shield
+    },
+    {
+      title: "Clear Value Communication",
+      description: "Communicate value proposition clearly and concisely to reduce user confusion",
+      icon: CheckCircle
+    },
+    {
+      title: "Mobile-First Optimization",
+      description: "Optimize the entire conversion experience for mobile devices",
+      icon: Smartphone
+    },
+    {
+      title: "Reduce Friction",
+      description: "Minimize information overload and streamline the signup process",
+      icon: Zap
+    }
   ],
   painPoints: [
     {
@@ -144,10 +176,22 @@ export const improvLearningIdeationData = {
   title: "Design Strategy",
   introduction: "The design strategy focused on creating a clear top-down content flow with emphasis on trust-building elements, minimal distractions, and high-visibility CTAs that would guide users seamlessly through the enrollment process.",
   keyInsights: [
-    "Users prioritize trust validation before exploring benefits",
-    "Mobile-first design approach essential for conversion success",
-    "Clear visual hierarchy reduces cognitive load and friction",
-    "GEICO partnership provides significant credibility boost"
+    {
+      title: "Trust-First Approach",
+      description: "Users prioritize trust validation before exploring benefits"
+    },
+    {
+      title: "Mobile-First Design",
+      description: "Mobile-first design approach essential for conversion success"
+    },
+    {
+      title: "Clear Visual Hierarchy",
+      description: "Clear visual hierarchy reduces cognitive load and friction"
+    },
+    {
+      title: "Partnership Credibility",
+      description: "GEICO partnership provides significant credibility boost"
+    }
   ],
   flowSteps: [
     {
@@ -195,10 +239,22 @@ export const improvLearningFinalDesignData = {
   title: "Final Design Solution",
   introduction: "The final design features a clean, trust-focused layout with GEICO branding, clear benefit communication, and strategic use of orange CTAs for maximum visibility. The design successfully balances trust-building with conversion optimization.",
   designHighlights: [
-    "Strategic use of GEICO branding for immediate trust building",
-    "Orange CTA buttons for maximum visibility and conversion",
-    "Clean visual hierarchy that guides user attention",
-    "Mobile-optimized layout for seamless cross-device experience"
+    {
+      title: "Trust-Focused Branding",
+      description: "Strategic use of GEICO branding for immediate trust building"
+    },
+    {
+      title: "High-Visibility CTAs",
+      description: "Orange CTA buttons for maximum visibility and conversion"
+    },
+    {
+      title: "Clear Visual Hierarchy",
+      description: "Clean visual hierarchy that guides user attention"
+    },
+    {
+      title: "Mobile Optimization",
+      description: "Mobile-optimized layout for seamless cross-device experience"
+    }
   ],
   uiFeatures: [
     {
