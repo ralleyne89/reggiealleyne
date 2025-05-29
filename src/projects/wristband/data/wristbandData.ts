@@ -110,40 +110,46 @@ export const wristbandResearchData = {
     {
       title: "Content Creator Interviews",
       description: "In-depth conversations with storytellers from diverse backgrounds",
-      participants: "12 storytellers from diverse backgrounds",
-      duration: "3 weeks",
-      methods: ["Semi-structured interviews", "Creative process mapping", "Pain point analysis"]
+      items: [
+        { text: "12 storytellers from diverse backgrounds" },
+        { text: "Semi-structured interviews" },
+        { text: "Creative process mapping" },
+        { text: "Pain point analysis" }
+      ]
     },
     {
       title: "User Behavior Analysis",
       description: "Understanding how consumers interact with digital content",
-      participants: "150 digital content consumers",
-      duration: "2 weeks",
-      methods: ["Usage analytics", "Survey responses", "Engagement tracking"]
+      items: [
+        { text: "150 digital content consumers" },
+        { text: "Usage analytics" },
+        { text: "Survey responses" },
+        { text: "Engagement tracking" }
+      ]
     },
     {
       title: "Competitive Analysis",
       description: "Evaluating existing platforms and identifying opportunities",
-      participants: "8 existing platforms",
-      duration: "1 week",
-      methods: ["Feature comparison", "User experience audit", "Market positioning analysis"]
+      items: [
+        { text: "8 existing platforms analyzed" },
+        { text: "Feature comparison" },
+        { text: "User experience audit" },
+        { text: "Market positioning analysis" }
+      ]
     }
   ],
   keyFindings: [
     {
       title: "Creator Empowerment",
-      description: "Successful platforms needed to lower technical barriers while giving creators maximum creative control over their storytelling experience.",
-      impact: "Informed our decision to prioritize intuitive creation tools and flexible narrative structures."
+      description: "Successful platforms needed to lower technical barriers while giving creators maximum creative control over their storytelling experience."
     },
     {
       title: "Community-Driven Discovery",
-      description: "Users preferred discovering content through community recommendations rather than algorithm-driven feeds.",
-      impact: "Led to the development of curator-based discovery features and community engagement tools."
+      description: "Users preferred discovering content through community recommendations rather than algorithm-driven feeds."
     },
     {
       title: "Interactive Engagement",
-      description: "Choice-driven narratives significantly increased user engagement and emotional investment in stories.",
-      impact: "Became the foundation for our branching narrative system and user choice mechanics."
+      description: "Choice-driven narratives significantly increased user engagement and emotional investment in stories."
     }
   ]
 };
