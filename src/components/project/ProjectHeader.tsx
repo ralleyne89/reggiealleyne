@@ -106,14 +106,13 @@ const ProjectHeader = ({
     if (isChillVibesProject) {
       return (
         <div 
-          className="relative pt-24 pb-16 bg-contain bg-center bg-no-repeat min-h-[500px]"
+          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/85ce6121-b2ba-435d-b8cd-2606e0e3cc63.png')`,
-            backgroundColor: '#1a1a1a'
+            backgroundImage: `url('/lovable-uploads/85ce6121-b2ba-435d-b8cd-2606e0e3cc63.png')`
           }}
         >
           {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
           
           <div className="max-w-6xl mx-auto px-6 relative z-10">
             <motion.div
