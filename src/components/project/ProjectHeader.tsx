@@ -1,3 +1,4 @@
+
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -36,14 +37,22 @@ const ProjectHeader = ({
   // Check if this is the WRISTBAND project by title
   const isWristbandProject = title === "WRISTBAND";
 
-  // Check if this is a case study project (Symptom Checkr, TutorD, CLLCTVE, Chill Vibes, Bob's Big Break, or Wristband)
+  // Check if this is the Improv Learning project by title
+  const isImprovLearningProject = title.includes("Improv Learning");
+
+  // Check if this is the Doggy Date project by title
+  const isDoggyDateProject = title === "Doggy Date";
+
+  // Check if this is a case study project (Symptom Checkr, TutorD, CLLCTVE, Chill Vibes, Bob's Big Break, Wristband, Improv Learning, or Doggy Date)
   const isCaseStudy =
     title.includes("SymptomCheckr") || 
     title.includes("Tutor D") || 
     title === "CLLCTVE Platform" ||
     title === "Bob's Big Break" ||
     title === "Chill Vibes Music Player" ||
-    title === "WRISTBAND";
+    title === "WRISTBAND" ||
+    title.includes("Improv Learning") ||
+    title === "Doggy Date";
 
   const handleImageError = () => {
     console.error(`Header image failed to load: ${image}`);
@@ -151,6 +160,114 @@ const ProjectHeader = ({
 
                 <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
                   An interactive storytelling platform designed to democratize content creation and provide diverse representation in digital narratives through choice-driven experiences.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      );
+    }
+
+    // Special styling for Improv Learning with background image
+    if (isImprovLearningProject) {
+      return (
+        <div 
+          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/lovable-uploads/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png')`
+          }}
+        >
+          {/* Gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+          
+          <div className="max-w-6xl mx-auto px-6 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="mb-8">
+                <Link 
+                  to="/works" 
+                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Works
+                </Link>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex flex-wrap gap-2">
+                  {tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
+                  {title}
+                </h1>
+
+                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
+                  {description}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      );
+    }
+
+    // Special styling for Doggy Date with background image
+    if (isDoggyDateProject) {
+      return (
+        <div 
+          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/lovable-uploads/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png')`
+          }}
+        >
+          {/* Gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+          
+          <div className="max-w-6xl mx-auto px-6 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="mb-8">
+                <Link 
+                  to="/works" 
+                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Works
+                </Link>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex flex-wrap gap-2">
+                  {tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
+                  {title}
+                </h1>
+
+                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
+                  {description}
                 </p>
               </div>
             </motion.div>
