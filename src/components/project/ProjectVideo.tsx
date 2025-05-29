@@ -1,17 +1,17 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Video } from 'lucide-react';
-
 interface ProjectVideoProps {
   videoUrl: string;
   projectTitle?: string;
 }
-
-const ProjectVideo = ({ videoUrl, projectTitle = "Project" }: ProjectVideoProps) => {
+const ProjectVideo = ({
+  videoUrl,
+  projectTitle = "Project"
+}: ProjectVideoProps) => {
   // Check if the URL is a Google Drive video link
   const isGoogleDriveLink = videoUrl && videoUrl.includes('drive.google.com/file/d/');
-  
+
   // Convert Google Drive view URL to embed URL
   const getEmbedUrl = (url: string) => {
     if (isGoogleDriveLink) {
@@ -23,35 +23,23 @@ const ProjectVideo = ({ videoUrl, projectTitle = "Project" }: ProjectVideoProps)
     }
     return url;
   };
-
   if (!videoUrl) return null;
-  
   const embedUrl = getEmbedUrl(videoUrl);
-
-  return (
-    <section className="mb-16">
+  return <section className="mb-16">
       <div className="bg-white">
         <div className="px-[24px]">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
             Project Demo
           </h2>
           
-          <div className="bg-gray-50 rounded-xl p-8">
+          <div className="rounded-xl p-8 px-0 py-0 bg-white">
             <div className="flex items-center gap-3 mb-6">
-              <div className="bg-primary/10 p-3 rounded-lg">
-                <Video className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900">Video Demonstration</h3>
+              
+              
             </div>
             
             <div className="aspect-video w-full rounded-lg overflow-hidden border border-gray-200">
-              <iframe
-                src={embedUrl}
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title={`${projectTitle} Project Demo`}
-              ></iframe>
+              <iframe src={embedUrl} className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title={`${projectTitle} Project Demo`}></iframe>
             </div>
             
             <p className="text-gray-700 text-sm mt-4 text-center">
@@ -60,8 +48,6 @@ const ProjectVideo = ({ videoUrl, projectTitle = "Project" }: ProjectVideoProps)
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ProjectVideo;
