@@ -1,3 +1,4 @@
+
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -27,6 +28,9 @@ const ProjectHeader = ({
   // Check if this is the SymptomCheckr project by title
   const isSymptomCheckrProject = title.includes("SymptomCheckr");
 
+  // Check if this is the CLLCTVE project by title
+  const isCllctveProject = title === "CLLCTVE Platform";
+
   // Check if this is a case study project (Symptom Checkr, TutorD, CLLCTVE, Chill Vibes, Bob's Big Break, or Wristband)
   const isCaseStudy =
     title.includes("SymptomCheckr") || 
@@ -49,6 +53,60 @@ const ProjectHeader = ({
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('/lovable-uploads/441aff50-0a80-413b-80af-cc94a0718412.png')`
+          }}
+        >
+          {/* Gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+          
+          <div className="max-w-6xl mx-auto px-6 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="mb-8">
+                <Link 
+                  to="/works" 
+                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Works
+                </Link>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex flex-wrap gap-2">
+                  {tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
+                  {title}
+                </h1>
+
+                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
+                  {description}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      );
+    }
+
+    // Special styling for CLLCTVE with background image
+    if (isCllctveProject) {
+      return (
+        <div 
+          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/lovable-uploads/7f203bc1-d77d-484d-a6fd-bef5e6adf027.png')`
           }}
         >
           {/* Gradient overlay for text readability */}
