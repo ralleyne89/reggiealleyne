@@ -18,6 +18,8 @@ import { CllctveCaseStudy } from "@/projects/cllctve";
 import { BobsBigBreakCaseStudy } from "@/projects/bobs-big-break";
 import { ChillVibesCaseStudy } from "@/projects/chill-vibes";
 import { WristbandCaseStudy } from "@/projects/wristband";
+import { ImprovLearningCaseStudy } from "@/projects/improv-learning";
+import { DoggyDateCaseStudy } from "@/projects/doggy-date";
 import { ProjectType } from "@/types/project";
 
 const Project = () => {
@@ -82,7 +84,9 @@ const Project = () => {
       project?.slug === "cllctve-platform" ||
       project?.slug === "bobs-big-break" ||
       project?.slug === "chill-vibes-music-player" ||
-      project?.slug === "wristband"
+      project?.slug === "wristband" ||
+      project?.slug === "improv-learning" ||
+      project?.slug === "doggy-date"
     ) {
       setShowCaseStudy(true);
     } else {
@@ -106,6 +110,10 @@ const Project = () => {
         return <ChillVibesCaseStudy />;
       case "wristband":
         return <WristbandCaseStudy />;
+      case "improv-learning":
+        return <ImprovLearningCaseStudy />;
+      case "doggy-date":
+        return <DoggyDateCaseStudy />;
       default:
         return (
           <div className="min-h-screen bg-white flex items-center justify-center">
