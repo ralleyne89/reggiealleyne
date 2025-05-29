@@ -1,6 +1,6 @@
 
 import React from "react";
-import ChallengesLearningsComponent from "../common/ChallengesLearnings";
+import ChallengesLearningsComponent from "@/projects/shared/ChallengesLearnings";
 import { wristbandChallengesData } from "@/projects/wristband/data/wristbandData";
 
 const ChallengesLearnings = () => {

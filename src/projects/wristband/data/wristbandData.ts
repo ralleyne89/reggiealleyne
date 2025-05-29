@@ -1,5 +1,4 @@
-
-import { User, Clock, Users, CheckCircle, Palette, Search, Monitor } from "lucide-react";
+import { User, Clock, Users, CheckCircle, Palette, Search, Monitor, Target, Lightbulb } from "lucide-react";
 
 export const wristbandOverviewData = {
   title: "Project Overview",
@@ -380,23 +379,19 @@ export const wristbandChallengesData = {
   challenges: [
     {
       title: "Balancing Creative Vision with Market Reality",
-      description: "The client had ambitious ideas about revolutionizing storytelling, but we needed to ground these concepts in user research and technical feasibility. Finding the sweet spot between innovation and practicality required constant negotiation and prototype iteration.",
-      learnings: "Learned the importance of setting realistic expectations early and using rapid prototyping to test big ideas before committing to full development. Client education became as important as the design work itself."
+      description: "The client had ambitious ideas about revolutionizing storytelling, but we needed to ground these concepts in user research and technical feasibility. Finding the sweet spot between innovation and practicality required constant negotiation and prototype iteration."
     },
     {
       title: "Building for Diversity Without Tokenism", 
-      description: "Creating authentic representation in characters and stories meant going beyond surface-level diversity. We had to develop processes for working with diverse creators and ensuring their voices weren't diluted through our design process.",
-      learnings: "Discovered that authentic diversity requires involving diverse voices from the beginning, not just at the content creation stage. Design systems and workflows need to support, not constrain, cultural authenticity."
+      description: "Creating authentic representation in characters and stories meant going beyond surface-level diversity. We had to develop processes for working with diverse creators and ensuring their voices weren't diluted through our design process."
     },
     {
       title: "Designing for Unrealized Business Models",
-      description: "Without clear monetization strategies or launch timelines, we had to design flexible systems that could adapt to different business models. This meant creating scalable frameworks without knowing exactly how they'd be implemented.",
-      learnings: "Flexibility in design architecture pays off when business priorities shift. Building modular systems and maintaining clear documentation became crucial for a project with an uncertain future."
+      description: "Without clear monetization strategies or launch timelines, we had to design flexible systems that could adapt to different business models. This meant creating scalable frameworks without knowing exactly how they'd be implemented."
     },
     {
       title: "Maintaining Team Motivation on Uncertain Projects",
-      description: "As the project's commercial viability became questionable, keeping the team engaged and producing quality work required shifting focus from business outcomes to learning opportunities and portfolio development.",
-      learnings: "Project success isn't always measured by launch metrics. The skills developed, relationships built, and concepts proven can be just as valuable as a live product."
+      description: "As the project's commercial viability became questionable, keeping the team engaged and producing quality work required shifting focus from business outcomes to learning opportunities and portfolio development."
     }
   ],
   learnings: [
@@ -418,9 +413,25 @@ export const wristbandChallengesData = {
     }
   ],
   nextSteps: [
-    "Apply learnings about inclusive design to future projects",
-    "Develop better frameworks for client expectation management",
-    "Create more robust prototyping processes for testing big ideas",
-    "Build portfolio pieces that showcase the design thinking process"
+    {
+      title: "Apply Inclusive Design",
+      description: "Apply learnings about inclusive design to future projects",
+      icon: Users
+    },
+    {
+      title: "Improve Client Management",
+      description: "Develop better frameworks for client expectation management",
+      icon: Target
+    },
+    {
+      title: "Enhance Prototyping",
+      description: "Create more robust prototyping processes for testing big ideas",
+      icon: Lightbulb
+    },
+    {
+      title: "Build Portfolio",
+      description: "Build portfolio pieces that showcase the design thinking process",
+      icon: CheckCircle
+    }
   ]
 };
