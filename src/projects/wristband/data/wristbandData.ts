@@ -1,4 +1,6 @@
 
+import { User, Clock, Users, CheckCircle, Palette, Search, Monitor } from "lucide-react";
+
 export const wristbandOverviewData = {
   title: "Project Overview",
   description: [
@@ -10,44 +12,44 @@ export const wristbandOverviewData = {
     {
       label: "Role",
       value: "Lead UX Designer",
-      icon: "User" as const
+      icon: User
     },
     {
       label: "Duration",
       value: "8 months",
-      icon: "Clock" as const
+      icon: Clock
     },
     {
       label: "Team Size",
       value: "6 members",
-      icon: "Users" as const
+      icon: Users
     },
     {
       label: "Status",
       value: "Prototype Complete",
-      icon: "CheckCircle" as const
+      icon: CheckCircle
     }
   ],
   toolDetails: [
     {
       label: "Design",
       value: "Figma, Adobe Creative Suite",
-      icon: "Palette" as const
+      icon: Palette
     },
     {
       label: "Prototyping",
       value: "React Native, Expo",
-      icon: "Monitor" as const
+      icon: Monitor
     },
     {
       label: "Research",
       value: "User Interviews, Analytics",
-      icon: "Search" as const
+      icon: Search
     },
     {
       label: "Collaboration",
       value: "Slack, Notion, GitHub",
-      icon: "Users" as const
+      icon: Users
     }
   ]
 };
@@ -55,30 +57,48 @@ export const wristbandOverviewData = {
 export const wristbandProblemSpaceData = {
   title: "Understanding the Problem Space",
   introduction: "The digital storytelling landscape was dominated by platforms that prioritized viral content over meaningful narratives and often lacked authentic representation from diverse communities.",
-  problemStatement: {
-    title: "The Challenge",
-    description: "Content creators from underrepresented communities struggled to find platforms that supported authentic storytelling while providing sustainable income opportunities. Existing platforms either lacked interactive features or failed to adequately compensate diverse creators."
-  },
-  keyProblems: [
+  challenges: [
     {
       title: "Limited Creator Diversity",
       description: "Most storytelling platforms were dominated by creators from similar backgrounds, leading to homogeneous content and limited perspectives.",
-      impact: "Audiences seeking diverse stories had few options for authentic representation."
+      icon: Users
     },
     {
       title: "Passive Consumption Model",
       description: "Traditional digital storytelling platforms offered linear, non-interactive experiences that didn't engage modern audiences.",
-      impact: "Users wanted more agency in how stories unfolded and developed."
+      icon: Monitor
     },
     {
       title: "Monetization Barriers",
       description: "Emerging creators faced significant barriers to monetizing their content, especially those without existing large followings.",
-      impact: "Talented storytellers couldn't sustain content creation as a viable career path."
+      icon: Clock
     },
     {
       title: "Discovery Challenges",
       description: "Users had difficulty finding stories that matched their interests and values, leading to poor content discovery experiences.",
-      impact: "Quality content from diverse creators remained hidden while algorithm-driven content dominated."
+      icon: Search
+    }
+  ],
+  designGoals: [
+    {
+      title: "Empower Diverse Creators",
+      description: "Create tools and systems that lower barriers for creators from underrepresented communities to share authentic stories.",
+      icon: Users
+    },
+    {
+      title: "Enable Interactive Storytelling",
+      description: "Develop choice-driven narrative systems that give users agency in how stories unfold and develop.",
+      icon: Monitor
+    },
+    {
+      title: "Support Sustainable Monetization",
+      description: "Build fair revenue sharing models that help emerging creators sustain content creation as a viable career path.",
+      icon: CheckCircle
+    },
+    {
+      title: "Improve Content Discovery",
+      description: "Design community-driven discovery systems that help users find quality, diverse content that matches their interests.",
+      icon: Search
     }
   ]
 };
@@ -86,53 +106,44 @@ export const wristbandProblemSpaceData = {
 export const wristbandResearchData = {
   title: "Research & Discovery",
   introduction: "Our research focused on understanding both content creators and content consumers to build a platform that would serve both audiences effectively.",
-  researchMethods: [
+  researchSections: [
     {
-      method: "Content Creator Interviews",
+      title: "Content Creator Interviews",
+      description: "In-depth conversations with storytellers from diverse backgrounds",
       participants: "12 storytellers from diverse backgrounds",
       duration: "3 weeks",
-      keyFindings: [
-        "Creators wanted more control over how their stories were presented",
-        "Revenue sharing and fair compensation were top priorities",
-        "Community building features were considered essential",
-        "Technical barriers often prevented creators from experimenting with interactive formats"
-      ]
+      methods: ["Semi-structured interviews", "Creative process mapping", "Pain point analysis"]
     },
     {
-      method: "User Behavior Analysis",
+      title: "User Behavior Analysis",
+      description: "Understanding how consumers interact with digital content",
       participants: "150 digital content consumers",
       duration: "2 weeks",
-      keyFindings: [
-        "Users spent 40% more time on interactive content vs. linear content",
-        "Choice-driven narratives increased emotional investment in stories",
-        "Discovery through community recommendations was preferred over algorithmic suggestions",
-        "Mobile-first design was essential for target demographic"
-      ]
+      methods: ["Usage analytics", "Survey responses", "Engagement tracking"]
     },
     {
-      method: "Competitive Analysis",
+      title: "Competitive Analysis",
+      description: "Evaluating existing platforms and identifying opportunities",
       participants: "8 existing platforms",
       duration: "1 week",
-      keyFindings: [
-        "No existing platform effectively combined interactivity with creator diversity",
-        "Most platforms struggled with sustainable creator monetization",
-        "User retention rates were highest for platforms with strong community features",
-        "Technical complexity often limited creator adoption"
-      ]
+      methods: ["Feature comparison", "User experience audit", "Market positioning analysis"]
     }
   ],
-  insights: [
+  keyFindings: [
     {
       title: "Creator Empowerment",
-      description: "Successful platforms needed to lower technical barriers while giving creators maximum creative control over their storytelling experience."
+      description: "Successful platforms needed to lower technical barriers while giving creators maximum creative control over their storytelling experience.",
+      impact: "Informed our decision to prioritize intuitive creation tools and flexible narrative structures."
     },
     {
       title: "Community-Driven Discovery",
-      description: "Users preferred discovering content through community recommendations rather than algorithm-driven feeds."
+      description: "Users preferred discovering content through community recommendations rather than algorithm-driven feeds.",
+      impact: "Led to the development of curator-based discovery features and community engagement tools."
     },
     {
       title: "Interactive Engagement",
-      description: "Choice-driven narratives significantly increased user engagement and emotional investment in stories."
+      description: "Choice-driven narratives significantly increased user engagement and emotional investment in stories.",
+      impact: "Became the foundation for our branching narrative system and user choice mechanics."
     }
   ]
 };
@@ -185,6 +196,8 @@ export const wristbandIdeationData = {
 export const wristbandJourneyData = {
   title: "User Journey Mapping",
   introduction: "We mapped the complete user experience for both content creators and content consumers to identify key touchpoints and opportunities for engagement.",
+  journeyTitle: "From Discovery to Advocacy",
+  journeyDescription: "How users progress from discovering the platform to becoming active advocates",
   personas: [
     {
       name: "Maya Samuels",
@@ -197,7 +210,7 @@ export const wristbandJourneyData = {
       description: "Emerging storyteller looking to build an audience"
     }
   ],
-  journeyStages: [
+  stages: [
     {
       stage: "Discovery",
       description: "How users find and join the platform",
@@ -254,58 +267,46 @@ export const wristbandJourneyData = {
         "User-generated content tools"
       ]
     }
-  ]
+  ],
+  userActions: [],
+  emotions: [],
+  painPoints: [],
+  touchPoints: []
 };
 
 export const wristbandPersonaData = {
   title: "Meet Our Target User",
   introduction: "Based on our research, we developed detailed personas representing our primary user segments to guide design decisions throughout the project.",
-  primaryPersona: {
-    name: "Maya Samuels",
+  imageSrc: "/lovable-uploads/d5de6ddf-336f-45cb-84e5-4cb556419e53.png",
+  imageAlt: "Maya Samuels - Primary User Persona",
+  name: "Maya Samuels",
+  details: {
     age: 26,
     location: "Austin, TX",
-    occupation: "Marketing Coordinator",
-    image: "/lovable-uploads/d5de6ddf-336f-45cb-84e5-4cb556419e53.png",
-    bio: "Maya is a young professional who loves consuming diverse digital content during her commute and free time. She's particularly interested in stories that offer different perspectives and allow her to engage actively rather than passively consume content.",
-    goals: [
-      "Discover authentic stories from diverse creators",
-      "Have agency in how stories unfold and develop",
-      "Connect with like-minded community members",
-      "Support creators whose work resonates with her"
-    ],
-    frustrations: [
-      "Difficulty finding diverse content on mainstream platforms",
-      "Passive consumption experiences that don't engage her",
-      "Algorithmic feeds that don't match her interests",
-      "Limited ways to support emerging creators"
-    ],
-    motivations: [
-      "Seeking authentic representation in digital media",
-      "Wanting to participate in story progression",
-      "Building connections with creators and other readers",
-      "Discovering new perspectives and voices"
-    ],
+    occupation: "Marketing Coordinator"
+  },
+  bio: "Maya is a young professional who loves consuming diverse digital content during her commute and free time. She's particularly interested in stories that offer different perspectives and allow her to engage actively rather than passively consume content.",
+  goals: [
+    "Discover authentic stories from diverse creators",
+    "Have agency in how stories unfold and develop",
+    "Connect with like-minded community members",
+    "Support creators whose work resonates with her"
+  ],
+  frustrations: [
+    "Difficulty finding diverse content on mainstream platforms",
+    "Passive consumption experiences that don't engage her",
+    "Algorithmic feeds that don't match her interests",
+    "Limited ways to support emerging creators"
+  ],
+  motivations: [
+    "Seeking authentic representation in digital media",
+    "Wanting to participate in story progression",
+    "Building connections with creators and other readers",
+    "Discovering new perspectives and voices"
+  ],
+  additionalInfo: {
     techComfort: "High - comfortable with mobile apps and digital platforms",
     deviceUsage: "Primarily mobile (iPhone), some tablet use for longer content"
-  },
-  secondaryPersona: {
-    name: "Jordan Rivera",
-    age: 29,
-    location: "Los Angeles, CA",
-    occupation: "Freelance Writer & Content Creator",
-    bio: "Jordan is an emerging storyteller looking to build an audience and create sustainable income from their creative work. They're interested in experimenting with interactive formats but need user-friendly tools that don't require technical expertise.",
-    goals: [
-      "Build a sustainable audience for their stories",
-      "Experiment with interactive storytelling formats",
-      "Generate income from creative work",
-      "Connect directly with readers and fans"
-    ],
-    frustrations: [
-      "Technical barriers to creating interactive content",
-      "Difficulty monetizing work on existing platforms",
-      "Limited audience discovery opportunities",
-      "Lack of direct connection with readers"
-    ]
   }
 };
 
@@ -333,5 +334,7 @@ export const wristbandChallengesData = {
       description: "As the project's commercial viability became questionable, keeping the team engaged and producing quality work required shifting focus from business outcomes to learning opportunities and portfolio development.",
       learnings: "Project success isn't always measured by launch metrics. The skills developed, relationships built, and concepts proven can be just as valuable as a live product."
     }
-  ]
+  ],
+  learnings: [],
+  nextSteps: []
 };
