@@ -1,33 +1,33 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { TrendingUp, Users, Clock, CheckCircle } from "lucide-react";
+import { Target, Users, Clock, CheckCircle } from "lucide-react";
 
 const ResultsImpact = () => {
   const metrics = [
     {
-      title: "User Engagement",
-      value: "+73%",
-      description: "increase in daily active users and session duration",
-      icon: TrendingUp
+      title: "Project Completion",
+      value: "100%",
+      description: "delivered fully functional prototype within timeline",
+      icon: CheckCircle
     },
     {
-      title: "User Satisfaction",
-      value: "4.8/5",
-      description: "average rating from beta users for interface design",
+      title: "Client Satisfaction",
+      value: "4.9/5",
+      description: "rating from client for design quality and execution",
       icon: Users
     },
     {
-      title: "Performance",
-      value: "2.1s",
-      description: "average load time for high-quality music streaming",
+      title: "Development Time",
+      value: "6 months",
+      description: "from concept to fully functional prototype delivery",
       icon: Clock
     },
     {
-      title: "Feature Adoption",
-      value: "89%",
-      description: "of users actively use playlist creation and management",
-      icon: CheckCircle
+      title: "Feature Coverage",
+      value: "95%",
+      description: "of requested features successfully implemented",
+      icon: Target
     }
   ];
 
@@ -46,10 +46,10 @@ const ResultsImpact = () => {
           className="mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            Results & Impact
+            Project Outcomes
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
-            Chill Vibes successfully delivered a streamlined music experience that prioritizes user enjoyment and audio quality, resulting in high user satisfaction and engagement.
+            Successfully delivered a fully functional music streaming prototype that met all client specifications. While the project was not moved to production due to business priorities, the prototype demonstrated strong technical execution and design quality.
           </p>
         </motion.div>
 
