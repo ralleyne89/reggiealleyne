@@ -62,8 +62,18 @@ export const improvLearningOverviewData = {
 // Problem Space Data
 export const improvLearningProblemSpaceData = {
   title: "The Challenge",
-  description: [
-    "Users visiting the site were either unfamiliar with online traffic schools or unsure whether the course was legitimate and easy to complete. The landing page needed to remove friction, build trust, and guide users to sign up quickly—especially from mobile devices."
+  introduction: "Users visiting the site were either unfamiliar with online traffic schools or unsure whether the course was legitimate and easy to complete. The landing page needed to remove friction, build trust, and guide users to sign up quickly—especially from mobile devices.",
+  challenges: [
+    "Users questioned the legitimacy of online traffic school courses",
+    "Visitors couldn't quickly understand what they would get from the course", 
+    "The signup process needed to work seamlessly on mobile devices",
+    "Too much information created friction in the conversion process"
+  ],
+  designGoals: [
+    "Build immediate trust and credibility with users",
+    "Create clear value proposition communication",
+    "Optimize mobile conversion experience",
+    "Reduce information overload and friction"
   ],
   painPoints: [
     {
@@ -132,8 +142,29 @@ export const improvLearningResearchData = {
 // Ideation Strategy Data
 export const improvLearningIdeationData = {
   title: "Design Strategy",
-  description: [
-    "The design strategy focused on creating a clear top-down content flow with emphasis on trust-building elements, minimal distractions, and high-visibility CTAs that would guide users seamlessly through the enrollment process."
+  introduction: "The design strategy focused on creating a clear top-down content flow with emphasis on trust-building elements, minimal distractions, and high-visibility CTAs that would guide users seamlessly through the enrollment process.",
+  keyInsights: [
+    "Users prioritize trust validation before exploring benefits",
+    "Mobile-first design approach essential for conversion success",
+    "Clear visual hierarchy reduces cognitive load and friction",
+    "GEICO partnership provides significant credibility boost"
+  ],
+  flowSteps: [
+    {
+      title: "Trust Establishment",
+      description: "Lead with GEICO branding and credibility signals",
+      icon: Shield
+    },
+    {
+      title: "Value Communication", 
+      description: "Clearly present key benefits and course advantages",
+      icon: CheckCircle
+    },
+    {
+      title: "Action Facilitation",
+      description: "Guide users to conversion with prominent CTAs",
+      icon: ArrowRight
+    }
   ],
   strategies: [
     {
@@ -162,8 +193,42 @@ export const improvLearningIdeationData = {
 // Final Design Data
 export const improvLearningFinalDesignData = {
   title: "Final Design Solution",
-  description: [
-    "The final design features a clean, trust-focused layout with GEICO branding, clear benefit communication, and strategic use of orange CTAs for maximum visibility. The design successfully balances trust-building with conversion optimization."
+  introduction: "The final design features a clean, trust-focused layout with GEICO branding, clear benefit communication, and strategic use of orange CTAs for maximum visibility. The design successfully balances trust-building with conversion optimization.",
+  designHighlights: [
+    "Strategic use of GEICO branding for immediate trust building",
+    "Orange CTA buttons for maximum visibility and conversion",
+    "Clean visual hierarchy that guides user attention",
+    "Mobile-optimized layout for seamless cross-device experience"
+  ],
+  uiFeatures: [
+    {
+      title: "Flash Sale Module",
+      description: "Timed promotional block to create urgency and drive immediate action"
+    },
+    {
+      title: "Benefit Overview Section",
+      description: "Clear showcase of 'DMV Approved,' 'No Final Exam,' 'Save on Insurance'"
+    },
+    {
+      title: "Trust Bar with Media Logos",
+      description: "Credibility indicators from NBC, PBS, and NY Times for enhanced trust"
+    },
+    {
+      title: "FAQ Accordion",
+      description: "Addresses common objections and concerns to reduce conversion friction"
+    },
+    {
+      title: "Customer Testimonials",
+      description: "User reviews with avatars and highlights to build social proof"
+    },
+    {
+      title: "Mobile-Optimized CTAs",
+      description: "Prominent orange buttons optimized for mobile interaction and visibility"
+    }
+  ],
+  uiImages: [
+    "/lovable-uploads/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
+    "/lovable-uploads/e5cedc19-cd1f-4736-a165-a7111ec361a7.png"
   ],
   features: [
     {
@@ -207,17 +272,20 @@ export const improvLearningOutcomesData = {
     {
       title: "On-Time Launch",
       value: "100%",
-      description: "Delivered in sync with GEICO campaign timeline"
+      description: "Delivered in sync with GEICO campaign timeline",
+      icon: CheckCircle
     },
     {
-      title: "Design Feedback",
+      title: "Design Feedback", 
       value: "Positive",
-      description: "Praised for clarity and visual balance"
+      description: "Praised for clarity and visual balance",
+      icon: TrendingUp
     },
     {
       title: "Mobile Optimization",
       value: "Complete",
-      description: "Mobile-first approach successfully implemented"
+      description: "Mobile-first approach successfully implemented",
+      icon: Smartphone
     }
   ],
   achievements: [
@@ -238,6 +306,7 @@ export const improvLearningOutcomesData = {
 
 // Challenges Learnings Data
 export const improvLearningChallengesData = {
+  title: "Challenges & Learnings",
   challenges: [
     {
       title: "Brand Integration Challenge",
