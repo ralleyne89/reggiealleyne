@@ -218,105 +218,117 @@ export const wristbandJourneyData = {
   ],
   stages: [
     {
-      stage: "Discovery",
-      description: "How users find and join the platform",
-      touchpoints: [
-        "Social media recommendations",
-        "App store discovery", 
-        "Word-of-mouth referrals"
-      ],
-      opportunities: [
-        "Streamlined onboarding process",
+      name: "Discovery"
+    },
+    {
+      name: "First Experience"
+    },
+    {
+      name: "Engagement"
+    },
+    {
+      name: "Advocacy"
+    }
+  ],
+  userActions: [
+    {
+      icon: Search,
+      description: "Discovers platform through social media"
+    },
+    {
+      icon: User,
+      description: "Signs up and completes onboarding"
+    },
+    {
+      icon: Monitor,
+      description: "Reads first interactive story"
+    },
+    {
+      icon: Users,
+      description: "Follows favorite creators"
+    }
+  ],
+  emotionalStates: [
+    {
+      icon: Search,
+      iconColor: "text-blue-500",
+      description: "Curious about new platform"
+    },
+    {
+      icon: CheckCircle,
+      iconColor: "text-green-500",
+      description: "Excited by interactive features"
+    },
+    {
+      icon: Users,
+      iconColor: "text-purple-500",
+      description: "Engaged with story choices"
+    },
+    {
+      icon: User,
+      iconColor: "text-yellow-500",
+      description: "Connected to creators"
+    }
+  ],
+  painPoints: [
+    {
+      points: [
+        "Complex signup process",
+        "Confusing interface",
+        "Limited content variety"
+      ]
+    },
+    {
+      points: [
+        "Poor content discovery",
+        "Lack of creator interaction",
+        "Technical issues"
+      ]
+    },
+    {
+      points: [
+        "Limited engagement options",
+        "Slow loading times",
+        "Mobile usability issues"
+      ]
+    },
+    {
+      points: [
+        "No sharing features",
+        "Limited community features",
+        "Monetization barriers"
+      ]
+    }
+  ],
+  designOpportunities: [
+    {
+      points: [
+        "Streamlined onboarding",
         "Preview content without signup",
-        "Clear value proposition communication"
+        "Clear value proposition"
       ]
     },
     {
-      stage: "First Experience",
-      description: "Initial platform interaction and story consumption",
-      touchpoints: [
-        "Story selection interface",
-        "Interactive reading experience",
-        "Choice-making system"
-      ],
-      opportunities: [
-        "Intuitive choice interface design",
-        "Tutorial for new interactive features",
-        "Immediate engagement with compelling content"
+      points: [
+        "Intuitive choice interface",
+        "Tutorial for new features",
+        "Immediate engagement"
       ]
     },
     {
-      stage: "Engagement",
-      description: "Continued use and community participation",
-      touchpoints: [
-        "Following favorite creators",
-        "Participating in story discussions",
-        "Sharing favorite moments"
-      ],
-      opportunities: [
-        "Creator-fan interaction features",
+      points: [
+        "Creator-fan interaction",
         "Story discussion communities",
         "Social sharing optimization"
       ]
     },
     {
-      stage: "Advocacy",
-      description: "Users become platform ambassadors",
-      touchpoints: [
-        "Recommending stories to friends",
-        "Supporting creators financially",
-        "Creating content themselves"
-      ],
-      opportunities: [
+      points: [
         "Referral reward programs",
         "Creator support mechanisms",
         "User-generated content tools"
       ]
     }
-  ],
-  userActions: [
-    "Discovers platform through social media",
-    "Signs up and completes onboarding",
-    "Reads first interactive story",
-    "Follows favorite creators",
-    "Shares content with friends",
-    "Becomes active community member"
-  ],
-  emotions: [
-    "Curious about new platform",
-    "Excited by interactive features", 
-    "Engaged with story choices",
-    "Connected to creators",
-    "Satisfied with experience",
-    "Enthusiastic advocate"
-  ],
-  painPoints: [
-    "Complex signup process",
-    "Confusing interface",
-    "Limited content variety",
-    "Poor content discovery",
-    "Lack of creator interaction",
-    "Technical issues"
-  ],
-  touchPoints: [
-    "Social media ads",
-    "App store listing",
-    "Onboarding flow",
-    "Story reader interface",
-    "Creator profiles", 
-    "Community features"
-  ],
-  emotionalStates: [
-    { stage: "Discovery", emotion: "Curiosity", intensity: 3 },
-    { stage: "First Experience", emotion: "Excitement", intensity: 4 },
-    { stage: "Engagement", emotion: "Satisfaction", intensity: 4 },
-    { stage: "Advocacy", emotion: "Enthusiasm", intensity: 5 }
-  ],
-  designOpportunities: [
-    "Simplify onboarding process",
-    "Improve content discovery algorithms",
-    "Enhance creator-reader interaction",
-    "Optimize mobile reading experience"
   ]
 };
 
@@ -388,10 +400,22 @@ export const wristbandChallengesData = {
     }
   ],
   learnings: [
-    "Client prototypes require different success metrics than shipped products",
-    "Diverse representation must be built into the process, not added as an afterthought", 
-    "Flexible system design is crucial when business models are uncertain",
-    "Team motivation requires clear communication about project goals and constraints"
+    {
+      title: "Client prototypes require different success metrics than shipped products",
+      description: "We learned to measure success through learning outcomes and skill development rather than just user adoption metrics."
+    },
+    {
+      title: "Diverse representation must be built into the process, not added as an afterthought",
+      description: "Authentic diversity requires involving diverse voices from the beginning of the design process."
+    },
+    {
+      title: "Flexible system design is crucial when business models are uncertain",
+      description: "Building modular, adaptable systems allows for pivoting when business priorities change."
+    },
+    {
+      title: "Team motivation requires clear communication about project goals and constraints",
+      description: "Transparency about project uncertainty helps teams focus on learning and growth opportunities."
+    }
   ],
   nextSteps: [
     "Apply learnings about inclusive design to future projects",
