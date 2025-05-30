@@ -40,7 +40,7 @@ const Footer = () => {
             </Link>
 
             <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-md">
-              Principal Designer who codes, creating digital experiences that
+              UI/UX Designer who codes, creating digital experiences that
               bridge the gap between vision and execution.
             </p>
 

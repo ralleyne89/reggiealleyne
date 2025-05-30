@@ -99,7 +99,7 @@ const About = () => {
             <p className="text-lg text-text-secondary leading-relaxed">
               I'm a{" "}
               <span className="text-primary font-semibold">
-                Principal UX/UI Designer
+                 UI/UX Designer
               </span>{" "}
               who codes—because sometimes the best way to solve a design problem
               is to build it yourself. With 10+ years of experience turning

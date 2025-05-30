@@ -22,7 +22,7 @@ const ProfileHeader = () => {
             I shape digital experiences that make complexity feel intuitive
           </div>
           <div className="text-[rgba(153,153,153,1)] text-sm mt-1.5">
-            Principal Designer who codes, translating complex healthcare and
+            UI/UX Designer who codes, translating complex healthcare and
             education challenges into elegant solutions since 2013.
           </div>
           <div className="flex items-center gap-4 mt-2 text-xs text-[rgba(153,153,153,1)]">

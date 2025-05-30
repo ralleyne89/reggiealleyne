@@ -266,7 +266,7 @@ const Index = () => {
                   I'm <span className="text-primary">Reggie Alleyne</span>,
                   <br />
                   <span className="text-text-primary">
-                    Principal Designer who{" "}
+                    UI/UX Designer who{" "}
                     <span className="text-primary">codes</span>
                   </span>
                 </h1>
@@ -303,7 +303,7 @@ const Index = () => {
               <div className="relative">
                 {/* Profile Image with Modern Frame */}
                 <div className="relative rounded-3xl overflow-hidden w-full h-[400px] border border-gray-200 shadow-2xl">
-                  <img src="/lovable-uploads/1686931266900.jpeg" alt="Reggie Alleyne - Principal Designer" className="w-full h-full object-cover" />
+                  <img src="/lovable-uploads/1686931266900.jpeg" alt="Reggie Alleyne - UI/UX Designer" className="w-full h-full object-cover" />
 
                   {/* Subtle overlay for better contrast */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
@@ -552,7 +552,7 @@ const Index = () => {
             once: true,
             amount: 0.3
           }}>
-              As a Principal Designer who codes, I combine deep expertise,
+              As a UI/UX Designer who codes, I combine deep expertise,
               proven methodologies, streamlined processes, and specialized
               experience to deliver solutions that work.
             </motion.p>
@@ -820,7 +820,7 @@ const Index = () => {
               <p className="text-lg text-text-secondary leading-relaxed">
                 I'm a{" "}
                 <span className="text-primary font-semibold">
-                  Principal UX/UI Designer
+                   UI/UX Designer
                 </span>{" "}
                 who codes—because sometimes the best way to solve a design
                 problem is to build it yourself. With 10+ years of experience
