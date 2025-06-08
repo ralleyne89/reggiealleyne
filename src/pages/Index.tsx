@@ -871,36 +871,47 @@ const Index = () => {
             once: true,
             amount: 0.3
           }}>
-              <h3 className="text-2xl font-heading font-bold text-text-primary mb-8 text-center">
+              <h3 className="text-2xl font-heading font-bold text-text-primary mb-12 text-center">
                 What I'm About
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {aboutMeValues.map((value, index) => <motion.div key={index} className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors shadow-sm" initial={{
-                opacity: 0,
-                y: 20
-              }} whileInView={{
-                opacity: 1,
-                y: 0
-              }} transition={{
-                duration: 0.3,
-                delay: index * 0.1
-              }} viewport={{
-                once: true,
-                amount: 0.3
-              }}>
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
+              <div className="space-y-8">
+                {aboutMeValues.map((value, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="bg-white p-8 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors shadow-sm"
+                    initial={{
+                      opacity: 0,
+                      y: 20
+                    }} 
+                    whileInView={{
+                      opacity: 1,
+                      y: 0
+                    }} 
+                    transition={{
+                      duration: 0.3,
+                      delay: index * 0.1
+                    }} 
+                    viewport={{
+                      once: true,
+                      amount: 0.3
+                    }}
+                  >
+                    <div className="flex items-start gap-6">
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                         {value.icon}
                       </div>
-                      <h4 className="font-semibold text-text-primary mb-2">
-                        {value.title}
-                      </h4>
-                      <p className="text-text-secondary text-sm">
-                        {value.description}
-                      </p>
+                      <div className="flex-1">
+                        <h4 className="text-xl font-semibold text-text-primary mb-3">
+                          {value.title}
+                        </h4>
+                        <p className="text-text-secondary leading-relaxed">
+                          {value.description}
+                        </p>
+                      </div>
                     </div>
-                  </motion.div>)}
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
 
@@ -922,19 +933,27 @@ const Index = () => {
                 When I'm Not Designing
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {interests.map((interest, index) => <motion.div key={index} className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors text-center shadow-sm" initial={{
-                opacity: 0,
-                y: 20
-              }} whileInView={{
-                opacity: 1,
-                y: 0
-              }} transition={{
-                duration: 0.3,
-                delay: index * 0.1
-              }} viewport={{
-                once: true,
-                amount: 0.3
-              }}>
+                {interests.map((interest, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors text-center shadow-sm"
+                    initial={{
+                      opacity: 0,
+                      y: 20
+                    }} 
+                    whileInView={{
+                      opacity: 1,
+                      y: 0
+                    }} 
+                    transition={{
+                      duration: 0.3,
+                      delay: index * 0.1
+                    }} 
+                    viewport={{
+                      once: true,
+                      amount: 0.3
+                    }}
+                  >
                     <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
                       {interest.icon}
                     </div>
@@ -944,7 +963,8 @@ const Index = () => {
                     <p className="text-text-secondary text-sm">
                       {interest.description}
                     </p>
-                  </motion.div>)}
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
 
