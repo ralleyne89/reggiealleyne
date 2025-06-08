@@ -257,10 +257,10 @@ const Index = () => {
   };
 
   return <>
-      <motion.div ref={targetRef} className="min-h-screen w-full pt-28 pb-8 relative overflow-hidden bg-white">
+      <motion.div ref={targetRef} className="h-screen max-h-screen w-full pt-28 relative overflow-hidden bg-white flex flex-col justify-center">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
-        <motion.div className="container mx-auto px-4 relative z-10" style={{
+        <motion.div className="container mx-auto px-4 relative z-10 flex-1 flex flex-col justify-center" style={{
         opacity,
         scale,
         y
@@ -406,7 +406,7 @@ const Index = () => {
             </motion.div>
           </div>
 
-          <motion.div className="mt-12 md:mt-16 flex justify-center" initial={{
+          <motion.div className="mt-8 md:mt-12 flex justify-center" initial={{
           opacity: 0,
           y: 50
         }} whileInView={{
@@ -446,7 +446,7 @@ const Index = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center" animate={{
+        <motion.div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center" animate={{
         y: [0, 10, 0]
       }} transition={{
         duration: 1.5,
@@ -464,7 +464,7 @@ const Index = () => {
         </motion.div>
       </motion.div>
 
-      <section id="projects" className="py-16 bg-secondary relative">
+      <section id="projects" className="py-12 bg-secondary relative">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto text-center mb-16">
             <motion.h2 className="text-3xl md:text-4xl font-heading font-bold text-text-primary mb-4 reveal" initial={{
