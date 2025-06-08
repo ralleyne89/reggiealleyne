@@ -21,7 +21,6 @@ import { WristbandCaseStudy } from "@/projects/wristband";
 import { ImprovLearningCaseStudy } from "@/projects/improv-learning";
 import { DoggyDateCaseStudy } from "@/projects/doggy-date";
 import { ProjectType } from "@/types/project";
-
 const Project = () => {
   const {
     slug
@@ -203,8 +202,8 @@ const Project = () => {
           </>}
       </div>
 
-      {/* Show ProjectConclusion for ALL projects */}
-      <ProjectConclusion conclusion={conclusion} liveUrl={liveUrl} prototypeUrl={prototypeUrl} projectSlug={project.slug} />
+      {/* Only show ProjectConclusion for non-case study projects */}
+      {!showCaseStudy && <ProjectConclusion conclusion={conclusion} liveUrl={liveUrl} prototypeUrl={prototypeUrl} projectSlug={project.slug} />}
 
       <Footer />
     </motion.div>;
