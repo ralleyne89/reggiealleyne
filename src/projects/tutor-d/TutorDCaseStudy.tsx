@@ -1,84 +1,42 @@
 
-import React, { useState } from "react";
-import { X, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-
-// Import restructured components following Minto's Pyramid
-import ProjectOverview from "@/components/project/tutor-d/ProjectOverview";
-import ResultsImpact from "@/components/project/tutor-d/ResultsImpact";
-import KeyActions from "@/components/project/tutor-d/KeyActions";
-import ProblemSpace from "@/components/project/tutor-d/ProblemSpace";
-import ResearchDiscovery from "@/components/project/tutor-d/ResearchDiscovery";
-import IdeationStrategy from "@/components/project/tutor-d/IdeationStrategy";
-import UserPersona from "@/components/project/tutor-d/UserPersona";
-import UserJourneyMap from "@/components/project/tutor-d/UserJourneyMap";
-import TechnicalImplementation from "@/components/project/tutor-d/TechnicalImplementation";
-import ChallengesLearnings from "@/components/project/tutor-d/ChallengesLearnings";
-import Reflection from "@/components/project/tutor-d/Reflection";
-import DirectUIImages from "@/components/project/tutor-d/DirectUIImages";
+import React from 'react';
+import ProjectOverviewComponent from '@/components/project/common/ProjectOverview';
+import UserPersonaComponent from '@/components/project/common/UserPersona';
+import ResearchDiscoveryComponent from '@/components/project/common/ResearchDiscovery';
+import UserJourneyMapComponent from '@/components/project/common/UserJourneyMap';
+import SitemapWireframesComponent from '@/components/project/common/SitemapWireframes';
+import ProblemSpace from '@/components/project/tutor-d/ProblemSpace';
+import IdeationStrategy from '@/components/project/tutor-d/IdeationStrategy';
+import DirectUIImages from '@/components/project/tutor-d/DirectUIImages';
+import TechnicalImplementation from '@/components/project/tutor-d/TechnicalImplementation';
+import KeyActions from '@/components/project/tutor-d/KeyActions';
+import ResultsImpact from '@/components/project/tutor-d/ResultsImpact';
+import ChallengesLearnings from '@/components/project/tutor-d/ChallengesLearnings';
+import Reflection from '@/components/project/tutor-d/Reflection';
+import { 
+  tutorDOverviewData, 
+  tutorDPersonaData, 
+  tutorDResearchData, 
+  tutorDJourneyData, 
+  tutorDSitemapData 
+} from './data/tutorDData';
 
 const TutorDCaseStudy = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
-  const handleImageClick = (imageSrc: string) => {
-    setSelectedImage(imageSrc);
-  };
-
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
-
   return (
-    <div className="bg-white text-gray-900">
-      <ProjectOverview />
-      <ResultsImpact />
-      <KeyActions />
+    <div className="space-y-16">
+      <ProjectOverviewComponent {...tutorDOverviewData} />
+      <UserPersonaComponent {...tutorDPersonaData} />
+      <ResearchDiscoveryComponent {...tutorDResearchData} />
+      <UserJourneyMapComponent {...tutorDJourneyData} />
+      <SitemapWireframesComponent {...tutorDSitemapData} />
       <ProblemSpace />
-      <ResearchDiscovery />
       <IdeationStrategy />
-      <UserPersona />
-      <UserJourneyMap />
-      <TechnicalImplementation handleImageClick={handleImageClick} />
-      <DirectUIImages handleImageClick={handleImageClick} />
+      <DirectUIImages />
+      <TechnicalImplementation />
+      <KeyActions />
+      <ResultsImpact />
       <ChallengesLearnings />
       <Reflection />
-
-      {/* Back to Works Link */}
-      <div className="max-w-6xl mx-auto px-6 pt-16">
-        <Link
-          to="/works"
-          className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Works
-        </Link>
-      </div>
-
-      {/* Modal for full-size image view */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
-          onClick={closeModal}
-        >
-          <div
-            className="relative max-w-7xl max-h-[90vh] w-full h-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={selectedImage}
-              alt="Full size image"
-              className="w-full h-full object-contain"
-            />
-            <button
-              className="absolute top-4 right-4 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center"
-              onClick={closeModal}
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
