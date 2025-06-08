@@ -33,7 +33,7 @@ const FinalUIDesign = ({
   uiImages,
   handleImageClick
 }: FinalUIDesignProps) => {
-  return <motion.section className="py-16 bg-white" initial={{
+  return <motion.section initial={{
     opacity: 0,
     y: 20
   }} whileInView={{
@@ -44,7 +44,7 @@ const FinalUIDesign = ({
   }} viewport={{
     once: true,
     amount: 0.3
-  }}>
+  }} className="bg-white py-[14px]">
       <div className="w-full px-6">
         <motion.div initial={{
         opacity: 0,

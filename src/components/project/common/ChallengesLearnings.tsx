@@ -26,7 +26,7 @@ const ChallengesLearnings = ({
   learnings,
   nextSteps
 }: ChallengesLearningsProps) => {
-  return <section className="py-16 rounded-xl bg-white">
+  return <section className="rounded-xl bg-white py-[63px]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
