@@ -9,7 +9,7 @@ import FinalUIDesign from '@/components/project/tech-noir/FinalUIDesign';
 import OutcomesImpact from '@/components/project/tech-noir/OutcomesImpact';
 import ChallengesLearnings from '@/components/project/tech-noir/ChallengesLearnings';
 import Reflection from '@/components/project/tech-noir/Reflection';
-import { techNoirData } from './data/techNoirData';
+import { Clock, Users, User, Palette, Monitor, Search } from 'lucide-react';
 
 const TechNoirCaseStudy = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -22,40 +22,50 @@ const TechNoirCaseStudy = () => {
     setSelectedImage(null);
   };
 
-  // Extract persona data from techNoirData
+  // Extract persona data from techNoirData - restructured to match UserPersonaProps
   const techNoirPersonaData = {
+    imageSrc: "/lovable-uploads/tech-noir-persona.png",
+    imageAlt: "Alex Chen - Tech Noir User Persona",
     name: "Alex Chen",
-    age: "28",
-    occupation: "Cybersecurity Analyst",
-    location: "Neo Tokyo",
-    bio: "Tech-savvy professional working in corporate cybersecurity, fascinated by the intersection of technology and mystery.",
+    details: [
+      { label: "Age", value: "28" },
+      { label: "Occupation", value: "Cybersecurity Analyst" },
+      { label: "Location", value: "Neo Tokyo" },
+      { label: "Tech Comfort", value: "Expert" },
+      { label: "Preferred Devices", value: "PC, VR Headset" }
+    ],
     goals: [
-      "Solve complex digital mysteries",
-      "Explore immersive tech-noir narratives",
-      "Experience cutting-edge interactive storytelling"
+      { text: "Solve complex digital mysteries" },
+      { text: "Explore immersive tech-noir narratives" },
+      { text: "Experience cutting-edge interactive storytelling" }
     ],
     frustrations: [
-      "Predictable storylines in current games",
-      "Lack of meaningful choices in narratives",
-      "Limited cyberpunk content with depth"
+      { text: "Predictable storylines in current games" },
+      { text: "Lack of meaningful choices in narratives" },
+      { text: "Limited cyberpunk content with depth" }
     ],
-    techComfort: "Expert",
-    preferredDevices: ["PC", "VR Headset"],
-    imageUrl: "/lovable-uploads/tech-noir-persona.png"
+    needs: [
+      { text: "Compelling narrative choices that matter" },
+      { text: "Rich, atmospheric cyberpunk environments" },
+      { text: "Advanced interactive storytelling mechanics" }
+    ]
   };
 
-  // Extract project overview data
+  // Extract project overview data - using actual Lucide icon components
   const techNoirOverviewData = {
-    description: techNoirData.overview.description,
+    description: [
+      "Tech Noir is an immersive interactive narrative experience that blends cyberpunk aesthetics with detective mystery gameplay. Players navigate a neon-lit dystopian city, making choices that shape both the story and the world around them.",
+      "The project focused on creating a seamless blend of visual storytelling and user agency, where every decision carries weight and consequences ripple through the narrative structure."
+    ],
     projectDetails: [
-      { label: "Duration", value: "4 months", icon: "Clock" as const },
-      { label: "Team Size", value: "5 members", icon: "Users" as const },
-      { label: "My Role", value: "UX Designer & Researcher", icon: "User" as const }
+      { label: "Duration", value: "4 months", icon: Clock },
+      { label: "Team Size", value: "5 members", icon: Users },
+      { label: "My Role", value: "UX Designer & Researcher", icon: User }
     ],
     toolDetails: [
-      { label: "Design", value: "Figma, Adobe XD", icon: "Palette" as const },
-      { label: "Prototyping", value: "Unity, Principle", icon: "Monitor" as const },
-      { label: "Research", value: "UserTesting, Miro", icon: "Search" as const }
+      { label: "Design", value: "Figma, Adobe XD", icon: Palette },
+      { label: "Prototyping", value: "Unity, Principle", icon: Monitor },
+      { label: "Research", value: "UserTesting, Miro", icon: Search }
     ]
   };
 
