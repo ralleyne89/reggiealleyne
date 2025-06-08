@@ -8,6 +8,7 @@ import ProjectCard from "@/components/home/ProjectCard";
 import Footer from "@/components/layout/Footer";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+
 const fadeInUp = {
   hidden: {
     opacity: 0,
@@ -46,6 +47,7 @@ const buttonVariants = {
     scale: 0.95
   }
 };
+
 const Index = () => {
   const targetRef = useRef<HTMLDivElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -58,6 +60,7 @@ const Index = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.9], [1, 0.8]);
   const y = useTransform(scrollYProgress, [0, 0.9], [0, 100]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const revealElements = document.querySelectorAll(".reveal");
@@ -76,6 +79,7 @@ const Index = () => {
 
     return () => window.removeEventListener("scroll", revealOnScroll);
   }, []);
+
   const {
     data: projects,
     isLoading
@@ -218,6 +222,7 @@ const Index = () => {
     school: "UCLA Extension",
     description: "Comprehensive full stack web development program"
   }];
+
   const handleContactFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formElement = e.currentTarget;
@@ -250,8 +255,9 @@ const Index = () => {
       setIsSubmitting(false);
     }
   };
+
   return <>
-      <motion.div ref={targetRef} className="min-h-screen w-full pt-28 pb-16 relative overflow-hidden bg-white">
+      <motion.div ref={targetRef} className="min-h-screen w-full pt-28 pb-8 relative overflow-hidden bg-white">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
         <motion.div className="container mx-auto px-4 relative z-10" style={{
@@ -400,7 +406,7 @@ const Index = () => {
             </motion.div>
           </div>
 
-          <motion.div className="mt-16 md:mt-24 flex justify-center" initial={{
+          <motion.div className="mt-12 md:mt-16 flex justify-center" initial={{
           opacity: 0,
           y: 50
         }} whileInView={{
@@ -458,7 +464,7 @@ const Index = () => {
         </motion.div>
       </motion.div>
 
-      <section id="projects" className="py-20 bg-secondary relative">
+      <section id="projects" className="py-16 bg-secondary relative">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto text-center mb-16">
             <motion.h2 className="text-3xl md:text-4xl font-heading font-bold text-text-primary mb-4 reveal" initial={{
@@ -884,17 +890,15 @@ const Index = () => {
                 amount: 0.3
               }}>
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
                         {value.icon}
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-text-primary mb-2">
-                          {value.title}
-                        </h4>
-                        <p className="text-text-secondary text-sm">
-                          {value.description}
-                        </p>
-                      </div>
+                      <h4 className="font-semibold text-text-primary mb-2">
+                        {value.title}
+                      </h4>
+                      <p className="text-text-secondary text-sm">
+                        {value.description}
+                      </p>
                     </div>
                   </motion.div>)}
               </div>
@@ -1205,4 +1209,5 @@ const Index = () => {
       <Footer />
     </>;
 };
+
 export default Index;
