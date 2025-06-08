@@ -14,7 +14,6 @@ import Reflection from '@/components/project/symptom-checkr/Reflection';
 import { symptomCheckrOverviewData, symptomCheckrSitemapData } from './data/symptomCheckrData';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 
 const SymptomCheckrCaseStudy = () => {
   return (
@@ -32,17 +31,14 @@ const SymptomCheckrCaseStudy = () => {
       <Reflection />
       
       {/* Back to Works link */}
-      <div className="flex justify-center py-16">
-        <Button 
-          asChild
-          variant="default"
-          className="px-8 py-7 text-lg font-medium bg-primary hover:bg-primary/90 text-white rounded-lg"
+      <div className="max-w-6xl mx-auto px-6 pt-16">
+        <Link
+          to="/works"
+          className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
         >
-          <Link to="/works">
-            <ArrowLeft className="mr-2 h-5 w-5" />
-            Back to Works
-          </Link>
-        </Button>
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Works
+        </Link>
       </div>
     </div>
   );
