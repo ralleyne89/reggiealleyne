@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ProjectOverviewComponent from '@/components/project/common/ProjectOverview';
 import UserPersona from '@/components/project/symptom-checkr/UserPersona';
@@ -31,7 +30,7 @@ const SymptomCheckrCaseStudy = () => {
       <Reflection />
       
       {/* Back to Works link */}
-      <div className="max-w-6xl mx-auto px-6 pt-16">
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">
         <Link
           to="/works"
           className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
