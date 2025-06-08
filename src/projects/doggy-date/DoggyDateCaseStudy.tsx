@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { X, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -30,15 +29,13 @@ const DoggyDateCaseStudy = () => {
     <div className="mt-8 mb-16">
       <IntegratedOverview />
       <ProblemSpace />
-      <ResearchDiscovery />
-      <IdeationStrategy />
       <FinalUIDesign handleImageClick={handleImageClick} />
       <OutcomesImpact />
       <ChallengesLearnings />
       <Reflection />
 
       {/* Back to Works link */}
-      <div className="max-w-6xl mx-auto px-6 pt-16">
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">
         <Link
           to="/works"
           className="inline-flex items-center text-primary hover:text-primary-light transition-colors"

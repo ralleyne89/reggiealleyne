@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { X, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -27,23 +26,23 @@ const BobsBigBreakCaseStudy = () => {
     <div className="mt-8 mb-16">
       {/* 1. Project Overview */}
       <IntegratedOverview />
-      
+
       {/* 2. RESULTS & IMPACT - Lead with the outcome */}
       <ResultsImpact />
-      
+
       {/* 3. KEY ACTIONS - What moved the needle */}
       <KeyActions />
-      
+
       {/* 4. IN-DEPTH EXPLANATION - How it was achieved with visuals */}
       <TechnicalImplementation handleImageClick={handleImageClick} />
       <GameDesignProcess handleImageClick={handleImageClick} />
       <FinalGameplay handleImageClick={handleImageClick} />
-      
+
       {/* 5. Reflection & Learnings */}
       <ChallengesLearnings />
 
       {/* Back to Works link */}
-      <div className="max-w-6xl mx-auto px-6 pt-16">
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">
         <Link
           to="/works"
           className="inline-flex items-center text-primary hover:text-primary-light transition-colors"

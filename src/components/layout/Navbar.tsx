@@ -25,6 +25,7 @@ const Navbar = () => {
   };
 
   const navItems: NavItem[] = [
+    { title: "Home", path: "/" },
     { title: "Work", path: "/works" },
     { title: "About", path: "/about" },
     { title: "Contact", path: "#", onClick: handleContactClick },

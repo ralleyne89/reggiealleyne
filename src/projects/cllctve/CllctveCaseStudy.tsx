@@ -1,12 +1,10 @@
-
-import React, { useState } from "react";
+import { useState } from "react";
 import { X, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
 // Import key section components following SymptomCheckr structure
 import IntegratedOverview from "@/components/project/cllctve/IntegratedOverview";
 import ProblemSpace from "@/components/project/cllctve/ProblemSpace";
-import ResearchDiscovery from "@/components/project/cllctve/ResearchDiscovery";
 import FinalUIDesign from "@/components/project/cllctve/FinalUIDesign";
 import ChallengesLearnings from "@/components/project/cllctve/ChallengesLearnings";
 
@@ -25,12 +23,11 @@ const CllctveCaseStudy = () => {
     <div className="mt-8 mb-16">
       <IntegratedOverview />
       <ProblemSpace />
-      <ResearchDiscovery />
       <FinalUIDesign handleImageClick={handleImageClick} />
       <ChallengesLearnings />
 
       {/* Back to Works link */}
-      <div className="max-w-6xl mx-auto px-6 pt-16">
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">
         <Link
           to="/works"
           className="inline-flex items-center text-primary hover:text-primary-light transition-colors"

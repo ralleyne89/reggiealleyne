@@ -1,9 +1,8 @@
-
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/home/HeroSection";
-import StatsSection from "@/components/home/StatsSection";
 import FeaturedProjectsSection from "@/components/home/FeaturedProjectsSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 import SkillsSection from "@/components/home/SkillsSection";
 import AboutSection from "@/components/home/AboutSection";
 import EducationSection from "@/components/home/EducationSection";
@@ -32,10 +31,10 @@ const Index = () => {
   return (
     <>
       <HeroSection />
-      <StatsSection />
       <FeaturedProjectsSection />
-      <SkillsSection />
+      <TestimonialsSection />
       <AboutSection />
+      <SkillsSection />
       <EducationSection />
       <ContactSection />
       <Footer />
