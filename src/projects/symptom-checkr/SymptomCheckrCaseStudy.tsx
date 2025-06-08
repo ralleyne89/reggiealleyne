@@ -12,6 +12,9 @@ import OutcomesImpact from '@/components/project/symptom-checkr/OutcomesImpact';
 import ChallengesLearnings from '@/components/project/symptom-checkr/ChallengesLearnings';
 import Reflection from '@/components/project/symptom-checkr/Reflection';
 import { symptomCheckrOverviewData, symptomCheckrSitemapData } from './data/symptomCheckrData';
+import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const SymptomCheckrCaseStudy = () => {
   return (
@@ -27,6 +30,20 @@ const SymptomCheckrCaseStudy = () => {
       <OutcomesImpact />
       <ChallengesLearnings />
       <Reflection />
+      
+      {/* Back to Works link */}
+      <div className="flex justify-center py-16">
+        <Button 
+          asChild
+          variant="default"
+          className="px-8 py-7 text-lg font-medium bg-primary hover:bg-primary/90 text-white rounded-lg"
+        >
+          <Link to="/works">
+            <ArrowLeft className="mr-2 h-5 w-5" />
+            View More Projects
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 };

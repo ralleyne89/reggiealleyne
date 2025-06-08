@@ -203,8 +203,8 @@ const Project = () => {
           </>}
       </div>
 
-      {/* Show ProjectConclusion for all projects */}
-      <ProjectConclusion conclusion={conclusion} liveUrl={liveUrl} prototypeUrl={prototypeUrl} projectSlug={project.slug} />
+      {/* Only show ProjectConclusion for non-case study projects */}
+      {!showCaseStudy && <ProjectConclusion conclusion={conclusion} liveUrl={liveUrl} prototypeUrl={prototypeUrl} projectSlug={project.slug} />}
 
       <Footer />
     </motion.div>;
