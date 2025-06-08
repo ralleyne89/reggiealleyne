@@ -40,7 +40,7 @@ const SymptomCheckrCaseStudy = () => {
         >
           <Link to="/works">
             <ArrowLeft className="mr-2 h-5 w-5" />
-            View More Projects
+            Back to Works
           </Link>
         </Button>
       </div>
