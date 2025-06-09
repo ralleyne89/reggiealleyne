@@ -72,8 +72,8 @@ const ProjectHeader = ({
             backgroundImage: `url('/lovable-uploads/441aff50-0a80-413b-80af-cc94a0718412.png')`,
           }}
         >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+          {/* Enhanced gradient overlay for better text readability - no white text on white */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90"></div>
 
           <div className="max-w-6xl mx-auto px-6 relative z-10">
             <motion.div

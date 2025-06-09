@@ -98,14 +98,12 @@ const About = () => {
           >
             <p className="text-lg text-text-secondary leading-relaxed">
               I'm a{" "}
-              <span className="text-primary font-semibold">
-                 UI/UX Designer
-              </span>{" "}
+              <span className="text-primary font-semibold">UI/UX Designer</span>{" "}
               who codes—because sometimes the best way to solve a design problem
               is to build it yourself. With 10+ years of experience turning
               complex problems into delightful user experiences, I've learned
-              that great design isn't just about making things pretty (though I
-              do love a good color palette).
+              that great design isn't just about making things pretty it's about 
+              creating solutions that work.
             </p>
 
             <p className="text-lg text-text-secondary leading-relaxed">

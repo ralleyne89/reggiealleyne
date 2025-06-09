@@ -6,9 +6,9 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Chen",
-      role: "Product Manager",
-      company: "HealthTech Solutions",
+      name: "Jewels Kotikela",
+      role: "Director of Product Management",
+      company: "Blue Shield of California",
       avatar: "/lovable-uploads/avatar-sarah.jpg",
       rating: 5,
       text: "Reggie's ability to bridge design and development saved us months of back-and-forth. His healthcare platform designs were both beautiful and technically sound.",
@@ -16,13 +16,23 @@ const TestimonialsSection = () => {
     },
     {
       id: 2,
-      name: "Marcus Rodriguez",
-      role: "Engineering Lead",
-      company: "EduConnect",
+      name: "Nina Birnbaum",
+      role: "Medical Director, Innovation Acceleration",
+      company: "Blue Shield of California",
       avatar: "/lovable-uploads/avatar-marcus.jpg",
       rating: 5,
       text: "Working with a designer who actually codes is a game-changer. Reggie delivered pixel-perfect implementations that worked flawlessly across all devices.",
       highlight: "pixel-perfect implementations",
+    },
+    {
+      id: 3,
+      name: "Yahkeef Davis",
+      role: "Software Engineer - Machine Learning Partnerships & Operations",
+      company: "Home Depot",
+      avatar: "/lovable-uploads/avatar-yahkeef.jpg",
+      rating: 5,
+      text: "Reggie's technical depth as a designer is unmatched. He speaks our language and delivers designs that actually work in production without endless revisions.",
+      highlight: "speaks our language",
     },
   ];
 
@@ -52,7 +62,7 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
@@ -130,7 +140,7 @@ const TestimonialsSection = () => {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <span>Healthcare & Education Expert</span>
+              <span>UI/UX Expert</span>
             </div>
           </div>
         </motion.div>

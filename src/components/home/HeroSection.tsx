@@ -90,8 +90,7 @@ const HeroSection = () => {
               variants={fadeInUp}
               className="text-text-secondary text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0 mt-6"
             >
-              10+ years building products that actually work. Principal Designer
-              who codes.
+              10+ years turning ideas into reality. Design first, code second.
             </motion.p>
 
             <motion.div

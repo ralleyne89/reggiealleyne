@@ -21,11 +21,14 @@ const SymptomCheckrCaseStudy = () => {
   return (
     <div className="space-y-16">
       <ProjectOverviewComponent {...symptomCheckrOverviewData} />
-      <UserPersona />
       <ProblemSpace />
+      <ResearchDiscovery />
+      <UserPersona />
+      <UserJourneyMap />
+      <IdeationStrategy />
       <SitemapWireframesComponent {...symptomCheckrSitemapData} />
       <FinalUIDesign />
-      <OutcomesImpact />
+      {/* <OutcomesImpact /> */}
       <ChallengesLearnings />
       <Reflection />
 

@@ -91,12 +91,12 @@ const FeaturedProjectsSection = () => {
 
                 if (project.id === 9) {
                   // SymptomCheckr
-                  enhancedTitle = "95% Accuracy: AI Health Diagnosis Tool";
+                  enhancedTitle = "AI-Powered Symptom Checker";
                   impactMetric = "95% diagnostic accuracy";
                 } else if (project.id === 1) {
                   // CLLCTVE
-                  enhancedTitle = "10K+ Creators: Gen Z Portfolio Platform";
-                  impactMetric = "10K+ active creators";
+                  enhancedTitle = "3K+ Creators: Gen Z Portfolio Platform";
+                  impactMetric = "3K+ active creators";
                 } else if (project.id === 2) {
                   // Tutor D
                   enhancedTitle = "5hrs/week Saved: SMS Learning Platform";
