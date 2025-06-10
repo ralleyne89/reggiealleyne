@@ -9,8 +9,8 @@ import IdeationStrategy from "@/components/project/tech-noir/IdeationStrategy";
 import FinalUIDesign from "@/components/project/tech-noir/FinalUIDesign";
 import OutcomesImpact from "@/components/project/tech-noir/OutcomesImpact";
 import ChallengesLearnings from "@/components/project/tech-noir/ChallengesLearnings";
-import Reflection from "@/components/project/tech-noir/Reflection";
-import { Clock, Users, User, Palette, Monitor, Search } from "lucide-react";
+
+import { techNoirData } from "./data/techNoirData";
 
 const TechNoirCaseStudy = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -23,62 +23,55 @@ const TechNoirCaseStudy = () => {
     setSelectedImage(null);
   };
 
-  // Extract persona data from techNoirData - restructured to match UserPersonaProps
+  // Extract persona data from techNoirData - Tech Tina for wearable tech fashion
   const techNoirPersonaData = {
-    imageSrc: "/lovable-uploads/tech-noir-persona.png",
-    imageAlt: "Alex Chen - Tech Noir User Persona",
-    name: "Alex Chen",
+    imageSrc: "/images/tech-noir-persona.png",
+    imageAlt: "Tech Tina - Tech Noir User Persona",
+    name: "Tech Tina",
     details: [
-      { label: "Age", value: "28" },
-      { label: "Occupation", value: "Cybersecurity Analyst" },
-      { label: "Location", value: "Neo Tokyo" },
-      { label: "Tech Comfort", value: "Expert" },
-      { label: "Preferred Devices", value: "PC, VR Headset" },
+      { label: "Age", value: "27" },
+      { label: "Occupation", value: "Fashion Blogger" },
+      { label: "Location", value: "San Francisco" },
+      { label: "Tech Comfort", value: "High" },
+      { label: "Style", value: "Fashion-forward" },
     ],
     goals: [
-      { text: "Solve complex digital mysteries" },
-      { text: "Explore immersive tech-noir narratives" },
-      { text: "Experience cutting-edge interactive storytelling" },
+      { text: "Become a fashion-tech icon" },
+      { text: "Expand knowledge of wearable technology" },
+      { text: "Share style inspiration with followers" },
     ],
     frustrations: [
-      { text: "Predictable storylines in current games" },
-      { text: "Lack of meaningful choices in narratives" },
-      { text: "Limited cyberpunk content with depth" },
+      { text: "No one-stop-shop for stylish wearable tech" },
+      { text: "Lack of styling inspiration for tech products" },
+      { text: "Uncertainty about how to incorporate tech into outfits" },
     ],
     needs: [
-      { text: "Compelling narrative choices that matter" },
-      { text: "Rich, atmospheric cyberpunk environments" },
-      { text: "Advanced interactive storytelling mechanics" },
+      { text: "Curated collections of fashionable wearable tech" },
+      { text: "Styling guides and 'how to wear' content" },
+      { text: "Platform to discover and share tech fashion trends" },
     ],
   };
 
-  // Extract project overview data - using actual Lucide icon components
+  // Extract project overview data from techNoirData
   const techNoirOverviewData = {
-    description: [
-      "Tech Noir is an immersive interactive narrative experience that blends cyberpunk aesthetics with detective mystery gameplay. Players navigate a neon-lit dystopian city, making choices that shape both the story and the world around them.",
-      "The project focused on creating a seamless blend of visual storytelling and user agency, where every decision carries weight and consequences ripple through the narrative structure.",
-    ],
-    projectDetails: [
-      { label: "Duration", value: "4 months", icon: Clock },
-      { label: "Team Size", value: "5 members", icon: Users },
-      { label: "My Role", value: "UX Designer & Researcher", icon: User },
-    ],
-    toolDetails: [
-      { label: "Design", value: "Figma, Adobe XD", icon: Palette },
-      { label: "Prototyping", value: "Unity, Principle", icon: Monitor },
-      { label: "Research", value: "UserTesting, Miro", icon: Search },
-    ],
+    description: techNoirData.overview.description,
+    projectDetails: techNoirData.overview.projectDetails,
+    toolDetails: techNoirData.overview.toolDetails,
   };
 
   return (
     <div className="space-y-16">
+      {/* Minto Pyramid: Lead with Impact/Outcome */}
       <ProjectOverviewComponent {...techNoirOverviewData} />
-      <UserPersonaComponent {...techNoirPersonaData} />
-      <ProblemSpace />
-      <FinalUIDesign handleImageClick={handleImageClick} />
       <OutcomesImpact />
+
+      {/* Key Strategic Moves (2-3 core challenges/solutions) */}
+      <ProblemSpace />
+
+      {/* Deep Dive Process */}
+      <UserPersonaComponent {...techNoirPersonaData} />
+      <FinalUIDesign handleImageClick={handleImageClick} />
       <ChallengesLearnings />
-      <Reflection />
 
       {/* Back to Works link */}
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">

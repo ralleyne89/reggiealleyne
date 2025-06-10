@@ -21,8 +21,13 @@ const CllctveCaseStudy = () => {
 
   return (
     <div className="mt-8 mb-16">
+      {/* Minto Pyramid: Lead with Impact/Outcome */}
       <IntegratedOverview />
+
+      {/* Key Strategic Moves (2-3 core challenges/solutions) */}
       <ProblemSpace />
+
+      {/* Deep Dive Process */}
       <FinalUIDesign handleImageClick={handleImageClick} />
       <ChallengesLearnings />
 

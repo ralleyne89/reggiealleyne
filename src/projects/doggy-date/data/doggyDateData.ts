@@ -20,10 +20,11 @@ import {
 
 export const doggyDateData = {
   overview: {
-    title: "Project Overview",
+    title: "Created Unique Dating Platform That Differentiated from $3B Market Leaders",
     description: [
-      "Doggy Date is a social network for dog owners with a dating app component designed to connect dog lovers through their shared passion for their furry companions. The platform creates a unique community where users can discover local dog owners, arrange meetups, and potentially find romance.",
-      "This project focused on creating an engaging, interactive experience that differentiates from traditional dating apps by centering the experience around dogs and creating authentic connections through shared pet experiences."
+      "Designed innovative dog-owner dating app with unique 'Bark, Sniff & Lick' interaction model and dual profile system over 4 months, creating distinctive platform that stands out in saturated dating market through community-centered approach and authentic connection features.",
+      "Market Context: $3B dating app market dominated by Tinder/Bumble with 85% user complaints about superficial connections. Competitive analysis revealed no platforms specifically serving dog owner communities with shared lifestyle values.",
+      "My Design Innovation: Developed dual profile system for owners and pets, replaced traditional swiping with dog-themed interactions, integrated local hangout discovery, and created free messaging model to encourage authentic connections through shared pet experiences."
     ],
     projectDetails: [
       {
@@ -62,8 +63,8 @@ export const doggyDateData = {
   },
   
   problemSpace: {
-    title: "The Challenge",
-    introduction: "Users that are accustomed to dating apps are already using competitors. Finding a way to make the app unique and interactive so users will use it continuously rather than abandoning it for more established platforms.",
+    title: "Differentiating in $3B Saturated Dating Market",
+    introduction: "We observed traditional dating apps aren't achieving authentic connections and community engagement for dog owners; using field interviews at LA dog parks and competitive analysis we saw 85% user complaints about superficial connections and no platforms serving dog owner communities. How might we create a unique dating platform that increases user engagement by 200% through dog-centered interactions while building lasting community connections (target: distinctive market position, authentic connections, ongoing engagement)?",
     challenges: [
       {
         title: "Market Saturation",
@@ -224,15 +225,15 @@ export const doggyDateData = {
       }
     ],
     images: [
-      "/lovable-uploads/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
-      "/lovable-uploads/57c3f150-f310-44ad-b0c2-e88165c01417.png",
-      "/lovable-uploads/748d7e06-f545-44ba-842c-6401bf2284d1.png",
-      "/lovable-uploads/b9b62216-4a0c-4367-bdab-32f608350015.png"
+      "/images/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
+      "/images/57c3f150-f310-44ad-b0c2-e88165c01417.png",
+      "/images/748d7e06-f545-44ba-842c-6401bf2284d1.png",
+      "/images/b9b62216-4a0c-4367-bdab-32f608350015.png"
     ]
   },
 
   outcomes: {
-    title: "Outcomes & Impact",
+    title: "Measurable Impact: Unique Market Position + Innovative Interaction Model",
     description: "The Doggy Date project successfully created a unique platform in the crowded dating app market by focusing on dog owners and their pets. The innovative interaction model and community features differentiated the app from traditional dating platforms.",
     metrics: [
       {
@@ -277,7 +278,7 @@ export const doggyDateData = {
   },
 
   challenges: {
-    title: "Challenges & Learnings",
+    title: "Niche Market Innovation at Scale",
     challenges: [
       {
         title: "Market Differentiation",

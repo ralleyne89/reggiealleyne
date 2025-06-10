@@ -36,22 +36,22 @@ const TechnicalImplementation: React.FC<TechnicalImplementationProps> = ({
 
   const processImages = [
     {
-      src: "/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
+      src: "/images/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
       alt: "WRISTBAND App Interface Showcase",
       title: "Main Interface Design"
     },
     {
-      src: "/lovable-uploads/aab1244b-de80-4758-8cbe-165d2b66ec19.png",
+      src: "/images/aab1244b-de80-4758-8cbe-165d2b66ec19.png",
       alt: "WRISTBAND Story Selection Screen",
       title: "Story Selection Interface"
     },
     {
-      src: "/lovable-uploads/abd0fcfb-d3c7-4ea0-9f8c-05c8cf2759e9.png",
+      src: "/images/abd0fcfb-d3c7-4ea0-9f8c-05c8cf2759e9.png",
       alt: "WRISTBAND Character Design System",
       title: "Character Design System"
     },
     {
-      src: "/lovable-uploads/8ccc7ee6-c4de-44cc-8729-4090d34c7895.png",
+      src: "/images/8ccc7ee6-c4de-44cc-8729-4090d34c7895.png",
       alt: "WRISTBAND Interactive Story Flow",
       title: "Interactive Story Flow"
     }

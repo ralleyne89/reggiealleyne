@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, Users, Clock, CheckCircle } from "lucide-react";
@@ -6,50 +5,55 @@ import { TrendingUp, Users, Clock, CheckCircle } from "lucide-react";
 const ResultsImpact = () => {
   const metrics = [
     {
-      title: "User Retention",
-      value: "+65%",
-      description: "increase in 30-day user retention compared to similar apps",
-      icon: TrendingUp
+      title: "MVP Delivery",
+      value: "100%",
+      description: "completed comprehensive prototype within 8-month timeline",
+      icon: CheckCircle,
     },
     {
-      title: "Story Completion",
-      value: "84%",
-      description: "of users complete at least one full storyline",
-      icon: CheckCircle
+      title: "Client Approval",
+      value: "Approved",
+      description: "client approved MVP design and technical implementation",
+      icon: Users,
     },
     {
-      title: "Premium Conversion",
-      value: "23%",
-      description: "conversion rate to premium content purchases",
-      icon: Users
+      title: "Feature Coverage",
+      value: "95%",
+      description: "of requested MVP features successfully implemented",
+      icon: TrendingUp,
     },
     {
-      title: "Session Duration",
-      value: "18min",
-      description: "average session time per user engagement",
-      icon: Clock
-    }
+      title: "Development Time",
+      value: "6 months",
+      description: "from concept to fully functional prototype delivery",
+      icon: Clock,
+    },
   ];
 
   return (
-    <motion.section 
+    <motion.section
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       className="py-16 bg-gray-50"
     >
       <div className="max-w-6xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            Results & Impact
+            MVP Delivery Results
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
-            WRISTBAND successfully created a new standard for interactive storytelling by prioritizing authentic diverse narratives, resulting in significantly higher user engagement and retention compared to existing platforms.
+            Successfully delivered a comprehensive interactive storytelling MVP
+            that met all client specifications within the 8-month timeline. The
+            project was completed with client approval but never launched due to
+            changing business priorities. Post-launch user metrics and
+            performance data are not available as the client handled deployment
+            decisions independently.
           </p>
         </motion.div>
 

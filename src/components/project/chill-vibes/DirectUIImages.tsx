@@ -10,11 +10,11 @@ const DirectUIImages: React.FC<DirectUIImagesProps> = ({
   handleImageClick
 }) => {
   const images = [{
-    src: "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
+    src: "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
     alt: "Chill Vibes Music Player Interface",
     title: "Main Interface"
   }, {
-    src: "/lovable-uploads/668e3d64-e2f9-4f31-9499-72d8db2269f0.png",
+    src: "/images/668e3d64-e2f9-4f31-9499-72d8db2269f0.png",
     alt: "Chill Vibes Login Page",
     title: "Login Page"
   }];
@@ -43,9 +43,6 @@ const DirectUIImages: React.FC<DirectUIImagesProps> = ({
         once: true
       }} className="mb-12">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-primary/10 p-3 rounded-lg">
-              <FileText className="w-5 h-5 text-primary" />
-            </div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900">Interface Design</h2>
           </div>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">

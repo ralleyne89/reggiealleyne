@@ -7,7 +7,7 @@ export const getCllctveProject = (): ProjectType => {
     title: "CLLCTVE Platform",
     description: "A leading portfolio platform connecting Gen Z creatives to their next opportunity.",
     fullDescription: "CLLCTVE is a digital portfolio platform built to empower Gen Z creators. It provides a space for users to showcase their work, grow their professional network, and connect with brands through creative challenges. The platform bridges the gap between young talent and professional opportunities—offering rewards, exposure, and a home for their evolving digital identity.",
-    image: "/lovable-uploads/96e0002f-13cc-470b-925d-2e1d627aa695.png",
+    image: "/images/96e0002f-13cc-470b-925d-2e1d627aa695.png",
     category: "Platform",
     tags: ["Platform", "Creative", "Gen Z", "Portfolio"],
     role: "Frontend Developer",
@@ -27,9 +27,9 @@ export const getCllctveProject = (): ProjectType => {
       "Notification Panel – Keeps users updated on challenges and opportunities"
     ],
     images: [
-      "/lovable-uploads/96e0002f-13cc-470b-925d-2e1d627aa695.png",
-      "/lovable-uploads/fbb376a0-30ad-4530-8445-159e6767e748.png",
-      "/lovable-uploads/009d9393-dfb9-453e-8811-1f52d78bf7f1.png"
+      "/images/96e0002f-13cc-470b-925d-2e1d627aa695.png",
+      "/images/fbb376a0-30ad-4530-8445-159e6767e748.png",
+      "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png"
     ],
     conclusion: {
       impact: "The platform successfully created a community of creative talent, resulting in numerous brand partnerships and collaborations. User engagement metrics showed strong retention, with creators regularly updating their portfolios and participating in challenges.",

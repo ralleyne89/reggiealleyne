@@ -150,15 +150,15 @@ const TechnicalImplementation = ({
           <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">Interface Design</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[{
-            src: "/lovable-uploads/TutorD-Landing-Page-Final.jpg",
+            src: "/images/TutorD-Landing-Page-Final.jpg",
             alt: "TutorD Landing Page Final Design",
             title: "Landing Page"
           }, {
-            src: "/lovable-uploads/TutorD-Dashboard-Final.jpg",
+            src: "/images/TutorD-Dashboard-Final.jpg",
             alt: "TutorD Dashboard Final Design",
             title: "Teacher Dashboard"
           }, {
-            src: "/lovable-uploads/TutorD-Lesson-Planner-Final.jpg",
+            src: "/images/TutorD-Lesson-Planner-Final.jpg",
             alt: "TutorD Lesson Planner Final Design",
             title: "Lesson Planner"
           }].map((image, index) => <motion.div key={index} initial={{

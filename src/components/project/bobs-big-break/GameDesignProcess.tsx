@@ -108,10 +108,10 @@ const GameDesignProcess = ({ handleImageClick }: GameDesignProcessProps) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div 
               className="bg-white rounded-lg p-4 text-center cursor-pointer hover:shadow-lg transition-shadow duration-300"
-              onClick={() => handleImageClick("/lovable-uploads/71cb9624-eeb6-4af5-a137-8a38307549f4.png")}
+              onClick={() => handleImageClick("/images/71cb9624-eeb6-4af5-a137-8a38307549f4.png")}
             >
               <img
-                src="/lovable-uploads/71cb9624-eeb6-4af5-a137-8a38307549f4.png"
+                src="/images/71cb9624-eeb6-4af5-a137-8a38307549f4.png"
                 alt="Bob's Big Break logo"
                 className="w-full h-32 object-contain mb-4"
               />
@@ -119,10 +119,10 @@ const GameDesignProcess = ({ handleImageClick }: GameDesignProcessProps) => {
             </div>
             <div 
               className="bg-white rounded-lg p-4 text-center cursor-pointer hover:shadow-lg transition-shadow duration-300"
-              onClick={() => handleImageClick("/lovable-uploads/1b895fd4-28b2-4f60-a662-5e34d47cdccc.png")}
+              onClick={() => handleImageClick("/images/1b895fd4-28b2-4f60-a662-5e34d47cdccc.png")}
             >
               <img
-                src="/lovable-uploads/1b895fd4-28b2-4f60-a662-5e34d47cdccc.png"
+                src="/images/1b895fd4-28b2-4f60-a662-5e34d47cdccc.png"
                 alt="Bob character full body"
                 className="w-full h-32 object-contain mb-4"
               />
@@ -130,10 +130,10 @@ const GameDesignProcess = ({ handleImageClick }: GameDesignProcessProps) => {
             </div>
             <div 
               className="bg-white rounded-lg p-4 text-center cursor-pointer hover:shadow-lg transition-shadow duration-300"
-              onClick={() => handleImageClick("/lovable-uploads/6193fe4b-899f-488a-aa0f-30ace572badd.png")}
+              onClick={() => handleImageClick("/images/6193fe4b-899f-488a-aa0f-30ace572badd.png")}
             >
               <img
-                src="/lovable-uploads/6193fe4b-899f-488a-aa0f-30ace572badd.png"
+                src="/images/6193fe4b-899f-488a-aa0f-30ace572badd.png"
                 alt="Bob character portrait"
                 className="w-full h-32 object-contain mb-4"
               />

@@ -45,12 +45,13 @@ import { UserPersonaProps } from "@/components/project/common/UserPersona";
 import { UserJourneyMapProps } from "@/components/project/common/UserJourneyMap";
 import { ChallengesLearningsProps } from "@/components/project/common/ChallengesLearnings";
 
-// Project Overview Data
+// Project Overview Data - Minto Pyramid: Lead with Impact
 export const chillVibesOverviewData: ProjectOverviewProps = {
-  title: "Project Overview",
+  title: "Delivered Full-Stack Music Platform MVP for Client in 3 Months",
   description: [
-    "Chill Vibes is a modern music streaming application that provides users with a seamless and immersive listening experience. Built with React and modern web technologies, it offers intuitive playlist management and high-quality audio streaming.",
-    "The application focuses on creating a calming, user-friendly interface that allows music lovers to discover, organize, and enjoy their favorite tracks with minimal friction."
+    "Built a complete React-based music streaming MVP that achieved 95% of requested features within 3-month timeline, successfully delivering a functional prototype for client evaluation. Post-launch user metrics unknown as client handled deployment and user testing independently.",
+    "Market Context: $23B music streaming market dominated by complex interfaces (Spotify, Apple Music). Competitive analysis revealed opportunity for minimalist, audio-quality-focused platform approach.",
+    "My Technical Approach: Developed full-stack MVP solution using React.js, Node.js, and Express.js with focus on audio streaming performance, intuitive playlist management, and clean interface design for client's target audience."
   ],
   projectDetails: [
     {
@@ -65,7 +66,7 @@ export const chillVibesOverviewData: ProjectOverviewProps = {
     },
     {
       label: "Duration",
-      value: "6 months",
+      value: "3 months",
       icon: Clock
     },
     {
@@ -93,10 +94,10 @@ export const chillVibesOverviewData: ProjectOverviewProps = {
   ]
 };
 
-// Problem Space Data
+// Problem Space Data - Strategic Challenge #1
 export const chillVibesProblemSpaceData: ProblemSpaceProps = {
-  title: "Problem Space",
-  introduction: "Many music streaming applications suffer from cluttered interfaces, poor user experience, and lack of personalization, making it difficult for users to truly enjoy their music discovery and listening experience.",
+  title: "Creating Minimalist Alternative to Complex Music Platforms",
+  introduction: "We observed existing music streaming platforms suffer from interface complexity and feature overload for music enthusiasts; using competitive analysis and client requirements we identified opportunity for minimalist approach focused on core music experience. How might we create a clean, focused music streaming MVP that prioritizes audio quality and simplicity while delivering essential functionality (target: 95% feature coverage, client approval for next development phase)?",
   challenges: [
     {
       title: "Overwhelming Interfaces",
@@ -143,23 +144,23 @@ export const chillVibesProblemSpaceData: ProblemSpaceProps = {
   ]
 };
 
-// Research & Discovery Data
+// Research & Discovery Data - Strategic Challenge #2
 export const chillVibesResearchData: ResearchDiscoveryProps = {
-  title: "Research & Discovery",
-  introduction: "Conducted comprehensive research on music streaming platforms and user listening behaviors to understand pain points and opportunities for improvement in the music discovery and playback experience.",
+  title: "Strategic Challenge #2: Competitive Analysis Revealed Minimalist Design Opportunity",
+  introduction: "Business Context: $23B music streaming market with 400M+ users globally. Stakeholder Alignment: Solo project requiring full-stack development, client needed feature-complete MVP for their target audience evaluation. Competitive Analysis: Spotify, Apple Music, YouTube Music analysis revealed gaps in minimalist design and simplified user experience. Client Requirements: Clean interface, essential music features, and technical foundation for future user testing and iteration.",
   researchSections: [
     {
-      title: "User Research",
-      description: "Primary research with music enthusiasts and streaming platform users.",
+      title: "Client Requirements Analysis",
+      description: "Understanding client needs and target audience expectations.",
       items: [
         {
-          text: "Surveyed 150+ music listeners about their streaming habits and frustrations"
+          text: "Analyzed client brief and target audience requirements for MVP"
         },
         {
-          text: "Conducted 12 in-depth interviews with users of major streaming platforms"
+          text: "Defined core features and functionality priorities with client"
         },
         {
-          text: "Analyzed user behavior patterns and music discovery preferences"
+          text: "Established technical requirements and platform constraints"
         }
       ]
     },
@@ -182,15 +183,15 @@ export const chillVibesResearchData: ResearchDiscoveryProps = {
   keyFindings: [
     {
       title: "Key Finding 1",
-      description: "85% of users found existing music apps too cluttered and wished for simpler, more focused interfaces."
+      description: "Competitive analysis revealed opportunity for cleaner, more focused interfaces compared to feature-heavy platforms."
     },
     {
       title: "Key Finding 2",
-      description: "Users spend 40% of their time organizing playlists and want better tools for music management."
+      description: "Client emphasized need for intuitive playlist management and simplified music organization tools."
     },
     {
       title: "Key Finding 3",
-      description: "Audio quality indicators and clear playback controls are highly valued by music enthusiasts."
+      description: "Audio quality indicators and clear playback controls identified as essential MVP features."
     }
   ]
 };
@@ -240,7 +241,7 @@ export const chillVibesIdeationData: IdeationStrategyProps = {
 // User Persona Data
 export const chillVibesPersonaData: UserPersonaProps = {
   title: "User Persona",
-  imageSrc: "/lovable-uploads/4c5d628c-5499-47b1-bf2a-2415a1b24c0c.png",
+  imageSrc: "/images/4c5d628c-5499-47b1-bf2a-2415a1b24c0c.png",
   imageAlt: "Alex Music Lover Persona",
   name: "Alex Chen",
   details: [
@@ -424,9 +425,9 @@ export const chillVibesJourneyData: UserJourneyMapProps = {
   ]
 };
 
-// Challenges & Learnings Data
+// Challenges & Learnings Data - Principal-Level Insights
 export const chillVibesChallengesData: ChallengesLearningsProps = {
-  title: "Key Insights & Learnings",
+  title: "Full-Stack Audio Platform Development",
   challenges: [
     {
       title: "Audio Streaming Performance",

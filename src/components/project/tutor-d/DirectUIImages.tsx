@@ -10,17 +10,17 @@ const DirectUIImages: React.FC<DirectUIImagesProps> = ({
 }) => {
   const images = [
     {
-      src: "/lovable-uploads/TutorD-Landing-Page-Final.jpg",
+      src: "/images/TutorD-Landing-Page-Final.jpg",
       alt: "TutorD Landing Page Final UI Design",
       title: "Landing Page",
     },
     {
-      src: "/lovable-uploads/TutorD-Dashboard-Final.jpg",
+      src: "/images/TutorD-Dashboard-Final.jpg",
       alt: "TutorD Dashboard Final UI Design",
       title: "Teacher Dashboard",
     },
     {
-      src: "/lovable-uploads/TutorD-Lesson-Planner-Final.jpg",
+      src: "/images/TutorD-Lesson-Planner-Final.jpg",
       alt: "TutorD Lesson Planner Final UI Design",
       title: "Lesson Planner",
     },

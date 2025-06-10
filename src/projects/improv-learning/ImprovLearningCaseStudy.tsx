@@ -10,7 +10,6 @@ import IdeationStrategy from "@/components/project/improv-learning/IdeationStrat
 import FinalUIDesign from "@/components/project/improv-learning/FinalUIDesign";
 import OutcomesImpact from "@/components/project/improv-learning/OutcomesImpact";
 import ChallengesLearnings from "@/components/project/improv-learning/ChallengesLearnings";
-import Reflection from "@/components/project/improv-learning/Reflection";
 
 const ImprovLearningCaseStudy = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -25,12 +24,18 @@ const ImprovLearningCaseStudy = () => {
 
   return (
     <div className="mt-8 mb-16">
+      {/* Minto Pyramid: Lead with Impact/Outcome */}
       <IntegratedOverview />
-      <ProblemSpace />
-      <FinalUIDesign handleImageClick={handleImageClick} />
       <OutcomesImpact />
+
+      {/* Key Strategic Moves (2-3 core challenges/solutions) */}
+      <ProblemSpace />
+      <ResearchDiscovery />
+      <IdeationStrategy />
+
+      {/* Deep Dive Process */}
+      <FinalUIDesign handleImageClick={handleImageClick} />
       <ChallengesLearnings />
-      <Reflection />
 
       {/* Back to Works link */}
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">

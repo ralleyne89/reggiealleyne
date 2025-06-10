@@ -11,7 +11,7 @@ import TechnicalImplementation from "@/components/project/wristband/TechnicalImp
 import KeyActions from "@/components/project/wristband/KeyActions";
 import ResultsImpact from "@/components/project/wristband/ResultsImpact";
 import ChallengesLearnings from "@/components/project/wristband/ChallengesLearnings";
-import Reflection from "@/components/project/wristband/Reflection";
+
 import {
   wristbandOverviewData,
   wristbandPersonaData,
@@ -34,14 +34,18 @@ const WristbandCaseStudy = () => {
 
   return (
     <div className="space-y-16">
+      {/* Minto Pyramid: Lead with Impact/Outcome */}
       <ProjectOverviewComponent {...wristbandOverviewData} />
-      <UserPersonaComponent {...wristbandPersonaData} />
-      <ProblemSpaceComponent {...wristbandProblemSpaceData} />
-      <TechnicalImplementation handleImageClick={handleImageClick} />
-      <KeyActions />
       <ResultsImpact />
+
+      {/* Key Strategic Moves (2-3 core challenges/solutions) */}
+      <ProblemSpaceComponent {...wristbandProblemSpaceData} />
+      <KeyActions />
+
+      {/* Deep Dive Process */}
+      <UserPersonaComponent {...wristbandPersonaData} />
+      <TechnicalImplementation handleImageClick={handleImageClick} />
       <ChallengesLearnings />
-      <Reflection />
 
       {/* Back to Works link */}
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">

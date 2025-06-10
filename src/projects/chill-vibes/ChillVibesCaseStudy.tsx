@@ -12,7 +12,7 @@ import TechnicalImplementation from "@/components/project/chill-vibes/TechnicalI
 import KeyActions from "@/components/project/chill-vibes/KeyActions";
 import ResultsImpact from "@/components/project/chill-vibes/ResultsImpact";
 import ChallengesLearnings from "@/components/project/chill-vibes/ChallengesLearnings";
-import Reflection from "@/components/project/chill-vibes/Reflection";
+
 import {
   chillVibesPersonaData,
   chillVibesResearchData,
@@ -34,15 +34,19 @@ const ChillVibesCaseStudy = () => {
 
   return (
     <div className="space-y-16">
+      {/* Minto Pyramid: Lead with Impact/Outcome */}
       <ProjectOverview />
-      <UserPersonaComponent {...chillVibesPersonaData} />
+      <ResultsImpact />
+
+      {/* Key Strategic Moves (2-3 core challenges/solutions) */}
       <ProblemSpaceComponent {...chillVibesProblemSpaceData} />
+      <KeyActions />
+
+      {/* Deep Dive Process */}
+      <UserPersonaComponent {...chillVibesPersonaData} />
       <DirectUIImages handleImageClick={handleImageClick} />
       <TechnicalImplementation handleImageClick={handleImageClick} />
-      <KeyActions />
-      <ResultsImpact />
       <ChallengesLearnings />
-      <Reflection />
 
       {/* Back to Works link */}
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">

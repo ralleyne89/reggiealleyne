@@ -8,7 +8,7 @@ export const getDoggyDateProject = (): ProjectType => {
     title: "Doggy Date",
     description: "The dating app for dog lovers - find matches who love dogs as much as you do.",
     fullDescription: "Doggy Date is a social network for dog owners with a dating app component. Once downloaded, and a user profile is created they will discover our multifaceted dog community.",
-    image: "/lovable-uploads/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
+    image: "/images/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
     tags: ["Social", "Dating App", "Dog Lovers"],
     role: "UX, UI & Visual Design",
     duration: "4 months",
@@ -31,14 +31,14 @@ export const getDoggyDateProject = (): ProjectType => {
     ],
     // Removed duplicate images - Each image now appears only once in the array
     images: [
-      "/lovable-uploads/57c3f150-f310-44ad-b0c2-e88165c01417.png",
-      "/lovable-uploads/748d7e06-f545-44ba-842c-6401bf2284d1.png",
-      "/lovable-uploads/b9b62216-4a0c-4367-bdab-32f608350015.png",
-      "/lovable-uploads/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
-      "/lovable-uploads/1e4175fe-fcab-40ea-8334-7f71053c9e27.png",
-      "/lovable-uploads/1e5262b7-f4b4-42b2-a5b8-75ae974c6893.png",
-      "/lovable-uploads/430a2d53-8e58-4b70-8af0-4055ce165684.png",
-      "/lovable-uploads/d2647713-1d34-4235-8a9a-0e0b5b3645bd.png"
+      "/images/57c3f150-f310-44ad-b0c2-e88165c01417.png",
+      "/images/748d7e06-f545-44ba-842c-6401bf2284d1.png",
+      "/images/b9b62216-4a0c-4367-bdab-32f608350015.png",
+      "/images/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
+      "/images/1e4175fe-fcab-40ea-8334-7f71053c9e27.png",
+      "/images/1e5262b7-f4b4-42b2-a5b8-75ae974c6893.png",
+      "/images/430a2d53-8e58-4b70-8af0-4055ce165684.png",
+      "/images/d2647713-1d34-4235-8a9a-0e0b5b3645bd.png"
     ],
     conclusion: {
       impact: "Created a unique dating platform for dog lovers that has a strong community focus",

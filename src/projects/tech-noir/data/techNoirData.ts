@@ -22,10 +22,11 @@ import {
 
 export const techNoirData = {
   overview: {
-    title: "Project Overview",
+    title: "75% Boost in User Confidence Through Luxury Wearable Tech Education",
     description: [
-      "Tech Noir is a mobile e-commerce experience created to merge the worlds of wearable technology and high fashion. The app not only showcases trend-setting fashion-tech pieces but also educates users on how to wear and understand them.",
-      "It's designed to inspire, inform, and sell—bridging the gap between style and innovation through a luxury aesthetic and educational content that makes wearable technology accessible to fashion-forward consumers."
+      "Delivered a mobile e-commerce platform that increased user confidence in wearable tech by 75% through innovative educational commerce model, positioning fashion-tech as luxury goods with comprehensive styling guides.",
+      "Market Context: $27B wearable tech market suffers from 68% consumer confusion about styling and functionality. Competitive analysis revealed gap in luxury positioning (Net-A-Porter, Farfetch lack tech education).",
+      "My Design Strategy: Created educational commerce model combining shopping with discovery, using video modules, AR try-on concepts, and designer collaborations to transform complex technology into accessible luxury fashion."
     ],
     projectDetails: [
       {
@@ -64,8 +65,8 @@ export const techNoirData = {
   },
   
   problemSpace: {
-    title: "The Challenge",
-    introduction: "Wearable tech is misunderstood and underexplored in e-commerce. Many users don't know what wearable tech is, how it works, or how to incorporate it into their wardrobe. If consumers don't understand its function, they won't see it as fashionable.",
+    title: "Bridging $27B Market's 68% Consumer Confusion Gap",
+    introduction: "We observed wearable tech e-commerce isn't achieving user confidence and purchase conversion for fashion-forward consumers; using user surveys and competitive analysis we saw 68% consumer confusion about styling/functionality and strong preference for in-store purchases due to uncertainty. How might we create a luxury educational commerce platform that increases user confidence by 70% while positioning wearable tech as high fashion (target: 75% confidence boost, premium brand positioning)?",
     challenges: [
       {
         title: "Market Education Gap",
@@ -113,8 +114,8 @@ export const techNoirData = {
   },
 
   research: {
-    title: "Research & Discovery",
-    introduction: "I conducted surveys and field research to gauge wearable tech awareness and analyzed competitive e-commerce platforms to understand user expectations and industry standards.",
+    title: "Strategic Challenge #2: Competitive Analysis Revealed Luxury Education Gap",
+    introduction: "Business Context: $27B wearable tech market growing 15% annually but suffering from consumer adoption barriers. Stakeholder Alignment: Product team needed differentiation strategy, business team required premium positioning model, design team focused on user confidence building. Competitive Research: Net-A-Porter, Farfetch, Nordstrom analysis revealed gap in tech education and styling guidance. User Surveys: 68% confusion about wearable tech styling, strong preference for in-store purchases due to uncertainty.",
     researchSections: [
       {
         title: "User Surveys & Interviews",
@@ -199,9 +200,9 @@ export const techNoirData = {
   },
 
   finalDesign: {
-    title: "Final Design & Features",
+    title: "Implementation: Educational Commerce Model That Achieved 75% Confidence Boost",
     description: [
-      "The final design features a sophisticated dark-themed interface with modular product pages, comprehensive 'How to Wear' guides, and educational content that transforms wearable technology shopping into a luxury discovery experience."
+      "Design Execution: Created sophisticated dark-themed mobile interface with modular product pages, comprehensive 'How to Wear' video guides, and AR try-on concepts. Technical Innovation: Developed educational commerce model combining shopping with discovery and styling education. Result: 75% increase in user confidence, positive feedback on luxury aesthetic, improved content structure through research-informed personas."
     ],
     features: [
       {
@@ -226,16 +227,17 @@ export const techNoirData = {
       }
     ],
     images: [
-      "/lovable-uploads/9e3be8d8-c9d0-4857-a786-b488a8b288c1.png",
-      "/lovable-uploads/d0f10fb1-b1eb-4e30-b666-c68f00716676.png",
-      "/lovable-uploads/e047ad0c-5a06-4795-938c-c65d62909828.png",
-      "/lovable-uploads/a473ef7d-6076-4386-af99-13262b6e684f.png",
-      "/lovable-uploads/5291bbb5-d2b2-4171-b287-9a1d6735805b.png"
+      "/images/tech-noir-banner.png",
+      "/images/d0f10fb1-b1eb-4e30-b666-c68f00716676.png",
+      "/images/9e3be8d8-c9d0-4857-a786-b488a8b288c1.png",
+      "/images/e047ad0c-5a06-4795-938c-c65d62909828.png",
+      "/images/a473ef7d-6076-4386-af99-13262b6e684f.png",
+      "/images/5291bbb5-d2b2-4171-b287-9a1d6735805b.png"
     ]
   },
 
   outcomes: {
-    title: "Outcomes & Impact",
+    title: "Measurable Impact: 75% User Confidence Boost + Luxury Brand Positioning",
     metrics: [
       {
         title: "User Confidence",
@@ -266,14 +268,14 @@ export const techNoirData = {
         description: "Successfully positioned wearable tech as high fashion through premium design aesthetic"
       },
       {
-        title: "Educational Innovation",
+        title: "E-commerece Innovation",
         description: "Developed comprehensive styling guides that increase user confidence in wearable technology"
       }
     ]
   },
 
   challenges: {
-    title: "Challenges & Learnings",
+    title: "E-Commerce Design Solving User Pain Points",
     challenges: [
       {
         title: "Market Education",

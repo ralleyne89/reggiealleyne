@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Globe, PenTool, Gamepad2, DollarSign } from "lucide-react";
@@ -8,38 +7,38 @@ const KeyActions = () => {
     {
       icon: Globe,
       title: "Diverse Content Creator Network",
-      description: "Established partnerships with freelance writers and artists from various cultural backgrounds to create authentic, diverse storytelling content.",
-      impact: "Increased authentic representation by 200%"
+      description:
+        "Established partnerships with freelance writers and artists from various cultural backgrounds to create authentic, diverse storytelling content.",
     },
     {
       icon: PenTool,
       title: "Quality-First Content Curation",
-      description: "Implemented rigorous content review processes focused on character development and narrative depth rather than quantity-based content production.",
-      impact: "Achieved 84% story completion rate vs. 31% industry average"
+      description:
+        "Implemented rigorous content review processes focused on character development and narrative depth rather than quantity-based content production.",
     },
     {
       icon: Gamepad2,
       title: "Intuitive Choice-Based Navigation",
-      description: "Designed seamless user interface that enhances the storytelling experience without overwhelming the narrative flow.",
-      impact: "Reduced user drop-off rate by 45% during story transitions"
+      description:
+        "Designed seamless user interface that enhances the storytelling experience without overwhelming the narrative flow.",
     },
     {
       icon: DollarSign,
       title: "Creator-Supportive Monetization",
-      description: "Developed thoughtful premium content system that fairly compensates creators while providing genuine value to users.",
-      impact: "Achieved 23% premium conversion rate"
-    }
+      description:
+        "Developed thoughtful premium content system that fairly compensates creators while providing genuine value to users.",
+    },
   ];
 
   return (
-    <motion.section 
+    <motion.section
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       className="py-16 bg-white"
     >
       <div className="max-w-6xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -49,7 +48,10 @@ const KeyActions = () => {
             Key Actions That Moved the Needle
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
-            The success of WRISTBAND was driven by strategic partnerships with diverse content creators and user-centered design choices that prioritized authentic storytelling over quantity-based content production.
+            The success of WRISTBAND was driven by strategic partnerships with
+            diverse content creators and user-centered design choices that
+            prioritized authentic storytelling over quantity-based content
+            production.
           </p>
         </motion.div>
 
@@ -72,14 +74,9 @@ const KeyActions = () => {
                     <h3 className="text-xl font-semibold text-gray-900 mb-3">
                       {action.title}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed mb-4">
+                    <p className="text-gray-700 leading-relaxed">
                       {action.description}
                     </p>
-                    <div className="bg-primary/5 border border-primary/20 rounded-lg p-3">
-                      <p className="text-sm font-medium text-primary">
-                        Impact: {action.impact}
-                      </p>
-                    </div>
                   </div>
                 </div>
               </motion.div>

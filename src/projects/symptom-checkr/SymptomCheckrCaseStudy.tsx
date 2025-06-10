@@ -9,7 +9,7 @@ import IdeationStrategy from "@/components/project/symptom-checkr/IdeationStrate
 import FinalUIDesign from "@/components/project/symptom-checkr/FinalUIDesign";
 import OutcomesImpact from "@/components/project/symptom-checkr/OutcomesImpact";
 import ChallengesLearnings from "@/components/project/symptom-checkr/ChallengesLearnings";
-import Reflection from "@/components/project/symptom-checkr/Reflection";
+
 import {
   symptomCheckrOverviewData,
   symptomCheckrSitemapData,
@@ -20,17 +20,21 @@ import { Link } from "react-router-dom";
 const SymptomCheckrCaseStudy = () => {
   return (
     <div className="space-y-16">
+      {/* Minto Pyramid: Lead with Impact/Outcome */}
       <ProjectOverviewComponent {...symptomCheckrOverviewData} />
+      <OutcomesImpact />
+
+      {/* Key Strategic Moves (2-3 core challenges/solutions) */}
       <ProblemSpace />
       <ResearchDiscovery />
+      <IdeationStrategy />
+
+      {/* Deep Dive Process */}
       <UserPersona />
       <UserJourneyMap />
-      <IdeationStrategy />
       <SitemapWireframesComponent {...symptomCheckrSitemapData} />
       <FinalUIDesign />
-      {/* <OutcomesImpact /> */}
       <ChallengesLearnings />
-      <Reflection />
 
       {/* Back to Works link */}
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">

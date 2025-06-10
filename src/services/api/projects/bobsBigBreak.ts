@@ -8,7 +8,7 @@ export const getBobsBigBreakProject = (): ProjectType => {
     title: "Bob's Big Break",
     description: "A low-effort, high-reward idle game for the moments in life when your brain needs a break—but your hustle doesn't.",
     fullDescription: "An incremental clicker game designed for short attention spans and mobile-friendly interaction. Players help Bob, a scrappy entrepreneur, earn Coins through hustles or by hiring hustlers for passive income.",
-    image: "/lovable-uploads/71cb9624-eeb6-4af5-a137-8a38307549f4.png", // Updated to use Bob logo for banner/thumbnail
+    image: "/images/71cb9624-eeb6-4af5-a137-8a38307549f4.png", // Updated to use Bob logo for banner/thumbnail
     category: "Game Development",
     tags: ["React", "Node.js", "Game Design", "School Project"],
     role: "UI/UX Designer & Web Developer",
@@ -22,11 +22,11 @@ export const getBobsBigBreakProject = (): ProjectType => {
     ],
     deliverables: ["UX/UI Design", "Frontend Development", "Backend Integration", "Game Economy Design", "Character Art"],
     images: [
-      "/lovable-uploads/aa567c1c-6747-4cac-a70c-13fc4791def9.png", // Home page interface
-      "/lovable-uploads/ea29fa97-2c32-4ae6-8ba3-247cf34726a8.png", // Login page interface
-      "/lovable-uploads/6d034732-5293-42a4-a01b-fef0af194695.png", // Main interface
-      "/lovable-uploads/1b895fd4-28b2-4f60-a662-5e34d47cdccc.png", // Bob character full body
-      "/lovable-uploads/6193fe4b-899f-488a-aa0f-30ace572badd.png"  // Bob character portrait
+      "/images/aa567c1c-6747-4cac-a70c-13fc4791def9.png", // Home page interface
+      "/images/ea29fa97-2c32-4ae6-8ba3-247cf34726a8.png", // Login page interface
+      "/images/6d034732-5293-42a4-a01b-fef0af194695.png", // Main interface
+      "/images/1b895fd4-28b2-4f60-a662-5e34d47cdccc.png", // Bob character full body
+      "/images/6193fe4b-899f-488a-aa0f-30ace572badd.png"  // Bob character portrait
     ],
     conclusion: {
       impact: "Successfully delivered a playable game prototype as part of a school project",

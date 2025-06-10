@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -10,48 +9,46 @@ const FinalGameplay = ({ handleImageClick }: FinalGameplayProps) => {
   const gameplayFeatures = [
     {
       title: "Tap or Idle Play",
-      description: "Earn coins by clicking or passively through investments in hustlers."
+      description:
+        "Earn coins by clicking or passively through investments in hustlers.",
     },
     {
       title: "Strategic Progression",
-      description: "Choose between active clicking for immediate rewards or passive income for long-term growth."
+      description:
+        "Choose between active clicking for immediate rewards or passive income for long-term growth.",
     },
     {
       title: "Character Customization",
-      description: "Outfit Bob with style as his entrepreneurial empire grows."
+      description: "Outfit Bob with style as his entrepreneurial empire grows.",
     },
     {
       title: "Persistent Progress",
-      description: "Game state saves automatically, so progress continues even when away."
-    }
+      description:
+        "Game state saves automatically, so progress continues even when away.",
+    },
   ];
 
   const uiImages = [
     {
-      src: "/lovable-uploads/aa567c1c-6747-4cac-a70c-13fc4791def9.png",
-      alt: "Bob's Big Break home page interface",
-      title: "Home Page Interface"
-    },
-    {
-      src: "/lovable-uploads/ea29fa97-2c32-4ae6-8ba3-247cf34726a8.png",
+      src: "/images/ea29fa97-2c32-4ae6-8ba3-247cf34726a8.png",
       alt: "Bob's Big Break login page interface",
-      title: "Login Page Interface"
+      title: "Login Page Interface",
     },
     {
-      src: "/lovable-uploads/6d034732-5293-42a4-a01b-fef0af194695.png",
+      src: "/images/6d034732-5293-42a4-a01b-fef0af194695.png",
       alt: "Bob's Big Break main game interface",
-      title: "Main Game Interface"
+      title: "Main Game Interface",
     },
     {
-      src: "/lovable-uploads/40c6444f-3a5c-4327-a0d3-aabd6091463e.png",
+      src: "/images/40c6444f-3a5c-4327-a0d3-aabd6091463e.png",
       alt: "Bob's Big Break game screens mockup",
-      title: "Game Interface Design"
+      title: "Game Interface Design",
     },
     {
-      src: "/lovable-uploads/34473ac0-d26b-48a0-ba58-51bfc4ed23e1.png",
+      src: "/images/34473ac0-d26b-48a0-ba58-51bfc4ed23e1.png",
       alt: "Bob's Big Break final mockup screens",
-      title: "Final Game Screens"
-    }
+      title: "Final Game Screens",
+    },
   ];
 
   return (
@@ -72,7 +69,8 @@ const FinalGameplay = ({ handleImageClick }: FinalGameplayProps) => {
             Interface Design
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
-            The game interface was designed to be intuitive and engaging, with clear visual feedback for all player actions.
+            The game interface was designed to be intuitive and engaging, with
+            clear visual feedback for all player actions.
           </p>
         </motion.div>
 

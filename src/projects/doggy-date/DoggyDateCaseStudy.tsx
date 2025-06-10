@@ -10,7 +10,6 @@ import IdeationStrategy from "@/components/project/doggy-date/IdeationStrategy";
 import FinalUIDesign from "@/components/project/doggy-date/FinalUIDesign";
 import OutcomesImpact from "@/components/project/doggy-date/OutcomesImpact";
 import ChallengesLearnings from "@/components/project/doggy-date/ChallengesLearnings";
-import Reflection from "@/components/project/doggy-date/Reflection";
 
 const DoggyDateCaseStudy = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -27,12 +26,16 @@ const DoggyDateCaseStudy = () => {
 
   return (
     <div className="mt-8 mb-16">
+      {/* Minto Pyramid: Lead with Impact/Outcome */}
       <IntegratedOverview />
-      <ProblemSpace />
-      <FinalUIDesign handleImageClick={handleImageClick} />
       <OutcomesImpact />
+
+      {/* Key Strategic Moves (2-3 core challenges/solutions) */}
+      <ProblemSpace />
+
+      {/* Deep Dive Process */}
+      <FinalUIDesign handleImageClick={handleImageClick} />
       <ChallengesLearnings />
-      <Reflection />
 
       {/* Back to Works link */}
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">

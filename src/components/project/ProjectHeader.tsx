@@ -69,7 +69,7 @@ const ProjectHeader = ({
         <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/441aff50-0a80-413b-80af-cc94a0718412.png')`,
+            backgroundImage: `url('/images/441aff50-0a80-413b-80af-cc94a0718412.png')`,
           }}
         >
           {/* Enhanced gradient overlay for better text readability - no white text on white */}
@@ -123,7 +123,7 @@ const ProjectHeader = ({
         <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png')`,
+            backgroundImage: `url('/images/tech-noir-banner.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
@@ -177,7 +177,7 @@ const ProjectHeader = ({
         <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/58637294-5300-47d9-918b-91da32843369.png')`,
+            backgroundImage: `url('/images/58637294-5300-47d9-918b-91da32843369.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
@@ -233,7 +233,7 @@ const ProjectHeader = ({
         <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png')`,
+            backgroundImage: `url('/images/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
@@ -287,7 +287,7 @@ const ProjectHeader = ({
         <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png')`,
+            backgroundImage: `url('/images/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
@@ -341,7 +341,7 @@ const ProjectHeader = ({
         <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/85ce6121-b2ba-435d-b8cd-2606e0e3cc63.png')`,
+            backgroundImage: `url('/images/85ce6121-b2ba-435d-b8cd-2606e0e3cc63.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
@@ -395,7 +395,7 @@ const ProjectHeader = ({
         <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/7f203bc1-d77d-484d-a6fd-bef5e6adf027.png')`,
+            backgroundImage: `url('/images/7f203bc1-d77d-484d-a6fd-bef5e6adf027.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
@@ -449,7 +449,61 @@ const ProjectHeader = ({
         <div
           className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/lovable-uploads/bfe72208-e9fa-458d-9323-791c39cf2292.png')`,
+            backgroundImage: `url('/images/bfe72208-e9fa-458d-9323-791c39cf2292.png')`,
+          }}
+        >
+          {/* Gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+
+          <div className="max-w-6xl mx-auto px-6 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="mb-8">
+                <Link
+                  to="/works"
+                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Works
+                </Link>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex flex-wrap gap-2">
+                  {tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
+                  {title}
+                </h1>
+
+                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
+                  {description}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      );
+    }
+
+    // Special styling for Bob's Big Break with background image - EXACT SAME STYLE AS CLLCTVE
+    if (isBobsProject) {
+      return (
+        <div
+          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/images/BBB-banner2.png')`,
           }}
         >
           {/* Gradient overlay for text readability */}
@@ -546,21 +600,9 @@ const ProjectHeader = ({
     <>
       <div className="relative h-[60vh] overflow-hidden">
         <img
-          src={
-            isChillVibesProject
-              ? "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png"
-              : isBobsProject
-              ? "/lovable-uploads/71cb9624-eeb6-4af5-a137-8a38307549f4.png"
-              : imageError
-              ? "/placeholder.svg"
-              : image
-          }
+          src={imageError ? "/placeholder.svg" : image}
           alt={title}
-          className={`w-full h-full ${
-            isChillVibesProject || isBobsProject
-              ? "object-contain bg-black"
-              : "object-cover"
-          }`}
+          className="w-full h-full object-cover"
           onError={handleImageError}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[rgba(5,5,5,1)]"></div>

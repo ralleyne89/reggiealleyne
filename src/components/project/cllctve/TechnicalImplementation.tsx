@@ -33,12 +33,12 @@ const TechnicalImplementation = ({ handleImageClick }: TechnicalImplementationPr
 
   const images = [
     {
-      src: "/lovable-uploads/65856eaa-3e77-4597-a085-470d7bab7736.png",
+      src: "/images/65856eaa-3e77-4597-a085-470d7bab7736.png",
       alt: "CLLCTVE platform profile interface",
       title: "User Profile Interface"
     },
     {
-      src: "/lovable-uploads/64ebd4e8-68f6-4485-b384-d7a200ebce06.png",
+      src: "/images/64ebd4e8-68f6-4485-b384-d7a200ebce06.png",
       alt: "CLLCTVE platform landing page",
       title: "Platform Landing Page"
     }

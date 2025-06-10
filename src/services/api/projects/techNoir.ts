@@ -8,7 +8,7 @@ export const getTechNoirProject = (): ProjectType => {
     title: "TECH NOIR",
     description: "A Fashion & Technology Driven E-Commerce App bringing high fashion and wearable tech together in one stylish, educational platform.",
     fullDescription: "Tech Noir is a mobile e-commerce experience created to merge the worlds of wearable technology and high fashion. The app not only showcases trend-setting fashion-tech pieces but also educates users on how to wear and understand them. It's designed to inspire, inform, and sell—bridging the gap between style and innovation.",
-    image: "/lovable-uploads/9e3be8d8-c9d0-4857-a786-b488a8b288c1.png", // Changed the thumbnail image
+    image: "/images/tech-noir-banner.png", // Updated to use dedicated Tech Noir banner
     category: "E-commerce",
     tags: ["E-commerce", "Fashion", "Wearable Tech", "UX/UI Design"],
     role: "UX, UI & Visual Designer",
@@ -29,11 +29,12 @@ export const getTechNoirProject = (): ProjectType => {
       "Blog - Trend insights, tech news, and daily posts about fashion & wearables"
     ],
     images: [
-      "/lovable-uploads/9e3be8d8-c9d0-4857-a786-b488a8b288c1.png", // Updated first image (banner)
-      "/lovable-uploads/d0f10fb1-b1eb-4e30-b666-c68f00716676.png",
-      "/lovable-uploads/e047ad0c-5a06-4795-938c-c65d62909828.png",
-      "/lovable-uploads/a473ef7d-6076-4386-af99-13262b6e684f.png",
-      "/lovable-uploads/5291bbb5-d2b2-4171-b287-9a1d6735805b.png"
+      "/images/tech-noir-banner.png", // Dedicated Tech Noir banner image
+      "/images/d0f10fb1-b1eb-4e30-b666-c68f00716676.png",
+      "/images/9e3be8d8-c9d0-4857-a786-b488a8b288c1.png",
+      "/images/e047ad0c-5a06-4795-938c-c65d62909828.png",
+      "/images/a473ef7d-6076-4386-af99-13262b6e684f.png",
+      "/images/5291bbb5-d2b2-4171-b287-9a1d6735805b.png"
     ],
     conclusion: {
       impact: "75% of testers said they felt more confident exploring wearable tech. Strong positive feedback on the luxury aesthetic and video styling modules. Research-informed personas led to better content structure and usability.",

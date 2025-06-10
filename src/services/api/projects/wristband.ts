@@ -8,7 +8,7 @@ export const getWristbandProject = (): ProjectType => {
     title: "WRISTBAND",
     description: "A client prototype for an interactive storytelling game app with diverse narratives—never launched but proved the concept.",
     fullDescription: "A prototype interactive storytelling app designed for a client who wanted to revolutionize mobile narratives. While the project never launched due to shifting business priorities, the MVP demonstrated how diverse writers and authentic character development could transform user engagement in the storytelling space.",
-    image: "/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
+    image: "/images/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
     tags: ["Client Prototype", "Mobile App", "Game Design", "Storytelling"],
     role: "Lead UX/UI Designer & Strategist",
     duration: "4 months",
@@ -29,10 +29,10 @@ export const getWristbandProject = (): ProjectType => {
       "Monetization Strategy"
     ],
     images: [
-      "/lovable-uploads/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
-      "/lovable-uploads/aab1244b-de80-4758-8cbe-165d2b66ec19.png",
-      "/lovable-uploads/abd0fcfb-d3c7-4ea0-9f8c-05c8cf2759e9.png",
-      "/lovable-uploads/8ccc7ee6-c4de-44cc-8729-4090d34c7895.png"
+      "/images/d2ac6921-78b3-46b5-bbb2-7022018530ad.png",
+      "/images/aab1244b-de80-4758-8cbe-165d2b66ec19.png",
+      "/images/abd0fcfb-d3c7-4ea0-9f8c-05c8cf2759e9.png",
+      "/images/8ccc7ee6-c4de-44cc-8729-4090d34c7895.png"
     ],
     conclusion: {
       impact: "While never launched, the prototype validated that authentic diverse storytelling could significantly improve user engagement and retention in the interactive narrative space.",

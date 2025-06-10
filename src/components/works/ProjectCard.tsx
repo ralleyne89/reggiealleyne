@@ -109,7 +109,7 @@ const ProjectCard = ({ project, onProjectClick }: ProjectCardProps) => {
             <img
               src={
                 isChillVibesProject
-                  ? "/lovable-uploads/a6e65372-edc9-4098-aa00-82ee5a49def0.png"
+                  ? "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png"
                   : project.image
               }
               alt={project.title}

@@ -10,7 +10,7 @@ import TechnicalImplementation from "@/components/project/tutor-d/TechnicalImple
 import KeyActions from "@/components/project/tutor-d/KeyActions";
 import ResultsImpact from "@/components/project/tutor-d/ResultsImpact";
 import ChallengesLearnings from "@/components/project/tutor-d/ChallengesLearnings";
-import Reflection from "@/components/project/tutor-d/Reflection";
+
 import {
   tutorDOverviewData,
   tutorDPersonaData,
@@ -30,16 +30,20 @@ const TutorDCaseStudy = () => {
 
   return (
     <div className="space-y-16">
+      {/* Minto Pyramid: Lead with Impact/Outcome */}
       <ProjectOverviewComponent {...tutorDOverviewData} />
-      <UserPersonaComponent {...tutorDPersonaData} />
+      <ResultsImpact />
+
+      {/* Key Strategic Moves (2-3 core challenges/solutions) */}
       <ProblemSpace />
+      <KeyActions />
+
+      {/* Deep Dive Process */}
+      <UserPersonaComponent {...tutorDPersonaData} />
       <SitemapWireframesComponent {...tutorDSitemapData} />
       <DirectUIImages handleImageClick={handleImageClick} />
       <TechnicalImplementation handleImageClick={handleImageClick} />
-      <KeyActions />
-      <ResultsImpact />
       <ChallengesLearnings />
-      <Reflection />
 
       {/* Back to Works link */}
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">

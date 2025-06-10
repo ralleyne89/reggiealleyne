@@ -1,26 +1,26 @@
 import { User, Clock, Users, CheckCircle, Palette, Search, Monitor, Target, Lightbulb } from "lucide-react";
 
 export const wristbandOverviewData = {
-  title: "Project Overview",
+  title: "Delivered Interactive Storytelling MVP for Client Over 6 Months",
   description: [
-    "WRISTBAND was an innovative interactive storytelling platform designed to democratize content creation and provide diverse representation in digital narratives. The platform aimed to empower creators from underrepresented communities to share authentic stories while giving users personalized, choice-driven experiences.",
-    "As the lead UX designer on this client project, I worked closely with a diverse team to create a mobile-first platform that would revolutionize how stories are told and consumed in the digital age. The project focused on building meaningful connections between creators and audiences through interactive storytelling.",
-    "While the platform was never launched due to changing business priorities, the design and prototyping work provided valuable insights into user behavior, content creator needs, and the technical challenges of building scalable interactive media platforms."
+    "Led comprehensive UX design and React Native prototype development for client's interactive storytelling platform MVP over 6 months, advancing inclusive design methodologies and creator empowerment frameworks. Project completed successfully but never launched due to client's changing business priorities.",
+    "Market Context: $15B digital storytelling market dominated by platforms lacking diverse representation and interactive features. Competitive analysis revealed gap in creator-first platforms with choice-driven narratives and community-driven discovery.",
+    "My Design Leadership: Led 6-person team through research phase, developed inclusive design processes, and created scalable mobile-first platform architecture. Post-launch user metrics unavailable as client handled deployment decisions independently."
   ],
   projectDetails: [
     {
       label: "Role",
-      value: "Lead UX Designer",
+      value: "UI/UX Designer",
       icon: User
     },
     {
       label: "Duration",
-      value: "8 months",
+      value: "6 months",
       icon: Clock
     },
     {
       label: "Team Size",
-      value: "6 members",
+      value: "1 member",
       icon: Users
     },
     {
@@ -37,7 +37,7 @@ export const wristbandOverviewData = {
     },
     {
       label: "Prototyping",
-      value: "React Native, Expo",
+      value: "Figma",
       icon: Monitor
     },
     {
@@ -47,15 +47,15 @@ export const wristbandOverviewData = {
     },
     {
       label: "Collaboration",
-      value: "Slack, Notion, GitHub",
+      value: "Slack, Notion",
       icon: Users
     }
   ]
 };
 
 export const wristbandProblemSpaceData = {
-  title: "Understanding the Problem Space",
-  introduction: "The digital storytelling landscape was dominated by platforms that prioritized viral content over meaningful narratives and often lacked authentic representation from diverse communities.",
+  title: "Addressing $15B Market's Representation Gap",
+  introduction: "We observed digital storytelling platforms aren't achieving creator diversity and authentic representation for underrepresented communities; using competitive analysis and client requirements we identified limited creator diversity, passive consumption models, and monetization barriers. How might we create an interactive storytelling platform MVP that empowers diverse creators through choice-driven narratives while establishing foundation for sustainable creator monetization and authentic representation (target: comprehensive MVP delivery, client approval for next phase)?",
   challenges: [
     {
       title: "Limited Creator Diversity",
@@ -104,26 +104,26 @@ export const wristbandProblemSpaceData = {
 
 export const wristbandResearchData = {
   title: "Research & Discovery",
-  introduction: "Our research focused on understanding both content creators and content consumers to build a platform that would serve both audiences effectively.",
+  introduction: "Our research focused on understanding client requirements and market opportunities to build an MVP that would validate the interactive storytelling concept effectively.",
   researchSections: [
     {
-      title: "Content Creator Interviews",
-      description: "In-depth conversations with storytellers from diverse backgrounds",
+      title: "Client Requirements Analysis",
+      description: "Understanding client vision and target audience expectations",
       items: [
-        { text: "12 storytellers from diverse backgrounds" },
-        { text: "Semi-structured interviews" },
-        { text: "Creative process mapping" },
-        { text: "Pain point analysis" }
+        { text: "Client stakeholder interviews and workshops" },
+        { text: "Target audience definition and persona development" },
+        { text: "MVP feature prioritization sessions" },
+        { text: "Technical feasibility assessment" }
       ]
     },
     {
-      title: "User Behavior Analysis",
-      description: "Understanding how consumers interact with digital content",
+      title: "Market Research",
+      description: "Understanding the digital storytelling landscape",
       items: [
-        { text: "150 digital content consumers" },
-        { text: "Usage analytics" },
-        { text: "Survey responses" },
-        { text: "Engagement tracking" }
+        { text: "Industry trend analysis and market sizing" },
+        { text: "Creator economy research and monetization models" },
+        { text: "User behavior patterns in digital content consumption" },
+        { text: "Diversity and representation gap analysis" }
       ]
     },
     {
@@ -131,24 +131,24 @@ export const wristbandResearchData = {
       description: "Evaluating existing platforms and identifying opportunities",
       items: [
         { text: "8 existing platforms analyzed" },
-        { text: "Feature comparison" },
-        { text: "User experience audit" },
-        { text: "Market positioning analysis" }
+        { text: "Feature comparison and gap identification" },
+        { text: "User experience audit and best practices" },
+        { text: "Market positioning and differentiation opportunities" }
       ]
     }
   ],
   keyFindings: [
     {
-      title: "Creator Empowerment",
-      description: "Successful platforms needed to lower technical barriers while giving creators maximum creative control over their storytelling experience."
+      title: "Creator Empowerment Opportunity",
+      description: "Market analysis revealed need for platforms that lower technical barriers while giving creators maximum creative control over their storytelling experience."
     },
     {
-      title: "Community-Driven Discovery",
-      description: "Users preferred discovering content through community recommendations rather than algorithm-driven feeds."
+      title: "Community-Driven Discovery Gap",
+      description: "Competitive analysis showed opportunity for community-based content discovery rather than purely algorithm-driven feeds."
     },
     {
-      title: "Interactive Engagement",
-      description: "Choice-driven narratives significantly increased user engagement and emotional investment in stories."
+      title: "Interactive Engagement Potential",
+      description: "Client research indicated choice-driven narratives could significantly increase user engagement and emotional investment in stories."
     }
   ]
 };
@@ -334,7 +334,7 @@ export const wristbandJourneyData = {
 export const wristbandPersonaData = {
   title: "Meet Our Target User",
   introduction: "Based on our research, we developed detailed personas representing our primary user segments to guide design decisions throughout the project.",
-  imageSrc: "/lovable-uploads/d5de6ddf-336f-45cb-84e5-4cb556419e53.png",
+  imageSrc: "/images/d5de6ddf-336f-45cb-84e5-4cb556419e53.png",
   imageAlt: "Maya Samuels - Primary User Persona",
   name: "Maya Samuels",
   details: [
@@ -374,7 +374,7 @@ export const wristbandPersonaData = {
 };
 
 export const wristbandChallengesData = {
-  title: "Challenges & Learnings",
+  title: "Leading Inclusive Design at Scale",
   introduction: "Working on a client prototype that never made it to market presented unique challenges around balancing innovation with practical constraints, while extracting valuable insights from an unrealized vision.",
   challenges: [
     {

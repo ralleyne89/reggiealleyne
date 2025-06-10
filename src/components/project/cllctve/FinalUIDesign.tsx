@@ -1,4 +1,3 @@
-
 import React from "react";
 import FinalUIDesignComponent from "../common/FinalUIDesign";
 import { cllctveUIData } from "@/projects/cllctve/data/cllctveData";

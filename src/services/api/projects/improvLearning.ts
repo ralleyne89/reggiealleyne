@@ -8,7 +8,7 @@ export const getImprovLearningProject = (): ProjectType => {
     title: "Improv Learning – Traffic School Landing Page",
     description: "A simplified landing experience for driving education and insurance savings",
     fullDescription: "Improv Traffic School partnered with GEICO to create a conversion-optimized landing page for their online defensive driving course. The goal was to boost signups by clearly communicating course benefits while maintaining trust and usability across all devices.",
-    image: "/lovable-uploads/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
+    image: "/images/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
     tags: ["Web Design", "UI Design", "Conversion Rate"],
     role: "UI Designer",
     duration: "3 weeks",
@@ -32,8 +32,8 @@ export const getImprovLearningProject = (): ProjectType => {
       "Trust Bar with Media Logos"
     ],
     images: [
-      "/lovable-uploads/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
-      "/lovable-uploads/e5cedc19-cd1f-4736-a165-a7111ec361a7.png"
+      "/images/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
+      "/images/e5cedc19-cd1f-4736-a165-a7111ec361a7.png"
     ],
     conclusion: {
       impact: "Helped launch the new landing experience on time and in sync with GEICO campaign rollout. Design feedback praised the clarity of layout and visual balance of trust + urgency.",

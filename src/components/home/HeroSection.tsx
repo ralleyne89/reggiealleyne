@@ -140,7 +140,7 @@ const HeroSection = () => {
               {/* Profile Image with Modern Frame */}
               <div className="relative rounded-3xl overflow-hidden w-full h-[400px] border border-gray-200 shadow-2xl">
                 <img
-                  src="/lovable-uploads/1686931266900.jpeg"
+                  src="/images/1686931266900.jpeg"
                   alt="Reggie Alleyne - UI/UX Designer"
                   className="w-full h-full object-cover"
                 />

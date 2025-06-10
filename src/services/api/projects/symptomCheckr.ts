@@ -13,7 +13,7 @@ export const getSymptomCheckrProject = (): ProjectType => {
     duration: '8 weeks',
     teamSize: '4',
     tags: ['UX Research', 'UI Design', 'Health Tech', 'AI', 'User Testing'],
-    image: '/lovable-uploads/Symptom-Checkr-Home-Final.jpg',
+    image: '/images/Symptom-Checkr-Home-Final.jpg',
     summary: 'SymptomCheckr is an AI-powered health assessment tool designed to help users understand potential causes for their symptoms through an intuitive interface. The application allows users to input health symptoms via text or upload images, then leverages advanced AI to analyze and present possible causes with likelihood indicators and recommended next steps.',
     problem: 'Many people struggle with deciding when to seek medical care for symptoms. Current symptom checker tools are often overwhelming, overly clinical, or lacking in trustworthiness. Users need a reliable, user-friendly way to understand their symptoms without inducing unnecessary anxiety or replacing professional medical advice.',
     solution: 'SymptomCheckr addresses these issues by providing a clean, intuitive interface with multiple input methods (text and image), clear result presentations sorted by likelihood, and transparent information about how the AI works. The design prioritizes user trust through visual clarity, educational content, and ethical considerations throughout the experience.',
@@ -36,14 +36,14 @@ export const getSymptomCheckrProject = (): ProjectType => {
       'High-fidelity Mockups'
     ],
     images: [
-      '/lovable-uploads/Symptom-Checkr-My-Reports-Saved-Final.jpg',
-      '/lovable-uploads/Symptom-Checkr-My-Reports-saved.jpg',
-      '/lovable-uploads/Symptom-Checkr-My-Reports-Empty-Final.jpg',
-      '/lovable-uploads/Symptom-Checkr-My-Reports-empty.jpg',
-      '/lovable-uploads/Symptom-Checkr-Contact.jpg',
-      '/lovable-uploads/Symptom-Checkr-Contact-Final.jpg',
-      '/lovable-uploads/Symptom-Checkr-Home.jpg',
-      '/lovable-uploads/Symptom-Checkr-Home-Final.jpg'
+      '/images/Symptom-Checkr-My-Reports-Saved-Final.jpg',
+      '/images/Symptom-Checkr-My-Reports-saved.jpg',
+      '/images/Symptom-Checkr-My-Reports-Empty-Final.jpg',
+      '/images/Symptom-Checkr-My-Reports-empty.jpg',
+      '/images/Symptom-Checkr-Contact.jpg',
+      '/images/Symptom-Checkr-Contact-Final.jpg',
+      '/images/Symptom-Checkr-Home.jpg',
+      '/images/Symptom-Checkr-Home-Final.jpg'
     ],
     videoUrl: null,
     githubUrl: null,
