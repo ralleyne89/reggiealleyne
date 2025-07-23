@@ -531,28 +531,28 @@ export const tutorDOutcomesData: OutcomesImpactProps = {
   title: "How It Actually Turned Out",
   metrics: [
     {
-      title: "Student Engagement",
-      value: "+42%",
-      description: "increase in student assignment completion rates in pilot schools",
-      icon: TrendingUp
+      title: "Platform Development",
+      value: "10 months",
+      description: "from initial concept to working teacher dashboard",
+      icon: Calendar
     },
     {
-      title: "Teacher Efficiency",
-      value: "5.3h",
-      description: "weekly time saved per teacher on assignment management",
-      icon: Clock
+      title: "Team Collaboration",
+      value: "3 developers",
+      description: "small but effective team building this together",
+      icon: Users
     },
     {
-      title: "Accessibility",
-      value: "94%",
-      description: "of students without internet access now reached through SMS",
-      icon: Smartphone
+      title: "Core Features",
+      value: "5 key areas",
+      description: "lesson planning, SMS sending, progress tracking, messaging, and reporting",
+      icon: Layers
     },
     {
-      title: "Pilot Success",
-      value: "100%",
-      description: "of participating teachers recommended platform for broader implementation",
-      icon: CheckCircle
+      title: "Tech Stack",
+      value: "React + Redux",
+      description: "with MongoDB backend and real-time updates via Redis",
+      icon: Code
     }
   ]
 };
