@@ -11,6 +11,15 @@ const TechNoirUserPersona = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <div className="bg-gray-800 rounded-xl p-6 mb-6">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
+                  <span className="text-2xl font-bold text-white">T</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">Tech Tina</h3>
+                  <p className="text-gray-400">Fashion-Forward Professional</p>
+                </div>
+              </div>
               <h3 className="text-xl font-semibold text-white mb-4">Profile</h3>
               <div className="space-y-3">
                 <div>

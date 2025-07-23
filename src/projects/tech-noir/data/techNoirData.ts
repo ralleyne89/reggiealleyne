@@ -227,7 +227,6 @@ export const techNoirData = {
       }
     ],
     images: [
-      "/images/tech-noir-banner.png",
       "/images/d0f10fb1-b1eb-4e30-b666-c68f00716676.png",
       "/images/9e3be8d8-c9d0-4857-a786-b488a8b288c1.png",
       "/images/e047ad0c-5a06-4795-938c-c65d62909828.png",
