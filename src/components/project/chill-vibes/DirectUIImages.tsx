@@ -10,7 +10,7 @@ const DirectUIImages: React.FC<DirectUIImagesProps> = ({
   handleImageClick
 }) => {
   const images = [{
-    src: "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
+    src: "/lovable-uploads/713c99bd-1119-4be9-9c7e-d458bb0f4d6d.png",
     alt: "Chill Vibes Music Player Interface",
     title: "Main Interface"
   }, {
