@@ -66,7 +66,7 @@ export const chillVibesOverviewData: ProjectOverviewProps = {
     },
     {
       label: "Duration",
-      value: "6 months",
+      value: "3 months",
       icon: Clock
     },
     {

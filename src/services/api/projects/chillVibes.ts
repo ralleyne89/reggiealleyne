@@ -11,7 +11,7 @@ export const getChillVibesProject = (): ProjectType => {
     image: "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
     tags: ["Music", "UX/UI", "React.js", "Firebase"],
     role: "UI/UX Designer & Frontend Developer",
-    duration: "6 months",
+    duration: "3 months",
     year: "2020",
     challenge: "The client was frustrated with how every music app felt like a social media platform. They wanted something for people who just want to listen to music - no podcasts, no social feeds, no algorithmic chaos. Just clean design and good tunes.",
     process: [
