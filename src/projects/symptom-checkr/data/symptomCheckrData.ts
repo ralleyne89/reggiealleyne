@@ -34,9 +34,9 @@ import { ReflectionProps } from "@/components/project/common/Reflection";
 export const symptomCheckrOverviewData: ProjectOverviewProps = {
   title: "Reimagining How People Navigate Health Anxiety Online",
   description: [
-    "This is a concept project exploring how we might design a symptom checker that actually feels trustworthy. You know how every time you Google a headache, WebMD basically tells you you're dying? Yeah, I wanted to fix that.",
+    "This was an extra feature I designed for an existing health insurance platform - a symptom checker that actually feels trustworthy. You know how every time you Google a headache, WebMD basically tells you you're dying? Yeah, I wanted to fix that.",
     "The reality is most symptom checkers feel like they were designed by robots for robots. I spent time thinking through how we could create something that feels more like talking to that one friend who's really good at staying calm during a crisis.",
-    "The Brief: Design a symptom checker for a health insurance company that helps people figure out their next steps without sending them into a panic spiral. (Can't share the real thing due to client confidentiality, so this is my conceptual take on solving the problem.)"
+    "The Brief: Design a symptom checker as an additional feature for a health insurance company that helps people figure out their next steps without sending them into a panic spiral. (The feature got shelved due to organizational restructuring, so I'm sharing my design approach here.)"
   ],
   projectDetails: [
     {
