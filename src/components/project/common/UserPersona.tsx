@@ -65,7 +65,7 @@ const UserPersona: React.FC<UserPersonaProps> = ({
               <img
                 src={imageSrc}
                 alt={imageAlt}
-                className="rounded-lg w-full mb-6"
+                className="rounded-lg w-full h-80 object-cover object-center mb-6"
               />
 
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">
