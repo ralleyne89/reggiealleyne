@@ -44,18 +44,18 @@ import { OutcomesImpactProps } from "@/components/project/common/OutcomesImpact"
 import { ChallengesLearningsProps } from "@/components/project/common/ChallengesLearnings";
 import { ReflectionProps } from "@/components/project/common/Reflection";
 
-// Project Overview Data - Minto Pyramid: Lead with Impact
+// Project Overview Data
 export const tutorDOverviewData: ProjectOverviewProps = {
-  title: "42% Boost in Student Engagement via SMS-First Architecture",
+  title: "Building an SMS-Based Learning Platform for Underserved Communities",
   description: [
-    "Delivered an SMS-based educational platform that increased student assignment completion by 42% and saved teachers 5.3 hours weekly in pilot testing, reaching 94% of students without internet access through successful proof-of-concept implementation.",
-    "Market Context: COVID-19 exposed digital divide affecting 21% of students (15.3M) lacking reliable internet. Competitive landscape dominated by internet-dependent platforms (Google Classroom, Canvas) excluding underserved communities.",
-    "My Strategic Approach: Designed SMS-first architecture with React dashboard, enabling teachers to reach every student regardless of technology access while maintaining educational effectiveness."
+    "I got hired to work on this really meaningful project - basically building a platform that lets teachers reach students who don't have reliable internet through SMS. We ended up helping boost student engagement by 42% and saved teachers a bunch of time on assignment tracking.",
+    "The whole thing started because COVID exposed how many kids just couldn't access online learning. Like, we're talking about millions of students who only had basic phones, not fancy laptops or tablets. Most learning platforms just assumed everyone had great internet, which obviously wasn't the case.",
+    "My job was to design and build the teacher-facing dashboard in React. The idea was pretty simple but powerful - teachers could create lessons, send them via SMS, and actually track who was responding and engaging with the material."
   ],
   projectDetails: [
     {
       label: "Role",
-      value: "Frontend Developer & UI/UX Designer",
+      value: "UX/UI Designer & Frontend Developer",
       icon: Briefcase
     },
     {
@@ -93,10 +93,10 @@ export const tutorDOverviewData: ProjectOverviewProps = {
   ]
 };
 
-// Problem Space Data - Strategic Challenge #1
+// Problem Space Data
 export const tutorDProblemSpaceData: ProblemSpaceProps = {
-  title: "Bridging the 15.3M Student Digital Divide",
-  introduction: "We observed traditional online learning platforms aren't achieving educational equity for students in underserved communities; using district data and teacher interviews we saw 21% of students (15.3M) lack reliable internet access, creating 40% lower engagement rates. How might we design an SMS-first educational platform that maintains learning effectiveness while reaching every student regardless of technology access (target: 90%+ student reach, 40%+ engagement increase)?",
+  title: "The Digital Divide Problem",
+  introduction: "So here's the thing - when COVID hit, it became super obvious that tons of kids just couldn't do online school. We're talking about millions of students who had basic phones but no laptops or reliable internet. Most learning platforms were built assuming everyone had great wifi and devices, which was pretty tone-deaf. The challenge was figuring out how to reach these kids through SMS while still making it actually useful for learning.",
   challenges: [
     {
       title: "Limited Internet Access",
@@ -143,10 +143,10 @@ export const tutorDProblemSpaceData: ProblemSpaceProps = {
   ]
 };
 
-// Research & Discovery Data - Strategic Challenge #2
+// Research & Discovery Data
 export const tutorDResearchData: ResearchDiscoveryProps = {
-  title: "Strategic Challenge #2: Teacher Interviews Revealed 5.3-Hour Weekly Efficiency Opportunity",
-  introduction: "Business Context: School districts face $2.1B annual losses from student disengagement, with remote learning amplifying inequities. Stakeholder Alignment: Product team needed MVP definition, teachers required immediate time-saving solutions, districts demanded measurable outcomes. Teacher Research: Interviews with 12 educators revealed 5.3 hours weekly spent on manual communication tasks. Technical Constraint: SMS 160-character limit required creative content architecture.",
+  title: "Digging Into What Teachers Actually Needed",
+  introduction: "So we had to figure out what was really going on with teachers and students. We talked to a bunch of educators who were basically drowning in manual work - like, they were spending over 5 hours a week just trying to track who was doing their assignments. Plus, we had this whole SMS character limit thing to work around, which honestly made everything more challenging but also kind of forced us to be really creative.",
   researchSections: [
     {
       title: "User Research",
@@ -197,8 +197,8 @@ export const tutorDResearchData: ResearchDiscoveryProps = {
 
 // Ideation & Strategy Data
 export const tutorDIdeationData: IdeationStrategyProps = {
-  title: "Planning & Strategy",
-  introduction: "Built the dashboard in React.js, with UI elements from Ant Design. Developed interfaces for lesson creation, student progress tracking, and weekly engagement summaries.",
+  title: "Figuring Out the Approach",
+  introduction: "So after all that research, we had to figure out how to actually build this thing. I ended up using React.js with Ant Design components because they had good accessibility features built in. The whole idea was to create this dashboard where teachers could easily create lessons, send them out via SMS, and see real-time data on who was engaging.",
   keyInsights: [
     {
       highlight: "Teacher-centered design is essential.",
@@ -526,9 +526,9 @@ export const tutorDUIData: FinalUIDesignProps = {
   ]
 };
 
-// Outcomes & Impact Data - Measurable Business Results
+// Outcomes & Impact Data
 export const tutorDOutcomesData: OutcomesImpactProps = {
-  title: "Measurable Impact: 42% Engagement Boost + Successful Pilot Validation",
+  title: "How It Actually Turned Out",
   metrics: [
     {
       title: "Student Engagement",
@@ -557,35 +557,35 @@ export const tutorDOutcomesData: OutcomesImpactProps = {
   ]
 };
 
-// Challenges & Learnings Data - Principal-Level Insights
+// Challenges & Learnings Data
 export const tutorDChallengesData: ChallengesLearningsProps = {
-  title: "Accessibility-First Design at Scale",
+  title: "The Tricky Parts and What I Learned",
   challenges: [
     {
-      title: "SMS Limitations",
-      description: "Working within the constraints of SMS (160 character limit, no rich formatting, limited media support) required creative solutions for educational content."
+      title: "SMS is Really Limiting",
+      description: "Man, trying to fit educational content into 160 characters with no formatting was like solving a puzzle every day. We had to get super creative with how we structured lessons."
     },
     {
-      title: "Data Synchronization",
-      description: "Implementing real-time updates between the dashboard and SMS gateway while maintaining data integrity was technically challenging."
+      title: "Real-Time Data Syncing",
+      description: "Getting the dashboard to update in real-time when SMS responses came in was honestly pretty tricky. Had to make sure nothing got lost or corrupted between systems."
     },
     {
-      title: "User Adoption",
-      description: "Convincing teachers to adopt a new system during an already stressful time required careful onboarding and demonstrable time-saving benefits."
+      title: "Getting Teachers On Board",
+      description: "Teachers were already stressed with COVID stuff, so convincing them to try yet another new tool required showing immediate value, not just promises."
     }
   ],
   learnings: [
     {
-      title: "Accessibility First Design",
-      description: "Building for people whose devices, environments, or circumstances are often overlooked creates more inclusive and ultimately better products."
+      title: "Design for Everyone, Not Just Tech People",
+      description: "Building for the most constrained situations actually made everything better. When you design for basic phones, you end up with cleaner, more focused solutions."
     },
     {
-      title: "Teacher-Centered UX",
-      description: "Focusing on reducing teacher workload rather than adding features led to higher adoption rates and more consistent usage."
+      title: "Less Features, More Value",
+      description: "I learned that removing teacher work is way more important than adding cool features. Simple tools that save time beat complex ones every time."
     },
     {
-      title: "Redux Architecture",
-      description: "Using Redux for state management proved essential for maintaining a consistent application state across complex dashboard components."
+      title: "Redux Was a Lifesaver",
+      description: "Using Redux for state management was definitely the right call. With all the different dashboard components and real-time updates, we needed something reliable to keep everything in sync."
     }
   ],
   nextSteps: [
@@ -609,20 +609,20 @@ export const tutorDChallengesData: ChallengesLearningsProps = {
 
 // Reflection Data
 export const tutorDReflectionData: ReflectionProps = {
-  title: "Reflection",
-  content: "Working on TutorD deepened my understanding of accessibility-first design—building for people whose devices, environments, or circumstances are often overlooked. It also sharpened my ability to collaborate in a lean team setting, where each member needed to contribute across multiple areas of expertise.",
+  title: "Looking Back",
+  content: "Honestly, working on TutorD was one of those projects that really stuck with me. It taught me so much about designing for real people with real constraints, not just the ideal user with perfect internet and the latest iPhone. Plus, working with such a small team meant I had to wear a lot of hats and really collaborate closely with everyone.",
   insights: [
     {
-      title: "Inclusive Design",
-      description: "Designing for the most constrained environments often leads to cleaner, more focused solutions that benefit all users."
+      title: "Design for the Real World",
+      description: "When you design for the most challenging situations first, you actually end up with better solutions for everyone. It's like accessibility - it helps way more people than you'd expect."
     },
     {
-      title: "Technical Constraints",
-      description: "SMS limitations forced us to distill educational content to its essence, resulting in more effective communication."
+      title: "Constraints Spark Creativity",
+      description: "Having to work within SMS limits actually forced us to be way more thoughtful about content. Sometimes restrictions make you more creative, not less."
     },
     {
-      title: "Impact-Driven Development",
-      description: "Seeing how our work directly helped teachers support students during a challenging time reinforced the value of purpose-driven projects."
+      title: "Purpose-Driven Work Hits Different",
+      description: "Knowing that our work was actually helping teachers reach kids who were falling through the cracks made all the late nights and technical challenges worth it. Not sure if the project is still active, but I'm proud of what we built."
     }
   ]
 };
