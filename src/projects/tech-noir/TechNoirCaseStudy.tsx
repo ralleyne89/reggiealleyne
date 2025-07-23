@@ -25,7 +25,7 @@ const TechNoirCaseStudy = () => {
 
   // Extract persona data from techNoirData - Tech Tina for wearable tech fashion
   const techNoirPersonaData = {
-    imageSrc: "/images/tech-noir-persona.png",
+    imageSrc: "/images/tech-noir-persona-woman.jpg",
     imageAlt: "Tech Tina - Tech Noir User Persona",
     name: "Tech Tina",
     details: [
