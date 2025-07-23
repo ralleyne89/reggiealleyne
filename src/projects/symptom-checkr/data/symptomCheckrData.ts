@@ -30,13 +30,13 @@ import { OutcomesImpactProps } from "@/components/project/common/OutcomesImpact"
 import { ChallengesLearningsProps } from "@/components/project/common/ChallengesLearnings";
 import { ReflectionProps } from "@/components/project/common/Reflection";
 
-// Project Overview Data - Minto Pyramid: Lead with Impact
+// Project Overview Data
 export const symptomCheckrOverviewData: ProjectOverviewProps = {
-  title: "Delivered Prototype That Achieved 94% User Satisfaction + Stakeholder Buy-in",
+  title: "Reimagining How People Navigate Health Anxiety Online",
   description: [
-    "Created comprehensive symptom checker prototype that achieved 94% user satisfaction in testing (n=25), 87% task completion rate, and 68% trust score improvement over existing tools, earning 100% stakeholder approval from health insurer leadership.",
-    "Market Context: 72% of Americans Google symptoms and panic, creating a $4.2B annual cost in unnecessary ER visits. Competitive analysis revealed existing tools had 67% trust barriers due to poor UX.",
-    "My Strategic Approach: Designed conversational AI interface with transparent recommendations and tiered care guidance, creating validated design framework that transforms anxiety-inducing medical forms into trusted health conversations."
+    "This is a concept project exploring how we might design a symptom checker that actually feels trustworthy. You know how every time you Google a headache, WebMD basically tells you you're dying? Yeah, I wanted to fix that.",
+    "The reality is most symptom checkers feel like they were designed by robots for robots. I spent time thinking through how we could create something that feels more like talking to that one friend who's really good at staying calm during a crisis.",
+    "The Brief: Design a symptom checker for a health insurance company that helps people figure out their next steps without sending them into a panic spiral. (Can't share the real thing due to client confidentiality, so this is my conceptual take on solving the problem.)"
   ],
   projectDetails: [
     {
@@ -74,10 +74,10 @@ export const symptomCheckrOverviewData: ProjectOverviewProps = {
   ]
 };
 
-// Problem Space Data - Strategic Challenge #1
+// Problem Space Data
 export const symptomCheckrProblemSpaceData: ProblemSpaceProps = {
-  title: "Breaking the $4.2B Trust Barrier",
-  introduction: "We observed existing symptom checkers aren't achieving user trust and appropriate care guidance for people with health concerns; using competitive analysis of 5 major platforms and user interviews (n=8) we saw 72% abandon tools due to poor UX and 67% cite outdated design as trust barrier. How might we create a trustworthy, AI-powered symptom checker that guides users to appropriate care levels while reducing unnecessary ER visits by 15% and increasing telehealth adoption by 40% ($2.3M annual savings opportunity)?",
+  title: "Why Do Symptom Checkers Feel Like They Hate You?",
+  introduction: "Seriously, have you ever used a symptom checker that didn't make you feel worse? I spent time digging into why existing tools feel so broken. Turns out, most are built like medical forms instead of helpful conversations. The challenge: How might we design something that actually helps people navigate health anxiety instead of amplifying it?",
   challenges: [
     {
       title: "The Trust Issue",
@@ -97,55 +97,55 @@ export const symptomCheckrProblemSpaceData: ProblemSpaceProps = {
   ],
   designGoals: [
     {
-      title: "Solution: Conversational AI Interface",
-      description: "Create a symptom checker that feels like talking to a knowledgeable friend, not filling out a medical form. Success: 90%+ user satisfaction with interaction quality.",
+      title: "What if it felt like texting a friend?",
+      description: "Instead of clinical questionnaires, design conversational interactions that feel natural and reassuring.",
       icon: Target
     },
     {
-      title: "Solution: Transparent AI Recommendations",
-      description: "Show users exactly how the AI works and what it can't do. Success: 80%+ user trust scores and reduced abandonment rates.",
+      title: "Make the AI transparent, not mysterious",
+      description: "Show users how the system works and what it can't do. No black boxes when people's health is involved.",
       icon: Target
     },
     {
-      title: "Solution: Tiered Care Guidance",
-      description: "Guide users to appropriate care levels (self-care, telehealth, urgent care, ER). Success: 15%+ reduction in unnecessary ER visits, 40%+ increase in telehealth usage.",
+      title: "Give people actual next steps",
+      description: "None of this 'see a doctor' vagueness. Tell people whether they need urgent care, can wait for telehealth, or should try home remedies first.",
       icon: Target
     }
   ]
 };
 
-// Research & Discovery Data - Strategic Challenge #2
+// Research & Discovery Data
 export const symptomCheckrResearchData: ResearchDiscoveryProps = {
-  title: "Strategic Challenge #2: Competitive Analysis Revealed $2.3M Opportunity",
-  introduction: "Business Context: Health insurers lose $4.2B annually to unnecessary ER visits, with 72% of Americans Googling symptoms first. Market Analysis: Ada (85% accuracy, 2.3/5 UX), Buoy (4.1/5 drops to 2.8/5), K Health (67% trust barriers). User Research (n=8, June 2024): 87.5% Google first then panic, 100% want trustworthy-but-not-intimidating tools, 75% struggle describing visual symptoms. Strategic Opportunity: $2.3M annual savings through 15% ER reduction + 40% telehealth increase.",
+  title: "What I Learned from Digging Into the Mess",
+  introduction: "I spent time looking at existing symptom checkers and talking to people who actually use them. The patterns were pretty clear: everyone Googles symptoms, most tools make you feel worse, and nobody trusts anything that looks like it was built by a hospital IT department in 2005.",
   researchSections: [
     {
-      title: "User Interviews (n=8, June 2024)",
-      description: "Semi-structured interviews with parents and adults aged 25-45 who used symptom checkers in the past 6 months.",
+      title: "Conversations with Real People",
+      description: "I talked to friends, family, and anyone who'd tell me about their last symptom-checking adventure.",
       items: [
         {
-          text: "87.5% (7/8) Google symptoms first, panic second, then either ignore it or rush to urgent care"
+          text: "Pretty much everyone starts with Google, gets scared, then either ignores it completely or rushes to urgent care"
         },
         {
-          text: "100% (8/8) want something that feels trustworthy but not intimidating (think helpful nurse, not robot doctor)"
+          text: "People want something that feels like asking a knowledgeable friend, not filling out a medical form"
         },
         {
-          text: "75% (6/8) struggle to describe visual symptoms in text—they want to show, not tell"
+          text: "Visual symptoms are impossible to describe. 'It's kind of red and bumpy' doesn't help anyone"
         }
       ]
     },
     {
-      title: "Competitive Analysis (5 platforms tested)",
-      description: "Heuristic evaluation and user testing of Ada, Buoy, K Health, WebMD Symptom Checker, and Mayo Clinic Symptom Checker.",
+      title: "Testing the Competition",
+      description: "I went through the major symptom checkers with fresh eyes, pretending I had various symptoms.",
       items: [
         {
-          text: "Ada: 85% accuracy but 2.3/5 user experience rating due to clinical interface"
+          text: "Ada is clinically solid but feels like talking to a robot. The interface screams 'medical device' instead of 'helpful tool'"
         },
         {
-          text: "Buoy: 4.1/5 initial impression drops to 2.8/5 after questionnaire fatigue"
+          text: "Buoy starts friendly but becomes exhausting with its endless questions. You lose steam halfway through"
         },
         {
-          text: "K Health: Strong medical backing but 67% of users cite outdated visual design as trust barrier"
+          text: "K Health has the medical credibility but looks outdated. Trust is hard when the design feels abandoned"
         }
       ]
     }
@@ -166,10 +166,10 @@ export const symptomCheckrResearchData: ResearchDiscoveryProps = {
   ]
 };
 
-// Ideation & Strategy Data - Strategic Challenge #3
+// Ideation & Strategy Data
 export const symptomCheckrIdeationData: IdeationStrategyProps = {
-  title: "Strategic Challenge #3: Three Design Principles That Drove 94% Satisfaction",
-  introduction: "Stakeholder Alignment: Product team wanted feature-rich platform, clinical team prioritized accuracy, business team needed cost reduction. User Journey Analysis revealed broken experience across all touchpoints. My Strategic Framework: Three core principles that balanced all stakeholder needs while achieving user trust.",
+  title: "Three Simple Ideas That Could Change Everything",
+  introduction: "After all that research, I landed on three core principles that felt right. The product team wanted bells and whistles, the clinical team wanted accuracy, and the business team wanted cost savings. But really, we just needed to not make people feel terrible about being worried.",
   keyInsights: [
     {
       highlight: "Make it conversational, not clinical.",
@@ -433,10 +433,10 @@ export const symptomCheckrSitemapData: SitemapWireframesProps = {
   ]
 };
 
-// Final UI Design Data - Implementation That Delivered Results
+// Final UI Design Data
 export const symptomCheckrUIData: FinalUIDesignProps = {
-  title: "Implementation: Conversational AI That Achieved 94% User Satisfaction",
-  introduction: "Design Execution: Transformed clinical medical forms into conversational AI interface using calming colors, transparent AI explanations, and photo upload capabilities. Technical Implementation: React frontend with accessibility-first design patterns. Prototype Results: 94% user satisfaction, 87% task completion, 68% trust improvement, 100% stakeholder approval.",
+  title: "Designing for Humans, Not Hospitals",
+  introduction: "The visual design had to nail the sweet spot between 'medical professional' and 'approachable friend.' I spent a lot of time thinking about colors, typography, and micro-interactions that would calm anxiety instead of amplifying it. Here's how I approached bringing this concept to life.",
   designHighlights: [
     {
       text: "Calming colors that don't scream 'MEDICAL EMERGENCY' at every interaction"
@@ -492,32 +492,32 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
   ]
 };
 
-// Outcomes & Impact Data - Prototype Results & Validation
+// Outcomes & Impact Data
 export const symptomCheckrOutcomesData: OutcomesImpactProps = {
-  title: "Prototype Validation: 94% User Satisfaction + Proven Design Framework",
+  title: "What This Could Achieve (If It Were Real)",
   metrics: [
     {
-      title: "User Testing Satisfaction",
-      value: "94%",
-      description: "satisfaction rate from prototype testing sessions (n=25)",
+      title: "Design Principle",
+      value: "Trust",
+      description: "Every decision prioritized user trust over flashy features",
       icon: CheckCircle
     },
     {
-      title: "Task Completion Rate",
-      value: "87%",
-      description: "users successfully completed symptom assessment flow",
+      title: "Core Value",
+      value: "Clarity",
+      description: "No medical jargon, no confusing interfaces, just clear guidance",
       icon: BarChart
     },
     {
-      title: "Trust Score Improvement",
-      value: "+68%",
-      description: "increase in perceived trustworthiness vs. existing tools",
+      title: "User Experience",
+      value: "Calm",
+      description: "Designed to reduce health anxiety, not amplify it",
       icon: BarChart
     },
     {
-      title: "Client Stakeholder Buy-in",
-      value: "100%",
-      description: "approval from health insurer leadership team",
+      title: "Honest Approach",
+      value: "Concept",
+      description: "This is my take on what could work, not claiming fake success metrics",
       icon: Briefcase
     }
   ]
@@ -575,20 +575,20 @@ export const symptomCheckrChallengesData: ChallengesLearningsProps = {
 
 // Reflection Data
 export const symptomCheckrReflectionData: ReflectionProps = {
-  title: "Reflection",
-  content: "Symptom Checkr taught me how to design for complexity. It pushed my skillset in systems thinking, accessibility, and human-centered AI. I'm proud that we not only created a better interface but helped people feel more informed and supported in a moment of vulnerability.",
+  title: "What I Learned",
+  content: "This project was a masterclass in designing for people at their most vulnerable. There's something humbling about creating something for someone who's worried about their health at 2 AM. It made me think differently about trust, transparency, and how design can either calm or amplify anxiety.",
   insights: [
     {
-      title: "Healthcare Design Insight",
-      description: "Designing for healthcare means balancing clarity and empathy at every click."
+      title: "Healthcare Design is Different",
+      description: "You're not just designing an interface—you're designing for someone's peace of mind."
     },
     {
-      title: "Building Trust with AI",
-      description: "When people's health is involved, transparency about AI limitations is just as important as showcasing its capabilities."
+      title: "AI Needs to Show Its Work",
+      description: "In healthcare, mysterious algorithms are terrifying. People need to understand what the AI can and can't do."
     },
     {
-      title: "Collaboration",
-      description: "Cross-functional input (especially from clinical partners) is essential early in the design process."
+      title: "Simple Isn't Easy",
+      description: "Making complex medical information feel approachable without losing accuracy is incredibly hard—but worth it."
     }
   ]
 };
