@@ -41,7 +41,7 @@ const ResultsImpact = () => {
       transition={{
         duration: 0.6,
       }}
-      className="py-16 bg-gray-50 rounded-xl"
+      className="mb-20"
     >
       <div className="max-w-6xl mx-auto px-6">
         <motion.div

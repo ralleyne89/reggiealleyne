@@ -18,7 +18,7 @@ const DirectUIImages: React.FC<DirectUIImagesProps> = ({
     alt: "Chill Vibes Login Page",
     title: "Login Page"
   }];
-  return <motion.section className="mb-16" initial={{
+  return <motion.section className="mb-20" initial={{
     opacity: 0,
     y: 20
   }} whileInView={{
