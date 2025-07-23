@@ -32,7 +32,7 @@ const ResultsImpact = () => {
     y: 0
   }} transition={{
     duration: 0.6
-  }} className="py-16 bg-white">
+  }} className="mb-20">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div initial={{
         opacity: 0,

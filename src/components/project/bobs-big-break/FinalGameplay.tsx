@@ -56,7 +56,7 @@ const FinalGameplay = ({ handleImageClick }: FinalGameplayProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="py-16 bg-white"
+      className="mb-20"
     >
       <div className="max-w-6xl mx-auto px-6">
         <motion.div

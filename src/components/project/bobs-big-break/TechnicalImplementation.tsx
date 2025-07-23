@@ -46,7 +46,7 @@ const TechnicalImplementation = ({
       transition={{
         duration: 0.6,
       }}
-      className="py-16 rounded-xl bg-white"
+      className="mb-20"
     >
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
