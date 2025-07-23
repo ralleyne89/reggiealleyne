@@ -5,27 +5,27 @@ const ResultsImpact = () => {
   const results = [
     {
       icon: TrendingUp,
-      metric: "+42% Student Engagement",
+      metric: "10 Month Build",
       description:
-        "Significant increase in assignment completion rates across pilot schools through SMS accessibility",
+        "From initial concept to working teacher dashboard with real SMS integration",
     },
     {
       icon: Clock,
-      metric: "5.3 Hours Saved Weekly",
+      metric: "3 Person Team",
       description:
-        "Per teacher reduction in assignment management time through automated tracking and messaging",
+        "Small but effective team that collaborated closely throughout development",
     },
     {
       icon: Smartphone,
-      metric: "94% Student Reach",
+      metric: "SMS-First Approach",
       description:
-        "Successfully connected with students who previously had no access to digital learning platforms",
+        "Built specifically for students with basic phones, not just as an afterthought",
     },
     {
       icon: CheckCircle,
-      metric: "100% Teacher Approval",
+      metric: "React + Redux Stack",
       description:
-        "All participating teachers recommended the platform for broader implementation after pilot testing",
+        "Modern frontend connected to MongoDB backend with real-time updates via Redis",
     },
   ];
   const impacts = [
