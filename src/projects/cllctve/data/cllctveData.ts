@@ -1,7 +1,7 @@
 import { Users, Calendar, Palette, Lightbulb, Target, Zap, Code, Globe, Smartphone, Monitor, CheckCircle, ArrowRight, Layout, Database, Cpu } from "lucide-react";
 
 export const cllctveOverviewData = {
-  title: "Building a Gen Z Creator Platform (Before It All Went Sideways)",
+  title: "Building a Gen Z Creator Platform",
   description: [
     "So I spent almost two years building this React-based portfolio platform for Gen Z creators. We actually got 500+ creators signed up and secured 15+ brand partnerships before the company unfortunately had to shut down. The drag-and-drop portfolio builder was pretty sweet though.",
     "Here's the thing - the creator economy is massive (like $104B massive), but most portfolio platforms just don't get Gen Z. Behance and Dribbble feel ancient on mobile, and they're not built for the way young creators actually want to showcase their work.",
