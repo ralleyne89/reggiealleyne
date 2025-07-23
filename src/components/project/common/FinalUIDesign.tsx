@@ -33,7 +33,7 @@ const FinalUIDesign = ({
   handleImageClick,
 }: FinalUIDesignProps) => {
   return (
-    <section className="bg-white py-[14px]">
+    <section className="mb-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
