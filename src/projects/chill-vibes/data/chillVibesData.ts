@@ -47,26 +47,26 @@ import { ChallengesLearningsProps } from "@/components/project/common/Challenges
 
 // Project Overview Data - Minto Pyramid: Lead with Impact
 export const chillVibesOverviewData: ProjectOverviewProps = {
-  title: "Delivered Full-Stack Music Platform MVP for Client in 3 Months",
+  title: "Built a Music Streaming MVP That Actually Feels Good to Use",
   description: [
-    "Built a complete React-based music streaming MVP that achieved 95% of requested features within 3-month timeline, successfully delivering a functional prototype for client evaluation. Post-launch user metrics unknown as client handled deployment and user testing independently.",
-    "Market Context: $23B music streaming market dominated by complex interfaces (Spotify, Apple Music). Competitive analysis revealed opportunity for minimalist, audio-quality-focused platform approach.",
-    "My Technical Approach: Developed full-stack MVP solution using React.js, Node.js, and Express.js with focus on audio streaming performance, intuitive playlist management, and clean interface design for client's target audience."
+    "So I got hired by this client who was tired of how cluttered and overwhelming music apps had become. They wanted something clean and simple - basically Spotify but without all the visual noise. I handled everything from wireframes to the final React build.",
+    "The whole idea was to prove that you could make a music app that just focuses on the music itself. No fancy social features, no overwhelming discovery algorithms - just good tunes with a clean interface that gets out of your way.",
+    "I built the entire thing as a responsive web app using React and Firebase. The client wanted to test it with real users first before deciding on native apps, so we kept it browser-based and mobile-friendly."
   ],
   projectDetails: [
     {
       label: "Role",
-      value: "Frontend Developer & UI/UX Designer",
+      value: "UI/UX Designer & Frontend Developer",
       icon: Briefcase
     },
     {
       label: "Team",
-      value: "Solo project",
+      value: "Solo freelance project",
       icon: Users
     },
     {
       label: "Duration",
-      value: "3 months",
+      value: "6 months",
       icon: Clock
     },
     {
@@ -96,49 +96,49 @@ export const chillVibesOverviewData: ProjectOverviewProps = {
 
 // Problem Space Data - Strategic Challenge #1
 export const chillVibesProblemSpaceData: ProblemSpaceProps = {
-  title: "Creating Minimalist Alternative to Complex Music Platforms",
-  introduction: "We observed existing music streaming platforms suffer from interface complexity and feature overload for music enthusiasts; using competitive analysis and client requirements we identified opportunity for minimalist approach focused on core music experience. How might we create a clean, focused music streaming MVP that prioritizes audio quality and simplicity while delivering essential functionality (target: 95% feature coverage, client approval for next development phase)?",
+  title: "Why Does Every Music App Feel Like a Maze?",
+  introduction: "My client came to me because they were frustrated with how complicated music apps had become. Every time they just wanted to play some chill music while working, they'd get bombarded with recommendations, social features, and cluttered interfaces. The brief was simple: create a music player that feels like it was designed for people who actually love music, not for people who love clicking buttons.",
   challenges: [
     {
-      title: "Overwhelming Interfaces",
-      description: "Most music apps have cluttered interfaces with too many options and distracting elements that take away from the music experience.",
+      title: "Interface Overload",
+      description: "You open Spotify and there's literally 20 different things competing for your attention. Podcasts, social feeds, ads - where's just the music?",
       icon: Layers
     },
     {
-      title: "Poor Discovery",
-      description: "Users struggle to discover new music that matches their taste due to inadequate recommendation systems.",
+      title: "Generic Recommendations",
+      description: "Algorithm keeps suggesting the same mainstream stuff. Sometimes you just want to discover something that actually matches your vibe.",
       icon: Search
     },
     {
-      title: "Limited Personalization",
-      description: "Existing platforms don't provide enough customization options for users to make the app truly their own.",
+      title: "No Personal Touch",
+      description: "Every music app looks exactly the same. There's no way to make it feel like yours or match your aesthetic.",
       icon: Settings
     },
     {
-      title: "Audio Quality Issues",
-      description: "Many streaming services compromise on audio quality or don't provide clear quality indicators to users.",
+      title: "Unclear Audio Quality",
+      description: "You never really know what quality you're getting. Is this compressed? Is my internet struggling? Who knows.",
       icon: Volume2
     }
   ],
   designGoals: [
     {
-      title: "Intuitive Interface",
-      description: "Create a clean, minimalist interface that puts music first and reduces cognitive load for users.",
+      title: "Just Play Music",
+      description: "Land on the page, hit play, and you're listening. No distractions, no popups, just music.",
       icon: Monitor
     },
     {
-      title: "Smart Discovery",
-      description: "Implement intelligent music discovery features that learn from user preferences and listening habits.",
+      title: "Mood-Based Discovery",
+      description: "Find new tracks that actually match what you're feeling right now, not what's trending globally.",
       icon: Lightbulb
     },
     {
-      title: "Seamless Playback",
-      description: "Ensure smooth, uninterrupted music playback with high-quality audio streaming.",
+      title: "Reliable Playback",
+      description: "Music plays when you press play. It doesn't skip, stutter, or suddenly stop. Revolutionary concept, I know.",
       icon: Play
     },
     {
-      title: "Personal Experience",
-      description: "Allow users to customize their experience with themes, playlists, and personalized recommendations.",
+      title: "Make It Yours",
+      description: "Dark themes, custom playlists, and an interface that feels like it was made for you specifically.",
       icon: Users
     }
   ]
@@ -146,52 +146,52 @@ export const chillVibesProblemSpaceData: ProblemSpaceProps = {
 
 // Research & Discovery Data - Strategic Challenge #2
 export const chillVibesResearchData: ResearchDiscoveryProps = {
-  title: "Strategic Challenge #2: Competitive Analysis Revealed Minimalist Design Opportunity",
-  introduction: "Business Context: $23B music streaming market with 400M+ users globally. Stakeholder Alignment: Solo project requiring full-stack development, client needed feature-complete MVP for their target audience evaluation. Competitive Analysis: Spotify, Apple Music, YouTube Music analysis revealed gaps in minimalist design and simplified user experience. Client Requirements: Clean interface, essential music features, and technical foundation for future user testing and iteration.",
+  title: "Understanding What People Actually Want from Music Apps",
+  introduction: "The client had done some initial research and came to me with a clear vision: people were burnt out on complex music apps. We spent time really understanding what was missing in the current market. Turns out, most people just want to play music without jumping through hoops, but every app seems designed to keep you clicking around instead of listening.",
   researchSections: [
     {
-      title: "Client Requirements Analysis",
-      description: "Understanding client needs and target audience expectations.",
+      title: "Client Conversations",
+      description: "Getting clear on what success looks like for this MVP.",
       items: [
         {
-          text: "Analyzed client brief and target audience requirements for MVP"
+          text: "Talked through the client's frustrations with existing music apps"
         },
         {
-          text: "Defined core features and functionality priorities with client"
+          text: "Mapped out the core features that would make this actually useful"
         },
         {
-          text: "Established technical requirements and platform constraints"
+          text: "Set expectations for what we could realistically build in 6 months"
         }
       ]
     },
     {
-      title: "Competitive Analysis",
-      description: "Evaluated existing music streaming platforms and their approaches:",
+      title: "Checking Out the Competition",
+      description: "Spent way too much time analyzing what's already out there:",
       items: [
         {
-          text: "Analyzed Spotify, Apple Music, and YouTube Music interfaces and features"
+          text: "Used Spotify, Apple Music, and YouTube Music like a normal person would"
         },
         {
-          text: "Identified gaps in user experience and interface design"
+          text: "Noted every time I got annoyed or confused by their interfaces"
         },
         {
-          text: "Studied successful design patterns in music applications"
+          text: "Found the things that actually work well and could be improved"
         }
       ]
     }
   ],
   keyFindings: [
     {
-      title: "Key Finding 1",
-      description: "Competitive analysis revealed opportunity for cleaner, more focused interfaces compared to feature-heavy platforms."
+      title: "Everyone's Overthinking It",
+      description: "The big apps are trying to be everything to everyone. There's definitely room for something that just does music really well."
     },
     {
-      title: "Key Finding 2",
-      description: "Client emphasized need for intuitive playlist management and simplified music organization tools."
+      title: "Playlists Are Everything",
+      description: "People organize their entire music life around playlists, but most apps make creating and managing them way harder than it needs to be."
     },
     {
-      title: "Key Finding 3",
-      description: "Audio quality indicators and clear playback controls identified as essential MVP features."
+      title: "Quality Transparency Matters",
+      description: "Nobody likes wondering if they're getting good audio quality. Just tell people what they're hearing."
     }
   ]
 };
