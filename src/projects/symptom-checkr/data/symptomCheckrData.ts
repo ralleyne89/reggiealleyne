@@ -494,7 +494,7 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
 
 // Outcomes & Impact Data
 export const symptomCheckrOutcomesData: OutcomesImpactProps = {
-  title: "What This Could Achieve (If It Were Real)",
+  title: "What This Could Achieve",
   metrics: [
     {
       title: "Design Principle",
