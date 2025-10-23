@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
 
 const LitmusAICaseStudy = () => {
   return (
-    <div className="space-y-16">
+    <div className="mt-8 mb-16">
       {/* Lead with Impact/Outcome */}
       <ProjectOverviewComponent {...litmusAIOverviewData} />
       <OutcomesImpact {...litmusAIOutcomesData} />
