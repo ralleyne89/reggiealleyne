@@ -79,7 +79,7 @@ const FeaturedProjectsSection = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {(() => {
-              const featuredProjectIds = [9, 1, 2];
+              const featuredProjectIds = [10, 9, 1];
               const featuredProjects = featuredProjectIds
                 .map((id) => projects?.find((project) => project.id === id))
                 .filter((project) => project !== undefined);
@@ -89,7 +89,11 @@ const FeaturedProjectsSection = () => {
                 let enhancedTitle = project.title;
                 let impactMetric = "";
 
-                if (project.id === 9) {
+                if (project.id === 10) {
+                  // Litmus AI
+                  enhancedTitle = "AI Literacy Testing Platform";
+                  impactMetric = "5-minute AI competency assessment";
+                } else if (project.id === 9) {
                   // SymptomCheckr
                   enhancedTitle = "AI-Powered Symptom Checker";
                   impactMetric = "95% diagnostic accuracy";
@@ -97,10 +101,6 @@ const FeaturedProjectsSection = () => {
                   // CLLCTVE
                   enhancedTitle = "3K+ Creators: Gen Z Portfolio Platform";
                   impactMetric = "3K+ active creators";
-                } else if (project.id === 2) {
-                  // Tutor D
-                  enhancedTitle = "5hrs/week Saved: SMS Learning Platform";
-                  impactMetric = "5hrs/week teacher time saved";
                 }
 
                 return {

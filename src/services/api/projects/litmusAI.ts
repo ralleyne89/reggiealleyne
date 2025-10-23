@@ -11,7 +11,7 @@ export const getLitmusAIProject = (): ProjectType => {
     duration: '2 months',
     teamSize: '1',
     tags: ['AI Education', 'EdTech', 'Adaptive Learning', 'Prompt Engineering', 'OpenAI API', 'Stripe Integration', 'UX Design', 'Gamified Learning'],
-    image: '/images/d0f10fb1-b1eb-4e30-b666-c68f00716676.png',
+    image: '/images/litmus-ai-banner.png',
     summary: 'Litmus AI is an AI literacy testing and certification platform designed to measure understanding of artificial intelligence concepts in 5 minutes or less. The platform uses adaptive GPT-powered assessments to evaluate knowledge across machine learning, prompt engineering, ethics, and real-world AI applications, then provides personalized learning recommendations and verifiable certification.',
     problem: 'With AI technologies evolving rapidly, individuals and organizations struggle to evaluate true AI literacy beyond buzzwords. Traditional online courses lack a quick, data-driven way to assess baseline knowledge before suggesting training. There exists a critical gap between AI curiosity and verified competency — learners need a structured, measurable, and credible system to validate their understanding of AI concepts.',
     solution: 'Litmus AI addresses this challenge through an intelligent, adaptive testing system that provides instant AI literacy assessment and certification. The platform uses GPT-powered adaptive questioning to assess understanding across key AI domains, then generates personalized learning paths based on performance. Upon completing recommended modules, users earn verifiable AI Literacy Certificates, with flexible monetization through Stripe-powered subscriptions, one-time certification fees, and enterprise group packages.',
@@ -33,7 +33,7 @@ export const getLitmusAIProject = (): ProjectType => {
       'User-Facing Digital Certification System'
     ],
     images: [
-      '/images/d0f10fb1-b1eb-4e30-b666-c68f00716676.png',
+      '/images/litmus-ai-banner.png',
       '/images/d5f791c1-7299-4a0a-80e0-9e27c0362510.png',
       '/images/ea29fa97-2c32-4ae6-8ba3-247cf34726a8.png',
       '/images/e5cedc19-cd1f-4736-a165-a7111ec361a7.png'

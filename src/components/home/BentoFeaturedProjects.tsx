@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ProjectType } from "@/types/project";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
-import { Code, Palette, Layout, Monitor, ArrowUpRight } from "lucide-react";
+import { Code, Palette, Layout, Monitor, Brain } from "lucide-react";
 
 interface BentoFeaturedProjectsProps {
   projects?: ProjectType[];
@@ -16,6 +16,7 @@ const projectIcons = {
   2: Palette, // Tutor D - UI/UX Design focus
   3: Code, // Tech Noir - Development focus
   1: Layout, // Cllctve
+  10: Brain, // Litmus AI - AI/EdTech focus
   4: Monitor, // Other projects
 };
 
@@ -49,7 +50,7 @@ const BentoFeaturedProjects = ({
   }
 
   // Define the specific projects to show
-  const featuredProjectIds = [3, 2, 1]; // Tech Noir, Tutor D, Cllctve
+  const featuredProjectIds = [10, 3, 2]; // Litmus AI, Tech Noir, Tutor D
 
   // Filter to get only the specified projects in the right order
   const featuredProjects = featuredProjectIds
@@ -82,8 +83,8 @@ const BentoFeaturedProjects = ({
         </div>
       ),
       className:
-        project.id === 3
-          ? "md:col-span-2" // Tech Noir spans 2 columns on medium screens
+        project.id === 10
+          ? "md:col-span-2" // Litmus AI spans 2 columns on medium screens
           : "col-span-1",
     };
   });
