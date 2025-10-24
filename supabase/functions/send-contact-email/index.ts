@@ -17,7 +17,11 @@ serve(async (req) => {
     const resend = new Resend(Deno.env.get('RESEND_API_KEY'))
     const { name, email, message } = await req.json()
 
-    console.log('Sending email with data:', { name, email, message })
+    console.log('Processing contact form submission', {
+      hasName: !!name,
+      hasEmail: !!email,
+      messageLength: message?.length || 0
+    })
 
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
@@ -36,7 +40,7 @@ serve(async (req) => {
       throw error
     }
 
-    console.log('Email sent successfully:', data)
+    console.log('Email sent successfully')
 
     return new Response(
       JSON.stringify({ success: true }),
