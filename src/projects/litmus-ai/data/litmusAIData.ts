@@ -249,27 +249,27 @@ export const litmusAIUIData: FinalUIDesignProps = {
   ],
   uiImages: [
     {
-      src: "/images/Screenshot%202025-10-23%20at%202.28.14%E2%80%AFPM.png",
+      src: "/images/Screenshot 2025-10-23 at 2.28.14 PM.png",
       alt: "Litmus AI hero: Assess → Activate → Certify AI Talent",
       title: "Hero: Assess > Activate > Certify AI Talent"
     },
     {
-      src: "/images/Screenshot%202025-10-23%20at%203.27.38%E2%80%AFPM.png",
+      src: "/images/Screenshot 2025-10-23 at 3.27.38 PM.png",
       alt: "Transform teams with measurable AI mastery overview",
       title: "Transform Teams Overview"
     },
     {
-      src: "/images/Screenshot%202025-10-23%20at%203.27.57%E2%80%AFPM.png",
+      src: "/images/Screenshot 2025-10-23 at 3.27.57 PM.png",
       alt: "Assessment interface — Every company should be AI ready",
       title: "Assessment Interface"
     },
     {
-      src: "/images/Screenshot%202025-10-23%20at%203.28.10%E2%80%AFPM.png",
+      src: "/images/Screenshot 2025-10-23 at 3.28.10 PM.png",
       alt: "Customer testimonials",
       title: "Testimonials"
     },
     {
-      src: "/images/Screenshot%202025-10-23%20at%203.28.22%E2%80%AFPM.png",
+      src: "/images/Screenshot 2025-10-23 at 3.28.22 PM.png",
       alt: "Before You Begin assessment modal",
       title: "Before You Begin Modal"
     }
