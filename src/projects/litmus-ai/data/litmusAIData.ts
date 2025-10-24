@@ -249,24 +249,29 @@ export const litmusAIUIData: FinalUIDesignProps = {
   ],
   uiImages: [
     {
-      src: "/images/d0f10fb1-b1eb-4e30-b666-c68f00716676.png",
-      alt: "Litmus AI Dashboard showing adaptive test interface",
-      title: "Main testing interface with adaptive question generation"
+      src: "/images/Screenshot%202025-10-23%20at%202.28.14%E2%80%AFPM.png",
+      alt: "Litmus AI hero: Assess → Activate → Certify AI Talent",
+      title: "Hero: Assess > Activate > Certify AI Talent"
     },
     {
-      src: "/images/d5f791c1-7299-4a0a-80e0-9e27c0362510.png",
-      alt: "Results visualization with proficiency radar chart",
-      title: "Results dashboard visualizing AI literacy across domains"
+      src: "/images/Screenshot%202025-10-23%20at%203.27.38%E2%80%AFPM.png",
+      alt: "Transform teams with measurable AI mastery overview",
+      title: "Transform Teams Overview"
     },
     {
-      src: "/images/ea29fa97-2c32-4ae6-8ba3-247cf34726a8.png",
-      alt: "Personalized learning recommendations",
-      title: "Personalized course recommendations based on assessment"
+      src: "/images/Screenshot%202025-10-23%20at%203.27.57%E2%80%AFPM.png",
+      alt: "Assessment interface — Every company should be AI ready",
+      title: "Assessment Interface"
     },
     {
-      src: "/images/e5cedc19-cd1f-4736-a165-a7111ec361a7.png",
-      alt: "Digital certification display",
-      title: "Verifiable AI Literacy Certificate upon completion"
+      src: "/images/Screenshot%202025-10-23%20at%203.28.10%E2%80%AFPM.png",
+      alt: "Customer testimonials",
+      title: "Testimonials"
+    },
+    {
+      src: "/images/Screenshot%202025-10-23%20at%203.28.22%E2%80%AFPM.png",
+      alt: "Before You Begin assessment modal",
+      title: "Before You Begin Modal"
     }
   ]
 };

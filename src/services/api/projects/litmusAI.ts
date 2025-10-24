@@ -33,10 +33,11 @@ export const getLitmusAIProject = (): ProjectType => {
       'User-Facing Digital Certification System'
     ],
     images: [
-      '/images/litmus-ai-banner.png',
-      '/images/d5f791c1-7299-4a0a-80e0-9e27c0362510.png',
-      '/images/ea29fa97-2c32-4ae6-8ba3-247cf34726a8.png',
-      '/images/e5cedc19-cd1f-4736-a165-a7111ec361a7.png'
+      '/images/Screenshot 2025-10-23 at 2.28.14 PM.png',
+      '/images/Screenshot 2025-10-23 at 3.27.38 PM.png',
+      '/images/Screenshot 2025-10-23 at 3.27.57 PM.png',
+      '/images/Screenshot 2025-10-23 at 3.28.10 PM.png',
+      '/images/Screenshot 2025-10-23 at 3.28.22 PM.png',
     ],
     videoUrl: null,
     githubUrl: null,
