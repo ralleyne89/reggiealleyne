@@ -282,13 +282,13 @@ export const litmusAIOutcomesData: OutcomesImpactProps = {
     {
       title: "Full MVP Launch",
       value: "2 months",
-      description: "Shipped complete platform with GPT-5 adaptive testing, Stripe payments, and verifiable certification",
+      description: "Shipped complete platform with AI literacy testing, Stripe payments, and verifiable certification",
       icon: CheckCircle
     },
     {
       title: "Adaptive Testing",
-      value: "4 domains",
-      description: "Implemented dynamic difficulty adjustment and real-time question generation across core AI domains",
+      value: "4 AI skill areas",
+      description: "Implemented dynamic difficulty adjustment and real-time question generation across four core AI skill areas: machine learning, prompt engineering, ethics, and applications",
       icon: Brain
     },
     {
