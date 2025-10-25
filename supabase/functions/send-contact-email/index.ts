@@ -1,6 +1,6 @@
 
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-import { Resend } from "https://esm.sh/@resend/node@0.16.0"
+import { Resend } from "npm:resend@4.0.0"
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
