@@ -370,8 +370,8 @@ export const litmusAIReflectionData: ReflectionProps = {
       description: "If I could do it over, I'd invest more time upfront in the scoring algorithm. That said, perfect is the enemy of shipped—and shipped beats perfect every time."
     },
     {
-      title: "Meta AI Application",
-      description: "Using AI to assess AI literacy felt appropriately meta. GPT-5 became both the subject matter and the tool enabling rapid development of the platform."
+      title: "AI Application",
+      description: "Using AI to assess AI literacy felt appropriately for this project. GPT-5 became both the subject matter and the tool enabling rapid development of the platform."
     }
   ]
 };
