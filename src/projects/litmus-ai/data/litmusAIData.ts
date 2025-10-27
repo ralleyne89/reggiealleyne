@@ -28,9 +28,9 @@ import { ReflectionProps } from "@/components/project/common/Reflection";
 export const litmusAIOverviewData: ProjectOverviewProps = {
   title: "Measuring AI Literacy in 5 Minutes or Less",
   description: [
-    "With AI becoming ubiquitous across industries, I noticed a critical gap: everyone talks about AI, but how do you actually measure if someone understands it? As a solo founder, I set out to create a testing platform that could assess genuine AI literacy—not just buzzword familiarity—in under 5 minutes.",
-    "Traditional assessments take hours and lack the adaptivity needed for such a rapidly evolving field. I wanted to build something that could dynamically adjust difficulty based on responses, provide instant feedback, and offer clear pathways for improvement.",
-    "The Challenge: Create an end-to-end AI literacy certification platform from scratch—adaptive testing engine, personalized learning recommendations, payment infrastructure, and verifiable credentials—all within 2 months as a solo team."
+    "AI is everywhere today, but there's a very obvious issue: we can't quickly or reliably say that someone is truly AI literate, because most AI literacy assessments are lengthy, static, and slow to evolve to the rapidly changing AI landscape.",
+    "As a solo founder, I set out to build a platform that tests true AI literacy (not buzzword literacy) in under 5 minutes, therefore I wanted an adaptive test that adjusts in real time to your answers, provides immediate feedback, and maps out exactly what you need to learn next.",
+    "The goal was aggressive: to build a complete AI literacy certification platform from the ground up in two months, which means developing an adaptive testing engine, personalized learning recommendations, integrated payments, and verifiable credentials all the way from end to end, and I had to accomplish all of this as a team of one."
   ],
   projectDetails: [
     {
@@ -111,11 +111,11 @@ export const litmusAIProblemSpaceData: ProblemSpaceProps = {
 // Research & Discovery Data
 export const litmusAIResearchData: ResearchDiscoveryProps = {
   title: "Understanding the AI Education Landscape",
-  introduction: "I began by mapping the current state of AI education and assessment. Through competitive analysis and user interviews with students, professionals, and HR departments, clear patterns emerged around what was missing from existing solutions.",
+  introduction: "I began by creating the AI education and assessment landscape and performing a competitive analysis, and I also reviewed customer reviews and ratings from students, working professionals, and HR leaders to understand how these tools are used in practice. Everywhere I looked, I saw the same patterns: most solutions prioritize terminology over practical judgment, do not adapt to the user's level of proficiency, and generate a score with no prescription for what to do next, because HR leaders further emphasized the need for a rapid and reliable signal that corresponds to on-the-job performance, rather than just memorization of buzzwords.",
   researchSections: [
     {
-      title: "User Interviews Across Segments",
-      description: "Spoke with three key personas: students exploring AI careers, professionals upskilling, and corporate HR managers evaluating training ROI.",
+      title: "User Research",
+      description: "User Reviews Across Segments",
       items: [
         {
           text: "Students wanted quick validation before investing in expensive certification programs"
