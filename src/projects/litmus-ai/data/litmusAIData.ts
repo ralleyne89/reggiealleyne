@@ -371,7 +371,7 @@ export const litmusAIReflectionData: ReflectionProps = {
     },
     {
       title: "AI Application",
-      description: "Using AI to assess AI literacy felt appropriately for this project. GPT-5 became both the subject matter and the tool enabling rapid development of the platform."
+      description: "Using AI to assess AI literacy felt appropriate for this project. GPT-5 became both the subject matter and the tool enabling rapid development of the platform."
     }
   ]
 };
