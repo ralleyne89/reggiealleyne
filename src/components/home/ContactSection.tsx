@@ -42,7 +42,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="bg-secondary-dark relative py-[80px]">
+    <section id="contact" className="bg-gray-900 relative py-[80px]">
       <div className="container mx-auto px-4">
         <div className="max-w-xl mx-auto text-center mb-16">
           <motion.h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4" initial={{

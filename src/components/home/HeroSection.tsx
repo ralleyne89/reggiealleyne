@@ -56,7 +56,7 @@ const HeroSection = () => {
   return (
     <motion.div
       ref={targetRef}
-      className="h-screen max-h-screen w-full pt-28 relative overflow-hidden bg-secondary-dark flex flex-col justify-center"
+      className="h-screen max-h-screen w-full pt-28 relative overflow-hidden bg-white flex flex-col justify-center"
     >
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
@@ -76,10 +76,10 @@ const HeroSection = () => {
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp} className="mb-6">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight text-white">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight text-gray-900">
                 I'm <span className="text-primary">Reggie Alleyne</span>,
                 <br />
-                <span className="text-white">
+                <span className="text-gray-900">
                   the designer who{" "}
                   <span className="text-primary">speaks developer</span>
                 </span>
@@ -88,7 +88,7 @@ const HeroSection = () => {
 
             <motion.p
               variants={fadeInUp}
-              className="text-gray-400 text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0 mt-6"
+              className="text-gray-600 text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0 mt-6"
             >
               10+ years turning ideas into reality. Design first, code second.
             </motion.p>
@@ -110,7 +110,7 @@ const HeroSection = () => {
 
               <motion.a
                 href="#contact"
-                className="bg-transparent border border-gray-600 text-white px-6 py-3 rounded-full font-medium inline-flex items-center gap-2 hover:border-primary transition-colors duration-300"
+                className="bg-transparent border border-gray-300 text-gray-900 px-6 py-3 rounded-full font-medium inline-flex items-center gap-2 hover:border-primary transition-colors duration-300"
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
@@ -138,7 +138,7 @@ const HeroSection = () => {
             {/* Main Profile Container */}
             <div className="relative">
               {/* Profile Image with Modern Frame */}
-              <div className="relative rounded-3xl overflow-hidden w-full h-[400px] border border-gray-700 shadow-2xl">
+              <div className="relative rounded-3xl overflow-hidden w-full h-[400px] border border-gray-200 shadow-2xl">
                 <img
                   src="/images/1686931266900.jpeg"
                   alt="Reggie Alleyne - UI/UX Designer"
@@ -281,8 +281,8 @@ const HeroSection = () => {
           repeat: Infinity,
         }}
       >
-        <div className="text-gray-400 text-sm mb-2">Scroll Down</div>
-        <div className="w-6 h-10 rounded-full border-2 border-gray-500 flex justify-center pt-1">
+        <div className="text-gray-500 text-sm mb-2">Scroll Down</div>
+        <div className="w-6 h-10 rounded-full border-2 border-gray-400 flex justify-center pt-1">
           <motion.div
             className="w-1.5 h-1.5 rounded-full bg-primary"
             animate={{

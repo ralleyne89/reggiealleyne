@@ -50,14 +50,14 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 bg-secondary-dark/95 backdrop-blur-xl border-b border-gray-700/50 shadow-lg shadow-black/20 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg shadow-black/5 transition-all duration-300"
       initial="hidden"
       animate="visible"
       variants={navVariants}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between py-4">
-          <Link to="/" className="text-white">
+          <Link to="/" className="text-gray-900">
             <motion.div
               className="flex items-center gap-3"
               whileHover={{ scale: 1.05 }}
@@ -69,7 +69,7 @@ const Navbar = () => {
                 className="h-10 w-10 transition-all duration-300"
 
               /> */}
-              <p className="font-bold text-lg drop-shadow-sm transition-colors duration-300 text-white">
+              <p className="font-bold text-lg drop-shadow-sm transition-colors duration-300 text-gray-900">
                 REGGIE ALLEYNE
               </p>
             </motion.div>
@@ -86,7 +86,7 @@ const Navbar = () => {
                     (item.path !== "/" &&
                       location.pathname.startsWith(item.path))
                       ? "text-primary font-semibold"
-                      : "text-gray-300 hover:text-white font-medium"
+                      : "text-gray-700 hover:text-gray-900 font-medium"
                   }`}
                 >
                   {item.title}
@@ -96,7 +96,7 @@ const Navbar = () => {
           </ul>
 
           <motion.button
-            className="md:hidden focus:outline-none drop-shadow-sm transition-colors duration-300 text-white"
+            className="md:hidden focus:outline-none drop-shadow-sm transition-colors duration-300 text-gray-900"
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.9 }}
           >
@@ -107,7 +107,7 @@ const Navbar = () => {
 
       {isOpen && (
         <motion.div
-          className="md:hidden bg-secondary-dark/95 backdrop-blur-xl border-b border-gray-700/50 shadow-lg shadow-black/20"
+          className="md:hidden bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg shadow-black/5"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
@@ -129,7 +129,7 @@ const Navbar = () => {
                       (item.path !== "/" &&
                         location.pathname.startsWith(item.path))
                         ? "text-primary font-semibold"
-                        : "text-gray-300 hover:text-white font-medium"
+                        : "text-gray-700 hover:text-gray-900 font-medium"
                     }`}
                     onClick={(e) => {
                       setIsOpen(false);
