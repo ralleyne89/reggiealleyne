@@ -21,6 +21,7 @@ import { WristbandCaseStudy } from "@/projects/wristband";
 import { ImprovLearningCaseStudy } from "@/projects/improv-learning";
 import { DoggyDateCaseStudy } from "@/projects/doggy-date";
 import { LitmusAICaseStudy } from "@/projects/litmus-ai";
+import { VaultJSValidateCaseStudy } from "@/projects/vaultjs-validate";
 import { ProjectType } from "@/types/project";
 
 const Project = () => {
@@ -76,7 +77,7 @@ const Project = () => {
     }
 
     // Check if this is a project with a full case study
-    if (project?.slug === "symptom-checkr" || project?.slug === "tutor-d" || project?.slug === "tech-noir" || project?.slug === "cllctve-platform" || project?.slug === "bobs-big-break" || project?.slug === "chill-vibes-music-player" || project?.slug === "wristband" || project?.slug === "improv-learning" || project?.slug === "doggy-date" || project?.slug === "litmus-ai") {
+    if (project?.slug === "symptom-checkr" || project?.slug === "tutor-d" || project?.slug === "tech-noir" || project?.slug === "cllctve-platform" || project?.slug === "bobs-big-break" || project?.slug === "chill-vibes-music-player" || project?.slug === "wristband" || project?.slug === "improv-learning" || project?.slug === "doggy-date" || project?.slug === "litmus-ai" || project?.slug === "vaultjs-validate") {
       setShowCaseStudy(true);
     } else {
       setShowCaseStudy(false);
@@ -104,6 +105,8 @@ const Project = () => {
         return <DoggyDateCaseStudy />;
       case "litmus-ai":
         return <LitmusAICaseStudy />;
+      case "vaultjs-validate":
+        return <VaultJSValidateCaseStudy />;
       default:
         return <div className="min-h-screen bg-white flex items-center justify-center">
             <div className="text-center">
