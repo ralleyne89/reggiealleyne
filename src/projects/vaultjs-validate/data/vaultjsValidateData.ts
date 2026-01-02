@@ -250,9 +250,19 @@ export const vaultjsUIData: FinalUIDesignProps = {
   ],
   uiImages: [
     {
-      src: "/images/vaultjs-banner.jpg",
-      alt: "Vault.js Validate security dashboard interface",
-      title: "Security Dashboard"
+      src: "/images/vaultjs-hero.png",
+      alt: "Vault.js Validate hero - Scan Your Attack Surface",
+      title: "Hero: Scan Your Attack Surface"
+    },
+    {
+      src: "/images/vaultjs-dashboard.png",
+      alt: "Security Analysis Report with Risk Assessment Score",
+      title: "Security Analysis Report"
+    },
+    {
+      src: "/images/vaultjs-analysis.png",
+      alt: "Third-Party Scripts and Privacy Analysis",
+      title: "Third-Party Scripts Analysis"
     }
   ]
 };

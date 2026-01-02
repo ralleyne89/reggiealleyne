@@ -11,7 +11,7 @@ export const getVaultJSValidateProject = (): ProjectType => {
     duration: '2 Weeks (Sprint)',
     teamSize: '1',
     tags: ['Enterprise Security', 'AI Integration', 'Data Visualization', 'React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'OpenAI API'],
-    image: '/images/vaultjs-banner.jpg',
+    image: '/images/vaultjs-hero.png',
     summary: 'Vault.js Validate is a high-fidelity security monitoring dashboard designed to transform complex security data into actionable insights. The project bridges the gap between raw security data and user-centric design by introducing an AI-powered remediation engine that not only identifies vulnerabilities but explains them in plain English and generates code fixes automatically.',
     problem: 'Enterprise security teams are drowning in data. Traditional compliance dashboards are often cluttered, difficult to navigate, and fail to provide actionable insights. Security analysts need a tool that not only visualizes the invisible network of third-party scripts but also helps them remediate vulnerabilities instantly.',
     solution: 'I designed and built Vault.js Validate, a security monitoring dashboard that balances "Cyber-Security Brutalism" with the polish of a trusted enterprise product. The solution features real-time attack surface scanning, an AI-powered remediation engine, dynamic risk visualization, and comprehensive compliance monitoring.',
@@ -30,7 +30,9 @@ export const getVaultJSValidateProject = (): ProjectType => {
       'Cyber-Security Aesthetic Design System'
     ],
     images: [
-      '/images/vaultjs-banner.jpg',
+      '/images/vaultjs-hero.png',
+      '/images/vaultjs-dashboard.png',
+      '/images/vaultjs-analysis.png',
     ],
     videoUrl: null,
     githubUrl: 'https://github.com/ralleyne89/secure-scan-dashboard',
