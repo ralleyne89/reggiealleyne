@@ -227,7 +227,7 @@ const SkillsSection = () => {
                       {skill.icon}
                     </div>
                     <div>
-                      <h4 className="text-black font-medium mb-1">
+                      <h4 className="text-white font-medium mb-1">
                         {skill.name}
                       </h4>
                       <p className="text-gray-400 text-sm">
@@ -295,7 +295,7 @@ const SkillsSection = () => {
                       {skill.icon}
                     </div>
                     <div>
-                      <h4 className="text-black font-medium mb-1">
+                      <h4 className="text-white font-medium mb-1">
                         {skill.name}
                       </h4>
                       <p className="text-gray-400 text-sm">
@@ -365,7 +365,7 @@ const SkillsSection = () => {
                       {step.icon}
                     </div>
                     <div>
-                      <h4 className="text-black font-medium mb-1">
+                      <h4 className="text-white font-medium mb-1">
                         {step.name}
                       </h4>
                       <p className="text-gray-400 text-sm">
@@ -433,7 +433,7 @@ const SkillsSection = () => {
                       {experience.icon}
                     </div>
                     <div>
-                      <h4 className="text-black font-medium mb-1">
+                      <h4 className="text-white font-medium mb-1">
                         {experience.name}
                       </h4>
                       <p className="text-gray-400 text-sm">
