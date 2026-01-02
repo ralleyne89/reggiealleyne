@@ -78,7 +78,7 @@ const EducationSection = () => {
                 {item.year}
               </div>
 
-              <h3 className="text-xl font-heading font-semibold text-black mb-2">
+              <h3 className="text-xl font-heading font-semibold text-white mb-2">
                 {item.title}
               </h3>
               <p className="text-primary mb-3 text-sm">{item.school}</p>

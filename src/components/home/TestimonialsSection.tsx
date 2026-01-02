@@ -37,9 +37,9 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-white relative overflow-hidden">
+    <section className="py-16 bg-secondary relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 border border-primary rounded-full"></div>
         <div className="absolute bottom-10 right-10 w-24 h-24 border border-primary rounded-full"></div>
         <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-primary rounded-full"></div>
@@ -53,10 +53,10 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-text-primary mb-4">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-4">
             Trusted by <span className="text-primary">Teams & Leaders</span>
           </h2>
-          <p className="text-text-secondary max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto">
             Real feedback from colleagues and clients who've experienced the
             difference of working with a designer who codes.
           </p>
@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
               viewport={{ once: true, amount: 0.3 }}
             >
               {/* Senja/Shosay Style Card */}
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 group-hover:border-primary/20 relative">
+              <div className="bg-secondary-dark border border-gray-700 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 group-hover:border-primary/20 relative">
                 {/* Quote Icon */}
                 <div className="absolute -top-3 -left-3 bg-primary rounded-full p-2 shadow-lg">
                   <Quote className="w-4 h-4 text-white" />
@@ -90,7 +90,7 @@ const TestimonialsSection = () => {
                 </div>
 
                 {/* Testimonial Text */}
-                <blockquote className="text-text-primary text-base leading-relaxed mb-6">
+                <blockquote className="text-gray-200 text-base leading-relaxed mb-6">
                   "{testimonial.text}"
                 </blockquote>
 
@@ -101,16 +101,16 @@ const TestimonialsSection = () => {
                       .split(" ")
                       .map((n) => n[0])
                       .join("")}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-text-primary text-sm">
-                      {testimonial.name}
                     </div>
-                    <div className="text-text-secondary text-xs">
-                      {testimonial.role} at {testimonial.company}
+                    <div>
+                      <div className="font-semibold text-white text-sm">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-gray-400 text-xs">
+                        {testimonial.role} at {testimonial.company}
+                      </div>
                     </div>
                   </div>
-                </div>
 
                 {/* Highlight Badge */}
                 <div className="absolute top-4 right-4 bg-primary/10 text-primary text-xs px-2 py-1 rounded-full font-medium">
@@ -129,7 +129,7 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="flex items-center justify-center gap-8 text-text-secondary text-sm">
+          <div className="flex items-center justify-center gap-8 text-gray-400 text-sm">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
               <span>100% Client Satisfaction</span>

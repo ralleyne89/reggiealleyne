@@ -56,7 +56,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-secondary relative">
+    <section id="about" className="py-20 bg-secondary-dark relative">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
@@ -78,10 +78,10 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-text-primary mb-6">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
               Hey, I'm <span className="text-primary">Reggie</span>.
             </h2>
-            <p className="text-xl text-text-secondary leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
               Nice to meet you.
             </p>
           </motion.div>
@@ -106,7 +106,7 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <p className="text-lg text-text-secondary leading-relaxed">
+            <p className="text-lg text-gray-300 leading-relaxed">
               I'm a{" "}
               <span className="text-primary font-semibold">UI/UX Designer</span>{" "}
               who codes—because sometimes the best way to solve a design problem
@@ -116,7 +116,7 @@ const AboutSection = () => {
               creating solutions that work.
             </p>
 
-            <p className="text-lg text-text-secondary leading-relaxed">
+            <p className="text-lg text-gray-300 leading-relaxed">
               Born and raised in LA, I'm a family man who believes the best
               solutions come from understanding people—whether that's users
               struggling with healthcare navigation or teammates trying to ship
@@ -125,7 +125,7 @@ const AboutSection = () => {
               building tools that actually matter to people's lives.
             </p>
 
-            <p className="text-lg text-text-secondary leading-relaxed">
+            <p className="text-lg text-gray-300 leading-relaxed">
               But here's the thing—I'm dreaming bigger. I want to design for the
               industries that first made me fall in love with great experiences:{" "}
               <span className="text-primary font-semibold">
@@ -157,7 +157,7 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h3 className="text-2xl font-heading font-bold text-text-primary mb-12 text-center">
+            <h3 className="text-2xl font-heading font-bold text-white mb-12 text-center">
               What I'm About
             </h3>
 
@@ -165,7 +165,7 @@ const AboutSection = () => {
               {aboutMeValues.map((value, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white p-8 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors shadow-sm"
+                  className="bg-secondary p-8 rounded-xl border border-gray-700 hover:border-primary/20 transition-colors shadow-sm"
                   initial={{
                     opacity: 0,
                     y: 20,
@@ -188,10 +188,10 @@ const AboutSection = () => {
                       {value.icon}
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-xl font-semibold text-text-primary mb-3">
+                      <h4 className="text-xl font-semibold text-white mb-3">
                         {value.title}
                       </h4>
-                      <p className="text-text-secondary leading-relaxed">
+                      <p className="text-gray-400 leading-relaxed">
                         {value.description}
                       </p>
                     </div>
@@ -221,14 +221,14 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h3 className="text-2xl font-heading font-bold text-text-primary mb-8 text-center">
+            <h3 className="text-2xl font-heading font-bold text-white mb-8 text-center">
               When I'm Not Designing
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {interests.map((interest, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors text-center shadow-sm"
+                  className="bg-secondary p-6 rounded-xl border border-gray-700 hover:border-primary/20 transition-colors text-center shadow-sm"
                   initial={{
                     opacity: 0,
                     y: 20,
@@ -249,10 +249,10 @@ const AboutSection = () => {
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     {interest.icon}
                   </div>
-                  <h4 className="font-semibold text-text-primary mb-2">
+                  <h4 className="font-semibold text-white mb-2">
                     {interest.title}
                   </h4>
-                  <p className="text-text-secondary text-sm">
+                  <p className="text-gray-400 text-sm">
                     {interest.description}
                   </p>
                 </motion.div>
