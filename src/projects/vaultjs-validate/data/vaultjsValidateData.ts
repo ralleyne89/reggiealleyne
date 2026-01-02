@@ -250,24 +250,9 @@ export const vaultjsUIData: FinalUIDesignProps = {
   ],
   uiImages: [
     {
-      src: "/images/vaultjs-1.jpg",
-      alt: "Vault.js Validate case study overview",
-      title: "Case Study Overview"
-    },
-    {
-      src: "/images/vaultjs-2.jpg",
-      alt: "Key features and design process",
-      title: "Features & Process"
-    },
-    {
-      src: "/images/vaultjs-3.jpg",
-      alt: "Visual identity and prototyping",
-      title: "Visual Identity & Results"
-    },
-    {
-      src: "/images/vaultjs-4.jpg",
-      alt: "Tech stack and final implementation",
-      title: "Tech Stack"
+      src: "/images/vaultjs-banner.jpg",
+      alt: "Vault.js Validate security dashboard interface",
+      title: "Security Dashboard"
     }
   ]
 };
