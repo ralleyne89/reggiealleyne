@@ -123,11 +123,11 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-secondary-dark relative">
+    <section id="skills" className="py-20 bg-white relative">
       <div className="container mx-auto px-4">
         <div className="max-w-xl mx-auto text-center mb-16">
           <motion.h2
-            className="text-3xl md:text-4xl font-heading font-bold text-text-light mb-4"
+            className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4"
             initial={{
               opacity: 0,
               y: 30,
@@ -148,7 +148,7 @@ const SkillsSection = () => {
           </motion.h2>
 
           <motion.p
-            className="text-text-muted"
+            className="text-gray-600"
             initial={{
               opacity: 0,
               y: 30,
@@ -195,7 +195,7 @@ const SkillsSection = () => {
               <div className="bg-primary/10 p-3 rounded-lg">
                 <Zap className="text-primary h-6 w-6" />
               </div>
-              <h3 className="text-2xl font-heading font-bold text-white">
+              <h3 className="text-2xl font-heading font-bold text-gray-900">
                 Core Expertise
               </h3>
             </div>
@@ -204,7 +204,7 @@ const SkillsSection = () => {
               {expertiseSkills.map((skill, index) => (
                 <motion.div
                   key={index}
-                  className="bg-secondary p-4 rounded-xl border border-gray-800 hover:border-primary/20 transition-colors"
+                  className="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors"
                   initial={{
                     opacity: 0,
                     y: 20,
@@ -227,10 +227,10 @@ const SkillsSection = () => {
                       {skill.icon}
                     </div>
                     <div>
-                      <h4 className="text-white font-medium mb-1">
+                      <h4 className="text-gray-900 font-medium mb-1">
                         {skill.name}
                       </h4>
-                      <p className="text-gray-400 text-sm">
+                      <p className="text-gray-500 text-sm">
                         {skill.description}
                       </p>
                     </div>
@@ -263,7 +263,7 @@ const SkillsSection = () => {
               <div className="bg-primary/10 p-3 rounded-lg">
                 <Brain className="text-primary h-6 w-6" />
               </div>
-              <h3 className="text-2xl font-heading font-bold text-white">
+              <h3 className="text-2xl font-heading font-bold text-gray-900">
                 Methodology
               </h3>
             </div>
@@ -272,7 +272,7 @@ const SkillsSection = () => {
               {methodologySkills.map((skill, index) => (
                 <motion.div
                   key={index}
-                  className="bg-secondary p-4 rounded-xl border border-gray-800 hover:border-primary/20 transition-colors"
+                  className="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors"
                   initial={{
                     opacity: 0,
                     y: 20,
@@ -295,10 +295,10 @@ const SkillsSection = () => {
                       {skill.icon}
                     </div>
                     <div>
-                      <h4 className="text-white font-medium mb-1">
+                      <h4 className="text-gray-900 font-medium mb-1">
                         {skill.name}
                       </h4>
-                      <p className="text-gray-400 text-sm">
+                      <p className="text-gray-500 text-sm">
                         {skill.description}
                       </p>
                     </div>
@@ -333,7 +333,7 @@ const SkillsSection = () => {
               <div className="bg-primary/10 p-3 rounded-lg">
                 <Workflow className="text-primary h-6 w-6" />
               </div>
-              <h3 className="text-2xl font-heading font-bold text-white">
+              <h3 className="text-2xl font-heading font-bold text-gray-900">
                 My Process
               </h3>
             </div>
@@ -342,7 +342,7 @@ const SkillsSection = () => {
               {processSteps.map((step, index) => (
                 <motion.div
                   key={index}
-                  className="bg-secondary p-4 rounded-xl border border-gray-800 hover:border-primary/20 transition-colors"
+                  className="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors"
                   initial={{
                     opacity: 0,
                     y: 20,
@@ -365,10 +365,10 @@ const SkillsSection = () => {
                       {step.icon}
                     </div>
                     <div>
-                      <h4 className="text-white font-medium mb-1">
+                      <h4 className="text-gray-900 font-medium mb-1">
                         {step.name}
                       </h4>
-                      <p className="text-gray-400 text-sm">
+                      <p className="text-gray-500 text-sm">
                         {step.description}
                       </p>
                     </div>
@@ -401,7 +401,7 @@ const SkillsSection = () => {
               <div className="bg-primary/10 p-3 rounded-lg">
                 <Sparkles className="text-primary h-6 w-6" />
               </div>
-              <h3 className="text-2xl font-heading font-bold text-white">
+              <h3 className="text-2xl font-heading font-bold text-gray-900">
                 Unique Digital Experiences
               </h3>
             </div>
@@ -410,7 +410,7 @@ const SkillsSection = () => {
               {uniqueExperiences.map((experience, index) => (
                 <motion.div
                   key={index}
-                  className="bg-secondary p-4 rounded-xl border border-gray-800 hover:border-primary/20 transition-colors"
+                  className="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors"
                   initial={{
                     opacity: 0,
                     y: 20,
@@ -433,10 +433,10 @@ const SkillsSection = () => {
                       {experience.icon}
                     </div>
                     <div>
-                      <h4 className="text-white font-medium mb-1">
+                      <h4 className="text-gray-900 font-medium mb-1">
                         {experience.name}
                       </h4>
-                      <p className="text-gray-400 text-sm">
+                      <p className="text-gray-500 text-sm">
                         {experience.description}
                       </p>
                     </div>

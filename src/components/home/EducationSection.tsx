@@ -21,10 +21,10 @@ const EducationSection = () => {
   }];
 
   return (
-    <section id="education" className="py-20 bg-secondary-dark relative">
+    <section id="education" className="py-20 bg-gray-50 relative">
       <div className="container mx-auto px-4">
         <div className="max-w-xl mx-auto text-center mb-16">
-          <motion.h2 className="text-3xl md:text-4xl font-heading font-bold text-text-light mb-4" initial={{
+          <motion.h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4" initial={{
             opacity: 0,
             y: 30
           }} whileInView={{
@@ -39,7 +39,7 @@ const EducationSection = () => {
             My <span className="text-primary">Experience</span>
           </motion.h2>
 
-          <motion.p className="text-gray-400" initial={{
+          <motion.p className="text-gray-600" initial={{
             opacity: 0,
             y: 30
           }} whileInView={{
@@ -59,7 +59,7 @@ const EducationSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {education.map((item, index) => (
-            <motion.div key={index} className="bg-secondary rounded-3xl p-6 relative overflow-hidden group" initial={{
+            <motion.div key={index} className="bg-white rounded-3xl p-6 relative overflow-hidden group border border-gray-200" initial={{
               opacity: 0,
               y: 50
             }} whileInView={{
@@ -78,11 +78,11 @@ const EducationSection = () => {
                 {item.year}
               </div>
 
-              <h3 className="text-xl font-heading font-semibold text-white mb-2">
+              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
                 {item.title}
               </h3>
               <p className="text-primary mb-3 text-sm">{item.school}</p>
-              <p className="text-gray-400 text-sm">{item.description}</p>
+              <p className="text-gray-500 text-sm">{item.description}</p>
 
               <div className="absolute -bottom-2 -right-2 w-24 h-24 bg-primary/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </motion.div>
