@@ -24,45 +24,45 @@ import { OutcomesImpactProps } from "@/components/project/common/OutcomesImpact"
 import { ChallengesLearningsProps } from "@/components/project/common/ChallengesLearnings";
 import { ReflectionProps } from "@/components/project/common/Reflection";
 
-// Project Overview Data
+// Project Overview Data - Minto Pyramid: Lead with Impact
 export const litmusAIOverviewData: ProjectOverviewProps = {
-  title: "Measuring AI Literacy in 5 Minutes or Less",
+  title: "Full MVP in 2 Months: AI Literacy Certification Platform",
   description: [
-    "AI is everywhere today, but there's a very obvious issue: we can't quickly or reliably say that someone is truly AI literate, because most AI literacy assessments are lengthy, static, and slow to evolve to the rapidly changing AI landscape.",
-    "As a solo founder, I set out to build a platform that tests true AI literacy (not buzzword literacy) in under 5 minutes, therefore I wanted an adaptive test that adjusts in real time to your answers, provides immediate feedback, and maps out exactly what you need to learn next.",
-    "The goal was aggressive: to build a complete AI literacy certification platform from the ground up in two months, which means developing an adaptive testing engine, personalized learning recommendations, integrated payments, and verifiable credentials all the way from end to end, and I had to accomplish all of this as a team of one."
+    "Shipped a complete AI literacy certification platform as a solo founder—adaptive testing engine, Stripe payments, verifiable credentials, and admin dashboard—in 8 weeks. The platform tests genuine AI understanding (not buzzword familiarity) in under 5 minutes through GPT-powered dynamic question generation.",
+    "The market gap was clear: existing certifications require hours of commitment before providing any value. HR leaders needed quick, reliable signals of AI competency. Learners wanted validation before investing in expensive courses. I built the bridge.",
+    "Technical architecture: React + Next.js frontend, GPT-5 for adaptive assessment across 4 AI domains (ML, prompt engineering, ethics, applications), Supabase backend, Stripe for flexible monetization (subscriptions + one-time + enterprise)."
   ],
   projectDetails: [
     {
-      label: "My Role",
-      value: "Founder & Product Designer, AI Strategist",
+      label: "Outcome",
+      value: "Full MVP shipped in 2 months",
+      icon: CheckCircle
+    },
+    {
+      label: "Role",
+      value: "Solo Founder, Product Designer, AI Strategist",
       icon: Briefcase
     },
     {
-      label: "Team Size",
-      value: "1 (Solo Founder)",
+      label: "Team",
+      value: "1 (Solo)",
       icon: Users
-    },
-    {
-      label: "Timeline",
-      value: "2 months from concept to launch",
-      icon: Clock
     }
   ],
   toolDetails: [
     {
-      label: "Design & Dev",
-      value: "React + Next.js, Figma for wireframes",
-      icon: Image
+      label: "Frontend",
+      value: "React + Next.js",
+      icon: Code
     },
     {
       label: "AI Engine",
-      value: "GPT-4/GPT-5 for adaptive assessment",
+      value: "GPT-5 Adaptive Assessment",
       icon: Brain
     },
     {
-      label: "Platform",
-      value: "Web-based, mobile-responsive",
+      label: "Backend",
+      value: "Supabase + Stripe",
       icon: Monitor
     }
   ]

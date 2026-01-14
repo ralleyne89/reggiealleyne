@@ -32,16 +32,16 @@ import { ReflectionProps } from "@/components/project/common/Reflection";
 
 // Project Overview Data
 export const symptomCheckrOverviewData: ProjectOverviewProps = {
-  title: "Reimagining How People Navigate Health Anxiety Online",
+  title: "Reducing Patient Anxiety through Algorithmic Transparency",
   description: [
-    "This was an extra feature I designed for an existing health insurance platform - a symptom checker that actually feels trustworthy. You know how every time you Google a headache, WebMD basically tells you you're dying? Yeah, I wanted to fix that.",
-    "The reality is most symptom checkers feel like they were designed by robots for robots. I spent time thinking through how we could create something that feels more like talking to that one friend who's really good at staying calm during a crisis.",
-    "The Brief: Design a symptom checker as an additional feature for a health insurance company that helps people figure out their next steps without sending them into a panic spiral. (The feature got shelved due to organizational restructuring, so I'm sharing my design approach here.)"
+    "WebMD scares people. SymptomCheckr informs them. I designed a symptom checker that prioritizes Trust Design and Explainable AI (XAI)—showing users exactly how the algorithm reaches its conclusions rather than hiding behind a black box.",
+    "The core insight: health anxiety isn't just about symptoms—it's about uncertainty. When people understand how an AI reached its assessment, they trust it more. I designed an XAI interface that cites sources, explains reasoning, and gives users control over their health data.",
+    "This was an additional feature for a health insurance platform, focused on reducing unnecessary ER visits by helping users make informed decisions. The feature was shelved due to restructuring, but the Trust Design principles apply to any AI-driven health tool."
   ],
   projectDetails: [
     {
-      label: "My Role",
-      value: "UI/UX Designer",
+      label: "Design Focus",
+      value: "Trust Design & Explainable AI",
       icon: Briefcase
     },
     {
@@ -51,14 +51,14 @@ export const symptomCheckrOverviewData: ProjectOverviewProps = {
     },
     {
       label: "Timeline",
-      value: "8 weeks of intense problem-solving",
+      value: "8 weeks",
       icon: Clock
     }
   ],
   toolDetails: [
     {
-      label: "Design Tools",
-      value: "Figma for design, React for reality",
+      label: "Methodology",
+      value: "XAI Interface Design, User Research",
       icon: Image
     },
     {
@@ -67,8 +67,8 @@ export const symptomCheckrOverviewData: ProjectOverviewProps = {
       icon: Monitor
     },
     {
-      label: "Client",
-      value: "Major health insurer (can't name names)",
+      label: "Sector",
+      value: "Healthcare / InsurTech",
       icon: Briefcase
     }
   ]
@@ -76,39 +76,39 @@ export const symptomCheckrOverviewData: ProjectOverviewProps = {
 
 // Problem Space Data
 export const symptomCheckrProblemSpaceData: ProblemSpaceProps = {
-  title: "Why Do Symptom Checkers Feel Like They Hate You?",
-  introduction: "Seriously, have you ever used a symptom checker that didn't make you feel worse? I spent time digging into why existing tools feel so broken. Turns out, most are built like medical forms instead of helpful conversations. The challenge: How might we design something that actually helps people navigate health anxiety instead of amplifying it?",
+  title: "The Black Box Problem in Healthcare AI",
+  introduction: "Most symptom checkers treat AI like magic—input symptoms, output diagnosis, no explanation. This creates a fundamental trust problem: users can't verify the reasoning, can't question the logic, and can't make informed decisions. The challenge: How do we design Explainable AI (XAI) interfaces that make algorithmic reasoning transparent and trustworthy?",
   challenges: [
     {
-      title: "The Trust Issue",
-      description: "Would you trust a symptom checker that looks like it was designed in 2003? Neither would your users. Most tools feel clinical, cold, and about as trustworthy as a fortune cookie.",
+      title: "Algorithmic Opacity",
+      description: "Black box AI in healthcare creates anxiety, not relief. When users can't see how conclusions are reached, they either blindly trust or completely dismiss the results.",
       icon: AlertCircle
     },
     {
-      title: "The Panic Problem",
-      description: "Current tools either send everyone to the ER or tell them they're fine. There's no middle ground, no nuance, and definitely no chill.",
+      title: "The Panic-or-Dismiss Pattern",
+      description: "Without confidence levels and source citations, users oscillate between 'I'm dying' and 'this is useless.' Neither response leads to appropriate care decisions.",
       icon: AlertCircle
     },
     {
-      title: "The Fragmentation Frustration",
-      description: "Health portals are digital mazes. Users get lost trying to find what they need, give up, and just go to urgent care instead.",
+      title: "Data Privacy Uncertainty",
+      description: "Health data is sensitive. Users need transparent control over what's collected, stored, and shared—not buried privacy policies.",
       icon: AlertCircle
     }
   ],
   designGoals: [
     {
-      title: "What if it felt like texting a friend?",
-      description: "Instead of clinical questionnaires, design conversational interactions that feel natural and reassuring.",
+      title: "Explainable AI Interface",
+      description: "Design an XAI interface that shows confidence levels, cites medical sources, and explains the reasoning chain behind each assessment.",
       icon: Target
     },
     {
-      title: "Make the AI transparent, not mysterious",
-      description: "Show users how the system works and what it can't do. No black boxes when people's health is involved.",
+      title: "Graduated Certainty",
+      description: "Replace binary 'yes/no' outputs with probability ranges and clear language about what the AI can and cannot determine.",
       icon: Target
     },
     {
-      title: "Give people actual next steps",
-      description: "None of this 'see a doctor' vagueness. Tell people whether they need urgent care, can wait for telehealth, or should try home remedies first.",
+      title: "User Data Sovereignty",
+      description: "Give users complete control: delete data anytime, choose what to share with doctors, and see exactly what information drives each recommendation.",
       icon: Target
     }
   ]

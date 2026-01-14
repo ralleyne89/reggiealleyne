@@ -1,27 +1,27 @@
-import { Users, Calendar, Palette, Lightbulb, Target, Zap, Code, Globe, Smartphone, Monitor, CheckCircle, ArrowRight, Layout, Database, Cpu } from "lucide-react";
+import { Users, Calendar, Palette, Lightbulb, Target, Zap, Code, Globe, Smartphone, Monitor, CheckCircle, ArrowRight, Layout, Database, Cpu, TrendingUp } from "lucide-react";
 
 export const cllctveOverviewData = {
-  title: "Building a Gen Z Creator Platform",
+  title: "Scaling a Gen Z Portfolio Platform to 500+ Active Users",
   description: [
-    "So I spent almost two years building this React-based portfolio platform for Gen Z creators. We actually got 500+ creators signed up and secured 15+ brand partnerships before the company unfortunately had to shut down. The drag-and-drop portfolio builder was pretty sweet though.",
-    "Here's the thing - the creator economy is massive (like $104B massive), but most portfolio platforms just don't get Gen Z. Behance and Dribbble feel ancient on mobile, and they're not built for the way young creators actually want to showcase their work.",
-    "My approach was basically: make it fast, make it pretty, make it work on phones first. I used React with Styled Components and Ant Design, got the load times way better than the competition, and built in real-time notifications because Gen Z expects everything to be instant."
+    "500+ creators. 15 brand partnerships. 85% user retention. Before the company dissolved, we built something Gen Z creators actually wanted to use—a React-based portfolio platform that understood how young creatives showcase their work.",
+    "As Product Designer & Design Systems Lead, I owned the entire design system architecture and frontend implementation. I utilized Styled Components to enforce a strict design token system, ensuring that the 'dark mode' aesthetic remained accessible (WCAG AA) while feeling native to Gen Z digital behavior.",
+    "The creator economy is massive ($104B+), but most portfolio platforms feel ancient. Behance and Dribbble weren't built for mobile-first creators who expect everything to be instant. We changed that—and the metrics proved it worked."
   ],
   projectDetails: [
     {
+      icon: TrendingUp,
+      label: "Impact",
+      value: "500+ creators, 15 brand partnerships"
+    },
+    {
       icon: Users,
       label: "Role",
-      value: "Frontend Developer"
+      value: "Product Designer & Design Systems Lead"
     },
     {
       icon: Calendar,
       label: "Duration",
       value: "1 year, 10 months"
-    },
-    {
-      icon: Calendar,
-      label: "Year",
-      value: "2022"
     },
     {
       icon: Users,
@@ -32,23 +32,23 @@ export const cllctveOverviewData = {
   toolDetails: [
     {
       icon: Code,
-      label: "Frontend",
+      label: "Design Engineering",
       value: "React.js, Styled Components"
     },
     {
       icon: Palette,
-      label: "UI Library",
-      value: "Ant Design"
+      label: "Design System",
+      value: "Custom tokens, Ant Design"
     },
     {
       icon: Globe,
-      label: "API Integration",
-      value: "Axios, MongoDB"
+      label: "Architecture",
+      value: "Modular components, MongoDB"
     },
     {
       icon: Monitor,
-      label: "Deployment",
-      value: "Web Platform"
+      label: "Platform",
+      value: "Mobile-first responsive"
     }
   ]
 };
