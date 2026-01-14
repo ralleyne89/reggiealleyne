@@ -10,7 +10,7 @@ export const getScentStackProject = (): ProjectType => {
     year: '2026',
     duration: '3 weeks',
     teamSize: '1',
-    tags: ['AI/ML', 'Consumer Product', 'React', 'Personal Project', 'Computer Vision', 'GPT-4', 'UX Design'],
+    tags: ['AI/ML', 'Consumer Product', 'React', 'Personal Project', 'Computer Vision', 'GPT-5', 'UX Design'],
     image: '/images/scentstack-hero.png',
     summary: 'ScentStack is an AI-powered fragrance discovery platform that democratizes luxury scents through a database of 1732+ affordable dupes, computer vision-powered layering suggestions, and natural language "dream scent" matching. Built as a solo passion project by a fragrance collector.',
     problem: 'The fragrance industry operates on a fundamental inequity: identical scent formulas command wildly different prices based on branding alone. Meanwhile, the art of fragrance layering remains inaccessible to beginners, and the gap between imagining your perfect scent and actually finding it has no bridge.',
