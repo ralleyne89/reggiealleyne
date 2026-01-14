@@ -67,11 +67,11 @@ const ProjectCard = ({
             ))}
           </div>
 
-          <h3 className="text-lg font-heading font-bold text-text-primary mb-3 group-hover:text-primary transition-colors duration-300 leading-tight">
+          <h3 className="font-display text-heading-md text-text-primary mb-3 group-hover:text-primary transition-colors duration-300 leading-tight">
             {title}
           </h3>
 
-          <p className="text-text-secondary text-sm line-clamp-2 flex-grow">
+          <p className="text-text-secondary text-body-sm line-clamp-2 flex-grow">
             {description}
           </p>
 

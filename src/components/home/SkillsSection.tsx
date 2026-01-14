@@ -127,7 +127,7 @@ const SkillsSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-xl mx-auto text-center mb-16">
           <motion.h2
-            className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4"
+            className="font-display text-display-md text-gray-900 mb-4"
             initial={{
               opacity: 0,
               y: 30,
@@ -144,11 +144,11 @@ const SkillsSection = () => {
               amount: 0.3,
             }}
           >
-            What I Bring to <span className="text-primary">Every Project</span>
+            What I Bring to <span className="text-primary italic">Every Project</span>
           </motion.h2>
 
           <motion.p
-            className="text-gray-600"
+            className="text-gray-600 text-body-md"
             initial={{
               opacity: 0,
               y: 30,
@@ -195,7 +195,7 @@ const SkillsSection = () => {
               <div className="bg-primary/10 p-3 rounded-lg">
                 <Zap className="text-primary h-6 w-6" />
               </div>
-              <h3 className="text-2xl font-heading font-bold text-gray-900">
+              <h3 className="font-display text-heading-lg text-gray-900">
                 Core Expertise
               </h3>
             </div>
@@ -263,7 +263,7 @@ const SkillsSection = () => {
               <div className="bg-primary/10 p-3 rounded-lg">
                 <Brain className="text-primary h-6 w-6" />
               </div>
-              <h3 className="text-2xl font-heading font-bold text-gray-900">
+              <h3 className="font-display text-heading-lg text-gray-900">
                 Methodology
               </h3>
             </div>
@@ -333,7 +333,7 @@ const SkillsSection = () => {
               <div className="bg-primary/10 p-3 rounded-lg">
                 <Workflow className="text-primary h-6 w-6" />
               </div>
-              <h3 className="text-2xl font-heading font-bold text-gray-900">
+              <h3 className="font-display text-heading-lg text-gray-900">
                 My Process
               </h3>
             </div>
@@ -401,7 +401,7 @@ const SkillsSection = () => {
               <div className="bg-primary/10 p-3 rounded-lg">
                 <Sparkles className="text-primary h-6 w-6" />
               </div>
-              <h3 className="text-2xl font-heading font-bold text-gray-900">
+              <h3 className="font-display text-heading-lg text-gray-900">
                 Unique Digital Experiences
               </h3>
             </div>

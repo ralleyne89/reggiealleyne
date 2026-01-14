@@ -147,15 +147,25 @@ const Works = () => {
 
         {/* Main Content with Mobile-Optimized Layout */}
         <div className="container mx-auto px-4 mt-8 lg:mt-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-8 lg:mb-16 text-text-primary">
-            Selected Work
-          </h2>
-          <div className="mb-8 lg:mb-16">
-            <p className="text-base lg:text-lg text-text-secondary max-w-2xl leading-relaxed">
+          <motion.h2
+            className="font-display text-display-lg mb-8 lg:mb-16 text-text-primary"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Selected <span className="text-primary italic">Work</span>
+          </motion.h2>
+          <motion.div
+            className="mb-8 lg:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <p className="text-body-lg text-text-secondary max-w-2xl leading-relaxed">
               Check out a curated selection of my work, there have been a lot
               but these are my favorites.
             </p>
-          </div>
+          </motion.div>
 
           {/* Mobile: Stack Layout */}
           <div className="block lg:hidden space-y-12">
@@ -205,7 +215,7 @@ const Works = () => {
                     </div>
 
                     {/* Project Title */}
-                    <h3 className="text-2xl md:text-3xl font-heading font-bold text-text-primary">
+                    <h3 className="font-display text-heading-xl text-text-primary">
                       {project.title}
                     </h3>
 
@@ -295,7 +305,7 @@ const Works = () => {
                   </div>
 
                   {/* Project Title */}
-                  <h3 className="text-3xl lg:text-5xl font-heading font-bold text-text-primary">
+                  <h3 className="font-display text-display-md text-text-primary">
                     {activeProject.title}
                   </h3>
 
