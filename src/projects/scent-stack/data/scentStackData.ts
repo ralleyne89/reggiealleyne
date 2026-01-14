@@ -200,7 +200,7 @@ export const scentStackIdeationData: IdeationStrategyProps = {
     {
       number: 1,
       title: "Discover",
-      description: "Browse 148+ brands, compare original vs. dupe pricing, see savings percentages",
+      description: "Browse 150+ brands, compare original vs. dupe pricing, see savings percentages",
     },
     {
       number: 2,
@@ -309,7 +309,7 @@ export const scentStackOutcomesData: OutcomesImpactProps = {
     },
     {
       title: "Designer Brands",
-      value: "148+",
+      value: "150+",
       description: "Complete A-Z browser covering major designer and niche fragrance houses",
       icon: Award,
     },
