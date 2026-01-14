@@ -11,9 +11,10 @@ import { getBobsBigBreakProject } from './projects/bobsBigBreak';
 import { getSymptomCheckrProject } from './projects/symptomCheckr';
 import { getLitmusAIProject } from './projects/litmusAI';
 import { getVaultJSValidateProject } from './projects/vaultjsValidate';
+import { getScentStackProject } from './projects/scentStack';
 
 // Map of ID to project getter functions
-const projectGetters = {
+const projectGetters: Record<number, () => ProjectType> = {
   1: getCllctveProject,
   2: getTutorDProject,
   3: getTechNoirProject,
@@ -25,6 +26,7 @@ const projectGetters = {
   9: getSymptomCheckrProject,
   10: getLitmusAIProject,
   11: getVaultJSValidateProject,
+  12: getScentStackProject,
 };
 
 // Map of slug to project ID - FIXED to ensure correct mapping
@@ -40,6 +42,7 @@ const slugToIdMap: Record<string, number> = {
   'symptom-checkr': 9,
   'litmus-ai': 10,
   'vaultjs-validate': 11,
+  'scent-stack': 12,
 };
 
 // Get a predefined project by ID

@@ -79,21 +79,21 @@ const HeroSection = () => {
               <p className="text-primary font-medium text-sm md:text-base tracking-wide uppercase mb-3">
                 Product Designer & Creative Technologist
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight text-gray-900">
+              <h1 className="font-display text-display-xl font-bold leading-tight text-gray-900">
                 <span className="text-primary">Reggie Alleyne</span>
               </h1>
             </motion.div>
 
             <motion.p
               variants={fadeInUp}
-              className="text-gray-600 text-lg md:text-xl mb-4 max-w-xl mx-auto lg:mx-0 mt-4 leading-relaxed"
+              className="text-gray-600 text-body-lg mb-4 max-w-xl mx-auto lg:mx-0 mt-4 leading-relaxed"
             >
               Building adaptive AI systems and scalable interfaces that bridge the gap between human intent and machine logic.
             </motion.p>
 
             <motion.p
               variants={fadeInUp}
-              className="text-gray-500 text-sm md:text-base mb-8 max-w-xl mx-auto lg:mx-0"
+              className="text-gray-500 text-body-sm mb-8 max-w-xl mx-auto lg:mx-0"
             >
               Specializing in <span className="text-primary font-medium">0→1 Product Architecture</span>, <span className="text-primary font-medium">Design Systems</span>, and <span className="text-primary font-medium">React Prototyping</span>.
             </motion.p>

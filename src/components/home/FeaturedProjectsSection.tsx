@@ -26,7 +26,7 @@ const FeaturedProjectsSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-xl mx-auto text-center mb-16">
           <motion.h2
-            className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4 reveal"
+            className="font-display text-display-md text-gray-900 mb-4 reveal"
             initial={{
               opacity: 0,
               y: 30,
@@ -43,11 +43,11 @@ const FeaturedProjectsSection = () => {
               amount: 0.3,
             }}
           >
-            Featured <span className="text-primary">Work</span>
+            Featured <span className="text-primary italic">Work</span>
           </motion.h2>
 
           <motion.p
-            className="text-gray-600 reveal"
+            className="text-gray-600 text-body-md reveal"
             initial={{
               opacity: 0,
               y: 30,

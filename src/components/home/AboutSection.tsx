@@ -78,10 +78,10 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-              Hey, I'm <span className="text-primary">Reggie</span>.
+            <h2 className="font-display text-display-md text-gray-900 mb-6">
+              Hey, I'm <span className="text-primary italic">Reggie</span>.
             </h2>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-body-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
               Nice to meet you.
             </p>
           </motion.div>
@@ -157,7 +157,7 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h3 className="text-2xl font-heading font-bold text-gray-900 mb-12 text-center">
+            <h3 className="font-display text-heading-xl text-gray-900 mb-12 text-center">
               What I'm About
             </h3>
 
@@ -221,7 +221,7 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h3 className="text-2xl font-heading font-bold text-gray-900 mb-8 text-center">
+            <h3 className="font-display text-heading-xl text-gray-900 mb-8 text-center">
               When I'm Not Designing
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -280,7 +280,7 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h3 className="text-2xl font-heading font-bold text-white mb-6 text-center">
+            <h3 className="font-display text-heading-xl text-white mb-6 text-center">
               What I'm Looking For
             </h3>
 
