@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScentStack - Stack Smarter. Smell Better.</title>
+    <meta name="description" content="Stack Smarter. Smell Better. Find affordable alternatives to luxury fragrances with ScentStack." />
+    <meta name="author" content="Reggie Alleyne" />
+
+    <meta property="og:title" content="ScentStack - Fragrance Dupe Finder" />
+    <meta property="og:description" content="Stack Smarter. Smell Better. Find your perfect fragrance dupe at a fraction of the price." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b2f470ff-1660-4e40-a3f8-cefeb6d0bd53/id-preview-3c94c892--d1acc59d-592c-4c08-adde-16f022f8c975.lovable.app-1768411031754.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ScentStack" />
+    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b2f470ff-1660-4e40-a3f8-cefeb6d0bd53/id-preview-3c94c892--d1acc59d-592c-4c08-adde-16f022f8c975.lovable.app-1768411031754.png" />
+    <script type="module" crossorigin src="/assets/index-B7buvuqm.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CoHtUQTM.css">
+  <script defer src="https://scentstack.lovable.app/~flock.js" data-proxy-url="https://scentstack.lovable.app/~api/analytics"></script></head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
