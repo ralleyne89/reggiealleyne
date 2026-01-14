@@ -29,16 +29,16 @@ import { ReflectionProps } from "@/components/project/common/Reflection";
 
 // Project Overview Data - Minto Pyramid: Lead with Impact
 export const scentStackOverviewData: ProjectOverviewProps = {
-  title: "1732+ Fragrance Dupes: Democratizing Luxury Scents in 3 Weeks",
+  title: "1700+ Fragrance Dupes: Democratizing Luxury Scents in 3 Weeks",
   description: [
-    "Shipped a complete AI-powered fragrance discovery platform as a solo founder—comprehensive dupe database, GPT-4 dream scent matching, computer vision layering suggestions, and A-Z brand browser—in just 3 weeks. Users save 90% on average when switching from luxury originals to affordable alternatives.",
+    "Shipped a complete AI-powered fragrance discovery platform as a solo founder—comprehensive dupe database, GPT-5 dream scent matching, computer vision layering suggestions, and A-Z brand browser—in just 3 weeks. Users save 90% on average when switching from luxury originals to affordable alternatives.",
     "The problem was personal: as a fragrance collector, I experienced the frustration of paying premium prices for scents that had nearly identical affordable versions. I also knew the art of layering fragrances but had no way to share that knowledge with beginners. ScentStack became the solution.",
-    "Technical architecture: React + Tailwind CSS frontend with editorial design system, GPT-5 integration for natural language scent matching, computer vision pipeline for photo-based fragrance analysis, comprehensive database of 1732+ dupes across 148+ designer brands.",
+    "Technical architecture: React + Tailwind CSS frontend with editorial design system, GPT-5 integration for natural language scent matching, computer vision pipeline for photo-based fragrance analysis, comprehensive database of 1700+ dupes across 150+ designer brands.",
   ],
   projectDetails: [
     {
       label: "Outcome",
-      value: "1732+ dupes, 90% avg savings",
+      value: "1700+ dupes, 90% avg savings",
       icon: CheckCircle,
     },
     {
@@ -205,7 +205,7 @@ export const scentStackIdeationData: IdeationStrategyProps = {
     {
       number: 2,
       title: "Search",
-      description: "Filter by notes, brand, price range, or similarity score across 1732+ dupes",
+      description: "Filter by notes, brand, price range, or similarity score across 1700+ dupes",
     },
     {
       number: 3,
@@ -297,7 +297,7 @@ export const scentStackOutcomesData: OutcomesImpactProps = {
   metrics: [
     {
       title: "Fragrance Dupes",
-      value: "1732+",
+      value: "1700+",
       description: "Comprehensive database of affordable alternatives to luxury fragrances, continuously expanding",
       icon: Search,
     },
@@ -329,7 +329,7 @@ export const scentStackChallengesData: ChallengesLearningsProps = {
     {
       title: "Data Collection at Scale",
       description:
-        "Building a database of 1732+ dupes required systematic data collection and validation. Solution: Leveraged fragrance community resources and created structured data entry workflows to maintain quality while moving fast.",
+        "Building a database of 1700+ dupes required systematic data collection and validation. Solution: Leveraged fragrance community resources and created structured data entry workflows to maintain quality while moving fast.",
     },
     {
       title: "AI Integration Complexity",
