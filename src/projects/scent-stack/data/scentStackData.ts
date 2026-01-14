@@ -270,24 +270,34 @@ export const scentStackUIData: FinalUIDesignProps = {
   ],
   uiImages: [
     {
-      src: "/images/scentstack-hero.png",
-      alt: "ScentStack hero: Discover your perfect scent",
-      title: "Hero: Fragrance Discovery Platform",
+      src: "/images/scentstack-home.png",
+      alt: "ScentStack homepage with search and key metrics",
+      title: "Homepage: Find Your Perfect Fragrance Dupe",
     },
     {
-      src: "/images/scentstack-dupes.png",
-      alt: "Dupe comparison showing original vs. affordable alternative",
-      title: "Dupe Comparison Cards",
+      src: "/images/scentstack-discover.png",
+      alt: "AI Fragrance Finder with occasion selection",
+      title: "Discover: AI Fragrance Finder",
+    },
+    {
+      src: "/images/scentstack-browse.png",
+      alt: "Browse A-Z alphabetical brand navigation",
+      title: "Browse A-Z: Complete Brand Directory",
     },
     {
       src: "/images/scentstack-dreamlab.png",
-      alt: "Dream Lab AI interface for natural language scent matching",
-      title: "Dream Lab AI Feature",
+      alt: "Dream Lab interface for describing your ideal scent",
+      title: "Dream Lab: Create Your Dream Scent",
     },
     {
       src: "/images/scentstack-layering.png",
-      alt: "Layering Lab photo upload and suggestion interface",
-      title: "Layering Lab",
+      alt: "Layering Lab photo upload for fragrance combinations",
+      title: "Layering Lab: AI-Powered Combinations",
+    },
+    {
+      src: "/images/scentstack-dupes.png",
+      alt: "Popular dupes grid showing price comparisons",
+      title: "Popular Dupes: Price Comparison Cards",
     },
   ],
 };
