@@ -11,6 +11,12 @@ import {
   Users,
   Target,
   Lightbulb,
+  Brain,
+  Layers,
+  Search,
+  Accessibility,
+  Sparkles,
+  Cpu,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
@@ -20,11 +26,14 @@ const About = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const skills = [
-    { icon: Palette, label: "UX/UI Design", years: "10+" },
-    { icon: Code, label: "Frontend Dev", years: "5+" },
-    { icon: Lightbulb, label: "Problem Solving", years: "∞" },
-    { icon: Users, label: "Team Leadership", years: "8+" },
+  // Core Competencies for LLM/AI SEO parsing
+  const coreCompetencies = [
+    { icon: Brain, label: "Gen AI Prototyping", description: "Building AI-powered interfaces and adaptive systems" },
+    { icon: Layers, label: "Design Systems", description: "Scalable component libraries and design tokens" },
+    { icon: Search, label: "User Research", description: "Qualitative & quantitative research methods" },
+    { icon: Sparkles, label: "0-1 Product Design", description: "From concept to shipped product" },
+    { icon: Accessibility, label: "Accessibility (WCAG)", description: "Inclusive design for all users" },
+    { icon: Code, label: "React Prototyping", description: "Functional prototypes, not just mockups" },
   ];
 
   const interests = [
@@ -76,12 +85,12 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="max-w-4xl"
           >
-            <h1 className="text-4xl lg:text-6xl font-heading font-bold mb-6 text-text-primary">
-              Hey, I'm Reggie.
-            </h1>
-            <p className="text-xl text-text-secondary leading-relaxed">
-              Nice to meet you.
+            <p className="text-primary font-medium text-sm tracking-wide uppercase mb-3">
+              Product Designer & Creative Technologist
             </p>
+            <h1 className="text-4xl lg:text-6xl font-heading font-bold mb-6 text-text-primary">
+              Reggie Alleyne
+            </h1>
           </motion.div>
         </div>
       </div>
@@ -89,77 +98,147 @@ const About = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 pb-20">
         <div className="max-w-4xl space-y-16">
-          {/* About Section */}
+          
+          {/* The Philosophy - NEW SECTION */}
           <motion.section
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6"
           >
-            <p className="text-lg text-text-secondary leading-relaxed">
-              I'm a{" "}
-              <span className="text-primary font-semibold">UI/UX Designer</span>{" "}
-              who codes—because sometimes the best way to solve a design problem
-              is to build it yourself. With 10+ years of experience turning
-              complex problems into delightful user experiences, I've learned
-              that great design isn't just about making things pretty it's about 
-              creating solutions that work.
-            </p>
-
-            <p className="text-lg text-text-secondary leading-relaxed">
-              Born and raised in LA, I'm a family man who believes the best
-              solutions come from understanding people—whether that's users
-              struggling with healthcare navigation or teammates trying to ship
-              features on deadline. I've spent my career in{" "}
-              <span className="text-primary">Education and Healthcare</span>,
-              building tools that actually matter to people's lives.
-            </p>
-
-            <p className="text-lg text-text-secondary leading-relaxed">
-              But here's the thing—I'm dreaming bigger. I want to design for the
-              industries that first made me fall in love with great experiences:{" "}
-              <span className="text-primary font-semibold">
-                gaming and anime
-              </span>
-              . There's something magical about creating worlds and characters
-              that people connect with emotionally. Plus, who wouldn't want
-              their work to involve more mechs and fewer medical forms?
-            </p>
+            <h2 className="text-2xl font-heading font-bold text-text-primary border-b border-gray-200 pb-3">
+              The Philosophy
+            </h2>
+            
+            <div className="bg-secondary rounded-xl p-8 border border-gray-200">
+              <h3 className="text-xl font-heading font-bold text-primary mb-4">
+                Building AI Tools That Don't Suck
+              </h3>
+              <p className="text-lg text-text-secondary leading-relaxed mb-4">
+                Most AI interfaces treat algorithms like magic—black boxes that spit out answers without explanation. 
+                This creates a fundamental problem: users can't trust what they can't understand.
+              </p>
+              <p className="text-lg text-text-secondary leading-relaxed mb-4">
+                I design for <span className="text-primary font-semibold">algorithmic transparency</span>. 
+                When an AI makes a recommendation, users should see the reasoning chain. When it's uncertain, 
+                it should say so. When it needs more data, it should ask—not guess.
+              </p>
+              <p className="text-lg text-text-secondary leading-relaxed">
+                The goal isn't to humanize AI or make it feel "friendly." It's to make AI <span className="text-primary font-semibold">legible</span>—so 
+                humans can make informed decisions about when to trust it and when to override it.
+              </p>
+            </div>
           </motion.section>
 
-          {/* Skills Grid */}
+          {/* The Process - NEW SECTION */}
           <motion.section
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
+            className="space-y-6"
           >
-            <h2 className="text-2xl font-heading font-bold mb-8 text-text-primary">
-              What I Bring to the Table
+            <h2 className="text-2xl font-heading font-bold text-text-primary border-b border-gray-200 pb-3">
+              The Process
             </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {skills.map((skill, index) => (
+            
+            <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+                <div className="flex items-center gap-3 bg-white px-6 py-4 rounded-lg shadow-sm">
+                  <Palette className="w-8 h-8 text-primary" />
+                  <div>
+                    <p className="font-semibold text-text-primary">Design</p>
+                    <p className="text-sm text-text-muted">Research → Prototype</p>
+                  </div>
+                </div>
+                <div className="hidden md:block text-2xl text-gray-400">⇄</div>
+                <div className="md:hidden text-2xl text-gray-400">↕</div>
+                <div className="flex items-center gap-3 bg-white px-6 py-4 rounded-lg shadow-sm">
+                  <Code className="w-8 h-8 text-primary" />
+                  <div>
+                    <p className="font-semibold text-text-primary">Code</p>
+                    <p className="text-sm text-text-muted">Build → Validate</p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-center text-text-secondary mt-6 max-w-xl mx-auto">
+                Coding isn't separate from design—it's a design validation tool. The fastest way to test 
+                if an interaction works is to build it. I prototype in React, not just Figma.
+              </p>
+            </div>
+          </motion.section>
+
+          {/* Core Competencies - NEW SECTION for LLM/AI SEO */}
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            <h2 className="text-2xl font-heading font-bold mb-8 text-text-primary border-b border-gray-200 pb-3">
+              Core Competencies
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {coreCompetencies.map((competency, index) => (
                 <div
                   key={index}
-                  className="bg-secondary rounded-lg p-6 text-center group hover:bg-secondary-light transition-colors border border-gray-200"
+                  className="bg-white rounded-lg p-5 border border-gray-200 hover:border-primary/30 transition-colors group"
                 >
-                  <skill.icon className="w-8 h-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-semibold text-text-primary mb-1">
-                    {skill.label}
-                  </h3>
-                  <p className="text-sm text-text-muted">{skill.years} years</p>
+                  <div className="flex items-start gap-3">
+                    <competency.icon className="w-6 h-6 text-primary flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                    <div>
+                      <h3 className="font-semibold text-text-primary mb-1">
+                        {competency.label}
+                      </h3>
+                      <p className="text-sm text-text-muted">{competency.description}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </motion.section>
 
-          {/* What I'm About */}
+          {/* About Section */}
           <motion.section
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="space-y-6"
           >
-            <h2 className="text-2xl font-heading font-bold text-text-primary">
+            <h2 className="text-2xl font-heading font-bold text-text-primary border-b border-gray-200 pb-3">
+              Background
+            </h2>
+            
+            <p className="text-lg text-text-secondary leading-relaxed">
+              10+ years designing for <span className="text-primary font-semibold">Education and Healthcare</span>—industries 
+              where bad UX has real consequences. I've built tools for teachers managing 30 students, 
+              patients navigating health anxiety, and HR leaders trying to assess AI literacy at scale.
+            </p>
+
+            <p className="text-lg text-text-secondary leading-relaxed">
+              Born and raised in LA, I'm a family man who believes the best
+              solutions come from understanding people—whether that's users
+              struggling with healthcare navigation or teammates trying to ship
+              features on deadline.
+            </p>
+
+            <p className="text-lg text-text-secondary leading-relaxed">
+              But I'm dreaming bigger. I want to design for the
+              industries that first made me fall in love with great experiences:{" "}
+              <span className="text-primary font-semibold">
+                gaming and anime
+              </span>
+              . There's something magical about creating worlds and characters
+              that people connect with emotionally.
+            </p>
+          </motion.section>
+
+          {/* What I'm About */}
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="space-y-6"
+          >
+            <h2 className="text-2xl font-heading font-bold text-text-primary border-b border-gray-200 pb-3">
               What I'm About
             </h2>
 
@@ -168,12 +247,12 @@ const About = () => {
                 <Zap className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-text-primary mb-2">
-                    Building AI Tools That Don't Suck
+                    Humanizing Algorithmic Intelligence
                   </h3>
                   <p className="text-text-secondary">
-                    I'm fascinated by AI's potential to solve real problems—not
-                    just generate more content. I want to design interfaces that
-                    make AI feel helpful, not overwhelming.
+                    I'm fascinated by the "Black Box" problem in AI. How do we design 
+                    interfaces that make machine learning legible to humans? How do we 
+                    build trust when the algorithm is smarter than the user?
                   </p>
                 </div>
               </div>
@@ -196,12 +275,12 @@ const About = () => {
                 <Target className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-text-primary mb-2">
-                    Solving Problems, Not Just Making Mockups
+                    Shipping Over Perfection
                   </h3>
                   <p className="text-text-secondary">
                     I dig deep into user research, prototype rapidly, and
                     iterate based on real feedback. Pretty designs are great,
-                    but usable ones change lives.
+                    but shipped products change lives.
                   </p>
                 </div>
               </div>
@@ -214,7 +293,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <h2 className="text-2xl font-heading font-bold mb-8 text-text-primary">
+            <h2 className="text-2xl font-heading font-bold mb-8 text-text-primary border-b border-gray-200 pb-3">
               When I'm Not Designing
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
