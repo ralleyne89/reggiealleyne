@@ -56,7 +56,7 @@ const HeroSection = () => {
   return (
     <motion.div
       ref={targetRef}
-      className="h-screen max-h-screen w-full pt-28 relative overflow-hidden bg-white flex flex-col justify-center"
+      className="min-h-[100dvh] w-full pt-20 md:pt-28 relative overflow-hidden bg-white flex flex-col justify-center"
     >
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
@@ -68,7 +68,7 @@ const HeroSection = () => {
           y,
         }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-center mt-4 md:mt-0">
           <motion.div
             className="text-center lg:text-left"
             initial="hidden"
@@ -143,7 +143,7 @@ const HeroSection = () => {
             {/* Main Profile Container */}
             <div className="relative">
               {/* Profile Image with Modern Frame */}
-              <div className="relative rounded-3xl overflow-hidden w-full h-[400px] border border-gray-200 shadow-2xl">
+              <div className="relative rounded-3xl overflow-hidden w-full h-[280px] sm:h-[350px] md:h-[400px] border border-gray-200 shadow-2xl">
                 <img
                   src="/images/1686931266900.jpeg"
                   alt="Reggie Alleyne - UI/UX Designer"
