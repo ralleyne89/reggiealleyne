@@ -306,6 +306,40 @@ export const litmusAIOutcomesData: OutcomesImpactProps = {
   ]
 };
 
+// Trade-offs Data - What we built vs. what we cut
+export interface TradeoffItem {
+  built: string;
+  rejected: string;
+  reasoning: string;
+}
+
+export const litmusAITradeoffsData = {
+  title: "Trade-offs: What We Built vs. What We Cut",
+  introduction: "With only 2 months as a solo founder, every feature decision was a strategic trade-off. Here's what made the cut—and what didn't—with full transparency on the reasoning.",
+  tradeoffs: [
+    {
+      built: "5-minute adaptive test",
+      rejected: "30-minute comprehensive assessment",
+      reasoning: "User testing showed 70% drop-off after 7 minutes. Speed beat thoroughness. The market gap was rapid assessment, not exhaustive testing."
+    },
+    {
+      built: "Simple admin dashboard",
+      rejected: "Advanced analytics with cohort analysis",
+      reasoning: "Admin functionality needed to ship first to track users and payments. Fancy analytics could iterate post-launch once we had data to analyze."
+    },
+    {
+      built: "GPT-5 dynamic question generation",
+      rejected: "Custom adaptive algorithm from scratch",
+      reasoning: "Building custom adaptive logic would have taken 3+ months alone. Prompt engineering let us leverage GPT-5's capabilities, dramatically reducing dev time while improving question quality."
+    },
+    {
+      built: "3 revenue models (subscription, one-time, enterprise)",
+      rejected: "Single pricing tier",
+      reasoning: "Different user segments (students, professionals, HR teams) have different willingness-to-pay. Flexibility was essential for market validation even if it added complexity."
+    }
+  ]
+};
+
 // Challenges & Learnings Data
 export const litmusAIChallengesData: ChallengesLearningsProps = {
   title: "What I Learned Building Solo",

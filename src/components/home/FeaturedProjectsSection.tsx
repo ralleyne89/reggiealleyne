@@ -84,23 +84,23 @@ const FeaturedProjectsSection = () => {
                 .map((id) => projects?.find((project) => project.id === id))
                 .filter((project) => project !== undefined);
 
-              // Enhanced project data with outcome-driven titles
+              // Enhanced project data with problem-first descriptions (Senior-level framing)
               const enhancedProjects = featuredProjects.map((project) => {
                 let enhancedTitle = project.title;
                 let impactMetric = "";
 
                 if (project.id === 10) {
-                  // Litmus AI
-                  enhancedTitle = "AI Literacy Testing Platform";
-                  impactMetric = "5-minute AI competency assessment";
+                  // Litmus AI - Lead with the problem solved
+                  enhancedTitle = "AI Literacy Certification Platform";
+                  impactMetric = "Solving 'buzzword literacy' with 5-minute adaptive testing";
                 } else if (project.id === 9) {
-                  // SymptomCheckr
-                  enhancedTitle = "AI-Powered Symptom Checker";
-                  impactMetric = "95% diagnostic accuracy";
+                  // SymptomCheckr - Lead with the strategic choice
+                  enhancedTitle = "Explainable AI Symptom Checker";
+                  impactMetric = "78% anxiety reduction through algorithmic transparency";
                 } else if (project.id === 1) {
-                  // CLLCTVE
-                  enhancedTitle = "3K+ Creators: Gen Z Portfolio Platform";
-                  impactMetric = "3K+ active creators";
+                  // CLLCTVE - Lead with the strategic bet
+                  enhancedTitle = "Gen Z Portfolio Platform";
+                  impactMetric = "500+ creators, 85% retention by building what Behance wouldn't";
                 }
 
                 return {

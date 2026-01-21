@@ -7,6 +7,7 @@ import FinalUIDesign from "@/components/project/common/FinalUIDesign";
 import OutcomesImpact from "@/components/project/common/OutcomesImpact";
 import ChallengesLearnings from "@/components/project/common/ChallengesLearnings";
 import Reflection from "@/components/project/common/Reflection";
+import TradeoffsVisualized from "@/components/project/common/TradeoffsVisualized";
 
 import {
   litmusAIOverviewData,
@@ -17,6 +18,7 @@ import {
   litmusAIOutcomesData,
   litmusAIChallengesData,
   litmusAIReflectionData,
+  litmusAITradeoffsData,
 } from "./data/litmusAIData";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -32,6 +34,9 @@ const LitmusAICaseStudy = () => {
       <ProblemSpace {...litmusAIProblemSpaceData} />
       <ResearchDiscovery {...litmusAIResearchData} />
       <IdeationStrategy {...litmusAIIdeationData} />
+
+      {/* Trade-offs Visualization - Senior-level decision showcase */}
+      <TradeoffsVisualized {...litmusAITradeoffsData} />
 
       {/* Deep Dive Process */}
       <FinalUIDesign {...litmusAIUIData} />
