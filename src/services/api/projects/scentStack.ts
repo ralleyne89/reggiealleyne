@@ -12,7 +12,7 @@ export const getScentStackProject = (): ProjectType => {
     duration: "3 weeks",
     teamSize: "1",
     tags: ["AI/ML", "Consumer Product", "React", "Personal Project", "Computer Vision", "GPT-5", "UX Design"],
-    image: "/images/scentstack-hero.png",
+	    image: "/images/scentstack_hero.png",
     summary:
       'ScentStack is an AI-powered fragrance discovery platform that democratizes luxury scents through a database of 1700+ affordable dupes, computer vision-powered layering suggestions, and natural language "dream scent" matching. Built as a solo passion project by a fragrance collector.',
     problem:
@@ -42,12 +42,12 @@ export const getScentStackProject = (): ProjectType => {
       "A-Z Brand Browser (150+ brands)",
       "Price Comparison System",
     ],
-    images: [
-      "/images/scentstack-hero.png",
-      "/images/scentstack-dupes.png",
-      "/images/scentstack-dreamlab.png",
-      "/images/scentstack-layering.png",
-    ],
+	    images: [
+	      "/images/scentstack_hero.png",
+	      "/images/scentstack-dupes.png",
+	      "/images/scentstack-dreamlab.png",
+	      "/images/scentstack-layering.png",
+	    ],
     videoUrl: null,
     githubUrl: null,
     liveUrl: "https://scentstack.lovable.app",
