@@ -1,5 +1,4 @@
-
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getAllProjects } from "@/services/api";
@@ -9,38 +8,32 @@ import { motion } from "framer-motion";
 import WorksHeader from "@/components/works/WorksHeader";
 import WorksLoadingSkeleton from "@/components/works/WorksLoadingSkeleton";
 import { ProjectType } from "@/types/project";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 
+// Works page: fetches and presents a curated set of projects.
+// - Data comes from a combined API (predefined + Supabase)
+// - Mobile: vertical stack of fully expanded project cards
+// - Desktop: two-column layout with click-based navigation between projects
 const Works = () => {
   const navigate = useNavigate();
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
-  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Fetch all projects from the central API (predefined + Supabase-backed)
   const {
     data: projects,
     isLoading,
     error,
   } = useQuery({
     queryKey: ["projects"],
-    queryFn: async () => {
-      try {
-        console.log("Fetching all projects");
-        const projects = await getAllProjects();
-        console.log("Fetched projects:", projects);
-        return projects;
-      } catch (err) {
-        console.error("Error fetching projects:", err);
-        throw err;
-      }
-    },
+    queryFn: getAllProjects,
     retry: 1,
   });
 
-  // Handle project navigation
+  // Handle navigation to the individual project detail page
   const handleProjectClick = (project: ProjectType) => {
     if (!project) {
       toast.error("Project information is missing");
@@ -53,7 +46,7 @@ const Works = () => {
       "with ID:",
       project.id,
       "and slug:",
-      project.slug
+      project.slug,
     );
 
     // Navigate to the project using its slug if available
@@ -64,49 +57,46 @@ const Works = () => {
     }
   };
 
-  // Scroll handler to switch active project
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+  // Memoized, cleaned list of projects:
+  // - filters out invalid entries
+  // - de-duplicates by title (projects can come from multiple sources)
+  // - sorts by year (newest first) for a consistent presentation order
+  const sortedProjects = useMemo(() => {
+    if (!projects) return [];
 
-      projectRefs.current.forEach((ref, index) => {
-        if (ref) {
-          const rect = ref.getBoundingClientRect();
-          const elementTop = rect.top + window.scrollY;
-          const elementBottom = elementTop + rect.height;
+    const uniqueProjects = projects.filter(
+      (project, index, self) =>
+        project &&
+        project.title &&
+        index === self.findIndex((p) => p?.title === project?.title),
+    );
 
-          if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
-            setActiveProjectIndex(index);
-          }
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-
-    return () => window.removeEventListener("scroll", handleScroll);
+    return [...uniqueProjects].sort((a, b) => {
+      const yearA = a.year ? parseInt(a.year.toString()) : 0;
+      const yearB = b.year ? parseInt(b.year.toString()) : 0;
+      return yearB - yearA;
+    });
   }, [projects]);
 
-  // Process the projects array to remove duplicates and ensure validity
-  const uniqueProjects = projects
-    ? projects.filter(
-        (project, index, self) =>
-          project &&
-          project.title &&
-          index === self.findIndex((p) => p?.title === project?.title)
-      )
-    : [];
-
-  // Sort projects by year in descending order (newest first)
-  const sortedProjects = [...uniqueProjects].sort((a, b) => {
-    const yearA = a.year ? parseInt(a.year.toString()) : 0;
-    const yearB = b.year ? parseInt(b.year.toString()) : 0;
-    return yearB - yearA;
-  });
-
-  // Get current active project
+  // Current project whose details are shown in the desktop left column
   const activeProject = sortedProjects[activeProjectIndex];
+
+  // Navigation handlers for desktop
+  const goToNextProject = () => {
+    if (activeProjectIndex < sortedProjects.length - 1) {
+      setActiveProjectIndex(activeProjectIndex + 1);
+    }
+  };
+
+  const goToPrevProject = () => {
+    if (activeProjectIndex > 0) {
+      setActiveProjectIndex(activeProjectIndex - 1);
+    }
+  };
+
+  const selectProject = (index: number) => {
+    setActiveProjectIndex(index);
+  };
 
   if (isLoading) {
     return (
@@ -170,7 +160,9 @@ const Works = () => {
           {/* Mobile: Stack Layout */}
           <div className="block lg:hidden space-y-12">
             {sortedProjects.map((project, index) => {
-              const isChillVibesProject = project.title === "Chill Vibes Music Player";
+              // Certain projects need special treatment for imagery/layout
+              const isChillVibesProject =
+                project.title === "Chill Vibes Music Player";
               const isBobsProject = project.title === "Bob's Big Break";
 
               return (
@@ -206,7 +198,9 @@ const Works = () => {
                   <div className="space-y-4">
                     {/* Year and Category */}
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                      <div className="text-sm text-text-muted">{project.year}</div>
+                      <div className="text-sm text-gray-500">
+                        {project.year}
+                      </div>
                       <div className="text-sm text-primary font-medium uppercase tracking-wider">
                         {project.category ||
                           (project.tags && project.tags[0]) ||
@@ -215,18 +209,18 @@ const Works = () => {
                     </div>
 
                     {/* Project Title */}
-                    <h3 className="font-display text-heading-xl text-text-primary">
+                    <h3 className="font-display text-2xl sm:text-3xl text-gray-900">
                       {project.title}
                     </h3>
 
                     {/* Project Description */}
                     <div className="space-y-4">
-                      <p className="text-text-secondary text-base leading-relaxed">
+                      <p className="text-gray-600 text-base leading-relaxed">
                         {project.fullDescription || project.description}
                       </p>
 
                       {project.solution && (
-                        <p className="text-text-muted text-sm leading-relaxed">
+                        <p className="text-gray-500 text-sm leading-relaxed">
                           {project.solution}
                         </p>
                       )}
@@ -235,25 +229,29 @@ const Works = () => {
                     {/* Project Metadata */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                       <div>
-                        <div className="text-text-muted mb-1">Role</div>
-                        <div className="text-text-primary">{project.role}</div>
+                        <div className="text-gray-500 mb-1">Role</div>
+                        <div className="text-gray-900">{project.role}</div>
                       </div>
 
                       <div>
-                        <div className="text-text-muted mb-1">Duration</div>
-                        <div className="text-text-primary">{project.duration}</div>
+                        <div className="text-gray-500 mb-1">Duration</div>
+                        <div className="text-gray-900">{project.duration}</div>
                       </div>
 
                       {project.teamSize && (
                         <div>
-                          <div className="text-text-muted mb-1">Team</div>
-                          <div className="text-text-primary">{project.teamSize}</div>
+                          <div className="text-gray-500 mb-1">Team</div>
+                          <div className="text-gray-900">
+                            {project.teamSize}
+                          </div>
                         </div>
                       )}
 
                       {project.liveUrl && (
                         <div>
-                          <div className="text-text-muted mb-1">Visit Website</div>
+                          <div className="text-gray-500 mb-1">
+                            Visit Website
+                          </div>
                           <a
                             href={project.liveUrl}
                             target="_blank"
@@ -280,21 +278,49 @@ const Works = () => {
             })}
           </div>
 
-          {/* Desktop: Two Column Layout */}
-          <div className="hidden lg:grid lg:grid-cols-2 gap-16">
-            {/* Left Column - Sticky Project Details */}
-            <div className="lg:sticky lg:top-24 lg:h-screen lg:overflow-hidden">
+          {/* Desktop: Two Column Layout with Click-based Navigation */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-16 items-start">
+            {/* Left Column - Project Details */}
+            <div className="lg:sticky lg:top-24">
               {activeProject && (
                 <motion.div
                   key={activeProject.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3 }}
                   className="space-y-8"
                 >
+                  {/* Navigation Controls */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-500">
+                      Project {activeProjectIndex + 1} of{" "}
+                      {sortedProjects.length}
+                    </span>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={goToPrevProject}
+                        disabled={activeProjectIndex === 0}
+                        className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                        aria-label="Previous project"
+                      >
+                        <ChevronLeft size={20} className="text-gray-700" />
+                      </button>
+                      <button
+                        onClick={goToNextProject}
+                        disabled={
+                          activeProjectIndex === sortedProjects.length - 1
+                        }
+                        className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                        aria-label="Next project"
+                      >
+                        <ChevronRight size={20} className="text-gray-700" />
+                      </button>
+                    </div>
+                  </div>
+
                   {/* Year and Category */}
                   <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-8">
-                    <div className="text-sm text-text-muted">
+                    <div className="text-sm text-gray-500">
                       {activeProject.year}
                     </div>
                     <div className="text-sm text-primary font-medium uppercase tracking-wider">
@@ -305,19 +331,19 @@ const Works = () => {
                   </div>
 
                   {/* Project Title */}
-                  <h3 className="font-display text-display-md text-text-primary">
+                  <h3 className="font-display text-4xl lg:text-5xl text-gray-900 leading-tight">
                     {activeProject.title}
                   </h3>
 
                   {/* Project Description */}
                   <div className="space-y-6">
-                    <p className="text-text-secondary text-lg leading-relaxed">
+                    <p className="text-gray-600 text-lg leading-relaxed">
                       {activeProject.fullDescription ||
                         activeProject.description}
                     </p>
 
                     {activeProject.solution && (
-                      <p className="text-text-muted text-base leading-relaxed">
+                      <p className="text-gray-500 text-base leading-relaxed">
                         {activeProject.solution}
                       </p>
                     )}
@@ -326,23 +352,21 @@ const Works = () => {
                   {/* Project Metadata */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
                     <div>
-                      <div className="text-text-muted mb-2">Role</div>
-                      <div className="text-text-primary">
-                        {activeProject.role}
-                      </div>
+                      <div className="text-gray-500 mb-2">Role</div>
+                      <div className="text-gray-900">{activeProject.role}</div>
                     </div>
 
                     <div>
-                      <div className="text-text-muted mb-2">Duration</div>
-                      <div className="text-text-primary">
+                      <div className="text-gray-500 mb-2">Duration</div>
+                      <div className="text-gray-900">
                         {activeProject.duration}
                       </div>
                     </div>
 
                     {activeProject.teamSize && (
                       <div>
-                        <div className="text-text-muted mb-2">Team</div>
-                        <div className="text-text-primary">
+                        <div className="text-gray-500 mb-2">Team</div>
+                        <div className="text-gray-900">
                           {activeProject.teamSize}
                         </div>
                       </div>
@@ -350,9 +374,7 @@ const Works = () => {
 
                     {activeProject.liveUrl && (
                       <div>
-                        <div className="text-text-muted mb-2">
-                          Visit Website
-                        </div>
+                        <div className="text-gray-500 mb-2">Visit Website</div>
                         <a
                           href={activeProject.liveUrl}
                           target="_blank"
@@ -377,60 +399,70 @@ const Works = () => {
               )}
             </div>
 
-            {/* Right Column - Scrollable Project Images */}
-            <div className="space-y-32">
-              {sortedProjects.map((project, index) => {
-                const isChillVibesProject =
-                  project.title === "Chill Vibes Music Player";
-                const isBobsProject = project.title === "Bob's Big Break";
+            {/* Right Column - Clickable Project Thumbnails */}
+            <div className="space-y-6">
+              {/* Active Project Large Image */}
+              {activeProject && (
+                <motion.div
+                  key={`main-${activeProject.id}`}
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative rounded-lg overflow-hidden"
+                >
+                  <img
+                    src={
+                      activeProject.title === "Chill Vibes Music Player"
+                        ? "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png"
+                        : activeProject.image
+                    }
+                    alt={activeProject.title}
+                    className="w-full h-auto rounded-lg"
+                    onError={(e) => {
+                      e.currentTarget.src = "/placeholder.svg";
+                    }}
+                  />
+                </motion.div>
+              )}
 
-                return (
-                  <div
-                    key={project.id}
-                    ref={(el) => (projectRefs.current[index] = el)}
-                    className="space-y-8 min-h-screen flex flex-col justify-center"
-                  >
-                    {/* Main Project Image */}
-                    <div className="relative">
+              {/* Project Thumbnail Grid */}
+              <div className="grid grid-cols-4 gap-3">
+                {sortedProjects.map((project, index) => {
+                  // Thumbnail clicks control which project is active on the left
+                  const isActive = index === activeProjectIndex;
+                  const isChillVibes =
+                    project.title === "Chill Vibes Music Player";
+
+                  return (
+                    <button
+                      key={project.id}
+                      onClick={() => selectProject(index)}
+                      className={`relative rounded-lg overflow-hidden aspect-square transition-all duration-200 ${
+                        isActive
+                          ? "ring-2 ring-primary ring-offset-2 scale-105"
+                          : "opacity-60 hover:opacity-100 hover:scale-102"
+                      }`}
+                      aria-label={`View ${project.title}`}
+                    >
                       <img
                         src={
-                          isChillVibesProject
+                          isChillVibes
                             ? "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png"
                             : project.image
                         }
                         alt={project.title}
-                        className={`w-full h-auto rounded-lg transition-transform duration-500 hover:scale-[1.02] ${
-                          isChillVibesProject || isBobsProject
-                            ? "object-contain bg-gray-900"
-                            : "object-cover"
-                        }`}
+                        className="w-full h-full object-cover"
                         onError={(e) => {
-                          console.error(`Image failed to load: ${project.image}`);
                           e.currentTarget.src = "/placeholder.svg";
                         }}
                       />
-                    </div>
-
-                    {/* Additional Images if available */}
-                    {project.images && project.images.length > 1 && (
-                      <div className="grid grid-cols-2 gap-4">
-                        {project.images.slice(1, 5).map((image, imgIndex) => (
-                          <div key={imgIndex} className="relative">
-                            <img
-                              src={image}
-                              alt={`${project.title} - Image ${imgIndex + 2}`}
-                              className="w-full h-48 object-cover rounded-lg transition-transform duration-500 hover:scale-[1.02]"
-                              onError={(e) => {
-                                e.currentTarget.src = "/placeholder.svg";
-                              }}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+                      {isActive && (
+                        <div className="absolute inset-0 bg-primary/10" />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
