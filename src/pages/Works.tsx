@@ -390,6 +390,26 @@ const Works = () => {
                     ref={(el) => (projectRefs.current[index] = el)}
                     className="space-y-8 min-h-screen flex flex-col justify-center"
                   >
+                    {/* Main Project Image */}
+                    <div className="relative">
+                      <img
+                        src={
+                          isChillVibesProject
+                            ? "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png"
+                            : project.image
+                        }
+                        alt={project.title}
+                        className={`w-full h-auto rounded-lg transition-transform duration-500 hover:scale-[1.02] ${
+                          isChillVibesProject || isBobsProject
+                            ? "object-contain bg-gray-900"
+                            : "object-cover"
+                        }`}
+                        onError={(e) => {
+                          console.error(`Image failed to load: ${project.image}`);
+                          e.currentTarget.src = "/placeholder.svg";
+                        }}
+                      />
+                    </div>
 
                     {/* Additional Images if available */}
                     {project.images && project.images.length > 1 && (
