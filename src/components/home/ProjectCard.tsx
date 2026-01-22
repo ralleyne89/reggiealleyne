@@ -26,7 +26,9 @@ const ProjectCard = ({
     <Link to={`/project/${slug}`}>
       <motion.div
         className={`bg-white rounded-3xl overflow-hidden group cursor-pointer h-80 flex flex-col border border-gray-200 hover:border-primary/20 transition-all duration-300 shadow-sm hover:shadow-lg ${
-          featured ? "col-span-2 row-span-2" : ""
+          // Only expand featured cards on large screens so the grid stays
+          // balanced (and centered) on md+ layouts.
+          featured ? "lg:col-span-2 lg:row-span-2" : ""
         }`}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

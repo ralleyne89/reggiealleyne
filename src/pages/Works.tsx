@@ -64,6 +64,17 @@ const Works = () => {
   const sortedProjects = useMemo(() => {
     if (!projects) return [];
 
+    // Keep Labs/experiments out of the Works page, and hide older projects
+    // that you explicitly don't want in the primary navigation / Work list.
+    const excludedProjectIds = new Set<number>([
+      7, // Chill Vibes (Labs)
+      8, // Bob's Big Break (Labs)
+      12, // ScentStack (Labs)
+      3, // Tech Noir (remove from navigation)
+      4, // Doggy Date (remove from navigation)
+      5, // Improv Learning (remove from navigation)
+    ]);
+
     const uniqueProjects = projects.filter(
       (project, index, self) =>
         project &&
@@ -71,12 +82,23 @@ const Works = () => {
         index === self.findIndex((p) => p?.title === project?.title),
     );
 
-    return [...uniqueProjects].sort((a, b) => {
+    const visibleProjects = uniqueProjects.filter(
+      (project) => !excludedProjectIds.has(project.id),
+    );
+
+    return [...visibleProjects].sort((a, b) => {
       const yearA = a.year ? parseInt(a.year.toString()) : 0;
       const yearB = b.year ? parseInt(b.year.toString()) : 0;
       return yearB - yearA;
     });
   }, [projects]);
+
+  // If the filtered list changes, keep the active index in bounds.
+  useEffect(() => {
+    if (activeProjectIndex >= sortedProjects.length) {
+      setActiveProjectIndex(0);
+    }
+  }, [activeProjectIndex, sortedProjects.length]);
 
   // Current project whose details are shown in the desktop left column
   const activeProject = sortedProjects[activeProjectIndex];

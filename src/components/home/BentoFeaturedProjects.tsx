@@ -50,7 +50,7 @@ const BentoFeaturedProjects = ({
   }
 
   // Define the specific projects to show
-  const featuredProjectIds = [10, 3, 2]; // Litmus AI, Tech Noir, Tutor D
+  const featuredProjectIds = [10, 1]; // Litmus AI, CLLCTVE
 
   // Filter to get only the specified projects in the right order
   const featuredProjects = featuredProjectIds

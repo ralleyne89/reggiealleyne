@@ -1,6 +1,14 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Code, Terminal, Sparkles, Gamepad2, Music, Zap } from "lucide-react";
+import {
+  ArrowLeft,
+  Code,
+  Terminal,
+  Sparkles,
+  Gamepad2,
+  Music,
+  ExternalLink,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
 
@@ -12,26 +20,32 @@ const Playground = () => {
   const experiments = [
     {
       title: "Chill Vibes Music Player",
-      description: "A lo-fi inspired music player with custom visualizations and ambient mode. Built with React and Web Audio API.",
-      tags: ["React", "Web Audio API", "Canvas"],
+      description:
+        "A minimalist music streaming MVP focused on clean playback and a distraction-free UI.",
+      tags: ["React", "Firebase", "UX/UI"],
       icon: Music,
-      link: "/project/chill-vibes",
+      previewImage: "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
+      liveUrl: "https://chill-vibes.web.app/",
       status: "Live",
     },
     {
       title: "Bob's Big Break",
-      description: "A Unity-based puzzle platformer exploring procedural level generation and physics-based mechanics.",
-      tags: ["Unity", "C#", "Game Design"],
+      description:
+        "An incremental clicker game prototype exploring low-attention, short-session game loops.",
+      tags: ["React", "Node.js", "MongoDB"],
       icon: Gamepad2,
-      link: "/project/bobs-big-break",
+      previewImage: "/images/71cb9624-eeb6-4af5-a137-8a38307549f4.png",
+      liveUrl: "https://bobsbigbreak.netlify.app/",
       status: "Live",
     },
     {
-      title: "Wristband Controller",
-      description: "Hardware + software prototype for gesture-based wearable input. Custom PCB design and embedded systems.",
-      tags: ["Arduino", "PCB Design", "BLE"],
-      icon: Zap,
-      link: "/project/wristband",
+      title: "ScentStack",
+      description:
+        "AI-powered fragrance discovery with dupe matching, layering suggestions, and dream-scent search.",
+      tags: ["React", "Tailwind", "AI"],
+      icon: Code,
+      previewImage: "/images/scentstack_hero.png",
+      liveUrl: "https://scentstack.lovable.app",
       status: "Live",
     },
   ];
@@ -65,15 +79,15 @@ const Playground = () => {
             <div className="flex items-center gap-3 mb-4">
               <Terminal className="w-8 h-8 text-primary" />
               <p className="text-primary font-mono text-sm tracking-wide">
-                ~/experiments
+                ~/playground
               </p>
             </div>
             <h1 className="text-4xl lg:text-6xl font-heading font-bold mb-6 text-white">
               Playground
             </h1>
             <p className="text-xl text-gray-400 leading-relaxed max-w-2xl">
-              Code experiments, creative coding, and things I build for fun. 
-              This is where I explore ideas outside the constraints of client work.
+              Creative coding + prototypes — quick demos with stack notes and
+              live links.
             </p>
           </motion.div>
         </div>
@@ -89,36 +103,62 @@ const Playground = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
             >
-              <Link to={experiment.link}>
-                <div className="group bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-gray-800 rounded-lg p-3 group-hover:bg-primary/20 transition-colors">
-                      <experiment.icon className="w-6 h-6 text-primary" />
+              <div className="group bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+                <div className="flex items-start gap-4">
+                  <div className="bg-gray-800 rounded-lg p-3 group-hover:bg-primary/20 transition-colors">
+                    <experiment.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h3 className="text-xl font-heading font-semibold text-white group-hover:text-primary transition-colors">
+                        {experiment.title}
+                      </h3>
+                      <span className="px-2 py-0.5 text-xs font-medium bg-green-500/20 text-green-400 rounded-full">
+                        {experiment.status}
+                      </span>
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-xl font-heading font-semibold text-white group-hover:text-primary transition-colors">
-                          {experiment.title}
-                        </h3>
-                        <span className="px-2 py-0.5 text-xs font-medium bg-green-500/20 text-green-400 rounded-full">
-                          {experiment.status}
+                    <p className="text-gray-400">{experiment.description}</p>
+
+                    {/* Preview */}
+                    <div className="mt-4 aspect-video overflow-hidden rounded-lg border border-gray-800 bg-gray-950">
+                      <img
+                        src={experiment.previewImage}
+                        alt={`${experiment.title} preview`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.src = "/placeholder.svg";
+                        }}
+                      />
+                    </div>
+
+                    {/* Tech stack */}
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {experiment.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 text-xs font-mono bg-gray-800 text-gray-400 rounded"
+                        >
+                          {tag}
                         </span>
-                      </div>
-                      <p className="text-gray-400 mb-4">{experiment.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {experiment.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-2 py-1 text-xs font-mono bg-gray-800 text-gray-400 rounded"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                      ))}
+                    </div>
+
+                    {/* Actions */}
+                    <div className="mt-5 flex flex-wrap gap-3">
+                      <a
+                        href={experiment.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
+                      >
+                        View Live
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
                     </div>
                   </div>
                 </div>
-              </Link>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -136,7 +176,8 @@ const Playground = () => {
               More experiments coming soon
             </h3>
             <p className="text-gray-600 text-sm">
-              Currently exploring: WebGL shaders, generative art, and AI-powered creative tools
+              Currently exploring: WebGL shaders, generative art, and AI-powered
+              creative tools
             </p>
           </div>
         </motion.div>
