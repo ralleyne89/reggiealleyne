@@ -46,7 +46,7 @@ const Footer = () => {
           <div className="lg:col-span-5">
             <Link to="/" className="inline-block mb-6">
               <img
-                src="/images/d5f791c1-7299-4a0a-80e0-9e27c0362510.png"
+                src="/images/RA_logo_white.png"
                 alt="Reggie Alleyne Logo"
                 className="h-12 w-auto"
               />

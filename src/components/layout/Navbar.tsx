@@ -64,15 +64,14 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 500 }}
             >
-              {/* <img
-                src="/ra-logo.svg"
+              <img
+                src="/images/RA_logo_black.png"
                 alt="Reggie Alleyne Logo"
-                className="h-10 w-10 transition-all duration-300"
-
-              /> */}
-              <p className="font-bold text-lg drop-shadow-sm transition-colors duration-300 text-gray-900">
+                className="h-10 w-auto transition-all duration-300"
+              />
+              {/* <p className="font-bold text-lg drop-shadow-sm transition-colors duration-300 text-gray-900">
                 REGGIE ALLEYNE
-              </p>
+              </p> */}
             </motion.div>
           </Link>
 
