@@ -29,6 +29,15 @@ import { FinalUIDesignProps } from "@/components/project/common/FinalUIDesign";
 import { OutcomesImpactProps } from "@/components/project/common/OutcomesImpact";
 import { ChallengesLearningsProps } from "@/components/project/common/ChallengesLearnings";
 import { ReflectionProps } from "@/components/project/common/Reflection";
+import { AIProductThinkingProps } from "@/components/project/common/AIProductThinking";
+
+// AI PM Lens Data
+export const symptomCheckrAIPMData: AIProductThinkingProps = {
+  title: "The AI Challenge",
+  challenge: "How do we handle it when the model hallucinates a wrong medical symptom?",
+  dataStrategy: "We designed for graceful uncertainty—showing confidence levels and source citations so users can verify recommendations against medical literature.",
+  successMetric: "User testing showed 78% reduction in anxiety when AI explanations included confidence intervals and source citations vs. black-box outputs."
+};
 
 // Project Overview Data
 export const symptomCheckrOverviewData: ProjectOverviewProps = {
@@ -452,6 +461,11 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
     }
   ],
   uiFeatures: [
+    {
+      title: "Human-in-the-Loop Error Handling",
+      description: "'AI can make mistakes. Always verify with a healthcare professional.' We built explicit uncertainty messaging into every assessment, because users need to know when to trust—and when to override—the algorithm.",
+      icon: AlertCircle
+    },
     {
       title: "Show, Don't Tell",
       description: "Upload a photo of that weird rash instead of trying to describe it. Sometimes a picture really is worth a thousand words.",

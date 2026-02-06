@@ -23,6 +23,15 @@ import { FinalUIDesignProps } from "@/components/project/common/FinalUIDesign";
 import { OutcomesImpactProps } from "@/components/project/common/OutcomesImpact";
 import { ChallengesLearningsProps } from "@/components/project/common/ChallengesLearnings";
 import { ReflectionProps } from "@/components/project/common/Reflection";
+import { AIProductThinkingProps } from "@/components/project/common/AIProductThinking";
+
+// AI PM Lens Data
+export const litmusAIAIPMData: AIProductThinkingProps = {
+  title: "The AI Challenge",
+  challenge: "How do we test genuine understanding vs. buzzword familiarity without requiring hours of assessment?",
+  dataStrategy: "Leveraged GPT-5 for dynamic question generation with prompt engineering, enabling adaptive difficulty that responds to user responses in real-time.",
+  successMetric: "Compressed 2-hour traditional assessments into 5-minute adaptive tests while maintaining assessment accuracy through intelligent question selection."
+};
 
 // Project Overview Data - Minto Pyramid: Lead with Impact
 export const litmusAIOverviewData: ProjectOverviewProps = {

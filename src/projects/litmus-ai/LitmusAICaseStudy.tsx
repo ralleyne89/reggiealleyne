@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectOverviewComponent from "@/components/project/common/ProjectOverview";
+import AIProductThinking from "@/components/project/common/AIProductThinking";
 import ProblemSpace from "@/components/project/common/ProblemSpace";
 import ResearchDiscovery from "@/components/project/common/ResearchDiscovery";
 import IdeationStrategy from "@/components/project/common/IdeationStrategy";
@@ -19,6 +20,7 @@ import {
   litmusAIChallengesData,
   litmusAIReflectionData,
   litmusAITradeoffsData,
+  litmusAIAIPMData,
 } from "./data/litmusAIData";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -28,6 +30,7 @@ const LitmusAICaseStudy = () => {
     <div className="mt-8 mb-16">
       {/* Lead with Impact/Outcome */}
       <ProjectOverviewComponent {...litmusAIOverviewData} />
+      <AIProductThinking {...litmusAIAIPMData} />
       <OutcomesImpact {...litmusAIOutcomesData} />
 
       {/* Key Strategic Moves */}

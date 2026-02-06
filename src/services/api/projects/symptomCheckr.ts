@@ -4,7 +4,7 @@ export const getSymptomCheckrProject = (): ProjectType => {
   return {
     id: 9,
     slug: 'symptom-checkr',
-    title: 'SymptomCheckr – Explainable AI Health Assistant',
+    title: 'SymptomCheckr: Designing for Trust in Probabilistic AI',
     description: "Solving the 'WebMD panic spiral': We chose to show AI confidence levels and source citations despite increasing UI complexity—because user testing showed transparency reduced anxiety by 78%.",
     role: 'UI/UX Designer',
     year: '2024',
