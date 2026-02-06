@@ -86,7 +86,7 @@ const About = () => {
             className="max-w-4xl"
           >
             <p className="text-primary font-medium text-sm tracking-wide uppercase mb-3">
-              Product Designer & Creative Technologist
+              Product Designer & AI Technologist
             </p>
             <h1 className="text-4xl lg:text-6xl font-heading font-bold mb-6 text-text-primary">
               Reggie Alleyne
@@ -221,13 +221,10 @@ const About = () => {
             </p>
 
             <p className="text-lg text-text-secondary leading-relaxed">
-              But I'm dreaming bigger. I want to design for the
-              industries that first made me fall in love with great experiences:{" "}
-              <span className="text-primary font-semibold">
-                gaming and anime
-              </span>
-              . There's something magical about creating worlds and characters
-              that people connect with emotionally.
+              <span className="text-primary font-semibold">Passion for Immersive Interfaces:</span>{" "}
+              My background in gaming and anime inspires my approach to spatial computing 
+              and highly interactive UI. These industries taught me that the best experiences 
+              feel invisible—they just work.
             </p>
           </motion.section>
 

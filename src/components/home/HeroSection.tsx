@@ -76,9 +76,9 @@ const HeroSection = () => {
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp} className="mb-4">
-              <p className="text-primary font-medium text-sm md:text-base tracking-wide uppercase mb-3">
-                Product Designer & Creative Technologist
-              </p>
+            <p className="text-primary font-medium text-sm md:text-base tracking-wide uppercase mb-3">
+              Product Designer & AI Technologist
+            </p>
               <h1 className="font-display text-display-xl font-bold leading-tight text-gray-900">
                 <span className="text-primary">Reggie Alleyne</span>
               </h1>
@@ -95,7 +95,7 @@ const HeroSection = () => {
               variants={fadeInUp}
               className="text-gray-500 text-body-sm mb-8 max-w-xl mx-auto lg:mx-0"
             >
-              Specializing in <span className="text-primary font-medium">0→1 Product Architecture</span>, <span className="text-primary font-medium">Design Systems</span>, and <span className="text-primary font-medium">React Prototyping</span>.
+              Specializing in <span className="text-primary font-medium">Human-in-the-Loop AI</span>, <span className="text-primary font-medium">Design Systems</span>, and <span className="text-primary font-medium">React Prototyping</span>.
             </motion.p>
 
             <motion.div
@@ -146,7 +146,7 @@ const HeroSection = () => {
               <div className="relative rounded-3xl overflow-hidden w-full h-[280px] sm:h-[350px] md:h-[400px] border border-gray-200 shadow-2xl">
                 <img
                   src="/images/1686931266900.jpeg"
-                  alt="Reggie Alleyne - UI/UX Designer"
+                  alt="Reggie Alleyne - AI Technologist"
                   className="w-full h-full object-cover"
                 />
 

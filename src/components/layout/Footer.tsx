@@ -53,8 +53,7 @@ const Footer = () => {
             </Link>
 
             <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-md">
-              UI/UX Designer who codes, creating digital experiences that bridge
-              the gap between vision and execution.
+              Bridging the gap between human intent and machine logic. Product Designer & AI Technologist specializing in Human-in-the-Loop AI design.
             </p>
 
             {/* Social Links */}

@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectOverviewComponent from "@/components/project/common/ProjectOverview";
+import AIProductThinking from "@/components/project/common/AIProductThinking";
 import UserPersona from "@/components/project/symptom-checkr/UserPersona";
 import ResearchDiscovery from "@/components/project/symptom-checkr/ResearchDiscovery";
 import UserJourneyMap from "@/components/project/symptom-checkr/UserJourneyMap";
@@ -13,6 +14,7 @@ import ChallengesLearnings from "@/components/project/symptom-checkr/ChallengesL
 import {
   symptomCheckrOverviewData,
   symptomCheckrSitemapData,
+  symptomCheckrAIPMData,
 } from "./data/symptomCheckrData";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -22,6 +24,7 @@ const SymptomCheckrCaseStudy = () => {
     <div className="space-y-16">
       {/* Minto Pyramid: Lead with Impact/Outcome */}
       <ProjectOverviewComponent {...symptomCheckrOverviewData} />
+      <AIProductThinking {...symptomCheckrAIPMData} />
       <OutcomesImpact />
 
       {/* Key Strategic Moves (2-3 core challenges/solutions) */}
