@@ -99,33 +99,37 @@ const HeroSection = () => {
             transition={{ duration: 0.65, delay: 0.12, ease: "easeOut" }}
           >
             <div className="relative px-1 pb-6 sm:px-8 sm:pb-8">
-              <div className="absolute inset-x-8 bottom-0 top-8 rounded-[2rem] border border-primary/15 bg-primary/[0.06] shadow-inner shadow-primary/10" />
-              <div className="liquid-glass liquid-glass-dark relative z-10 mx-auto mb-3 hidden w-full items-center justify-between rounded-t-2xl rounded-b-lg border border-white/10 px-4 py-3 text-white shadow-xl shadow-gray-950/15 sm:flex">
-                <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-primary" />
-                  <span className="h-2 w-2 rounded-full bg-white/25" />
-                  <span className="h-2 w-2 rounded-full bg-white/25" />
-                </div>
-                <p className="text-xs font-semibold uppercase text-white/80">
-                  Evidence-led product studio
-                </p>
-              </div>
+              <div className="absolute inset-x-3 bottom-0 top-0 rounded-[2rem] border border-primary/15 bg-primary/[0.06] shadow-inner shadow-primary/10 sm:inset-x-8" />
 
-              <div className="relative mx-auto max-w-[20rem] overflow-hidden rounded-[1.5rem] border border-white bg-gray-100 shadow-2xl shadow-gray-950/15 sm:max-w-[26rem] sm:rounded-[2rem]">
-                <div className="relative aspect-[4/4.7] sm:aspect-[4/5]">
-                  <img
-                    src="/images/1686931266900.jpeg"
-                    alt="Reggie Alleyne"
-                    className="h-full w-full object-cover grayscale"
-                  />
-                  <div className="liquid-glass liquid-glass-dark absolute inset-x-3 bottom-3 rounded-2xl p-3 text-white sm:inset-x-4 sm:bottom-4 sm:p-4">
-                    <div className="flex items-center gap-2 text-xs font-semibold sm:text-sm">
-                      <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_0_5px_rgba(52,211,153,0.18)]" />
-                      Trust-first AI product systems
+              <div className="relative z-10 mx-auto max-w-[20rem] sm:max-w-[26rem]">
+                <div className="liquid-glass liquid-glass-dark hidden w-full items-center justify-between rounded-b-none rounded-t-[1.45rem] border border-b-0 border-white/10 px-4 py-3 text-white shadow-xl shadow-gray-950/15 sm:flex">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-primary" />
+                    <span className="h-2 w-2 rounded-full bg-white/25" />
+                    <span className="h-2 w-2 rounded-full bg-white/25" />
+                  </div>
+                  <p className="text-xs font-semibold uppercase text-white/80">
+                    Evidence-led product studio
+                  </p>
+                </div>
+
+                <div className="relative overflow-hidden rounded-[1.5rem] border border-white bg-gray-100 shadow-2xl shadow-gray-950/15 sm:rounded-b-[2rem] sm:rounded-t-none sm:border-t-0">
+                  <div className="relative aspect-[4/4.7] sm:aspect-[4/5]">
+                    <img
+                      src="/images/1686931266900.jpeg"
+                      alt="Reggie Alleyne"
+                      className="h-full w-full object-cover grayscale"
+                    />
+                    <div className="liquid-glass liquid-glass-dark absolute inset-x-3 bottom-3 rounded-2xl p-3 text-white sm:inset-x-4 sm:bottom-4 sm:p-4">
+                      <div className="flex items-center gap-2 text-xs font-semibold sm:text-sm">
+                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_0_5px_rgba(52,211,153,0.18)]" />
+                        Trust-first AI product systems
+                      </div>
+                      <p className="mt-1 text-[0.7rem] text-white/70 sm:text-xs">
+                        Research-backed flows / design systems / React
+                        prototypes
+                      </p>
                     </div>
-                    <p className="mt-1 text-[0.7rem] text-white/70 sm:text-xs">
-                      Research-backed flows / design systems / React prototypes
-                    </p>
                   </div>
                 </div>
               </div>

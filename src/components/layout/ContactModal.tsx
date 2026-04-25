@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -55,11 +56,11 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
           <DialogTitle className="text-white text-xl font-semibold">
             Get in Touch
           </DialogTitle>
+          <DialogDescription className="text-sm leading-relaxed text-white/72">
+            Have a project in mind or want to discuss potential collaborations?
+            I'd love to hear from you!
+          </DialogDescription>
         </DialogHeader>
-        <p className="mb-4 text-sm leading-relaxed text-white/72">
-          Have a project in mind or want to discuss potential collaborations?
-          I'd love to hear from you!
-        </p>
         <ContactForm onSubmit={handleSubmit} isLoading={isLoading} />
       </DialogContent>
     </Dialog>

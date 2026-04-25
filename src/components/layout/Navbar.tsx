@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { BriefcaseBusiness, Home, Menu, MoreHorizontal, X } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  FileText,
+  Home,
+  Menu,
+  MoreHorizontal,
+  X,
+} from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import ContactModal from "./ContactModal";
 
@@ -18,6 +25,7 @@ const navLinks: NavLinkItem[] = [
 
 const mobilePrimaryLinks = navLinks.slice(0, 2);
 const mobileSecondaryLinks = navLinks.slice(2);
+const resumeHref = "/resume/Reginald_Alleyne_Resume_FINAL_2026.pdf";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,11 +86,11 @@ const Navbar = () => {
         animate="visible"
         variants={navVariants}
       >
-        <div className="mx-auto w-full max-w-6xl">
-          <nav className="liquid-glass liquid-glass-nav pointer-events-auto mx-auto flex min-h-14 max-w-6xl items-center justify-between rounded-full px-3 py-2 sm:min-h-16 sm:px-5">
+        <div className="mx-auto w-full max-w-7xl">
+          <nav className="liquid-glass liquid-glass-nav pointer-events-auto mx-auto flex min-h-14 max-w-7xl items-center justify-between gap-3 rounded-full px-3 py-2 sm:min-h-16 sm:px-5">
             <Link
               to="/"
-              className="relative z-10 inline-flex items-center rounded-full px-2 py-1 text-gray-900"
+              className="relative z-10 inline-flex shrink-0 items-center rounded-full px-2 py-1 text-gray-900"
               aria-label="Reggie Alleyne home"
             >
               <motion.img
@@ -94,32 +102,54 @@ const Navbar = () => {
               />
             </Link>
 
-            <ul className="hidden items-center gap-1 rounded-full border border-white/35 bg-white/30 p-1 shadow-inner shadow-white/20 backdrop-blur-xl md:flex">
-              {navLinks.map((item) => {
-                const isActive = isActivePath(item.path);
+            <div className="hidden min-w-0 flex-1 items-center justify-center px-2 lg:flex">
+              <div className="inline-flex min-w-0 items-center gap-2 rounded-full border border-white/35 bg-white/28 px-3 py-2 text-xs font-semibold text-gray-800 shadow-inner shadow-white/20 backdrop-blur-xl">
+                <span className="relative flex h-2.5 w-2.5 shrink-0">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                </span>
+                <span className="truncate">Available for AI product teams</span>
+              </div>
+            </div>
 
-                return (
-                  <motion.li key={item.path} variants={itemVariants}>
-                    <Link
-                      to={item.path}
-                      aria-current={isActive ? "page" : undefined}
-                      className={linkClassName(isActive)}
-                    >
-                      {item.title}
-                    </Link>
-                  </motion.li>
-                );
-              })}
-              <motion.li variants={itemVariants}>
-                <button
-                  type="button"
-                  onClick={openContactModal}
-                  className="relative inline-flex min-h-10 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-gray-800 transition-colors hover:text-gray-950"
-                >
-                  Contact
-                </button>
-              </motion.li>
-            </ul>
+            <div className="hidden shrink-0 items-center gap-2 md:flex">
+              <ul className="flex items-center gap-1 rounded-full border border-white/35 bg-white/30 p-1 shadow-inner shadow-white/20 backdrop-blur-xl">
+                {navLinks.map((item) => {
+                  const isActive = isActivePath(item.path);
+
+                  return (
+                    <motion.li key={item.path} variants={itemVariants}>
+                      <Link
+                        to={item.path}
+                        aria-current={isActive ? "page" : undefined}
+                        className={linkClassName(isActive)}
+                      >
+                        {item.title}
+                      </Link>
+                    </motion.li>
+                  );
+                })}
+                <motion.li variants={itemVariants}>
+                  <button
+                    type="button"
+                    onClick={openContactModal}
+                    className="relative inline-flex min-h-10 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-gray-800 transition-colors hover:text-gray-950"
+                  >
+                    Contact
+                  </button>
+                </motion.li>
+              </ul>
+
+              <a
+                href={resumeHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="liquid-glass-control liquid-glass-nav-control hidden min-h-10 items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-gray-950 transition-colors hover:text-primary lg:inline-flex"
+              >
+                <FileText size={16} />
+                Resume
+              </a>
+            </div>
 
             <motion.button
               type="button"
@@ -163,6 +193,17 @@ const Navbar = () => {
                       </li>
                     );
                   })}
+                  <li>
+                    <a
+                      href={resumeHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex w-full items-center gap-2 rounded-2xl px-4 py-3 text-left text-sm font-semibold text-gray-700 transition-colors hover:bg-white/45 hover:text-gray-950"
+                    >
+                      <FileText size={16} />
+                      Resume
+                    </a>
+                  </li>
                   <li>
                     <button
                       type="button"

@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
+  ArrowRight,
+  CheckCircle2,
   Zap,
   Users,
   Target,
@@ -8,6 +10,7 @@ import {
   Heart,
   Coffee,
   Lightbulb,
+  Sparkles,
 } from "lucide-react";
 
 const AboutSection = () => {
@@ -52,6 +55,28 @@ const AboutSection = () => {
       icon: <Lightbulb className="w-6 h-6 text-primary" />,
       title: "Learning",
       description: "New tools, frameworks, and techniques",
+    },
+  ];
+
+  const opportunitySignals = [
+    "Trust-first AI products",
+    "Platform tools",
+    "Creative systems",
+    "Healthcare, education, entertainment",
+  ];
+
+  const collaborationSignals = [
+    {
+      label: "Best fit",
+      value: "Product teams turning ambiguity into something buildable",
+    },
+    {
+      label: "Working style",
+      value: "Evidence, fast prototypes, and thoughtful critique",
+    },
+    {
+      label: "Leverage",
+      value: "Making complex technology feel useful and human",
     },
   ];
 
@@ -255,7 +280,7 @@ const AboutSection = () => {
 
           {/* What I'm Looking For */}
           <motion.div
-            className="min-w-0 rounded-xl border border-gray-700 bg-secondary-dark p-5 sm:p-8"
+            className="relative min-w-0 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 p-5 shadow-2xl shadow-slate-950/20 sm:p-8 lg:p-10"
             initial={{
               opacity: 0,
               y: 30,
@@ -273,50 +298,73 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h3 className="mb-6 break-words text-center font-display text-3xl leading-tight text-white sm:text-heading-xl">
-              What I'm Looking For
-            </h3>
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(139,92,246,0.18),transparent_35%),linear-gradient(to_right,rgba(148,163,184,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.1)_1px,transparent_1px)] bg-[size:auto,72px_72px,72px_72px]" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-light to-transparent" />
 
-            <div className="space-y-4 max-w-3xl mx-auto">
-              <p className="text-gray-300 leading-relaxed">
-                I want to join a team that's{" "}
-                <span className="text-primary font-semibold">
-                  building something meaningful
-                </span>
-                —especially AI products, platform tools, and experiences where
-                trust and clarity determine whether the product works.
-              </p>
+            <div className="relative grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
+              <div className="min-w-0">
+                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-xs font-semibold uppercase leading-none text-primary-light">
+                  <Sparkles size={14} />
+                  Opportunity fit
+                </div>
 
-              <p className="text-gray-300 leading-relaxed">
-                I thrive with teams that value evidence, fast prototypes, and
-                thoughtful critique. Give me ambiguous systems, a real user
-                problem, and partners who want to make the product better
-                together.
-              </p>
+                <h3 className="break-words font-display text-[2rem] font-semibold leading-tight text-white [text-wrap:balance] sm:text-heading-xl">
+                  What I'm Looking For
+                </h3>
 
-              <p className="text-gray-300 leading-relaxed">
-                I am especially interested in{" "}
-                <span className="text-primary font-semibold">
-                  AI, creative tools, education, healthcare, and entertainment
-                </span>
-                , where strong UX can make complex technology feel useful and
-                human.
-              </p>
-            </div>
+                <p className="mt-5 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
+                  I want to join a team that's{" "}
+                  <span className="font-semibold text-primary-light">
+                    building something meaningful
+                  </span>
+                  —especially AI products, platform tools, and experiences
+                  where trust and clarity determine whether the product works.
+                </p>
 
-            <div className="text-center mt-8">
-              <motion.a
-                href="#contact"
-                className="inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-dark sm:w-auto sm:px-8"
-                whileHover={{
-                  scale: 1.05,
-                }}
-                whileTap={{
-                  scale: 0.95,
-                }}
-              >
-                Let's Build Something Great
-              </motion.a>
+                <motion.a
+                  href="#contact"
+                  className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-slate-950 shadow-xl shadow-black/20 transition-colors hover:bg-primary-light hover:text-white sm:w-auto"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  Let's Build Something Great
+                  <ArrowRight size={18} />
+                </motion.a>
+              </div>
+
+              <div className="min-w-0 border-t border-white/10 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+                <div className="space-y-5">
+                  {collaborationSignals.map((signal) => (
+                    <div key={signal.label} className="flex gap-4">
+                      <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-emerald-300" />
+                      <div>
+                        <p className="text-sm font-semibold uppercase text-primary-light">
+                          {signal.label}
+                        </p>
+                        <p className="mt-1 leading-7 text-slate-300">
+                          {signal.value}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mt-7 leading-7 text-slate-300">
+                  Give me ambiguous systems, a real user problem, and partners
+                  who want to make the product better together.
+                </p>
+
+                <div className="mt-7 flex flex-wrap gap-2">
+                  {opportunitySignals.map((signal) => (
+                    <span
+                      key={signal}
+                      className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-sm font-semibold text-slate-200"
+                    >
+                      {signal}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

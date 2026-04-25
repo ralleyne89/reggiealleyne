@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, MapPin, Coffee } from "lucide-react";
+import {
+  ArrowRight,
+  FileText,
+  Github,
+  Globe2,
+  Linkedin,
+  Mail,
+  MapPin,
+  Sparkles,
+} from "lucide-react";
+import { CONTACT_EMAIL } from "@/config/contact";
+
+const resumeHref = "/resume/Reginald_Alleyne_Resume_FINAL_2026.pdf";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const socialLinks = [
@@ -19,7 +32,7 @@ const Footer = () => {
     {
       name: "Email",
       icon: <Mail size={20} />,
-      url: "mailto:reggiealleyne89@gmail.com",
+      url: `mailto:${CONTACT_EMAIL}`,
       label: "Send me an email",
     },
   ];
@@ -33,33 +46,73 @@ const Footer = () => {
       href: "/about",
     },
     {
+      name: "Playground",
+      href: "/playground",
+    },
+    {
       name: "Contact",
       href: "/#contact",
     },
   ];
+
   return (
-    <footer className="relative overflow-hidden bg-secondary-dark px-4">
-      {/* Main Footer Content */}
-      <div className="mx-auto w-full max-w-7xl px-0 py-8 sm:px-4">
-        <div className="grid min-w-0 grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
-          {/* Brand Section */}
-          <div className="min-w-0 lg:col-span-5">
-            <Link to="/" className="inline-block mb-6">
+    <footer className="relative overflow-hidden bg-slate-900 px-4 text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:88px_88px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl py-12 sm:py-16">
+        <div className="grid min-w-0 gap-8 border-b border-white/10 pb-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <div className="min-w-0">
+            <Link to="/" className="mb-6 inline-flex">
               <img
                 src="/images/RA_logo_white.png"
                 alt="Reggie Alleyne Logo"
-                className="h-12 w-auto"
+                className="h-14 w-auto"
               />
             </Link>
 
-            <p className="mb-8 max-w-md text-base leading-7 text-gray-300 sm:text-lg sm:leading-relaxed">
-              Bridging the gap between human intent and machine logic. Product
-              Designer & AI Technologist specializing in Human-in-the-Loop AI
-              design.
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-semibold uppercase text-primary-light">
+              <Sparkles size={14} />
+              Product Designer & AI Technologist
             </p>
+            <h2 className="max-w-3xl break-words font-display text-[2rem] font-semibold leading-tight text-white [text-wrap:balance] sm:text-heading-xl">
+              Bridging the gap between human intent and machine logic.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+              I design Human-in-the-Loop AI experiences that make complex
+              systems legible, useful, and trusted.
+            </p>
+          </div>
 
-            {/* Social Links */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="min-w-0 rounded-2xl border border-white/10 bg-white/[0.05] p-5 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-6">
+            <div className="flex items-center gap-3 text-sm font-semibold text-white">
+              <span className="relative flex h-3 w-3">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-400" />
+              </span>
+              Available for new projects
+            </div>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="mt-5 flex min-w-0 items-center justify-between gap-4 rounded-xl border border-white/10 bg-slate-950/40 p-4 transition-colors hover:border-primary/40"
+            >
+              <span className="min-w-0">
+                <span className="block text-sm text-slate-400">Get in touch</span>
+                <span className="block break-all text-lg font-semibold text-primary-light">
+                  {CONTACT_EMAIL}
+                </span>
+              </span>
+              <ArrowRight className="h-5 w-5 shrink-0 text-primary-light" />
+            </a>
+          </div>
+        </div>
+
+        <div className="grid min-w-0 gap-10 py-10 md:grid-cols-[1.1fr_0.7fr_1fr]">
+          <div className="min-w-0">
+            <h3 className="mb-4 text-sm font-semibold uppercase text-slate-400">
+              Connect
+            </h3>
+            <div className="flex flex-wrap items-center gap-3">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.name}
@@ -67,34 +120,27 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="group relative flex h-12 w-12 items-center justify-center rounded-xl border-2 border-gray-600 bg-secondary-dark text-gray-300 transition-all duration-300 hover:border-white hover:bg-gray-800 hover:text-white"
-                  whileHover={{
-                    y: -2,
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
+                  className="group relative flex h-12 w-12 items-center justify-center rounded-xl border border-white/12 bg-white/[0.04] text-slate-300 transition-colors hover:border-primary/45 hover:bg-white/[0.08] hover:text-white"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {social.icon}
-                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                    {social.label}
-                  </div>
+                  <span className="sr-only">{social.name}</span>
                 </motion.a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="min-w-0 lg:col-span-3">
-            <h3 className="text-white font-semibold text-lg mb-6">
+          <div className="min-w-0">
+            <h3 className="mb-4 text-sm font-semibold uppercase text-slate-400">
               Quick Links
             </h3>
-            <nav className="space-y-4">
+            <nav className="grid gap-3">
               {quickLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="block text-gray-400 hover:text-primary transition-colors duration-200 text-sm"
+                  className="text-sm font-semibold text-slate-300 transition-colors hover:text-primary-light"
                 >
                   {link.name}
                 </Link>
@@ -102,66 +148,39 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Status & Contact */}
-          <div className="min-w-0 lg:col-span-4">
-            <h3 className="text-white font-semibold text-lg mb-6">
-              Let's Connect
+          <div className="min-w-0">
+            <h3 className="mb-4 text-sm font-semibold uppercase text-slate-400">
+              Working From
             </h3>
-
-            {/* Status Indicators */}
-            <div className="mb-8 space-y-4">
-              <div className="flex min-w-0 items-center gap-3">
-                <div className="relative shrink-0">
-                  <div className="h-2.5 w-2.5 rounded-full bg-green-400"></div>
-                  <div className="absolute inset-0 h-2.5 w-2.5 animate-ping rounded-full bg-green-400 opacity-75"></div>
-                </div>
-                <span className="text-gray-300 text-sm">
-                  Available for new projects
-                </span>
-              </div>
-
-              <div className="flex min-w-0 items-center gap-3">
-                <MapPin size={12} className="shrink-0 text-primary" />
-                <span className="text-gray-400 text-sm">Los Angeles, CA</span>
-              </div>
-
-              <div className="flex min-w-0 items-center gap-3">
-                <Coffee size={12} className="shrink-0 text-primary" />
-                <span className="text-gray-400 text-sm">
-                  Remote collaboration worldwide
-                </span>
-              </div>
-            </div>
-
-            {/* Contact Email */}
-            <div className="min-w-0 rounded-xl border-2 border-gray-600 bg-secondary-dark p-4 transition-colors duration-300 hover:border-white">
-              <p className="text-gray-400 text-xs mb-1">Get in touch</p>
+            <div className="grid gap-3 text-sm text-slate-300">
+              <span className="inline-flex items-center gap-3">
+                <MapPin size={16} className="text-primary-light" />
+                Los Angeles, CA
+              </span>
+              <span className="inline-flex items-center gap-3">
+                <Globe2 size={16} className="text-primary-light" />
+                Remote collaboration worldwide
+              </span>
               <a
-                href="mailto:reggiealleyne89@gmail.com"
-                className="break-all font-medium text-primary transition-colors duration-200 hover:text-primary-light"
+                href={resumeHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-white/12 bg-white/[0.05] px-4 py-2 font-semibold text-white transition-colors hover:border-primary/45 hover:text-primary-light sm:w-auto"
               >
-                reggiealleyne89@gmail.com
+                <FileText size={17} />
+                View Resume
               </a>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
-        <div className="mx-auto w-full max-w-7xl px-4 py-6">
-          <div className="flex justify-center">
-            <p className="text-gray-500 text-sm">
-              © {currentYear} Reggie Alleyne.
-            </p>
-          </div>
+        <div className="flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {currentYear} Reggie Alleyne.</p>
+          <p>Designing AI products people can understand, trust, and use.</p>
         </div>
       </div>
-
-      {/* Subtle Background Elements */}
-      <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-primary/3 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute -top-32 -right-32 w-64 h-64 bg-primary/3 rounded-full blur-3xl pointer-events-none"></div>
     </footer>
   );
 };
+
 export default Footer;

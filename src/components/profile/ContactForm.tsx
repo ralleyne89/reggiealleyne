@@ -12,7 +12,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Turnstile from "@/components/contact/Turnstile";
-import { isTurnstileConfigured } from "@/config/contact";
+import {
+  createContactMailtoHref,
+  isTurnstileConfigured,
+} from "@/config/contact";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
@@ -20,7 +23,9 @@ const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
   message: z.string().min(10, "Message must be at least 10 characters"),
-  turnstileToken: z.string().min(1, "Please complete verification"),
+  turnstileToken: isTurnstileConfigured
+    ? z.string().min(1, "Please complete verification")
+    : z.string().optional().default(""),
   honeypot: z.string().max(0).optional(),
 });
 
@@ -50,6 +55,11 @@ const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
   };
 
   const handleValidSubmit = async (data: ContactFormData) => {
+    if (!isTurnstileConfigured) {
+      window.location.href = createContactMailtoHref(data);
+      return;
+    }
+
     try {
       await onSubmit(data);
     } finally {
@@ -159,8 +169,8 @@ const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
                   }}
                 />
               ) : (
-                <p className="text-sm text-red-400">
-                  Contact verification is unavailable.
+                <p className="rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2 text-sm leading-6 text-white/68">
+                  This preview opens a prepared email draft when you submit.
                 </p>
               )}
               <FormMessage className="text-red-400" />
@@ -170,9 +180,13 @@ const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
         <Button
           type="submit"
           className="w-full rounded-full bg-primary py-2.5 font-medium text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-50"
-          disabled={isLoading || !isTurnstileConfigured}
+          disabled={isLoading}
         >
-          {isLoading ? "Sending..." : "Send Message"}
+          {isLoading
+            ? "Sending..."
+            : isTurnstileConfigured
+              ? "Send Message"
+              : "Open Email Draft"}
         </Button>
       </form>
     </Form>
