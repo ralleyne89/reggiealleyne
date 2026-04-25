@@ -1,12 +1,16 @@
 import React from "react";
+import { EditorialSection } from "@/components/project/EditorialProjectLayout";
+
 export interface Challenge {
   title: string;
   description: string;
 }
+
 export interface Learning {
   title: string;
   description: string;
 }
+
 export interface NextStep {
   title: string;
   description: string;
@@ -14,71 +18,88 @@ export interface NextStep {
     className?: string;
   }>;
 }
+
 export interface ChallengesLearningsProps {
   title: string;
   challenges: Challenge[];
   learnings: Learning[];
   nextSteps: NextStep[];
 }
+
 const ChallengesLearnings = ({
   title,
   challenges,
   learnings,
-  nextSteps
+  nextSteps,
 }: ChallengesLearningsProps) => {
-  return <section className="mb-20">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            {title}
-          </h2>
-        </div>
+  return (
+    <EditorialSection
+      eyebrow="Reflection"
+      title={title}
+      className="border-b border-gray-200"
+      tone="soft"
+    >
+      <ReflectionGroup title="Challenges" items={challenges} />
+      <ReflectionGroup title="Learnings" items={learnings} className="mt-10" />
 
-        {/* Challenges */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
-            Key Challenges
+      {nextSteps.length > 0 ? (
+        <div className="mt-10">
+          <h3 className="mb-5 text-xl font-semibold text-gray-950">
+            Next steps
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {challenges.map((challenge, index) => <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                <h4 className="font-semibold text-gray-900 mb-3">{challenge.title}</h4>
-                <p className="text-gray-700 leading-relaxed">{challenge.description}</p>
-              </div>)}
-          </div>
-        </div>
+          <div className="grid min-w-0 grid-cols-1 gap-4 md:grid-cols-3">
+            {nextSteps.map((step) => {
+              const IconComponent = step.icon;
 
-        {/* Learnings */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
-            Key Learnings
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {learnings.map((learning, index) => <div key={index} className="bg-green-50 rounded-xl p-6 border border-green-200">
-                <h4 className="font-semibold text-gray-900 mb-3">{learning.title}</h4>
-                <p className="text-gray-700 leading-relaxed">{learning.description}</p>
-              </div>)}
-          </div>
-        </div>
-
-        {/* Next Steps */}
-        <div>
-          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
-            Next Steps
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {nextSteps.map((step, index) => {
-            const IconComponent = step.icon;
-            return <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <IconComponent className="w-6 h-6 text-blue-600" />
+              return (
+                <article
+                  key={step.title}
+                  className="min-w-0 rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
+                >
+                  <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
+                    <IconComponent className="h-5 w-5" />
                   </div>
-                  <h4 className="font-semibold text-gray-900 mb-3">{step.title}</h4>
-                  <p className="text-gray-700 leading-relaxed">{step.description}</p>
-                </div>;
-          })}
+                  <h4 className="font-semibold text-gray-950">{step.title}</h4>
+                  <p className="mt-3 text-sm leading-6 text-gray-700">
+                    {step.description}
+                  </p>
+                </article>
+              );
+            })}
           </div>
         </div>
-      </div>
-    </section>;
+      ) : null}
+    </EditorialSection>
+  );
 };
+
+interface ReflectionGroupProps {
+  title: string;
+  items: Array<Challenge | Learning>;
+  className?: string;
+}
+
+const ReflectionGroup = ({ title, items, className }: ReflectionGroupProps) => {
+  if (items.length === 0) return null;
+
+  return (
+    <div className={className}>
+      <h3 className="mb-5 text-xl font-semibold text-gray-950">{title}</h3>
+      <div className="grid min-w-0 grid-cols-1 gap-4 md:grid-cols-2">
+        {items.map((item) => (
+          <article
+            key={item.title}
+            className="min-w-0 rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
+          >
+            <h4 className="font-semibold text-gray-950">{item.title}</h4>
+            <p className="mt-3 text-sm leading-6 text-gray-700">
+              {item.description}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default ChallengesLearnings;

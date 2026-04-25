@@ -1,6 +1,7 @@
 import { CheckCircle2 } from "lucide-react";
 import { getCaseStudyBrief, getFeaturedConfig } from "@/config/portfolioCuration";
 import type { ProjectType } from "@/types/project";
+import { EditorialSection } from "./EditorialProjectLayout";
 
 interface CaseStudyAtGlanceProps {
   project: ProjectType;
@@ -55,23 +56,22 @@ const CaseStudyAtGlance = ({ project }: CaseStudyAtGlanceProps) => {
   );
 
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-10">
-      <div className="min-w-0 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm sm:p-8">
-        <div className="grid min-w-0 gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
+    <EditorialSection className="border-b border-gray-200" tone="soft">
+        <div className="grid min-w-0 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-10">
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase leading-5 text-primary sm:text-sm">
-              At a glance
+            <p className="text-sm font-semibold leading-5 text-primary">
+              Quick read
             </p>
-            <h2 className="mt-3 break-words font-display text-3xl leading-tight text-gray-950 sm:text-heading-xl">
-              What a reviewer should know before reading.
+            <h2 className="mt-3 max-w-xl break-words font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
+              The short version before you dig in.
             </h2>
-            <p className="mt-4 text-sm leading-6 text-gray-600">
-              This summary makes the project intent, tradeoff, and proof points
-              visible before the detailed narrative.
+            <p className="mt-4 max-w-xl text-base leading-7 text-gray-600">
+              A quick pass at the audience, constraint, decision, and proof
+              behind the work.
             </p>
 
             {visual ? (
-              <div className="mt-6 overflow-hidden rounded-xl border border-gray-200 bg-gray-950 shadow-lg shadow-gray-950/10">
+              <div className="mt-7 overflow-hidden rounded-lg border border-gray-200 bg-gray-950 shadow-sm">
                 <div className="relative aspect-[16/10] min-h-[15rem]">
                   <img
                     src={visual.image}
@@ -81,14 +81,14 @@ const CaseStudyAtGlance = ({ project }: CaseStudyAtGlanceProps) => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-950/75 via-transparent to-transparent" />
                   <div className="absolute inset-x-4 bottom-4">
-                    <p className="text-xs font-semibold uppercase tracking-normal text-white/70">
+                    <p className="text-xs font-semibold text-white/70">
                       {visual.label}
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {visual.proofPoints.map((point) => (
                         <span
                           key={point}
-                          className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur"
+                          className="rounded-md border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur"
                         >
                           {point}
                         </span>
@@ -104,9 +104,9 @@ const CaseStudyAtGlance = ({ project }: CaseStudyAtGlanceProps) => {
             {details.map((item) => (
               <div
                 key={item.label}
-                className="min-w-0 rounded-xl border border-gray-200 bg-gray-50 p-4"
+                className="min-w-0 rounded-lg border border-gray-200 bg-white p-4 shadow-sm"
               >
-                <dt className="text-xs font-semibold uppercase text-gray-500">
+                <dt className="text-xs font-semibold text-gray-500">
                   {item.label}
                 </dt>
                 <dd className="mt-2 break-words text-sm leading-6 text-gray-900">
@@ -116,8 +116,8 @@ const CaseStudyAtGlance = ({ project }: CaseStudyAtGlanceProps) => {
             ))}
 
             {brief?.artifacts ? (
-              <div className="min-w-0 rounded-xl border border-primary/20 bg-primary/5 p-4 sm:col-span-2">
-                <dt className="text-xs font-semibold uppercase text-primary">
+              <div className="min-w-0 rounded-lg border border-primary/20 bg-primary/5 p-4 sm:col-span-2">
+                <dt className="text-xs font-semibold text-primary">
                   Key artifacts
                 </dt>
                 <dd className="mt-3 grid min-w-0 gap-2 sm:grid-cols-3">
@@ -135,8 +135,7 @@ const CaseStudyAtGlance = ({ project }: CaseStudyAtGlanceProps) => {
             ) : null}
           </div>
         </div>
-      </div>
-    </section>
+    </EditorialSection>
   );
 };
 

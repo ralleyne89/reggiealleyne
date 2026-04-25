@@ -1,5 +1,6 @@
-
 import React from "react";
+import { CheckCircle2 } from "lucide-react";
+import { EditorialSection } from "@/components/project/EditorialProjectLayout";
 
 export interface ResearchSection {
   title: string;
@@ -19,57 +20,66 @@ export interface ResearchDiscoveryProps {
   keyFindings: KeyFinding[];
 }
 
-const ResearchDiscovery = ({ title, introduction, researchSections, keyFindings }: ResearchDiscoveryProps) => {
+const ResearchDiscovery = ({
+  title,
+  introduction,
+  researchSections,
+  keyFindings,
+}: ResearchDiscoveryProps) => {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            {title}
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
-            {introduction}
-          </p>
-        </div>
+    <EditorialSection
+      eyebrow="Research"
+      title={title}
+      description={introduction}
+      className="border-b border-gray-200"
+    >
+      <div className="mb-12 grid min-w-0 grid-cols-1 gap-5 md:grid-cols-2">
+        {researchSections.map((section) => (
+          <article
+            key={section.title}
+            className="min-w-0 rounded-lg border border-gray-200 bg-gray-50 p-5 sm:p-6"
+          >
+            <h3 className="text-xl font-semibold text-gray-950">
+              {section.title}
+            </h3>
+            <p className="mt-3 text-sm leading-6 text-gray-700">
+              {section.description}
+            </p>
+            <ul className="mt-5 space-y-3">
+              {section.items.map((item) => (
+                <li key={item.text} className="flex min-w-0 items-start gap-3">
+                  <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-primary" />
+                  <span className="text-sm leading-6 text-gray-700">
+                    {item.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
 
-        {/* Research Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {researchSections.map((section, index) => (
-            <div key={index} className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-3">
-                {section.title}
-              </h3>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                {section.description}
-              </p>
-              <ul className="space-y-2">
-                {section.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-700">{item.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Key Findings */}
+      {keyFindings.length > 0 ? (
         <div>
-          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
-            Key Findings
+          <h3 className="mb-5 text-xl font-semibold text-gray-950">
+            Key findings
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {keyFindings.map((finding, index) => (
-              <div key={index} className="bg-blue-50 rounded-xl p-6 border border-blue-200">
-                <h4 className="font-semibold text-gray-900 mb-3">{finding.title}</h4>
-                <p className="text-gray-700 leading-relaxed">{finding.description}</p>
-              </div>
+          <div className="grid min-w-0 grid-cols-1 gap-4 md:grid-cols-3">
+            {keyFindings.map((finding) => (
+              <article
+                key={finding.title}
+                className="min-w-0 rounded-lg border border-primary/20 bg-primary/5 p-5"
+              >
+                <h4 className="font-semibold text-gray-950">{finding.title}</h4>
+                <p className="mt-3 text-sm leading-6 text-gray-700">
+                  {finding.description}
+                </p>
+              </article>
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      ) : null}
+    </EditorialSection>
   );
 };
 

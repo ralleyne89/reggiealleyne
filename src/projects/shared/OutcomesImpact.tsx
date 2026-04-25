@@ -1,66 +1,95 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { TrendingUp, Trophy } from "lucide-react";
+import { Trophy } from "lucide-react";
+import { EditorialSection } from "@/components/project/EditorialProjectLayout";
+
 export interface MetricItem {
   title: string;
   value: string;
   description: string;
 }
+
 export interface Achievement {
   title: string;
   description: string;
 }
+
 export interface OutcomesImpactProps {
   title?: string;
   description: string | string[];
   metrics: MetricItem[];
   achievements: Achievement[];
 }
+
 const OutcomesImpact: React.FC<OutcomesImpactProps> = ({
-  title = "Results & Impact",
+  title = "Results and impact",
   description,
   metrics,
-  achievements
+  achievements,
 }) => {
-  const descriptionText = Array.isArray(description) ? description.join(' ') : description;
-  return <section className="mb-16">
-      <Card className="bg-white border-0 rounded-xl overflow-hidden shadow-none">
-        <CardContent className="p-0">
-          <div className="flex items-center gap-3 mb-2">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">{title}</h2>
+  const descriptionText = Array.isArray(description)
+    ? description.join(" ")
+    : description;
+
+  return (
+    <EditorialSection
+      eyebrow="Impact"
+      title={title}
+      description={descriptionText}
+      className="border-b border-gray-200"
+    >
+      {metrics && metrics.length > 0 ? (
+        <div className="mb-10">
+          <h3 className="mb-5 text-xl font-semibold text-gray-950">
+            Key metrics
+          </h3>
+          <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {metrics.map((metric) => (
+              <article
+                key={`${metric.title}-${metric.value}`}
+                className="min-w-0 rounded-lg border border-gray-200 bg-white p-5 text-left shadow-sm"
+              >
+                <p className="font-display text-3xl leading-tight text-primary">
+                  {metric.value}
+                </p>
+                <h4 className="mt-3 font-semibold text-gray-950">
+                  {metric.title}
+                </h4>
+                <p className="mt-2 text-sm leading-6 text-gray-600">
+                  {metric.description}
+                </p>
+              </article>
+            ))}
           </div>
-          
-          <p className="text-gray-700 leading-relaxed mb-8">
-            {descriptionText}
-          </p>
+        </div>
+      ) : null}
 
-          {metrics && metrics.length > 0 && <div className="mb-8">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Key Metrics</h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                {metrics.map((metric, index) => <div key={index} className="bg-gray-50 border border-gray-100 rounded-lg p-5 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">{metric.value}</div>
-                    <h4 className="text-gray-900 font-medium mb-2">{metric.title}</h4>
-                    <p className="text-gray-600 text-sm">{metric.description}</p>
-                  </div>)}
-              </div>
-            </div>}
-
-          {achievements && achievements.length > 0 && <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 mx-[24px]">Key Achievements</h3>
-              <div className="grid grid-cols-2 md:grid-cols-2 gap-6 mx-[24px]">
-                {achievements.map((achievement, index) => <div key={index} className="bg-gray-50 border border-gray-100 rounded-lg p-5">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="bg-primary/10 p-2 rounded-full">
-                        <Trophy className="w-4 h-4 text-primary" />
-                      </div>
-                      <h4 className="text-gray-900 font-medium">{achievement.title}</h4>
-                    </div>
-                    <p className="text-gray-600 text-sm">{achievement.description}</p>
-                  </div>)}
-              </div>
-            </div>}
-        </CardContent>
-      </Card>
-    </section>;
+      {achievements && achievements.length > 0 ? (
+        <div>
+          <h3 className="mb-5 text-xl font-semibold text-gray-950">
+            Key achievements
+          </h3>
+          <div className="grid min-w-0 grid-cols-1 gap-4 md:grid-cols-2">
+            {achievements.map((achievement) => (
+              <article
+                key={achievement.title}
+                className="min-w-0 rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
+              >
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
+                  <Trophy className="h-5 w-5" />
+                </div>
+                <h4 className="font-semibold text-gray-950">
+                  {achievement.title}
+                </h4>
+                <p className="mt-2 text-sm leading-6 text-gray-600">
+                  {achievement.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      ) : null}
+    </EditorialSection>
+  );
 };
+
 export default OutcomesImpact;

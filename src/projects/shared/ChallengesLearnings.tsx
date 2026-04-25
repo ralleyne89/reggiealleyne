@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Lightbulb, CheckCircle, Target, LucideIcon } from "lucide-react";
+import { CheckCircle, LucideIcon } from "lucide-react";
+import { EditorialSection } from "@/components/project/EditorialProjectLayout";
 
 export interface Challenge {
   title: string;
@@ -29,100 +29,87 @@ export interface ChallengesLearningsProps {
 }
 
 const ChallengesLearnings: React.FC<ChallengesLearningsProps> = ({
-  title = "Key Insights & Learnings",
+  title = "Key insights and learnings",
   challenges,
   learnings,
   nextSteps,
   challengesTitle = "Insights",
   learningsTitle = "Learnings",
-  nextStepsTitle = "Next Steps & Improvements"
+  nextStepsTitle = "Next steps and improvements",
 }) => {
   return (
-    <section className="mb-16">
-      <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
-        <CardContent className="p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-primary/10 p-3 rounded-lg">
-              <Lightbulb className="w-5 h-5 text-primary" />
-            </div>
-            <h2 className="text-2xl font-bold text-white">
-              {title}
-            </h2>
-          </div>
+    <EditorialSection
+      eyebrow="Reflection"
+      title={title}
+      className="border-b border-gray-200"
+      tone="soft"
+    >
+      <div className="grid min-w-0 gap-8 md:grid-cols-2">
+        <SharedGroup title={challengesTitle} items={challenges} />
+        <SharedGroup title={learningsTitle} items={learnings} showCheck />
+      </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-4">
-                {challengesTitle}
-              </h3>
+      {nextSteps.length > 0 ? (
+        <div className="mt-10">
+          <h3 className="mb-5 text-xl font-semibold text-gray-950">
+            {nextStepsTitle}
+          </h3>
+          <div className="grid min-w-0 grid-cols-1 gap-4 md:grid-cols-3">
+            {nextSteps.map((step) => {
+              const Icon = step.icon;
 
-              <div className="space-y-4">
-                {challenges.map((challenge, index) => (
-                  <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
-                    <h4 className="text-primary font-semibold mb-2">
-                      {challenge.title}
-                    </h4>
-                    <p className="text-gray-300 text-sm">
-                      {challenge.description}
-                    </p>
+              return (
+                <article
+                  key={step.title}
+                  className="min-w-0 rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
+                >
+                  <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
+                    <Icon className="h-5 w-5" />
                   </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-4">
-                {learningsTitle}
-              </h3>
-
-              <div className="space-y-4">
-                {learnings.map((learning, index) => (
-                  <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
-                    <div className="flex items-center gap-2 mb-2">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      <h4 className="text-primary font-semibold">
-                        {learning.title}
-                      </h4>
-                    </div>
-                    <p className="text-gray-300 text-sm">
-                      {learning.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+                  <h4 className="font-semibold text-gray-950">{step.title}</h4>
+                  <p className="mt-3 text-sm leading-6 text-gray-700">
+                    {step.description}
+                  </p>
+                </article>
+              );
+            })}
           </div>
-
-          <div className="mt-8">
-            <h3 className="text-xl font-semibold text-white mb-4">
-              {nextStepsTitle}
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {nextSteps.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <div key={index} className="bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-5">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="bg-primary/10 p-2 rounded-full">
-                        <Icon className="w-4 h-4 text-primary" />
-                      </div>
-                      <h4 className="text-white font-medium">
-                        {step.title}
-                      </h4>
-                    </div>
-                    <p className="text-gray-300 text-sm">
-                      {step.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </section>
+        </div>
+      ) : null}
+    </EditorialSection>
   );
 };
+
+interface SharedGroupProps {
+  title: string;
+  items: Array<Challenge | Learning>;
+  showCheck?: boolean;
+}
+
+const SharedGroup = ({ title, items, showCheck }: SharedGroupProps) => (
+  <div className="min-w-0">
+    <h3 className="mb-5 text-xl font-semibold text-gray-950">{title}</h3>
+    <div className="grid min-w-0 gap-4">
+      {items.map((item) => (
+        <article
+          key={item.title}
+          className="min-w-0 rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
+        >
+          <div className="flex min-w-0 items-start gap-3">
+            {showCheck ? (
+              <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-primary" />
+            ) : null}
+            <div className="min-w-0">
+              <h4 className="font-semibold text-gray-950">{item.title}</h4>
+              <p className="mt-2 text-sm leading-6 text-gray-700">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+);
 
 export default ChallengesLearnings;

@@ -7,6 +7,10 @@ import FinalUIDesign from "@/components/project/common/FinalUIDesign";
 import OutcomesImpact from "@/components/project/common/OutcomesImpact";
 import ChallengesLearnings from "@/components/project/common/ChallengesLearnings";
 import Reflection from "@/components/project/common/Reflection";
+import {
+  CaseStudyFooter,
+  CaseStudyFrame,
+} from "@/components/project/EditorialProjectLayout";
 
 import {
   scentStackOverviewData,
@@ -18,12 +22,10 @@ import {
   scentStackChallengesData,
   scentStackReflectionData,
 } from "./data/scentStackData";
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const ScentStackCaseStudy = () => {
   return (
-    <div className="mt-8 mb-16">
+    <CaseStudyFrame>
       {/* Lead with Impact/Outcome */}
       <ProjectOverviewComponent {...scentStackOverviewData} />
       <OutcomesImpact {...scentStackOutcomesData} />
@@ -39,16 +41,8 @@ const ScentStackCaseStudy = () => {
       <Reflection {...scentStackReflectionData} />
 
       {/* Back to Works link */}
-      <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">
-        <Link
-          to="/works"
-          className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Works
-        </Link>
-      </div>
-    </div>
+      <CaseStudyFooter />
+    </CaseStudyFrame>
   );
 };
 

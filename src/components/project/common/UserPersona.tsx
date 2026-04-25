@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { EditorialSection } from "@/components/project/EditorialProjectLayout";
 
 export interface PersonaDetail {
   label: string;
@@ -8,11 +8,6 @@ export interface PersonaDetail {
 
 export interface PersonaItem {
   text: string;
-}
-
-export interface PersonaSection {
-  title: string;
-  items: PersonaItem[];
 }
 
 export interface UserPersonaProps {
@@ -27,7 +22,7 @@ export interface UserPersonaProps {
 }
 
 const UserPersona: React.FC<UserPersonaProps> = ({
-  title = "User Persona",
+  title = "User persona",
   imageSrc,
   imageAlt,
   name,
@@ -37,119 +32,64 @@ const UserPersona: React.FC<UserPersonaProps> = ({
   needs,
 }) => {
   return (
-    <motion.section
-      className="mb-20"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true, amount: 0.3 }}
+    <EditorialSection
+      eyebrow="Audience"
+      title={title}
+      className="border-b border-gray-200"
+      tone="soft"
     >
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            {title}
-          </h2>
-        </div>
+      <div className="grid min-w-0 gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
+        <aside className="min-w-0 rounded-lg border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            className="mb-6 w-full rounded-md object-cover"
+          />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Persona Image */}
-          <motion.div
-            className="lg:col-span-1"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <img
-                src={imageSrc}
-                alt={imageAlt}
-                className="rounded-lg w-full mb-6"
-              />
-
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                {name}
-              </h3>
-
-              <div className="space-y-4">
-                {details.map((detail, index) => (
-                  <div key={index}>
-                    <p className="text-gray-600 text-sm font-medium uppercase tracking-wider mb-1">
-                      {detail.label}
-                    </p>
-                    <p className="text-gray-900 text-lg">{detail.value}</p>
-                  </div>
-                ))}
+          <h3 className="text-2xl font-semibold text-gray-950">{name}</h3>
+          <dl className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            {details.map((detail) => (
+              <div key={`${detail.label}-${detail.value}`} className="min-w-0">
+                <dt className="text-xs font-semibold text-gray-500">
+                  {detail.label}
+                </dt>
+                <dd className="mt-1 break-words text-base font-semibold leading-6 text-gray-950">
+                  {detail.value}
+                </dd>
               </div>
-            </div>
-          </motion.div>
+            ))}
+          </dl>
+        </aside>
 
-          {/* Persona Details */}
-          <motion.div
-            className="lg:col-span-2"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Goals */}
-              <div className="space-y-4">
-                <h4 className="text-xl font-semibold text-gray-900 pb-3 border-b border-gray-200">
-                  Goals
-                </h4>
-                <ul className="space-y-3">
-                  {goals.map((goal, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700 leading-relaxed">
-                        {goal.text}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Frustrations */}
-              <div className="space-y-4">
-                <h4 className="text-xl font-semibold text-gray-900 pb-3 border-b border-gray-200">
-                  Frustrations
-                </h4>
-                <ul className="space-y-3">
-                  {frustrations.map((frustration, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700 leading-relaxed">
-                        {frustration.text}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Needs */}
-              <div className="space-y-4">
-                <h4 className="text-xl font-semibold text-gray-900 pb-3 border-b border-gray-200">
-                  Needs
-                </h4>
-                <ul className="space-y-3">
-                  {needs.map((need, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700 leading-relaxed">
-                        {need.text}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </motion.div>
+        <div className="grid min-w-0 gap-5 md:grid-cols-3">
+          <PersonaList title="Goals" items={goals} />
+          <PersonaList title="Frustrations" items={frustrations} />
+          <PersonaList title="Needs" items={needs} />
         </div>
       </div>
-    </motion.section>
+    </EditorialSection>
   );
 };
+
+interface PersonaListProps {
+  title: string;
+  items: PersonaItem[];
+}
+
+const PersonaList = ({ title, items }: PersonaListProps) => (
+  <div className="min-w-0 rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+    <h4 className="border-b border-gray-200 pb-3 text-lg font-semibold text-gray-950">
+      {title}
+    </h4>
+    <ul className="mt-5 space-y-3">
+      {items.map((item) => (
+        <li key={item.text} className="flex min-w-0 items-start gap-3">
+          <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+          <span className="text-sm leading-6 text-gray-700">{item.text}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 export default UserPersona;

@@ -1,4 +1,6 @@
 import React from "react";
+import { CheckCircle2 } from "lucide-react";
+import { EditorialSection } from "@/components/project/EditorialProjectLayout";
 
 export interface DesignHighlight {
   text: string;
@@ -26,6 +28,7 @@ export interface FinalUIDesignProps {
 }
 
 const FinalUIDesign = ({
+  title = "Interface design",
   introduction,
   designHighlights,
   uiFeatures,
@@ -33,105 +36,101 @@ const FinalUIDesign = ({
   handleImageClick,
 }: FinalUIDesignProps) => {
   return (
-    <section className="mb-20">
-      <div className="max-w-6xl mx-auto px-6">
+    <EditorialSection
+      eyebrow="Interface"
+      title={title}
+      description={introduction}
+      className="border-b border-gray-200"
+    >
+      {uiImages && uiImages.length > 0 ? (
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            Interface Design
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
-            {introduction}
-          </p>
-        </div>
-
-        {/* UI Images */}
-        <div className="mb-16">
-          {uiImages && uiImages.length > 0 && (
-            <div>
-              {uiImages.length === 1 ? (
-                <div className="w-full">
-                  <div
-                    className="w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50"
-                    onClick={() => handleImageClick?.(uiImages[0].src)}
+          {uiImages.length === 1 ? (
+            <button
+              type="button"
+              className="block w-full overflow-hidden rounded-lg border border-gray-200 bg-gray-100 text-left shadow-sm transition-colors hover:border-primary/50"
+              onClick={() => handleImageClick?.(uiImages[0].src)}
+            >
+              <span className="sr-only">Open {uiImages[0].title}</span>
+              <img
+                src={uiImages[0].src}
+                alt={uiImages[0].alt}
+                className="h-full w-full object-cover"
+              />
+            </button>
+          ) : (
+            <div className="grid min-w-0 gap-6 md:grid-cols-2">
+              {uiImages.map((image) => (
+                <div key={image.src} className="min-w-0">
+                  <h3 className="mb-3 text-lg font-semibold text-gray-950">
+                    {image.title}
+                  </h3>
+                  <button
+                    type="button"
+                    className="block aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 bg-gray-100 text-left shadow-sm transition-colors hover:border-primary/50"
+                    onClick={() => handleImageClick?.(image.src)}
                   >
+                    <span className="sr-only">Open {image.title}</span>
                     <img
-                      src={uiImages[0].src}
-                      alt={uiImages[0].alt}
-                      className="w-full h-full object-cover"
+                      src={image.src}
+                      alt={image.alt}
+                      className="h-full w-full object-cover"
                     />
-                  </div>
+                  </button>
                 </div>
-              ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {uiImages.map((image, index) => (
-                    <div key={index} className="space-y-4">
-                      <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                        {image.title}
-                      </h4>
-                      <div
-                        className="aspect-[16/9] w-full overflow-hidden rounded-lg border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/50"
-                        onClick={() => handleImageClick?.(image.src)}
-                      >
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
+              ))}
             </div>
           )}
         </div>
+      ) : null}
 
-        {/* Design Highlights */}
-        <div className="bg-gray-50 rounded-xl p-8 mb-16">
-          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-6">
-            Design Highlights
+      {designHighlights.length > 0 ? (
+        <div className="mb-12 rounded-lg border border-gray-200 bg-gray-50 p-5 sm:p-6">
+          <h3 className="text-xl font-semibold text-gray-950">
+            Design highlights
           </h3>
-          <ul className="space-y-3 text-gray-700">
-            {designHighlights.map((highlight, index) => (
-              <li key={index} className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></div>
-                <span className="leading-relaxed">{highlight.text}</span>
+          <ul className="mt-5 grid min-w-0 gap-3">
+            {designHighlights.map((highlight) => (
+              <li key={highlight.text} className="flex min-w-0 items-start gap-3">
+                <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-primary" />
+                <span className="text-sm leading-6 text-gray-700">
+                  {highlight.text}
+                </span>
               </li>
             ))}
           </ul>
         </div>
+      ) : null}
 
-        {/* UI Features */}
-        {uiFeatures && uiFeatures.length > 0 && (
-          <div className="mb-16">
-            <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
-              Key Features
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {uiFeatures.map((feature, index) => {
-                const IconComponent = feature.icon;
-                return (
-                  <div
-                    key={index}
-                    className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-300"
-                  >
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <IconComponent className="w-6 h-6 text-primary" />
-                    </div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3">
-                      {feature.title}
-                    </h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      {feature.description}
-                    </p>
+      {uiFeatures && uiFeatures.length > 0 ? (
+        <div>
+          <h3 className="mb-5 text-xl font-semibold text-gray-950">
+            Key features
+          </h3>
+          <div className="grid min-w-0 grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {uiFeatures.map((feature) => {
+              const IconComponent = feature.icon;
+
+              return (
+                <article
+                  key={feature.title}
+                  className="min-w-0 rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
+                >
+                  <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
+                    <IconComponent className="h-5 w-5" />
                   </div>
-                );
-              })}
-            </div>
+                  <h4 className="text-lg font-semibold text-gray-950">
+                    {feature.title}
+                  </h4>
+                  <p className="mt-3 text-sm leading-6 text-gray-700">
+                    {feature.description}
+                  </p>
+                </article>
+              );
+            })}
           </div>
-        )}
-      </div>
-    </section>
+        </div>
+      ) : null}
+    </EditorialSection>
   );
 };
 

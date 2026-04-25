@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,6 +11,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import Turnstile from "@/components/contact/Turnstile";
+import { isTurnstileConfigured } from "@/config/contact";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
@@ -17,28 +20,46 @@ const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
   message: z.string().min(10, "Message must be at least 10 characters"),
+  turnstileToken: z.string().min(1, "Please complete verification"),
+  honeypot: z.string().max(0).optional(),
 });
 
 export type ContactFormData = z.infer<typeof formSchema>;
 
 interface ContactFormProps {
-  onSubmit: (data: ContactFormData) => void;
+  onSubmit: (data: ContactFormData) => void | Promise<void>;
   isLoading: boolean;
 }
 
 const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
   const form = useForm<ContactFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       email: "",
       message: "",
+      turnstileToken: "",
+      honeypot: "",
     },
   });
 
+  const resetTurnstile = () => {
+    form.setValue("turnstileToken", "", { shouldValidate: false });
+    setTurnstileResetKey((currentKey) => currentKey + 1);
+  };
+
+  const handleValidSubmit = async (data: ContactFormData) => {
+    try {
+      await onSubmit(data);
+    } finally {
+      resetTurnstile();
+    }
+  };
+
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(handleValidSubmit)} className="space-y-4">
         <FormField
           control={form.control}
           name="name"
@@ -93,10 +114,63 @@ const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="honeypot"
+          render={({ field }) => (
+            <input
+              aria-hidden="true"
+              autoComplete="off"
+              className="hidden"
+              tabIndex={-1}
+              type="text"
+              {...field}
+            />
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="turnstileToken"
+          render={() => (
+            <FormItem>
+              {isTurnstileConfigured ? (
+                <Turnstile
+                  className="flex justify-center"
+                  resetKey={turnstileResetKey}
+                  onVerify={(token) => {
+                    form.clearErrors("turnstileToken");
+                    form.setValue("turnstileToken", token, {
+                      shouldValidate: true,
+                    });
+                  }}
+                  onExpire={() => {
+                    form.setValue("turnstileToken", "", {
+                      shouldValidate: true,
+                    });
+                  }}
+                  onError={() => {
+                    form.setValue("turnstileToken", "", {
+                      shouldValidate: true,
+                    });
+                    form.setError("turnstileToken", {
+                      type: "manual",
+                      message: "Verification failed. Please try again.",
+                    });
+                  }}
+                />
+              ) : (
+                <p className="text-sm text-red-400">
+                  Contact verification is unavailable.
+                </p>
+              )}
+              <FormMessage className="text-red-400" />
+            </FormItem>
+          )}
+        />
         <Button
           type="submit"
           className="w-full rounded-full bg-primary py-2.5 font-medium text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-50"
-          disabled={isLoading}
+          disabled={isLoading || !isTurnstileConfigured}
         >
           {isLoading ? "Sending..." : "Send Message"}
         </Button>

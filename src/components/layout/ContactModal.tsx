@@ -22,7 +22,7 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
   const handleSubmit = async (formData: ContactFormData) => {
     setIsLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke(
+      const { error } = await supabase.functions.invoke(
         "send-contact-email",
         {
           body: formData,

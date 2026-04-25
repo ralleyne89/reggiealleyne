@@ -1,126 +1,105 @@
-
-import { ArrowLeft, Star, Lightbulb, TrendingUp, ExternalLink } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from "@/components/ui/card";
-import ProjectLinks from './details/ProjectLinks';
+import {
+  ArrowLeft,
+  Lightbulb,
+  Star,
+  TrendingUp,
+  type LucideIcon,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import { EditorialSection } from "./EditorialProjectLayout";
+import ProjectLinks from "./details/ProjectLinks";
 
 interface ProjectConclusionProps {
   conclusion: {
-    impact: string;
-    learnings: string;
-    nextSteps: string;
+    impact: string | null;
+    learnings: string | null;
+    nextSteps: string | null;
   };
   prototypeUrl?: string | null;
   liveUrl?: string | null;
-  projectSlug?: string; // Added parameter for project slug
+  projectSlug?: string;
 }
 
-const ProjectConclusion = ({ conclusion, prototypeUrl, liveUrl, projectSlug }: ProjectConclusionProps) => {
-  // Don't show Live Demo button for Doggy Date project
-  const shouldShowLiveDemo = projectSlug !== "doggy-date" && liveUrl;
-  
+const ProjectConclusion = ({
+  conclusion,
+  prototypeUrl,
+  liveUrl,
+  projectSlug,
+}: ProjectConclusionProps) => {
+  const items = [
+    {
+      label: "Impact",
+      value: conclusion.impact,
+      icon: TrendingUp,
+    },
+    {
+      label: "What I learned",
+      value: conclusion.learnings,
+      icon: Lightbulb,
+    },
+    {
+      label: "What could come next",
+      value: conclusion.nextSteps,
+      icon: Star,
+    },
+  ].filter((item): item is {
+    label: string;
+    value: string;
+    icon: LucideIcon;
+  } => Boolean(item.value));
+
+  if (items.length === 0 && !prototypeUrl && !liveUrl) {
+    return null;
+  }
+
   return (
-    <div className="w-full bg-gradient-to-t from-[#161220] to-[rgba(5,5,5,0.8)] px-6 py-16">
-      <div className="max-w-7xl mx-auto">
-        <div className="relative">
-          <div className="absolute inset-0 flex items-center" aria-hidden="true">
-            <div className="w-full border-t border-[rgba(255,255,255,0.1)]"></div>
-          </div>
-          <div className="relative flex justify-center">
-            <span className="bg-gradient-to-r from-[#161220] via-[#1e1a2c] to-[#161220] px-6 text-xl text-primary font-medium">
-              Project Conclusion
-            </span>
-          </div>
-        </div>
+    <EditorialSection
+      eyebrow="Closeout"
+      title="Where the project landed."
+      className="border-b border-gray-200"
+      tone="soft"
+    >
+      {items.length > 0 ? (
+        <div className="grid min-w-0 gap-5 md:grid-cols-3">
+          {items.map((item) => {
+            const Icon = item.icon;
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card className="bg-[rgba(16,16,16,0.7)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)] transition-all duration-300">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="bg-primary/10 p-3 rounded-lg">
-                  <TrendingUp className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-primary">Impact</h3>
-              </div>
-              <p className="text-[rgba(200,200,200,0.9)] leading-relaxed">{conclusion.impact}</p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-[rgba(16,16,16,0.7)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)] transition-all duration-300">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="bg-primary/10 p-3 rounded-lg">
-                  <Lightbulb className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-primary">Key Learnings</h3>
-              </div>
-              <p className="text-[rgba(200,200,200,0.9)] leading-relaxed">{conclusion.learnings}</p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-[rgba(16,16,16,0.7)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)] transition-all duration-300">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="bg-primary/10 p-3 rounded-lg">
-                  <Star className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-primary">Next Steps</h3>
-              </div>
-              <p className="text-[rgba(200,200,200,0.9)] leading-relaxed">{conclusion.nextSteps}</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button 
-            asChild
-            variant="default"
-            className="px-8 py-7 text-lg font-medium bg-primary hover:bg-primary/90 text-white rounded-lg w-full sm:w-auto"
-          >
-            <Link to="/works">
-              <ArrowLeft className="mr-2 h-5 w-5" />
-              View More Projects
-            </Link>
-          </Button>
-          
-          {prototypeUrl && !shouldShowLiveDemo && (
-            <Button 
-              asChild
-              variant="outline"
-              className="px-8 py-7 text-lg font-medium text-primary border-2 border-primary bg-transparent hover:bg-primary/10 rounded-lg w-full sm:w-auto"
-            >
-              <a 
-                href={prototypeUrl}
-                target="_blank" 
-                rel="noopener noreferrer"
+            return (
+              <article
+                key={item.label}
+                className="min-w-0 rounded-lg border border-gray-200 bg-white p-5 shadow-sm sm:p-6"
               >
-                View Prototype
-                <ExternalLink className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
-          )}
-          
-          {shouldShowLiveDemo && (
-            <Button 
-              asChild
-              variant="outline" 
-              className="px-8 py-7 text-lg font-medium text-primary border-2 border-primary bg-transparent hover:bg-primary/10 rounded-lg w-full sm:w-auto"
-            >
-              <a 
-                href={liveUrl}
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                {liveUrl === "https://chill-vibes.web.app/" ? "Open Web App" : 
-                 liveUrl === "https://tutord.io/" ? "Visit TutorD" : "View Live Demo"}
-                <ExternalLink className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
-          )}
+                <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-950">
+                  {item.label}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-gray-700">
+                  {item.value}
+                </p>
+              </article>
+            );
+          })}
         </div>
+      ) : null}
+
+      <div className="mt-10 flex flex-col gap-3 border-t border-gray-200 pt-8 sm:flex-row sm:items-center">
+        <Link
+          to="/works"
+          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-gray-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          View more projects
+        </Link>
+        <ProjectLinks
+          liveUrl={liveUrl}
+          prototypeUrl={prototypeUrl}
+          projectSlug={projectSlug}
+          className="mt-0"
+        />
       </div>
-    </div>
+    </EditorialSection>
   );
 };
 

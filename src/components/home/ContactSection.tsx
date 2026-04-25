@@ -4,9 +4,18 @@ import { motion } from "framer-motion";
 import { Mail, Users } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import Turnstile from "@/components/contact/Turnstile";
+import { isTurnstileConfigured } from "@/config/contact";
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
+
+  const resetTurnstile = () => {
+    setTurnstileToken("");
+    setTurnstileResetKey((currentKey) => currentKey + 1);
+  };
 
   const handleContactFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -14,13 +23,24 @@ const ContactSection = () => {
     const nameInput = formElement.elements.namedItem("name") as HTMLInputElement;
     const emailInput = formElement.elements.namedItem("email") as HTMLInputElement;
     const messageInput = formElement.elements.namedItem("message") as HTMLTextAreaElement;
+    const honeypotInput = formElement.elements.namedItem("honeypot") as HTMLInputElement | null;
     const formData = {
       name: nameInput.value,
       email: emailInput.value,
-      message: messageInput.value
+      message: messageInput.value,
+      turnstileToken,
+      honeypot: honeypotInput?.value ?? ""
     };
+    if (!isTurnstileConfigured) {
+      toast.error("Contact verification is unavailable.");
+      return;
+    }
     if (!formData.name || !formData.email || !formData.message) {
       toast.error("Please fill in all fields");
+      return;
+    }
+    if (!formData.turnstileToken) {
+      toast.error("Please complete verification");
       return;
     }
     setIsSubmitting(true);
@@ -38,6 +58,7 @@ const ContactSection = () => {
       toast.error("Failed to send email. Please try again later.");
     } finally {
       setIsSubmitting(false);
+      resetTurnstile();
     }
   };
 
@@ -161,7 +182,26 @@ const ContactSection = () => {
                 <textarea id="message" name="message" rows={4} required placeholder="Tell me about your project or what you'd like to discuss..." className="w-full rounded-lg border border-gray-700 bg-secondary px-4 py-3 text-white placeholder:text-gray-500 focus:border-primary focus:outline-none"></textarea>
               </div>
 
-              <button type="submit" disabled={isSubmitting} className="min-h-12 w-full rounded-lg bg-gradient-to-r from-primary to-primary-dark px-6 py-3 font-medium text-white shadow-md shadow-primary/20 transition-shadow hover:shadow-lg hover:shadow-primary/30">
+              <input aria-hidden="true" autoComplete="off" className="hidden" name="honeypot" tabIndex={-1} type="text" />
+
+              {isTurnstileConfigured ? (
+                <Turnstile
+                  className="flex justify-center"
+                  resetKey={turnstileResetKey}
+                  onVerify={setTurnstileToken}
+                  onExpire={() => setTurnstileToken("")}
+                  onError={() => {
+                    setTurnstileToken("");
+                    toast.error("Verification failed. Please try again.");
+                  }}
+                />
+              ) : (
+                <p className="text-sm text-red-400">
+                  Contact verification is unavailable.
+                </p>
+              )}
+
+              <button type="submit" disabled={isSubmitting || !isTurnstileConfigured} className="min-h-12 w-full rounded-lg bg-gradient-to-r from-primary to-primary-dark px-6 py-3 font-medium text-white shadow-md shadow-primary/20 transition-shadow hover:shadow-lg hover:shadow-primary/30 disabled:cursor-not-allowed disabled:opacity-50">
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>

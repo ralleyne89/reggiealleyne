@@ -1,58 +1,56 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { BarChart, LucideIcon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
+import { EditorialSection } from "@/components/project/EditorialProjectLayout";
+
 export interface MetricItem {
   title: string;
   value: string;
   description: string;
   icon: LucideIcon;
 }
+
 export interface OutcomesImpactProps {
   title?: string;
   metrics: MetricItem[];
 }
+
 const OutcomesImpact: React.FC<OutcomesImpactProps> = ({
-  title = "Outcomes & Impact",
+  title = "Outcomes and impact",
   metrics,
 }) => {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            {title}
-          </h2>
-        </div>
+    <EditorialSection
+      eyebrow="Impact"
+      title={title}
+      className="border-b border-gray-200"
+    >
+      <div className="grid min-w-0 grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {metrics.map((metric) => {
+          const IconComponent = metric.icon;
 
-        {/* Hard Metrics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {metrics.map((metric, index) => {
-            const IconComponent = metric.icon;
-            return (
-              <Card
-                key={index}
-                className="bg-white border border-gray-200 shadow-sm"
-              >
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-3xl font-bold text-primary mb-2">
-                    {metric.value}
-                  </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                    {metric.title}
-                  </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {metric.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+          return (
+            <article
+              key={`${metric.title}-${metric.value}`}
+              className="min-w-0 rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
+            >
+              <div className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
+                <IconComponent className="h-5 w-5" />
+              </div>
+              <p className="break-words font-display text-3xl leading-tight text-primary">
+                {metric.value}
+              </p>
+              <h3 className="mt-3 text-base font-semibold text-gray-950">
+                {metric.title}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-gray-600">
+                {metric.description}
+              </p>
+            </article>
+          );
+        })}
       </div>
-    </section>
+    </EditorialSection>
   );
 };
+
 export default OutcomesImpact;

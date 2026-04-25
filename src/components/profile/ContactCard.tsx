@@ -11,7 +11,8 @@ import {
 } from "@/components/ui/dialog";
 import ContactForm from "./ContactForm";
 import type { ContactFormData } from "./ContactForm";
-import { toast } from "sonner";
+
+const RESUME_URL = "/resume/Reginald_Alleyne_Resume_FINAL_2026.pdf";
 
 const ContactCard = () => {
   const { toast: uiToast } = useToast();
@@ -21,7 +22,7 @@ const ContactCard = () => {
   const handleEmailMe = async (formData: ContactFormData) => {
     setIsLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke(
+      const { error } = await supabase.functions.invoke(
         "send-contact-email",
         {
           body: formData,
@@ -44,37 +45,6 @@ const ContactCard = () => {
       });
     } finally {
       setIsLoading(false);
-    }
-  };
-
-  const handleResumeDownload = () => {
-    try {
-      // Using the fetch API to download the file
-      fetch(
-        "https://drive.google.com/uc?export=download&id=1pK4gD27rABnUArntEHFJLVUu3WyCLBQb"
-      )
-        .then((response) => response.blob())
-        .then((blob) => {
-          // Create a blob URL for the file
-          const url = window.URL.createObjectURL(blob);
-          // Create a temporary link element
-          const link = document.createElement("a");
-          link.href = url;
-          link.download = "Reggie_Alleyne_Resume.pdf"; // Set the filename
-          document.body.appendChild(link);
-          link.click(); // Trigger the download
-          // Clean up
-          document.body.removeChild(link);
-          window.URL.revokeObjectURL(url);
-          toast.success("Resume downloaded successfully!");
-        })
-        .catch((error) => {
-          console.error("Error downloading resume:", error);
-          toast.error("Failed to download resume. Please try again later.");
-        });
-    } catch (error) {
-      console.error("Error downloading resume:", error);
-      toast.error("Failed to download resume. Please try again later.");
     }
   };
 
@@ -106,13 +76,14 @@ const ContactCard = () => {
             <ContactForm onSubmit={handleEmailMe} isLoading={isLoading} />
           </DialogContent>
         </Dialog>
-        <button
-          onClick={handleResumeDownload}
+        <a
+          href={RESUME_URL}
+          download="Reginald_Alleyne_Resume_FINAL_2026.pdf"
           className="bg-[rgba(25,25,25,1)] w-full gap-2.5 p-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner border border-gray-700"
         >
           <Download className="w-4 h-4 text-primary" />
           <span className="text-gray-200 font-medium">Download Resume</span>
-        </button>
+        </a>
       </div>
     </div>
   );

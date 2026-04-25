@@ -2,17 +2,25 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import ProjectLinks from "./details/ProjectLinks";
 
 interface ProjectHeaderProps {
   image: string;
   tags: string[];
   title: string;
   description: string;
+  role?: string;
+  duration?: string;
+  year?: string;
+  teamSize?: string | null;
+  githubUrl?: string | null;
+  liveUrl?: string | null;
+  prototypeUrl?: string | null;
+  projectSlug?: string;
 }
 
 interface CaseStudyHeroConfig {
   image: string;
-  overlay: string;
   useProjectImage?: boolean;
 }
 
@@ -24,7 +32,6 @@ const caseStudyHeroConfigs: Array<{
     matches: (title) => title.includes("SymptomCheckr"),
     config: {
       image: "/images/symptomcheckr-trust-ai-card.jpg",
-      overlay: "from-black/80 via-black/70 to-black/90",
       useProjectImage: true,
     },
   },
@@ -32,42 +39,36 @@ const caseStudyHeroConfigs: Array<{
     matches: (title) => title === "TECH NOIR",
     config: {
       image: "/images/tech-noir-banner.png",
-      overlay: "from-black/70 via-black/50 to-black/80",
     },
   },
   {
     matches: (title) => title === "WRISTBAND",
     config: {
       image: "/images/58637294-5300-47d9-918b-91da32843369.png",
-      overlay: "from-black/70 via-black/50 to-black/80",
     },
   },
   {
     matches: (title) => title.includes("Improv Learning"),
     config: {
       image: "/images/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
-      overlay: "from-black/70 via-black/50 to-black/80",
     },
   },
   {
     matches: (title) => title === "Doggy Date",
     config: {
       image: "/images/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
-      overlay: "from-black/70 via-black/50 to-black/80",
     },
   },
   {
     matches: (title) => title === "Chill Vibes Music Player",
     config: {
       image: "/images/85ce6121-b2ba-435d-b8cd-2606e0e3cc63.png",
-      overlay: "from-black/70 via-black/50 to-black/80",
     },
   },
   {
     matches: (title) => title === "CLLCTVE Platform",
     config: {
       image: "/images/cllctve-gen-z-card.jpg",
-      overlay: "from-black/70 via-black/50 to-black/80",
       useProjectImage: true,
     },
   },
@@ -75,7 +76,6 @@ const caseStudyHeroConfigs: Array<{
     matches: (title) => title.includes("Litmus AI"),
     config: {
       image: "/images/litmus-ai-literacy-card.jpg",
-      overlay: "from-black/70 via-black/50 to-black/80",
       useProjectImage: true,
     },
   },
@@ -83,34 +83,27 @@ const caseStudyHeroConfigs: Array<{
     matches: (title) => title.includes("Vault.js Validate"),
     config: {
       image: "/images/vaultjs-banner.jpg",
-      overlay: "from-black/70 via-black/50 to-black/80",
     },
   },
   {
     matches: (title) => title.includes("ScentStack"),
     config: {
       image: "/images/scentstack-banner.png",
-      overlay: "from-black/70 via-black/50 to-black/80",
     },
   },
   {
     matches: (title) => title === "Tutor D",
     config: {
       image: "/images/bfe72208-e9fa-458d-9323-791c39cf2292.png",
-      overlay: "from-black/70 via-black/50 to-black/80",
     },
   },
   {
     matches: (title) => title === "Bob's Big Break",
     config: {
       image: "/images/BBB-banner2.png",
-      overlay: "from-black/70 via-black/50 to-black/80",
     },
   },
 ];
-
-const isKnownCaseStudy = (title: string) =>
-  caseStudyHeroConfigs.some(({ matches }) => matches(title));
 
 const getCaseStudyHeroConfig = (title: string) =>
   caseStudyHeroConfigs.find(({ matches }) => matches(title))?.config;
@@ -132,137 +125,109 @@ const ProjectHeader = ({
   tags,
   title,
   description,
+  role,
+  duration,
+  year,
+  teamSize,
+  githubUrl,
+  liveUrl,
+  prototypeUrl,
+  projectSlug,
 }: ProjectHeaderProps) => {
   const [imageError, setImageError] = useState(false);
   const heroConfig = getCaseStudyHeroConfig(title);
-  const isCaseStudy = isKnownCaseStudy(title);
+  const heroImage =
+    heroConfig && !heroConfig.useProjectImage ? heroConfig.image : image;
 
-  const handleImageError = () => {
-    console.error(`Header image failed to load: ${image}`);
-    setImageError(true);
-  };
+  const facts = [
+    { label: "Role", value: role },
+    { label: "Timeline", value: duration },
+    { label: "Year", value: year },
+    { label: "Team", value: teamSize },
+  ].filter((item): item is { label: string; value: string } =>
+    Boolean(item.value),
+  );
 
-  if (isCaseStudy) {
-    return (
-      <div
-        className={[
-          "relative bg-cover bg-center bg-no-repeat pb-12 pt-24 sm:pb-16 sm:pt-28",
-          heroConfig ? "" : "bg-secondary-dark",
-        ].join(" ")}
-        style={
-          heroConfig
-            ? {
-                backgroundImage: `url('${
-                  heroConfig.useProjectImage ? image : heroConfig.image
-                }')`,
-              }
-            : undefined
-        }
-      >
-        {heroConfig ? (
-          <div
-            className={`absolute inset-0 bg-gradient-to-b ${heroConfig.overlay}`}
-          />
-        ) : null}
+  const displayDescription = getCaseStudyDescription(title, description);
+  const visibleTags = tags.slice(0, 5);
 
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="mb-7 sm:mb-8">
-              <Link
-                to="/works"
-                className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gray-300 transition-colors duration-200 hover:text-white"
-              >
-                <ArrowLeft className="h-4 w-4" />
-                Back to Works
-              </Link>
-            </div>
+  return (
+    <header className="border-b border-gray-200 bg-white pt-24 sm:pt-32">
+      <div className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.74fr)] lg:items-end lg:gap-12"
+        >
+          <div className="min-w-0">
+            <Link
+              to="/works"
+              className="mb-6 inline-flex min-h-11 items-center gap-2 rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition-colors hover:border-primary/40 hover:text-primary sm:mb-8"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to Works
+            </Link>
 
-            <div className="min-w-0 space-y-5 sm:space-y-6">
-              <div className="flex min-w-0 flex-wrap gap-2">
-                {tags.map((tag, index) => (
+            {visibleTags.length > 0 ? (
+              <div className="-mx-4 mb-4 flex min-w-0 gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:mb-5 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
+                {visibleTags.map((tag) => (
                   <span
-                    key={index}
-                    className={[
-                      "rounded-full px-3 py-1 text-xs font-medium",
-                      heroConfig
-                        ? "border border-white/20 bg-white/10 text-white backdrop-blur-sm"
-                        : "border border-primary/20 bg-primary/10 text-primary",
-                    ].join(" ")}
+                    key={tag}
+                    className="shrink-0 rounded-md border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-600"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
+            ) : null}
 
-              <h1 className="max-w-5xl break-words font-heading text-[2.35rem] font-bold leading-[1.05] text-white drop-shadow-lg [text-wrap:balance] sm:text-5xl lg:text-6xl">
-                {title}
-              </h1>
-
-              <p
-                className={[
-                  "max-w-4xl text-base leading-7 drop-shadow-md sm:text-xl sm:leading-relaxed",
-                  heroConfig ? "text-gray-100" : "text-gray-300",
-                ].join(" ")}
-              >
-                {getCaseStudyDescription(title, description)}
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <>
-      <div className="relative h-[52vh] min-h-[26rem] overflow-hidden sm:h-[60vh]">
-        <img
-          src={imageError ? "/placeholder.svg" : image}
-          alt={title}
-          className="h-full w-full object-cover"
-          onError={handleImageError}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[rgba(5,5,5,1)]" />
-
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-4xl px-4 text-center sm:px-6">
-            <h1 className="mb-5 break-words font-heading text-[2.55rem] font-bold leading-tight text-white drop-shadow-md [text-wrap:balance] md:text-6xl">
+            <h1 className="max-w-5xl break-words font-display text-[2.18rem] leading-[1.07] text-gray-950 [text-wrap:balance] sm:text-display-md lg:text-display-lg">
               {title}
             </h1>
-            <p className="mx-auto max-w-3xl text-base leading-7 text-white/90 drop-shadow-sm md:text-2xl">
-              {description}
+            <p className="mt-4 max-w-3xl text-base leading-7 text-gray-600 sm:mt-5 sm:text-lg sm:leading-8">
+              {displayDescription}
             </p>
-          </div>
-        </div>
-      </div>
 
-      <div className="relative z-10 mx-auto -mt-14 mb-10 w-full max-w-7xl px-4 sm:-mt-16 sm:mb-12 sm:px-6">
-        <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-          <Link
-            to="/works"
-            className="inline-flex min-h-11 w-fit items-center gap-2 rounded-md border border-gray-600 bg-[rgba(20,20,20,0.9)] px-4 py-2 text-primary backdrop-blur-sm transition-colors duration-200 hover:bg-[rgba(30,30,30,0.9)] hover:text-white"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Works
-          </Link>
+            {facts.length > 0 ? (
+              <dl className="mt-6 grid min-w-0 grid-cols-2 gap-x-6 gap-y-4 border-y border-gray-200 py-5 sm:mt-8 sm:grid-cols-4 sm:gap-y-5 sm:py-6">
+                {facts.map((fact) => (
+                  <div key={fact.label} className="min-w-0">
+                    <dt className="text-xs font-semibold text-gray-500">
+                      {fact.label}
+                    </dt>
+                    <dd className="mt-1 break-words text-sm font-semibold leading-6 text-gray-950">
+                      {fact.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            ) : null}
 
-          <div className="flex min-w-0 flex-wrap gap-2">
-            {tags.map((tag, index) => (
-              <span
-                key={index}
-                className="rounded-full border border-[rgba(255,255,255,0.2)] bg-[rgba(20,20,20,0.9)] px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm"
-              >
-                {tag}
-              </span>
-            ))}
+            <ProjectLinks
+              githubUrl={githubUrl}
+              liveUrl={liveUrl}
+              prototypeUrl={prototypeUrl}
+              projectSlug={projectSlug}
+              className="mt-5 sm:mt-7"
+            />
           </div>
-        </div>
+
+          <div className="min-w-0">
+            <div className="overflow-hidden rounded-lg border border-gray-200 bg-gray-100 shadow-sm">
+              <div className="aspect-[4/3]">
+                <img
+                  src={imageError ? "/placeholder.svg" : heroImage}
+                  alt={title}
+                  className="h-full w-full object-cover"
+                  onError={() => setImageError(true)}
+                />
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </>
+    </header>
   );
 };
 

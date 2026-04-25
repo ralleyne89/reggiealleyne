@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import {
+  CaseStudyFooter,
+  CaseStudyFrame,
+  ProjectLightboxModal,
+} from "@/components/project/EditorialProjectLayout";
 import ProjectOverview from "@/components/project/chill-vibes/ProjectOverview";
 import UserPersonaComponent from "@/components/project/common/UserPersona";
 import ResearchDiscoveryComponent from "@/components/project/common/ResearchDiscovery";
@@ -33,7 +36,7 @@ const ChillVibesCaseStudy = () => {
   };
 
   return (
-    <div className="space-y-16">
+    <CaseStudyFrame>
       {/* Minto Pyramid: Lead with Impact/Outcome */}
       <ProjectOverview />
       <ResultsImpact />
@@ -49,41 +52,15 @@ const ChillVibesCaseStudy = () => {
       <ChallengesLearnings />
 
       {/* Back to Works link */}
-      <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">
-        <Link
-          to="/works"
-          className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Works
-        </Link>
-      </div>
+      <CaseStudyFooter />
 
       {/* Modal for full-size image view */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
-          onClick={closeModal}
-        >
-          <div
-            className="relative max-w-7xl max-h-[90vh] w-full h-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={selectedImage}
-              alt="Full size project visual"
-              className="w-full h-full object-contain bg-black"
-            />
-            <button
-              className="absolute top-4 right-4 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center"
-              onClick={closeModal}
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
+      <ProjectLightboxModal
+        imageSrc={selectedImage}
+        imageClassName="bg-gray-950"
+        onClose={closeModal}
+      />
+    </CaseStudyFrame>
   );
 };
 

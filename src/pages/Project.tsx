@@ -261,9 +261,9 @@ const Project = () => {
   }} transition={{
     duration: 0.3
   }} className="min-h-screen bg-white pb-24 text-text-primary md:pb-0">
-      {showHeaderImage && <ProjectHeader image={image} tags={tags} title={title} description={description} />}
+      {showHeaderImage && <ProjectHeader image={image} tags={tags} title={title} description={description} role={role} duration={duration} year={year} teamSize={teamSize} githubUrl={githubUrl} liveUrl={liveUrl} prototypeUrl={prototypeUrl} projectSlug={project.slug} />}
 
-      <div className="mx-auto w-full max-w-7xl px-0 py-1 sm:px-6">
+      <div className="w-full">
         {showCaseStudy ? <>
             <CaseStudyAtGlance project={project} />
             <Suspense fallback={<CaseStudyFallback />}>

@@ -10,18 +10,20 @@ import IdeationStrategy from "@/components/project/symptom-checkr/IdeationStrate
 import FinalUIDesign from "@/components/project/symptom-checkr/FinalUIDesign";
 import OutcomesImpact from "@/components/project/symptom-checkr/OutcomesImpact";
 import ChallengesLearnings from "@/components/project/symptom-checkr/ChallengesLearnings";
+import {
+  CaseStudyFooter,
+  CaseStudyFrame,
+} from "@/components/project/EditorialProjectLayout";
 
 import {
   symptomCheckrOverviewData,
   symptomCheckrSitemapData,
   symptomCheckrAIPMData,
 } from "./data/symptomCheckrData";
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const SymptomCheckrCaseStudy = () => {
   return (
-    <div className="space-y-16">
+    <CaseStudyFrame>
       {/* Minto Pyramid: Lead with Impact/Outcome */}
       <ProjectOverviewComponent {...symptomCheckrOverviewData} />
       <AIProductThinking {...symptomCheckrAIPMData} />
@@ -40,16 +42,8 @@ const SymptomCheckrCaseStudy = () => {
       <ChallengesLearnings />
 
       {/* Back to Works link */}
-      <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">
-        <Link
-          to="/works"
-          className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Works
-        </Link>
-      </div>
-    </div>
+      <CaseStudyFooter />
+    </CaseStudyFrame>
   );
 };
 

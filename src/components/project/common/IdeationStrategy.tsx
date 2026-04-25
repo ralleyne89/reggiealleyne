@@ -1,76 +1,91 @@
 import React from "react";
+import { EditorialSection } from "@/components/project/EditorialProjectLayout";
+
 export interface KeyInsight {
   highlight: string;
   description: string;
 }
+
 export interface FlowStep {
   number: number;
   title: string;
   description: string;
 }
+
 export interface IdeationStrategyProps {
   title: string;
   introduction: string;
   keyInsights: KeyInsight[];
   flowSteps: FlowStep[];
 }
+
 const IdeationStrategy = ({
   title,
   introduction,
   keyInsights,
-  flowSteps
+  flowSteps,
 }: IdeationStrategyProps) => {
-  return <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+  return (
+    <EditorialSection
+      eyebrow="Strategy"
+      title={title}
+      description={introduction}
+      className="border-b border-gray-200"
+      tone="soft"
+    >
+      {keyInsights.length > 0 ? (
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            {title}
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
-            {introduction}
-          </p>
-        </div>
-
-        {/* Key Insights */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
-            Strategic Insights
+          <h3 className="mb-5 text-xl font-semibold text-gray-950">
+            Strategic insights
           </h3>
-          <div className="space-y-6">
-            {keyInsights.map((insight, index) => <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-semibold text-sm">{index + 1}</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">{insight.highlight}</h4>
-                    <p className="text-gray-700 leading-relaxed">{insight.description}</p>
-                  </div>
+          <div className="grid min-w-0 gap-4">
+            {keyInsights.map((insight, index) => (
+              <article
+                key={insight.highlight}
+                className="grid min-w-0 gap-4 rounded-lg border border-gray-200 bg-white p-5 shadow-sm sm:grid-cols-[2.5rem_1fr]"
+              >
+                <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-950 text-sm font-semibold text-white">
+                  {index + 1}
                 </div>
-              </div>)}
+                <div className="min-w-0">
+                  <h4 className="font-semibold text-gray-950">
+                    {insight.highlight}
+                  </h4>
+                  <p className="mt-2 text-sm leading-6 text-gray-700">
+                    {insight.description}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
+      ) : null}
 
-        {/* Flow Steps */}
+      {flowSteps.length > 0 ? (
         <div>
-          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
-            User Flow Strategy
+          <h3 className="mb-5 text-xl font-semibold text-gray-950">
+            User flow strategy
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {flowSteps.map((step, index) => <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-blue-600 font-bold text-lg">{step.number}</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">{step.title}</h4>
-                    <p className="text-gray-700 leading-relaxed">{step.description}</p>
-                  </div>
-                </div>
-              </div>)}
+          <div className="grid min-w-0 grid-cols-1 gap-4 md:grid-cols-2">
+            {flowSteps.map((step) => (
+              <article
+                key={`${step.number}-${step.title}`}
+                className="min-w-0 rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
+              >
+                <p className="text-sm font-semibold text-primary">
+                  Step {step.number}
+                </p>
+                <h4 className="mt-2 font-semibold text-gray-950">{step.title}</h4>
+                <p className="mt-2 text-sm leading-6 text-gray-700">
+                  {step.description}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
-      </div>
-    </section>;
+      ) : null}
+    </EditorialSection>
+  );
 };
+
 export default IdeationStrategy;

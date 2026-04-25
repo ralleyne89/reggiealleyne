@@ -1,31 +1,26 @@
-
-import { useState } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Tabs } from "@/components/ui/tabs";
-import ProjectDetailsTabs from './details/ProjectDetailsTabs';
-import ProjectOverviewTab from './details/ProjectOverviewTab';
-import ProjectSolutionTab from './details/ProjectSolutionTab';
-import ProjectDetailsTab from './details/ProjectDetailsTab';
+import { Calendar, Clock, User, Users, type LucideIcon } from "lucide-react";
+import { EditorialSection } from "./EditorialProjectLayout";
+import ProjectLinks from "./details/ProjectLinks";
 
 interface ProjectDetailsProps {
   role: string;
   duration: string;
   year: string;
-  teamSize?: string;
-  methodologies?: string[];
+  teamSize?: string | null;
+  methodologies?: string[] | null;
   githubUrl?: string | null;
   liveUrl?: string | null;
   prototypeUrl?: string | null;
   summary: string;
-  problem?: string;
-  solution?: string;
-  projectSlug?: string; // Added property for project slug
+  problem?: string | null;
+  solution?: string | null;
+  projectSlug?: string;
 }
 
-const ProjectDetails = ({ 
-  role, 
-  duration, 
-  year, 
+const ProjectDetails = ({
+  role,
+  duration,
+  year,
   teamSize,
   methodologies,
   githubUrl,
@@ -34,52 +29,89 @@ const ProjectDetails = ({
   summary,
   problem,
   solution,
-  projectSlug  // Added parameter
+  projectSlug,
 }: ProjectDetailsProps) => {
-  const [activeTab, setActiveTab] = useState("overview");
-  const hasProblemSolution = Boolean(problem && solution);
+  const facts = [
+    { label: "Role", value: role, icon: User },
+    { label: "Timeline", value: duration, icon: Clock },
+    { label: "Year", value: year, icon: Calendar },
+    { label: "Team", value: teamSize, icon: Users },
+  ].filter((item): item is { label: string; value: string; icon: LucideIcon } =>
+    Boolean(item.value),
+  );
+
+  const hasProblemSolution = Boolean(problem || solution);
 
   return (
-    <div className="mb-16">
-      <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
-        <Tabs defaultValue="overview" onValueChange={setActiveTab} className="w-full">
-          <ProjectDetailsTabs 
-            activeTab={activeTab} 
-            setActiveTab={setActiveTab} 
-            hasProblemSolution={hasProblemSolution} 
-          />
-          
-          <CardContent className="p-0">
-            <ProjectOverviewTab 
-              role={role}
-              duration={duration}
-              year={year}
-              teamSize={teamSize}
-              summary={summary}
-              githubUrl={githubUrl}
-              liveUrl={liveUrl}
-              prototypeUrl={prototypeUrl}
-              projectSlug={projectSlug} // Pass the project slug
-            />
-          
-            {hasProblemSolution && (
-              <ProjectSolutionTab 
-                problem={problem || ""} 
-                solution={solution || ""} 
-              />
-            )}
-          
-            <ProjectDetailsTab 
-              duration={duration}
-              year={year}
-              teamSize={teamSize}
-              role={role}
-              methodologies={methodologies}
-            />
-          </CardContent>
-        </Tabs>
-      </Card>
-    </div>
+    <EditorialSection
+      eyebrow="Project summary"
+      title="The work, in plain terms."
+      description={summary}
+      className="border-b border-gray-200"
+    >
+      <div className="grid min-w-0 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {facts.map((fact) => {
+          const Icon = fact.icon;
+
+          return (
+            <div
+              key={fact.label}
+              className="min-w-0 rounded-lg border border-gray-200 bg-white p-4 shadow-sm"
+            >
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
+                <Icon className="h-5 w-5" />
+              </div>
+              <p className="text-xs font-semibold text-gray-500">{fact.label}</p>
+              <p className="mt-2 break-words text-sm font-semibold leading-6 text-gray-950">
+                {fact.value}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+
+      <ProjectLinks
+        githubUrl={githubUrl}
+        liveUrl={liveUrl}
+        prototypeUrl={prototypeUrl}
+        projectSlug={projectSlug}
+        className="mt-8"
+      />
+
+      {hasProblemSolution ? (
+        <div className="mt-12 grid min-w-0 gap-6 border-t border-gray-200 pt-10 lg:grid-cols-2">
+          {problem ? (
+            <article className="min-w-0">
+              <p className="text-sm font-semibold text-primary">Problem</p>
+              <p className="mt-3 text-base leading-7 text-gray-700">{problem}</p>
+            </article>
+          ) : null}
+
+          {solution ? (
+            <article className="min-w-0">
+              <p className="text-sm font-semibold text-primary">Solution</p>
+              <p className="mt-3 text-base leading-7 text-gray-700">{solution}</p>
+            </article>
+          ) : null}
+        </div>
+      ) : null}
+
+      {methodologies && methodologies.length > 0 ? (
+        <div className="mt-10 border-t border-gray-200 pt-8">
+          <p className="text-sm font-semibold text-gray-950">Tools and methods</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {methodologies.map((methodology) => (
+              <span
+                key={methodology}
+                className="rounded-md border border-gray-200 bg-gray-50 px-3 py-1 text-sm font-medium text-gray-700"
+              >
+                {methodology}
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : null}
+    </EditorialSection>
   );
 };
 

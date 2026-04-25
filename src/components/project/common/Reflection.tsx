@@ -1,5 +1,5 @@
-
 import React from "react";
+import { EditorialSection } from "@/components/project/EditorialProjectLayout";
 
 export interface Insight {
   title: string;
@@ -14,33 +14,33 @@ export interface ReflectionProps {
 
 const Reflection = ({ title, content, insights }: ReflectionProps) => {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            {title}
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl">
-            {content}
-          </p>
-        </div>
-
-        {/* Professional Growth Insights */}
+    <EditorialSection
+      eyebrow="Reflection"
+      title={title}
+      description={content}
+      className="border-b border-gray-200"
+    >
+      {insights.length > 0 ? (
         <div>
-          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">
-            Professional Growth
+          <h3 className="mb-5 text-xl font-semibold text-gray-950">
+            Professional growth
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {insights.map((insight, index) => (
-              <div key={index} className="bg-primary/5 rounded-xl p-6 border border-primary/20">
-                <h4 className="font-semibold text-gray-900 mb-3">{insight.title}</h4>
-                <p className="text-gray-700 leading-relaxed">{insight.description}</p>
-              </div>
+          <div className="grid min-w-0 grid-cols-1 gap-4 md:grid-cols-3">
+            {insights.map((insight) => (
+              <article
+                key={insight.title}
+                className="min-w-0 rounded-lg border border-primary/20 bg-primary/5 p-5"
+              >
+                <h4 className="font-semibold text-gray-950">{insight.title}</h4>
+                <p className="mt-3 text-sm leading-6 text-gray-700">
+                  {insight.description}
+                </p>
+              </article>
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      ) : null}
+    </EditorialSection>
   );
 };
 
