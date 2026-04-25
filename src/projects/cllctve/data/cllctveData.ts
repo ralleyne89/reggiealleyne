@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import { Users, Calendar, Palette, Lightbulb, Target, Zap, Code, Globe, Smartphone, Monitor, CheckCircle, ArrowRight, Layout, Database, Cpu, TrendingUp, Scale } from "lucide-react";
 
 // Strategic Decisions Data - The core of senior-level case study
@@ -5,7 +6,7 @@ export interface StrategicDecisionItem {
   decision: string;
   alternative: string;
   reasoning: string;
-  icon?: any;
+  icon?: ComponentType<{ className?: string }>;
 }
 
 export const cllctveStrategicDecisionsData = {
@@ -33,7 +34,7 @@ export const cllctveStrategicDecisionsData = {
     {
       decision: "Limited brand customization",
       alternative: "Full brand control over challenge pages",
-      reasoning: "Brands wanted their challenges to look unique, but unlimited customization would have created 'MySpace chaos.' We maintained platform coherence at the cost of some enterprise deals.",
+      reasoning: "Brands wanted their challenges to look unique, but unlimited customization would have fragmented the platform experience. We maintained product coherence at the cost of some enterprise flexibility.",
       icon: Palette
     }
   ]
@@ -42,7 +43,7 @@ export const cllctveStrategicDecisionsData = {
 export const cllctveOverviewData = {
   title: "The Bet: Mobile-First Over Feature Parity",
   description: [
-    "Behance had the network effects. We had a hypothesis: Gen Z would trade network size for platform-native experience. The bet paid off—500+ creators, 15 brand partnerships, 85% retention—before the company dissolved.",
+    "Behance had the network effects. We had a hypothesis: Gen Z would trade network size for platform-native experience. The bet paid off—500+ creators, 15 brand partnerships, and 85% retention—before the company closed.",
     "As Product Designer & Design Systems Lead, I owned the strategic decision to build mobile-first when every competitor was desktop-first. This wasn't a UX preference—it was a market positioning choice backed by user research showing 67% of Gen Z browse portfolios on phones.",
     "The creator economy is worth $104B+, but we weren't trying to compete with Behance on features. We were competing on behavior fit. That distinction shaped every technical and design decision."
   ],
@@ -108,7 +109,7 @@ export const cllctveProblemSpaceData = {
     },
     {
       title: "Community vs. Competition",
-      description: "Dribbble and Behance feel like competitions. Gen Z wanted Instagram vibes—support, not judgment. This required rethinking every interaction pattern.",
+      description: "Dribbble and Behance often feel competitive. Gen Z creators wanted social validation and support, which required rethinking every interaction pattern.",
       icon: Users
     },
     {
@@ -151,7 +152,7 @@ export const cllctveResearchData = {
       items: [
         { text: "67% of Gen Z creators had abandoned platforms due to poor mobile experience—this was our opportunity" },
         { text: "89% prioritized visual content over text descriptions—we designed for scrolling, not reading" },
-        { text: "78% wanted community vibes, not competitive environments—we built support loops, not leaderboards" }
+        { text: "78% wanted supportive community dynamics, not competitive environments—we built support loops, not leaderboards" }
       ]
     },
     {
@@ -180,7 +181,7 @@ export const cllctveResearchData = {
     },
     {
       title: "Finding #2: Community Beats Competition",
-      description: "Leaderboards and rankings drove engagement on Dribbble, but also drove anxiety and imposter syndrome. Gen Z wanted Instagram vibes—support loops, not judgment."
+      description: "Leaderboards and rankings drove engagement on Dribbble, but also drove anxiety and imposter syndrome. Gen Z creators wanted support loops, not judgment."
     },
     {
       title: "Finding #3: Constraints Enable Creativity",
@@ -261,7 +262,7 @@ export const cllctveSitemapData = {
 
 export const cllctveUIData = {
   title: "Building Something That Actually Worked (While It Lasted)",
-  introduction: "Here's the technical stuff: I built this thing with React, Styled Components, and Ant Design, connecting to MongoDB for data. Got the load times way faster than the competition and managed to hit 85% user retention before everything went south. We had 500+ creators and 15 brand partnerships, which honestly still feels pretty good even though it didn't last.",
+  introduction: "I designed and implemented the platform with React, Styled Components, Ant Design, and MongoDB. The work focused on mobile-first portfolio creation, constrained brand customization, and fast-loading media experiences that supported 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
   designHighlights: [
     { text: "Custom portfolio builder with intuitive drag-and-drop interface that allows creators to arrange and showcase their work exactly how they envision it" },
     { text: "Modular portfolio system enabling creators to organize work by category and create multiple portfolio views for different audiences" },
@@ -304,7 +305,7 @@ export const cllctveUIData = {
   ],
   uiImages: [
     {
-      src: "/images/96e0002f-13cc-470b-925d-2e1d627aa695.png",
+      src: "/images/cllctve-card-optimized.jpg",
       alt: "CLLCTVE main interface",
       title: "Profile Page"
     },
@@ -335,11 +336,11 @@ export const cllctveChallengesData = {
     },
     {
       title: "Scalable Architecture for a Product That Died",
-      description: "I spent significant time building modular, scalable components. The company dissolved before we needed that scale. But here's the lesson: the discipline of building for scale taught me patterns that transfer to every project. It wasn't wasted—it was training."
+      description: "I spent significant time building modular, scalable components. The company closed before we needed that scale, but the discipline created reusable patterns that still shape my product engineering practice."
     },
     {
       title: "Brand Customization vs. Platform Coherence",
-      description: "Brands wanted their challenge pages to look unique. We said no to unlimited customization because we'd seen what happens (MySpace chaos). Some enterprise deals walked away. But the platform stayed coherent, and user experience stayed consistent."
+      description: "Brands wanted their challenge pages to look unique. We declined unlimited customization to preserve platform coherence. Some enterprise flexibility was lost, but the user experience stayed consistent."
     },
     {
       title: "Mobile-First Meant Mobile-Only for Many Features",
@@ -385,7 +386,7 @@ export const cllctveChallengesData = {
 
 export const cllctveReflectionData = {
   title: "What This Project Taught Me About Product Thinking",
-  content: "CLLCTVE dissolved. The company failed. But the strategic thinking—betting on user behavior over feature parity, making uncomfortable trade-offs, accepting who you're NOT serving—shapes how I approach every product decision now. The metrics (500+ creators, 85% retention, 15 brand partnerships) validated the approach. The dissolution taught me that good product decisions don't guarantee business success. Both lessons are valuable.",
+  content: "CLLCTVE closed, but the strategic thinking—betting on user behavior over feature parity, making uncomfortable trade-offs, and accepting who the product would not serve—still shapes how I approach product decisions. The metrics (500+ creators, 85% retention, 15 brand partnerships) validated the approach while the business outcome reinforced that product quality alone does not guarantee company success.",
   insights: [
     {
       title: "Trade-offs Are The Product",

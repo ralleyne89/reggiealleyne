@@ -176,7 +176,7 @@ export const vaultjsIdeationData: IdeationStrategyProps = {
     },
     {
       highlight: "Technical Typography.",
-      description: "JetBrains Mono for data and code emphasizes precision, paired with Inter for UI readability and accessibility."
+      description: "Tabular data treatments emphasize precision, paired with Poppins for UI readability and accessibility."
     }
   ],
   flowSteps: [
@@ -219,7 +219,7 @@ export const vaultjsUIData: FinalUIDesignProps = {
       text: "Thin, 1px technical borders with glowing effects and frosted glass panels create depth and visual hierarchy"
     },
     {
-      text: "JetBrains Mono for data/code precision paired with Inter for UI readability and accessibility"
+      text: "Tabular data treatments for precision paired with Poppins for UI readability and accessibility"
     },
     {
       text: "60fps animations achieved through Framer Motion optimization for smooth scanning simulations"

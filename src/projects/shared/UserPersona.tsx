@@ -42,7 +42,7 @@ const UserPersona: React.FC<UserPersonaProps> = ({
       <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
         <CardContent className="p-8">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
+            <div className="bg-primary/10 p-3 rounded-lg">
               <Users className="w-5 h-5 text-primary" />
             </div>
             <h2 className="text-2xl font-bold text-white">{title}</h2>

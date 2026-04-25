@@ -44,7 +44,7 @@ const ProjectOverviewTab = ({
       
       <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="flex items-center gap-3">
-          <div className="p-3 bg-[rgba(155,135,245,0.1)] rounded-lg">
+          <div className="p-3 bg-primary/10 rounded-lg">
             <User size={20} className="text-primary" />
           </div>
           <div>
@@ -54,7 +54,7 @@ const ProjectOverviewTab = ({
         </div>
         
         <div className="flex items-center gap-3">
-          <div className="p-3 bg-[rgba(155,135,245,0.1)] rounded-lg">
+          <div className="p-3 bg-primary/10 rounded-lg">
             <Clock size={20} className="text-primary" />
           </div>
           <div>
@@ -64,7 +64,7 @@ const ProjectOverviewTab = ({
         </div>
         
         <div className="flex items-center gap-3">
-          <div className="p-3 bg-[rgba(155,135,245,0.1)] rounded-lg">
+          <div className="p-3 bg-primary/10 rounded-lg">
             <Calendar size={20} className="text-primary" />
           </div>
           <div>
@@ -74,7 +74,7 @@ const ProjectOverviewTab = ({
         </div>
         
         {teamSize && <div className="flex items-center gap-3">
-            <div className="p-3 bg-[rgba(155,135,245,0.1)] rounded-lg">
+            <div className="p-3 bg-primary/10 rounded-lg">
               <Users size={20} className="text-primary" />
             </div>
             <div>

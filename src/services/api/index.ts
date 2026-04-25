@@ -11,8 +11,6 @@ import {
 import { sortProjectsByDate } from './utils';
 
 export const getProject = async (idOrSlug: number | string): Promise<ProjectType> => {
-  console.log('Getting project with id or slug:', idOrSlug);
-  
   try {
     // Handle string slugs
     if (typeof idOrSlug === 'string') {
@@ -46,8 +44,6 @@ export const getProject = async (idOrSlug: number | string): Promise<ProjectType
 };
 
 const getProjectById = async (id: number): Promise<ProjectType> => {
-  console.log('Getting project by ID:', id);
-  
   // First check predefined projects
   if (isPredefinedProject(id)) {
     const predefinedProject = getPredefinedProjectById(id);
@@ -66,8 +62,6 @@ const getProjectById = async (id: number): Promise<ProjectType> => {
 };
 
 export const getAllProjects = async (): Promise<ProjectType[]> => {
-  console.log('Getting all projects');
-  
   try {
     // Get predefined projects
     const predefinedProjects = await getAllPredefinedProjects();

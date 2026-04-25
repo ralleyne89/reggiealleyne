@@ -12,26 +12,26 @@ const ProfileHeader = () => {
             className="aspect-square object-cover w-full h-full rounded-lg"
             alt="Profile"
           />
-          <div className="absolute inset-0 rounded-lg border-2 border-[#0D7377] glow-effect"></div>
+          <div className="absolute inset-0 rounded-lg border-2 border-primary glow-effect"></div>
         </div>
         <div className="flex flex-col">
           <h1 className="text-[rgba(230,230,230,1)] text-[28px] font-semibold leading-none">
             Reggie Alleyne
           </h1>
-          <div className="text-[rgba(145,108,231,1)] font-semibold mt-2.5">
-            I shape digital experiences that make complexity feel intuitive
+          <div className="text-primary font-semibold mt-2.5">
+            I design AI products that make complexity feel intuitive
           </div>
           <div className="text-[rgba(153,153,153,1)] text-sm mt-1.5">
-            UI/UX Designer who codes, translating complex healthcare and
-            education challenges into elegant solutions since 2013.
+            Product designer who codes, translating healthcare, education, and
+            AI workflows into production-ready experiences.
           </div>
           <div className="flex items-center gap-4 mt-2 text-xs text-[rgba(153,153,153,1)]">
             <div className="flex items-center gap-1">
-              <MapPin size={12} className="text-[#9b87f5]" />
+              <MapPin size={12} className="text-primary" />
               <span>Los Angeles, CA</span>
             </div>
             <div className="flex items-center gap-1">
-              <Briefcase size={12} className="text-[#9b87f5]" />
+              <Briefcase size={12} className="text-primary" />
               <span>10+ Years Experience</span>
             </div>
           </div>
@@ -47,7 +47,7 @@ const ProfileHeader = () => {
         </div>
         <Link
           to="/works"
-          className="bg-[rgba(20,20,20,1)] hover:bg-[rgba(30,30,30,1)] border flex items-center gap-1 text-sm text-[#0D7377] px-4 py-2 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap transition-colors duration-300"
+          className="bg-[rgba(20,20,20,1)] hover:bg-[rgba(30,30,30,1)] border flex items-center gap-1 text-sm text-primary px-4 py-2 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap transition-colors duration-300"
         >
           <span>Portfolio</span>
           <ArrowRight size={14} />

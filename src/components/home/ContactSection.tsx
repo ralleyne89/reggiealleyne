@@ -42,10 +42,10 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="bg-gray-900 relative py-[80px]">
-      <div className="container mx-auto px-4">
-        <div className="max-w-xl mx-auto text-center mb-16">
-          <motion.h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4" initial={{
+    <section id="contact" className="relative scroll-mt-24 bg-gray-900 py-16 sm:py-[80px]">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-12 max-w-xl text-center sm:mb-16">
+          <motion.h2 className="mb-4 break-words font-heading text-3xl font-bold text-white md:text-4xl" initial={{
             opacity: 0,
             y: 30
           }} whileInView={{
@@ -60,7 +60,7 @@ const ContactSection = () => {
             Get in <span className="text-primary">Touch</span>
           </motion.h2>
 
-          <motion.p className="text-gray-400" initial={{
+          <motion.p className="text-base leading-7 text-gray-400" initial={{
             opacity: 0,
             y: 30
           }} whileInView={{
@@ -78,8 +78,8 @@ const ContactSection = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <motion.div className="bg-secondary rounded-xl p-6 border border-gray-700" initial={{
+        <div className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+          <motion.div className="min-w-0 rounded-xl border border-white/70 bg-secondary p-4 shadow-xl shadow-black/10 sm:p-6" initial={{
             opacity: 0,
             x: -50
           }} whileInView={{
@@ -91,34 +91,34 @@ const ContactSection = () => {
             once: true,
             amount: 0.3
           }}>
-            <h3 className="text-xl font-heading font-semibold text-white mb-4">
+            <h3 className="text-xl font-heading font-semibold text-gray-950 mb-4">
               Contact Information
             </h3>
 
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+              <div className="flex min-w-0 items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
                   <Mail className="text-primary" size={18} />
                 </div>
-                <div>
-                  <p className="text-sm text-gray-400">Email</p>
-                  <a href="mailto:reggiealleyne89@gmail.com" className="text-text-secondary hover:text-primary transition-colors">
+                <div className="min-w-0">
+                  <p className="text-sm text-gray-500">Email</p>
+                  <a href="mailto:reggiealleyne89@gmail.com" className="break-all text-gray-700 transition-colors hover:text-primary">
                     reggiealleyne89@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+              <div className="flex min-w-0 items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
                   <Users className="text-primary" size={18} />
                 </div>
-                <div>
-                  <p className="text-sm text-gray-400">Social</p>
+                <div className="min-w-0">
+                  <p className="text-sm text-gray-500">Social</p>
                   <div className="flex gap-3 mt-1">
-                    <a href="https://github.com/ralleyne89" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-primary transition-colors">
+                    <a href="https://github.com/ralleyne89" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-primary transition-colors">
                       GitHub
                     </a>
-                    <a href="https://linkedin.com/in/reggiealleyne" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-primary transition-colors">
+                    <a href="https://linkedin.com/in/reggiealleyne" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-primary transition-colors">
                       LinkedIn
                     </a>
                   </div>
@@ -139,29 +139,29 @@ const ContactSection = () => {
             once: true,
             amount: 0.3
           }}>
-            <form onSubmit={handleContactFormSubmit} className="space-y-4">
+            <form onSubmit={handleContactFormSubmit} className="min-w-0 space-y-4">
               <div>
                 <label htmlFor="name" className="text-white block mb-2">
                   Name
                 </label>
-                <input type="text" id="name" name="name" required placeholder="Your full name" className="w-full px-4 py-3 bg-secondary border border-gray-700 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-primary" />
+                <input type="text" id="name" name="name" required placeholder="Your full name" className="w-full rounded-lg border border-gray-700 bg-secondary px-4 py-3 text-white placeholder:text-gray-500 focus:border-primary focus:outline-none" />
               </div>
 
               <div>
                 <label htmlFor="email" className="text-white block mb-2">
                   Email
                 </label>
-                <input type="email" id="email" name="email" required placeholder="your@email.com" className="w-full px-4 py-3 bg-secondary border border-gray-700 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-primary" />
+                <input type="email" id="email" name="email" required placeholder="your@email.com" className="w-full rounded-lg border border-gray-700 bg-secondary px-4 py-3 text-white placeholder:text-gray-500 focus:border-primary focus:outline-none" />
               </div>
 
               <div>
                 <label htmlFor="message" className="text-white block mb-2">
                   Message
                 </label>
-                <textarea id="message" name="message" rows={4} required placeholder="Tell me about your project or what you'd like to discuss..." className="w-full px-4 py-3 bg-secondary border border-gray-700 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-primary"></textarea>
+                <textarea id="message" name="message" rows={4} required placeholder="Tell me about your project or what you'd like to discuss..." className="w-full rounded-lg border border-gray-700 bg-secondary px-4 py-3 text-white placeholder:text-gray-500 focus:border-primary focus:outline-none"></textarea>
               </div>
 
-              <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-lg font-medium shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-shadow">
+              <button type="submit" disabled={isSubmitting} className="min-h-12 w-full rounded-lg bg-gradient-to-r from-primary to-primary-dark px-6 py-3 font-medium text-white shadow-md shadow-primary/20 transition-shadow hover:shadow-lg hover:shadow-primary/30">
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>

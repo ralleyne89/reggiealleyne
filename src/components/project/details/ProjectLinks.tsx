@@ -46,7 +46,7 @@ const ProjectLinks = ({
           href={githubUrl!}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-[#9b87f5] border-2 border-[#9b87f5] rounded-lg hover:bg-[#9b87f5] hover:text-white transition-all duration-300"
+          className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary border-2 border-primary rounded-lg hover:bg-primary hover:text-white transition-all duration-300"
         >
           <span>{githubLabel}</span>
           <ExternalLink className="ml-2 h-4 w-4" />
@@ -57,7 +57,7 @@ const ProjectLinks = ({
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-[#9b87f5] rounded-lg hover:bg-[#7E69AB] transition-colors duration-300"
+          className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary-dark transition-colors duration-300"
         >
           <span>{determineLiveLabel()}</span>
           <ExternalLink className="ml-2 h-4 w-4" />
@@ -68,7 +68,7 @@ const ProjectLinks = ({
           href={prototypeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-[#9b87f5] bg-transparent border-2 border-[#9b87f5] rounded-lg hover:bg-[#9b87f5] hover:text-white transition-all duration-300"
+          className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary bg-transparent border-2 border-primary rounded-lg hover:bg-primary hover:text-white transition-all duration-300"
         >
           <span>{prototypeLabel}</span>
           <ExternalLink className="ml-2 h-4 w-4" />

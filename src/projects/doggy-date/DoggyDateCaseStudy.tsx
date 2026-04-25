@@ -22,8 +22,6 @@ const DoggyDateCaseStudy = () => {
     setSelectedImage(null);
   };
 
-  console.log("DoggyDateCaseStudy is rendering");
-
   return (
     <div className="mt-8 mb-16">
       {/* Minto Pyramid: Lead with Impact/Outcome */}

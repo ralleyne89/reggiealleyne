@@ -1,187 +1,251 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
+  ArrowUpRight,
   Code,
-  Terminal,
-  Sparkles,
-  Gamepad2,
-  Music,
   ExternalLink,
+  Gamepad2,
+  Layers3,
+  Music,
+  Sparkles,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
+
+const experiments = [
+  {
+    title: "ScentStack",
+    description:
+      "AI-powered fragrance discovery with dupe matching, layering suggestions, and dream-scent search.",
+    proofSignal:
+      "Shows product framing for AI recommendations, premium consumer UX, and fast prototype delivery.",
+    tags: ["React", "Tailwind", "AI"],
+    icon: Code,
+    previewImage: "/images/scentstack_hero.png",
+    liveUrl: "https://scentstack.lovable.app",
+    status: "Live",
+    size: "feature",
+  },
+  {
+    title: "Chill Vibes Music Player",
+    description:
+      "A minimalist music streaming MVP focused on clean playback and a distraction-free interface.",
+    proofSignal:
+      "Shows audio UX restraint, hierarchy, and a lightweight product surface built around calm use.",
+    tags: ["React", "Firebase", "UX/UI"],
+    icon: Music,
+    previewImage: "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
+    liveUrl: "https://chill-vibes.web.app/",
+    status: "Live",
+    size: "standard",
+  },
+  {
+    title: "Bob's Big Break",
+    description:
+      "An incremental clicker game prototype exploring low-attention, short-session game loops.",
+    proofSignal:
+      "Shows systems thinking, reward loops, and product mechanics beyond static interface work.",
+    tags: ["React", "Node.js", "MongoDB"],
+    icon: Gamepad2,
+    previewImage: "/images/71cb9624-eeb6-4af5-a137-8a38307549f4.png",
+    liveUrl: "https://bobsbigbreak.netlify.app/",
+    status: "Live",
+    size: "standard",
+  },
+];
+
+const upcomingExplorations = [
+  "WebGL interaction studies",
+  "Generative art systems",
+  "AI-assisted creative tools",
+];
 
 const Playground = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const experiments = [
-    {
-      title: "Chill Vibes Music Player",
-      description:
-        "A minimalist music streaming MVP focused on clean playback and a distraction-free UI.",
-      tags: ["React", "Firebase", "UX/UI"],
-      icon: Music,
-      previewImage: "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
-      liveUrl: "https://chill-vibes.web.app/",
-      status: "Live",
-    },
-    {
-      title: "Bob's Big Break",
-      description:
-        "An incremental clicker game prototype exploring low-attention, short-session game loops.",
-      tags: ["React", "Node.js", "MongoDB"],
-      icon: Gamepad2,
-      previewImage: "/images/71cb9624-eeb6-4af5-a137-8a38307549f4.png",
-      liveUrl: "https://bobsbigbreak.netlify.app/",
-      status: "Live",
-    },
-    {
-      title: "ScentStack",
-      description:
-        "AI-powered fragrance discovery with dupe matching, layering suggestions, and dream-scent search.",
-      tags: ["React", "Tailwind", "AI"],
-      icon: Code,
-      previewImage: "/images/scentstack_hero.png",
-      liveUrl: "https://scentstack.lovable.app",
-      status: "Live",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
-      {/* Header */}
-      <div className="pt-24 pb-12">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <Link
-              to="/"
-              className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Home
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="max-w-4xl"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <Terminal className="w-8 h-8 text-primary" />
-              <p className="text-primary font-mono text-sm tracking-wide">
-                ~/playground
-              </p>
-            </div>
-            <h1 className="text-4xl lg:text-6xl font-heading font-bold mb-6 text-white">
-              Playground
-            </h1>
-            <p className="text-xl text-gray-400 leading-relaxed max-w-2xl">
-              Creative coding + prototypes — quick demos with stack notes and
-              live links.
-            </p>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Experiments Grid */}
-      <div className="container mx-auto px-4 pb-20">
-        <div className="max-w-4xl space-y-8">
-          {experiments.map((experiment, index) => (
+    <div className="min-h-screen bg-white text-text-primary">
+      <main className="pt-24">
+        <section className="relative overflow-hidden border-b border-gray-200 bg-white py-14 sm:py-20">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:88px_88px] opacity-35" />
+          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              key={experiment.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              initial={{ opacity: 0, x: -18 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.45 }}
+              className="mb-10"
             >
-              <div className="group bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
-                <div className="flex items-start gap-4">
-                  <div className="bg-gray-800 rounded-lg p-3 group-hover:bg-primary/20 transition-colors">
-                    <experiment.icon className="w-6 h-6 text-primary" />
+              <Link
+                to="/"
+                className="inline-flex items-center text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
+              >
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Home
+              </Link>
+            </motion.div>
+
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_0.55fr] lg:items-end">
+              <motion.div
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: 0.08 }}
+                className="max-w-4xl"
+              >
+                <p className="mb-3 text-sm font-semibold uppercase text-primary">
+                  Prototype lab
+                </p>
+                <h1 className="font-display text-[2.7rem] font-semibold leading-[1.04] tracking-normal text-gray-950 sm:text-[3.5rem] lg:text-[4.15rem]">
+                  Live experiments that prove the product instinct.
+                </h1>
+                <p className="mt-5 max-w-2xl text-lg leading-8 text-text-secondary">
+                  A focused playground of prototypes, creative systems, and
+                  AI-adjacent demos. Each one is here because it shows how an
+                  idea moves from rough concept to usable product surface.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: 0.16 }}
+                className="liquid-glass rounded-[1.75rem] p-5"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="liquid-glass-control flex h-11 w-11 items-center justify-center rounded-full text-primary">
+                    <Layers3 size={20} />
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-xl font-heading font-semibold text-white group-hover:text-primary transition-colors">
-                        {experiment.title}
-                      </h3>
-                      <span className="px-2 py-0.5 text-xs font-medium bg-green-500/20 text-green-400 rounded-full">
+                  <div>
+                    <p className="text-sm font-semibold text-gray-950">
+                      3 live prototypes
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Built to test product feel, not just visuals.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-gray-50 py-14 sm:py-16">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid auto-rows-auto grid-cols-1 gap-5 lg:grid-cols-6">
+              {experiments.map((experiment, index) => {
+                const Icon = experiment.icon;
+                const isFeature = experiment.size === "feature";
+
+                return (
+                  <motion.article
+                    key={experiment.title}
+                    initial={{ opacity: 0, y: 26 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.12 + index * 0.08 }}
+                    className={[
+                      "group flex min-h-full flex-col overflow-hidden rounded-[1.75rem] border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10",
+                      isFeature ? "lg:col-span-4 lg:row-span-2" : "lg:col-span-2",
+                    ].join(" ")}
+                  >
+                    <a
+                      href={experiment.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative block overflow-hidden bg-gray-100"
+                      aria-label={`View ${experiment.title} live`}
+                    >
+                      <div className={isFeature ? "aspect-[16/9]" : "aspect-[4/3]"}>
+                        <img
+                          src={experiment.previewImage}
+                          alt={`${experiment.title} preview`}
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          loading={index === 0 ? "eager" : "lazy"}
+                          decoding="async"
+                          onError={(event) => {
+                            event.currentTarget.src = "/placeholder.svg";
+                          }}
+                        />
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+                      <div className="liquid-glass-control absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-gray-950">
                         {experiment.status}
-                      </span>
-                    </div>
-                    <p className="text-gray-400">{experiment.description}</p>
+                      </div>
+                      <div className="liquid-glass liquid-glass-dark absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full text-white opacity-0 transition-all duration-300 group-hover:opacity-100">
+                        <ArrowUpRight size={18} />
+                      </div>
+                    </a>
 
-                    {/* Preview */}
-                    <div className="mt-4 aspect-video overflow-hidden rounded-lg border border-gray-800 bg-gray-950">
-                      <img
-                        src={experiment.previewImage}
-                        alt={`${experiment.title} preview`}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                        onError={(e) => {
-                          e.currentTarget.src = "/placeholder.svg";
-                        }}
-                      />
-                    </div>
+                    <div className="flex flex-1 flex-col p-6">
+                      <div className="mb-5 flex items-start justify-between gap-4">
+                        <div className="liquid-glass-control flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-primary">
+                          <Icon size={22} />
+                        </div>
+                        <div className="flex flex-wrap justify-end gap-2">
+                          {experiment.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
 
-                    {/* Tech stack */}
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {experiment.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-1 text-xs font-mono bg-gray-800 text-gray-400 rounded"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                      <h2 className="font-display text-heading-md font-semibold leading-tight text-gray-950">
+                        {experiment.title}
+                      </h2>
+                      <p className="mt-3 text-sm leading-6 text-text-secondary">
+                        {experiment.description}
+                      </p>
+                      <p className="mt-5 border-l-2 border-primary/30 pl-3 text-sm leading-6 text-gray-500">
+                        {experiment.proofSignal}
+                      </p>
 
-                    {/* Actions */}
-                    <div className="mt-5 flex flex-wrap gap-3">
                       <a
                         href={experiment.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
+                        className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
                       >
-                        View Live
-                        <ExternalLink className="h-4 w-4" />
+                        View live
+                        <ExternalLink size={15} />
                       </a>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                  </motion.article>
+                );
+              })}
 
-        {/* Coming Soon Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="max-w-4xl mt-16"
-        >
-          <div className="border border-dashed border-gray-700 rounded-xl p-8 text-center">
-            <Sparkles className="w-8 h-8 text-gray-600 mx-auto mb-4" />
-            <h3 className="text-lg font-heading font-semibold text-gray-500 mb-2">
-              More experiments coming soon
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Currently exploring: WebGL shaders, generative art, and AI-powered
-              creative tools
-            </p>
+              <motion.article
+                initial={{ opacity: 0, y: 26 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.42 }}
+                className="rounded-[1.75rem] border border-dashed border-gray-300 bg-white p-6 lg:col-span-2"
+              >
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <Sparkles size={22} />
+                </div>
+                <p className="text-sm font-semibold uppercase text-primary">
+                  Now exploring
+                </p>
+                <h2 className="mt-3 font-display text-heading-md font-semibold text-gray-950">
+                  More experiments are in motion.
+                </h2>
+                <ul className="mt-5 space-y-3 text-sm leading-6 text-gray-600">
+                  {upcomingExplorations.map((item) => (
+                    <li key={item} className="flex items-center gap-3">
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.article>
+            </div>
           </div>
-        </motion.div>
-      </div>
+        </section>
+      </main>
 
       <Footer />
     </div>

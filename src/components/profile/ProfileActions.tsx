@@ -38,7 +38,7 @@ const ProfileActions = () => {
     <div className="flex w-full gap-3 text-[13px] text-[rgba(204,204,204,1)] font-medium mt-[30px] flex-col sm:flex-row">
       <button
         onClick={handleResumeDownload}
-        className="bg-gradient-to-r from-[#0D7377] to-[#14A085] text-white flex items-center gap-2.5 justify-center flex-1 shrink basis-[0%] px-2.5 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-95 active:shadow-inner"
+        className="bg-primary text-white flex items-center gap-2.5 justify-center flex-1 shrink basis-[0%] px-2.5 py-4 rounded-xl transition-all duration-300 hover:bg-primary-dark hover:shadow-lg hover:scale-[1.02] active:scale-95 active:shadow-inner"
       >
         <Download className="w-4 h-4 text-white" />
         <span>Download Resume</span>

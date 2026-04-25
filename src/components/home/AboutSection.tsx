@@ -14,21 +14,21 @@ const AboutSection = () => {
   const aboutMeValues = [
     {
       icon: <Zap className="w-6 h-6 text-primary" />,
-      title: "Building AI Tools That Don't Suck",
+      title: "Designing AI Tools People Can Trust",
       description:
-        "I'm fascinated by AI's potential to solve real problems—not just generate more content. I want to design interfaces that make AI feel helpful, not overwhelming.",
+        "I focus on making AI behavior legible: clear inputs, visible confidence, useful explanations, and interfaces that keep people in control.",
     },
     {
       icon: <Users className="w-6 h-6 text-primary" />,
       title: "Leading Through Collaboration",
       description:
-        "I believe the best ideas come from diverse perspectives. I'm the designer who asks developers 'what if we tried this?' and actually listens to the answer.",
+        "I work closely with engineering and product partners, using prototypes to make tradeoffs concrete before teams overcommit.",
     },
     {
       icon: <Target className="w-6 h-6 text-primary" />,
       title: "Solving Problems, Not Just Making Mockups",
       description:
-        "I dig deep into user research, prototype rapidly, and iterate based on real feedback. Pretty designs are great, but usable ones change lives.",
+        "I use research, systems thinking, and fast React prototypes to move from product ambiguity to decisions teams can build around.",
     },
   ];
 
@@ -56,12 +56,12 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-50 relative">
-      <div className="container mx-auto px-4">
+    <section id="about" className="relative bg-gray-50 py-16 sm:py-20">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <motion.div
-            className="text-center mb-16"
+            className="mb-12 text-center sm:mb-16"
             initial={{
               opacity: 0,
               y: 30,
@@ -78,17 +78,19 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h2 className="font-display text-display-md text-gray-900 mb-6">
-              Hey, I'm <span className="text-primary italic">Reggie</span>.
+            <h2 className="mb-5 break-words font-display text-[2.1rem] leading-tight text-gray-900 [text-wrap:balance] sm:mb-6 sm:text-display-md">
+              I design at the intersection of{" "}
+              <span className="text-primary italic">AI, systems, and trust</span>.
             </h2>
-            <p className="text-body-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Nice to meet you.
+            <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600 sm:text-body-lg sm:leading-relaxed">
+              My strongest work translates complex product logic into interfaces
+              people can understand quickly.
             </p>
           </motion.div>
 
           {/* About Content */}
           <motion.div
-            className="space-y-8 mb-16"
+            className="mb-12 space-y-6 sm:mb-16 sm:space-y-8"
             initial={{
               opacity: 0,
               y: 30,
@@ -106,34 +108,25 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-base leading-7 text-gray-700 sm:text-lg sm:leading-relaxed">
               I'm a{" "}
-              <span className="text-primary font-semibold">UI/UX Designer</span>{" "}
-              who codes—because sometimes the best way to solve a design problem
-              is to build it yourself. With 10+ years of experience turning
-              complex problems into delightful user experiences, I've learned
-              that great design isn't just about making things pretty it's about 
-              creating solutions that work.
+              <span className="text-primary font-semibold">product designer who codes</span>{" "}
+              with 10+ years of experience turning complex workflows into clear,
+              usable product experiences. I use code as a design material when a
+              prototype needs to prove behavior, feasibility, or interaction quality.
             </p>
 
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Born and raised in LA, I'm a family man who believes the best
-              solutions come from understanding people—whether that's users
-              struggling with healthcare navigation or teammates trying to ship
-              features on deadline. I've spent my career in{" "}
-              <span className="text-primary">Education and Healthcare</span>,
-              building tools that actually matter to people's lives.
+            <p className="text-base leading-7 text-gray-700 sm:text-lg sm:leading-relaxed">
+              My background spans{" "}
+              <span className="text-primary">education, healthcare, AI, and creator platforms</span>.
+              Those domains taught me to design for trust, explainability, and
+              adoption rather than polish alone.
             </p>
 
-            <p className="text-lg text-gray-700 leading-relaxed">
-              But here's the thing—I'm dreaming bigger. I want to design for the
-              industries that first made me fall in love with great experiences:{" "}
-              <span className="text-primary font-semibold">
-                gaming and anime
-              </span>
-              . There's something magical about creating worlds and characters
-              that people connect with emotionally. Plus, who wouldn't want
-              their work to involve more mechs and fewer medical forms?
+            <p className="text-base leading-7 text-gray-700 sm:text-lg sm:leading-relaxed">
+              The portfolio now foregrounds the work most relevant to AI and
+              product-design teams: adaptive assessment, platform strategy, and
+              explainable AI in high-stakes contexts.
             </p>
           </motion.div>
 
@@ -157,15 +150,15 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h3 className="font-display text-heading-xl text-gray-900 mb-12 text-center">
-              What I'm About
+            <h3 className="mb-8 break-words text-center font-display text-3xl leading-tight text-gray-900 sm:mb-12 sm:text-heading-xl">
+              How I Work
             </h3>
 
             <div className="space-y-8">
               {aboutMeValues.map((value, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white p-8 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors shadow-sm"
+                  className="min-w-0 rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-colors hover:border-primary/20 sm:p-8"
                   initial={{
                     opacity: 0,
                     y: 20,
@@ -183,12 +176,12 @@ const AboutSection = () => {
                     amount: 0.3,
                   }}
                 >
-                  <div className="flex items-start gap-6">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="flex min-w-0 items-start gap-4 sm:gap-6">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 sm:h-12 sm:w-12">
                       {value.icon}
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                    <div className="min-w-0 flex-1">
+                      <h4 className="mb-3 break-words text-lg font-semibold text-gray-900 sm:text-xl">
                         {value.title}
                       </h4>
                       <p className="text-gray-600 leading-relaxed">
@@ -221,14 +214,14 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h3 className="font-display text-heading-xl text-gray-900 mb-8 text-center">
-              When I'm Not Designing
+            <h3 className="mb-8 break-words text-center font-display text-3xl leading-tight text-gray-900 sm:text-heading-xl">
+              Personal Signals
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {interests.map((interest, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary/20 transition-colors text-center shadow-sm"
+                  className="min-w-0 rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm transition-colors hover:border-primary/20 sm:p-6"
                   initial={{
                     opacity: 0,
                     y: 20,
@@ -262,7 +255,7 @@ const AboutSection = () => {
 
           {/* What I'm Looking For */}
           <motion.div
-            className="bg-secondary-dark rounded-xl p-8 border border-gray-700"
+            className="min-w-0 rounded-xl border border-gray-700 bg-secondary-dark p-5 sm:p-8"
             initial={{
               opacity: 0,
               y: 30,
@@ -280,7 +273,7 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h3 className="font-display text-heading-xl text-white mb-6 text-center">
+            <h3 className="mb-6 break-words text-center font-display text-3xl leading-tight text-white sm:text-heading-xl">
               What I'm Looking For
             </h3>
 
@@ -290,34 +283,31 @@ const AboutSection = () => {
                 <span className="text-primary font-semibold">
                   building something meaningful
                 </span>
-                —whether that's the next great gaming experience, an AI tool
-                that actually helps people, or a platform that brings
-                communities together.
+                —especially AI products, platform tools, and experiences where
+                trust and clarity determine whether the product works.
               </p>
 
               <p className="text-gray-300 leading-relaxed">
-                I thrive in environments where{" "}
-                <span className="text-primary">collaboration beats ego</span>,
-                where we ship fast but think deeply, and where "that's how we've
-                always done it" isn't a valid argument. Give me complex
-                problems, tight deadlines, and a team that's not afraid to
-                experiment.
+                I thrive with teams that value evidence, fast prototypes, and
+                thoughtful critique. Give me ambiguous systems, a real user
+                problem, and partners who want to make the product better
+                together.
               </p>
 
               <p className="text-gray-300 leading-relaxed">
-                Bonus points if you're in{" "}
+                I am especially interested in{" "}
                 <span className="text-primary font-semibold">
-                  gaming, entertainment, or AI
+                  AI, creative tools, education, healthcare, and entertainment
                 </span>
-                . Double bonus if you have a good coffee machine and don't mind
-                the occasional anime reference in Slack.
+                , where strong UX can make complex technology feel useful and
+                human.
               </p>
             </div>
 
             <div className="text-center mt-8">
               <motion.a
                 href="#contact"
-                className="inline-flex items-center px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-dark sm:w-auto sm:px-8"
                 whileHover={{
                   scale: 1.05,
                 }}

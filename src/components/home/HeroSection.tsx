@@ -1,306 +1,161 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  Activity,
+  ArrowRight,
+  CheckCircle2,
+  PanelsTopLeft,
+  ShieldCheck,
+} from "lucide-react";
 
-const fadeInUp = {
-  hidden: {
-    opacity: 0,
-    y: 60,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
+const heroProofPoints = [
+  "Human-in-the-loop AI",
+  "Design systems",
+  "Production React prototypes",
+];
 
-const staggerContainer = {
-  hidden: {
-    opacity: 0,
+const projectSignals = [
+  {
+    name: "Litmus AI",
+    label: "AI literacy",
+    signal: "Trust-first assessment",
+    Icon: ShieldCheck,
   },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
+  {
+    name: "CLLCTVE",
+    label: "Creator platform",
+    signal: "500+ creator network",
+    Icon: PanelsTopLeft,
   },
-};
-
-const buttonVariants = {
-  hover: {
-    scale: 1.05,
-    transition: {
-      type: "spring",
-      stiffness: 400,
-      damping: 10,
-    },
+  {
+    name: "SymptomCheckr",
+    label: "Health AI",
+    signal: "Explainable guidance",
+    Icon: Activity,
   },
-  tap: {
-    scale: 0.95,
-  },
-};
+];
 
 const HeroSection = () => {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start start", "end start"],
-  });
-  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.9], [1, 0.8]);
-  const y = useTransform(scrollYProgress, [0, 0.9], [0, 100]);
-
   return (
-    <motion.div
-      ref={targetRef}
-      className="min-h-[100dvh] w-full pt-20 md:pt-28 relative overflow-hidden bg-white flex flex-col justify-center"
-    >
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <section className="relative overflow-hidden bg-white pb-16 pt-24 sm:pt-32 lg:pb-24">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:88px_88px] opacity-35" />
 
-      <motion.div
-        className="container mx-auto px-4 relative z-10 flex-1 flex flex-col justify-center"
-        style={{
-          opacity,
-          scale,
-          y,
-        }}
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-center mt-4 md:mt-0">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid w-full min-w-0 grid-cols-1 items-center gap-8 lg:grid-cols-[1.04fr_0.96fr] lg:gap-14">
           <motion.div
-            className="text-center lg:text-left"
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
+            className="mx-auto w-full max-w-2xl min-w-0 text-center lg:mx-0 lg:text-left"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <motion.div variants={fadeInUp} className="mb-4">
-            <p className="text-primary font-medium text-sm md:text-base tracking-wide uppercase mb-3">
-              Product Designer & AI Technologist
+            <p className="mb-3 text-xs font-semibold uppercase leading-5 text-primary sm:mb-4 sm:text-sm">
+              Reggie Alleyne / Product Designer & AI Technologist
             </p>
-              <h1 className="font-display text-display-xl font-bold leading-tight text-gray-900">
-                <span className="text-primary">Reggie Alleyne</span>
-              </h1>
-            </motion.div>
 
-            <motion.p
-              variants={fadeInUp}
-              className="text-gray-600 text-body-lg mb-4 max-w-xl mx-auto lg:mx-0 mt-4 leading-relaxed"
-            >
-              Building adaptive AI systems and scalable interfaces that bridge the gap between human intent and machine logic.
-            </motion.p>
+            <h1 className="break-words font-display text-[2.28rem] font-semibold leading-[1.03] tracking-normal text-gray-950 [text-wrap:balance] sm:text-[3.45rem] lg:text-[4.05rem]">
+              Designing AI products people can understand, trust, and use.
+            </h1>
 
-            <motion.p
-              variants={fadeInUp}
-              className="text-gray-500 text-body-sm mb-8 max-w-xl mx-auto lg:mx-0"
-            >
-              Specializing in <span className="text-primary font-medium">Human-in-the-Loop AI</span>, <span className="text-primary font-medium">Design Systems</span>, and <span className="text-primary font-medium">React Prototyping</span>.
-            </motion.p>
+            <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-text-secondary sm:mt-6 sm:text-xl sm:leading-8 lg:mx-0">
+              I turn ambiguous AI and platform ideas into clear product
+              experiences, scalable design systems, and production-ready React
+              prototypes.
+            </p>
 
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-wrap gap-4 justify-center lg:justify-start"
-            >
-              <motion.a
+            <div className="mt-5 grid gap-3 text-left sm:mt-6 sm:grid-cols-3">
+              {heroProofPoints.map((point) => (
+                <div
+                  key={point}
+                  className="flex min-h-11 min-w-0 items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-3 py-2 text-sm font-medium text-gray-700"
+                >
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-primary" />
+                  <span>{point}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:justify-center lg:justify-start">
+              <a
                 href="#projects"
-                className="bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-full font-medium inline-flex items-center gap-2 shadow-lg shadow-primary/20"
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-dark sm:w-auto"
               >
-                View My Work
+                View selected work
                 <ArrowRight size={18} />
-              </motion.a>
+              </a>
 
-              <motion.a
+              <a
                 href="#contact"
-                className="bg-transparent border border-gray-300 text-gray-900 px-6 py-3 rounded-full font-medium inline-flex items-center gap-2 hover:border-primary transition-colors duration-300"
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-gray-300 px-6 py-3 font-semibold text-gray-950 transition-colors hover:border-primary hover:text-primary sm:w-auto"
               >
-                Contact Me
-              </motion.a>
-            </motion.div>
+                Start a conversation
+              </a>
+            </div>
           </motion.div>
 
           <motion.div
-            className="relative mx-auto max-w-sm lg:max-w-full"
-            initial={{
-              opacity: 0,
-              scale: 0.8,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-            }}
-            transition={{
-              duration: 0.8,
-              delay: 0.2,
-            }}
+            className="mx-auto w-full max-w-md min-w-0 lg:max-w-xl"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.12, ease: "easeOut" }}
           >
-            {/* Main Profile Container */}
-            <div className="relative">
-              {/* Profile Image with Modern Frame */}
-              <div className="relative rounded-3xl overflow-hidden w-full h-[280px] sm:h-[350px] md:h-[400px] border border-gray-200 shadow-2xl">
-                <img
-                  src="/images/1686931266900.jpeg"
-                  alt="Reggie Alleyne - AI Technologist"
-                  className="w-full h-full object-cover"
-                />
-
-                {/* Subtle overlay for better contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-
-                {/* Floating Status Badge */}
-                <motion.div
-                  className="absolute top-4 right-4 bg-black/40 backdrop-blur-md rounded-full px-3 py-2 border border-white/20"
-                  initial={{
-                    opacity: 0,
-                    y: -20,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    delay: 1,
-                    duration: 0.5,
-                  }}
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="relative">
-                      <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                      <div className="absolute inset-0 w-2 h-2 rounded-full border border-green-400 animate-ping"></div>
-                    </div>
-                    <span className="text-white text-xs font-medium">
-                      Available for work
-                    </span>
-                  </div>
-                </motion.div>
-
-                {/* Location Badge */}
-                <motion.div
-                  className="absolute bottom-4 left-4 bg-black/40 backdrop-blur-md rounded-full px-3 py-2 border border-white/20"
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    delay: 1.2,
-                    duration: 0.5,
-                  }}
-                >
-                  <span className="text-white text-xs font-medium">
-                    📍 Los Angeles, CA
-                  </span>
-                </motion.div>
-
-                {/* Interactive Hover Overlay */}
-                <motion.div
-                  className="absolute inset-0 bg-primary/10 opacity-0 transition-opacity duration-300 hover:opacity-100 flex items-center justify-center"
-                  whileHover={{
-                    opacity: 1,
-                  }}
-                >
-                  <motion.div
-                    className="text-white text-center"
-                    initial={{
-                      scale: 0.8,
-                      opacity: 0,
-                    }}
-                    whileHover={{
-                      scale: 1,
-                      opacity: 1,
-                    }}
-                    transition={{
-                      duration: 0.2,
-                    }}
-                  >
-                    <div className="text-sm font-medium mb-1">
-                      Let's create something amazing
-                    </div>
-                    <div className="text-xs opacity-80">Hover to connect</div>
-                  </motion.div>
-                </motion.div>
+            <div className="relative px-1 pb-6 sm:px-8 sm:pb-8">
+              <div className="absolute inset-x-8 bottom-0 top-8 rounded-[2rem] border border-primary/15 bg-primary/[0.06] shadow-inner shadow-primary/10" />
+              <div className="liquid-glass liquid-glass-dark relative z-10 mx-auto mb-3 hidden w-full items-center justify-between rounded-t-2xl rounded-b-lg border border-white/10 px-4 py-3 text-white shadow-xl shadow-gray-950/15 sm:flex">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-primary" />
+                  <span className="h-2 w-2 rounded-full bg-white/25" />
+                  <span className="h-2 w-2 rounded-full bg-white/25" />
+                </div>
+                <p className="text-xs font-semibold uppercase text-white/80">
+                  Evidence-led product studio
+                </p>
               </div>
 
-              {/* Floating Design Elements */}
-              <motion.div
-                className="absolute -top-6 -right-6 w-20 h-20 bg-primary/20 rounded-full blur-xl"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.4, 0.6, 0.4],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
+              <div className="relative mx-auto max-w-[20rem] overflow-hidden rounded-[1.5rem] border border-white bg-gray-100 shadow-2xl shadow-gray-950/15 sm:max-w-[26rem] sm:rounded-[2rem]">
+                <div className="relative aspect-[4/4.7] sm:aspect-[4/5]">
+                  <img
+                    src="/images/1686931266900.jpeg"
+                    alt="Reggie Alleyne"
+                    className="h-full w-full object-cover grayscale"
+                  />
+                  <div className="liquid-glass liquid-glass-dark absolute inset-x-3 bottom-3 rounded-2xl p-3 text-white sm:inset-x-4 sm:bottom-4 sm:p-4">
+                    <div className="flex items-center gap-2 text-xs font-semibold sm:text-sm">
+                      <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_0_5px_rgba(52,211,153,0.18)]" />
+                      Trust-first AI product systems
+                    </div>
+                    <p className="mt-1 text-[0.7rem] text-white/70 sm:text-xs">
+                      Research-backed flows / design systems / React prototypes
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-              <motion.div
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-secondary/30 rounded-full blur-lg"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                  x: [0, 10, 0],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  delay: 1,
-                }}
-              />
-
-              {/* Geometric Accent */}
-              <motion.div
-                className="absolute top-1/2 -left-8 w-3 h-3 bg-primary rounded-full"
-                animate={{
-                  y: [-10, 10, -10],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                }}
-              />
+              <div className="relative z-10 mt-4 grid gap-3 sm:-mt-6 sm:grid-cols-3">
+                {projectSignals.map(({ name, label, signal, Icon }) => (
+                  <div
+                    key={name}
+                    className="liquid-glass min-w-0 rounded-2xl p-3"
+                  >
+                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <Icon size={17} strokeWidth={2.2} />
+                    </div>
+                    <p className="text-xs font-semibold uppercase text-primary">
+                      {label}
+                    </p>
+                    <p className="mt-1 text-sm font-semibold text-gray-950">
+                      {name}
+                    </p>
+                    <p className="mt-1 text-xs leading-5 text-gray-500">
+                      {signal}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-        animate={{
-          y: [0, 10, 0],
-        }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-        }}
-      >
-        <div className="text-gray-500 text-sm mb-2">Scroll Down</div>
-        <div className="w-6 h-10 rounded-full border-2 border-gray-400 flex justify-center pt-1">
-          <motion.div
-            className="w-1.5 h-1.5 rounded-full bg-primary"
-            animate={{
-              y: [0, 12, 0],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-            }}
-          />
-        </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </section>
   );
 };
 

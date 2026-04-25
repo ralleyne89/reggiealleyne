@@ -41,7 +41,7 @@ const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliver
         <Card className="mb-16 bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
           <CardContent className="p-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
+              <div className="bg-primary/10 p-3 rounded-lg">
                 <Check className="w-5 h-5 text-primary" />
               </div>
               <h2 className="text-2xl font-bold text-white">Project Deliverables</h2>
@@ -50,9 +50,9 @@ const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliver
               {deliverables.map((deliverable, index) => (
                 <div 
                   key={index}
-                  className="flex items-center gap-3 bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4 hover:border-primary/20 hover:bg-[rgba(155,135,245,0.05)] transition-all duration-300"
+                  className="flex items-center gap-3 bg-[rgba(25,25,25,0.5)] border border-[rgba(255,255,255,0.06)] rounded-lg p-4 hover:border-primary/20 hover:bg-primary/5 transition-all duration-300"
                 >
-                  <div className="bg-[rgba(155,135,245,0.1)] p-2 rounded-full">
+                  <div className="bg-primary/10 p-2 rounded-full">
                     <div className="h-2 w-2 rounded-full bg-primary"></div>
                   </div>
                   <span className="text-[rgba(200,200,200,0.9)]">{deliverable}</span>
@@ -66,7 +66,7 @@ const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliver
       {uniqueImages.length > 0 && !isDoggyDateProject && (
         <div>
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
+            <div className="bg-primary/10 p-3 rounded-lg">
               <Image className="w-5 h-5 text-primary" />
             </div>
             <h2 className="text-2xl font-bold text-white">Project Visuals</h2>
@@ -76,13 +76,16 @@ const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliver
             {uniqueImages.map((image, index) => (
               <div 
                 key={index}
-                className="group relative aspect-video overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] cursor-pointer transition-all duration-300 hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:border-primary"
+                className="group relative aspect-video overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] cursor-pointer transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)] hover:border-primary"
                 onClick={() => handleImageClick(image)}
               >
                 <img 
                   src={image} 
                   alt={`Project visual ${index + 1}`}
                   className={`w-full h-full ${isChillVibesProject ? 'object-contain bg-black' : 'object-cover'}`}
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   onError={(e) => {
                     console.error(`Image failed to load: ${image}`);
                     e.currentTarget.src = "/placeholder.svg";
@@ -109,6 +112,7 @@ const ProjectDeliverables = ({ deliverables, images, projectId }: ProjectDeliver
                   src={selectedImage} 
                   alt="Full size project visual" 
                   className={`w-full h-full ${isChillVibesProject ? 'object-contain bg-black' : 'object-cover'}`}
+                  decoding="async"
                   onError={(e) => {
                     console.error(`Modal image failed to load: ${selectedImage}`);
                     e.currentTarget.src = "/placeholder.svg";

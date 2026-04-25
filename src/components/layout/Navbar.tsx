@@ -1,8 +1,23 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-import { motion } from "framer-motion";
+import { BriefcaseBusiness, Home, Menu, MoreHorizontal, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import ContactModal from "./ContactModal";
+
+interface NavLinkItem {
+  title: string;
+  path: string;
+}
+
+const navLinks: NavLinkItem[] = [
+  { title: "Home", path: "/" },
+  { title: "Work", path: "/works" },
+  { title: "Playground", path: "/playground" },
+  { title: "About", path: "/about" },
+];
+
+const mobilePrimaryLinks = navLinks.slice(0, 2);
+const mobileSecondaryLinks = navLinks.slice(2);
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,145 +28,214 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location]);
 
-  interface NavItem {
-    title: string;
-    path: string;
-    onClick?: (e: React.MouseEvent) => void;
-  }
+  const isActivePath = (path: string) => {
+    if (path === "/") {
+      return location.pathname === "/";
+    }
 
-  const handleContactClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+    return location.pathname.startsWith(path);
+  };
+
+  const isSecondaryActive = mobileSecondaryLinks.some((item) =>
+    isActivePath(item.path),
+  );
+
+  const openContactModal = () => {
+    setIsOpen(false);
     setContactModalOpen(true);
   };
 
-  const navItems: NavItem[] = [
-    { title: "Home", path: "/" },
-    { title: "Work", path: "/works" },
-    { title: "Playground", path: "/playground" },
-    { title: "About", path: "/about" },
-    { title: "Contact", path: "#", onClick: handleContactClick },
-  ];
-
   const navVariants = {
-    hidden: { opacity: 0, y: -20 },
+    hidden: { opacity: 0, y: -18 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
+        staggerChildren: 0.08,
+        delayChildren: 0.18,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: -20 },
+    hidden: { opacity: 0, y: -12 },
     visible: { opacity: 1, y: 0 },
   };
 
+  const linkClassName = (isActive: boolean) =>
+    [
+      "relative inline-flex min-h-10 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition-colors",
+      isActive
+        ? "liquid-glass-control liquid-glass-nav-control text-gray-950 shadow-sm"
+        : "text-gray-800 hover:text-gray-950",
+    ].join(" ");
+
   return (
-    <motion.header
-      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg shadow-black/5 transition-all duration-300"
-      initial="hidden"
-      animate="visible"
-      variants={navVariants}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <nav className="flex items-center justify-between py-4">
-          <Link to="/" className="text-gray-900">
-            <motion.div
-              className="flex items-center gap-3"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 500 }}
+    <>
+      <motion.header
+        className="mobile-shell-top pointer-events-none fixed inset-x-0 top-0 z-50 px-3 sm:px-6 sm:pt-4"
+        initial="hidden"
+        animate="visible"
+        variants={navVariants}
+      >
+        <div className="mx-auto w-full max-w-6xl">
+          <nav className="liquid-glass liquid-glass-nav pointer-events-auto mx-auto flex min-h-14 max-w-6xl items-center justify-between rounded-full px-3 py-2 sm:min-h-16 sm:px-5">
+            <Link
+              to="/"
+              className="relative z-10 inline-flex items-center rounded-full px-2 py-1 text-gray-900"
+              aria-label="Reggie Alleyne home"
             >
-              <img
+              <motion.img
                 src="/images/RA_logo_black.png"
                 alt="Reggie Alleyne Logo"
-                className="h-10 w-auto transition-all duration-300"
+                className="h-8 w-auto sm:h-9"
+                whileHover={{ scale: 1.04 }}
+                transition={{ type: "spring", stiffness: 480, damping: 24 }}
               />
-              {/* <p className="font-bold text-lg drop-shadow-sm transition-colors duration-300 text-gray-900">
-                REGGIE ALLEYNE
-              </p> */}
-            </motion.div>
-          </Link>
+            </Link>
 
-          <ul className="hidden md:flex space-x-2">
-            {navItems.map((item, index) => (
-              <motion.li key={index} variants={itemVariants}>
-                <Link
-                  to={item.path}
-                  onClick={item.onClick}
-                  className={`px-4 py-2 text-sm font-medium transition-colors animated-underline drop-shadow-sm ${
-                    location.pathname === item.path ||
-                    (item.path !== "/" &&
-                      location.pathname.startsWith(item.path))
-                      ? "text-primary font-semibold"
-                      : "text-gray-700 hover:text-gray-900 font-medium"
-                  }`}
+            <ul className="hidden items-center gap-1 rounded-full border border-white/35 bg-white/30 p-1 shadow-inner shadow-white/20 backdrop-blur-xl md:flex">
+              {navLinks.map((item) => {
+                const isActive = isActivePath(item.path);
+
+                return (
+                  <motion.li key={item.path} variants={itemVariants}>
+                    <Link
+                      to={item.path}
+                      aria-current={isActive ? "page" : undefined}
+                      className={linkClassName(isActive)}
+                    >
+                      {item.title}
+                    </Link>
+                  </motion.li>
+                );
+              })}
+              <motion.li variants={itemVariants}>
+                <button
+                  type="button"
+                  onClick={openContactModal}
+                  className="relative inline-flex min-h-10 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-gray-800 transition-colors hover:text-gray-950"
                 >
-                  {item.title}
-                </Link>
+                  Contact
+                </button>
               </motion.li>
-            ))}
-          </ul>
-
-          <motion.button
-            className="md:hidden focus:outline-none drop-shadow-sm transition-colors duration-300 text-gray-900"
-            onClick={() => setIsOpen(!isOpen)}
-            whileTap={{ scale: 0.9 }}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </motion.button>
-        </nav>
-      </div>
-
-      {isOpen && (
-        <motion.div
-          className="md:hidden bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg shadow-black/5"
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="container mx-auto px-4 py-4">
-            <ul className="space-y-3">
-              {navItems.map((item, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link
-                    to={item.path}
-                    className={`block px-4 py-2 text-sm font-medium transition-colors animated-underline drop-shadow-sm ${
-                      location.pathname === item.path ||
-                      (item.path !== "/" &&
-                        location.pathname.startsWith(item.path))
-                        ? "text-primary font-semibold"
-                        : "text-gray-700 hover:text-gray-900 font-medium"
-                    }`}
-                    onClick={(e) => {
-                      setIsOpen(false);
-                      if (item.onClick) {
-                        item.onClick(e);
-                      }
-                    }}
-                  >
-                    {item.title}
-                  </Link>
-                </motion.li>
-              ))}
             </ul>
-          </div>
-        </motion.div>
-      )}
+
+            <motion.button
+              type="button"
+              className="liquid-glass-control liquid-glass-nav-control relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-950 md:hidden"
+              onClick={() => setIsOpen((value) => !value)}
+              whileTap={{ scale: 0.94 }}
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X size={21} /> : <Menu size={21} />}
+            </motion.button>
+          </nav>
+
+          <AnimatePresence>
+            {isOpen ? (
+              <motion.div
+                className="mobile-menu-panel liquid-glass liquid-glass-nav pointer-events-auto mx-auto mt-2 max-w-6xl rounded-[1.5rem] p-2.5 md:hidden"
+                initial={{ opacity: 0, y: -8, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -8, scale: 0.98 }}
+                transition={{ duration: 0.22 }}
+              >
+                <ul className="grid gap-1">
+                  {mobileSecondaryLinks.map((item) => {
+                    const isActive = isActivePath(item.path);
+
+                    return (
+                      <li key={item.path}>
+                        <Link
+                          to={item.path}
+                          aria-current={isActive ? "page" : undefined}
+                          className={[
+                            "block rounded-2xl px-4 py-3 text-sm font-semibold transition-colors",
+                            isActive
+                              ? "liquid-glass-control liquid-glass-nav-control text-gray-950"
+                              : "text-gray-700 hover:bg-white/45 hover:text-gray-950",
+                          ].join(" ")}
+                        >
+                          {item.title}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                  <li>
+                    <button
+                      type="button"
+                      onClick={openContactModal}
+                      className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-semibold text-gray-700 transition-colors hover:bg-white/45 hover:text-gray-950"
+                    >
+                      Contact
+                    </button>
+                  </li>
+                </ul>
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
+        </div>
+      </motion.header>
+
+      <motion.nav
+        className="mobile-shell-bottom pointer-events-none fixed inset-x-0 bottom-0 z-50 px-3 md:hidden"
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.16, duration: 0.24 }}
+        aria-label="Primary mobile navigation"
+      >
+        <div className="liquid-glass liquid-glass-nav pointer-events-auto mx-auto grid max-w-sm grid-cols-3 gap-1 rounded-full p-1.5">
+          {mobilePrimaryLinks.map((item) => {
+            const isActive = isActivePath(item.path);
+            const Icon = item.path === "/" ? Home : BriefcaseBusiness;
+
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                aria-current={isActive ? "page" : undefined}
+                className={[
+                  "relative flex min-h-14 flex-col items-center justify-center rounded-full px-3 text-[0.72rem] font-semibold leading-none transition-colors",
+                  isActive
+                    ? "liquid-glass-control liquid-glass-nav-control text-gray-950 shadow-sm"
+                    : "text-gray-600 hover:text-gray-950",
+                ].join(" ")}
+              >
+                <Icon aria-hidden="true" size={19} strokeWidth={2.2} />
+                <span className="mt-1">{item.title}</span>
+              </Link>
+            );
+          })}
+
+          <button
+            type="button"
+            onClick={() => setIsOpen((value) => !value)}
+            className={[
+              "relative flex min-h-14 flex-col items-center justify-center rounded-full px-3 text-[0.72rem] font-semibold leading-none transition-colors",
+              isOpen || isSecondaryActive
+                ? "liquid-glass-control liquid-glass-nav-control text-gray-950 shadow-sm"
+                : "text-gray-600 hover:text-gray-950",
+            ].join(" ")}
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isOpen}
+          >
+            {isOpen ? (
+              <X aria-hidden="true" size={19} strokeWidth={2.2} />
+            ) : (
+              <MoreHorizontal aria-hidden="true" size={20} strokeWidth={2.2} />
+            )}
+            <span className="mt-1">More</span>
+          </button>
+        </div>
+      </motion.nav>
 
       <ContactModal
         open={contactModalOpen}
         onOpenChange={setContactModalOpen}
       />
-    </motion.header>
+    </>
   );
 };
 

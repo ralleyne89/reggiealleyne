@@ -1,194 +1,155 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { getAllProjects } from "@/services/api";
+import {
+  isFeaturedProject,
+  isPrimaryWorksProject,
+  orderFeaturedProjects,
+  sortProjectsNewestFirst,
+} from "@/config/portfolioCuration";
 import ProjectCard from "@/components/home/ProjectCard";
 
 const FeaturedProjectsSection = () => {
-  const { data: projects, isLoading } = useQuery({
+  const { data: projects = [], isLoading } = useQuery({
     queryKey: ["projects"],
-    queryFn: async () => {
-      try {
-        console.log("Fetching all projects from Index page");
-        return await getAllProjects();
-      } catch (err) {
-        console.error("Error fetching projects from Index:", err);
-        return [];
-      }
-    },
+    queryFn: getAllProjects,
     retry: 1,
   });
 
+  const featuredProjects = orderFeaturedProjects(projects);
+  const supportingProjects = sortProjectsNewestFirst(
+    projects.filter(
+      (project) => isPrimaryWorksProject(project) && !isFeaturedProject(project),
+    ),
+  ).slice(0, 4);
+
   return (
-    <section id="projects" className="py-12 bg-gray-50 relative">
-      <div className="container mx-auto px-4">
-        <div className="max-w-xl mx-auto text-center mb-16">
-          <motion.h2
-            className="font-display text-display-md text-gray-900 mb-4 reveal"
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.5,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.3,
-            }}
+    <section id="projects" className="relative scroll-mt-24 bg-gray-50 py-14 sm:py-20">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-10 w-full max-w-3xl min-w-0 text-center sm:mb-12">
+          <motion.p
+            className="mb-3 text-xs font-semibold uppercase leading-5 text-primary sm:text-sm"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
-            Featured <span className="text-primary italic">Work</span>
+            Selected work
+          </motion.p>
+          <motion.h2
+            className="break-words font-display text-[2.1rem] font-semibold leading-[1.08] tracking-normal text-gray-950 [text-wrap:balance] sm:text-[2.8rem]"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            Three case studies built for fast senior review.
           </motion.h2>
 
           <motion.p
-            className="text-gray-600 text-body-md reveal"
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.5,
-              delay: 0.1,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.3,
-            }}
+            className="mt-4 text-base leading-7 text-text-secondary sm:text-body-md"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
-            Real projects, real impact. Here's how design and code solved actual
-            business problems.
+            AI literacy, creator platforms, and explainable health AI: each
+            project is framed around the product decision, constraint, and
+            evidence a hiring team needs to understand the work quickly.
           </motion.p>
         </div>
 
         {isLoading ? (
-          <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 animate-pulse">
-            {[1, 2].map((n) => (
+          <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
+            {[1, 2, 3].map((item) => (
               <div
-                key={n}
-                className="bg-white rounded-3xl h-80 border border-gray-200"
-              ></div>
+                key={item}
+                className="h-[24rem] animate-pulse rounded-2xl border border-gray-200 bg-white sm:h-[28rem]"
+              />
             ))}
           </div>
         ) : (
           <>
-            <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-              {(() => {
-                // Homepage heroes (primary case studies)
-                const heroProjectIds = [10, 1]; // Litmus AI, CLLCTVE
-                const heroProjects = heroProjectIds
-                  .map((id) => projects?.find((project) => project.id === id))
-                  .filter((project) => project !== undefined);
-
-                // Enhanced project data with problem-first descriptions (Senior-level framing)
-                const enhancedProjects = heroProjects.map((project) => {
-                  let enhancedTitle = project.title;
-                  let impactMetric = "";
-
-                  if (project.id === 10) {
-                    // Litmus AI - Lead with the problem solved
-                    enhancedTitle = "AI Literacy Certification Platform";
-                    impactMetric =
-                      "Solving 'buzzword literacy' with 5-minute adaptive testing";
-                  } else if (project.id === 1) {
-                    // CLLCTVE - Lead with the strategic bet
-                    enhancedTitle = "Gen Z Portfolio Platform";
-                    impactMetric =
-                      "500+ creators, 85% retention by building what Behance wouldn't";
-                  }
-
-                  return {
-                    ...project,
-                    enhancedTitle,
-                    impactMetric,
-                  };
-                });
-
-                return enhancedProjects.map((project, index) => (
-                  <ProjectCard
-                    key={project.id}
-                    title={project.enhancedTitle}
-                    description={project.description}
-                    image={project.image}
-                    slug={project.slug || project.id.toString()}
-                    tags={project.tags}
-                    featured={index === 0}
-                    index={index}
-                  />
-                ));
-              })()}
+            <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
+              {featuredProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  title={project.curation.featuredTitle}
+                  description={project.description}
+                  image={project.image}
+                  slug={project.slug || project.id.toString()}
+                  tags={project.tags || []}
+                  eyebrow={project.curation.eyebrow}
+                  impactSummary={project.curation.impactSummary}
+                  reviewerSignal={project.curation.reviewerSignal}
+                  featured={index === 0}
+                  index={index}
+                />
+              ))}
             </div>
 
-            {/* Secondary work (kept visible, but not positioned as homepage heroes) */}
-            <div className="mt-10 max-w-3xl mx-auto">
-              <h3 className="text-sm font-semibold text-gray-800 mb-3">
-                More work
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {(() => {
-                  const secondaryProjectIds = [2, 9]; // Tutor D, SymptomCheckr
-                  const secondaryProjects = secondaryProjectIds
-                    .map((id) => projects?.find((project) => project.id === id))
-                    .filter((project) => project !== undefined);
+            <div className="mx-auto mt-8 w-full max-w-5xl rounded-2xl border border-gray-200 bg-white p-4 sm:mt-10 sm:p-5">
+              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <h3 className="text-base font-semibold text-gray-950">
+                    Additional selected work
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">
+                    Supporting examples for education, security, and product
+                    systems.
+                  </p>
+                </div>
+                <Link
+                  to="/works"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-dark"
+                >
+                  View all work
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
 
-                  return secondaryProjects.map((project) => (
-                    <Link
-                      key={project.id}
-                      to={
-                        project.slug
-                          ? `/project/${project.slug}`
-                          : `/project/${project.id}`
-                      }
-                      className="group flex items-center justify-between rounded-xl border border-gray-200 bg-white px-4 py-3 hover:border-primary/30 transition-colors"
-                    >
-                      <div className="min-w-0">
-                        <p className="text-sm font-medium text-gray-900 group-hover:text-primary transition-colors truncate">
-                          {project.title}
-                        </p>
-                        <p className="text-xs text-gray-500 truncate">
-                          {project.category ||
-                            (project.tags && project.tags[0]) ||
-                            "Product"}
-                        </p>
-                      </div>
-                      <ArrowRight
-                        size={16}
-                        className="text-gray-400 group-hover:text-primary transition-colors"
-                      />
-                    </Link>
-                  ));
-                })()}
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {supportingProjects.map((project) => (
+                  <Link
+                    key={project.id}
+                    to={
+                      project.slug
+                        ? `/project/${project.slug}`
+                        : `/project/${project.id}`
+                    }
+                    className="group flex min-h-16 min-w-0 items-center justify-between rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 transition-colors hover:border-primary/30 hover:bg-white"
+                  >
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-semibold text-gray-950 transition-colors group-hover:text-primary">
+                        {project.title}
+                      </p>
+                      <p className="truncate text-xs text-gray-500">
+                        {project.category ||
+                          (project.tags && project.tags[0]) ||
+                          "Product design"}
+                      </p>
+                    </div>
+                    <ArrowRight
+                      size={16}
+                      className="shrink-0 text-gray-400 transition-colors group-hover:text-primary"
+                    />
+                  </Link>
+                ))}
               </div>
             </div>
           </>
         )}
 
         <div className="mt-12 text-center">
-          <motion.div
-            whileHover={{
-              scale: 1.05,
-            }}
-            whileTap={{
-              scale: 0.95,
-            }}
+          <Link
+            to="/works"
+          className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-950 transition-colors hover:border-primary hover:text-primary sm:w-auto"
           >
-            <Link
-              to="/works"
-              className="inline-flex items-center gap-2 bg-white border border-gray-300 text-gray-900 px-6 py-3 rounded-full font-medium hover:border-primary transition-colors duration-300"
-            >
-              View All Work
-              <ArrowRight size={18} />
-            </Link>
-          </motion.div>
+            View the full work index
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </div>
     </section>

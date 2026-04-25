@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-white relative overflow-hidden">
+    <section className="relative overflow-hidden bg-white py-14 sm:py-16">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-32 h-32 border border-primary rounded-full"></div>
@@ -45,35 +45,35 @@ const TestimonialsSection = () => {
         <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-primary rounded-full"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-12"
+          className="mb-10 text-center sm:mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-4">
+          <h2 className="mb-4 break-words font-heading text-2xl font-bold text-gray-900 [text-wrap:balance] md:text-3xl">
             Trusted by <span className="text-primary">Teams & Leaders</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600">
             Real feedback from colleagues and clients who've experienced the
             difference of working with a designer who codes.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
-              className="group"
+              className="group min-w-0"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true, amount: 0.3 }}
             >
               {/* Senja/Shosay Style Card */}
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 group-hover:border-primary/20 relative">
+              <div className="relative min-w-0 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 group-hover:border-primary/20 hover:shadow-lg sm:p-6">
                 {/* Quote Icon */}
                 <div className="absolute -top-3 -left-3 bg-primary rounded-full p-2 shadow-lg">
                   <Quote className="w-4 h-4 text-white" />
@@ -90,23 +90,23 @@ const TestimonialsSection = () => {
                 </div>
 
                 {/* Testimonial Text */}
-                <blockquote className="text-gray-800 text-base leading-relaxed mb-6">
+                <blockquote className="mb-6 text-base leading-7 text-gray-800">
                   "{testimonial.text}"
                 </blockquote>
 
                 {/* Author Info */}
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center text-primary font-bold text-lg">
+                <div className="flex min-w-0 items-center gap-3">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-primary/40 text-lg font-bold text-primary">
                     {testimonial.name
                       .split(" ")
                       .map((n) => n[0])
                       .join("")}
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <div className="font-semibold text-gray-900 text-sm">
                         {testimonial.name}
                       </div>
-                      <div className="text-gray-500 text-xs">
+                      <div className="text-xs leading-5 text-gray-500">
                         {testimonial.role} at {testimonial.company}
                       </div>
                     </div>
@@ -129,7 +129,7 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="flex items-center justify-center gap-8 text-gray-600 text-sm">
+          <div className="flex flex-col items-center justify-center gap-3 text-sm text-gray-600 sm:flex-row sm:gap-8">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
               <span>100% Client Satisfaction</span>

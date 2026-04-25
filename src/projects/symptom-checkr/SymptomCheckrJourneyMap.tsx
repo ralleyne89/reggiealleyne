@@ -31,7 +31,7 @@ const SymptomCheckrJourneyMap = () => {
           {/* Stages Header */}
           <div className="grid grid-cols-5 gap-4 mb-2">
             {['Trigger', 'Search & Entry', 'Assessment', 'Results', 'Follow-up'].map((stage, index) => (
-              <div key={index} className="bg-[rgba(155,135,245,0.1)] rounded-lg p-3 text-center">
+              <div key={index} className="bg-primary/10 rounded-lg p-3 text-center">
                 <h4 className="text-primary font-semibold">{stage}</h4>
               </div>
             ))}

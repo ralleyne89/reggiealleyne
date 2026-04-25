@@ -21,7 +21,7 @@ export const getLitmusAIProject = (): ProjectType => {
       "UX Design",
       "Gamified Learning",
     ],
-    image: "/images/litmus-ai-banner.png",
+    image: "/images/litmus-ai-literacy-card.jpg",
     summary:
       "Litmus AI is an AI literacy testing and certification platform designed to measure understanding of artificial intelligence concepts in 5 minutes or less. The platform uses adaptive GPT-powered assessments to evaluate knowledge across machine learning, prompt engineering, ethics, and real-world AI applications, then provides personalized learning recommendations and verifiable certification.",
     problem:

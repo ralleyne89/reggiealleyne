@@ -10,6 +10,123 @@ interface ProjectHeaderProps {
   description: string;
 }
 
+interface CaseStudyHeroConfig {
+  image: string;
+  overlay: string;
+  useProjectImage?: boolean;
+}
+
+const caseStudyHeroConfigs: Array<{
+  matches: (title: string) => boolean;
+  config: CaseStudyHeroConfig;
+}> = [
+  {
+    matches: (title) => title.includes("SymptomCheckr"),
+    config: {
+      image: "/images/symptomcheckr-trust-ai-card.jpg",
+      overlay: "from-black/80 via-black/70 to-black/90",
+      useProjectImage: true,
+    },
+  },
+  {
+    matches: (title) => title === "TECH NOIR",
+    config: {
+      image: "/images/tech-noir-banner.png",
+      overlay: "from-black/70 via-black/50 to-black/80",
+    },
+  },
+  {
+    matches: (title) => title === "WRISTBAND",
+    config: {
+      image: "/images/58637294-5300-47d9-918b-91da32843369.png",
+      overlay: "from-black/70 via-black/50 to-black/80",
+    },
+  },
+  {
+    matches: (title) => title.includes("Improv Learning"),
+    config: {
+      image: "/images/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
+      overlay: "from-black/70 via-black/50 to-black/80",
+    },
+  },
+  {
+    matches: (title) => title === "Doggy Date",
+    config: {
+      image: "/images/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
+      overlay: "from-black/70 via-black/50 to-black/80",
+    },
+  },
+  {
+    matches: (title) => title === "Chill Vibes Music Player",
+    config: {
+      image: "/images/85ce6121-b2ba-435d-b8cd-2606e0e3cc63.png",
+      overlay: "from-black/70 via-black/50 to-black/80",
+    },
+  },
+  {
+    matches: (title) => title === "CLLCTVE Platform",
+    config: {
+      image: "/images/cllctve-gen-z-card.jpg",
+      overlay: "from-black/70 via-black/50 to-black/80",
+      useProjectImage: true,
+    },
+  },
+  {
+    matches: (title) => title.includes("Litmus AI"),
+    config: {
+      image: "/images/litmus-ai-literacy-card.jpg",
+      overlay: "from-black/70 via-black/50 to-black/80",
+      useProjectImage: true,
+    },
+  },
+  {
+    matches: (title) => title.includes("Vault.js Validate"),
+    config: {
+      image: "/images/vaultjs-banner.jpg",
+      overlay: "from-black/70 via-black/50 to-black/80",
+    },
+  },
+  {
+    matches: (title) => title.includes("ScentStack"),
+    config: {
+      image: "/images/scentstack-banner.png",
+      overlay: "from-black/70 via-black/50 to-black/80",
+    },
+  },
+  {
+    matches: (title) => title === "Tutor D",
+    config: {
+      image: "/images/bfe72208-e9fa-458d-9323-791c39cf2292.png",
+      overlay: "from-black/70 via-black/50 to-black/80",
+    },
+  },
+  {
+    matches: (title) => title === "Bob's Big Break",
+    config: {
+      image: "/images/BBB-banner2.png",
+      overlay: "from-black/70 via-black/50 to-black/80",
+    },
+  },
+];
+
+const isKnownCaseStudy = (title: string) =>
+  caseStudyHeroConfigs.some(({ matches }) => matches(title));
+
+const getCaseStudyHeroConfig = (title: string) =>
+  caseStudyHeroConfigs.find(({ matches }) => matches(title))?.config;
+
+const getCaseStudyDescription = (title: string, description: string) => {
+  if (title === "WRISTBAND") {
+    return (
+      "An interactive storytelling platform designed to democratize content " +
+      "creation and provide diverse representation in digital narratives " +
+      "through choice-driven experiences."
+    );
+  }
+
+  return description;
+};
+
 const ProjectHeader = ({
   image,
   tags,
@@ -17,57 +134,8 @@ const ProjectHeader = ({
   description,
 }: ProjectHeaderProps) => {
   const [imageError, setImageError] = useState(false);
-
-  // Check if this is the Chill Vibes project by title
-  const isChillVibesProject = title === "Chill Vibes Music Player";
-
-  // Check if this is the Bob's Big Break project by title
-  const isBobsProject = title === "Bob's Big Break";
-
-  // Check if this is the SymptomCheckr project by title
-  const isSymptomCheckrProject = title.includes("SymptomCheckr");
-
-  // Check if this is the CLLCTVE project by title
-  const isCllctveProject = title === "CLLCTVE Platform";
-
-  // Check if this is the Tutor D project by title
-  const isTutorDProject = title === "Tutor D";
-
-  // Check if this is the WRISTBAND project by title
-  const isWristbandProject = title === "WRISTBAND";
-
-  // Check if this is the Improv Learning project by title
-  const isImprovLearningProject = title.includes("Improv Learning");
-
-  // Check if this is the Doggy Date project by title
-  const isDoggyDateProject = title === "Doggy Date";
-
-  // Check if this is the Tech Noir project by title
-  const isTechNoirProject = title === "TECH NOIR";
-
-  // Check if this is the Litmus AI project by title
-  const isLitmusAIProject = title.includes("Litmus AI");
-
-  // Check if this is the Vault.js Validate project by title
-  const isVaultJSProject = title.includes("Vault.js Validate");
-
-  // Check if this is the ScentStack project by title
-  const isScentStackProject = title.includes("ScentStack");
-
-  // Check if this is a case study project
-  const isCaseStudy =
-    title.includes("SymptomCheckr") ||
-    title.includes("Tutor D") ||
-    title === "CLLCTVE Platform" ||
-    title === "Bob's Big Break" ||
-    title === "Chill Vibes Music Player" ||
-    title === "WRISTBAND" ||
-    title.includes("Improv Learning") ||
-    title === "Doggy Date" ||
-    title === "TECH NOIR" ||
-    title.includes("Litmus AI") ||
-    title.includes("Vault.js Validate") ||
-    title.includes("ScentStack");
+  const heroConfig = getCaseStudyHeroConfig(title);
+  const isCaseStudy = isKnownCaseStudy(title);
 
   const handleImageError = () => {
     console.error(`Header image failed to load: ${image}`);
@@ -75,693 +143,72 @@ const ProjectHeader = ({
   };
 
   if (isCaseStudy) {
-    // Special styling for SymptomCheckr with background image
-    if (isSymptomCheckrProject) {
-      return (
-        <div
-          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/441aff50-0a80-413b-80af-cc94a0718412.png')`,
-          }}
-        >
-          {/* Enhanced gradient overlay for better text readability - no white text on white */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90"></div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-8">
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
-                  {title}
-                </h1>
-
-                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  {description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      );
-    }
-
-    // Special styling for Tech Noir with background image - EXACT SAME STYLE AS SYMPTOM CHECKER
-    if (isTechNoirProject) {
-      return (
-        <div
-          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/tech-noir-banner.png')`,
-          }}
-        >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-8">
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
-                  {title}
-                </h1>
-
-                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  {description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      );
-    }
-
-    // Special styling for WRISTBAND with background image
-    if (isWristbandProject) {
-      return (
-        <div
-          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/58637294-5300-47d9-918b-91da32843369.png')`,
-          }}
-        >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-8">
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
-                  {title}
-                </h1>
-
-                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  An interactive storytelling platform designed to democratize
-                  content creation and provide diverse representation in digital
-                  narratives through choice-driven experiences.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      );
-    }
-
-    // Special styling for Improv Learning with background image
-    if (isImprovLearningProject) {
-      return (
-        <div
-          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png')`,
-          }}
-        >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-8">
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
-                  {title}
-                </h1>
-
-                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  {description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      );
-    }
-
-    // Special styling for Doggy Date with background image
-    if (isDoggyDateProject) {
-      return (
-        <div
-          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png')`,
-          }}
-        >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-8">
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
-                  {title}
-                </h1>
-
-                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  {description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      );
-    }
-
-    // Special styling for Chill Vibes with background image
-    if (isChillVibesProject) {
-      return (
-        <div
-          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/85ce6121-b2ba-435d-b8cd-2606e0e3cc63.png')`,
-          }}
-        >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-8">
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
-                  {title}
-                </h1>
-
-                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  {description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      );
-    }
-
-    // Special styling for CLLCTVE with background image
-    if (isCllctveProject) {
-      return (
-        <div
-          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/7f203bc1-d77d-484d-a6fd-bef5e6adf027.png')`,
-          }}
-        >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-8">
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
-                  {title}
-                </h1>
-
-                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  {description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      );
-    }
-
-    // Special styling for Litmus AI with background image
-    if (isLitmusAIProject) {
-      return (
-        <div
-          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/litmus-ai-banner.png')`,
-          }}
-        >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-8">
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
-                  {title}
-                </h1>
-
-                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  {description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      );
-    }
-
-    // Special styling for Vault.js Validate with background image - Litmus AI style
-    if (isVaultJSProject) {
-      return (
-        <div
-          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/vaultjs-banner.jpg')`,
-          }}
-        >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-8">
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
-                  {title}
-                </h1>
-
-                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  {description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      );
-    }
-
-    // Special styling for ScentStack with background image - Litmus AI style
-    if (isScentStackProject) {
-      return (
-        <div
-          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/scentstack-banner.png')`,
-          }}
-        >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-8">
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
-                  {title}
-                </h1>
-
-                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  {description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      );
-    }
-
-    // Special styling for Tutor D with background image
-    if (isTutorDProject) {
-      return (
-        <div
-          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/bfe72208-e9fa-458d-9323-791c39cf2292.png')`,
-          }}
-        >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-8">
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
-                  {title}
-                </h1>
-
-                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  {description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      );
-    }
-
-    // Special styling for Bob's Big Break with background image - EXACT SAME STYLE AS CLLCTVE
-    if (isBobsProject) {
-      return (
-        <div
-          className="relative pt-24 pb-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/BBB-banner2.png')`,
-          }}
-        >
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-8">
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Works
-                </Link>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium bg-white/10 text-white rounded-full border border-white/20 backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight drop-shadow-lg">
-                  {title}
-                </h1>
-
-                <p className="text-xl text-gray-100 leading-relaxed max-w-4xl drop-shadow-md">
-                  {description}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      );
-    }
-
-    // Clean, minimal header for other case studies
     return (
-      <div className="bg-secondary-dark pt-24 pb-16">
-        <div className="max-w-6xl mx-auto px-6">
+      <div
+        className={[
+          "relative bg-cover bg-center bg-no-repeat pb-12 pt-24 sm:pb-16 sm:pt-28",
+          heroConfig ? "" : "bg-secondary-dark",
+        ].join(" ")}
+        style={
+          heroConfig
+            ? {
+                backgroundImage: `url('${
+                  heroConfig.useProjectImage ? image : heroConfig.image
+                }')`,
+              }
+            : undefined
+        }
+      >
+        {heroConfig ? (
+          <div
+            className={`absolute inset-0 bg-gradient-to-b ${heroConfig.overlay}`}
+          />
+        ) : null}
+
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="mb-8">
+            <div className="mb-7 sm:mb-8">
               <Link
                 to="/works"
-                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-200"
+                className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gray-300 transition-colors duration-200 hover:text-white"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Back to Works
               </Link>
             </div>
 
-            <div className="space-y-6">
-              <div className="flex flex-wrap gap-2">
+            <div className="min-w-0 space-y-5 sm:space-y-6">
+              <div className="flex min-w-0 flex-wrap gap-2">
                 {tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20"
+                    className={[
+                      "rounded-full px-3 py-1 text-xs font-medium",
+                      heroConfig
+                        ? "border border-white/20 bg-white/10 text-white backdrop-blur-sm"
+                        : "border border-primary/20 bg-primary/10 text-primary",
+                    ].join(" ")}
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight">
+              <h1 className="max-w-5xl break-words font-heading text-[2.35rem] font-bold leading-[1.05] text-white drop-shadow-lg [text-wrap:balance] sm:text-5xl lg:text-6xl">
                 {title}
               </h1>
 
-              <p className="text-xl text-gray-300 leading-relaxed max-w-4xl">
-                {description}
+              <p
+                className={[
+                  "max-w-4xl text-base leading-7 drop-shadow-md sm:text-xl sm:leading-relaxed",
+                  heroConfig ? "text-gray-100" : "text-gray-300",
+                ].join(" ")}
+              >
+                {getCaseStudyDescription(title, description)}
               </p>
             </div>
           </motion.div>
@@ -772,44 +219,42 @@ const ProjectHeader = ({
 
   return (
     <>
-      <div className="relative h-[60vh] overflow-hidden">
+      <div className="relative h-[52vh] min-h-[26rem] overflow-hidden sm:h-[60vh]">
         <img
           src={imageError ? "/placeholder.svg" : image}
           alt={title}
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
           onError={handleImageError}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[rgba(5,5,5,1)]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[rgba(5,5,5,1)]" />
 
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-          <div className="text-center max-w-4xl px-6 transform -translate-y-8">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-md font-heading">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-4xl px-4 text-center sm:px-6">
+            <h1 className="mb-5 break-words font-heading text-[2.55rem] font-bold leading-tight text-white drop-shadow-md [text-wrap:balance] md:text-6xl">
               {title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto drop-shadow-sm">
+            <p className="mx-auto max-w-3xl text-base leading-7 text-white/90 drop-shadow-sm md:text-2xl">
               {description}
             </p>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 -mt-16 mb-12 relative z-10">
-        <div className="flex flex-wrap justify-between items-center">
-          <div className="mb-6">
-            <Link
-              to="/works"
-              className="inline-flex items-center gap-2 bg-[rgba(20,20,20,0.9)] backdrop-blur-sm text-primary hover:bg-[rgba(30,30,30,0.9)] hover:text-white border border-gray-600 px-4 py-2 rounded-md transition-colors duration-200"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Works
-            </Link>
-          </div>
+      <div className="relative z-10 mx-auto -mt-14 mb-10 w-full max-w-7xl px-4 sm:-mt-16 sm:mb-12 sm:px-6">
+        <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <Link
+            to="/works"
+            className="inline-flex min-h-11 w-fit items-center gap-2 rounded-md border border-gray-600 bg-[rgba(20,20,20,0.9)] px-4 py-2 text-primary backdrop-blur-sm transition-colors duration-200 hover:bg-[rgba(30,30,30,0.9)] hover:text-white"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to Works
+          </Link>
 
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex min-w-0 flex-wrap gap-2">
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-3 py-1 text-sm bg-[rgba(20,20,20,0.9)] backdrop-blur-sm border border-[rgba(255,255,255,0.2)] rounded-full text-primary font-medium"
+                className="rounded-full border border-[rgba(255,255,255,0.2)] bg-[rgba(20,20,20,0.9)] px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm"
               >
                 {tag}
               </span>

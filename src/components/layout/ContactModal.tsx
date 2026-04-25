@@ -50,13 +50,13 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-secondary-dark border-gray-700 text-white max-w-md">
+      <DialogContent className="liquid-glass liquid-glass-dark max-w-md rounded-[2rem] border-white/15 p-7 text-white shadow-2xl shadow-black/30">
         <DialogHeader>
           <DialogTitle className="text-white text-xl font-semibold">
             Get in Touch
           </DialogTitle>
         </DialogHeader>
-        <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+        <p className="mb-4 text-sm leading-relaxed text-white/72">
           Have a project in mind or want to discuss potential collaborations?
           I'd love to hear from you!
         </p>

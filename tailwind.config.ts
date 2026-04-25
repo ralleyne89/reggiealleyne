@@ -1,5 +1,6 @@
 
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -24,19 +25,18 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'Poppins', 'sans-serif'],
-				heading: ['Outfit', 'sans-serif'],
-				display: ['Playfair Display', 'Georgia', 'serif'],
-				navbar: ['18thCtrKurStart', 'sans-serif'],
+				sans: ['Poppins', 'sans-serif'],
+				heading: ['Space Grotesk', 'Poppins', 'sans-serif'],
+				display: ['Space Grotesk', 'Poppins', 'sans-serif'],
 			},
 			fontSize: {
-				// Fluid typography scale (8pt grid aligned)
-				'display-xl': ['clamp(3rem, 5vw + 1rem, 5rem)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
-				'display-lg': ['clamp(2.5rem, 4vw + 1rem, 4rem)', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
-				'display-md': ['clamp(2rem, 3vw + 0.5rem, 3rem)', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
-				'heading-xl': ['clamp(1.75rem, 2.5vw + 0.5rem, 2.5rem)', { lineHeight: '1.25' }],
-				'heading-lg': ['clamp(1.5rem, 2vw + 0.5rem, 2rem)', { lineHeight: '1.3' }],
-				'heading-md': ['clamp(1.25rem, 1.5vw + 0.5rem, 1.5rem)', { lineHeight: '1.4' }],
+				// Typography scale (8pt grid aligned)
+				'display-xl': ['4rem', { lineHeight: '1.08', letterSpacing: '0' }],
+				'display-lg': ['3.5rem', { lineHeight: '1.1', letterSpacing: '0' }],
+				'display-md': ['2.75rem', { lineHeight: '1.12', letterSpacing: '0' }],
+				'heading-xl': ['2.25rem', { lineHeight: '1.2', letterSpacing: '0' }],
+				'heading-lg': ['1.875rem', { lineHeight: '1.25', letterSpacing: '0' }],
+				'heading-md': ['1.375rem', { lineHeight: '1.35', letterSpacing: '0' }],
 				'body-lg': ['1.125rem', { lineHeight: '1.75' }],
 				'body-md': ['1rem', { lineHeight: '1.75' }],
 				'body-sm': ['0.875rem', { lineHeight: '1.6' }],
@@ -182,5 +182,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [tailwindcssAnimate],
 } satisfies Config;

@@ -50,7 +50,7 @@ const ProjectDetailsTab = ({
                 {methodologies.map((methodology, index) => (
                   <span 
                     key={index}
-                    className="px-3 py-1 text-sm bg-[rgba(155,135,245,0.1)] border border-[rgba(155,135,245,0.2)] rounded-full text-primary"
+                    className="px-3 py-1 text-sm bg-primary/10 border border-primary/20 rounded-full text-primary"
                   >
                     {methodology}
                   </span>

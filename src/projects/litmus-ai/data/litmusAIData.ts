@@ -233,7 +233,7 @@ export const litmusAIUIData: FinalUIDesignProps = {
       text: "Color system: Primary blue for trust and intelligence, accent green for success states, neutral grays for professional context"
     },
     {
-      text: "Typography: Inter for clean readability across devices, weight variations to establish hierarchy without clutter"
+      text: "Typography: Poppins for clean readability across devices, weight variations to establish hierarchy without clutter"
     },
     {
       text: "Interactions: Immediate feedback on answer selection, smooth transitions between questions, celebratory animations on completion"
@@ -377,7 +377,7 @@ export const litmusAIChallengesData: ChallengesLearningsProps = {
     },
     {
       title: "Code Quality Matters",
-      description: "Consistent patterns scale better than clever tricks. Comments are love letters to your future self."
+      description: "Consistent patterns scale better than clever shortcuts. Clear documentation protects future iteration speed."
     }
   ],
   nextSteps: [

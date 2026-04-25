@@ -53,7 +53,7 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
       <Card className="bg-[rgba(16,16,16,0.5)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
         <CardContent className="p-8">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[rgba(155,135,245,0.1)] p-3 rounded-lg">
+            <div className="bg-primary/10 p-3 rounded-lg">
               <Workflow className="w-5 h-5 text-primary" />
             </div>
             <h2 className="text-2xl font-bold text-white">
@@ -81,7 +81,7 @@ const UserJourneyMap: React.FC<UserJourneyMapProps> = ({
                   {/* Stages Header */}
                   <div className="grid grid-cols-5 gap-4 mb-2">
                     {stages.map((stage, index) => (
-                      <div key={index} className="bg-[rgba(155,135,245,0.1)] rounded-lg p-3 text-center">
+                      <div key={index} className="bg-primary/10 rounded-lg p-3 text-center">
                         <h4 className="text-primary font-semibold">{stage.name}</h4>
                       </div>
                     ))}

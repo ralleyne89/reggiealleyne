@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -11,19 +11,90 @@ import ProjectProcess from "@/components/project/ProjectProcess";
 import ProjectDeliverables from "@/components/project/ProjectDeliverables";
 import ProjectVideo from "@/components/project/ProjectVideo";
 import ProjectConclusion from "@/components/project/ProjectConclusion";
-import { SymptomCheckrCaseStudy } from "@/projects/symptom-checkr";
-import { TutorDCaseStudy } from "@/projects/tutor-d";
-import { TechNoirCaseStudy } from "@/projects/tech-noir";
-import { CllctveCaseStudy } from "@/projects/cllctve";
-import { BobsBigBreakCaseStudy } from "@/projects/bobs-big-break";
-import { ChillVibesCaseStudy } from "@/projects/chill-vibes";
-import { WristbandCaseStudy } from "@/projects/wristband";
-import { ImprovLearningCaseStudy } from "@/projects/improv-learning";
-import { DoggyDateCaseStudy } from "@/projects/doggy-date";
-import { LitmusAICaseStudy } from "@/projects/litmus-ai";
-import { VaultJSValidateCaseStudy } from "@/projects/vaultjs-validate";
-import { ScentStackCaseStudy } from "@/projects/scent-stack";
+import CaseStudyAtGlance from "@/components/project/CaseStudyAtGlance";
 import { ProjectType } from "@/types/project";
+
+const SymptomCheckrCaseStudy = lazy(() =>
+  import("@/projects/symptom-checkr").then((module) => ({
+    default: module.SymptomCheckrCaseStudy,
+  })),
+);
+const TutorDCaseStudy = lazy(() =>
+  import("@/projects/tutor-d").then((module) => ({
+    default: module.TutorDCaseStudy,
+  })),
+);
+const TechNoirCaseStudy = lazy(() =>
+  import("@/projects/tech-noir").then((module) => ({
+    default: module.TechNoirCaseStudy,
+  })),
+);
+const CllctveCaseStudy = lazy(() =>
+  import("@/projects/cllctve").then((module) => ({
+    default: module.CllctveCaseStudy,
+  })),
+);
+const BobsBigBreakCaseStudy = lazy(() =>
+  import("@/projects/bobs-big-break").then((module) => ({
+    default: module.BobsBigBreakCaseStudy,
+  })),
+);
+const ChillVibesCaseStudy = lazy(() =>
+  import("@/projects/chill-vibes").then((module) => ({
+    default: module.ChillVibesCaseStudy,
+  })),
+);
+const WristbandCaseStudy = lazy(() =>
+  import("@/projects/wristband").then((module) => ({
+    default: module.WristbandCaseStudy,
+  })),
+);
+const ImprovLearningCaseStudy = lazy(() =>
+  import("@/projects/improv-learning").then((module) => ({
+    default: module.ImprovLearningCaseStudy,
+  })),
+);
+const DoggyDateCaseStudy = lazy(() =>
+  import("@/projects/doggy-date").then((module) => ({
+    default: module.DoggyDateCaseStudy,
+  })),
+);
+const LitmusAICaseStudy = lazy(() =>
+  import("@/projects/litmus-ai").then((module) => ({
+    default: module.LitmusAICaseStudy,
+  })),
+);
+const VaultJSValidateCaseStudy = lazy(() =>
+  import("@/projects/vaultjs-validate").then((module) => ({
+    default: module.VaultJSValidateCaseStudy,
+  })),
+);
+const ScentStackCaseStudy = lazy(() =>
+  import("@/projects/scent-stack").then((module) => ({
+    default: module.ScentStackCaseStudy,
+  })),
+);
+
+const CaseStudyFallback = () => (
+  <div className="mx-auto max-w-7xl px-6 py-12">
+    <div className="h-48 animate-pulse rounded-2xl bg-gray-100" />
+  </div>
+);
+
+const caseStudySlugs = new Set([
+  "symptom-checkr",
+  "tutor-d",
+  "tech-noir",
+  "cllctve-platform",
+  "bobs-big-break",
+  "chill-vibes-music-player",
+  "wristband",
+  "improv-learning",
+  "doggy-date",
+  "litmus-ai",
+  "vaultjs-validate",
+  "scent-stack",
+]);
 
 const Project = () => {
   const {
@@ -33,7 +104,6 @@ const Project = () => {
   }>();
   const navigate = useNavigate();
   const [showHeaderImage, setShowHeaderImage] = useState(true);
-  const [showCaseStudy, setShowCaseStudy] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -56,9 +126,7 @@ const Project = () => {
       try {
         // Determine if slug is numeric or string
         const isNumeric = !isNaN(Number(slug));
-        console.log(`Fetching project with ${isNumeric ? "ID" : "slug"}: ${slug}`);
         const project = await getProject(isNumeric ? Number(slug) : slug);
-        console.log("Fetched project:", project);
         if (!project) {
           toast.error(`Project not found: ${slug}`);
           throw new Error(`Project not found: ${slug}`);
@@ -76,15 +144,6 @@ const Project = () => {
     if (project?.title === "Bob's Big Break") {
       setShowHeaderImage(true);
     }
-
-    // Check if this is a project with a full case study
-    const caseStudySlugs = [
-      "symptom-checkr", "tutor-d", "tech-noir", "cllctve-platform",
-      "bobs-big-break", "chill-vibes-music-player", "wristband",
-      "improv-learning", "doggy-date", "litmus-ai", "vaultjs-validate",
-      "scent-stack"
-    ];
-    setShowCaseStudy(caseStudySlugs.includes(project?.slug || ""));
   }, [project]);
   const renderCaseStudy = () => {
     switch (slug) {
@@ -130,8 +189,8 @@ const Project = () => {
 
   // Handle loading state
   if (isLoading) {
-    return <div className="min-h-screen bg-white text-text-primary pt-24 px-4">
-        <div className="container mx-auto">
+    return <div className="min-h-screen bg-white px-4 pt-24 text-text-primary">
+        <div className="mx-auto w-full max-w-7xl">
           <div className="animate-pulse">
             <div className="h-[60vh] bg-gray-200 rounded-lg mb-12"></div>
             <div className="h-8 bg-gray-200 rounded w-1/2 mb-4"></div>
@@ -148,8 +207,8 @@ const Project = () => {
   // Handle error state
   if (error || !project) {
     console.error("Project error:", error);
-    return <div className="min-h-screen bg-white text-text-primary pt-24 px-4">
-        <div className="container mx-auto">
+    return <div className="min-h-screen bg-white px-4 pt-24 text-text-primary">
+        <div className="mx-auto w-full max-w-7xl">
           <p className="text-red-500 mb-4">
             Error loading project:{" "}
             {error instanceof Error ? error.message : "Unknown error"}
@@ -191,6 +250,8 @@ const Project = () => {
     technicalHighlights,
     keyAchievements
   } = project as ProjectType;
+  const showCaseStudy = caseStudySlugs.has(project.slug || slug || "");
+
   return <motion.div initial={{
     opacity: 0
   }} animate={{
@@ -199,12 +260,15 @@ const Project = () => {
     opacity: 0
   }} transition={{
     duration: 0.3
-  }} className="bg-white text-text-primary min-h-screen">
+  }} className="min-h-screen bg-white pb-24 text-text-primary md:pb-0">
       {showHeaderImage && <ProjectHeader image={image} tags={tags} title={title} description={description} />}
 
-      <div className="max-w-7xl mx-auto px-6 py-1">
+      <div className="mx-auto w-full max-w-7xl px-0 py-1 sm:px-6">
         {showCaseStudy ? <>
-            {renderCaseStudy()}
+            <CaseStudyAtGlance project={project} />
+            <Suspense fallback={<CaseStudyFallback />}>
+              {renderCaseStudy()}
+            </Suspense>
           </> : <>
             <ProjectDetails role={role} duration={duration} year={year} teamSize={teamSize} methodologies={methodologies} githubUrl={githubUrl} liveUrl={liveUrl} prototypeUrl={prototypeUrl} summary={summary} problem={problem} solution={solution} projectSlug={project.slug} />
 

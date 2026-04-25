@@ -5,9 +5,9 @@ export const getCllctveProject = (): ProjectType => {
     id: 1,
     slug: "cllctve-platform",
     title: "CLLCTVE Platform",
-    description: "Solving the 'dead portfolio' problem: How we got 500+ creators to 85% retention by building what Behance wouldn't—a mobile-first platform that felt like Instagram for portfolios.",
-    fullDescription: "We chose mobile-first over feature parity, sacrificing desktop power users to capture the 67% of Gen Z who browse portfolios on phones. Behance had the network effects—we bet that Gen Z would trade network size for platform native-ness. The gamble paid off: 500+ creators, 15 brand partnerships, and 85% retention before the company dissolved.",
-    image: "/images/96e0002f-13cc-470b-925d-2e1d627aa695.png",
+    description: "A mobile-first creator portfolio platform that reached 500+ creators by focusing on behavior fit instead of Behance-style feature parity.",
+    fullDescription: "We chose mobile-first over feature parity, deprioritizing desktop power users to serve the 67% of Gen Z creators who browsed portfolios on phones. Behance had the network effects, so our product position had to win on behavior fit: 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
+    image: "/images/cllctve-gen-z-card.jpg",
     category: "Platform",
     tags: ["Platform", "Creative", "Gen Z", "Portfolio"],
     role: "Product Designer & Design Systems Lead",
@@ -18,7 +18,7 @@ export const getCllctveProject = (): ProjectType => {
       "Strategic Bet: Mobile-First - 67% of our target users browsed portfolios on phones. We sacrificed desktop power-user features to win mobile engagement.",
       "React over Flutter - Despite slower time-to-mobile, our team's React expertise meant faster iteration cycles. Speed of learning beat theoretical mobile advantages.",
       "Community Feed Before Analytics - User research showed creators wanted validation, not metrics. We built what they wanted, not what seemed 'professional'.",
-      "Limited Brand Customization - Brands wanted more control, but we prevented 'MySpace chaos' to maintain platform coherence."
+      "Limited Brand Customization - Brands wanted more control, but we constrained customization to preserve platform coherence."
     ],
     deliverables: [
       "Custom Portfolio Builder – Drag-and-drop interface that prioritized mobile touch interactions",
@@ -27,14 +27,15 @@ export const getCllctveProject = (): ProjectType => {
       "Real-time Notifications – Engagement hooks that felt native to Gen Z social patterns"
     ],
     images: [
-      "/images/96e0002f-13cc-470b-925d-2e1d627aa695.png",
+      "/images/cllctve-gen-z-card.jpg",
+      "/images/cllctve-card-optimized.jpg",
       "/images/fbb376a0-30ad-4530-8445-159e6767e748.png",
       "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png"
     ],
     conclusion: {
       impact: "500+ creators, 15 brand partnerships, 85% user retention. The mobile-first bet paid off—our engagement metrics outperformed desktop-focused competitors despite having 1/100th of their user base.",
       learnings: "The biggest lesson: sometimes the 'wrong' technical choice is the right product choice. React wasn't ideal for mobile, but our team's expertise meant we could iterate 3x faster than learning Flutter.",
-      nextSteps: "The company dissolved, but the strategic thinking—betting on user behavior over industry conventions—shapes how I approach every product decision now."
+      nextSteps: "The company closed, but the strategic thinking—betting on user behavior over industry conventions—continues to shape how I evaluate product decisions."
     },
     techStack: ["React.js", "MongoDB", "Ant Design", "Axios", "Styled Components"],
     keyAchievements: [

@@ -47,14 +47,6 @@ const BentoProjectsGrid = ({
 
   const handleProjectClick = (project: ProjectType, e: React.MouseEvent) => {
     e.preventDefault();
-    console.log(
-      "Bento - Navigating to project:",
-      project.title,
-      "with ID:",
-      project.id,
-      "and slug:",
-      project.slug
-    );
 
     if (project.slug) {
       navigate(`/project/${project.slug}`);
@@ -77,7 +69,7 @@ const BentoProjectsGrid = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, duration: 0.5 }}
         onClick={(e) => handleProjectClick(featuredProjects[0], e)}
-        className="group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] cursor-pointer md:col-span-2 h-[180px]"
+        className="group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)] cursor-pointer md:col-span-2 h-[180px]"
       >
         <div className="absolute inset-0 w-full h-full">
           <img
@@ -94,7 +86,7 @@ const BentoProjectsGrid = ({
               {featuredProjects[0]?.tags?.slice(0, 3).map((tag, i) => (
                 <span
                   key={i}
-                  className="bg-[rgba(145,108,231,0.2)] text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium"
+                  className="bg-primary/20 text-primary text-xs px-2.5 py-1 rounded-full font-medium"
                 >
                   {tag}
                 </span>
@@ -109,9 +101,9 @@ const BentoProjectsGrid = ({
           </div>
 
           <div className="hidden sm:grid grid-cols-3 gap-2">
-            <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-2 flex items-center gap-2">
-              <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                <Lightbulb className="w-3.5 h-3.5 text-[#916CE7]" />
+            <div className="bg-primary/15 rounded-lg p-2 flex items-center gap-2">
+              <div className="bg-primary/30 p-1.5 rounded-md">
+                <Lightbulb className="w-3.5 h-3.5 text-primary" />
               </div>
               <div className="flex flex-col">
                 <span className="text-xs text-[rgba(153,153,153,1)]">
@@ -122,9 +114,9 @@ const BentoProjectsGrid = ({
                 </span>
               </div>
             </div>
-            <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-2 flex items-center gap-2">
-              <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                <Clock className="w-3.5 h-3.5 text-[#916CE7]" />
+            <div className="bg-primary/15 rounded-lg p-2 flex items-center gap-2">
+              <div className="bg-primary/30 p-1.5 rounded-md">
+                <Clock className="w-3.5 h-3.5 text-primary" />
               </div>
               <div className="flex flex-col">
                 <span className="text-xs text-[rgba(153,153,153,1)]">
@@ -135,9 +127,9 @@ const BentoProjectsGrid = ({
                 </span>
               </div>
             </div>
-            <div className="bg-[rgba(145,108,231,0.15)] rounded-lg p-2 flex items-center gap-2">
-              <div className="bg-[rgba(145,108,231,0.3)] p-1.5 rounded-md">
-                <Users className="w-3.5 h-3.5 text-[#916CE7]" />
+            <div className="bg-primary/15 rounded-lg p-2 flex items-center gap-2">
+              <div className="bg-primary/30 p-1.5 rounded-md">
+                <Users className="w-3.5 h-3.5 text-primary" />
               </div>
               <div className="flex flex-col">
                 <span className="text-xs text-[rgba(153,153,153,1)]">Team</span>
@@ -158,7 +150,7 @@ const BentoProjectsGrid = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: (index + 1) * 0.1, duration: 0.5 }}
           onClick={(e) => handleProjectClick(project, e)}
-          className="group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] cursor-pointer h-[180px]"
+          className="group w-full bg-[rgba(16,16,16,1)] border relative overflow-hidden rounded-xl border-[rgba(255,255,255,0.06)] transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)] cursor-pointer h-[180px]"
         >
           <div className="absolute inset-0 w-full h-full">
             <img
@@ -175,7 +167,7 @@ const BentoProjectsGrid = ({
                 {project.tags?.slice(0, 2).map((tag, i) => (
                   <span
                     key={i}
-                    className="bg-[rgba(145,108,231,0.2)] text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium"
+                    className="bg-primary/20 text-primary text-xs px-2.5 py-1 rounded-full font-medium"
                   >
                     {tag}
                   </span>
@@ -193,7 +185,7 @@ const BentoProjectsGrid = ({
               <span className="text-xs text-[rgba(153,153,153,1)] truncate max-w-[70%]">
                 {project.role}
               </span>
-              <span className="bg-[rgba(145,108,231,0.2)] text-[#916CE7] text-xs px-2.5 py-1 rounded-full font-medium">
+              <span className="bg-primary/20 text-primary text-xs px-2.5 py-1 rounded-full font-medium">
                 {project.year}
               </span>
             </div>

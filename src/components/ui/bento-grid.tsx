@@ -1,5 +1,4 @@
-import { ReactNode } from "react";
-import { ArrowRight } from "lucide-react";
+import type { ComponentType, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -33,7 +32,7 @@ const BentoCard = ({
   name: string;
   className: string;
   background: ReactNode;
-  Icon: any;
+  Icon: ComponentType<{ className?: string }>;
   description: string;
   href: string;
 }) => (
@@ -46,7 +45,7 @@ const BentoCard = ({
         "bg-[rgba(20,20,20,1)] [box-shadow:0_0_0_1px_rgba(255,255,255,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
         // dark styles
         "transform-gpu border border-[rgba(255,255,255,0.06)] [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
-        "transition-all duration-300 hover:border-[rgba(145,108,231,0.3)] hover:shadow-[0_0_15px_rgba(145,108,231,0.15)] hover:-translate-y-1",
+        "transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)] hover:-translate-y-1",
         className
       )}
     >

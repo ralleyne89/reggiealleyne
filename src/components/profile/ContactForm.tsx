@@ -48,7 +48,7 @@ const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
               <FormControl>
                 <Input
                   placeholder="Your name"
-                  className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-primary focus:ring-primary/20"
+                  className="liquid-glass-field border-white/15 bg-white/10 text-white placeholder:text-white/45 focus-visible:ring-0"
                   {...field}
                 />
               </FormControl>
@@ -66,7 +66,7 @@ const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
                 <Input
                   placeholder="your@email.com"
                   type="email"
-                  className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-primary focus:ring-primary/20"
+                  className="liquid-glass-field border-white/15 bg-white/10 text-white placeholder:text-white/45 focus-visible:ring-0"
                   {...field}
                 />
               </FormControl>
@@ -85,7 +85,7 @@ const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
               <FormControl>
                 <Textarea
                   placeholder="What would you like to discuss?"
-                  className="min-h-[100px] bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-primary focus:ring-primary/20"
+                  className="liquid-glass-field min-h-[100px] border-white/15 bg-white/10 text-white placeholder:text-white/45 focus-visible:ring-0"
                   {...field}
                 />
               </FormControl>
@@ -95,7 +95,7 @@ const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
         />
         <Button
           type="submit"
-          className="w-full bg-primary hover:bg-primary-dark text-white font-medium py-2.5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full rounded-full bg-primary py-2.5 font-medium text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-50"
           disabled={isLoading}
         >
           {isLoading ? "Sending..." : "Send Message"}

@@ -55,7 +55,7 @@ const ServicesDialog = ({ open, onOpenChange }: ServicesDialogProps) => {
       <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto bg-[rgba(16,16,16,1)] border-[rgba(255,255,255,0.05)]">
         <DialogHeader>
           <DialogTitle className="text-[rgba(230,230,230,1)] text-xl font-semibold flex items-center gap-2">
-            <Briefcase className="text-[rgba(145,108,231,1)]" />
+            <Briefcase className="text-primary" />
             All Services
           </DialogTitle>
         </DialogHeader>
@@ -63,10 +63,10 @@ const ServicesDialog = ({ open, onOpenChange }: ServicesDialogProps) => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-[rgba(25,25,25,1)] border border-[rgba(255,255,255,0.05)] p-4 rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:border-[rgba(145,108,231,0.3)] hover:shadow-lg"
+              className="bg-[rgba(25,25,25,1)] border border-[rgba(255,255,255,0.05)] p-4 rounded-xl transition-all duration-300 hover:bg-[rgba(35,35,35,1)] hover:border-primary/30 hover:shadow-lg"
             >
               <div className="flex items-center gap-3 mb-2">
-                <service.icon className="w-5 h-5 text-[#916CE7]" />
+                <service.icon className="w-5 h-5 text-primary" />
                 <h3 className="text-[rgba(230,230,230,1)] font-semibold">
                   {service.title}
                 </h3>
