@@ -161,7 +161,7 @@ const Playground = () => {
 
         <section className="bg-gray-50 py-14 sm:py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid auto-rows-auto grid-cols-1 gap-5 lg:grid-cols-6">
+            <div className="grid auto-rows-min grid-cols-1 items-start gap-5 lg:grid-cols-6">
               {experiments.map((experiment, index) => {
                 const Icon = experiment.icon;
                 const isFeature = experiment.size === "feature";
@@ -216,8 +216,8 @@ const Playground = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.12 + index * 0.08 }}
                     className={[
-                      "group flex min-h-full flex-col overflow-hidden rounded-[1.75rem] border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10",
-                      isFeature ? "lg:col-span-4 lg:row-span-2" : "lg:col-span-2",
+                      "group flex flex-col self-start overflow-hidden rounded-[1.75rem] border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10",
+                      isFeature ? "lg:col-span-4" : "lg:col-span-2",
                     ].join(" ")}
                   >
                     {experiment.liveUrl ? (

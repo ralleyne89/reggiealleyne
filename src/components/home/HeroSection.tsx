@@ -101,17 +101,6 @@ const HeroSection = () => {
             <div className="relative px-1 pb-6 sm:px-8 sm:pb-8">
               <div className="absolute inset-x-3 bottom-0 top-0 rounded-[2rem] border border-primary/15 bg-primary/[0.06] shadow-inner shadow-primary/10 sm:inset-x-8" />
 
-              <div className="liquid-glass liquid-glass-dark relative z-10 mx-3 hidden items-center justify-between rounded-b-none rounded-t-[1.7rem] border border-b-0 border-white/10 px-4 py-3 text-white shadow-xl shadow-gray-950/15 sm:mx-8 sm:flex">
-                <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-primary" />
-                  <span className="h-2 w-2 rounded-full bg-white/25" />
-                  <span className="h-2 w-2 rounded-full bg-white/25" />
-                </div>
-                <p className="text-xs font-semibold uppercase text-white/80">
-                  Evidence-led product studio
-                </p>
-              </div>
-
               <div className="relative z-10 mx-auto max-w-[20rem] sm:max-w-[26rem]">
                 <div className="relative overflow-hidden rounded-[1.5rem] border border-white bg-gray-100 shadow-2xl shadow-gray-950/15 sm:rounded-[1.5rem]">
                   <div className="relative aspect-[4/4.7] sm:aspect-[4/5]">
