@@ -34,7 +34,16 @@ const glanceVisuals: Record<
     label: "Trust design system",
     proofPoints: ["Confidence", "Citations", "Reasoning"],
   },
+  staybooked: {
+    image: "/images/staybooked-preview.svg",
+    alt: "Staybooked booking workflow preview with availability, intake, and reservation states",
+    label: "Booking workflow model",
+    proofPoints: ["Availability", "Intake", "Follow-up"],
+  },
 };
+
+const compactList = (items?: string[] | null, limit = 3) =>
+  items?.filter(Boolean).slice(0, limit).join(" · ");
 
 const CaseStudyAtGlance = ({ project }: CaseStudyAtGlanceProps) => {
   const brief = getCaseStudyBrief(project.slug);
@@ -45,12 +54,30 @@ const CaseStudyAtGlance = ({ project }: CaseStudyAtGlanceProps) => {
     return null;
   }
 
+  const problem =
+    project.problemSolved ||
+    project.problem ||
+    project.challenge ||
+    brief?.audience;
+  const outcome =
+    brief?.evidence ||
+    project.conclusion?.impact ||
+    config?.impactSummary ||
+    project.summary;
+  const tools =
+    compactList(project.techStack) || compactList(project.methodologies);
+  const ownership =
+    compactList(brief?.artifacts) || compactList(project.deliverables);
+
   const details = [
     { label: "Role", value: project.role },
-    { label: "Audience", value: brief?.audience },
-    { label: "Constraint", value: brief?.constraint },
-    { label: "Decision", value: brief?.coreDecision },
-    { label: "Evidence", value: brief?.evidence || config?.impactSummary },
+    { label: "Timeline", value: project.duration },
+    { label: "Team", value: project.teamSize },
+    { label: "Problem", value: problem },
+    { label: "Outcome / evidence", value: outcome },
+    { label: "Tools", value: tools },
+    { label: "What I owned", value: ownership },
+    { label: "Key decision", value: brief?.coreDecision },
   ].filter((item): item is { label: string; value: string } =>
     Boolean(item.value),
   );
@@ -60,14 +87,14 @@ const CaseStudyAtGlance = ({ project }: CaseStudyAtGlanceProps) => {
         <div className="grid min-w-0 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-10">
           <div className="min-w-0">
             <p className="text-sm font-semibold leading-5 text-primary">
-              Quick read
+              TL;DR for hiring review
             </p>
             <h2 className="mt-3 max-w-xl break-words font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
               The short version before you dig in.
             </h2>
             <p className="mt-4 max-w-xl text-base leading-7 text-gray-600">
-              A quick pass at the audience, constraint, decision, and proof
-              behind the work.
+              Role, problem, evidence, tools, and ownership in one pass for
+              recruiters and hiring managers scanning on mobile.
             </p>
 
             {visual ? (
@@ -100,7 +127,7 @@ const CaseStudyAtGlance = ({ project }: CaseStudyAtGlanceProps) => {
             ) : null}
           </div>
 
-          <div className="grid min-w-0 gap-3 sm:grid-cols-2 sm:gap-4">
+          <dl className="grid min-w-0 gap-3 sm:grid-cols-2 sm:gap-4">
             {details.map((item) => (
               <div
                 key={item.label}
@@ -133,7 +160,7 @@ const CaseStudyAtGlance = ({ project }: CaseStudyAtGlanceProps) => {
                 </dd>
               </div>
             ) : null}
-          </div>
+          </dl>
         </div>
     </EditorialSection>
   );

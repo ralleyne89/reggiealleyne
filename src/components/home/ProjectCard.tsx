@@ -12,7 +12,8 @@ interface ProjectCardProps {
   eyebrow?: string;
   impactSummary?: string;
   reviewerSignal?: string;
-  featured?: boolean;
+  role?: string;
+  year?: string;
   index: number;
 }
 
@@ -25,15 +26,14 @@ const ProjectCard = ({
   eyebrow,
   impactSummary,
   reviewerSignal,
-  featured = false,
+  role,
+  year,
   index,
 }: ProjectCardProps) => {
   return (
     <Link to={`/project/${slug}`}>
       <motion.div
-        className={`group flex h-full min-h-[24rem] min-w-0 cursor-pointer flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 sm:min-h-[28rem] ${
-          featured ? "lg:col-span-2" : ""
-        }`}
+        className="group flex h-full min-h-[24rem] min-w-0 cursor-pointer flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 sm:min-h-[28rem]"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -44,9 +44,9 @@ const ProjectCard = ({
             src={image}
             alt={title}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            loading={featured ? "eager" : "lazy"}
+            loading={index === 0 ? "eager" : "lazy"}
             decoding="async"
-            sizes={featured ? "(min-width: 1024px) 720px, 100vw" : "(min-width: 1024px) 360px, 100vw"}
+            sizes="(min-width: 1024px) 360px, 100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
 
@@ -84,6 +84,21 @@ const ProjectCard = ({
           <p className="text-sm leading-6 text-text-secondary">
             {impactSummary || description}
           </p>
+
+          {(role || year) && (
+            <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-gray-500">
+              {role ? (
+                <span className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1">
+                  {role}
+                </span>
+              ) : null}
+              {year ? (
+                <span className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1">
+                  {year}
+                </span>
+              ) : null}
+            </div>
+          )}
 
           {reviewerSignal ? (
             <p className="mt-4 border-l-2 border-primary/30 pl-3 text-sm leading-6 text-gray-500">

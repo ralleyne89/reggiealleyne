@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import {
-  Activity,
   ArrowRight,
+  CalendarCheck,
   CheckCircle2,
   PanelsTopLeft,
   ShieldCheck,
@@ -9,8 +9,8 @@ import {
 
 const heroProofPoints = [
   "Human-in-the-loop AI",
+  "Dashboards and workflows",
   "Design systems",
-  "Production React prototypes",
 ];
 
 const projectSignals = [
@@ -27,10 +27,10 @@ const projectSignals = [
     Icon: PanelsTopLeft,
   },
   {
-    name: "SymptomCheckr",
-    label: "Health AI",
-    signal: "Explainable guidance",
-    Icon: Activity,
+    name: "Staybooked",
+    label: "Booking workflow",
+    signal: "Stateful service flow",
+    Icon: CalendarCheck,
   },
 ];
 
@@ -57,9 +57,9 @@ const HeroSection = () => {
             </h1>
 
             <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-text-secondary sm:mt-6 sm:text-xl sm:leading-8 lg:mx-0">
-              I turn ambiguous AI and platform ideas into clear product
-              experiences, scalable design systems, and production-ready React
-              prototypes.
+              I design and build AI-powered interfaces, dashboards, and
+              mobile-first product systems from research and flows to polished,
+              frontend-ready UI.
             </p>
 
             <div className="mt-5 grid gap-3 text-left sm:mt-6 sm:grid-cols-3">

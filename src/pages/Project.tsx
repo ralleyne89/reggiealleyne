@@ -145,8 +145,20 @@ const Project = () => {
       setShowHeaderImage(true);
     }
   }, [project]);
+
+  useEffect(() => {
+    if (!slug || !project?.slug) return;
+
+    const isNumericSlug = !Number.isNaN(Number(slug));
+    if (isNumericSlug && slug !== project.slug) {
+      navigate(`/project/${project.slug}`, { replace: true });
+    }
+  }, [slug, project?.slug, navigate]);
+
   const renderCaseStudy = () => {
-    switch (slug) {
+    const currentSlug = project?.slug || slug;
+
+    switch (currentSlug) {
       case "tutor-d":
         return <TutorDCaseStudy />;
       case "cllctve-platform":
@@ -250,7 +262,8 @@ const Project = () => {
     technicalHighlights,
     keyAchievements
   } = project as ProjectType;
-  const showCaseStudy = caseStudySlugs.has(project.slug || slug || "");
+  const projectSlug = project.slug || slug || "";
+  const showCaseStudy = caseStudySlugs.has(projectSlug);
 
   return <motion.div initial={{
     opacity: 0
@@ -264,8 +277,8 @@ const Project = () => {
       {showHeaderImage && <ProjectHeader image={image} tags={tags} title={title} description={description} role={role} duration={duration} year={year} teamSize={teamSize} githubUrl={githubUrl} liveUrl={liveUrl} prototypeUrl={prototypeUrl} projectSlug={project.slug} />}
 
       <div className="w-full">
+        <CaseStudyAtGlance project={project} />
         {showCaseStudy ? <>
-            <CaseStudyAtGlance project={project} />
             <Suspense fallback={<CaseStudyFallback />}>
               {renderCaseStudy()}
             </Suspense>

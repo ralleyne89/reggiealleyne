@@ -150,9 +150,8 @@ const ProjectHeader = ({
 
   const displayDescription = getCaseStudyDescription(title, description);
   const visibleTags = tags.slice(0, 5);
-  const backTarget = projectSlug === "staybooked" ? "/playground" : "/works";
-  const backLabel =
-    projectSlug === "staybooked" ? "Back to Playground" : "Back to Works";
+  const backTarget = "/works";
+  const backLabel = "Back to Works";
 
   return (
     <header className="border-b border-gray-200 bg-white pt-24 sm:pt-32">

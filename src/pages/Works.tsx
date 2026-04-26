@@ -152,8 +152,21 @@ const Works = () => {
                       {project.curation.impactSummary}
                     </p>
 
+                    <p className="mt-4 border-l-2 border-primary/30 pl-3 text-sm leading-6 text-gray-500">
+                      {project.curation.reviewerSignal}
+                    </p>
+
+                    <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-gray-500">
+                      <span className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1">
+                        {project.role}
+                      </span>
+                      <span className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1">
+                        {project.year}
+                      </span>
+                    </div>
+
                     {brief ? (
-                      <dl className="mt-5 space-y-3 border-t border-gray-200 pt-5 text-sm">
+                      <dl className="mt-5 grid gap-3 border-t border-gray-200 pt-5 text-sm">
                         <div>
                           <dt className="font-semibold text-gray-950">
                             Key decision
@@ -164,7 +177,7 @@ const Works = () => {
                         </div>
                         <div>
                           <dt className="font-semibold text-gray-950">
-                            Evidence
+                            Proof
                           </dt>
                           <dd className="mt-1 text-gray-600">
                             {brief.evidence}

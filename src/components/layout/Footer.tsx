@@ -73,11 +73,12 @@ const Footer = () => {
             </p>
             <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
               <h2 className="max-w-3xl break-words font-display text-[2rem] font-semibold leading-tight text-white [text-wrap:balance] sm:text-heading-xl">
-                Bridging the gap between human intent and machine logic.
+                Designing AI-powered interfaces, dashboards, and product
+                systems teams can trust.
               </h2>
               <p className="max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
-                I design Human-in-the-Loop AI experiences that make complex
-                systems legible, useful, and trusted.
+                I bring product strategy, UX/UI craft, and frontend fluency to
+                complex tools that need to feel legible, useful, and buildable.
               </p>
             </div>
           </div>
@@ -143,7 +144,7 @@ const Footer = () => {
 
         <div className="flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} Reggie Alleyne.</p>
-          <p>Designing AI products people can understand, trust, and use.</p>
+          <p>Product Designer & AI Technologist.</p>
         </div>
       </div>
     </footer>

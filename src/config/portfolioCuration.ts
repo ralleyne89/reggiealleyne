@@ -3,7 +3,7 @@ import type { ProjectType } from "@/types/project";
 export type FeaturedProjectSlug =
   | "litmus-ai"
   | "cllctve-platform"
-  | "symptom-checkr";
+  | "staybooked";
 
 export interface FeaturedProjectConfig {
   slug: FeaturedProjectSlug;
@@ -41,13 +41,13 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
       "Shows product tradeoff thinking, design systems leadership, and market-positioning judgment.",
   },
   {
-    slug: "symptom-checkr",
-    featuredTitle: "Explainable AI Health Assistant",
-    eyebrow: "Health AI / trust design",
+    slug: "staybooked",
+    featuredTitle: "Booking Workflow Prototype",
+    eyebrow: "Service workflow / product states",
     impactSummary:
-      "A concept for making confidence, citations, and reasoning visible in sensitive AI health guidance.",
+      "A review-ready booking flow for availability, intake, confirmations, and follow-up states.",
     reviewerSignal:
-      "Shows trust, safety, accessibility, and explainability decisions in a high-stakes AI domain.",
+      "Shows product-state modeling, scheduling UX, service workflow clarity, and frontend-ready prototyping.",
   },
 ];
 
@@ -85,6 +85,21 @@ export const caseStudyBriefs: Partial<
       "Mobile-first portfolio builder",
       "Creator feed and engagement loops",
       "Design-token system for brand challenges",
+    ],
+  },
+  "staybooked": {
+    audience:
+      "Small service teams managing customer requests, availability, confirmations, and follow-up.",
+    constraint:
+      "The prototype needed to show useful workflow logic without pretending to be a full scheduling platform.",
+    coreDecision:
+      "Model the booking journey around visible states: availability, pending intake, confirmed reservation, and follow-up.",
+    evidence:
+      "Route-backed project data and a responsive prototype structure make the workflow reviewable before a full demo exists.",
+    artifacts: [
+      "Booking flow map",
+      "Availability and intake states",
+      "Reservation and follow-up model",
     ],
   },
   "symptom-checkr": {

@@ -8,6 +8,71 @@
   NPM_VERSION = "9"
 
 [[redirects]]
+  from = "/project/1"
+  to = "/project/cllctve-platform"
+  status = 301
+
+[[redirects]]
+  from = "/project/2"
+  to = "/project/tutor-d"
+  status = 301
+
+[[redirects]]
+  from = "/project/3"
+  to = "/project/tech-noir"
+  status = 301
+
+[[redirects]]
+  from = "/project/4"
+  to = "/project/doggy-date"
+  status = 301
+
+[[redirects]]
+  from = "/project/5"
+  to = "/project/improv-learning"
+  status = 301
+
+[[redirects]]
+  from = "/project/6"
+  to = "/project/wristband"
+  status = 301
+
+[[redirects]]
+  from = "/project/7"
+  to = "/project/chill-vibes-music-player"
+  status = 301
+
+[[redirects]]
+  from = "/project/8"
+  to = "/project/bobs-big-break"
+  status = 301
+
+[[redirects]]
+  from = "/project/9"
+  to = "/project/symptom-checkr"
+  status = 301
+
+[[redirects]]
+  from = "/project/10"
+  to = "/project/litmus-ai"
+  status = 301
+
+[[redirects]]
+  from = "/project/11"
+  to = "/project/vaultjs-validate"
+  status = 301
+
+[[redirects]]
+  from = "/project/12"
+  to = "/project/scent-stack"
+  status = 301
+
+[[redirects]]
+  from = "/project/13"
+  to = "/project/staybooked"
+  status = 301
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
@@ -21,4 +86,3 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
-

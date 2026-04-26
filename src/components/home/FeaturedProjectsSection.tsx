@@ -55,7 +55,7 @@ const FeaturedProjectsSection = () => {
             transition={{ duration: 0.5, delay: 0.08 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            AI literacy, creator platforms, and explainable health AI: each
+            AI literacy, creator platforms, and booking workflows: each
             project is framed around the product decision, constraint, and
             evidence a hiring team needs to understand the work quickly.
           </motion.p>
@@ -84,7 +84,8 @@ const FeaturedProjectsSection = () => {
                   eyebrow={project.curation.eyebrow}
                   impactSummary={project.curation.impactSummary}
                   reviewerSignal={project.curation.reviewerSignal}
-                  featured={index === 0}
+                  role={project.role}
+                  year={project.year}
                   index={index}
                 />
               ))}

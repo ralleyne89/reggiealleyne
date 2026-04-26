@@ -67,13 +67,17 @@ const ContactCard = () => {
               <span className="text-gray-200 font-medium">Email Me</span>
             </button>
           </DialogTrigger>
-          <DialogContent className="bg-secondary-dark border-gray-700 text-white max-w-md">
+          <DialogContent className="max-h-[calc(100dvh-1rem)] max-w-md overflow-y-auto border-gray-700 bg-secondary-dark text-white">
             <DialogHeader>
               <DialogTitle className="text-white text-xl font-semibold">
                 Send me a message
               </DialogTitle>
             </DialogHeader>
-            <ContactForm onSubmit={handleEmailMe} isLoading={isLoading} />
+            <ContactForm
+              onSubmit={handleEmailMe}
+              isLoading={isLoading}
+              onFallbackSubmit={() => setIsOpen(false)}
+            />
           </DialogContent>
         </Dialog>
         <a

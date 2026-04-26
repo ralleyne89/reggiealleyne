@@ -34,9 +34,14 @@ export type ContactFormData = z.infer<typeof formSchema>;
 interface ContactFormProps {
   onSubmit: (data: ContactFormData) => void | Promise<void>;
   isLoading: boolean;
+  onFallbackSubmit?: () => void;
 }
 
-const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
+const ContactForm = ({
+  onSubmit,
+  isLoading,
+  onFallbackSubmit,
+}: ContactFormProps) => {
   const [turnstileResetKey, setTurnstileResetKey] = useState(0);
   const form = useForm<ContactFormData>({
     resolver: zodResolver(formSchema),
@@ -57,6 +62,8 @@ const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
   const handleValidSubmit = async (data: ContactFormData) => {
     if (!isTurnstileConfigured) {
       window.location.href = createContactMailtoHref(data);
+      form.reset();
+      onFallbackSubmit?.();
       return;
     }
 
@@ -69,7 +76,10 @@ const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleValidSubmit)} className="space-y-4">
+      <form
+        onSubmit={form.handleSubmit(handleValidSubmit)}
+        className="space-y-2.5 sm:space-y-4"
+      >
         <FormField
           control={form.control}
           name="name"
@@ -116,7 +126,7 @@ const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
               <FormControl>
                 <Textarea
                   placeholder="What would you like to discuss?"
-                  className="liquid-glass-field min-h-[100px] border-white/15 bg-white/10 text-white placeholder:text-white/45 focus-visible:ring-0"
+                  className="liquid-glass-field min-h-[64px] border-white/15 bg-white/10 text-white placeholder:text-white/45 focus-visible:ring-0 sm:min-h-[100px]"
                   {...field}
                 />
               </FormControl>
@@ -179,7 +189,7 @@ const ContactForm = ({ onSubmit, isLoading }: ContactFormProps) => {
         />
         <Button
           type="submit"
-          className="w-full rounded-full bg-primary py-2.5 font-medium text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-50"
+          className="min-h-11 w-full rounded-full bg-primary py-2.5 font-medium text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-50"
           disabled={isLoading}
         >
           {isLoading

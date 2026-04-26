@@ -51,17 +51,20 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="liquid-glass liquid-glass-dark max-w-md rounded-[2rem] border-white/15 p-7 text-white shadow-2xl shadow-black/30">
+      <DialogContent className="liquid-glass liquid-glass-dark max-h-[calc(100dvh-1rem)] max-w-md overflow-y-auto rounded-[2rem] border-white/15 p-4 text-white shadow-2xl shadow-black/30 sm:p-7">
         <DialogHeader>
           <DialogTitle className="text-white text-xl font-semibold">
             Get in Touch
           </DialogTitle>
           <DialogDescription className="text-sm leading-relaxed text-white/72">
-            Have a project in mind or want to discuss potential collaborations?
-            I'd love to hear from you!
+            Tell me what you are building. I'll get back to you soon.
           </DialogDescription>
         </DialogHeader>
-        <ContactForm onSubmit={handleSubmit} isLoading={isLoading} />
+        <ContactForm
+          onSubmit={handleSubmit}
+          isLoading={isLoading}
+          onFallbackSubmit={() => onOpenChange(false)}
+        />
       </DialogContent>
     </Dialog>
   );
