@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   BriefcaseBusiness,
-  FileText,
   Home,
   Menu,
   MoreHorizontal,
@@ -25,7 +24,6 @@ const navLinks: NavLinkItem[] = [
 
 const mobilePrimaryLinks = navLinks.slice(0, 2);
 const mobileSecondaryLinks = navLinks.slice(2);
-const resumeHref = "/resume/Reginald_Alleyne_Resume_FINAL_2026.pdf";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,13 +79,13 @@ const Navbar = () => {
   return (
     <>
       <motion.header
-        className="mobile-shell-top pointer-events-none fixed inset-x-0 top-0 z-50 px-3 sm:px-6 sm:pt-4"
+        className="mobile-shell-top pointer-events-none fixed inset-x-0 top-0 z-50 hidden px-3 sm:px-6 sm:pt-4 md:block"
         initial="hidden"
         animate="visible"
         variants={navVariants}
       >
-        <div className="mx-auto w-full max-w-7xl">
-          <nav className="liquid-glass liquid-glass-nav pointer-events-auto mx-auto flex min-h-14 max-w-7xl items-center justify-between gap-3 rounded-full px-3 py-2 sm:min-h-16 sm:px-5">
+        <div className="mx-auto w-full max-w-[64rem]">
+          <nav className="liquid-glass liquid-glass-nav pointer-events-auto mx-auto flex min-h-14 max-w-[64rem] items-center justify-between gap-4 rounded-full px-3 py-2 sm:min-h-16 sm:px-5">
             <Link
               to="/"
               className="relative z-10 inline-flex shrink-0 items-center rounded-full px-2 py-1 text-gray-900"
@@ -102,17 +100,7 @@ const Navbar = () => {
               />
             </Link>
 
-            <div className="hidden min-w-0 flex-1 items-center justify-center px-2 lg:flex">
-              <div className="inline-flex min-w-0 items-center gap-2 rounded-full border border-white/35 bg-white/28 px-3 py-2 text-xs font-semibold text-gray-800 shadow-inner shadow-white/20 backdrop-blur-xl">
-                <span className="relative flex h-2.5 w-2.5 shrink-0">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
-                </span>
-                <span className="truncate">Available for AI product teams</span>
-              </div>
-            </div>
-
-            <div className="hidden shrink-0 items-center gap-2 md:flex">
+            <div className="hidden shrink-0 items-center md:flex">
               <ul className="flex items-center gap-1 rounded-full border border-white/35 bg-white/30 p-1 shadow-inner shadow-white/20 backdrop-blur-xl">
                 {navLinks.map((item) => {
                   const isActive = isActivePath(item.path);
@@ -139,16 +127,6 @@ const Navbar = () => {
                   </button>
                 </motion.li>
               </ul>
-
-              <a
-                href={resumeHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="liquid-glass-control liquid-glass-nav-control hidden min-h-10 items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-gray-950 transition-colors hover:text-primary lg:inline-flex"
-              >
-                <FileText size={16} />
-                Resume
-              </a>
             </div>
 
             <motion.button
@@ -162,63 +140,55 @@ const Navbar = () => {
               {isOpen ? <X size={21} /> : <Menu size={21} />}
             </motion.button>
           </nav>
-
-          <AnimatePresence>
-            {isOpen ? (
-              <motion.div
-                className="mobile-menu-panel liquid-glass liquid-glass-nav pointer-events-auto mx-auto mt-2 max-w-6xl rounded-[1.5rem] p-2.5 md:hidden"
-                initial={{ opacity: 0, y: -8, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -8, scale: 0.98 }}
-                transition={{ duration: 0.22 }}
-              >
-                <ul className="grid gap-1">
-                  {mobileSecondaryLinks.map((item) => {
-                    const isActive = isActivePath(item.path);
-
-                    return (
-                      <li key={item.path}>
-                        <Link
-                          to={item.path}
-                          aria-current={isActive ? "page" : undefined}
-                          className={[
-                            "block rounded-2xl px-4 py-3 text-sm font-semibold transition-colors",
-                            isActive
-                              ? "liquid-glass-control liquid-glass-nav-control text-gray-950"
-                              : "text-gray-700 hover:bg-white/45 hover:text-gray-950",
-                          ].join(" ")}
-                        >
-                          {item.title}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                  <li>
-                    <a
-                      href={resumeHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex w-full items-center gap-2 rounded-2xl px-4 py-3 text-left text-sm font-semibold text-gray-700 transition-colors hover:bg-white/45 hover:text-gray-950"
-                    >
-                      <FileText size={16} />
-                      Resume
-                    </a>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={openContactModal}
-                      className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-semibold text-gray-700 transition-colors hover:bg-white/45 hover:text-gray-950"
-                    >
-                      Contact
-                    </button>
-                  </li>
-                </ul>
-              </motion.div>
-            ) : null}
-          </AnimatePresence>
         </div>
       </motion.header>
+
+      <AnimatePresence>
+        {isOpen ? (
+          <motion.div
+            id="mobile-more-menu"
+            className="mobile-more-panel pointer-events-none fixed inset-x-0 z-50 px-3 md:hidden"
+            initial={{ opacity: 0, y: 12, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 12, scale: 0.98 }}
+            transition={{ duration: 0.22 }}
+          >
+            <div className="liquid-glass liquid-glass-nav pointer-events-auto mx-auto max-w-sm rounded-[1.5rem] p-2.5">
+              <ul className="grid gap-1">
+                {mobileSecondaryLinks.map((item) => {
+                  const isActive = isActivePath(item.path);
+
+                  return (
+                    <li key={item.path}>
+                      <Link
+                        to={item.path}
+                        aria-current={isActive ? "page" : undefined}
+                        className={[
+                          "block rounded-2xl px-4 py-3 text-sm font-semibold transition-colors",
+                          isActive
+                            ? "liquid-glass-control liquid-glass-nav-control text-gray-950"
+                            : "text-gray-700 hover:bg-white/45 hover:text-gray-950",
+                        ].join(" ")}
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+                <li>
+                  <button
+                    type="button"
+                    onClick={openContactModal}
+                    className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-semibold text-gray-700 transition-colors hover:bg-white/45 hover:text-gray-950"
+                  >
+                    Contact
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
 
       <motion.nav
         className="mobile-shell-bottom pointer-events-none fixed inset-x-0 bottom-0 z-50 px-3 md:hidden"
@@ -261,6 +231,7 @@ const Navbar = () => {
             ].join(" ")}
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isOpen}
+            aria-controls="mobile-more-menu"
           >
             {isOpen ? (
               <X aria-hidden="true" size={19} strokeWidth={2.2} />

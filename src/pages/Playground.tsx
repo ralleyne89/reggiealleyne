@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import {
   ArrowLeft,
   ArrowUpRight,
+  CalendarCheck,
   Code,
   ExternalLink,
   Gamepad2,
@@ -10,10 +11,24 @@ import {
   Music,
   Sparkles,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
 
-const experiments = [
+type Experiment = {
+  title: string;
+  description: string;
+  proofSignal: string;
+  tags: string[];
+  icon: LucideIcon;
+  previewImage?: string;
+  detailPath?: string;
+  liveUrl?: string;
+  status: string;
+  size: "feature" | "standard";
+};
+
+const experiments: Experiment[] = [
   {
     title: "ScentStack",
     description:
@@ -26,6 +41,19 @@ const experiments = [
     liveUrl: "https://scentstack.lovable.app",
     status: "Live",
     size: "feature",
+  },
+  {
+    title: "Staybooked",
+    description:
+      "A booking-focused product prototype for service teams managing availability, reservations, and follow-up flows.",
+    proofSignal:
+      "Shows scheduling UX, service workflow logic, and stateful product flow design without leaning on a static landing page.",
+    tags: ["React", "Booking UX", "Product"],
+    icon: CalendarCheck,
+    previewImage: "/images/staybooked-preview.svg",
+    detailPath: "/project/staybooked",
+    status: "Review ready",
+    size: "standard",
   },
   {
     title: "Chill Vibes Music Player",
@@ -119,7 +147,7 @@ const Playground = () => {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-gray-950">
-                      3 live prototypes
+                      4 prototypes
                     </p>
                     <p className="text-sm text-gray-600">
                       Built to test product feel, not just visuals.
@@ -137,6 +165,49 @@ const Playground = () => {
               {experiments.map((experiment, index) => {
                 const Icon = experiment.icon;
                 const isFeature = experiment.size === "feature";
+                const previewRatio = isFeature ? "aspect-[16/9]" : "aspect-[4/3]";
+                const previewContent = (
+                  <>
+                    <div className={previewRatio}>
+                      {experiment.previewImage ? (
+                        <img
+                          src={experiment.previewImage}
+                          alt={`${experiment.title} preview`}
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          loading={index === 0 ? "eager" : "lazy"}
+                          decoding="async"
+                          onError={(event) => {
+                            event.currentTarget.src = "/placeholder.svg";
+                          }}
+                        />
+                      ) : (
+                        <div className="flex h-full flex-col justify-end bg-[radial-gradient(circle_at_20%_20%,rgba(139,92,246,0.28),transparent_32%),linear-gradient(135deg,#0f172a_0%,#1f2a44_52%,#f8fafc_100%)] p-6 text-white">
+                          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-white/15 backdrop-blur">
+                            <Icon size={24} />
+                          </div>
+                          <div>
+                            <p className="font-display text-2xl font-semibold tracking-normal">
+                              Staybooked
+                            </p>
+                            <p className="mt-2 max-w-[18rem] text-sm leading-6 text-white/75">
+                              Availability, intake, confirmation, and follow-up
+                              states for service reservations.
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+                    <div className="liquid-glass-control absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-gray-950">
+                      {experiment.status}
+                    </div>
+                    {experiment.liveUrl || experiment.detailPath ? (
+                      <div className="liquid-glass liquid-glass-dark absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full text-white opacity-0 transition-all duration-300 group-hover:opacity-100">
+                        <ArrowUpRight size={18} />
+                      </div>
+                    ) : null}
+                  </>
+                );
 
                 return (
                   <motion.article
@@ -149,33 +220,29 @@ const Playground = () => {
                       isFeature ? "lg:col-span-4 lg:row-span-2" : "lg:col-span-2",
                     ].join(" ")}
                   >
-                    <a
-                      href={experiment.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="relative block overflow-hidden bg-gray-100"
-                      aria-label={`View ${experiment.title} live`}
-                    >
-                      <div className={isFeature ? "aspect-[16/9]" : "aspect-[4/3]"}>
-                        <img
-                          src={experiment.previewImage}
-                          alt={`${experiment.title} preview`}
-                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          loading={index === 0 ? "eager" : "lazy"}
-                          decoding="async"
-                          onError={(event) => {
-                            event.currentTarget.src = "/placeholder.svg";
-                          }}
-                        />
+                    {experiment.liveUrl ? (
+                      <a
+                        href={experiment.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative block overflow-hidden bg-gray-100"
+                        aria-label={`View ${experiment.title} live`}
+                      >
+                        {previewContent}
+                      </a>
+                    ) : experiment.detailPath ? (
+                      <Link
+                        to={experiment.detailPath}
+                        className="relative block overflow-hidden bg-gray-100"
+                        aria-label={`View ${experiment.title} project details`}
+                      >
+                        {previewContent}
+                      </Link>
+                    ) : (
+                      <div className="relative block overflow-hidden bg-gray-100">
+                        {previewContent}
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-                      <div className="liquid-glass-control absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-gray-950">
-                        {experiment.status}
-                      </div>
-                      <div className="liquid-glass liquid-glass-dark absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full text-white opacity-0 transition-all duration-300 group-hover:opacity-100">
-                        <ArrowUpRight size={18} />
-                      </div>
-                    </a>
+                    )}
 
                     <div className="flex flex-1 flex-col p-6">
                       <div className="mb-5 flex items-start justify-between gap-4">
@@ -204,15 +271,29 @@ const Playground = () => {
                         {experiment.proofSignal}
                       </p>
 
-                      <a
-                        href={experiment.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
-                      >
-                        View live
-                        <ExternalLink size={15} />
-                      </a>
+                      {experiment.liveUrl ? (
+                        <a
+                          href={experiment.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
+                        >
+                          View live
+                          <ExternalLink size={15} />
+                        </a>
+                      ) : experiment.detailPath ? (
+                        <Link
+                          to={experiment.detailPath}
+                          className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
+                        >
+                          View project details
+                          <ArrowUpRight size={15} />
+                        </Link>
+                      ) : (
+                        <div className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-gray-500">
+                          Ready for review
+                        </div>
+                      )}
                     </div>
                   </motion.article>
                 );

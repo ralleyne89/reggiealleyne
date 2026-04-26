@@ -175,47 +175,99 @@ const AboutSection = () => {
               amount: 0.3,
             }}
           >
-            <h3 className="mb-8 break-words text-center font-display text-3xl leading-tight text-gray-900 sm:mb-12 sm:text-heading-xl">
-              How I Work
-            </h3>
+            <div className="mb-8 grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+              <div>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-normal text-primary">
+                  How I Work
+                </p>
+                <h3 className="break-words font-display text-[2rem] leading-tight text-gray-900 [text-wrap:balance] sm:text-heading-xl">
+                  Make the product logic visible before polishing the interface.
+                </h3>
+              </div>
+              <p className="text-base leading-7 text-gray-600 sm:text-lg">
+                I use prototypes, critique, and systems thinking to turn fuzzy
+                AI behavior into product decisions a team can trust.
+              </p>
+            </div>
 
-            <div className="space-y-8">
-              {aboutMeValues.map((value, index) => (
-                <motion.div
-                  key={index}
-                  className="min-w-0 rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-colors hover:border-primary/20 sm:p-8"
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.3,
-                    delay: index * 0.1,
-                  }}
-                  viewport={{
-                    once: true,
-                    amount: 0.3,
-                  }}
-                >
-                  <div className="flex min-w-0 items-start gap-4 sm:gap-6">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 sm:h-12 sm:w-12">
-                      {value.icon}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <h4 className="mb-3 break-words text-lg font-semibold text-gray-900 sm:text-xl">
-                        {value.title}
-                      </h4>
-                      <p className="text-gray-600 leading-relaxed">
-                        {value.description}
-                      </p>
-                    </div>
+            <div className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="relative min-w-0 overflow-hidden rounded-2xl bg-slate-950 p-6 text-white shadow-2xl shadow-slate-950/20 sm:p-8">
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(130deg,rgba(139,92,246,0.26),transparent_38%),linear-gradient(to_right,rgba(148,163,184,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.1)_1px,transparent_1px)] bg-[size:auto,64px_64px,64px_64px]" />
+                <div className="relative">
+                  <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-xs font-semibold uppercase text-primary-light">
+                    <Sparkles size={14} />
+                    Operating model
                   </div>
-                </motion.div>
-              ))}
+                  <h4 className="break-words font-display text-3xl font-semibold leading-tight text-white [text-wrap:balance]">
+                    Prototype the risk, then refine the system.
+                  </h4>
+                  <p className="mt-4 leading-7 text-slate-300">
+                    The goal is not more screens. It is sharper evidence:
+                    which behavior earns trust, which pattern scales, and
+                    which product decision is ready to ship.
+                  </p>
+
+                  <div className="mt-8 grid gap-3 text-sm">
+                    {["Frame the ambiguity", "Build the behavior", "Pressure-test the trust"].map(
+                      (step, index) => (
+                        <div
+                          key={step}
+                          className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3"
+                        >
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/20 font-semibold text-primary-light">
+                            0{index + 1}
+                          </span>
+                          <span className="font-semibold text-slate-100">
+                            {step}
+                          </span>
+                        </div>
+                      ),
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid min-w-0 gap-4">
+                {aboutMeValues.map((value, index) => (
+                  <motion.div
+                    key={value.title}
+                    className="group min-w-0 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-colors hover:border-primary/25 sm:p-6"
+                    initial={{
+                      opacity: 0,
+                      y: 20,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      delay: index * 0.1,
+                    }}
+                    viewport={{
+                      once: true,
+                      amount: 0.3,
+                    }}
+                  >
+                    <div className="flex min-w-0 gap-4">
+                      <span className="pt-1 text-sm font-semibold text-primary/70">
+                        0{index + 1}
+                      </span>
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/15">
+                        {value.icon}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="mb-2 break-words text-lg font-semibold text-gray-900">
+                          {value.title}
+                        </h4>
+                        <p className="leading-7 text-gray-600">
+                          {value.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
@@ -240,7 +292,7 @@ const AboutSection = () => {
             }}
           >
             <h3 className="mb-8 break-words text-center font-display text-3xl leading-tight text-gray-900 sm:text-heading-xl">
-              Personal Signals
+              Hobbies
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {interests.map((interest, index) => (

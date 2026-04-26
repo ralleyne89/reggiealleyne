@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
+import ScrollToHash from "./components/layout/ScrollToHash";
 import { AnimatePresence } from "framer-motion";
 
 const Index = lazy(() => import("./pages/Index"));
@@ -40,6 +41,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Navbar />
+        <ScrollToHash />
         <AnimatePresence mode="wait">
           <Suspense fallback={<RouteFallback />}>
             <Routes>

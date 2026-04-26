@@ -150,6 +150,9 @@ const ProjectHeader = ({
 
   const displayDescription = getCaseStudyDescription(title, description);
   const visibleTags = tags.slice(0, 5);
+  const backTarget = projectSlug === "staybooked" ? "/playground" : "/works";
+  const backLabel =
+    projectSlug === "staybooked" ? "Back to Playground" : "Back to Works";
 
   return (
     <header className="border-b border-gray-200 bg-white pt-24 sm:pt-32">
@@ -162,11 +165,11 @@ const ProjectHeader = ({
         >
           <div className="min-w-0">
             <Link
-              to="/works"
+              to={backTarget}
               className="mb-6 inline-flex min-h-11 items-center gap-2 rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition-colors hover:border-primary/40 hover:text-primary sm:mb-8"
             >
               <ArrowLeft className="h-4 w-4" />
-              Back to Works
+              {backLabel}
             </Link>
 
             {visibleTags.length > 0 ? (

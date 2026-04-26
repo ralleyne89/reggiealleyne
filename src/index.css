@@ -151,6 +151,10 @@
   padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
 }
 
+.mobile-more-panel {
+  bottom: calc(5.25rem + max(0.75rem, env(safe-area-inset-bottom)));
+}
+
 .mobile-menu-panel {
   width: min(calc(100vw - 1.5rem), 72rem);
 }

@@ -91,7 +91,7 @@ const FeaturedProjectsSection = () => {
             </div>
 
             <div className="mx-auto mt-8 w-full max-w-5xl rounded-2xl border border-gray-200 bg-white p-4 sm:mt-10 sm:p-5">
-              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <div className="mb-4">
                 <div>
                   <h3 className="text-base font-semibold text-gray-950">
                     Additional selected work
@@ -101,13 +101,6 @@ const FeaturedProjectsSection = () => {
                     systems.
                   </p>
                 </div>
-                <Link
-                  to="/works"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-dark"
-                >
-                  View all work
-                  <ArrowRight size={16} />
-                </Link>
               </div>
 
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
