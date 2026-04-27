@@ -52,12 +52,12 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-slate-900 px-4 text-white">
+    <footer className="site-footer relative overflow-hidden bg-slate-900 px-4 text-white">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:88px_88px]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl py-12 sm:py-16">
-        <div className="border-b border-white/10 pb-10">
+        <div className="border-b border-white/10 pb-8">
           <div className="min-w-0">
             <Link to="/" className="mb-6 inline-flex">
               <img
@@ -71,16 +71,6 @@ const Footer = () => {
               <Sparkles size={14} />
               Product Designer & AI Technologist
             </p>
-            <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
-              <h2 className="max-w-3xl break-words font-display text-[2rem] font-semibold leading-tight text-white [text-wrap:balance] sm:text-heading-xl">
-                Designing AI interfaces, dashboards, and product systems people
-                can inspect and use.
-              </h2>
-              <p className="max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
-                I bring product strategy, UX/UI craft, and frontend fluency to
-                complex tools that need to feel legible, useful, and buildable.
-              </p>
-            </div>
           </div>
         </div>
 

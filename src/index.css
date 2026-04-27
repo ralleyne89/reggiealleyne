@@ -160,7 +160,7 @@
 }
 
 @media (max-width: 767px) {
-  body {
+  .site-footer {
     padding-bottom: calc(5.25rem + env(safe-area-inset-bottom));
   }
 }
