@@ -36,7 +36,7 @@ const projectSignals = [
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white pb-16 pt-24 sm:pt-32 lg:pb-24">
+    <section className="relative overflow-hidden bg-white pb-16 pt-14 sm:pt-32 lg:pb-24">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:88px_88px] opacity-35" />
 
@@ -48,6 +48,12 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
+            <img
+              src="/images/RA_logo_black.png"
+              alt="Reggie Alleyne Logo"
+              className="mx-auto mb-5 h-14 w-auto md:hidden"
+            />
+
             <p className="mb-3 text-xs font-semibold uppercase leading-5 text-primary sm:mb-4 sm:text-sm">
               Reggie Alleyne / Product Designer & AI Technologist
             </p>
