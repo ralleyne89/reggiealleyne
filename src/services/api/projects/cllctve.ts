@@ -6,19 +6,19 @@ export const getCllctveProject = (): ProjectType => {
     slug: "cllctve-platform",
     title: "CLLCTVE Platform",
     description: "A mobile-first creator portfolio platform that reached 500+ creators by focusing on behavior fit instead of Behance-style feature parity.",
-    fullDescription: "We chose mobile-first over feature parity, deprioritizing desktop power users to serve the 67% of Gen Z creators who browsed portfolios on phones. Behance had the network effects, so our product position had to win on behavior fit: 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
+    fullDescription: "We chose mobile-first over feature parity because 67% of our target creators browsed portfolios on phones. Behance had the network effects, so our position had to be sharper: move faster on creator behavior, community feedback, and mobile-native portfolio browsing. The product reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
     image: "/images/cllctve-gen-z-card.jpg",
     category: "Platform",
     tags: ["Platform", "Creative", "Gen Z", "Portfolio"],
     role: "Product Designer & Design Systems Lead",
     duration: "1 year, 10 months",
     year: "2022",
-    challenge: "Why would Gen Z creators choose us over Behance with its massive network effects? We had to make a strategic bet: mobile-first over feature parity, community over competition, and platform-native experience over professional polish. Every decision was a calculated trade-off, not ignorance of alternatives.",
+    challenge: "Behance already had reach, credibility, and desktop workflows. CLLCTVE had to give Gen Z creators a reason to use a smaller platform, so we bet on mobile creation, community feedback, and faster iteration instead of chasing every professional portfolio feature.",
     process: [
-      "Strategic Bet: Mobile-First - 67% of our target users browsed portfolios on phones. We sacrificed desktop power-user features to win mobile engagement.",
-      "React over Flutter - Despite slower time-to-mobile, our team's React expertise meant faster iteration cycles. Speed of learning beat theoretical mobile advantages.",
-      "Community Feed Before Analytics - User research showed creators wanted validation, not metrics. We built what they wanted, not what seemed 'professional'.",
-      "Limited Brand Customization - Brands wanted more control, but we constrained customization to preserve platform coherence."
+      "Used mobile browsing data to prioritize phone-first portfolio creation and viewing over desktop power tools.",
+      "Stayed with React because the team could ship and learn faster there than by retraining on Flutter.",
+      "Built the community feed before analytics after research found creators cared more about feedback than dashboards.",
+      "Constrained brand customization so challenge pages could flex without breaking the platform system."
     ],
     deliverables: [
       "Custom Portfolio Builder – Drag-and-drop interface that prioritized mobile touch interactions",
@@ -33,9 +33,9 @@ export const getCllctveProject = (): ProjectType => {
       "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png"
     ],
     conclusion: {
-      impact: "500+ creators, 15 brand partnerships, 85% user retention. The mobile-first bet paid off—our engagement metrics outperformed desktop-focused competitors despite having 1/100th of their user base.",
-      learnings: "The biggest lesson: sometimes the 'wrong' technical choice is the right product choice. React wasn't ideal for mobile, but our team's expertise meant we could iterate 3x faster than learning Flutter.",
-      nextSteps: "The company closed, but the strategic thinking—betting on user behavior over industry conventions—continues to shape how I evaluate product decisions."
+      impact: "Reached 500+ creators, 15 brand partnerships, and 85% user retention. The mobile-first choice gave us an engagement path larger desktop-first platforms were not prioritizing.",
+      learnings: "The useful lesson was that the best technical choice depends on product risk. React was not the purest mobile answer, but it let our team learn faster.",
+      nextSteps: "The company closed, but the product lesson still guides how I weigh user behavior against category convention."
     },
     techStack: ["React.js", "MongoDB", "Ant Design", "Axios", "Styled Components"],
     keyAchievements: [
@@ -43,7 +43,7 @@ export const getCllctveProject = (): ProjectType => {
       "15 brand partnerships by limiting customization to maintain platform quality", 
       "500+ active creators in a market dominated by established players"
     ],
-    problemSolved: "Bridged the gap between Gen Z creator behavior (mobile-first, visual, community-driven) and professional portfolio needs—something Behance's desktop-first approach couldn't address.",
+    problemSolved: "Gave Gen Z creators a portfolio flow built for mobile, visual sharing, and community feedback without forcing them into a desktop-first professional mold.",
     technicalHighlights: [
       "Chose lazy loading over pre-rendering despite slower initial perception—Gen Z tolerates spinners better than 5MB page weights",
       "Built design token system that enabled brand customization without breaking platform coherence",
@@ -51,7 +51,7 @@ export const getCllctveProject = (): ProjectType => {
     ],
     teamSize: "6 members",
     methodologies: ["Agile", "Bi-weekly Sprints", "User Testing", "React.js", "Figma", "Ant Design"],
-    summary: "A strategic bet on mobile-first design that proved Gen Z would trade network size for platform-native experience—500+ creators, 85% retention.",
+    summary: "A mobile-first portfolio platform that proved Gen Z creators would trade network size for a product shaped around how they already shared work.",
     date: "2022-06-15",
     solution: "Built a mobile-first portfolio platform that felt native to Gen Z digital behavior, sacrificing desktop feature parity to win the mobile experience where 67% of our users actually browsed.",
     liveUrl: "https://cllctve-demo.web.app"

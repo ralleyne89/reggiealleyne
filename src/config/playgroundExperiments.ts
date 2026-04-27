@@ -1,5 +1,4 @@
 import {
-  CalendarCheck,
   Code,
   Gamepad2,
   Music,
@@ -23,9 +22,9 @@ export const experiments: Experiment[] = [
   {
     title: "ScentStack",
     description:
-      "AI-powered fragrance discovery with dupe matching, layering suggestions, and dream-scent search.",
+      "A fragrance finder for dupe matching, layering ideas, and searching for the scent someone has in mind.",
     proofSignal:
-      "Shows product framing for AI recommendations, premium consumer UX, and fast prototype delivery.",
+      "Gives reviewers a read on recommendation UX, premium consumer framing, and fast prototype delivery.",
     tags: ["React", "Tailwind", "AI"],
     icon: Code,
     previewImage: "/images/scentstack_hero.png",
@@ -34,24 +33,11 @@ export const experiments: Experiment[] = [
     size: "feature",
   },
   {
-    title: "Staybooked",
-    description:
-      "A booking-focused product prototype for service teams managing availability, reservations, and follow-up flows.",
-    proofSignal:
-      "Shows scheduling UX, service workflow logic, and stateful product flow design without leaning on a static landing page.",
-    tags: ["React", "Booking UX", "Product"],
-    icon: CalendarCheck,
-    previewImage: "/images/staybooked-preview.svg",
-    detailPath: "/project/staybooked",
-    status: "Review ready",
-    size: "standard",
-  },
-  {
     title: "Chill Vibes Music Player",
     description:
-      "A minimalist music streaming MVP focused on clean playback and a distraction-free interface.",
+      "A small music streaming MVP built around clean playback and a quiet listening interface.",
     proofSignal:
-      "Shows audio UX restraint, hierarchy, and a lightweight product surface built around calm use.",
+      "Gives reviewers a focused audio surface with clear hierarchy and restrained interaction design.",
     tags: ["React", "Firebase", "UX/UI"],
     icon: Music,
     previewImage: "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
@@ -62,9 +48,9 @@ export const experiments: Experiment[] = [
   {
     title: "Bob's Big Break",
     description:
-      "An incremental clicker game prototype exploring low-attention, short-session game loops.",
+      "An incremental clicker prototype built around quick sessions, pacing, and reward loops.",
     proofSignal:
-      "Shows systems thinking, reward loops, and product mechanics beyond static interface work.",
+      "Gives reviewers a look at systems thinking and game mechanics beyond static interface work.",
     tags: ["React", "Node.js", "MongoDB"],
     icon: Gamepad2,
     previewImage: "/images/71cb9624-eeb6-4af5-a137-8a38307549f4.png",

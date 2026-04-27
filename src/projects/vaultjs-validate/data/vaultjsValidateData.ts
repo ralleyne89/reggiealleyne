@@ -27,11 +27,11 @@ import { ReflectionProps } from "@/components/project/common/Reflection";
 
 // Project Overview Data
 export const vaultjsOverviewData: ProjectOverviewProps = {
-  title: "Visualizing the Invisible: Security Data Made Actionable",
+  title: "Making third-party script risk easier to review",
   description: [
-    "Enterprise security teams are drowning in data. Traditional compliance dashboards are often cluttered, difficult to navigate, and fail to provide actionable insights. Security analysts need a tool that not only visualizes the invisible network of third-party scripts but also helps them remediate vulnerabilities instantly.",
-    "The challenge was to design an interface that balances 'Cyber-Security Brutalism' with the polish of a trusted enterprise product, making complex risk data intuitive and manageable.",
-    "I designed and built Vault.js Validate, a high-fidelity security monitoring dashboard that bridges the gap between raw security data and user-centric design by introducing an AI-powered remediation engine."
+    "Enterprise security teams already have plenty of alerts. The harder problem is deciding which third-party script risk deserves attention, why it matters, and what to do next.",
+    "The interface needed to feel credible for a security context without turning the dashboard into a dense wall of warnings.",
+    "I designed and built Vault.js Validate as a security monitoring dashboard with risk scans, vendor-relationship visuals, plain-English vulnerability context, and an AI-assisted remediation path."
   ],
   projectDetails: [
     {
@@ -71,39 +71,39 @@ export const vaultjsOverviewData: ProjectOverviewProps = {
 
 // Problem Space Data
 export const vaultjsProblemSpaceData: ProblemSpaceProps = {
-  title: "The Alert Fatigue Problem",
-  introduction: "Security analysts face a constant barrage of warnings, alerts, and data points. The problem isn't a lack of information—it's an overload of it. Users are overwhelmed by red warning lights without clear paths to resolution. My goal was to shift the focus from 'Problem Finding' to 'Problem Solving.'",
+  title: "The alert fatigue problem",
+  introduction: "Security analysts deal with a constant stream of warnings, alerts, and data points. The problem is not a lack of information; it is the work required to sort signal from noise. My goal was to move the interface from problem finding toward problem solving.",
   challenges: [
     {
-      title: "Information Overload",
+      title: "Information overload",
       description: "Security dashboards overwhelm users with raw data, making it difficult to identify and prioritize actual threats among the noise.",
       icon: AlertTriangle
     },
     {
-      title: "Lack of Actionable Insights",
-      description: "Traditional tools excel at finding problems but fail to provide clear remediation paths, leaving security teams stuck in analysis paralysis.",
+      title: "Unclear next steps",
+      description: "Many tools surface the problem but leave analysts to translate the finding into a remediation path.",
       icon: Target
     },
     {
-      title: "Visual Complexity",
+      title: "Visual complexity",
       description: "Complex network relationships and data flows are difficult to visualize in ways that are both accurate and comprehensible.",
       icon: Eye
     }
   ],
   designGoals: [
     {
-      title: "From Problem Finding to Problem Solving",
-      description: "Create a tool that doesn't just flag issues but explains them in plain English and generates code fixes automatically.",
+      title: "Move from finding to fixing",
+      description: "Create a tool that flags issues, explains them in plain English, and gives analysts a concrete remediation option.",
       icon: Zap
     },
     {
-      title: "Cyber-Security Brutalism Aesthetic",
+      title: "Cyber-security brutalism aesthetic",
       description: "Balance technical precision with enterprise polish using a design language that evokes modern, high-tech security.",
       icon: Shield
     },
     {
-      title: "Intuitive Data Visualization",
-      description: "Transform abstract JSON data into meaningful charts that reveal third-party vendor relationships and data leakage paths.",
+      title: "Readable data visualization",
+      description: "Turn abstract JSON data into charts that show third-party vendor relationships and data leakage paths.",
       icon: TrendingUp
     }
   ]
@@ -111,7 +111,7 @@ export const vaultjsProblemSpaceData: ProblemSpaceProps = {
 
 // Research & Discovery Data
 export const vaultjsResearchData: ResearchDiscoveryProps = {
-  title: "Understanding Security Tool Pain Points",
+  title: "Understanding security tool pain points",
   introduction: "I started by analyzing existing security tools and identified a common pain point: 'Alert Fatigue.' Users are overwhelmed by red warning lights without clear paths to resolution. The research revealed that security professionals spend more time interpreting data than acting on it.",
   researchSections: [
     {
@@ -147,16 +147,16 @@ export const vaultjsResearchData: ResearchDiscoveryProps = {
   ],
   keyFindings: [
     {
-      title: "Finding #1: Context is King",
-      description: "Security alerts without context are noise. Users need to understand not just what's wrong, but why it matters and how to fix it."
+      title: "Finding #1: context matters",
+      description: "Security alerts without context are noise. Users need to understand what is wrong, why it matters, and how to fix it."
     },
     {
-      title: "Finding #2: AI Can Bridge the Gap",
-      description: "Modern LLMs can translate technical vulnerabilities into plain English explanations and generate targeted code fixes."
+      title: "Finding #2: AI can translate the technical layer",
+      description: "Modern LLMs can turn technical vulnerabilities into plain-English explanations and targeted code fixes."
     },
     {
-      title: "Finding #3: Aesthetics Build Trust",
-      description: "A polished, modern interface signals competence and increases user confidence in the tool's recommendations."
+      title: "Finding #3: visual tone affects trust",
+      description: "A modern, controlled interface signals competence before the user reads the first finding."
     }
   ]
 };
@@ -164,7 +164,7 @@ export const vaultjsResearchData: ResearchDiscoveryProps = {
 // Ideation & Strategy Data
 export const vaultjsIdeationData: IdeationStrategyProps = {
   title: "The 'Vault' Aesthetic: Cyber-Security Brutalism",
-  introduction: "To match the brand identity of a cutting-edge security firm, I developed a design language I call 'Cyber-Security Brutalism'—a balance of technical precision and modern polish that evokes trust while maintaining visual interest.",
+  introduction: "To match the brand identity of a modern security firm, I developed a design language I call 'Cyber-Security Brutalism': technical, sharp, and controlled without burying the user in chrome.",
   keyInsights: [
     {
       highlight: "Dark Mode First.",
@@ -210,7 +210,7 @@ export const vaultjsIdeationData: IdeationStrategyProps = {
 
 // Final UI Design Data
 export const vaultjsUIData: FinalUIDesignProps = {
-  introduction: "The final dashboard is a fully functional frontend application that demonstrates complex data visualization, AI integration patterns, and high-performance UI. The design proves that security tools don't have to sacrifice usability for capability.",
+  introduction: "The final dashboard is a working frontend application with data visualization, AI integration patterns, and performance-conscious UI. The design keeps security context readable while still feeling like a serious technical tool.",
   designHighlights: [
     {
       text: "Deep Void Navy (#050A14) canvas with Neon Green (#00FF94) for active states and Signal Red (#FF2A2A) for critical threats"
@@ -320,12 +320,12 @@ export const vaultjsChallengesData: ChallengesLearningsProps = {
       description: "Dark interfaces require careful contrast management. Pure black (#000) creates eye strain—deep navy provides depth while remaining comfortable."
     },
     {
-      title: "Animation as Communication",
-      description: "The scanning simulation isn't just eye candy—it communicates progress and builds trust that the tool is working."
+      title: "Animation as communication",
+      description: "The scanning simulation communicates progress and helps the user understand that the tool is actively working."
     },
     {
-      title: "AI Should Explain, Not Just Act",
-      description: "Users trust AI recommendations more when they understand the reasoning. Plain English explanations before code fixes build confidence."
+      title: "AI should explain before it acts",
+      description: "Users trust AI recommendations more when they understand the reasoning. Plain-English explanations before code fixes build confidence."
     }
   ],
   nextSteps: [
@@ -349,19 +349,19 @@ export const vaultjsChallengesData: ChallengesLearningsProps = {
 
 // Reflection Data
 export const vaultjsReflectionData: ReflectionProps = {
-  title: "Reflections on Security UX Design",
-  content: "This project demonstrates my ability to take a complex technical domain—web security—and turn it into an intuitive, empowering user experience. It's not just about making data look good; it's about making it actionable. The 'Cyber-Security Brutalism' aesthetic proved that security tools can be both functional and visually compelling.",
+  title: "Reflections on security UX design",
+  content: "This project pushed me to make a technical domain easier to inspect without softening the seriousness of the work. The strongest parts of the design came from pairing plain-language risk context with a visual system that still felt credible for security teams.",
   insights: [
     {
-      title: "Design Language Matters",
-      description: "The 'Vault' aesthetic wasn't just decoration—it established credibility and trust. Users expect security tools to look secure."
+      title: "Design language matters",
+      description: "The 'Vault' aesthetic worked as more than decoration. It helped the tool feel credible before users dug into the details."
     },
     {
-      title: "AI as Partner, Not Replacement",
+      title: "AI as partner, not replacement",
       description: "The most successful AI integrations augment human decision-making rather than trying to automate it entirely. Explain, then suggest."
     },
     {
-      title: "Speed Enables Iteration",
+      title: "Speed enables iteration",
       description: "Moving directly from sketches to code allowed rapid testing of interactions. The 'Apply Fix' button went through 5 iterations in 2 weeks."
     }
   ]

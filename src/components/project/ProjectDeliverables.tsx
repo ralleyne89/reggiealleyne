@@ -37,7 +37,7 @@ const ProjectDeliverables = ({
       {deliverables?.length > 0 ? (
         <EditorialSection
           eyebrow="Artifacts"
-          title="What came out of the work."
+          title="What I made."
           className="border-b border-gray-200"
           tone="soft"
         >
@@ -60,7 +60,7 @@ const ProjectDeliverables = ({
       {uniqueImages.length > 0 && !isDoggyDateProject ? (
         <EditorialSection
           eyebrow="Visuals"
-          title="A closer look at the interface."
+          title="Interface details."
           className="border-b border-gray-200"
         >
           <div className="grid min-w-0 grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">

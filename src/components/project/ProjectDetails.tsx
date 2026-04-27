@@ -44,8 +44,8 @@ const ProjectDetails = ({
 
   return (
     <EditorialSection
-      eyebrow="Project summary"
-      title="The work, in plain terms."
+      eyebrow="Project snapshot"
+      title="What this project covers."
       description={summary}
       className="border-b border-gray-200"
     >

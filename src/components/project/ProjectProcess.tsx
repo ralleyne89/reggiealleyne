@@ -54,7 +54,7 @@ const ProjectProcess = ({
       {(displayChallenge || showProblemSolved) && (
         <EditorialSection
           eyebrow="Context"
-          title="What made the work worth doing."
+          title="Why the problem mattered."
           className="border-b border-gray-200"
           tone="soft"
         >
@@ -93,7 +93,7 @@ const ProjectProcess = ({
       {hasProcess ? (
         <EditorialSection
           eyebrow="Process"
-          title="How the project moved from question to answer."
+          title="How the work moved forward."
           className="border-b border-gray-200"
         >
           <ol className="grid min-w-0 gap-4">
@@ -119,8 +119,8 @@ const ProjectProcess = ({
 
       {hasMethods ? (
         <EditorialSection
-          eyebrow="Ways of working"
-          title="Tools and methods used along the way."
+          eyebrow="Methods"
+          title="How I worked through it."
           className="border-b border-gray-200"
           tone="soft"
         >
@@ -142,15 +142,15 @@ const ProjectProcess = ({
 
       {(hasTechnical || hasAchievements) && (
         <EditorialSection
-          eyebrow="Evidence"
-          title="Signals that the work held together."
+          eyebrow="Proof points"
+          title="What held up in the work."
           className="border-b border-gray-200"
         >
           <div className="grid min-w-0 gap-6 lg:grid-cols-2">
             {hasTechnical ? (
               <EvidenceList
                 icon={<Layers className="h-5 w-5" />}
-                title="Technical highlights"
+                title="Technical details"
                 items={technicalHighlights!}
               />
             ) : null}

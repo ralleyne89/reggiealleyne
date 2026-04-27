@@ -151,7 +151,7 @@ const ProjectHeader = ({
   const displayDescription = getCaseStudyDescription(title, description);
   const visibleTags = tags.slice(0, 5);
   const backTarget = "/works";
-  const backLabel = "Back to Works";
+  const backLabel = "Back to work index";
 
   return (
     <header className="border-b border-gray-200 bg-white pt-24 sm:pt-32">

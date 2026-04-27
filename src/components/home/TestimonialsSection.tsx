@@ -54,11 +54,11 @@ const TestimonialsSection = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <h2 className="mb-4 break-words font-heading text-2xl font-bold text-gray-900 [text-wrap:balance] md:text-3xl">
-            Trusted by <span className="text-primary">Teams & Leaders</span>
+            What <span className="text-primary">teams say</span> after the work ships
           </h2>
           <p className="mx-auto max-w-2xl text-base leading-7 text-gray-600">
-            Real feedback from colleagues and clients who've experienced the
-            difference of working with a designer who codes.
+            Feedback from colleagues and clients who needed design decisions to
+            survive the handoff into engineering.
           </p>
         </motion.div>
 
@@ -132,15 +132,15 @@ const TestimonialsSection = () => {
           <div className="flex flex-col items-center justify-center gap-3 text-sm text-gray-600 sm:flex-row sm:gap-8">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span>100% Client Satisfaction</span>
+              <span>Client references</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-primary rounded-full"></div>
-              <span>10+ Years Experience</span>
+              <span>10+ years in product</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <span>UI/UX Expert</span>
+              <span>UX and frontend fluency</span>
             </div>
           </div>
         </motion.div>

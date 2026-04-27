@@ -30,12 +30,12 @@ const About = () => {
 
   // Core Competencies for LLM/AI SEO parsing
   const coreCompetencies = [
-    { icon: Brain, label: "Gen AI Prototyping", description: "Building AI-powered interfaces and adaptive systems" },
+    { icon: Brain, label: "Gen AI Prototyping", description: "Designing and testing AI workflows in working UI" },
     { icon: Layers, label: "Design Systems", description: "Scalable component libraries and design tokens" },
     { icon: Search, label: "User Research", description: "Qualitative & quantitative research methods" },
-    { icon: Sparkles, label: "0-1 Product Design", description: "From concept to shipped product" },
-    { icon: Accessibility, label: "Accessibility (WCAG)", description: "Inclusive design for all users" },
-    { icon: Code, label: "React Prototyping", description: "Functional prototypes, not just mockups" },
+    { icon: Sparkles, label: "0-1 Product Design", description: "Early product framing through shipped UX" },
+    { icon: Accessibility, label: "Accessibility (WCAG)", description: "Keyboard, contrast, structure, and readable states" },
+    { icon: Code, label: "React Prototyping", description: "React prototypes teams can test" },
   ];
 
   const interests = [
@@ -99,7 +99,7 @@ const About = () => {
               className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Home
+              Back to home
             </Link>
           </motion.div>
 
@@ -131,25 +131,29 @@ const About = () => {
             className="space-y-6"
           >
             <h2 className="text-2xl font-heading font-bold text-text-primary border-b border-gray-200 pb-3">
-              The Philosophy
+              How I think about AI tools
             </h2>
             
             <div className="bg-secondary rounded-xl p-8 border border-gray-200">
               <h3 className="text-xl font-heading font-bold text-primary mb-4">
-                Building AI Tools That Don't Suck
+                Building AI tools people can question
               </h3>
               <p className="text-lg text-text-secondary leading-relaxed mb-4">
-                Most AI interfaces treat algorithms like magic—black boxes that spit out answers without explanation. 
-                This creates a fundamental problem: users can't trust what they can't understand.
+                Most AI interfaces ask people to trust an answer without showing
+                how the system got there. That is a product problem: people
+                cannot rely on a tool they cannot inspect.
               </p>
               <p className="text-lg text-text-secondary leading-relaxed mb-4">
                 I design for <span className="text-primary font-semibold">algorithmic transparency</span>. 
-                When an AI makes a recommendation, users should see the reasoning chain. When it's uncertain, 
-                it should say so. When it needs more data, it should ask—not guess.
+                When an AI makes a recommendation, people should see the
+                reasoning, the uncertainty, and the inputs that shaped the
+                answer. When it needs more data, it should ask instead of
+                guessing.
               </p>
               <p className="text-lg text-text-secondary leading-relaxed">
-                The goal isn't to humanize AI or make it feel "friendly." It's to make AI <span className="text-primary font-semibold">legible</span>—so 
-                humans can make informed decisions about when to trust it and when to override it.
+                The goal is not to make AI feel friendly. It is to make the
+                system <span className="text-primary font-semibold">legible</span>, so people know when to
+                trust it, challenge it, or override it.
               </p>
             </div>
           </motion.section>
@@ -162,7 +166,7 @@ const About = () => {
             className="space-y-6"
           >
             <h2 className="text-2xl font-heading font-bold text-text-primary border-b border-gray-200 pb-3">
-              The Process
+              The process
             </h2>
             
             <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
@@ -185,8 +189,10 @@ const About = () => {
                 </div>
               </div>
               <p className="text-center text-text-secondary mt-6 max-w-xl mx-auto">
-                Coding isn't separate from design—it's a design validation tool. The fastest way to test 
-                if an interaction works is to build it. I prototype in React, not just Figma.
+                Coding is part of how I design. The fastest way to test an
+                interaction is to build enough of it to feel the state changes,
+                edge cases, and handoff details. I prototype in React because
+                static screens miss that.
               </p>
             </div>
           </motion.section>
@@ -198,7 +204,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.35 }}
           >
             <h2 className="text-2xl font-heading font-bold mb-8 text-text-primary border-b border-gray-200 pb-3">
-              Core Competencies
+              Core competencies
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {coreCompetencies.map((competency, index) => (
@@ -232,23 +238,22 @@ const About = () => {
             </h2>
             
             <p className="text-lg text-text-secondary leading-relaxed">
-              10+ years designing for <span className="text-primary font-semibold">Education and Healthcare</span>—industries 
+              10+ years designing for <span className="text-primary font-semibold">education and healthcare</span>, industries
               where bad UX has real consequences. I've built tools for teachers managing 30 students, 
               patients navigating health anxiety, and HR leaders trying to assess AI literacy at scale.
             </p>
 
             <p className="text-lg text-text-secondary leading-relaxed">
-              Born and raised in LA, I'm a family man who believes the best
-              solutions come from understanding people—whether that's users
-              struggling with healthcare navigation or teammates trying to ship
-              features on deadline.
+              Born and raised in LA, I care about the everyday side of product
+              work: listening well, making constraints explicit, and helping
+              teams ship without losing sight of the person using the thing.
             </p>
 
             <p className="text-lg text-text-secondary leading-relaxed">
-              <span className="text-primary font-semibold">Passion for Immersive Interfaces:</span>{" "}
-              My background in gaming and anime inspires my approach to spatial computing 
-              and highly interactive UI. These industries taught me that the best experiences 
-              feel invisible—they just work.
+              <span className="text-primary font-semibold">Interactive interface craft:</span>{" "}
+              Gaming and anime shaped how I think about motion, spatial cues,
+              pacing, and feedback. I like interfaces where the system teaches
+              you through use instead of making you read a manual.
             </p>
           </motion.section>
 
@@ -260,7 +265,7 @@ const About = () => {
             className="space-y-6"
           >
             <h2 className="text-2xl font-heading font-bold text-text-primary border-b border-gray-200 pb-3">
-              What I'm About
+              What I'm about
             </h2>
 
             <div className="space-y-4">
@@ -268,12 +273,12 @@ const About = () => {
                 <Zap className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-text-primary mb-2">
-                    Humanizing Algorithmic Intelligence
+                    Making AI legible
                   </h3>
                   <p className="text-text-secondary">
-                    I'm fascinated by the "Black Box" problem in AI. How do we design 
-                    interfaces that make machine learning legible to humans? How do we 
-                    build trust when the algorithm is smarter than the user?
+                    I keep coming back to the black-box problem in AI. How do
+                    we show enough reasoning, uncertainty, and context that a
+                    person can make a good call?
                   </p>
                 </div>
               </div>
@@ -282,12 +287,12 @@ const About = () => {
                 <Users className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-text-primary mb-2">
-                    Leading Through Collaboration
+                    Concrete collaboration
                   </h3>
                   <p className="text-text-secondary">
-                    I believe the best ideas come from diverse perspectives. I'm
-                    the designer who asks developers "what if we tried this?"
-                    and actually listens to the answer.
+                    I like cross-functional work that gets specific quickly. I
+                    ask developers what the system can support, bring options
+                    back to the team, and keep the tradeoffs visible.
                   </p>
                 </div>
               </div>
@@ -296,12 +301,12 @@ const About = () => {
                 <Target className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-text-primary mb-2">
-                    Shipping Over Perfection
+                    Shipping over perfection
                   </h3>
                   <p className="text-text-secondary">
-                    I dig deep into user research, prototype rapidly, and
-                    iterate based on real feedback. Pretty designs are great,
-                    but shipped products change lives.
+                    I dig into user research, prototype quickly, and revise
+                    based on what the team learns. A clean mockup matters, but
+                    the work is not done until someone can use it.
                   </p>
                 </div>
               </div>
@@ -315,7 +320,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <h2 className="text-2xl font-heading font-bold mb-8 text-text-primary border-b border-gray-200 pb-3">
-              When I'm Not Designing
+              When I'm not designing
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {interests.map((interest, index) => (
@@ -353,15 +358,15 @@ const About = () => {
                 </div>
 
                 <h2 className="break-words font-display text-[2rem] font-semibold leading-tight text-white [text-wrap:balance] sm:text-heading-xl">
-                  What I'm Looking For
+                  What I'm looking for
                 </h2>
 
                 <p className="mt-5 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-                  I want to join a team that's{" "}
+                  I want to join a team that is{" "}
                   <span className="font-semibold text-primary-light">
-                    building something meaningful
+                    working on a real problem
                   </span>
-                  —especially AI products, platform tools, and experiences
+                  , especially AI products, platform tools, and experiences
                   where trust and clarity determine whether the product works.
                 </p>
 
@@ -369,7 +374,7 @@ const About = () => {
                   to="/#contact"
                   className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-slate-950 shadow-xl shadow-black/20 transition-colors hover:bg-primary-light hover:text-white sm:w-auto"
                 >
-                  Let's Build Something Great
+                  Start the conversation
                   <ArrowRight size={18} />
                 </Link>
               </div>
@@ -418,16 +423,17 @@ const About = () => {
             className="text-center"
           >
             <h2 className="text-2xl font-heading font-bold mb-4 text-text-primary">
-              Let's Build Something Great
+              Want to work together?
             </h2>
             <p className="text-text-secondary mb-8">
-              Ready to create experiences that people actually love using?
+              Send a note with the problem, timeline, and what needs to get
+              clearer first.
             </p>
             <Link
               to="/#contact"
               className="inline-flex items-center px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors"
             >
-              Get In Touch
+              Get in touch
             </Link>
           </motion.section>
         </div>

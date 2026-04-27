@@ -27,19 +27,19 @@ import { AIProductThinkingProps } from "@/components/project/common/AIProductThi
 
 // AI PM Lens Data
 export const litmusAIAIPMData: AIProductThinkingProps = {
-  title: "The AI Challenge",
+  title: "Testing AI judgment quickly",
   challenge: "How do we test genuine understanding vs. buzzword familiarity without requiring hours of assessment?",
-  dataStrategy: "Leveraged GPT-5 for dynamic question generation with prompt engineering, enabling adaptive difficulty that responds to user responses in real-time.",
-  successMetric: "Compressed 2-hour traditional assessments into 5-minute adaptive tests while maintaining assessment accuracy through intelligent question selection."
+  dataStrategy: "Used GPT-5 for dynamic question generation, with prompt guardrails that changed difficulty based on each answer.",
+  successMetric: "Compressed a traditional two-hour assessment into a five-minute test without turning the result into a generic quiz score."
 };
 
 // Project Overview Data - Minto Pyramid: Lead with Impact
 export const litmusAIOverviewData: ProjectOverviewProps = {
-  title: "Full MVP in 2 Months: AI Literacy Certification Platform",
+  title: "AI literacy certification MVP in 2 months",
   description: [
-    "Shipped a complete AI literacy certification platform as a solo founder—adaptive testing engine, Stripe payments, verifiable credentials, and admin dashboard—in 8 weeks. The platform tests genuine AI understanding (not buzzword familiarity) in under 5 minutes through GPT-powered dynamic question generation.",
-    "The market gap was clear: existing certifications require hours of commitment before providing any value. HR leaders needed quick, reliable signals of AI competency. Learners wanted validation before investing in expensive courses. I built the bridge.",
-    "Technical architecture: React + Next.js frontend, GPT-5 for adaptive assessment across 4 AI domains (ML, prompt engineering, ethics, applications), Supabase backend, Stripe for flexible monetization (subscriptions + one-time + enterprise)."
+    "I shipped an AI literacy certification platform as a solo founder in 8 weeks: adaptive testing, Stripe payments, verifiable credentials, and an admin dashboard.",
+    "Most certification products ask users to commit hours before they learn anything useful. HR leaders needed a faster baseline signal. Learners needed to know whether a course was worth their time.",
+    "The product uses a React and Next.js frontend, GPT-5 assessment prompts across machine learning, prompt engineering, ethics, and applications, a Supabase backend, and Stripe for subscription, one-time, and enterprise payments."
   ],
   projectDetails: [
     {
@@ -79,38 +79,38 @@ export const litmusAIOverviewData: ProjectOverviewProps = {
 
 // Problem Space Data
 export const litmusAIProblemSpaceData: ProblemSpaceProps = {
-  title: "The AI Literacy Validation Gap",
-  introduction: "As AI tools proliferate across every industry, a fundamental problem emerged: How do you prove you actually understand AI beyond surface-level buzzwords? Organizations need a way to assess baseline AI knowledge before investing in training. Individuals need credentials that validate their competency. The market lacked a quick, credible, data-driven solution.",
+  title: "The AI literacy validation gap",
+  introduction: "AI tools were moving into every team, but most people had no quick way to prove they understood more than the buzzwords. Organizations needed a baseline before buying training. Individuals needed a credential that meant something. The missing piece was a fast assessment with enough substance to trust.",
   challenges: [
     {
-      title: "The Buzzword Problem",
+      title: "The buzzword problem",
       description: "Everyone claims AI expertise, but traditional assessments can't distinguish genuine understanding from surface-level familiarity with trending terms.",
       icon: Target
     },
     {
-      title: "Time Investment Barrier",
+      title: "Time investment barrier",
       description: "Existing certification programs require hours of testing, creating friction for learners who need quick assessment before committing to lengthy courses.",
       icon: Clock
     },
     {
-      title: "One-Size-Fits-All Limitations",
+      title: "One-size-fits-all tests",
       description: "Static tests fail to adapt to individual knowledge levels, making them either too easy for experts or overwhelming for beginners.",
       icon: TrendingUp
     }
   ],
   designGoals: [
     {
-      title: "Rapid Assessment Without Sacrifice",
+      title: "Fast without feeling thin",
       description: "Create a testing system that accurately measures AI literacy in under 5 minutes through intelligent question selection.",
       icon: Zap
     },
     {
-      title: "Adaptive Intelligence",
+      title: "Adaptive difficulty",
       description: "Build dynamic difficulty adjustment that tailors questions based on user responses, maximizing assessment accuracy.",
       icon: Brain
     },
     {
-      title: "Credible Certification",
+      title: "Credible certification",
       description: "Establish verifiable credentials that employers and institutions can trust as genuine indicators of AI competency.",
       icon: Award
     }
@@ -119,18 +119,18 @@ export const litmusAIProblemSpaceData: ProblemSpaceProps = {
 
 // Research & Discovery Data
 export const litmusAIResearchData: ResearchDiscoveryProps = {
-  title: "Understanding the AI Education Landscape",
-  introduction: "I began by creating the AI education and assessment landscape and performing a competitive analysis, and I also reviewed customer reviews and ratings from students, working professionals, and HR leaders to understand how these tools are used in practice. Everywhere I looked, I saw the same patterns: most solutions prioritize terminology over practical judgment, do not adapt to the user's level of proficiency, and generate a score with no prescription for what to do next, because HR leaders further emphasized the need for a rapid and reliable signal that corresponds to on-the-job performance, rather than just memorization of buzzwords.",
+  title: "What the market was missing",
+  introduction: "I mapped AI education and assessment products, then read reviews from students, working professionals, and HR buyers. The same pattern kept showing up: most tools tested terminology, not judgment; few adapted to the user's level; and the score rarely explained what to do next.",
   researchSections: [
     {
-      title: "User Research",
-      description: "User Reviews Across Segments",
+      title: "User research",
+      description: "Review patterns across segments",
       items: [
         {
           text: "Students wanted quick validation before investing in expensive certification programs"
         },
         {
-          text: "Professionals needed credentials they could showcase on LinkedIn to demonstrate career-relevant AI skills"
+          text: "Professionals needed credentials they could share on LinkedIn to show career-relevant AI skills"
         },
         {
           text: "HR departments struggled to assess baseline AI knowledge across teams before purchasing training"
@@ -138,7 +138,7 @@ export const litmusAIResearchData: ResearchDiscoveryProps = {
       ]
     },
     {
-      title: "Competitive Analysis",
+      title: "Competitive analysis",
       description: "Evaluated existing platforms including Coursera, LinkedIn Learning, and specialized AI certification programs.",
       items: [
         {
@@ -155,15 +155,15 @@ export const litmusAIResearchData: ResearchDiscoveryProps = {
   ],
   keyFindings: [
     {
-      title: "Finding #1: Speed is Critical",
+      title: "Finding #1: speed mattered",
       description: "Users want to quickly gauge their level before committing time and money to courses. The market gap was rapid, accurate assessment."
     },
     {
-      title: "Finding #2: Personalization Drives Engagement",
+      title: "Finding #2: adaptive tests kept people engaged",
       description: "Adaptive testing that responds to knowledge level keeps users engaged and provides more accurate results than static tests."
     },
     {
-      title: "Finding #3: Verification Matters",
+      title: "Finding #3: credentials needed proof",
       description: "Digital credentials need verifiable authenticity to hold value in professional contexts. Blockchain or institutional partnerships were essential."
     }
   ]
@@ -171,41 +171,41 @@ export const litmusAIResearchData: ResearchDiscoveryProps = {
 
 // Ideation & Strategy Data
 export const litmusAIIdeationData: IdeationStrategyProps = {
-  title: "Three Core Principles for AI Literacy Assessment",
-  introduction: "As a solo founder with limited time, I needed clear strategic principles to guide rapid development. I focused on three core pillars that would differentiate Litmus AI from existing solutions while remaining technically achievable within 2 months.",
+  title: "Three product principles",
+  introduction: "As a solo founder, I needed a small set of principles that could survive the timeline. The product had to be fast, adaptive, and credible enough that the result felt useful after one short session.",
   keyInsights: [
     {
-      highlight: "Adaptive intelligence drives accuracy.",
-      description: "GPT-powered question generation that adjusts difficulty based on responses provides more accurate assessment than static question banks."
+      highlight: "Adaptive questions gave the score more signal.",
+      description: "GPT-powered question generation adjusted difficulty based on responses, so the assessment could probe beyond a fixed question bank."
     },
     {
-      highlight: "Time-to-value must be under 5 minutes.",
-      description: "Users should get meaningful assessment results fast enough to make immediate decisions about their learning pathway."
+      highlight: "Users needed a result in under 5 minutes.",
+      description: "The assessment had to be short enough for someone to finish before deciding whether to invest in training."
     },
     {
-      highlight: "Monetization enables sustainability.",
-      description: "Flexible pricing (subscriptions + one-time purchases + enterprise packages) ensures the platform can scale beyond MVP."
+      highlight: "Pricing had to support more than one buyer.",
+      description: "Subscriptions, one-time purchases, and enterprise packages mapped to students, professionals, and team buyers."
     }
   ],
   flowSteps: [
     {
       number: 1,
-      title: "Quick Onboarding",
+      title: "Quick onboarding",
       description: "User creates account and starts assessment in under 30 seconds"
     },
     {
       number: 2,
-      title: "Adaptive Testing",
+      title: "Adaptive testing",
       description: "AI dynamically generates questions across ML, prompt engineering, ethics, and applications"
     },
     {
       number: 3,
-      title: "Instant Results",
+      title: "Instant results",
       description: "Receive proficiency score with visualization of strengths and knowledge gaps"
     },
     {
       number: 4,
-      title: "Personalized Pathway",
+      title: "Personalized pathway",
       description: "Get course recommendations mapped to specific areas needing improvement"
     },
     {
@@ -241,17 +241,17 @@ export const litmusAIUIData: FinalUIDesignProps = {
   ],
   uiFeatures: [
     {
-      title: "Progressive Disclosure",
+      title: "Progressive disclosure",
       description: "Start simple with the test interface, then progressively reveal complexity in results and recommendations as users advance.",
       icon: Sparkles
     },
     {
-      title: "Data Visualization",
+      title: "Data visualization",
       description: "Use clear charts and radar diagrams to visualize proficiency across different AI domains, making abstract scores concrete.",
       icon: TrendingUp
     },
     {
-      title: "Credibility Through Design",
+      title: "Credibility through design",
       description: "Professional typography, consistent spacing, and thoughtful color choices signal quality and trustworthiness.",
       icon: Shield
     }
@@ -289,25 +289,25 @@ export const litmusAIUIData: FinalUIDesignProps = {
 export const litmusAIOutcomesData: OutcomesImpactProps = {
   metrics: [
     {
-      title: "Full MVP Launch",
+      title: "Full MVP launch",
       value: "2 months",
       description: "Shipped complete platform with AI literacy testing, Stripe payments, and verifiable certification",
       icon: CheckCircle
     },
     {
-      title: "Adaptive Testing",
+      title: "Adaptive testing",
       value: "4 AI skill areas",
       description: "Implemented dynamic difficulty adjustment and real-time question generation across four core AI skill areas: machine learning, prompt engineering, ethics, and applications",
       icon: Brain
     },
     {
-      title: "Revenue Streams",
+      title: "Revenue streams",
       value: "3 models",
       description: "Built flexible monetization supporting subscriptions, one-time purchases, and enterprise packages",
       icon: TrendingUp
     },
     {
-      title: "Scalable Platform",
+      title: "Solo-built platform",
       value: "Solo built",
       description: "Deployed on Netlify + Supabase with admin dashboard for tracking users, scores, and payments",
       icon: Code
@@ -323,8 +323,8 @@ export interface TradeoffItem {
 }
 
 export const litmusAITradeoffsData = {
-  title: "Trade-offs: What We Built vs. What We Cut",
-  introduction: "With only 2 months as a solo founder, every feature decision was a strategic trade-off. Here's what made the cut—and what didn't—with full transparency on the reasoning.",
+  title: "What shipped and what waited",
+  introduction: "With 2 months and one builder, every feature had to earn its place. These are the tradeoffs that shaped the MVP.",
   tradeoffs: [
     {
       built: "5-minute adaptive test",
@@ -351,48 +351,48 @@ export const litmusAITradeoffsData = {
 
 // Challenges & Learnings Data
 export const litmusAIChallengesData: ChallengesLearningsProps = {
-  title: "What I Learned Building Solo",
+  title: "What building solo taught me",
   challenges: [
     {
-      title: "Adaptive Testing Complexity",
-      description: "Initially, I tried to build custom adaptive logic from scratch. The complexity exploded quickly. Solution: Leverage GPT-5's capabilities for dynamic question generation with prompt engineering, dramatically reducing development time while improving question quality."
+      title: "Adaptive testing got complex fast",
+      description: "I first tried to build custom adaptive logic from scratch. The complexity grew quickly, so I moved the hard part into GPT-5 prompts and focused my time on question quality, scoring, and the user flow."
     },
     {
-      title: "Balancing Speed with Quality",
-      description: "With only 2 months, every feature decision was a trade-off. Solution: Focus on core user flow (test → results → recommendations → certification) and ruthlessly cut nice-to-haves. Admin dashboard came before fancy analytics."
+      title: "Speed forced sharper decisions",
+      description: "The core loop mattered most: test, results, recommendations, certification. Nice-to-haves waited. The admin dashboard shipped before deeper analytics because I needed to see users, scores, and payments."
     },
     {
-      title: "Solo Technical Debt",
-      description: "Working alone meant every shortcut compounded. Solution: Document architectural decisions in real-time, use consistent patterns, and resist the temptation to hack together one-off solutions that would haunt me later."
+      title: "Solo technical debt compounds",
+      description: "Working alone made every shortcut tempting. I documented architecture decisions as I went, reused patterns, and avoided one-off code where it would slow the next iteration."
     }
   ],
   learnings: [
     {
-      title: "Use AI to Build AI Products",
+      title: "Use AI where it replaces real complexity",
       description: "Prompt engineering can replace complex custom algorithms. Focus on UX of adaptive testing rather than reinventing assessment theory."
     },
     {
-      title: "MVP Means Shipped",
-      description: "Perfect is the enemy of shipped. Users care more about working features than polished extras."
+      title: "An MVP has to ship",
+      description: "The shipped flow taught me more than another month of polish would have. Users needed working assessment, results, and payment paths first."
     },
     {
-      title: "Code Quality Matters",
+      title: "Code quality buys time later",
       description: "Consistent patterns scale better than clever shortcuts. Clear documentation protects future iteration speed."
     }
   ],
   nextSteps: [
     {
-      title: "Expand Question Bank",
+      title: "Expand the question bank",
       description: "Add more AI domains including computer vision, NLP, and reinforcement learning",
       icon: BookOpen
     },
     {
-      title: "Enterprise Features",
+      title: "Enterprise features",
       description: "Build team management dashboard and bulk certification tracking for corporate clients",
       icon: Users
     },
     {
-      title: "Mobile App",
+      title: "Mobile app",
       description: "Create native mobile experience for on-the-go learning and assessment",
       icon: Monitor
     }
@@ -401,20 +401,20 @@ export const litmusAIChallengesData: ChallengesLearningsProps = {
 
 // Reflection Data
 export const litmusAIReflectionData: ReflectionProps = {
-  title: "Reflections on Building AI Assessment",
-  content: "Building Litmus AI as a solo founder taught me that the most valuable design skill isn't pixel-pushing—it's strategic scope management. Every day required decisions about what not to build, which features to defer, and how to maximize impact with minimal complexity. The irony of using AI to assess AI literacy wasn't lost on me. GPT-5 became both the subject matter and the tool enabling rapid development.",
+  title: "What I took from the build",
+  content: "Building Litmus AI reminded me that solo product work is mostly scope management. The design work was deciding what to cut, what to fake responsibly, and where AI could do real product work instead of sitting in the pitch deck.",
   insights: [
     {
-      title: "Speed as Differentiator",
+      title: "Speed became the differentiator",
       description: "What surprised me most was how much users valued speed over depth. The 5-minute assessment constraint, initially a challenge, became the platform's strongest differentiator."
     },
     {
-      title: "Shipping Beats Perfection",
-      description: "If I could do it over, I'd invest more time upfront in the scoring algorithm. That said, perfect is the enemy of shipped—and shipped beats perfect every time."
+      title: "Shipping beat polish",
+      description: "If I could do it over, I would invest more time upfront in scoring. But the 8-week constraint forced the right question: what is good enough to learn from real users?"
     },
     {
-      title: "AI Application",
-      description: "Using AI to assess AI literacy felt appropriately for this project. GPT-5 became both the subject matter and the tool enabling rapid development of the platform."
+      title: "AI had to earn its place",
+      description: "Using AI to assess AI literacy only worked because it changed the product behavior. GPT-5 powered adaptive question generation instead of sitting on the page as a feature label."
     }
   ]
 };

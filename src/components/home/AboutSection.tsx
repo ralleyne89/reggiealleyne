@@ -56,7 +56,7 @@ const AboutSection = () => {
               href="#contact"
               className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-950 transition-colors hover:border-primary hover:text-primary sm:w-auto"
             >
-              Contact me
+              Reach out
             </a>
           </div>
         </motion.div>
@@ -73,16 +73,17 @@ const AboutSection = () => {
               <Layers3 size={22} />
             </div>
             <p className="text-xs font-semibold uppercase text-primary">
-              Hire-me signal
+              Best work
             </p>
             <h3 className="mt-2 break-words font-display text-2xl font-semibold leading-tight text-gray-950">
               Product strategy, UX/UI craft, and frontend fluency in the same
               loop.
             </h3>
             <p className="mt-4 text-sm leading-6 text-gray-600">
-              The portfolio foregrounds adaptive assessment, creator-platform
-              strategy, and service workflow modeling so employers can quickly
-              understand the kind of product work I am best suited for.
+              I am strongest when the product model, interface details, and
+              working prototype need to be shaped together. Here, that shows up
+              in adaptive assessment, creator-platform strategy, and service
+              workflow modeling.
             </p>
           </div>
 

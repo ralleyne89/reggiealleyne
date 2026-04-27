@@ -45,7 +45,7 @@ const FeaturedProjectsSection = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            Three case studies built for fast senior review.
+            Three case studies built around the decisions behind the work.
           </motion.h2>
 
           <motion.p
@@ -55,9 +55,9 @@ const FeaturedProjectsSection = () => {
             transition={{ duration: 0.5, delay: 0.08 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            AI literacy, creator platforms, and booking workflows: each
-            project is framed around the product decision, constraint, and
-            evidence a hiring team needs to understand the work quickly.
+            The set covers AI literacy, creator platforms, and hospitality AI,
+            with the problem, constraint, decision, and evidence kept close to
+            the surface.
           </motion.p>
         </div>
 
@@ -98,8 +98,7 @@ const FeaturedProjectsSection = () => {
                     Additional selected work
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">
-                    Supporting examples for education, security, and product
-                    systems.
+                    More work across education, security, and product systems.
                   </p>
                 </div>
               </div>

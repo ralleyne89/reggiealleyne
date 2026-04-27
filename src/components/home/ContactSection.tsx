@@ -67,7 +67,7 @@ const ContactSection = () => {
         body: formData
       });
       if (error) throw error;
-      toast.success("Message sent! I'll get back to you as soon as possible.");
+      toast.success("Message sent. I'll get back to you soon.");
       formElement.reset();
     } catch (error) {
       console.error("Error sending email:", error);
@@ -98,11 +98,12 @@ const ContactSection = () => {
             Get in touch
           </p>
           <h2 className="max-w-xl break-words font-display text-[2.25rem] font-semibold leading-tight text-white [text-wrap:balance] sm:text-display-md">
-            Have a project in mind or want to discuss potential collaborations?
+            Have a messy product problem, an AI workflow, or a prototype that
+            needs shape?
           </h2>
           <p className="mt-5 max-w-lg text-base leading-7 text-slate-300 sm:text-lg">
-            I'd love to hear from you. Send a note about the problem, the team,
-            or the prototype you are trying to make real.
+            Send me the problem, the team, and what needs to be real enough to
+            test.
           </p>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
@@ -175,7 +176,7 @@ const ContactSection = () => {
           <div className="mb-6 flex items-start justify-between gap-4">
             <div>
               <p className="text-sm font-semibold uppercase tracking-normal text-primary-light">
-                Start a conversation
+                Project note
               </p>
               <h3 className="mt-2 font-display text-2xl font-semibold text-white">
                 Tell me what you are building.
@@ -205,7 +206,7 @@ const ContactSection = () => {
               <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-200">
                 Message
               </label>
-              <textarea id="message" name="message" rows={5} required placeholder="Tell me about your project or what you'd like to discuss..." className={`${fieldClassName} min-h-36 resize-y`}></textarea>
+              <textarea id="message" name="message" rows={5} required placeholder="What are you building, and what needs to get clearer?" className={`${fieldClassName} min-h-36 resize-y`}></textarea>
             </div>
 
             <input aria-hidden="true" autoComplete="off" className="hidden" name="honeypot" tabIndex={-1} type="text" />
@@ -236,8 +237,8 @@ const ContactSection = () => {
               {isSubmitting
                 ? "Sending..."
                 : isTurnstileConfigured
-                  ? "Send Message"
-                  : "Open Email Draft"}
+                  ? "Send message"
+                  : "Open email draft"}
               <Send size={17} />
             </button>
           </form>

@@ -55,7 +55,7 @@ const ProjectConclusion = ({
   return (
     <EditorialSection
       eyebrow="Closeout"
-      title="Where the project landed."
+      title="Where it landed."
       className="border-b border-gray-200"
       tone="soft"
     >

@@ -15,7 +15,7 @@ const OutcomesImpact = () => {
               What I Accomplished
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              I created a complete MVP for TECH NOIR that solved the real problem of people not knowing how to style wearable tech. The designs were solid, the concept was unique, and I delivered everything within the 2-month timeline. Unfortunately, I didn't stick around to see how the actual product performed in the market.
+              I created a complete MVP for TECH NOIR around a clear problem: people were interested in wearable tech, but unsure how it fit into personal style. I delivered the research, product flows, and high-fidelity designs within the 2-month timeline, though I was not involved long enough to measure market performance.
             </p>
             
             {/* Key Metrics */}
@@ -52,7 +52,7 @@ const OutcomesImpact = () => {
           {/* Level 2: Key Actions Taken */}
           <div className="mb-12">
             <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-6">
-              Key Design Strategies That Moved the Needle
+              Design strategies that shaped the product
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Card className="bg-white border border-gray-200 rounded-lg overflow-hidden">
@@ -64,8 +64,7 @@ const OutcomesImpact = () => {
                     <h4 className="text-lg font-semibold text-gray-900">Educational Integration</h4>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
-                    Integrated "How to Wear" guides and video modules that transformed shopping 
-                    into a learning experience, addressing the core problem of user uncertainty.
+                    Integrated "How to Wear" guides and video modules so shoppers could understand styling options while they browsed.
                   </p>
                 </CardContent>
               </Card>
@@ -79,8 +78,7 @@ const OutcomesImpact = () => {
                     <h4 className="text-lg font-semibold text-gray-900">Luxury Aesthetic</h4>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
-                    Created a premium, dark-themed interface that elevated wearable tech 
-                    to fashion-forward status, appealing to style-conscious consumers.
+                    Created a premium, dark-themed interface that positioned wearable tech closer to fashion accessories than generic devices.
                   </p>
                 </CardContent>
               </Card>
@@ -94,8 +92,7 @@ const OutcomesImpact = () => {
                     <h4 className="text-lg font-semibold text-gray-900">User-Centered Research</h4>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
-                    Conducted comprehensive user research and persona development that 
-                    directly informed design decisions and content strategy.
+                    Used interviews and persona work to define the styling uncertainty the product needed to solve.
                   </p>
                 </CardContent>
               </Card>
@@ -109,8 +106,7 @@ const OutcomesImpact = () => {
                     <h4 className="text-lg font-semibold text-gray-900">Visual Discovery Flow</h4>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
-                    Designed an intuitive timeline flow (Discover → Learn → Try-On → Buy) 
-                    that guides users through education to purchase decision.
+                    Designed a timeline flow (Discover, Learn, Try On, Buy) that moved users from product interest to purchase confidence.
                   </p>
                 </CardContent>
               </Card>
@@ -120,14 +116,13 @@ const OutcomesImpact = () => {
           {/* Level 3: Detailed Achievement Breakdown */}
           <div>
             <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-6">
-              How Success Was Achieved
+              What supported the direction
             </h3>
             <div className="space-y-6">
               <div className="bg-gray-50 rounded-lg p-6">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Research-Driven Design Process</h4>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Through comprehensive surveys and field research, we identified that users had heard of wearable tech 
-                  but lacked confidence in styling it. This insight directly shaped our educational approach and content strategy.
+                  Through surveys and field research, we identified that users had heard of wearable tech but lacked confidence in styling it. That shaped the educational approach and content strategy.
                 </p>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-3">
@@ -148,8 +143,7 @@ const OutcomesImpact = () => {
               <div className="bg-gray-50 rounded-lg p-6">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Competitive Analysis & Innovation</h4>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Analysis of premium e-commerce platforms like Net-A-Porter informed our clean layout and designer 
-                  filters, while identifying the gap in educational content that Tech Noir uniquely filled.
+                  Analysis of premium e-commerce platforms like Net-A-Porter informed the clean layout and designer filters, while revealing room for wearable-tech education inside the shopping flow.
                 </p>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-3">
@@ -170,8 +164,7 @@ const OutcomesImpact = () => {
               <div className="bg-gray-50 rounded-lg p-6">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Design Excellence & User Testing</h4>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  The final design combined luxury aesthetics with functional education, validated through user testing 
-                  that confirmed improved confidence and positive reception of the styling modules.
+                  The final design combined luxury aesthetics with practical education, then used user feedback to refine the styling modules and product pages.
                 </p>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-3">

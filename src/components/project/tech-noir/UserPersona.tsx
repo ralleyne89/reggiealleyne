@@ -57,7 +57,7 @@ const TechNoirUserPersona = () => {
                 <li>
                   • To be the friend everyone asks "where did you get that?"
                 </li>
-                <li>• Tech that actually looks good with her outfits</li>
+                <li>• Tech that looks good with her outfits</li>
                 <li>
                   • To stay ahead of trends without looking like she raided a
                   RadioShack
@@ -72,7 +72,7 @@ const TechNoirUserPersona = () => {
               <ul className="space-y-2 text-gray-300">
                 <li>• Everything looks like it belongs in a doctor's office</li>
                 <li>
-                  • Zero help figuring out how to actually wear this stuff
+                  • Little help figuring out how to wear these products
                 </li>
                 <li>• The "fashionable" options are still pretty ugly</li>
               </ul>
@@ -84,9 +84,9 @@ const TechNoirUserPersona = () => {
               </h4>
               <ul className="space-y-2 text-gray-300">
                 <li>
-                  • Someone to curate the good stuff so she doesn't have to dig
+                  • Someone to curate the strongest options so she doesn't have to dig
                 </li>
-                <li>• Real styling advice, not just product specs</li>
+                <li>• Real styling advice alongside product specs</li>
                 <li>
                   • Confidence that she'll look cool, not like a walking
                   computer

@@ -72,10 +72,10 @@ const Playground = () => {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-gray-950">
-                      4 prototypes
+                      {experiments.length} prototypes
                     </p>
                     <p className="text-sm text-gray-600">
-                      Built to test product feel, not just visuals.
+                      Built to test product feel and interaction behavior.
                     </p>
                   </div>
                 </div>
@@ -112,11 +112,11 @@ const Playground = () => {
                           </div>
                           <div>
                             <p className="font-display text-2xl font-semibold tracking-normal">
-                              Staybooked
+                              {experiment.title}
                             </p>
                             <p className="mt-2 max-w-[18rem] text-sm leading-6 text-white/75">
-                              Availability, intake, confirmation, and follow-up
-                              states for service reservations.
+                              Prototype surface with enough detail to evaluate
+                              the interaction direction.
                             </p>
                           </div>
                         </div>

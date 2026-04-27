@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  CalendarCheck,
   CheckCircle2,
   PanelsTopLeft,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 
 const heroProofPoints = [
@@ -28,9 +28,9 @@ const projectSignals = [
   },
   {
     name: "Staybooked",
-    label: "Booking workflow",
-    signal: "Stateful service flow",
-    Icon: CalendarCheck,
+    label: "Hospitality AI",
+    signal: "Host optimizer flow",
+    Icon: Sparkles,
   },
 ];
 
@@ -53,13 +53,12 @@ const HeroSection = () => {
             </p>
 
             <h1 className="break-words font-display text-[2.28rem] font-semibold leading-[1.03] tracking-normal text-gray-950 [text-wrap:balance] sm:text-[3.45rem] lg:text-[4.05rem]">
-              Designing AI products people can understand, trust, and use.
+              I design AI products people can understand, trust, and use.
             </h1>
 
             <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-text-secondary sm:mt-6 sm:text-xl sm:leading-8 lg:mx-0">
-              I design and build AI-powered interfaces, dashboards, and
-              mobile-first product systems from research and flows to polished,
-              frontend-ready UI.
+              I turn research, rough product bets, and edge cases into clear
+              interfaces, testable flows, and React prototypes.
             </p>
 
             <div className="mt-5 grid gap-3 text-left sm:mt-6 sm:grid-cols-3">
@@ -115,8 +114,7 @@ const HeroSection = () => {
                         Trust-first AI product systems
                       </div>
                       <p className="mt-1 text-[0.7rem] text-white/70 sm:text-xs">
-                        Research-backed flows / design systems / React
-                        prototypes
+                        Research, design systems, and React prototypes
                       </p>
                     </div>
                   </div>

@@ -96,7 +96,7 @@ const Works = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Product decisions, not just polished screens.
+              The product decisions behind the interface.
             </motion.h1>
             <motion.p
               className="mt-5 max-w-2xl text-base leading-7 text-text-secondary sm:text-lg sm:leading-8"
@@ -104,8 +104,8 @@ const Works = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.08 }}
             >
-              The featured case studies are curated for AI/product-design
-              review. Each one highlights the problem, constraint, decision, and
+              The featured case studies focus on AI and product-design
+              judgment. Each one shows the problem, constraint, decision, and
               evidence behind the interface.
             </motion.p>
           </section>
@@ -206,8 +206,8 @@ const Works = () => {
                   Additional selected work
                 </h2>
                 <p className="mt-2 max-w-2xl text-text-secondary">
-                  Supporting examples that show range across education,
-                  security, entertainment, and product systems.
+                  More examples across education, security, entertainment, and
+                  product systems.
                 </p>
               </div>
             </div>

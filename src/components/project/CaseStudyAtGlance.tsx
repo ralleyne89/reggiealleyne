@@ -35,10 +35,10 @@ const glanceVisuals: Record<
     proofPoints: ["Confidence", "Citations", "Reasoning"],
   },
   staybooked: {
-    image: "/images/staybooked-preview.svg",
-    alt: "Staybooked booking workflow preview with availability, intake, and reservation states",
-    label: "Booking workflow model",
-    proofPoints: ["Availability", "Intake", "Follow-up"],
+    image: "/images/staybooked/marketing-homepage-hero-desktop.png",
+    alt: "Staybooked AI listing optimizer homepage with room optimizer product preview",
+    label: "Host optimization workflow",
+    proofPoints: ["Room renders", "Listing copy", "Audit signals"],
   },
 };
 
@@ -87,14 +87,14 @@ const CaseStudyAtGlance = ({ project }: CaseStudyAtGlanceProps) => {
         <div className="grid min-w-0 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-10">
           <div className="min-w-0">
             <p className="text-sm font-semibold leading-5 text-primary">
-              TL;DR for hiring review
+              Case study snapshot
             </p>
             <h2 className="mt-3 max-w-xl break-words font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
-              The short version before you dig in.
+              What I made, decided, and proved.
             </h2>
             <p className="mt-4 max-w-xl text-base leading-7 text-gray-600">
-              Role, problem, evidence, tools, and ownership in one pass for
-              recruiters and hiring managers scanning on mobile.
+              A quick read on role, constraint, evidence, tools, and ownership
+              for reviewers scanning the project.
             </p>
 
             {visual ? (

@@ -86,7 +86,7 @@ const FinalUIDesign = ({
       {designHighlights.length > 0 ? (
         <div className="mb-12 rounded-lg border border-gray-200 bg-gray-50 p-5 sm:p-6">
           <h3 className="text-xl font-semibold text-gray-950">
-            Design highlights
+            Design choices
           </h3>
           <ul className="mt-5 grid min-w-0 gap-3">
             {designHighlights.map((highlight) => (

@@ -73,8 +73,8 @@ const Footer = () => {
             </p>
             <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
               <h2 className="max-w-3xl break-words font-display text-[2rem] font-semibold leading-tight text-white [text-wrap:balance] sm:text-heading-xl">
-                Designing AI-powered interfaces, dashboards, and product
-                systems teams can trust.
+                Designing AI interfaces, dashboards, and product systems people
+                can inspect and use.
               </h2>
               <p className="max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
                 I bring product strategy, UX/UI craft, and frontend fluency to

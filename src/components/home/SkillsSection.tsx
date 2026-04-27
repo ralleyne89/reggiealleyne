@@ -18,7 +18,7 @@ const capabilities = [
   {
     title: "AI product strategy",
     description:
-      "Turn ambiguous AI ideas into clear value propositions, risk boundaries, and usable product flows.",
+      "Turn loose AI ideas into sharper product bets, risk boundaries, and flows people can test.",
     proof: "Litmus AI / SymptomCheckr",
     Icon: Brain,
     accent: "text-cyan-400",
@@ -26,7 +26,7 @@ const capabilities = [
   {
     title: "Trust and explainability",
     description:
-      "Design confidence, citations, reasoning, and consent patterns for products where trust is the product.",
+      "Design confidence, citations, reasoning, and consent patterns for products that ask users to trust a recommendation.",
     proof: "Health AI / assessment systems",
     Icon: Shield,
     accent: "text-emerald-400",
@@ -34,7 +34,7 @@ const capabilities = [
   {
     title: "Design systems and craft",
     description:
-      "Create interface systems that scale across teams, states, devices, and edge cases without losing polish.",
+      "Create interface systems that hold up across teams, states, devices, and edge cases.",
     proof: "Tokens / components / QA",
     Icon: Layout,
     accent: "text-primary",
@@ -42,7 +42,7 @@ const capabilities = [
   {
     title: "Production React prototypes",
     description:
-      "Build believable, testable frontends that help teams validate the actual experience before overbuilding.",
+      "Build testable frontends that help teams judge the real experience before the product hardens.",
     proof: "React / TypeScript / APIs",
     Icon: Code,
     accent: "text-sky-400",
@@ -79,12 +79,12 @@ const processSteps = [
   {
     step: "03",
     title: "Validate",
-    description: "Pressure-test assumptions with evidence, not just preference.",
+    description: "Pressure-test assumptions against evidence and user behavior.",
   },
   {
     step: "04",
     title: "Ship",
-    description: "Translate the chosen direction into polished, usable UI.",
+    description: "Turn the chosen direction into UI that holds up in use.",
   },
 ];
 
@@ -111,7 +111,7 @@ const SkillsSection = () => {
             transition={{ duration: 0.45 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            Capability system
+            How I work
           </motion.p>
           <motion.h2
             className="font-display text-display-md leading-tight text-gray-950"
@@ -129,9 +129,9 @@ const SkillsSection = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            I help teams clarify what should be built, design the experience
-            people can trust, and prototype enough of the product to prove the
-            direction.
+            I help teams decide what should be built, design the parts people
+            need to trust, and prototype enough of the product to expose the
+            hard questions early.
           </motion.p>
         </div>
 
@@ -150,11 +150,11 @@ const SkillsSection = () => {
                     Core expertise
                   </p>
                   <h3 className="mt-2 font-display text-2xl font-semibold leading-tight sm:text-3xl">
-                    The work I am hired to make clearer.
+                    The work I make clearer.
                   </h3>
                 </div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/70">
-                  Senior review ready
+                  Built to inspect
                   <ArrowRight className="h-3.5 w-3.5" />
                 </div>
               </div>

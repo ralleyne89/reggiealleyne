@@ -6,24 +6,24 @@ export const getTechNoirProject = (): ProjectType => {
     id: 3,
     slug: "tech-noir", 
     title: "TECH NOIR",
-    description: "A Fashion & Technology Driven E-Commerce App bringing high fashion and wearable tech together in one stylish, educational platform.",
-    fullDescription: "Tech Noir is a mobile e-commerce experience created to merge the worlds of wearable technology and high fashion. The app not only showcases trend-setting fashion-tech pieces but also educates users on how to wear and understand them. It's designed to inspire, inform, and sell—bridging the gap between style and innovation.",
+    description: "A mobile e-commerce concept for luxury wearable tech, with product education, styling content, and AR try-on in the buying flow.",
+    fullDescription: "Tech Noir is a mobile shopping concept for wearable technology in a high-fashion context. The app pairs product pages with styling guidance, editorial content, designer collections, and try-on moments so shoppers can understand the category before they buy.",
     image: "/images/tech-noir-banner.png", // Updated to use dedicated Tech Noir banner
     category: "E-commerce",
     tags: ["E-commerce", "Fashion", "Wearable Tech", "UX/UI Design"],
     role: "UX, UI & Visual Designer",
     duration: "2 months",
     year: "2016",
-    challenge: "Wearable tech is misunderstood and underexplored in e-commerce. Many users don't know what wearable tech is, how it works, or how to incorporate it into their wardrobe. If consumers don't understand its function, they won't see it as fashionable.",
+    challenge: "Wearable tech was still hard for many shoppers to understand. If people could not picture how a device worked, looked, or fit into an outfit, they were unlikely to see it as fashion.",
     process: [
-      "Research & Discovery - Conducted surveys and field research to gauge wearable tech awareness. Found that most users had heard of it, but didn't know how to style it. Majority preferred in-store purchases due to uncertainty.",
-      "Competitive Analysis - Analyzed apps like Net-A-Porter, Nordstrom, and Farfetch. Inspired by Net-A-Porter's clean layout, designer filters, and video usage. Focused on standout features like 'What's New' and designer collections.",
-      "Persona Creation - Tech Tina – 27-year-old fashionista, always on trend, tech-curious. Goals: Become a fashion-tech icon, expand knowledge, share style. Pain points: No one-stop-shop for stylish wearable tech or inspiration.",
-      "UX & UI Design - Designed a clean, dark-themed interface with video modules and style guides. Focused on modular product pages with 'How to Wear' guides. Created a Visual Timeline Flow: Discover → Learn → Try-On → Buy."
+      "Research & Discovery - Surveyed and interviewed shoppers about wearable tech awareness. Most had heard of the category but did not know how to style it, and many preferred stores because online context felt thin.",
+      "Competitive Analysis - Reviewed Net-A-Porter, Nordstrom, and Farfetch to study designer filters, editorial video, new-arrival moments, and collection pages.",
+      "Persona Creation - Built Tech Tina, a 27-year-old fashion-forward, tech-curious shopper, to keep product education tied to style goals.",
+      "UX & UI Design - Designed a dark editorial interface with video modules, style guides, modular product pages, and a simple path: discover, learn, try on, buy."
     ],
     deliverables: [
       "Product Discovery - Clean layout with high-res lookbooks and designer filters",
-      "How to Wear - Videos and photo guides showing styling examples",
+      "How to Wear - Videos and photo guides with styling examples",
       "AR Try-On (concept) - Users preview how products look on their body",
       "Designer Pages - Curated collections, collaborations, and exclusive drops",
       "Blog - Trend insights, tech news, and daily posts about fashion & wearables"
@@ -38,26 +38,26 @@ export const getTechNoirProject = (): ProjectType => {
     ],
     conclusion: {
       impact: "75% of testers said they felt more confident exploring wearable tech. Strong positive feedback on the luxury aesthetic and video styling modules. Research-informed personas led to better content structure and usability.",
-      learnings: "Tech Noir was a unique opportunity to combine my passions for fashion, storytelling, and UX/UI design. It taught me how to elevate digital retail experiences through education and style.",
+      learnings: "Tech Noir taught me that education can be part of retail UX when the category is unfamiliar. The strongest screens paired product desire with enough context to reduce hesitation.",
       nextSteps: "If expanded, I'd add personalized onboarding, real-time AR try-ons, and community-based lookbooks to increase engagement."
     },
     techStack: ["Figma", "Adobe XD", "Illustrator", "Miro", "UserZoom", "Photoshop"],
     keyAchievements: [
-      "Created a unique e-commerce model that blends shopping with discovery",
-      "Designed high-fidelity prototypes and user flows in Figma", 
-      "Created a brand aesthetic aligned with luxury and tech-forward vibes"
+      "Prototyped a commerce model that blends shopping with product education",
+      "Designed detailed prototypes and user flows in Figma",
+      "Defined a luxury visual system for a tech-forward fashion category"
     ],
-    problemSolved: "The gap between wearable technology and fashion, helping users understand and confidently incorporate tech into their personal style.",
+    problemSolved: "Helped shoppers understand what wearable tech is, how it works, and how it could fit into personal style.",
     technicalHighlights: [
       "Clean, dark-themed interface with video modules",
       "Modular product pages with 'How to Wear' guides",
-      "Visual Timeline Flow: Discover → Learn → Try-On → Buy",
+      "Visual flow: discover, learn, try on, buy",
       "Designer filters and high-resolution lookbooks"
     ],
     teamSize: "3 members",
     methodologies: ["User Research", "Competitive Analysis", "Persona Creation", "Prototyping", "Usability Testing"],
-    summary: "Tech Noir is a mobile e-commerce experience bringing high fashion and wearable tech together in one stylish, educational platform that inspires, informs, and sells.",
-    solution: "Built an intuitive mobile e-commerce platform that not only sells wearable technology fashion items but educates users on how to style and incorporate them into their wardrobes, with features like AR try-on, designer collections, and educational content.",
+    summary: "Tech Noir is a mobile e-commerce concept that places wearable tech inside a luxury fashion shopping flow with styling guidance and editorial context.",
+    solution: "Designed a mobile shopping flow that helps people browse wearable technology, learn how to style it, preview try-on moments, and explore designer collections.",
     videoUrl: "https://drive.google.com/file/d/17QHz02DcNbzIJYMpO2d5rtkfWZ_aw_H8/view?usp=sharing"
   };
 };

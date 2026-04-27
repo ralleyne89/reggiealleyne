@@ -27,27 +27,27 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
     featuredTitle: "AI Literacy Platform",
     eyebrow: "AI education / assessment",
     impactSummary:
-      "Adaptive testing and certification in under five minutes, built from strategy through shipped MVP.",
+      "A five-minute assessment and certificate flow that gives learners a clear AI literacy baseline.",
     reviewerSignal:
-      "Shows AI product strategy, learning experience design, monetization thinking, and founder-level execution.",
+      "Gives reviewers evidence of AI product strategy, learning design, payments, and solo-founder execution.",
   },
   {
     slug: "cllctve-platform",
     featuredTitle: "Gen Z Portfolio Platform",
     eyebrow: "Creator economy / platform design",
     impactSummary:
-      "A mobile-first product bet that reached 500+ creators, 15 brand partnerships, and 85% retention.",
+      "A mobile-first creator portfolio bet that reached 500+ creators, 15 brand partnerships, and 85% retention.",
     reviewerSignal:
-      "Shows product tradeoff thinking, design systems leadership, and market-positioning judgment.",
+      "Gives reviewers a read on tradeoff decisions across mobile behavior, design systems, and brand constraints.",
   },
   {
     slug: "staybooked",
-    featuredTitle: "Booking Workflow Prototype",
-    eyebrow: "Service workflow / product states",
+    featuredTitle: "AI Airbnb Optimizer",
+    eyebrow: "Hospitality AI / host workflow",
     impactSummary:
-      "A review-ready booking flow for availability, intake, confirmations, and follow-up states.",
+      "A room and listing optimizer that helps short-term rental hosts improve photos, copy, and booking signals.",
     reviewerSignal:
-      "Shows product-state modeling, scheduling UX, service workflow clarity, and frontend-ready prototyping.",
+      "Gives reviewers a concrete AI product surface: host workflow, trust-aware image generation, and frontend execution.",
   },
 ];
 
@@ -59,26 +59,27 @@ export const caseStudyBriefs: Partial<
   Record<FeaturedProjectSlug | string, CaseStudyBrief>
 > = {
   "litmus-ai": {
-    audience: "Professionals, students, and teams who need a credible AI literacy baseline.",
+    audience:
+      "Students, professionals, and teams who need a credible AI literacy baseline before choosing training.",
     constraint:
-      "The assessment had to feel fast enough for broad adoption while still producing useful learning signals.",
+      "The test had to stay short enough for busy users while still producing learning signals a team could trust.",
     coreDecision:
-      "Use adaptive AI questioning and post-test learning paths instead of a static course-first experience.",
+      "Start with adaptive assessment, then send people to learning paths based on what they missed.",
     evidence:
-      "Shipped a functional MVP with GPT-powered assessment logic, certification, admin visibility, and Stripe monetization.",
+      "Shipped an MVP with GPT-powered assessment, certification, admin visibility, and Stripe payment paths.",
     artifacts: [
       "Adaptive assessment flow",
-      "Results and recommendation experience",
-      "Certification and payment model",
+      "Results and recommendations",
+      "Certificate and payment flow",
     ],
   },
   "cllctve-platform": {
     audience:
-      "Gen Z creators who needed a portfolio experience aligned with mobile-first social behavior.",
+      "Gen Z creators building portfolios from the same phones they used to share their work.",
     constraint:
-      "The product could not out-feature Behance, so it had to win on behavior fit and speed of iteration.",
+      "Behance already owned the professional portfolio lane, so the product had to win on mobile behavior and community feedback.",
     coreDecision:
-      "Prioritize mobile engagement and community feedback over desktop feature parity and deep analytics.",
+      "Prioritize mobile creation and creator feedback over desktop feature parity and deep analytics.",
     evidence:
       "Reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
     artifacts: [
@@ -89,28 +90,28 @@ export const caseStudyBriefs: Partial<
   },
   "staybooked": {
     audience:
-      "Small service teams managing customer requests, availability, confirmations, and follow-up.",
+      "Independent Airbnb and short-term rental hosts tuning photos, copy, amenities, and trust cues before guests decide.",
     constraint:
-      "The prototype needed to show useful workflow logic without pretending to be a full scheduling platform.",
+      "The product needed to make AI output feel practical and believable without encouraging deceptive listing visuals.",
     coreDecision:
-      "Model the booking journey around visible states: availability, pending intake, confirmed reservation, and follow-up.",
+      "Build around first impressions: room photos, titles, opening copy, amenities, and audit cues.",
     evidence:
-      "Route-backed project data and a responsive prototype structure make the workflow reviewable before a full demo exists.",
+      "Desktop product screens cover the homepage, sign-in, dashboard, and room optimizer workflow.",
     artifacts: [
-      "Booking flow map",
-      "Availability and intake states",
-      "Reservation and follow-up model",
+      "Marketing homepage",
+      "Room optimizer upload flow",
+      "Dashboard and auth screens",
     ],
   },
   "symptom-checkr": {
     audience:
       "People using AI-assisted symptom guidance who need clarity without panic or blind trust.",
     constraint:
-      "Healthcare AI needed transparency, but every explanation added visual complexity to a sensitive flow.",
+      "Healthcare AI needed transparency, but every added explanation made a sensitive flow harder to scan.",
     coreDecision:
       "Expose confidence levels, citations, and reasoning chains instead of hiding AI logic behind a simple answer.",
     evidence:
-      "The concept documents how transparency, graduated certainty, and saved reports could reduce black-box anxiety.",
+      "The concept maps how confidence, source links, and saved reports could make AI guidance easier to question.",
     artifacts: [
       "Explainable AI assessment UI",
       "Confidence and citation patterns",
