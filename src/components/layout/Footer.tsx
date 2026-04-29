@@ -58,8 +58,8 @@ const Footer = () => {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl py-12 sm:py-16">
         <div className="border-b border-white/10 pb-8">
-          <div className="min-w-0">
-            <Link to="/" className="mb-6 inline-flex">
+          <div className="flex min-w-0 flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
+            <Link to="/" className="inline-flex shrink-0">
               <img
                 src="/images/RA_logo_white.png"
                 alt="Reggie Alleyne Logo"
@@ -67,7 +67,7 @@ const Footer = () => {
               />
             </Link>
 
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-semibold uppercase text-primary-light">
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-semibold uppercase leading-5 text-primary-light">
               <Sparkles size={14} />
               Product Designer & AI Technologist
             </p>

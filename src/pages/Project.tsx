@@ -79,6 +79,11 @@ const ScentStackCaseStudy = lazy(() =>
     default: module.ScentStackCaseStudy,
   })),
 );
+const StaybookedCaseStudy = lazy(() =>
+  import("@/projects/staybooked").then((module) => ({
+    default: module.StaybookedCaseStudy,
+  })),
+);
 
 const CaseStudyFallback = () => (
   <div className="mx-auto max-w-7xl px-6 py-12">
@@ -99,6 +104,7 @@ const caseStudySlugs = new Set([
   "litmus-ai",
   "vaultjs-validate",
   "scent-stack",
+  "staybooked",
 ]);
 
 const setMetaContent = (
@@ -327,6 +333,8 @@ const Project = () => {
         return <VaultJSValidateCaseStudy />;
       case "scent-stack":
         return <ScentStackCaseStudy />;
+      case "staybooked":
+        return <StaybookedCaseStudy />;
       default:
         return (
           <div className="min-h-screen bg-white flex items-center justify-center">

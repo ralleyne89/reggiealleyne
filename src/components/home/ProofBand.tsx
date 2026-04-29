@@ -17,10 +17,10 @@ const ProofBand = () => {
             Proof in 30 seconds
           </p>
           <h2 className="mt-3 max-w-2xl break-words font-display text-3xl leading-tight tracking-normal text-white [text-wrap:balance] sm:text-4xl">
-            The thesis is backed by shipped surfaces, measurable outcomes, and inspectable artifacts.
+            Start with the work that shows how I think, build, and make tradeoffs.
           </h2>
           <p className="mt-4 max-w-xl text-sm leading-6 text-gray-300 sm:text-base sm:leading-7">
-            A reviewer should not have to infer whether the work is real. The first scan now gives them outcomes, case-study paths, and the operating style behind the work.
+            These three case studies put the range on the table early: AI assessment, creator platforms, and a trust-aware host workflow.
           </p>
 
           <div className="mt-7 rounded-lg border border-white/10 bg-white/[0.04] p-4">
@@ -76,7 +76,7 @@ const ProofBand = () => {
                 Artifact links
               </h3>
               <span className="text-xs font-semibold uppercase leading-5 tracking-[0.12em] text-gray-500">
-                Flagship scans
+                Quick paths
               </span>
             </div>
             <div className="grid min-w-0 gap-3">

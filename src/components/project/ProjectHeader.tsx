@@ -92,6 +92,13 @@ const caseStudyHeroConfigs: Array<{
     },
   },
   {
+    matches: (title) => title.includes("Staybooked"),
+    config: {
+      image: "/images/staybooked/marketing-homepage-hero-desktop.png",
+      useProjectImage: true,
+    },
+  },
+  {
     matches: (title) => title === "Tutor D",
     config: {
       image: "/images/bfe72208-e9fa-458d-9323-791c39cf2292.png",
@@ -215,9 +222,9 @@ const ProjectHeader = ({
             />
           </div>
 
-          <div className="min-w-0">
+          <div className="min-w-0 max-md:pb-20">
             <div className="overflow-hidden rounded-lg border border-gray-200 bg-gray-100 shadow-sm">
-              <div className="aspect-[4/3]">
+              <div className="aspect-[16/6] sm:aspect-[4/3]">
                 <img
                   src={imageError ? "/placeholder.svg" : heroImage}
                   alt={title}

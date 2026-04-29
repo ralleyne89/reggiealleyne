@@ -63,8 +63,9 @@ const HeroSection = () => {
             </h1>
 
             <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-text-secondary sm:mt-6 sm:text-xl sm:leading-8 lg:mx-0">
-              I turn research, rough product bets, and edge cases into clear
-              interfaces, testable flows, and React prototypes.
+              My strongest work is in the messy middle: mapping uncertainty,
+              shaping the decision flow, and building enough of the interface
+              to test the bet.
             </p>
 
             <div className="mt-5 grid gap-3 text-left sm:mt-6 sm:grid-cols-3">
@@ -103,7 +104,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.12, ease: "easeOut" }}
           >
-            <div className="relative px-1 pb-6 sm:px-8 sm:pb-8">
+            <div className="relative px-1 pb-6 pt-8 sm:px-8 sm:pb-8 sm:pt-10">
               <div className="absolute inset-x-3 bottom-0 top-0 rounded-[2rem] border border-primary/15 bg-primary/[0.06] shadow-inner shadow-primary/10 sm:inset-x-8" />
 
               <div className="relative z-10 mx-auto max-w-[20rem] sm:max-w-[26rem]">
@@ -117,10 +118,10 @@ const HeroSection = () => {
                     <div className="liquid-glass liquid-glass-dark absolute inset-x-3 bottom-3 rounded-2xl p-3 text-white sm:inset-x-4 sm:bottom-4 sm:p-4">
                       <div className="flex items-center gap-2 text-xs font-semibold sm:text-sm">
                         <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_0_5px_rgba(52,211,153,0.18)]" />
-                        Trust-first AI product systems
+                        AI product systems with visible reasoning
                       </div>
                       <p className="mt-1 text-[0.7rem] text-white/70 sm:text-xs">
-                        Research, design systems, and React prototypes
+                        Decision flows, guardrails, and working UI
                       </p>
                     </div>
                   </div>

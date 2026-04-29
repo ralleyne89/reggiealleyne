@@ -59,7 +59,7 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
     impactSummary:
       "A five-minute assessment and certificate flow that gives learners a clear AI literacy baseline.",
     reviewerSignal:
-      "Gives reviewers evidence of AI product strategy, learning design, payments, and solo-founder execution.",
+      "Shows AI product strategy, learning design, payments, and solo-founder execution in one shipped MVP.",
   },
   {
     slug: "cllctve-platform",
@@ -68,7 +68,7 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
     impactSummary:
       "A mobile-first creator portfolio bet that reached 500+ creators, 15 brand partnerships, and 85% retention.",
     reviewerSignal:
-      "Gives reviewers a read on tradeoff decisions across mobile behavior, design systems, and brand constraints.",
+      "Shows the tradeoffs behind mobile behavior, design systems, and brand constraints.",
   },
   {
     slug: "staybooked",
@@ -77,7 +77,7 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
     impactSummary:
       "A room and listing optimizer that helps short-term rental hosts improve photos, copy, and booking signals.",
     reviewerSignal:
-      "Gives reviewers a concrete AI product surface: host workflow, trust-aware image generation, and frontend execution.",
+      "Shows a concrete AI product surface: host workflow, trust-aware image generation, and frontend execution.",
   },
 ];
 
@@ -132,10 +132,10 @@ export const homepageProofArtifacts: HomepageProofArtifact[] = [
 
 export const homepageWorkflowSignal: HomepageWorkflowSignal = {
   eyebrow: "How I work",
-  title: "Research, prototype, ship, then make the proof easy to inspect.",
+  title: "Make the messy part visible before the interface gets polished.",
   description:
-    "The strongest work sits where product judgment, AI constraints, and frontend execution all touch the same screen.",
-  steps: ["Ambiguity map", "Clickable flow", "AI guardrails", "React surface"],
+    "I map the uncertainty, prototype the decision flow, define the guardrails, and build enough of the UI to test it.",
+  steps: ["Map ambiguity", "Prototype the flow", "Define guardrails", "Build the surface"],
 };
 
 export const caseStudyBriefs: Partial<

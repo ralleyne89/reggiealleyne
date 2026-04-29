@@ -78,7 +78,7 @@ export const getStaybookedProject = (): ProjectType => {
       learnings:
         "This project taught me to treat AI listing tools as decision systems: the host needs to understand what to improve, why it matters, and how to keep the result believable.",
       nextSteps:
-        "Expand the portfolio entry into a full case study with before-and-after room examples, listing audit outputs, and the product decisions behind the host workflow.",
+        "Add recorded walkthrough clips, before-and-after room examples, and listing audit output samples so the case study can show the product in motion.",
     },
   };
 };
