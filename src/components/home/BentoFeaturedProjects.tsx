@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ProjectType } from "@/types/project";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { Code, Palette, Layout, Monitor, Brain } from "lucide-react";
+import { getProjectPath } from "@/lib/projectRoutes";
 
 interface BentoFeaturedProjectsProps {
   projects?: ProjectType[];
@@ -65,9 +66,7 @@ const BentoFeaturedProjects = ({
       name: project.title,
       description: project.description,
       Icon: IconComponent,
-      href: project.slug
-        ? `/project/${project.slug}`
-        : `/project/${project.id}`,
+      href: getProjectPath(project),
       background: (
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/60 z-10"></div>

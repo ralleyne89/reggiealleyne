@@ -1,5 +1,8 @@
-import { CheckCircle2 } from "lucide-react";
-import { getCaseStudyBrief, getFeaturedConfig } from "@/config/portfolioCuration";
+import {
+  getCaseStudyBrief,
+  getCaseStudyTldr,
+  getFeaturedConfig,
+} from "@/config/portfolioCuration";
 import type { ProjectType } from "@/types/project";
 import { EditorialSection } from "./EditorialProjectLayout";
 
@@ -7,161 +10,116 @@ interface CaseStudyAtGlanceProps {
   project: ProjectType;
 }
 
-const glanceVisuals: Record<
-  string,
-  {
-    image: string;
-    alt: string;
-    label: string;
-    proofPoints: string[];
-  }
-> = {
-  "litmus-ai": {
-    image: "/images/litmus-ai-at-a-glance.jpg",
-    alt: "Abstract AI literacy product dashboard with assessment, learning path, and evidence panels",
-    label: "Product evidence map",
-    proofPoints: ["Adaptive assessment", "Credible signal", "Shipped MVP"],
-  },
-  "cllctve-platform": {
-    image: "/images/cllctve-gen-z-card.jpg",
-    alt: "Abstract Gen Z creator portfolio platform visual with mobile profile cards and creator network panels",
-    label: "Creator platform system",
-    proofPoints: ["Mobile-first bet", "Creator loops", "Design system"],
-  },
-  "symptom-checkr": {
-    image: "/images/symptomcheckr-trust-ai-card.jpg",
-    alt: "Abstract explainable health AI dashboard with confidence, source, and reasoning panels",
-    label: "Trust design system",
-    proofPoints: ["Confidence", "Citations", "Reasoning"],
-  },
-  staybooked: {
-    image: "/images/staybooked/marketing-homepage-hero-desktop.png",
-    alt: "Staybooked AI listing optimizer homepage with room optimizer product preview",
-    label: "Host optimization workflow",
-    proofPoints: ["Room renders", "Listing copy", "Audit signals"],
-  },
-};
-
-const compactList = (items?: string[] | null, limit = 3) =>
-  items?.filter(Boolean).slice(0, limit).join(" · ");
+const compactItems = (items?: string[] | null, limit = 4) =>
+  items?.filter(Boolean).slice(0, limit) || [];
 
 const CaseStudyAtGlance = ({ project }: CaseStudyAtGlanceProps) => {
+  const tldr = getCaseStudyTldr(project.slug);
   const brief = getCaseStudyBrief(project.slug);
   const config = getFeaturedConfig(project.slug);
-  const visual = project.slug ? glanceVisuals[project.slug] : undefined;
 
-  if (!brief && !config) {
+  if (!tldr && !brief && !config) {
     return null;
   }
 
+  const tools =
+    tldr?.tools?.length
+      ? tldr.tools
+      : compactItems(project.techStack || project.methodologies);
+  const owned =
+    tldr?.owned?.length
+      ? tldr.owned
+      : compactItems(brief?.artifacts || project.deliverables);
   const problem =
+    tldr?.problem ||
     project.problemSolved ||
     project.problem ||
     project.challenge ||
     brief?.audience;
   const outcome =
+    tldr?.outcome ||
     brief?.evidence ||
     project.conclusion?.impact ||
     config?.impactSummary ||
     project.summary;
-  const tools =
-    compactList(project.techStack) || compactList(project.methodologies);
-  const ownership =
-    compactList(brief?.artifacts) || compactList(project.deliverables);
 
   const details = [
-    { label: "Role", value: project.role },
-    { label: "Timeline", value: project.duration },
-    { label: "Team", value: project.teamSize },
+    { label: "Role", value: tldr?.role || project.role },
     { label: "Problem", value: problem },
-    { label: "Outcome / evidence", value: outcome },
-    { label: "Tools", value: tools },
-    { label: "What I owned", value: ownership },
-    { label: "Key decision", value: brief?.coreDecision },
+    { label: "Outcome", value: outcome },
   ].filter((item): item is { label: string; value: string } =>
     Boolean(item.value),
   );
 
   return (
-    <EditorialSection className="border-b border-gray-200" tone="soft">
-        <div className="grid min-w-0 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-10">
-          <div className="min-w-0">
-            <p className="text-sm font-semibold leading-5 text-primary">
-              Case study snapshot
-            </p>
-            <h2 className="mt-3 max-w-xl break-words font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
-              What I made, decided, and proved.
-            </h2>
-            <p className="mt-4 max-w-xl text-base leading-7 text-gray-600">
-              A quick read on role, constraint, evidence, tools, and ownership
-              for reviewers scanning the project.
-            </p>
+    <EditorialSection
+      className="border-b border-gray-200 py-5 sm:py-7"
+      contentClassName="max-w-7xl"
+      tone="soft"
+    >
+      <div className="min-w-0 rounded-lg border border-gray-200 bg-white p-4 shadow-sm sm:p-5 lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:gap-6 lg:p-6">
+        <div className="min-w-0 border-b border-gray-200 pb-4 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-6">
+          <p className="text-xs font-semibold uppercase leading-5 tracking-[0.14em] text-primary">
+            TL;DR
+          </p>
+          <h2 className="mt-2 break-words font-display text-2xl leading-tight text-gray-950 sm:text-3xl">
+            Quick read for reviewers
+          </h2>
+        </div>
 
-            {visual ? (
-              <div className="mt-7 overflow-hidden rounded-lg border border-gray-200 bg-gray-950 shadow-sm">
-                <div className="relative aspect-[16/10] min-h-[15rem]">
-                  <img
-                    src={visual.image}
-                    alt={visual.alt}
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950/75 via-transparent to-transparent" />
-                  <div className="absolute inset-x-4 bottom-4">
-                    <p className="text-xs font-semibold text-white/70">
-                      {visual.label}
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {visual.proofPoints.map((point) => (
-                        <span
-                          key={point}
-                          className="rounded-md border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur"
-                        >
-                          {point}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ) : null}
-          </div>
-
-          <dl className="grid min-w-0 gap-3 sm:grid-cols-2 sm:gap-4">
+        <div className="min-w-0 pt-4 lg:pt-0">
+          <dl className="grid min-w-0 gap-4 sm:grid-cols-3">
             {details.map((item) => (
-              <div
-                key={item.label}
-                className="min-w-0 rounded-lg border border-gray-200 bg-white p-4 shadow-sm"
-              >
-                <dt className="text-xs font-semibold text-gray-500">
+              <div key={item.label} className="min-w-0">
+                <dt className="text-xs font-semibold uppercase leading-5 tracking-[0.08em] text-gray-500">
                   {item.label}
                 </dt>
-                <dd className="mt-2 break-words text-sm leading-6 text-gray-900">
+                <dd className="mt-1 break-words text-sm leading-6 text-gray-900">
                   {item.value}
                 </dd>
               </div>
             ))}
+          </dl>
 
-            {brief?.artifacts ? (
-              <div className="min-w-0 rounded-lg border border-primary/20 bg-primary/5 p-4 sm:col-span-2">
-                <dt className="text-xs font-semibold text-primary">
-                  Key artifacts
-                </dt>
-                <dd className="mt-3 grid min-w-0 gap-2 sm:grid-cols-3">
-                  {brief.artifacts.map((artifact) => (
+          <div className="mt-4 grid gap-4 border-t border-gray-200 pt-4 sm:grid-cols-2">
+            {tools.length ? (
+              <div className="min-w-0">
+                <p className="text-xs font-semibold uppercase leading-5 tracking-[0.08em] text-gray-500">
+                  Tools
+                </p>
+                <div className="mt-2 flex min-w-0 flex-wrap gap-2">
+                  {tools.map((tool) => (
                     <span
-                      key={artifact}
-                      className="inline-flex items-start gap-2 text-sm leading-6 text-gray-800"
+                      key={tool}
+                      className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-semibold leading-5 text-gray-700"
                     >
-                      <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-primary" />
-                      {artifact}
+                      {tool}
                     </span>
                   ))}
-                </dd>
+                </div>
               </div>
             ) : null}
-          </dl>
+
+            {owned.length ? (
+              <div className="min-w-0">
+                <p className="text-xs font-semibold uppercase leading-5 tracking-[0.08em] text-gray-500">
+                  What I owned
+                </p>
+                <div className="mt-2 flex min-w-0 flex-wrap gap-2">
+                  {owned.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-md border border-primary/20 bg-primary/5 px-2.5 py-1 text-xs font-semibold leading-5 text-primary"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </div>
         </div>
+      </div>
     </EditorialSection>
   );
 };

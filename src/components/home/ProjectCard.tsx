@@ -7,7 +7,7 @@ interface ProjectCardProps {
   title: string;
   description: string;
   image: string;
-  slug: string;
+  href: string;
   tags?: string[];
   eyebrow?: string;
   impactSummary?: string;
@@ -21,7 +21,7 @@ const ProjectCard = ({
   title,
   description,
   image,
-  slug,
+  href,
   tags = [],
   eyebrow,
   impactSummary,
@@ -31,7 +31,7 @@ const ProjectCard = ({
   index,
 }: ProjectCardProps) => {
   return (
-    <Link to={`/project/${slug}`}>
+    <Link to={href}>
       <motion.div
         className="group flex h-full min-h-[24rem] min-w-0 cursor-pointer flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 sm:min-h-[28rem]"
         initial={{ opacity: 0, y: 50 }}

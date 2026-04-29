@@ -7,6 +7,10 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import ScrollToHash from "./components/layout/ScrollToHash";
 import { AnimatePresence } from "framer-motion";
+import {
+  CLLCTVE_PROJECT_CANONICAL_PATH,
+  CLLCTVE_PROJECT_ROUTE_ALIASES,
+} from "@/lib/projectRoutes";
 
 const Index = lazy(() => import("./pages/Index"));
 const Works = lazy(() => import("./pages/Works"));
@@ -49,6 +53,13 @@ const App = () => (
               <Route path="/works" element={<Works />} />
               <Route path="/playground" element={<Playground />} />
               <Route path="/about" element={<About />} />
+              {CLLCTVE_PROJECT_ROUTE_ALIASES.map((alias) => (
+                <Route
+                  key={alias}
+                  path={alias}
+                  element={<Navigate to={CLLCTVE_PROJECT_CANONICAL_PATH} replace />}
+                />
+              ))}
               <Route path="/project/:slug" element={<Project />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>

@@ -4,6 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Lightbulb, Clock, Users } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { getProjectPath } from "@/lib/projectRoutes";
 
 interface BentoProjectsGridProps {
   projects?: ProjectType[];
@@ -47,12 +48,7 @@ const BentoProjectsGrid = ({
 
   const handleProjectClick = (project: ProjectType, e: React.MouseEvent) => {
     e.preventDefault();
-
-    if (project.slug) {
-      navigate(`/project/${project.slug}`);
-    } else {
-      navigate(`/project/${project.id}`);
-    }
+    navigate(getProjectPath(project));
   };
 
   return (

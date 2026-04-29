@@ -10,6 +10,7 @@ import {
   sortProjectsNewestFirst,
 } from "@/config/portfolioCuration";
 import ProjectCard from "@/components/home/ProjectCard";
+import { getProjectPath } from "@/lib/projectRoutes";
 
 const FeaturedProjectsSection = () => {
   const { data: projects = [], isLoading } = useQuery({
@@ -79,7 +80,7 @@ const FeaturedProjectsSection = () => {
                   title={project.curation.featuredTitle}
                   description={project.description}
                   image={project.image}
-                  slug={project.slug || project.id.toString()}
+                  href={getProjectPath(project)}
                   tags={project.tags || []}
                   eyebrow={project.curation.eyebrow}
                   impactSummary={project.curation.impactSummary}
@@ -107,11 +108,7 @@ const FeaturedProjectsSection = () => {
                 {supportingProjects.map((project) => (
                   <Link
                     key={project.id}
-                    to={
-                      project.slug
-                        ? `/project/${project.slug}`
-                        : `/project/${project.id}`
-                    }
+                    to={getProjectPath(project)}
                     className="group flex min-h-16 min-w-0 items-center justify-between rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 transition-colors hover:border-primary/30 hover:bg-white"
                   >
                     <div className="min-w-0">

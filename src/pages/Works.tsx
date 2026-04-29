@@ -15,6 +15,7 @@ import {
   orderFeaturedProjects,
   sortProjectsNewestFirst,
 } from "@/config/portfolioCuration";
+import { getProjectPath } from "@/lib/projectRoutes";
 
 const Works = () => {
   useEffect(() => {
@@ -123,7 +124,7 @@ const Works = () => {
                   transition={{ duration: 0.45, delay: index * 0.08 }}
                 >
                   <Link
-                    to={`/project/${project.slug || project.id}`}
+                    to={getProjectPath(project)}
                     className="group block"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
@@ -187,7 +188,7 @@ const Works = () => {
                     ) : null}
 
                     <Link
-                      to={`/project/${project.slug || project.id}`}
+                      to={getProjectPath(project)}
                       className="mt-auto inline-flex min-h-11 items-center gap-2 pt-5 text-sm font-semibold text-primary hover:text-primary-dark sm:pt-6"
                     >
                       Read case study
@@ -219,7 +220,7 @@ const Works = () => {
                 return (
                   <Link
                     key={project.id}
-                    to={`/project/${project.slug || project.id}`}
+                    to={getProjectPath(project)}
                     className="group grid min-w-0 gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-4 transition-colors hover:border-primary/30 hover:bg-white sm:grid-cols-[9rem_1fr]"
                   >
                     <div className="aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">

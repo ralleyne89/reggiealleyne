@@ -13,6 +13,11 @@
   status = 301
 
 [[redirects]]
+  from = "/project/cllctve"
+  to = "/project/cllctve-platform"
+  status = 301
+
+[[redirects]]
   from = "/project/2"
   to = "/project/tutor-d"
   status = 301

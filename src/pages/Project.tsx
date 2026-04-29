@@ -13,6 +13,11 @@ import ProjectVideo from "@/components/project/ProjectVideo";
 import ProjectConclusion from "@/components/project/ProjectConclusion";
 import CaseStudyAtGlance from "@/components/project/CaseStudyAtGlance";
 import { ProjectType } from "@/types/project";
+import {
+  getCanonicalProjectRouteSlug,
+  getProjectCanonicalUrl,
+  getProjectPath,
+} from "@/lib/projectRoutes";
 
 const SymptomCheckrCaseStudy = lazy(() =>
   import("@/projects/symptom-checkr").then((module) => ({
@@ -96,6 +101,77 @@ const caseStudySlugs = new Set([
   "scent-stack",
 ]);
 
+const setMetaContent = (
+  selector: string,
+  createElement: () => HTMLMetaElement,
+  value: string,
+) => {
+  let element = document.head.querySelector<HTMLMetaElement>(selector);
+  const created = !element;
+
+  if (!element) {
+    element = createElement();
+    document.head.appendChild(element);
+  }
+
+  const previousContent = element.getAttribute("content");
+  element.setAttribute("content", value);
+
+  return () => {
+    if (created) {
+      element?.remove();
+      return;
+    }
+
+    if (previousContent === null) {
+      element?.removeAttribute("content");
+      return;
+    }
+
+    element?.setAttribute("content", previousContent);
+  };
+};
+
+const setCanonicalHref = (href: string) => {
+  let element = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  const created = !element;
+
+  if (!element) {
+    element = document.createElement("link");
+    element.setAttribute("rel", "canonical");
+    document.head.appendChild(element);
+  }
+
+  const previousHref = element.getAttribute("href");
+  element.setAttribute("href", href);
+
+  return () => {
+    if (created) {
+      element?.remove();
+      return;
+    }
+
+    if (previousHref === null) {
+      element?.removeAttribute("href");
+      return;
+    }
+
+    element?.setAttribute("href", previousHref);
+  };
+};
+
+const createMetaByName = (name: string) => {
+  const element = document.createElement("meta");
+  element.setAttribute("name", name);
+  return element;
+};
+
+const createMetaByProperty = (property: string) => {
+  const element = document.createElement("meta");
+  element.setAttribute("property", property);
+  return element;
+};
+
 const Project = () => {
   const {
     slug
@@ -104,6 +180,8 @@ const Project = () => {
   }>();
   const navigate = useNavigate();
   const [showHeaderImage, setShowHeaderImage] = useState(true);
+  const canonicalRouteSlug = getCanonicalProjectRouteSlug(slug);
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -115,21 +193,32 @@ const Project = () => {
     }
   }, [slug, navigate]);
 
+  useEffect(() => {
+    if (!slug || !canonicalRouteSlug || slug === canonicalRouteSlug) return;
+
+    navigate(`/project/${canonicalRouteSlug}`, { replace: true });
+  }, [slug, canonicalRouteSlug, navigate]);
+
   // Fetch project data
   const {
     data: project,
     isLoading,
     error
   } = useQuery({
-    queryKey: ["project", slug],
+    queryKey: ["project", canonicalRouteSlug || slug],
     queryFn: async () => {
       try {
+        const lookupSlug = canonicalRouteSlug || slug;
+        if (!lookupSlug) {
+          throw new Error("Project ID is missing");
+        }
+
         // Determine if slug is numeric or string
-        const isNumeric = !isNaN(Number(slug));
-        const project = await getProject(isNumeric ? Number(slug) : slug);
+        const isNumeric = !isNaN(Number(lookupSlug));
+        const project = await getProject(isNumeric ? Number(lookupSlug) : lookupSlug);
         if (!project) {
-          toast.error(`Project not found: ${slug}`);
-          throw new Error(`Project not found: ${slug}`);
+          toast.error(`Project not found: ${lookupSlug}`);
+          throw new Error(`Project not found: ${lookupSlug}`);
         }
         return project;
       } catch (err) {
@@ -137,6 +226,7 @@ const Project = () => {
         throw err;
       }
     },
+    enabled: Boolean(slug),
     retry: 1
   });
   useEffect(() => {
@@ -149,11 +239,65 @@ const Project = () => {
   useEffect(() => {
     if (!slug || !project?.slug) return;
 
+    const currentPath = `/project/${slug}`;
+    const canonicalPath = getProjectPath(project);
     const isNumericSlug = !Number.isNaN(Number(slug));
-    if (isNumericSlug && slug !== project.slug) {
-      navigate(`/project/${project.slug}`, { replace: true });
+    const isAliasedSlug = canonicalRouteSlug !== slug;
+
+    if ((isNumericSlug || isAliasedSlug) && currentPath !== canonicalPath) {
+      navigate(canonicalPath, { replace: true });
     }
-  }, [slug, project?.slug, navigate]);
+  }, [slug, canonicalRouteSlug, project, navigate]);
+
+  useEffect(() => {
+    if (!project) return;
+
+    const title = `${project.title} | Reggie Alleyne`;
+    const description =
+      project.fullDescription || project.description || project.summary;
+    const canonicalUrl = getProjectCanonicalUrl(project);
+    const previousTitle = document.title;
+    const restoreMetadata = [
+      setCanonicalHref(canonicalUrl),
+      setMetaContent(
+        'meta[name="description"]',
+        () => createMetaByName("description"),
+        description,
+      ),
+      setMetaContent(
+        'meta[property="og:title"]',
+        () => createMetaByProperty("og:title"),
+        title,
+      ),
+      setMetaContent(
+        'meta[property="og:description"]',
+        () => createMetaByProperty("og:description"),
+        description,
+      ),
+      setMetaContent(
+        'meta[property="og:url"]',
+        () => createMetaByProperty("og:url"),
+        canonicalUrl,
+      ),
+      setMetaContent(
+        'meta[name="twitter:title"]',
+        () => createMetaByName("twitter:title"),
+        title,
+      ),
+      setMetaContent(
+        'meta[name="twitter:description"]',
+        () => createMetaByName("twitter:description"),
+        description,
+      ),
+    ];
+
+    document.title = title;
+
+    return () => {
+      document.title = previousTitle;
+      restoreMetadata.forEach((restore) => restore());
+    };
+  }, [project]);
 
   const renderCaseStudy = () => {
     const currentSlug = project?.slug || slug;
