@@ -48,9 +48,9 @@ import { ReflectionProps } from "@/components/project/common/Reflection";
 export const tutorDOverviewData: ProjectOverviewProps = {
   title: "Building an SMS-Based Learning Platform for Underserved Communities",
   description: [
-    "I got hired to work on this really meaningful project - basically building a platform that lets teachers reach students who don't have reliable internet through SMS. We ended up helping boost student engagement by 42% and saved teachers a bunch of time on assignment tracking.",
-    "The whole thing started because COVID exposed how many kids just couldn't access online learning. Like, we're talking about millions of students who only had basic phones, not fancy laptops or tablets. Most learning platforms just assumed everyone had great internet, which obviously wasn't the case.",
-    "My job was to design and build the teacher-facing dashboard in React. The idea was pretty simple but powerful - teachers could create lessons, send them via SMS, and actually track who was responding and engaging with the material."
+    "TutorD was built to help teachers reach students who could not rely on broadband, laptops, or a conventional learning management system. The platform used SMS as the delivery layer, helping increase student engagement by 42% while reducing the manual work teachers spent on assignment tracking.",
+    "The work began during COVID, when remote learning made the digital divide impossible to ignore. Many students in the target communities had access to basic phones, but not consistent internet or dedicated computers. Most education platforms were designed around assumptions those students could not meet.",
+    "My role covered UX/UI design and frontend development for the teacher-facing React dashboard. Teachers needed a focused workflow for creating SMS-ready lessons, sending them to students, and seeing who was responding without piecing together status updates by hand."
   ],
   projectDetails: [
     {
@@ -96,7 +96,7 @@ export const tutorDOverviewData: ProjectOverviewProps = {
 // Problem Space Data
 export const tutorDProblemSpaceData: ProblemSpaceProps = {
   title: "The Digital Divide Problem",
-  introduction: "So here's the thing - when COVID hit, it became super obvious that tons of kids just couldn't do online school. We're talking about millions of students who had basic phones but no laptops or reliable internet. Most learning platforms were built assuming everyone had great wifi and devices, which was pretty tone-deaf. The challenge was figuring out how to reach these kids through SMS while still making it actually useful for learning.",
+  introduction: "COVID exposed a practical access problem: many students were expected to learn online without reliable internet, laptops, or tablets. In the target communities, basic phones were often the most dependable technology available. The design challenge was to make SMS useful for instruction without creating another fragmented workflow for teachers.",
   challenges: [
     {
       title: "Limited Internet Access",
@@ -145,8 +145,8 @@ export const tutorDProblemSpaceData: ProblemSpaceProps = {
 
 // Research & Discovery Data
 export const tutorDResearchData: ResearchDiscoveryProps = {
-  title: "Digging Into What Teachers Actually Needed",
-  introduction: "So we had to figure out what was really going on with teachers and students. We talked to a bunch of educators who were basically drowning in manual work - like, they were spending over 5 hours a week just trying to track who was doing their assignments. Plus, we had this whole SMS character limit thing to work around, which honestly made everything more challenging but also kind of forced us to be really creative.",
+  title: "Understanding Teacher Workflows",
+  introduction: "The research focused on where remote learning was breaking down for teachers and students with limited access to technology. Educators described a high-friction tracking process, often spending more than 5 hours a week reconciling assignments across messages and informal channels. SMS constraints, including character limits and limited formatting, became a core product constraint rather than an implementation detail.",
   researchSections: [
     {
       title: "User Research",
@@ -197,8 +197,8 @@ export const tutorDResearchData: ResearchDiscoveryProps = {
 
 // Ideation & Strategy Data
 export const tutorDIdeationData: IdeationStrategyProps = {
-  title: "Figuring Out the Approach",
-  introduction: "So after all that research, we had to figure out how to actually build this thing. I ended up using React.js with Ant Design components because they had good accessibility features built in. The whole idea was to create this dashboard where teachers could easily create lessons, send them out via SMS, and see real-time data on who was engaging.",
+  title: "Product Strategy",
+  introduction: "The strategy was to keep the teacher workflow narrow, structured, and measurable. I used React.js with Ant Design components to move quickly while maintaining accessible interaction patterns. The dashboard centered on three jobs: create SMS-ready lessons, distribute them reliably, and make student engagement visible in near real time.",
   keyInsights: [
     {
       highlight: "Teacher-centered design is essential.",
@@ -528,7 +528,7 @@ export const tutorDUIData: FinalUIDesignProps = {
 
 // Outcomes & Impact Data
 export const tutorDOutcomesData: OutcomesImpactProps = {
-  title: "How It Actually Turned Out",
+  title: "Outcomes and Delivery",
   metrics: [
     {
       title: "Platform Development",
@@ -539,7 +539,7 @@ export const tutorDOutcomesData: OutcomesImpactProps = {
     {
       title: "Team Collaboration",
       value: "3 developers",
-      description: "small but effective team building this together",
+      description: "small product team collaborating across design and implementation",
       icon: Users
     },
     {
@@ -559,33 +559,33 @@ export const tutorDOutcomesData: OutcomesImpactProps = {
 
 // Challenges & Learnings Data
 export const tutorDChallengesData: ChallengesLearningsProps = {
-  title: "The Tricky Parts and What I Learned",
+  title: "Challenges and Learnings",
   challenges: [
     {
-      title: "SMS is Really Limiting",
-      description: "Man, trying to fit educational content into 160 characters with no formatting was like solving a puzzle every day. We had to get super creative with how we structured lessons."
+      title: "SMS Content Constraints",
+      description: "Fitting educational content into 160 characters without rich formatting forced every lesson pattern to be deliberate. We had to decide what belonged in the message, what belonged in the dashboard, and how to keep instructions clear under tight limits."
     },
     {
       title: "Real-Time Data Syncing",
-      description: "Getting the dashboard to update in real-time when SMS responses came in was honestly pretty tricky. Had to make sure nothing got lost or corrupted between systems."
+      description: "Updating the dashboard as SMS responses arrived required careful coordination between systems. The experience depended on preserving message integrity while giving teachers timely engagement signals."
     },
     {
-      title: "Getting Teachers On Board",
-      description: "Teachers were already stressed with COVID stuff, so convincing them to try yet another new tool required showing immediate value, not just promises."
+      title: "Teacher Adoption",
+      description: "Teachers were already carrying the operational strain of remote learning, so adoption depended on immediate value. The product needed to reduce tracking work quickly, not ask educators to trust a long setup process."
     }
   ],
   learnings: [
     {
-      title: "Design for Everyone, Not Just Tech People",
-      description: "Building for the most constrained situations actually made everything better. When you design for basic phones, you end up with cleaner, more focused solutions."
+      title: "Design for Constrained Environments",
+      description: "Designing for basic phones led to cleaner product decisions. When the lowest-access context works well, the core workflow becomes easier to understand for everyone."
     },
     {
-      title: "Less Features, More Value",
-      description: "I learned that removing teacher work is way more important than adding cool features. Simple tools that save time beat complex ones every time."
+      title: "Reduce Work Before Adding Features",
+      description: "The most valuable decisions removed teacher effort rather than adding surface area. A focused tool that saves time can outperform a broader tool that asks users to manage more."
     },
     {
-      title: "Redux Was a Lifesaver",
-      description: "Using Redux for state management was definitely the right call. With all the different dashboard components and real-time updates, we needed something reliable to keep everything in sync."
+      title: "State Management Mattered",
+      description: "Redux was a strong fit for the dashboard because real-time updates, student status, and reporting views all needed a consistent source of truth."
     }
   ],
   nextSteps: [
@@ -610,19 +610,19 @@ export const tutorDChallengesData: ChallengesLearningsProps = {
 // Reflection Data
 export const tutorDReflectionData: ReflectionProps = {
   title: "Looking Back",
-  content: "Honestly, working on TutorD was one of those projects that really stuck with me. It taught me so much about designing for real people with real constraints, not just the ideal user with perfect internet and the latest iPhone. Plus, working with such a small team meant I had to wear a lot of hats and really collaborate closely with everyone.",
+  content: "TutorD stayed with me because it made the constraints unusually concrete. The work was not about designing for an ideal student with perfect internet and a new device; it was about supporting classrooms where the most reliable channel might be SMS. On a small team, I moved between design and implementation, which made the product decisions feel closely tied to what teachers would actually need day to day.",
   insights: [
     {
       title: "Design for the Real World",
-      description: "When you design for the most challenging situations first, you actually end up with better solutions for everyone. It's like accessibility - it helps way more people than you'd expect."
+      description: "Designing for the most challenging access conditions first produced a simpler, more resilient workflow. The same discipline that helps constrained users often improves the experience for everyone else."
     },
     {
       title: "Constraints Spark Creativity",
-      description: "Having to work within SMS limits actually forced us to be way more thoughtful about content. Sometimes restrictions make you more creative, not less."
+      description: "SMS limits forced sharper content decisions. The restrictions made the lesson structure more intentional, not less."
     },
     {
-      title: "Purpose-Driven Work Hits Different",
-      description: "Knowing that our work was actually helping teachers reach kids who were falling through the cracks made all the late nights and technical challenges worth it. Not sure if the project is still active, but I'm proud of what we built."
+      title: "Purpose-Driven Work Has a Different Weight",
+      description: "The project mattered because it helped teachers reach students who were being left out of remote learning. I am not sure whether the platform is still active, but I am proud of the system we built and the problem it was designed to address."
     }
   ]
 };

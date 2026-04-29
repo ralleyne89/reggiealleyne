@@ -1,5 +1,6 @@
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/home/HeroSection";
+import ProofBand from "@/components/home/ProofBand";
 import FeaturedProjectsSection from "@/components/home/FeaturedProjectsSection";
 import SkillsSection from "@/components/home/SkillsSection";
 import PlaygroundPreviewSection from "@/components/home/PlaygroundPreviewSection";
@@ -10,6 +11,7 @@ const Index = () => {
   return (
     <>
       <HeroSection />
+      <ProofBand />
       <FeaturedProjectsSection />
       <SkillsSection />
       <PlaygroundPreviewSection />

@@ -24,9 +24,31 @@ export interface CaseStudyBrief {
 export interface CaseStudyTldr {
   role: string;
   problem: string;
+  decision?: string;
   outcome: string;
   tools: string[];
   owned: string[];
+}
+
+export interface HomepageProofMetric {
+  value: string;
+  label: string;
+  description: string;
+  href: string;
+}
+
+export interface HomepageProofArtifact {
+  label: string;
+  title: string;
+  description: string;
+  href: string;
+}
+
+export interface HomepageWorkflowSignal {
+  eyebrow: string;
+  title: string;
+  description: string;
+  steps: string[];
 }
 
 export const featuredProjectConfig: FeaturedProjectConfig[] = [
@@ -62,6 +84,59 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
 export const featuredProjectSlugs = featuredProjectConfig.map(
   (project) => project.slug,
 );
+
+export const homepageProofMetrics: HomepageProofMetric[] = [
+  {
+    value: "8 weeks",
+    label: "MVP shipped",
+    description:
+      "Litmus AI moved from product thesis to adaptive assessment, certification, admin, and payments.",
+    href: "/project/litmus-ai",
+  },
+  {
+    value: "85%",
+    label: "Creator retention",
+    description:
+      "CLLCTVE reached 500+ creators and 15 brand partnerships by betting on mobile behavior.",
+    href: "/project/cllctve-platform",
+  },
+  {
+    value: "4 surfaces",
+    label: "AI host workflow",
+    description:
+      "Staybooked connects marketing, auth, dashboard, and room optimization into one product story.",
+    href: "/project/staybooked",
+  },
+];
+
+export const homepageProofArtifacts: HomepageProofArtifact[] = [
+  {
+    label: "AI assessment",
+    title: "Litmus AI product flow",
+    description: "Adaptive questions, recommendations, credentialing, and payment paths.",
+    href: "/project/litmus-ai",
+  },
+  {
+    label: "Platform decisions",
+    title: "CLLCTVE creator system",
+    description: "Mobile-first portfolios, feedback loops, and constrained brand customization.",
+    href: "/project/cllctve-platform",
+  },
+  {
+    label: "Host workflow",
+    title: "Staybooked room optimizer",
+    description: "Trust-aware AI screens for room photos, listing copy, and saved property work.",
+    href: "/project/staybooked",
+  },
+];
+
+export const homepageWorkflowSignal: HomepageWorkflowSignal = {
+  eyebrow: "How I work",
+  title: "Research, prototype, ship, then make the proof easy to inspect.",
+  description:
+    "The strongest work sits where product judgment, AI constraints, and frontend execution all touch the same screen.",
+  steps: ["Ambiguity map", "Clickable flow", "AI guardrails", "React surface"],
+};
 
 export const caseStudyBriefs: Partial<
   Record<FeaturedProjectSlug | string, CaseStudyBrief>
@@ -133,6 +208,8 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     role: "Product designer and frontend developer",
     problem:
       "Independent hosts needed a practical way to improve room photos, listing copy, and booking signals without making the AI output feel deceptive.",
+    decision:
+      "Frame AI as believable improvement direction inside a saved host workspace, not as a generic image generator.",
     outcome:
       "Built the product-facing portfolio flow across marketing, auth, dashboard, and room optimization screens.",
     tools: ["Next.js", "Supabase", "AI UX", "Responsive UI"],
@@ -142,6 +219,8 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     role: "Founder, product designer, and AI strategist",
     problem:
       "Teams and learners needed a fast way to understand AI readiness before committing to training.",
+    decision:
+      "Compress assessment into an adaptive five-minute flow with recommendations and credentials after the score.",
     outcome:
       "Shipped a solo MVP with adaptive assessment, recommendations, certification, admin visibility, and payment paths.",
     tools: ["React", "OpenAI API", "Supabase", "Stripe", "Auth0"],
@@ -151,6 +230,8 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     role: "Product designer and design systems lead",
     problem:
       "Gen Z creators needed a mobile-first portfolio experience that felt closer to how they already shared work.",
+    decision:
+      "Prioritize mobile creation and feedback loops over desktop feature parity with older portfolio platforms.",
     outcome:
       "Reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
     tools: ["Figma", "React", "Ant Design", "MongoDB", "Styled Components"],
