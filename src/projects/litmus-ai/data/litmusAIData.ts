@@ -37,7 +37,7 @@ export const litmusAIAIPMData: AIProductThinkingProps = {
 export const litmusAIOverviewData: ProjectOverviewProps = {
   title: "AI literacy certification MVP in 2 months",
   description: [
-    "I shipped an AI literacy certification platform as a solo founder in 8 weeks: adaptive testing, Stripe payments, verifiable credentials, and an admin dashboard.",
+    "Delivered an AI literacy certification platform in 8 weeks: adaptive testing, Stripe payments, verifiable credentials, and an admin dashboard.",
     "Most certification products ask users to commit hours before they learn anything useful. HR leaders needed a faster baseline signal. Learners needed to know whether a course was worth their time.",
     "The product uses a React and Next.js frontend, GPT-5 assessment prompts across machine learning, prompt engineering, ethics, and applications, a Supabase backend, and Stripe for subscription, one-time, and enterprise payments."
   ],
@@ -49,12 +49,12 @@ export const litmusAIOverviewData: ProjectOverviewProps = {
     },
     {
       label: "Role",
-      value: "Solo Founder, Product Designer, AI Strategist",
+      value: "Product Designer & AI Strategist",
       icon: Briefcase
     },
     {
       label: "Team",
-      value: "1 (Solo)",
+      value: "Lean product team",
       icon: Users
     }
   ],
@@ -172,7 +172,7 @@ export const litmusAIResearchData: ResearchDiscoveryProps = {
 // Ideation & Strategy Data
 export const litmusAIIdeationData: IdeationStrategyProps = {
   title: "Three product principles",
-  introduction: "As a solo founder, I needed a small set of principles that could survive the timeline. The product had to be fast, adaptive, and credible enough that the result felt useful after one short session.",
+  introduction: "The product brief needed a small set of principles that could survive the timeline. The experience had to be fast, adaptive, and credible enough that the result felt useful after one short session.",
   keyInsights: [
     {
       highlight: "Adaptive questions gave the score more signal.",
@@ -307,8 +307,8 @@ export const litmusAIOutcomesData: OutcomesImpactProps = {
       icon: TrendingUp
     },
     {
-      title: "Solo-built platform",
-      value: "Solo built",
+      title: "Shipped platform",
+      value: "MVP shipped",
       description: "Deployed on Netlify + Supabase with admin dashboard for tracking users, scores, and payments",
       icon: Code
     }
@@ -324,7 +324,7 @@ export interface TradeoffItem {
 
 export const litmusAITradeoffsData = {
   title: "What shipped and what waited",
-  introduction: "With 2 months and one builder, every feature had to earn its place. These are the tradeoffs that shaped the MVP.",
+  introduction: "With a 2-month engagement and a lean delivery team, every feature had to earn its place. These are the tradeoffs that shaped the MVP.",
   tradeoffs: [
     {
       built: "5-minute adaptive test",
@@ -351,7 +351,7 @@ export const litmusAITradeoffsData = {
 
 // Challenges & Learnings Data
 export const litmusAIChallengesData: ChallengesLearningsProps = {
-  title: "What building solo taught me",
+  title: "What the build taught me",
   challenges: [
     {
       title: "Adaptive testing got complex fast",
@@ -362,8 +362,8 @@ export const litmusAIChallengesData: ChallengesLearningsProps = {
       description: "The core loop mattered most: test, results, recommendations, certification. Nice-to-haves waited. The admin dashboard shipped before deeper analytics because I needed to see users, scores, and payments."
     },
     {
-      title: "Solo technical debt compounds",
-      description: "Working alone made every shortcut tempting. I documented architecture decisions as I went, reused patterns, and avoided one-off code where it would slow the next iteration."
+      title: "Technical debt compounds in fast builds",
+      description: "A lean delivery timeline made every shortcut tempting. I documented architecture decisions as I went, reused patterns, and avoided one-off code where it would slow the next iteration."
     }
   ],
   learnings: [
@@ -402,7 +402,7 @@ export const litmusAIChallengesData: ChallengesLearningsProps = {
 // Reflection Data
 export const litmusAIReflectionData: ReflectionProps = {
   title: "What I took from the build",
-  content: "Building Litmus AI reminded me that solo product work is mostly scope management. The design work was deciding what to cut, what to fake responsibly, and where AI could do real product work instead of sitting in the pitch deck.",
+  content: "Building Litmus AI reminded me that fast product engagements are mostly scope management. The design work was deciding what to cut, what to fake responsibly, and where AI could do real product work instead of sitting in the pitch deck.",
   insights: [
     {
       title: "Speed became the differentiator",

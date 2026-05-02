@@ -15,14 +15,12 @@ interface ProjectConclusionProps {
     learnings: string | null;
     nextSteps: string | null;
   };
-  prototypeUrl?: string | null;
   liveUrl?: string | null;
   projectSlug?: string;
 }
 
 const ProjectConclusion = ({
   conclusion,
-  prototypeUrl,
   liveUrl,
   projectSlug,
 }: ProjectConclusionProps) => {
@@ -48,7 +46,7 @@ const ProjectConclusion = ({
     icon: LucideIcon;
   } => Boolean(item.value));
 
-  if (items.length === 0 && !prototypeUrl && !liveUrl) {
+  if (items.length === 0 && !liveUrl) {
     return null;
   }
 
@@ -94,7 +92,6 @@ const ProjectConclusion = ({
         </Link>
         <ProjectLinks
           liveUrl={liveUrl}
-          prototypeUrl={prototypeUrl}
           projectSlug={projectSlug}
           className="mt-0"
         />

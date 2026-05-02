@@ -10,7 +10,6 @@ interface ProjectDetailsProps {
   methodologies?: string[] | null;
   githubUrl?: string | null;
   liveUrl?: string | null;
-  prototypeUrl?: string | null;
   summary: string;
   problem?: string | null;
   solution?: string | null;
@@ -25,7 +24,6 @@ const ProjectDetails = ({
   methodologies,
   githubUrl,
   liveUrl,
-  prototypeUrl,
   summary,
   problem,
   solution,
@@ -73,7 +71,6 @@ const ProjectDetails = ({
       <ProjectLinks
         githubUrl={githubUrl}
         liveUrl={liveUrl}
-        prototypeUrl={prototypeUrl}
         projectSlug={projectSlug}
         className="mt-8"
       />

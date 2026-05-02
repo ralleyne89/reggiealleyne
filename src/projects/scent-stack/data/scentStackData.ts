@@ -31,8 +31,8 @@ import { ReflectionProps } from "@/components/project/common/Reflection";
 export const scentStackOverviewData: ProjectOverviewProps = {
   title: "1700+ Fragrance Dupes: Democratizing Luxury Scents in 3 Weeks",
   description: [
-    "Shipped a complete AI-powered fragrance discovery platform as a solo founder—comprehensive dupe database, GPT-5 dream scent matching, computer vision layering suggestions, and A-Z brand browser—in just 3 weeks. Users save 90% on average when switching from luxury originals to affordable alternatives.",
-    "The problem was personal: as a fragrance collector, I experienced the frustration of paying premium prices for scents that had nearly identical affordable versions. I also knew the art of layering fragrances but had no way to share that knowledge with beginners. ScentStack became the solution.",
+    "Delivered a complete AI-powered fragrance discovery platform in just 3 weeks: comprehensive dupe database, GPT-5 dream scent matching, computer vision layering suggestions, and A-Z brand browser. Users save 90% on average when switching from luxury originals to affordable alternatives.",
+    "The product brief centered on a clear shopper problem: fragrance buyers were paying premium prices for scents with nearly identical affordable alternatives, while layering guidance stayed locked inside enthusiast communities.",
     "Technical architecture: React + Tailwind CSS frontend with editorial design system, GPT-5 integration for natural language scent matching, computer vision pipeline for photo-based fragrance analysis, comprehensive database of 1700+ dupes across 150+ designer brands.",
   ],
   projectDetails: [
@@ -43,12 +43,12 @@ export const scentStackOverviewData: ProjectOverviewProps = {
     },
     {
       label: "Role",
-      value: "Solo Founder & Product Designer",
+      value: "Product Designer & AI Product Strategist",
       icon: Briefcase,
     },
     {
       label: "Team",
-      value: "1 (Solo)",
+      value: "Lean product team",
       icon: Users,
     },
   ],
@@ -112,7 +112,7 @@ export const scentStackProblemSpaceData: ProblemSpaceProps = {
     {
       title: "Collector's Resource",
       description:
-        "Create the comprehensive fragrance database I wished existed as a collector—organized, searchable, and constantly updated.",
+        "Create a comprehensive fragrance database that is organized, searchable, and easy to keep current.",
       icon: Heart,
     },
   ],
@@ -122,7 +122,7 @@ export const scentStackProblemSpaceData: ProblemSpaceProps = {
 export const scentStackResearchData: ResearchDiscoveryProps = {
   title: "Understanding the Fragrance Discovery Landscape",
   introduction:
-    "As an active fragrance collector and community member, I had direct access to user pain points. I analyzed existing platforms (Fragrantica, Parfumo), fragrance subreddits, and collector communities to understand what was missing. The pattern was clear: information was scattered, price comparisons were manual, and AI potential was untapped.",
+    "The discovery phase analyzed existing platforms (Fragrantica, Parfumo), fragrance subreddits, and collector communities to understand what was missing. The pattern was clear: information was scattered, price comparisons were manual, and AI potential was untapped.",
   researchSections: [
     {
       title: "Community Research",
@@ -178,7 +178,7 @@ export const scentStackResearchData: ResearchDiscoveryProps = {
 export const scentStackIdeationData: IdeationStrategyProps = {
   title: "Three Pillars of Fragrance Discovery",
   introduction:
-    "With 3 weeks and a clear personal vision, I focused on three core features that would differentiate ScentStack while remaining achievable as a solo developer. Each pillar addresses a specific user pain point I'd experienced firsthand.",
+    "With 3 weeks and a clear product brief, I focused on three core features that would differentiate ScentStack while staying achievable for a lean build. Each pillar addresses a specific user pain point surfaced during research.",
   keyInsights: [
     {
       highlight: "Discover: Democratize luxury scents.",
@@ -326,7 +326,7 @@ export const scentStackOutcomesData: OutcomesImpactProps = {
     {
       title: "Build Time",
       value: "3 weeks",
-      description: "Solo development from concept to complete platform with AI features",
+      description: "Rapid delivery from concept to complete platform with AI features",
       icon: Zap,
     },
   ],
@@ -334,7 +334,7 @@ export const scentStackOutcomesData: OutcomesImpactProps = {
 
 // Challenges & Learnings Data
 export const scentStackChallengesData: ChallengesLearningsProps = {
-  title: "What I Learned Building from Passion",
+  title: "What I Learned from the Product Build",
   challenges: [
     {
       title: "Data Collection at Scale",
@@ -356,7 +356,7 @@ export const scentStackChallengesData: ChallengesLearningsProps = {
     {
       title: "Domain Expertise Accelerates Development",
       description:
-        "Being a fragrance collector meant I understood user needs intuitively. Personal passion projects benefit from deep domain knowledge that would take months to acquire otherwise.",
+        "Focused domain research made user needs concrete early. Clear category knowledge helped compress discovery without turning the product into guesswork.",
     },
     {
       title: "AI as Feature Multiplier",
@@ -390,14 +390,14 @@ export const scentStackChallengesData: ChallengesLearningsProps = {
 
 // Reflection Data
 export const scentStackReflectionData: ReflectionProps = {
-  title: "Reflections on Building from Passion",
+  title: "Reflections on the Product Engagement",
   content:
-    "ScentStack represents a different kind of project—one born from genuine personal interest rather than market opportunity. As a fragrance collector, I'd spent years accumulating knowledge about dupes, layering, and the subjective language of scent. This platform became a way to systematize that knowledge and share it with others facing the same discoveries I'd made through trial and error.",
+    "ScentStack became a concentrated product engagement around fragrance discovery: how to turn scattered community knowledge, dupe research, layering guidance, and subjective scent language into a structured shopping tool.",
   insights: [
     {
-      title: "Passion Projects Ship Faster",
+      title: "Clear Domain Briefs Ship Faster",
       description:
-        "When you're building for yourself, decisions come quickly. I didn't need user research to understand pain points—I'd lived them. The 3-week timeline was possible because domain expertise eliminated guesswork.",
+        "The 3-week timeline was possible because the problem space was narrow and the product brief was specific. Domain research replaced broad guessing with focused product decisions.",
     },
     {
       title: "AI Democratizes Expertise",
@@ -405,9 +405,9 @@ export const scentStackReflectionData: ReflectionProps = {
         "GPT-5 and computer vision allowed me to encode fragrance knowledge that typically takes years to develop. AI features made ScentStack more than a database—it became a knowledgeable companion for fragrance discovery.",
     },
     {
-      title: "Personal Investment Drives Quality",
+      title: "Operational Use Drives Quality",
       description:
-        "I'll use this platform myself for years. That knowledge shaped every decision—from data accuracy to mobile responsiveness. Building for yourself creates accountability that external deadlines can't match.",
+        "The platform had to hold up as a real shopping and discovery tool. That expectation shaped every decision, from data accuracy to mobile responsiveness.",
     },
   ],
 };

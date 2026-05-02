@@ -42,7 +42,7 @@ export const getSymptomCheckrProject = (): ProjectType => {
     videoUrl: null,
     githubUrl: null,
     liveUrl: 'https://symptom-checkr.web.app/',
-    prototypeUrl: 'https://symptom-checkr.web.app/',
+    prototypeUrl: null,
     keyAchievements: [
       'Designed explainable AI patterns that expose reasoning instead of asking users to trust a black box',
       'Created a calmer health guidance flow with graduated certainty, citations, and saved reports',

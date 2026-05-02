@@ -7,10 +7,10 @@ export const getLitmusAIProject = (): ProjectType => {
     title: "Litmus AI – AI Literacy Testing & Certification Platform",
     description:
       "An adaptive AI literacy test and certificate flow that gives users a baseline in under five minutes, then points them to the next lesson.",
-    role: "Founder & Product Designer, AI Strategist",
+    role: "Product Designer & AI Strategist",
     year: "2025",
     duration: "2 months",
-    teamSize: "1",
+    teamSize: "Lean product team",
     tags: [
       "AI Education",
       "EdTech",
@@ -61,9 +61,9 @@ export const getLitmusAIProject = (): ProjectType => {
     videoUrl: null,
     githubUrl: null,
     liveUrl: "https://litmusai.netlify.app",
-    prototypeUrl: "https://litmusai.netlify.app",
+    prototypeUrl: null,
     keyAchievements: [
-      "Shipped the MVP as a solo founder in two months",
+      "Delivered the MVP in two months against a focused product brief",
       "Built GPT-5 adaptive testing with real-time question generation, scoring, and learning recommendations",
       "Added Stripe payments for subscriptions, one-time certification, and enterprise packages",
       "Designed admin analytics for scores, progress, and payment signals across individual and group customers",

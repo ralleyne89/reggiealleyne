@@ -5,14 +5,10 @@ import {
   ArrowUpRight,
   ExternalLink,
   Layers3,
-  Sparkles,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
-import {
-  experiments,
-  upcomingExplorations,
-} from "@/config/playgroundExperiments";
+import { experiments } from "@/config/playgroundExperiments";
 
 const Playground = () => {
   useEffect(() => {
@@ -84,16 +80,14 @@ const Playground = () => {
           </div>
         </section>
 
-        <section className="bg-gray-50 py-14 sm:py-16">
+        <section className="bg-gray-50 pb-32 pt-14 sm:py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid auto-rows-min grid-cols-1 items-start gap-5 lg:grid-cols-6">
+            <div className="grid auto-rows-fr grid-cols-1 items-stretch gap-5 lg:grid-cols-3">
               {experiments.map((experiment, index) => {
                 const Icon = experiment.icon;
-                const isFeature = experiment.size === "feature";
-                const previewRatio = isFeature ? "aspect-[16/9]" : "aspect-[4/3]";
                 const previewContent = (
                   <>
-                    <div className={previewRatio}>
+                    <div className="aspect-[16/10]">
                       {experiment.previewImage ? (
                         <img
                           src={experiment.previewImage}
@@ -140,12 +134,17 @@ const Playground = () => {
                     initial={{ opacity: 0, y: 26 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.12 + index * 0.08 }}
-                    className={[
-                      "group flex flex-col self-start overflow-hidden rounded-[1.75rem] border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10",
-                      isFeature ? "lg:col-span-4" : "lg:col-span-2",
-                    ].join(" ")}
+                    className="group flex h-full min-h-[32rem] flex-col overflow-hidden rounded-[1.75rem] border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 sm:min-h-[34rem]"
                   >
-                    {experiment.liveUrl ? (
+                    {experiment.detailPath ? (
+                      <Link
+                        to={experiment.detailPath}
+                        className="relative block overflow-hidden bg-gray-100"
+                        aria-label={`View ${experiment.title} project details`}
+                      >
+                        {previewContent}
+                      </Link>
+                    ) : experiment.liveUrl ? (
                       <a
                         href={experiment.liveUrl}
                         target="_blank"
@@ -155,14 +154,6 @@ const Playground = () => {
                       >
                         {previewContent}
                       </a>
-                    ) : experiment.detailPath ? (
-                      <Link
-                        to={experiment.detailPath}
-                        className="relative block overflow-hidden bg-gray-100"
-                        aria-label={`View ${experiment.title} project details`}
-                      >
-                        {previewContent}
-                      </Link>
                     ) : (
                       <div className="relative block overflow-hidden bg-gray-100">
                         {previewContent}
@@ -196,7 +187,15 @@ const Playground = () => {
                         {experiment.proofSignal}
                       </p>
 
-                      {experiment.liveUrl ? (
+                      {experiment.detailPath ? (
+                        <Link
+                          to={experiment.detailPath}
+                          className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
+                        >
+                          View project details
+                          <ArrowUpRight size={15} />
+                        </Link>
+                      ) : experiment.liveUrl ? (
                         <a
                           href={experiment.liveUrl}
                           target="_blank"
@@ -206,14 +205,6 @@ const Playground = () => {
                           View live
                           <ExternalLink size={15} />
                         </a>
-                      ) : experiment.detailPath ? (
-                        <Link
-                          to={experiment.detailPath}
-                          className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
-                        >
-                          View project details
-                          <ArrowUpRight size={15} />
-                        </Link>
                       ) : (
                         <div className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-gray-500">
                           Ready for review
@@ -223,31 +214,6 @@ const Playground = () => {
                   </motion.article>
                 );
               })}
-
-              <motion.article
-                initial={{ opacity: 0, y: 26 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.42 }}
-                className="rounded-[1.75rem] border border-dashed border-gray-300 bg-white p-6 lg:col-span-2"
-              >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                  <Sparkles size={22} />
-                </div>
-                <p className="text-sm font-semibold uppercase text-primary">
-                  Now exploring
-                </p>
-                <h2 className="mt-3 font-display text-heading-md font-semibold text-gray-950">
-                  More experiments are in motion.
-                </h2>
-                <ul className="mt-5 space-y-3 text-sm leading-6 text-gray-600">
-                  {upcomingExplorations.map((item) => (
-                    <li key={item} className="flex items-center gap-3">
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.article>
             </div>
           </div>
         </section>

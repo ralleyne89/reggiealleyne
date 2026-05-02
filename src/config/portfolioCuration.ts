@@ -59,7 +59,7 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
     impactSummary:
       "A five-minute assessment and certificate flow that gives learners a clear AI literacy baseline.",
     reviewerSignal:
-      "Shows AI product strategy, learning design, payments, and solo-founder execution in one shipped MVP.",
+      "Shows AI product strategy, learning design, payments, and end-to-end MVP delivery.",
   },
   {
     slug: "cllctve-platform",
@@ -216,13 +216,13 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Product framing", "Host workflow", "Room optimizer UI", "Portfolio presentation"],
   },
   "litmus-ai": {
-    role: "Founder, product designer, and AI strategist",
+    role: "Product designer and AI strategist",
     problem:
       "Teams and learners needed a fast way to understand AI readiness before committing to training.",
     decision:
       "Compress assessment into an adaptive five-minute flow with recommendations and credentials after the score.",
     outcome:
-      "Shipped a solo MVP with adaptive assessment, recommendations, certification, admin visibility, and payment paths.",
+      "Shipped an MVP with adaptive assessment, recommendations, certification, admin visibility, and payment paths.",
     tools: ["React", "OpenAI API", "Supabase", "Stripe", "Auth0"],
     owned: ["Product strategy", "Assessment UX", "Prompt/scoring logic", "Payments and admin flow"],
   },
@@ -256,7 +256,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Risk dashboard", "Remediation flow", "Visual identity", "Frontend prototype"],
   },
   "scent-stack": {
-    role: "Solo founder and product designer",
+    role: "Product designer and AI product strategist",
     problem:
       "Fragrance discovery is expensive, opaque, and hard to translate from taste into actual products.",
     outcome:

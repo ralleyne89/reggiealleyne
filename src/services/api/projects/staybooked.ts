@@ -59,7 +59,7 @@ export const getStaybookedProject = (): ProjectType => {
     ],
     videoUrl: null,
     githubUrl: null,
-    liveUrl: null,
+    liveUrl: "https://staybooked-ai.netlify.app/",
     prototypeUrl: null,
     keyAchievements: [
       "Reframed Staybooked around a concrete host use case: improving short-term rental visuals and listing copy.",

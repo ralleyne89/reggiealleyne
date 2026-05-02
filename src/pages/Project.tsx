@@ -405,7 +405,6 @@ const Project = () => {
     videoUrl,
     githubUrl,
     liveUrl,
-    prototypeUrl,
     conclusion = {
       impact: "",
       learnings: "",
@@ -426,7 +425,7 @@ const Project = () => {
   }} transition={{
     duration: 0.3
   }} className="min-h-screen bg-white pb-24 text-text-primary md:pb-0">
-      {showHeaderImage && <ProjectHeader image={image} tags={tags} title={title} description={description} role={role} duration={duration} year={year} teamSize={teamSize} githubUrl={githubUrl} liveUrl={liveUrl} prototypeUrl={prototypeUrl} projectSlug={project.slug} />}
+      {showHeaderImage && <ProjectHeader image={image} tags={tags} title={title} description={description} role={role} duration={duration} year={year} teamSize={teamSize} githubUrl={githubUrl} liveUrl={liveUrl} projectSlug={project.slug} />}
 
       <div className="w-full">
         <CaseStudyAtGlance project={project} />
@@ -435,7 +434,7 @@ const Project = () => {
               {renderCaseStudy()}
             </Suspense>
           </> : <>
-            <ProjectDetails role={role} duration={duration} year={year} teamSize={teamSize} methodologies={methodologies} githubUrl={githubUrl} liveUrl={liveUrl} prototypeUrl={prototypeUrl} summary={summary} problem={problem} solution={solution} projectSlug={project.slug} />
+            <ProjectDetails role={role} duration={duration} year={year} teamSize={teamSize} methodologies={methodologies} githubUrl={githubUrl} liveUrl={liveUrl} summary={summary} problem={problem} solution={solution} projectSlug={project.slug} />
 
             <ProjectProcess challenge={challenge} problem={problem} process={process} methodologies={methodologies} technicalHighlights={technicalHighlights} keyAchievements={keyAchievements} />
 
@@ -446,7 +445,7 @@ const Project = () => {
       </div>
 
       {/* Only show ProjectConclusion for non-case study projects */}
-      {!showCaseStudy && <ProjectConclusion conclusion={conclusion} liveUrl={liveUrl} prototypeUrl={prototypeUrl} projectSlug={project.slug} />}
+      {!showCaseStudy && <ProjectConclusion conclusion={conclusion} liveUrl={liveUrl} projectSlug={project.slug} />}
 
       <Footer />
     </motion.div>;

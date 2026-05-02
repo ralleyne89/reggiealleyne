@@ -37,7 +37,7 @@ export const getVaultJSValidateProject = (): ProjectType => {
     videoUrl: null,
     githubUrl: 'https://github.com/ralleyne89/secure-scan-dashboard',
     liveUrl: 'https://vaultvalidate.netlify.app',
-    prototypeUrl: 'https://vaultvalidate.netlify.app',
+    prototypeUrl: null,
     keyAchievements: [
       'Designed and built a working security dashboard in a 2-week sprint',
       'Connected OpenAI code-fix generation through Supabase Edge Functions',

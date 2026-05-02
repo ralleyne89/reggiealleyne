@@ -1,12 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Database, Smartphone, Monitor, Layers, Zap } from "lucide-react";
-interface TechnicalImplementationProps {
-  handleImageClick: (imageSrc: string) => void;
-}
-const TechnicalImplementation = ({
-  handleImageClick
-}: TechnicalImplementationProps) => {
+import { Code, Database, Smartphone, Monitor } from "lucide-react";
+
+const TechnicalImplementation = () => {
   const technicalHighlights = [{
     icon: Code,
     title: "React.js with Redux",
@@ -136,48 +132,6 @@ const TechnicalImplementation = ({
           </div>
         </motion.div>
 
-        {/* Visual Examples */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.6,
-        delay: 0.6
-      }}>
-          <h3 className="text-2xl font-heading font-semibold text-gray-900 mb-8">Interface Design</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[{
-            src: "/images/TutorD-Landing-Page-Final.jpg",
-            alt: "TutorD Landing Page Final Design",
-            title: "Landing Page"
-          }, {
-            src: "/images/TutorD-Dashboard-Final.jpg",
-            alt: "TutorD Dashboard Final Design",
-            title: "Teacher Dashboard"
-          }, {
-            src: "/images/TutorD-Lesson-Planner-Final.jpg",
-            alt: "TutorD Lesson Planner Final Design",
-            title: "Lesson Planner"
-          }].map((image, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.7 + index * 0.1
-          }} className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={() => handleImageClick(image.src)}>
-                <img src={image.src} alt={image.alt} className="w-full h-48 object-cover" />
-                <div className="p-4">
-                  <h4 className="font-semibold text-gray-900">{image.title}</h4>
-                </div>
-              </motion.div>)}
-          </div>
-        </motion.div>
       </div>
     </motion.section>;
 };

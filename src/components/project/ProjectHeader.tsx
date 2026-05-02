@@ -15,7 +15,6 @@ interface ProjectHeaderProps {
   teamSize?: string | null;
   githubUrl?: string | null;
   liveUrl?: string | null;
-  prototypeUrl?: string | null;
   projectSlug?: string;
 }
 
@@ -138,7 +137,6 @@ const ProjectHeader = ({
   teamSize,
   githubUrl,
   liveUrl,
-  prototypeUrl,
   projectSlug,
 }: ProjectHeaderProps) => {
   const [imageError, setImageError] = useState(false);
@@ -216,7 +214,6 @@ const ProjectHeader = ({
             <ProjectLinks
               githubUrl={githubUrl}
               liveUrl={liveUrl}
-              prototypeUrl={prototypeUrl}
               projectSlug={projectSlug}
               className="mt-5 sm:mt-7"
             />

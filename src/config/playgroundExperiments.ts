@@ -15,7 +15,6 @@ export type Experiment = {
   detailPath?: string;
   liveUrl?: string;
   status: string;
-  size: "feature" | "standard";
 };
 
 export const experiments: Experiment[] = [
@@ -28,9 +27,9 @@ export const experiments: Experiment[] = [
     tags: ["React", "Tailwind", "AI"],
     icon: Code,
     previewImage: "/images/scentstack_hero.png",
+    detailPath: "/project/scent-stack",
     liveUrl: "https://scentstack.lovable.app",
     status: "Live",
-    size: "feature",
   },
   {
     title: "Chill Vibes Music Player",
@@ -41,9 +40,9 @@ export const experiments: Experiment[] = [
     tags: ["React", "Firebase", "UX/UI"],
     icon: Music,
     previewImage: "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
+    detailPath: "/project/chill-vibes-music-player",
     liveUrl: "https://chill-vibes.web.app/",
     status: "Live",
-    size: "standard",
   },
   {
     title: "Bob's Big Break",
@@ -54,14 +53,8 @@ export const experiments: Experiment[] = [
     tags: ["React", "Node.js", "MongoDB"],
     icon: Gamepad2,
     previewImage: "/images/71cb9624-eeb6-4af5-a137-8a38307549f4.png",
+    detailPath: "/project/bobs-big-break",
     liveUrl: "https://bobsbigbreak.netlify.app/",
     status: "Live",
-    size: "standard",
   },
-];
-
-export const upcomingExplorations = [
-  "WebGL interaction studies",
-  "Generative art systems",
-  "AI-assisted creative tools",
 ];

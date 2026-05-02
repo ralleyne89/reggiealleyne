@@ -16,7 +16,6 @@ const compactItems = (items?: string[] | null, limit = 4) =>
 const getReviewerLinks = (project: ProjectType) =>
   [
     { label: "Live", href: project.liveUrl },
-    { label: "Prototype", href: project.prototypeUrl },
     { label: "Source", href: project.githubUrl },
   ].filter((item): item is { label: string; href: string } =>
     Boolean(item.href),
@@ -72,7 +71,7 @@ const ReviewerSnapshot = ({ project }: ReviewerSnapshotProps) => {
       <div className="min-w-0 rounded-lg border border-gray-200 bg-white p-4 shadow-sm sm:p-5 lg:grid lg:grid-cols-[0.72fr_1.28fr] lg:gap-6 lg:p-6">
         <div className="min-w-0 border-b border-gray-200 pb-4 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-6">
           <p className="text-xs font-semibold uppercase leading-5 tracking-[0.14em] text-primary">
-            TL;DR
+            Fast context
           </p>
           <h2 className="mt-2 break-words font-display text-2xl leading-tight text-gray-950 sm:text-3xl">
             Reviewer snapshot
@@ -115,8 +114,8 @@ const ReviewerSnapshot = ({ project }: ReviewerSnapshotProps) => {
                     <a
                       key={link.label}
                       href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={link.label === "Source" ? "_blank" : undefined}
+                      rel={link.label === "Source" ? "noopener noreferrer" : undefined}
                       className="rounded-md border border-gray-300 bg-white px-2.5 py-1 text-xs font-semibold leading-5 text-gray-800 transition-colors hover:border-primary/40 hover:text-primary"
                     >
                       {link.label}

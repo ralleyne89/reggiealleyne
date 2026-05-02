@@ -6,7 +6,6 @@ import {
 } from "@/components/project/EditorialProjectLayout";
 import ProjectOverviewComponent from "@/components/project/common/ProjectOverview";
 import UserPersonaComponent from "@/components/project/common/UserPersona";
-import SitemapWireframesComponent from "@/components/project/common/SitemapWireframes";
 import ProblemSpace from "@/components/project/tutor-d/ProblemSpace";
 import DirectUIImages from "@/components/project/tutor-d/DirectUIImages";
 import TechnicalImplementation from "@/components/project/tutor-d/TechnicalImplementation";
@@ -17,7 +16,6 @@ import ChallengesLearnings from "@/components/project/tutor-d/ChallengesLearning
 import {
   tutorDOverviewData,
   tutorDPersonaData,
-  tutorDSitemapData,
 } from "./data/tutorDData";
 
 const TutorDCaseStudy = () => {
@@ -43,9 +41,8 @@ const TutorDCaseStudy = () => {
 
       {/* Deep Dive Process */}
       <UserPersonaComponent {...tutorDPersonaData} />
-      <SitemapWireframesComponent {...tutorDSitemapData} />
       <DirectUIImages handleImageClick={handleImageClick} />
-      <TechnicalImplementation handleImageClick={handleImageClick} />
+      <TechnicalImplementation />
       <ChallengesLearnings />
 
       {/* Back to Works link */}
