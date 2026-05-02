@@ -63,9 +63,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-text-secondary sm:mt-6 sm:text-xl sm:leading-8 lg:mx-0">
-              My strongest work is in the messy middle: mapping uncertainty,
-              shaping the decision flow, and building enough of the interface
-              to test the bet.
+              Taking early AI ideas and making them clear enough to test.
             </p>
 
             <div className="mt-5 grid gap-3 text-left sm:mt-6 sm:grid-cols-3">

@@ -47,7 +47,7 @@ const IntegratedOverview = () => {
 
   return (
     <motion.section
-      className="mb-20"
+      className="mb-20 pt-14 sm:pt-20"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}

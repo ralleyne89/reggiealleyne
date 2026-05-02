@@ -3,7 +3,9 @@ import {
   getCaseStudyTldr,
   getFeaturedConfig,
 } from "@/config/portfolioCuration";
+import { getProjectLiveLabel } from "@/lib/projectLiveLabels";
 import type { ProjectType } from "@/types/project";
+import { Code, ExternalLink } from "lucide-react";
 import { EditorialSection } from "./EditorialProjectLayout";
 
 interface ReviewerSnapshotProps {
@@ -15,9 +17,17 @@ const compactItems = (items?: string[] | null, limit = 4) =>
 
 const getReviewerLinks = (project: ProjectType) =>
   [
-    { label: "Live", href: project.liveUrl },
-    { label: "Source", href: project.githubUrl },
-  ].filter((item): item is { label: string; href: string } =>
+    {
+      label: getProjectLiveLabel(project.slug),
+      href: project.liveUrl,
+      kind: "live",
+    },
+    {
+      label: "View Source Code",
+      href: project.githubUrl,
+      kind: "source",
+    },
+  ].filter((item): item is { label: string; href: string; kind: string } =>
     Boolean(item.href),
   );
 
@@ -114,11 +124,17 @@ const ReviewerSnapshot = ({ project }: ReviewerSnapshotProps) => {
                     <a
                       key={link.label}
                       href={link.href}
-                      target={link.label === "Source" ? "_blank" : undefined}
-                      rel={link.label === "Source" ? "noopener noreferrer" : undefined}
-                      className="rounded-md border border-gray-300 bg-white px-2.5 py-1 text-xs font-semibold leading-5 text-gray-800 transition-colors hover:border-primary/40 hover:text-primary"
+                      target={link.kind === "source" ? "_blank" : undefined}
+                      rel={link.kind === "source" ? "noopener noreferrer" : undefined}
+                      className={
+                        link.kind === "live"
+                          ? "inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-md bg-gray-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary"
+                          : "inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm transition-colors hover:border-primary/40 hover:text-primary"
+                      }
                     >
-                      {link.label}
+                      {link.kind === "source" ? <Code className="h-4 w-4" /> : null}
+                      <span>{link.label}</span>
+                      {link.kind === "live" ? <ExternalLink className="h-4 w-4" /> : null}
                     </a>
                   ))}
                 </div>

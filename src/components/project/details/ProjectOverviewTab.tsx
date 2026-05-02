@@ -2,7 +2,6 @@
 import React from 'react';
 import { TabsContent } from "@/components/ui/tabs";
 import { User, Clock, Calendar, Users } from 'lucide-react';
-import ProjectLinks from './ProjectLinks';
 
 interface ProjectOverviewTabProps {
   role: string;
@@ -10,9 +9,6 @@ interface ProjectOverviewTabProps {
   year: string;
   teamSize?: string;
   summary: string;
-  githubUrl?: string | null;
-  liveUrl?: string | null;
-  projectSlug?: string;
 }
 
 const ProjectOverviewTab = ({
@@ -21,14 +17,7 @@ const ProjectOverviewTab = ({
   year,
   teamSize,
   summary,
-  githubUrl,
-  liveUrl,
-  projectSlug
 }: ProjectOverviewTabProps) => {
-  // Check if we should show the project links section
-  // For Doggy Date, we don't show links section at all
-  const shouldShowLinks = projectSlug !== "doggy-date" && (githubUrl || liveUrl);
-
   return <TabsContent value="overview" className="p-8 m-0">
       <h2 className="text-2xl font-semibold text-white mb-4">Project Summary</h2>
       <p className="text-[rgba(200,200,200,0.9)] leading-relaxed">{summary}</p>
@@ -75,16 +64,6 @@ const ProjectOverviewTab = ({
           </div>}
       </div>
       
-      {shouldShowLinks && (
-        <div className="mt-8">
-          <h3 className="text-lg font-semibold text-white mb-4">Project Links</h3>
-          <ProjectLinks 
-            githubUrl={githubUrl} 
-            liveUrl={liveUrl} 
-            projectSlug={projectSlug}
-          />
-        </div>
-      )}
     </TabsContent>;
 };
 

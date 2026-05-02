@@ -2,7 +2,6 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import ProjectLinks from "./details/ProjectLinks";
 
 interface ProjectHeaderProps {
   image: string;
@@ -13,9 +12,6 @@ interface ProjectHeaderProps {
   duration?: string;
   year?: string;
   teamSize?: string | null;
-  githubUrl?: string | null;
-  liveUrl?: string | null;
-  projectSlug?: string;
 }
 
 interface CaseStudyHeroConfig {
@@ -135,9 +131,6 @@ const ProjectHeader = ({
   duration,
   year,
   teamSize,
-  githubUrl,
-  liveUrl,
-  projectSlug,
 }: ProjectHeaderProps) => {
   const [imageError, setImageError] = useState(false);
   const heroConfig = getCaseStudyHeroConfig(title);
@@ -156,7 +149,7 @@ const ProjectHeader = ({
   const displayDescription = getCaseStudyDescription(title, description);
   const visibleTags = tags.slice(0, 5);
   const backTarget = "/works";
-  const backLabel = "Back to work index";
+  const backLabel = "Back to Work";
 
   return (
     <header className="border-b border-gray-200 bg-white pt-24 sm:pt-32">
@@ -211,12 +204,6 @@ const ProjectHeader = ({
               </dl>
             ) : null}
 
-            <ProjectLinks
-              githubUrl={githubUrl}
-              liveUrl={liveUrl}
-              projectSlug={projectSlug}
-              className="mt-5 sm:mt-7"
-            />
           </div>
 
           <div className="min-w-0 max-md:pb-20">

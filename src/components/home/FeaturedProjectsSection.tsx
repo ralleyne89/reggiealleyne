@@ -137,7 +137,7 @@ const FeaturedProjectsSection = () => {
             to="/works"
           className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-950 transition-colors hover:border-primary hover:text-primary sm:w-auto"
           >
-            View the full work index
+            View all Work
             <ArrowRight size={18} />
           </Link>
         </div>

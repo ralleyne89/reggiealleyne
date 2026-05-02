@@ -72,7 +72,7 @@ interface CaseStudyFooterProps {
 }
 
 export const CaseStudyFooter = ({
-  label = "Back to work index",
+  label = "Back to Work",
 }: CaseStudyFooterProps) => (
   <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-8 sm:px-6 sm:pt-12">
     <Link

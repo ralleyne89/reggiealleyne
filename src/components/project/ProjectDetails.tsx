@@ -1,6 +1,5 @@
 import { Calendar, Clock, User, Users, type LucideIcon } from "lucide-react";
 import { EditorialSection } from "./EditorialProjectLayout";
-import ProjectLinks from "./details/ProjectLinks";
 
 interface ProjectDetailsProps {
   role: string;
@@ -8,12 +7,9 @@ interface ProjectDetailsProps {
   year: string;
   teamSize?: string | null;
   methodologies?: string[] | null;
-  githubUrl?: string | null;
-  liveUrl?: string | null;
   summary: string;
   problem?: string | null;
   solution?: string | null;
-  projectSlug?: string;
 }
 
 const ProjectDetails = ({
@@ -22,12 +18,9 @@ const ProjectDetails = ({
   year,
   teamSize,
   methodologies,
-  githubUrl,
-  liveUrl,
   summary,
   problem,
   solution,
-  projectSlug,
 }: ProjectDetailsProps) => {
   const facts = [
     { label: "Role", value: role, icon: User },
@@ -67,13 +60,6 @@ const ProjectDetails = ({
           );
         })}
       </div>
-
-      <ProjectLinks
-        githubUrl={githubUrl}
-        liveUrl={liveUrl}
-        projectSlug={projectSlug}
-        className="mt-8"
-      />
 
       {hasProblemSolution ? (
         <div className="mt-12 grid min-w-0 gap-6 border-t border-gray-200 pt-10 lg:grid-cols-2">

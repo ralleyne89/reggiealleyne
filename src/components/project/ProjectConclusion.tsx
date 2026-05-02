@@ -7,7 +7,6 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { EditorialSection } from "./EditorialProjectLayout";
-import ProjectLinks from "./details/ProjectLinks";
 
 interface ProjectConclusionProps {
   conclusion: {
@@ -15,14 +14,10 @@ interface ProjectConclusionProps {
     learnings: string | null;
     nextSteps: string | null;
   };
-  liveUrl?: string | null;
-  projectSlug?: string;
 }
 
 const ProjectConclusion = ({
   conclusion,
-  liveUrl,
-  projectSlug,
 }: ProjectConclusionProps) => {
   const items = [
     {
@@ -46,7 +41,7 @@ const ProjectConclusion = ({
     icon: LucideIcon;
   } => Boolean(item.value));
 
-  if (items.length === 0 && !liveUrl) {
+  if (items.length === 0) {
     return null;
   }
 
@@ -90,11 +85,6 @@ const ProjectConclusion = ({
           <ArrowLeft className="h-4 w-4" />
           View more projects
         </Link>
-        <ProjectLinks
-          liveUrl={liveUrl}
-          projectSlug={projectSlug}
-          className="mt-0"
-        />
       </div>
     </EditorialSection>
   );

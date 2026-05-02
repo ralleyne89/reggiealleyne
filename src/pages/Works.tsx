@@ -89,7 +89,7 @@ const Works = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45 }}
             >
-              Work index
+              Work
             </motion.p>
             <motion.h1
               className="break-words font-display text-[2.35rem] leading-[1.08] text-gray-950 [text-wrap:balance] sm:text-display-lg"
