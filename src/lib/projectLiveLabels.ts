@@ -6,6 +6,8 @@ export const getProjectLiveLabel = (projectSlug?: string) => {
       return "Visit TutorD";
     case "staybooked":
       return "Visit Staybooked";
+    case "covelo-timecard-system":
+      return "Open Covelo Demo";
     case "bobs-big-break":
       return "Play Game";
     default:

@@ -201,6 +201,21 @@ export const caseStudyBriefs: Partial<
       "Saved reports and follow-up flow",
     ],
   },
+  "covelo-timecard-system": {
+    audience:
+      "Staff, approvers, and operations teams coordinating workforce time, assignments, exceptions, and exports across district-scoped environments.",
+    constraint:
+      "The product had to unify fragmented timekeeping and compliance workflows without weakening role boundaries, audit history, or tenant isolation.",
+    coreDecision:
+      "Anchor the MVP around three portals: staff submission, approver review, and operations exception management.",
+    evidence:
+      "Completed as a solo client project in March 2026 with a deployed demo, role-based workflows, invite-only access, OIDC/JWKS auth, and Postgres-oriented contracts.",
+    artifacts: [
+      "Staff dashboard and timesheet workflow",
+      "Approver queue and review workflow",
+      "Ops exception and export surfaces",
+    ],
+  },
 };
 
 export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
@@ -326,6 +341,17 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
       "Delivered a playable incremental game prototype with active clicks, passive income, upgrades, and character art.",
     tools: ["React", "Node.js", "Express", "MongoDB", "Bulma"],
     owned: ["Game UX", "Economy loop", "Frontend build", "Backend integration"],
+  },
+  "covelo-timecard-system": {
+    role: "Product Designer and Frontend Developer",
+    problem:
+      "Covelo needed one portal for staff timecards, approver review, compliance exceptions, assignments, and export prep.",
+    decision:
+      "Design the product around three role-specific workspaces tied to one operating model instead of treating each team as a separate workflow.",
+    outcome:
+      "Delivered a solo client MVP with a deployed demo, product screenshots, and bounded technical framing for auth, RBAC, APIs, and exports.",
+    tools: ["Next.js", "TypeScript", "Postgres", "OIDC/JWKS", "REST APIs"],
+    owned: ["Product design", "Frontend build", "Role workflows", "Client demo"],
   },
 };
 
