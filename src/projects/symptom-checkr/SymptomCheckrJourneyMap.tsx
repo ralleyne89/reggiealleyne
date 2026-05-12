@@ -19,9 +19,9 @@ const SymptomCheckrJourneyMap = () => {
     <div className="w-full">
       {/* Journey Map Header */}
       <div className="flex flex-col items-center mb-8">
-        <h3 className="text-xl font-semibold text-white mb-4">User Journey: Sarah's Experience with Symptom Checkr</h3>
+        <h3 className="text-xl font-semibold text-white mb-4">Sarah checks a rash and fever</h3>
         <p className="text-gray-300 text-center max-w-3xl mb-6">
-          Following Sarah as she navigates the Symptom Checkr when concerned about her child's rash and fever.
+          A parent moves from worry to a clearer care decision.
         </p>
       </div>
 
@@ -46,7 +46,7 @@ const SymptomCheckrJourneyMap = () => {
               </div>,
               <div className="flex flex-col items-center text-center">
                 <Search className="w-5 h-5 text-white mb-2" />
-                <p className="text-gray-300 text-sm">Finds Symptom Checkr and enters basic information</p>
+                <p className="text-gray-300 text-sm">Finds SymptomCheckr and enters basic information</p>
               </div>,
               <div className="flex flex-col items-center text-center">
                 <MessageSquare className="w-5 h-5 text-white mb-2" />

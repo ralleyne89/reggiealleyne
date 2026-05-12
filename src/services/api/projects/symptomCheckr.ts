@@ -4,29 +4,29 @@ export const getSymptomCheckrProject = (): ProjectType => {
   return {
     id: 9,
     slug: 'symptom-checkr',
-    title: 'SymptomCheckr: Designing for Trust in Probabilistic AI',
-    description: "A concept for reducing health-search anxiety with visible AI confidence, source citations, and reasoning chains instead of black-box symptom guidance.",
+    title: 'SymptomCheckr: a calmer way to check symptoms',
+    description: "A health-tech concept for people who check symptoms online and need guidance that feels clear, cautious, and easy to question.",
     role: 'UI/UX Designer',
     year: '2024',
     duration: '8 weeks',
     teamSize: '4',
-    tags: ['Trust Design', 'Explainable AI', 'Health Tech', 'UX Research'],
+    tags: ['Health UX', 'AI Guidance', 'Health Tech', 'UX Research'],
     image: '/images/symptomcheckr-trust-ai-card.jpg',
-    summary: "Most symptom checkers hide the reasoning behind their outputs. This concept makes a different choice: show the reasoning, cite the sources, and display confidence levels so users can understand uncertainty without spiraling.",
-    problem: "Black box AI in healthcare creates anxiety, not relief. When users can't see how conclusions are reached, they either blindly trust or completely dismiss the results. We chose to solve the trust problem, not just the diagnosis problem.",
-    solution: "Designed an Explainable AI (XAI) interface showing confidence levels, source citations, and reasoning chains. The trade-off: more screen real estate for explanations, but a calmer and more trustworthy health guidance model.",
-    methodologies: ['Trust Design', 'Explainable AI (XAI)', 'User Journey Mapping', 'A/B Testing', 'Anxiety Reduction Research'],
+    summary: "Most symptom checkers give an answer without showing how they got there. I focused on making the AI's uncertainty visible: confidence levels, source links, plain-language reasoning, and saved reports people could bring to a clinician.",
+    problem: "When health guidance feels like a sealed answer box, people either panic, over-trust it, or ignore it. The design challenge was to help users understand the level of uncertainty behind each recommendation.",
+    solution: "I designed an AI-assisted symptom flow that explains what the system considered, shows confidence levels, links to sources, and gives users practical next steps without pretending to diagnose them.",
+    methodologies: ['Health UX', 'AI Guidance', 'User Journey Mapping', 'Prototype Testing', 'Anxiety-Aware Design'],
     process: [
-      "Trade-off #1: Chose conversational warmth over clinical accuracy - Ada's precision came at the cost of user comfort. We accepted slightly lower clinical signal for dramatically higher user trust.",
-      "Trade-off #2: Chose transparency over simplicity - Showing AI confidence levels and source citations increased UI complexity, but made the reasoning easier to evaluate.",
-      "Trade-off #3: Implemented image-based inputs despite 40% higher dev cost - Text-only input had a 40% misdiagnosis rate for skin conditions in MVP testing.",
-      "Trade-off #4: Chose graduated certainty over binary outputs - 'Possibly X (65% confidence)' tested better than 'You might have X' despite requiring more explanation."
+      "Trade-off #1: Kept the tone conversational without making the experience feel casual about health decisions.",
+      "Trade-off #2: Added confidence levels and source links even though they made the results screen denser.",
+      "Trade-off #3: Included photo-supported symptom input because some symptoms are hard to describe in words.",
+      "Trade-off #4: Used graduated certainty instead of binary answers so the product could be honest about what it did and did not know."
     ],
     deliverables: [
-      'XAI Interface Design - Confidence levels, source citations, reasoning chains',
-      'Trust Design System - Visual language for uncertainty and probability',
-      'Anxiety Reduction Patterns - Tested approaches for calming UI in health contexts',
-      'High-fidelity Prototypes with Explainability Built-In'
+      'AI guidance flow with confidence levels and source links',
+      'Visual language for uncertainty, urgency, and follow-up care',
+      'Calmer patterns for high-stress health moments',
+      'High-fidelity responsive screens and report flows'
     ],
     images: [
       '/images/symptomcheckr-trust-ai-card.jpg',
@@ -44,13 +44,13 @@ export const getSymptomCheckrProject = (): ProjectType => {
     liveUrl: 'https://symptom-checkr.web.app/',
     prototypeUrl: null,
     keyAchievements: [
-      'Designed explainable AI patterns that expose reasoning instead of asking users to trust a black box',
-      'Created a calmer health guidance flow with graduated certainty, citations, and saved reports',
-      'Balanced medical seriousness with accessible explanation design'
+      'Designed AI guidance patterns that show why a recommendation appears',
+      'Created a calmer health guidance flow with confidence levels, citations, and saved reports',
+      'Balanced medical seriousness with plain-language explanation design'
     ],
     technicalHighlights: [
-      'XAI interface showing confidence levels and source citations for every assessment',
-      'Used soft visual patterns to make high-stakes health information feel calm without becoming casual',
+      'Results interface with confidence levels and source citations for each assessment',
+      'Soft visual patterns that keep health information calm without making it feel casual',
       'Privacy-first architecture processing images locally when possible',
       'Graduated certainty indicators replacing binary yes/no outputs'
     ]

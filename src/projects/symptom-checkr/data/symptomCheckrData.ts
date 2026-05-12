@@ -33,24 +33,24 @@ import { AIProductThinkingProps } from "@/components/project/common/AIProductThi
 
 // AI PM Lens Data
 export const symptomCheckrAIPMData: AIProductThinkingProps = {
-  title: "The AI Challenge",
-  challenge: "How do we handle it when the model hallucinates a wrong medical symptom?",
-  dataStrategy: "We designed for graceful uncertainty—showing confidence levels and source citations so users can verify recommendations against medical literature.",
-  successMetric: "User testing showed 78% reduction in anxiety when AI explanations included confidence intervals and source citations vs. black-box outputs."
+  title: "The hard part",
+  challenge: "How should a symptom checker respond when its guidance might be wrong?",
+  dataStrategy: "I designed the flow around uncertainty. Each result shows confidence, sources, and plain-language reasoning so users can see what shaped the recommendation.",
+  successMetric: "Prototype feedback pointed in one clear direction: people felt more comfortable when the product explained its uncertainty instead of presenting a single answer."
 };
 
 // Project Overview Data
 export const symptomCheckrOverviewData: ProjectOverviewProps = {
-  title: "Reducing Patient Anxiety through Algorithmic Transparency",
+  title: "Helping people check symptoms without spiraling",
   description: [
-    "Many symptom checkers amplify anxiety by presenting opaque risk signals. SymptomCheckr explores a calmer model: Trust Design and Explainable AI (XAI) patterns that show how the system reaches its conclusions.",
-    "The core insight: health anxiety isn't just about symptoms—it's about uncertainty. When people understand how an AI reached its assessment, they trust it more. I designed an XAI interface that cites sources, explains reasoning, and gives users control over their health data.",
-    "This was an additional feature for a health insurance platform, focused on reducing unnecessary ER visits by helping users make informed decisions. The feature was shelved due to restructuring, but the Trust Design principles apply to any AI-driven health tool."
+    "Most symptom checkers move too quickly from input to possible diagnosis. That can make a worried user feel like they are being handed a verdict instead of guidance.",
+    "SymptomCheckr takes a different approach. I designed the experience to show confidence levels, source links, and the reasoning behind each recommendation, so users can understand uncertainty instead of filling in the blanks themselves.",
+    "The concept began as an additional feature for a health insurance platform. It was meant to help members decide whether to monitor symptoms, book telehealth, or seek urgent care. The feature was later shelved during restructuring, but the design work still shows how I approach sensitive AI products."
   ],
   projectDetails: [
     {
       label: "Design Focus",
-      value: "Trust Design & Explainable AI",
+      value: "Health UX & AI Guidance",
       icon: Briefcase
     },
     {
@@ -67,7 +67,7 @@ export const symptomCheckrOverviewData: ProjectOverviewProps = {
   toolDetails: [
     {
       label: "Methodology",
-      value: "XAI Interface Design, User Research",
+      value: "Guidance Flow, User Research",
       icon: Image
     },
     {
@@ -85,39 +85,39 @@ export const symptomCheckrOverviewData: ProjectOverviewProps = {
 
 // Problem Space Data
 export const symptomCheckrProblemSpaceData: ProblemSpaceProps = {
-  title: "The Black Box Problem in Healthcare AI",
-  introduction: "Most symptom checkers hide the reasoning behind their outputs: input symptoms, receive a possible diagnosis, and move on. That creates a trust problem because users cannot verify the logic, understand uncertainty, or make informed care decisions. The challenge: How do we design Explainable AI (XAI) interfaces that make algorithmic reasoning transparent and trustworthy?",
+  title: "When symptom checkers feel too certain",
+  introduction: "A symptom checker can create more stress when it gives possible causes without showing how it got there. Users need to know what the system considered, how confident it is, and when a clinician should be involved. The design question was simple: how can an AI-assisted tool give useful guidance without sounding more certain than it is?",
   challenges: [
     {
-      title: "Algorithmic Opacity",
-      description: "Black box AI in healthcare creates anxiety, not relief. When users can't see how conclusions are reached, they either blindly trust or completely dismiss the results.",
+      title: "Hidden reasoning",
+      description: "When users cannot see how a recommendation was formed, they have to choose between trusting it blindly or dismissing it completely.",
       icon: AlertCircle
     },
     {
-      title: "The Panic-or-Dismiss Pattern",
-      description: "Without confidence levels and source citations, users oscillate between 'I'm dying' and 'this is useless.' Neither response leads to appropriate care decisions.",
+      title: "The panic-or-ignore loop",
+      description: "Symptom search often pushes people toward worst-case thinking or total skepticism. Neither response helps someone make a calm care decision.",
       icon: AlertCircle
     },
     {
-      title: "Data Privacy Uncertainty",
-      description: "Health data is sensitive. Users need transparent control over what's collected, stored, and shared—not buried privacy policies.",
+      title: "Unclear privacy control",
+      description: "Health data is sensitive. Users need to know what is collected, what is saved, and what they can delete or share.",
       icon: AlertCircle
     }
   ],
   designGoals: [
     {
-      title: "Explainable AI Interface",
-      description: "Design an XAI interface that shows confidence levels, cites medical sources, and explains the reasoning chain behind each assessment.",
+      title: "Explain the recommendation",
+      description: "Show confidence levels, cite sources, and explain why a result appears on the screen.",
       icon: Target
     },
     {
       title: "Graduated Certainty",
-      description: "Replace binary 'yes/no' outputs with probability ranges and clear language about what the AI can and cannot determine.",
+      description: "Replace yes-or-no language with probability ranges and clear limits around what the tool can determine.",
       icon: Target
     },
     {
-      title: "User Data Sovereignty",
-      description: "Give users complete control: delete data anytime, choose what to share with doctors, and see exactly what information drives each recommendation.",
+      title: "Control over health data",
+      description: "Let users delete data, choose what to share with a doctor, and see which inputs shaped each recommendation.",
       icon: Target
     }
   ]
@@ -125,11 +125,11 @@ export const symptomCheckrProblemSpaceData: ProblemSpaceProps = {
 
 // Research & Discovery Data
 export const symptomCheckrResearchData: ResearchDiscoveryProps = {
-  title: "Research Signals and Competitive Gaps",
-  introduction: "I reviewed existing symptom-checker experiences and gathered informal feedback from people who had used them during moments of health uncertainty. The pattern was consistent: people search symptoms quickly, often feel more anxious afterward, and distrust interfaces that feel dated, overly clinical, or opaque.",
+  title: "What the research pointed to",
+  introduction: "I reviewed existing symptom-checker flows and talked with people who had searched symptoms during stressful moments. The same pattern kept showing up: people want quick help, but they lose trust when the experience feels clinical, outdated, or vague about how it reached a result.",
   researchSections: [
     {
-      title: "User Conversations",
+      title: "User conversations",
       description: "I gathered informal feedback from people who had recently searched symptoms or used digital health tools.",
       items: [
         {
@@ -144,7 +144,7 @@ export const symptomCheckrResearchData: ResearchDiscoveryProps = {
       ]
     },
     {
-      title: "Testing the Competition",
+      title: "Competitive review",
       description: "I reviewed major symptom-checker flows to understand where trust, clarity, and completion break down.",
       items: [
         {
@@ -161,32 +161,32 @@ export const symptomCheckrResearchData: ResearchDiscoveryProps = {
   ],
   keyFindings: [
     {
-      title: "Insight #1: Jargon Increases Anxiety",
-      description: "Medical terms without context just create more anxiety. People need plain English explanations."
+      title: "Medical jargon makes worry worse",
+      description: "Medical terms can help, but only when the interface explains them in plain English."
     },
     {
-      title: "Insight #2: Show Your Work",
-      description: "Users want to understand how the AI reached its conclusions. Black box = no trust."
+      title: "People need to see the logic",
+      description: "Users were more willing to consider guidance when they could see the evidence and uncertainty behind it."
     },
     {
-      title: "Insight #3: Visual Input Reduces Ambiguity",
-      description: "Visual symptoms can be difficult to describe precisely. Let people upload photos when text input is not enough."
+      title: "Photos can reduce guesswork",
+      description: "Some symptoms are hard to describe. Photo-supported input gives users another way to provide context."
     }
   ]
 };
 
 // Ideation & Strategy Data
 export const symptomCheckrIdeationData: IdeationStrategyProps = {
-  title: "Three Principles for Trustworthy Health AI",
-  introduction: "The strategy centered on three principles that balanced user reassurance, clinical accuracy, and business goals. The product needed to reduce anxiety while still giving users enough structure to make an appropriate next-step decision.",
+  title: "Three rules for a safer-feeling flow",
+  introduction: "The strategy had to balance reassurance, medical seriousness, and business goals. The product needed to help users move from worry to a next step without making the AI sound like a doctor.",
   keyInsights: [
     {
       highlight: "Make it conversational, not clinical.",
-      description: "People need plain-language guidance when they are worried about their health, not an experience that feels like administrative paperwork."
+      description: "People need plain-language guidance when they are worried about their health, not an experience that feels like paperwork."
     },
     {
       highlight: "Transparency builds trust.",
-      description: "Show users how the AI works, what evidence it used, and what it cannot determine."
+      description: "Show users what evidence shaped the guidance and where the tool's limits are."
     },
     {
       highlight: "Design for the moment of worry.",
@@ -201,8 +201,8 @@ export const symptomCheckrIdeationData: IdeationStrategyProps = {
     },
     {
       number: 2,
-      title: "Smart Questions",
-      description: "AI asks relevant follow-ups based on what the user describes, avoiding exhaustive intake forms"
+      title: "Focused Follow-up Questions",
+      description: "The system asks relevant follow-ups based on what the user describes instead of forcing a long intake form"
     },
     {
       number: 3,
@@ -265,13 +265,13 @@ export const symptomCheckrPersonaData: UserPersonaProps = {
   ],
   needs: [
     {
-      text: "A calm interface that feels trustworthy without feeling institutional"
+      text: "A calm interface that feels credible without feeling like a hospital portal"
     },
     {
       text: "Plain-language answers instead of unexplained medical terminology"
     },
     {
-      text: "Visible confidence, sources, and reasoning behind AI guidance"
+      text: "Clear confidence, sources, and reasoning behind the guidance"
     }
   ]
 };
@@ -279,9 +279,9 @@ export const symptomCheckrPersonaData: UserPersonaProps = {
 // User Journey Map Data
 export const symptomCheckrJourneyData: UserJourneyMapProps = {
   title: "User Journey Map",
-  introduction: "This journey map follows Sarah as she navigates SymptomCheckr when concerned about her child's rash and fever. It highlights key emotional states and opportunities for design intervention.",
-  journeyTitle: "User Journey: Sarah's Experience with Symptom Checkr",
-  journeyDescription: "Following Sarah as she navigates the Symptom Checkr when concerned about her child's rash and fever.",
+  introduction: "This map follows Sarah as she uses SymptomCheckr after noticing her child's rash and fever. It tracks the points where the product needs to reduce worry, ask for the right context, and help her choose a next step.",
+  journeyTitle: "Sarah checks a rash and fever",
+  journeyDescription: "A parent moves from worry to a clearer care decision.",
   stages: [
     { name: "Trigger" },
     { name: "Search & Entry" },
@@ -296,7 +296,7 @@ export const symptomCheckrJourneyData: UserJourneyMapProps = {
     },
     {
       icon: Search,
-      description: "Finds Symptom Checkr and enters basic information"
+      description: "Finds SymptomCheckr and enters basic information"
     },
     {
       icon: MessageSquare,
@@ -427,7 +427,7 @@ export const symptomCheckrSitemapData: SitemapWireframesProps = {
     }
   ],
   wireframesTitle: "Wireframes",
-  wireframesDescription: "Low-fidelity wireframes were created to establish the basic structure of key screens, focusing on intuitive symptom input and clear result presentation.",
+  wireframesDescription: "I used low-fidelity wireframes to work through the main screens before polishing the UI: symptom input, saved reports, and result presentation.",
   wireframeImages: [
     {
       title: "Symptom Checkr Homepage",
@@ -444,17 +444,17 @@ export const symptomCheckrSitemapData: SitemapWireframesProps = {
 
 // Final UI Design Data
 export const symptomCheckrUIData: FinalUIDesignProps = {
-  title: "Designing for Calm, Comprehensible Care",
-  introduction: "The visual system needed to feel medically credible without becoming cold or intimidating. I focused on colors, typography, and micro-interactions that would reduce anxiety, clarify progress, and make AI reasoning easier to scan.",
+  title: "Designing for care, not panic",
+  introduction: "The visual system needed to feel credible without becoming cold. I focused on color, type, spacing, and small interaction states that could make a stressful health task easier to scan.",
   designHighlights: [
     {
-      text: "Calming colors that distinguish normal guidance from urgent escalation states"
+      text: "Colors that separate routine guidance from urgent escalation states"
     },
     {
-      text: "Soft geometry and generous spacing to keep dense health information approachable"
+      text: "Soft geometry and generous spacing for dense health information"
     },
     {
-      text: "Subtle processing states that communicate progress without creating unnecessary alarm"
+      text: "Processing states that show progress without adding alarm"
     },
     {
       text: "Accessible design that works for everyone, not just people with perfect vision"
@@ -462,8 +462,8 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
   ],
   uiFeatures: [
     {
-      title: "Human-in-the-Loop Error Handling",
-      description: "'AI can make mistakes. Always verify with a healthcare professional.' We built explicit uncertainty messaging into every assessment, because users need to know when to trust—and when to override—the algorithm.",
+      title: "Clear safety limits",
+      description: "'AI can make mistakes. Always verify with a healthcare professional.' That message appears in the assessment flow so users know the tool is guidance, not a diagnosis.",
       icon: AlertCircle
     },
     {
@@ -472,13 +472,13 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
       icon: Image
     },
     {
-      title: "Honest Probabilities",
-      description: "Use clear likelihood indicators and plain-language uncertainty instead of overwhelming lists of possibilities.",
+      title: "Confidence without false certainty",
+      description: "Use likelihood indicators and plain-language uncertainty instead of long lists of possible conditions.",
       icon: BarChart
     },
     {
-      title: "Your Data, Your Choice",
-      description: "Let users delete data, save reports, or share context with a clinician through transparent controls.",
+      title: "Clear control over health data",
+      description: "Let users delete data, save reports, or share context with a clinician through visible controls.",
       icon: Lock
     }
   ],
@@ -508,30 +508,30 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
 
 // Outcomes & Impact Data
 export const symptomCheckrOutcomesData: OutcomesImpactProps = {
-  title: "What This Could Achieve",
+  title: "What the work clarified",
   metrics: [
     {
       title: "Design Principle",
       value: "Trust",
-      description: "Every decision prioritized user trust over flashy features",
+      description: "The interface had to earn confidence at each step",
       icon: CheckCircle
     },
     {
       title: "Core Value",
       value: "Clarity",
-      description: "No medical jargon, no confusing interfaces, just clear guidance",
+      description: "Plain-language guidance mattered more than medical-sounding polish",
       icon: BarChart
     },
     {
       title: "User Experience",
       value: "Calm",
-      description: "Designed to reduce health anxiety, not amplify it",
+      description: "The flow was written and paced to lower stress, not add to it",
       icon: BarChart
     },
     {
       title: "Honest Approach",
       value: "Concept",
-      description: "A concept framed around design principles rather than unsupported success metrics",
+      description: "A concept framed around design decisions, not inflated success claims",
       icon: Briefcase
     }
   ]
@@ -539,39 +539,39 @@ export const symptomCheckrOutcomesData: OutcomesImpactProps = {
 
 // Challenges & Learnings Data - Principal-Level Insights
 export const symptomCheckrChallengesData: ChallengesLearningsProps = {
-  title: "Healthcare AI Design Users Trust",
+  title: "What this taught me about health AI",
   challenges: [
     {
-      title: "Trust is Everything",
-      description: "People will not share health information with an experience that feels unclear or unreliable. Every design decision had to signal trust without adding friction."
+      title: "Trust has to be designed into the details",
+      description: "People will not share health information with an experience that feels unclear or unreliable. Every design decision had to build trust without slowing the flow down."
     },
     {
-      title: "The Goldilocks Problem",
+      title: "Too much detail can backfire",
       description: "Too much medical detail can increase anxiety; too little becomes unusable. The interface needed enough context to support action without overwhelming users."
     },
     {
-      title: "Simplicity Had to Win",
-      description: "Stakeholders wanted more surface area, but user needs pointed toward a narrower flow with clearer next steps."
+      title: "The narrower flow was the better flow",
+      description: "Stakeholders wanted more surface area, but the user need pointed toward fewer steps and clearer next actions."
     }
   ],
   learnings: [
     {
-      title: "Show Your Work",
-      description: "When users understand how the AI reaches conclusions, they are better equipped to judge the guidance. Opaque systems are especially risky in healthcare contexts."
+      title: "Explain the logic",
+      description: "When users understand how the tool reached a recommendation, they are better equipped to decide what to do with it."
     },
     {
       title: "Design for Anxiety",
-      description: "People using symptom checkers are worried. Every interaction should reduce anxiety, not increase it."
+      description: "People using symptom checkers are already worried. Every screen should make the next step clearer."
     },
     {
-      title: "Ethics First, Features Second",
-      description: "In health tech, speed cannot come at the expense of safety, consent, or clarity. Ethical design is part of product quality."
+      title: "Safety is part of product quality",
+      description: "In health tech, speed cannot come at the expense of consent, clarity, or knowing when a person needs clinical care."
     }
   ],
   nextSteps: [
     {
       title: "Better Integration",
-      description: "Connect directly to telehealth platforms so users do not have to restart the intake process when they need clinical care.",
+      description: "Connect directly to telehealth so users do not have to restart the intake process when they need clinical care.",
       icon: Target
     },
     {
@@ -580,8 +580,8 @@ export const symptomCheckrChallengesData: ChallengesLearningsProps = {
       icon: Target
     },
     {
-      title: "Smarter AI",
-      description: "Train and evaluate the model on more diverse data so guidance is more inclusive and reliable across populations.",
+      title: "More inclusive evaluation",
+      description: "Evaluate the guidance against more diverse symptom presentations so the product can work better across populations.",
       icon: Target
     }
   ]
@@ -590,19 +590,19 @@ export const symptomCheckrChallengesData: ChallengesLearningsProps = {
 // Reflection Data
 export const symptomCheckrReflectionData: ReflectionProps = {
   title: "What I Learned",
-  content: "This project sharpened how I design for people in vulnerable moments. A symptom checker is not just an interface; it is a decision-support experience where trust, transparency, and tone can either calm or amplify anxiety.",
+  content: "This project sharpened how I design for people in vulnerable moments. A symptom checker is not just an interface; it is a decision-support tool where tone, clarity, and restraint matter.",
   insights: [
     {
       title: "Healthcare Design is Different",
-      description: "The work is not only about interface clarity; it is about supporting a person's ability to make a calm next-step decision."
+      description: "Interface clarity mattered, but the bigger job was helping someone make a calmer next-step decision."
     },
     {
-      title: "AI Needs to Show Its Work",
-      description: "In healthcare, users need to understand what the AI can determine, what it cannot determine, and when clinical care is needed."
+      title: "AI has to explain its limits",
+      description: "In healthcare, users need to understand what the tool can suggest, what it cannot know, and when clinical care is needed."
     },
     {
       title: "Simple Isn't Easy",
-      description: "Making complex medical information approachable without losing accuracy is difficult, but essential for trustworthy health UX."
+      description: "Making complex medical information approachable without losing accuracy is difficult, but it is the job."
     }
   ]
 };

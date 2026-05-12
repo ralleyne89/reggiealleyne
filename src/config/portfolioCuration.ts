@@ -188,15 +188,15 @@ export const caseStudyBriefs: Partial<
   },
   "symptom-checkr": {
     audience:
-      "People using AI-assisted symptom guidance who need clarity without panic or blind trust.",
+      "People checking symptoms online who need guidance that is clear, cautious, and easy to question.",
     constraint:
-      "Healthcare AI needed transparency, but every added explanation made a sensitive flow harder to scan.",
+      "The product needed to explain uncertainty without making a stressful health flow harder to scan.",
     coreDecision:
-      "Expose confidence levels, citations, and reasoning chains instead of hiding AI logic behind a simple answer.",
+      "Show confidence levels, source links, and plain-language reasoning instead of hiding the logic behind a simple answer.",
     evidence:
-      "The concept maps how confidence, source links, and saved reports could make AI guidance easier to question.",
+      "The concept maps how confidence, sources, and saved reports could make symptom guidance easier to evaluate.",
     artifacts: [
-      "Explainable AI assessment UI",
+      "AI assessment UI",
       "Confidence and citation patterns",
       "Saved reports and follow-up flow",
     ],
@@ -255,11 +255,11 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
   "symptom-checkr": {
     role: "UI/UX designer",
     problem:
-      "Health AI can create anxiety when users cannot see confidence, sources, or reasoning behind guidance.",
+      "Symptom guidance can make people more anxious when it does not show confidence, sources, or limits.",
     outcome:
-      "Designed an explainable AI concept that foregrounds confidence, citations, and follow-up context.",
-    tools: ["Figma", "XAI patterns", "Journey mapping", "Trust design"],
-    owned: ["Trust model", "Assessment UI", "Citation patterns", "Saved report flow"],
+      "Designed a calmer AI-assisted flow with confidence levels, citations, and saved reports for follow-up care.",
+    tools: ["Figma", "AI guidance", "Journey mapping", "Health UX"],
+    owned: ["Guidance model", "Assessment UI", "Citation patterns", "Saved report flow"],
   },
   "vaultjs-validate": {
     role: "UI/UX designer and frontend developer",
