@@ -18,6 +18,7 @@ type NavRouteItem = {
   path: string;
   icon: LucideIcon;
   labelWidth: number;
+  mobileLabelWidth?: number;
 };
 
 type NavActionItem = {
@@ -25,20 +26,30 @@ type NavActionItem = {
   title: string;
   icon: LucideIcon;
   labelWidth: number;
+  mobileLabelWidth?: number;
   onSelect: () => void;
   isActive: boolean;
 };
 
 type NavItem = NavRouteItem | NavActionItem;
+type NavSurface = "desktop" | "mobile";
 
 const routeNavItems: NavRouteItem[] = [
-  { kind: "route", title: "Home", path: "/", icon: Home, labelWidth: 44 },
+  {
+    kind: "route",
+    title: "Home",
+    path: "/",
+    icon: Home,
+    labelWidth: 44,
+    mobileLabelWidth: 46,
+  },
   {
     kind: "route",
     title: "Work",
     path: "/works",
     icon: BriefcaseBusiness,
     labelWidth: 42,
+    mobileLabelWidth: 42,
   },
   {
     kind: "route",
@@ -46,6 +57,7 @@ const routeNavItems: NavRouteItem[] = [
     path: "/playground",
     icon: Sparkles,
     labelWidth: 86,
+    mobileLabelWidth: 80,
   },
   {
     kind: "route",
@@ -53,6 +65,7 @@ const routeNavItems: NavRouteItem[] = [
     path: "/about",
     icon: UserRound,
     labelWidth: 52,
+    mobileLabelWidth: 50,
   },
 ];
 
@@ -91,6 +104,7 @@ const Navbar = () => {
       title: "Contact",
       icon: MessageCircle,
       labelWidth: 62,
+      mobileLabelWidth: 58,
       onSelect: openContactModal,
       isActive: contactModalOpen,
     },
@@ -108,32 +122,49 @@ const Navbar = () => {
     },
   };
 
-  const navItemClassName = (isActive: boolean) =>
+  const navItemClassName = (isActive: boolean, surface: NavSurface) =>
     cn(
       "relative inline-flex h-10 min-h-10 min-w-11 max-w-[9rem] items-center justify-center overflow-hidden rounded-full px-3 py-2 text-sm font-semibold transition-colors duration-200",
+      surface === "mobile" &&
+        "h-12 min-h-12 max-w-[8.75rem] px-3 text-[0.82rem]",
       "focus:outline-none focus-visible:ring-0",
       isActive
         ? "liquid-glass-control liquid-glass-nav-control text-zinc-50 shadow-sm"
         : "text-zinc-400 hover:bg-white/10 hover:text-zinc-50",
     );
 
-  const renderNavItemContent = (item: NavItem, isActive: boolean) => {
+  const renderNavItemContent = (
+    item: NavItem,
+    isActive: boolean,
+    surface: NavSurface,
+  ) => {
     const Icon = item.icon;
+    const labelWidth =
+      surface === "mobile" && item.mobileLabelWidth
+        ? item.mobileLabelWidth
+        : item.labelWidth;
 
     return (
       <>
         <Icon
           aria-hidden="true"
-          className="h-[1.18rem] w-[1.18rem] shrink-0 transition-colors duration-200"
+          className={cn(
+            "h-[1.18rem] w-[1.18rem] shrink-0 transition-colors duration-200",
+            surface === "mobile" && "h-5 w-5",
+          )}
           strokeWidth={2.2}
         />
 
         <motion.span
           initial={false}
           animate={{
-            width: isActive ? `${item.labelWidth}px` : "0px",
+            width: isActive ? `${labelWidth}px` : "0px",
             opacity: isActive ? 1 : 0,
-            marginLeft: isActive ? "0.5rem" : "0rem",
+            marginLeft: isActive
+              ? surface === "mobile"
+                ? "0.45rem"
+                : "0.5rem"
+              : "0rem",
           }}
           transition={itemTransition}
           className="flex max-w-[6rem] items-center overflow-hidden"
@@ -142,6 +173,7 @@ const Navbar = () => {
           <span
             className={cn(
               "truncate text-xs font-semibold leading-5 transition-opacity duration-200",
+              surface === "mobile" && "text-[0.8rem]",
               isActive ? "opacity-100" : "opacity-0",
             )}
             title={item.title}
@@ -153,7 +185,7 @@ const Navbar = () => {
     );
   };
 
-  const renderNavItem = (item: NavItem) => {
+  const renderNavItem = (item: NavItem, surface: NavSurface) => {
     const isActive =
       item.kind === "route" ? isActivePath(item.path) : item.isActive;
 
@@ -166,9 +198,9 @@ const Navbar = () => {
           aria-current={isActive ? "page" : undefined}
           title={item.title}
           whileTap={{ scale: 0.97 }}
-          className={navItemClassName(isActive)}
+          className={navItemClassName(isActive, surface)}
         >
-          {renderNavItemContent(item, isActive)}
+          {renderNavItemContent(item, isActive, surface)}
         </MotionLink>
       );
     }
@@ -181,15 +213,19 @@ const Navbar = () => {
         aria-pressed={isActive}
         title={item.title}
         whileTap={{ scale: 0.97 }}
-        className={navItemClassName(isActive)}
+        className={navItemClassName(isActive, surface)}
         onClick={item.onSelect}
       >
-        {renderNavItemContent(item, isActive)}
+        {renderNavItemContent(item, isActive, surface)}
       </motion.button>
     );
   };
 
-  const navPill = (className?: string, showLogo = false) => (
+  const navPill = (
+    className?: string,
+    showLogo = false,
+    surface: NavSurface = "desktop",
+  ) => (
     <motion.nav
       initial={{ scale: 0.94, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
@@ -220,7 +256,7 @@ const Navbar = () => {
         </MotionLink>
       ) : null}
 
-      {navItems.map(renderNavItem)}
+      {navItems.map((item) => renderNavItem(item, surface))}
     </motion.nav>
   );
 
@@ -237,8 +273,12 @@ const Navbar = () => {
         </div>
       </motion.header>
 
-      <div className="mobile-shell-bottom pointer-events-none fixed inset-x-0 bottom-0 z-50 flex justify-center px-3 md:hidden">
-        {navPill()}
+      <div className="mobile-shell-bottom pointer-events-none fixed inset-x-0 bottom-0 z-50 flex justify-center px-2 md:hidden">
+        {navPill(
+          "h-16 w-full min-w-0 max-w-[24rem] justify-between gap-1 rounded-[2rem] p-2",
+          false,
+          "mobile",
+        )}
       </div>
 
       <ContactModal

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 import { experiments } from "@/config/playgroundExperiments";
-import EvidenceNote from "@/components/ui/evidence-note";
 
 const PlaygroundPreviewSection = () => {
   const previewExperiments = experiments.slice(0, 3);
@@ -39,47 +38,67 @@ const PlaygroundPreviewSection = () => {
 
         <div className="grid min-w-0 grid-cols-1 gap-4 md:grid-cols-3">
           {previewExperiments.map((experiment, index) => {
-            const Icon = experiment.icon;
             const target = experiment.detailPath || experiment.liveUrl || "/playground";
             const isExternal = Boolean(experiment.liveUrl && !experiment.detailPath);
             const content = (
               <>
-                <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
-                  <img
-                    src={experiment.previewImage || "/placeholder.svg"}
-                    alt={`${experiment.title} preview`}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading={index === 0 ? "eager" : "lazy"}
-                    decoding="async"
-                    onError={(event) => {
-                      event.currentTarget.src = "/placeholder.svg";
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-                  <span className="liquid-glass-control absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-semibold text-gray-950">
-                    {experiment.status}
-                  </span>
-                </div>
+                <div className="px-3 pt-3">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-gray-100 shadow-[0_14px_34px_rgba(15,23,42,0.1)]">
+                    <img
+                      src={experiment.previewImage || "/placeholder.svg"}
+                      alt={`${experiment.title} preview`}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      decoding="async"
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      onError={(event) => {
+                        event.currentTarget.src = "/placeholder.svg";
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-                <div className="flex flex-1 flex-col p-4 sm:p-5">
-                  <div className="mb-4 flex items-start justify-between gap-3">
-                    <span className="liquid-glass-control flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-primary">
-                      <Icon size={20} />
-                    </span>
-                    <span className="text-xs font-semibold uppercase text-teal-700">
-                      {experiment.tags[0]}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <div className="liquid-glass-control liquid-glass-interactive scale-75 rounded-full p-4 text-primary transition-transform duration-300 group-hover:scale-100">
+                        <ArrowUpRight className="h-6 w-6" />
+                      </div>
+                    </div>
+
+                    <span className="liquid-glass-control absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-gray-950">
+                      {experiment.status}
                     </span>
                   </div>
-                  <h3 className="break-words font-display text-xl font-semibold leading-tight text-gray-950">
+                </div>
+
+                <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-6">
+                  <p className="mb-3 text-xs font-semibold uppercase leading-5 text-primary">
+                    {experiment.tags[0]}
+                  </p>
+                  <h3 className="mb-3 break-words font-display text-xl leading-tight text-text-primary transition-colors duration-300 group-hover:text-primary sm:text-heading-md">
                     {experiment.title}
                   </h3>
-                  <p className="mt-3 line-clamp-3 text-sm leading-6 text-text-secondary">
+                  <p className="text-sm leading-6 text-text-secondary">
                     {experiment.description}
                   </p>
-                  <EvidenceNote className="mt-4" label="Proof">
-                    {experiment.proofSignal}
-                  </EvidenceNote>
-                  <span className="mt-auto inline-flex min-h-11 items-center gap-2 pt-5 text-sm font-semibold text-primary">
+
+                  <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-gray-500">
+                    {experiment.tags.slice(1, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-5 border-t border-gray-200 pt-5 text-sm">
+                    <p className="font-semibold text-gray-950">Proof</p>
+                    <p className="mt-1 leading-6 text-gray-600">
+                      {experiment.proofSignal}
+                    </p>
+                  </div>
+
+                  <span className="mt-auto inline-flex min-h-11 items-center gap-2 pt-5 text-sm font-semibold text-primary sm:pt-6">
                     {isExternal ? "View live" : "View details"}
                     {isExternal ? <ExternalLink size={15} /> : <ArrowUpRight size={15} />}
                   </span>
@@ -90,7 +109,7 @@ const PlaygroundPreviewSection = () => {
             return (
               <motion.article
                 key={experiment.title}
-                className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-white hover:shadow-xl hover:shadow-primary/10"
+                className="group flex h-full min-h-[24rem] min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 sm:min-h-[28rem]"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, delay: index * 0.06 }}
@@ -101,12 +120,15 @@ const PlaygroundPreviewSection = () => {
                     href={target}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-full min-w-0 flex-col"
+                    className="flex h-full min-w-0 flex-col rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4"
                   >
                     {content}
                   </a>
                 ) : (
-                  <Link to={target} className="flex h-full min-w-0 flex-col">
+                  <Link
+                    to={target}
+                    className="flex h-full min-w-0 flex-col rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4"
+                  >
                     {content}
                   </Link>
                 )}

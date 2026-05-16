@@ -2,11 +2,10 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import Footer from "@/components/layout/Footer";
 import WorksHeader from "@/components/works/WorksHeader";
 import WorksLoadingSkeleton from "@/components/works/WorksLoadingSkeleton";
-import EvidenceNote from "@/components/ui/evidence-note";
 import { getAllProjects } from "@/services/api";
 import { getAllPredefinedProjectsSync } from "@/services/api/predefinedProjects";
 import {
@@ -18,7 +17,6 @@ import {
   sortProjectsNewestFirst,
 } from "@/config/portfolioCuration";
 import { getProjectPath } from "@/lib/projectRoutes";
-import { cn } from "@/lib/utils";
 
 const Works = () => {
   useEffect(() => {
@@ -115,99 +113,93 @@ const Works = () => {
             </motion.p>
           </section>
 
-          <section className="grid w-full min-w-0 grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-3">
+          <section className="mx-auto grid w-full max-w-6xl min-w-0 grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-3">
             {featuredProjects.map((project, index) => {
               const brief = getCaseStudyBrief(project.slug);
 
               return (
                 <motion.article
                   key={project.id}
-                  className={cn(
-                    "flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm",
-                    index === 0 &&
-                      "lg:col-span-2 lg:grid lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]",
-                  )}
+                  className="group flex h-full min-h-[24rem] min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 sm:min-h-[28rem]"
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, delay: index * 0.08 }}
                 >
                   <Link
                     to={getProjectPath(project)}
-                    className={cn("group block", index === 0 && "lg:h-full")}
+                    className="flex h-full min-w-0 flex-col rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4"
                   >
-                    <div
-                      className={cn(
-                        "relative aspect-[16/10] overflow-hidden bg-gray-100",
-                        index === 0 && "lg:h-full lg:aspect-auto",
-                      )}
-                    >
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        loading={index === 0 ? "eager" : "lazy"}
-                        decoding="async"
-                        sizes="(min-width: 1024px) 33vw, 100vw"
-                      />
-                      <div className="liquid-glass-control absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-gray-950">
-                        Featured
+                    <div className="px-3 pt-3">
+                      <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-gray-100 shadow-[0_14px_34px_rgba(15,23,42,0.1)]">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          loading={index === 0 ? "eager" : "lazy"}
+                          decoding="async"
+                          sizes="(min-width: 1024px) 360px, 100vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                          <div className="liquid-glass-control liquid-glass-interactive scale-75 rounded-full p-4 text-primary transition-transform duration-300 group-hover:scale-100">
+                            <ArrowUpRight className="h-6 w-6" />
+                          </div>
+                        </div>
+
+                        <div className="liquid-glass-control absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-gray-950">
+                          Case study
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-6">
+                      <p className="mb-3 text-xs font-semibold uppercase leading-5 text-primary">
+                        {project.curation.eyebrow}
+                      </p>
+                      <h2 className="mb-3 break-words font-display text-xl leading-tight text-text-primary transition-colors duration-300 group-hover:text-primary sm:text-heading-md">
+                        {project.curation.featuredTitle}
+                      </h2>
+                      <p className="text-sm leading-6 text-text-secondary">
+                        {project.curation.impactSummary}
+                      </p>
+
+                      <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-gray-500">
+                        <span className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1">
+                          {project.role}
+                        </span>
+                        <span className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1">
+                          {project.year}
+                        </span>
+                      </div>
+
+                      {brief ? (
+                        <dl className="mt-5 grid gap-3 border-t border-gray-200 pt-5 text-sm">
+                          <div>
+                            <dt className="font-semibold text-gray-950">
+                              Key decision
+                            </dt>
+                            <dd className="mt-1 text-gray-600">
+                              {brief.coreDecision}
+                            </dd>
+                          </div>
+                          <div>
+                            <dt className="font-semibold text-gray-950">
+                              Proof
+                            </dt>
+                            <dd className="mt-1 text-gray-600">
+                              {brief.evidence}
+                            </dd>
+                          </div>
+                        </dl>
+                      ) : null}
+
+                      <div className="mt-auto flex min-h-11 items-center pt-5 text-sm font-semibold text-primary sm:pt-6">
+                        Read case study
+                        <ArrowUpRight className="ml-1 h-4 w-4" />
                       </div>
                     </div>
                   </Link>
-
-                  <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-6">
-                    <p className="text-xs font-semibold uppercase leading-5 text-primary">
-                      {project.curation.eyebrow}
-                    </p>
-                    <h2 className="mt-3 break-words font-display text-2xl leading-tight text-gray-950 sm:text-heading-lg">
-                      {project.curation.featuredTitle}
-                    </h2>
-                    <p className="mt-4 text-sm leading-6 text-text-secondary">
-                      {project.curation.impactSummary}
-                    </p>
-
-                    <EvidenceNote className="mt-4" label="Reviewer signal">
-                      {project.curation.reviewerSignal}
-                    </EvidenceNote>
-
-                    <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-gray-500">
-                      <span className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1">
-                        {project.role}
-                      </span>
-                      <span className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1">
-                        {project.year}
-                      </span>
-                    </div>
-
-                    {brief ? (
-                      <dl className="mt-5 grid gap-3 border-t border-gray-200 pt-5 text-sm">
-                        <div>
-                          <dt className="font-semibold text-gray-950">
-                            Key decision
-                          </dt>
-                          <dd className="mt-1 text-gray-600">
-                            {brief.coreDecision}
-                          </dd>
-                        </div>
-                        <div>
-                          <dt className="font-semibold text-gray-950">
-                            Proof
-                          </dt>
-                          <dd className="mt-1 text-gray-600">
-                            {brief.evidence}
-                          </dd>
-                        </div>
-                      </dl>
-                    ) : null}
-
-                    <Link
-                      to={getProjectPath(project)}
-                      className="mt-auto inline-flex min-h-11 items-center gap-2 pt-5 text-sm font-semibold text-primary hover:text-primary-dark sm:pt-6"
-                    >
-                      Read case study
-                      <ArrowRight size={16} />
-                    </Link>
-                  </div>
                 </motion.article>
               );
             })}
