@@ -159,9 +159,9 @@ const ProjectHeader = ({
           <div className="min-w-0">
             <Link
               to={backTarget}
-              className="mb-6 inline-flex min-h-11 items-center gap-2 rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition-colors hover:border-primary/40 hover:text-primary sm:mb-8"
+              className="-mx-2 mb-6 inline-flex min-h-11 items-center px-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark sm:mb-8"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="mr-2 h-4 w-4" />
               {backLabel}
             </Link>
 

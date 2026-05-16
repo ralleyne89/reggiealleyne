@@ -37,20 +37,6 @@ export interface HomepageProofMetric {
   href: string;
 }
 
-export interface HomepageProofArtifact {
-  label: string;
-  title: string;
-  description: string;
-  href: string;
-}
-
-export interface HomepageWorkflowSignal {
-  eyebrow: string;
-  title: string;
-  description: string;
-  steps: string[];
-}
-
 export const featuredProjectConfig: FeaturedProjectConfig[] = [
   {
     slug: "litmus-ai",
@@ -108,35 +94,6 @@ export const homepageProofMetrics: HomepageProofMetric[] = [
     href: "/project/staybooked",
   },
 ];
-
-export const homepageProofArtifacts: HomepageProofArtifact[] = [
-  {
-    label: "AI assessment",
-    title: "Litmus AI product flow",
-    description: "Adaptive questions, recommendations, credentialing, and payment paths.",
-    href: "/project/litmus-ai",
-  },
-  {
-    label: "Platform decisions",
-    title: "CLLCTVE creator system",
-    description: "Mobile-first portfolios, feedback loops, and constrained brand customization.",
-    href: "/project/cllctve-platform",
-  },
-  {
-    label: "Host workflow",
-    title: "Staybooked room optimizer",
-    description: "Trust-aware AI screens for room photos, listing copy, and saved property work.",
-    href: "/project/staybooked",
-  },
-];
-
-export const homepageWorkflowSignal: HomepageWorkflowSignal = {
-  eyebrow: "How I work",
-  title: "Make the messy part visible before the interface gets polished.",
-  description:
-    "I map the uncertainty, prototype the decision flow, define the guardrails, and build enough of the UI to test it.",
-  steps: ["Map ambiguity", "Prototype the flow", "Define guardrails", "Build the surface"],
-};
 
 export const caseStudyBriefs: Partial<
   Record<FeaturedProjectSlug | string, CaseStudyBrief>

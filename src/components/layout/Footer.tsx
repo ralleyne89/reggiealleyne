@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  Github,
-  Globe2,
-  Linkedin,
-  Mail,
-  MapPin,
-  Sparkles,
-} from "lucide-react";
+import { Github, Globe2, Linkedin, Mail, MapPin } from "lucide-react";
 import { CONTACT_EMAIL } from "@/config/contact";
 
 const Footer = () => {
@@ -18,18 +11,21 @@ const Footer = () => {
       icon: <Linkedin size={20} />,
       url: "https://linkedin.com/in/reggiealleyne",
       label: "Connect on LinkedIn",
+      external: true,
     },
     {
       name: "GitHub",
       icon: <Github size={20} />,
       url: "https://github.com/ralleyne89",
       label: "View code on GitHub",
+      external: true,
     },
     {
       name: "Email",
       icon: <Mail size={20} />,
       url: `mailto:${CONTACT_EMAIL}`,
       label: "Send me an email",
+      external: false,
     },
   ];
   const quickLinks = [
@@ -52,89 +48,74 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="site-footer relative overflow-hidden bg-slate-900 px-4 text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:88px_88px]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+    <footer
+      id="footer"
+      className="site-footer relative overflow-hidden border-t border-border bg-[linear-gradient(180deg,oklch(var(--color-surface-soft)),oklch(var(--color-surface-raised)))] px-4 text-text-primary"
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl py-12 sm:py-16">
-        <div className="border-b border-white/10 pb-8">
-          <div className="flex min-w-0 flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <Link to="/" className="inline-flex shrink-0">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-5 py-6 sm:py-7">
+        <div className="flex min-w-0 flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex min-w-0 items-center gap-3">
+            <Link to="/" className="inline-flex shrink-0" aria-label="Reggie Alleyne home">
               <img
-                src="/images/RA_logo_white.png"
+                src="/images/RA_logo_black.png"
                 alt="Reggie Alleyne Logo"
-                className="h-14 w-auto"
+                className="h-9 w-auto"
               />
             </Link>
-
-            <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-semibold uppercase leading-5 text-primary-light">
-              <Sparkles size={14} />
+            <span className="h-8 w-px bg-border" />
+            <p className="max-w-[16rem] text-xs font-semibold uppercase leading-5 text-text-muted sm:max-w-none">
               UX/UI Designer & AI Technologist
             </p>
           </div>
-        </div>
 
-        <div className="grid min-w-0 gap-10 py-10 md:grid-cols-[1.1fr_0.7fr_1fr]">
-          <div className="min-w-0">
-            <h3 className="mb-4 text-sm font-semibold uppercase text-slate-400">
-              Connect
-            </h3>
-            <div className="flex flex-wrap items-center gap-3">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="group relative flex h-12 w-12 items-center justify-center rounded-xl border border-white/12 bg-white/[0.04] text-slate-300 transition-colors hover:border-primary/45 hover:bg-white/[0.08] hover:text-white"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {social.icon}
-                  <span className="sr-only">{social.name}</span>
-                </motion.a>
-              ))}
-            </div>
-          </div>
+          <nav
+            aria-label="Footer navigation"
+            className="flex min-w-0 flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold text-text-secondary"
+          >
+            {quickLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="transition-colors hover:text-primary focus-visible:text-primary"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
 
-          <div className="min-w-0">
-            <h3 className="mb-4 text-sm font-semibold uppercase text-slate-400">
-              Quick Links
-            </h3>
-            <nav className="grid gap-3">
-              {quickLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="text-sm font-semibold text-slate-300 transition-colors hover:text-primary-light"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          <div className="min-w-0">
-            <h3 className="mb-4 text-sm font-semibold uppercase text-slate-400">
-              Working From
-            </h3>
-            <div className="grid gap-3 text-sm text-slate-300">
-              <span className="inline-flex items-center gap-3">
-                <MapPin size={16} className="text-primary-light" />
-                Los Angeles, CA
-              </span>
-              <span className="inline-flex items-center gap-3">
-                <Globe2 size={16} className="text-primary-light" />
-                Remote collaboration worldwide
-              </span>
-            </div>
+          <div className="flex flex-wrap items-center gap-2">
+            {socialLinks.map((social) => (
+              <motion.a
+                key={social.name}
+                href={social.url}
+                target={social.external ? "_blank" : undefined}
+                rel={social.external ? "noopener noreferrer" : undefined}
+                aria-label={social.label}
+                className="group flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-secondary-light text-text-secondary transition-colors hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                {social.icon}
+                <span className="sr-only">{social.name}</span>
+              </motion.a>
+            ))}
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {currentYear} Reggie Alleyne.</p>
-          <p>UX/UI Designer & AI Technologist.</p>
+        <div className="flex flex-col gap-3 border-t border-border pt-4 text-xs leading-5 text-text-muted sm:flex-row sm:items-center sm:justify-between">
+          <p>© {currentYear} Reggie Alleyne</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin size={14} className="text-primary" />
+              Los Angeles, CA
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Globe2 size={14} className="text-primary" />
+              Remote collaboration worldwide
+            </span>
+          </div>
         </div>
       </div>
     </footer>

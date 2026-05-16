@@ -9,7 +9,7 @@ export const getStaybookedProject = (): ProjectType => {
       "A room and listing optimizer for short-term rental hosts who need better photos, sharper copy, and clearer booking signals.",
     fullDescription:
       "Staybooked helps independent Airbnb and short-term rental hosts improve the parts of a listing guests judge fastest: room photos, listing copy, amenities, and trust signals. The product connects photo uploads, realistic room-improvement renders, listing rewrites, and audit scoring in one practical host workspace.",
-    image: "/images/staybooked/staybooked-ai-room-optimizer-card.jpg",
+    image: "/images/staybooked/staybooked-ai-optimizer-light-featured-card.png",
     category: "Product Design",
     tags: [
       "Next.js",
