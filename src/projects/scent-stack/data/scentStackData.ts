@@ -43,7 +43,7 @@ export const scentStackOverviewData: ProjectOverviewProps = {
     },
     {
       label: "Role",
-      value: "Product Designer & AI Product Strategist",
+      value: "UX/UI Designer & AI Product Strategist",
       icon: Briefcase,
     },
     {

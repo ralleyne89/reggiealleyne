@@ -25,3 +25,10 @@ dist-ssr
 
 # Local Netlify folder
 .netlify
+
+# Graphify local state
+graphify-out/.rebuild.lock
+graphify-out/.graphify_root
+graphify-out/manifest.json
+graphify-out/cost.json
+graphify-out/cache/

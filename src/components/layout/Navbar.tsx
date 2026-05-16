@@ -3,35 +3,73 @@ import { Link, useLocation } from "react-router-dom";
 import {
   BriefcaseBusiness,
   Home,
-  Menu,
-  MoreHorizontal,
-  X,
+  MessageCircle,
+  Sparkles,
+  UserRound,
+  type LucideIcon,
 } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 import ContactModal from "./ContactModal";
 
-interface NavLinkItem {
+type NavRouteItem = {
+  kind: "route";
   title: string;
   path: string;
-}
+  icon: LucideIcon;
+  labelWidth: number;
+};
 
-const navLinks: NavLinkItem[] = [
-  { title: "Home", path: "/" },
-  { title: "Work", path: "/works" },
-  { title: "Playground", path: "/playground" },
-  { title: "About", path: "/about" },
+type NavActionItem = {
+  kind: "action";
+  title: string;
+  icon: LucideIcon;
+  labelWidth: number;
+  onSelect: () => void;
+  isActive: boolean;
+};
+
+type NavItem = NavRouteItem | NavActionItem;
+
+const routeNavItems: NavRouteItem[] = [
+  { kind: "route", title: "Home", path: "/", icon: Home, labelWidth: 44 },
+  {
+    kind: "route",
+    title: "Work",
+    path: "/works",
+    icon: BriefcaseBusiness,
+    labelWidth: 42,
+  },
+  {
+    kind: "route",
+    title: "Playground",
+    path: "/playground",
+    icon: Sparkles,
+    labelWidth: 86,
+  },
+  {
+    kind: "route",
+    title: "About",
+    path: "/about",
+    icon: UserRound,
+    labelWidth: 52,
+  },
 ];
 
-const mobilePrimaryLinks = navLinks.slice(0, 2);
-const mobileSecondaryLinks = navLinks.slice(2);
+const MotionLink = motion.create(Link);
+
+const itemTransition = {
+  width: { type: "spring", stiffness: 350, damping: 32 },
+  opacity: { duration: 0.19 },
+  marginLeft: { duration: 0.19 },
+} as const;
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    setIsOpen(false);
+    setContactModalOpen(false);
   }, [location]);
 
   const isActivePath = (path: string) => {
@@ -42,14 +80,21 @@ const Navbar = () => {
     return location.pathname.startsWith(path);
   };
 
-  const isSecondaryActive = mobileSecondaryLinks.some((item) =>
-    isActivePath(item.path),
-  );
-
   const openContactModal = () => {
-    setIsOpen(false);
     setContactModalOpen(true);
   };
+
+  const navItems: NavItem[] = [
+    ...routeNavItems,
+    {
+      kind: "action",
+      title: "Contact",
+      icon: MessageCircle,
+      labelWidth: 62,
+      onSelect: openContactModal,
+      isActive: contactModalOpen,
+    },
+  ];
 
   const navVariants = {
     hidden: { opacity: 0, y: -18 },
@@ -63,18 +108,121 @@ const Navbar = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: -12 },
-    visible: { opacity: 1, y: 0 },
+  const navItemClassName = (isActive: boolean) =>
+    cn(
+      "relative inline-flex h-10 min-h-10 min-w-11 max-w-[9rem] items-center justify-center overflow-hidden rounded-full px-3 py-2 text-sm font-semibold transition-colors duration-200",
+      "focus:outline-none focus-visible:ring-0",
+      isActive
+        ? "liquid-glass-control liquid-glass-nav-control text-zinc-50 shadow-sm"
+        : "text-zinc-400 hover:bg-white/10 hover:text-zinc-50",
+    );
+
+  const renderNavItemContent = (item: NavItem, isActive: boolean) => {
+    const Icon = item.icon;
+
+    return (
+      <>
+        <Icon
+          aria-hidden="true"
+          className="h-[1.18rem] w-[1.18rem] shrink-0 transition-colors duration-200"
+          strokeWidth={2.2}
+        />
+
+        <motion.span
+          initial={false}
+          animate={{
+            width: isActive ? `${item.labelWidth}px` : "0px",
+            opacity: isActive ? 1 : 0,
+            marginLeft: isActive ? "0.5rem" : "0rem",
+          }}
+          transition={itemTransition}
+          className="flex max-w-[6rem] items-center overflow-hidden"
+          aria-hidden={!isActive}
+        >
+          <span
+            className={cn(
+              "truncate text-xs font-semibold leading-5 transition-opacity duration-200",
+              isActive ? "opacity-100" : "opacity-0",
+            )}
+            title={item.title}
+          >
+            {item.title}
+          </span>
+        </motion.span>
+      </>
+    );
   };
 
-  const linkClassName = (isActive: boolean) =>
-    [
-      "relative inline-flex min-h-10 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition-colors",
-      isActive
-        ? "liquid-glass-control liquid-glass-nav-control text-gray-950 shadow-sm"
-        : "text-gray-800 hover:text-gray-950",
-    ].join(" ");
+  const renderNavItem = (item: NavItem) => {
+    const isActive =
+      item.kind === "route" ? isActivePath(item.path) : item.isActive;
+
+    if (item.kind === "route") {
+      return (
+        <MotionLink
+          key={item.path}
+          to={item.path}
+          aria-label={item.title}
+          aria-current={isActive ? "page" : undefined}
+          title={item.title}
+          whileTap={{ scale: 0.97 }}
+          className={navItemClassName(isActive)}
+        >
+          {renderNavItemContent(item, isActive)}
+        </MotionLink>
+      );
+    }
+
+    return (
+      <motion.button
+        key={item.title}
+        type="button"
+        aria-label={item.title}
+        aria-pressed={isActive}
+        title={item.title}
+        whileTap={{ scale: 0.97 }}
+        className={navItemClassName(isActive)}
+        onClick={item.onSelect}
+      >
+        {renderNavItemContent(item, isActive)}
+      </motion.button>
+    );
+  };
+
+  const navPill = (className?: string, showLogo = false) => (
+    <motion.nav
+      initial={{ scale: 0.94, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 300, damping: 26 }}
+      role="navigation"
+      aria-label="Primary navigation"
+      className={cn(
+        "liquid-glass liquid-glass-nav pointer-events-auto flex h-[3.35rem] min-w-[20rem] max-w-[calc(100vw-1.5rem)] items-center gap-1 rounded-full p-1.5 shadow-xl",
+        className,
+      )}
+    >
+      {showLogo ? (
+        <MotionLink
+          to="/"
+          className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-zinc-100 transition-colors hover:bg-white/10 focus:outline-none focus-visible:ring-0"
+          aria-label="Reggie Alleyne home"
+          title="Reggie Alleyne home"
+          whileTap={{ scale: 0.97 }}
+        >
+          <motion.img
+            src="/images/RA_logo_white.png"
+            alt=""
+            aria-hidden="true"
+            className="h-7 w-auto"
+            whileHover={{ scale: 1.04 }}
+            transition={{ type: "spring", stiffness: 480, damping: 24 }}
+          />
+        </MotionLink>
+      ) : null}
+
+      {navItems.map(renderNavItem)}
+    </motion.nav>
+  );
 
   return (
     <>
@@ -84,164 +232,14 @@ const Navbar = () => {
         animate="visible"
         variants={navVariants}
       >
-        <div className="mx-auto w-full max-w-[64rem]">
-          <nav className="liquid-glass liquid-glass-nav pointer-events-auto mx-auto flex min-h-14 max-w-[64rem] items-center justify-between gap-4 rounded-full px-3 py-2 sm:min-h-16 sm:px-5">
-            <Link
-              to="/"
-              className="relative z-10 inline-flex shrink-0 items-center rounded-full px-2 py-1 text-gray-900"
-              aria-label="Reggie Alleyne home"
-            >
-              <motion.img
-                src="/images/RA_logo_black.png"
-                alt="Reggie Alleyne Logo"
-                className="h-8 w-auto sm:h-9"
-                whileHover={{ scale: 1.04 }}
-                transition={{ type: "spring", stiffness: 480, damping: 24 }}
-              />
-            </Link>
-
-            <div className="hidden shrink-0 items-center md:flex">
-              <ul className="flex items-center gap-1 rounded-full border border-white/35 bg-white/30 p-1 shadow-inner shadow-white/20 backdrop-blur-xl">
-                {navLinks.map((item) => {
-                  const isActive = isActivePath(item.path);
-
-                  return (
-                    <motion.li key={item.path} variants={itemVariants}>
-                      <Link
-                        to={item.path}
-                        aria-current={isActive ? "page" : undefined}
-                        className={linkClassName(isActive)}
-                      >
-                        {item.title}
-                      </Link>
-                    </motion.li>
-                  );
-                })}
-                <motion.li variants={itemVariants}>
-                  <button
-                    type="button"
-                    onClick={openContactModal}
-                    className="relative inline-flex min-h-10 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-gray-800 transition-colors hover:text-gray-950"
-                  >
-                    Contact
-                  </button>
-                </motion.li>
-              </ul>
-            </div>
-
-            <motion.button
-              type="button"
-              className="liquid-glass-control liquid-glass-nav-control relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-950 md:hidden"
-              onClick={() => setIsOpen((value) => !value)}
-              whileTap={{ scale: 0.94 }}
-              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-              aria-expanded={isOpen}
-            >
-              {isOpen ? <X size={21} /> : <Menu size={21} />}
-            </motion.button>
-          </nav>
+        <div className="mx-auto flex w-full justify-center">
+          {navPill("shrink-0", true)}
         </div>
       </motion.header>
 
-      <AnimatePresence>
-        {isOpen ? (
-          <motion.div
-            id="mobile-more-menu"
-            className="mobile-more-panel pointer-events-none fixed inset-x-0 z-50 px-3 md:hidden"
-            initial={{ opacity: 0, y: 12, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 12, scale: 0.98 }}
-            transition={{ duration: 0.22 }}
-          >
-            <div className="liquid-glass liquid-glass-nav pointer-events-auto mx-auto max-w-sm rounded-[1.5rem] p-2.5">
-              <ul className="grid gap-1">
-                {mobileSecondaryLinks.map((item) => {
-                  const isActive = isActivePath(item.path);
-
-                  return (
-                    <li key={item.path}>
-                      <Link
-                        to={item.path}
-                        aria-current={isActive ? "page" : undefined}
-                        className={[
-                          "block rounded-2xl px-4 py-3 text-sm font-semibold transition-colors",
-                          isActive
-                            ? "liquid-glass-control liquid-glass-nav-control text-gray-950"
-                            : "text-gray-700 hover:bg-white/45 hover:text-gray-950",
-                        ].join(" ")}
-                      >
-                        {item.title}
-                      </Link>
-                    </li>
-                  );
-                })}
-                <li>
-                  <button
-                    type="button"
-                    onClick={openContactModal}
-                    className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-semibold text-gray-700 transition-colors hover:bg-white/45 hover:text-gray-950"
-                  >
-                    Contact
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-
-      <motion.nav
-        className="mobile-shell-bottom pointer-events-none fixed inset-x-0 bottom-0 z-50 px-3 md:hidden"
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.16, duration: 0.24 }}
-        aria-label="Primary mobile navigation"
-      >
-        <div className="liquid-glass liquid-glass-nav pointer-events-auto mx-auto grid max-w-sm grid-cols-3 gap-1 rounded-full p-1.5">
-          {mobilePrimaryLinks.map((item) => {
-            const isActive = isActivePath(item.path);
-            const Icon = item.path === "/" ? Home : BriefcaseBusiness;
-
-            return (
-              <Link
-                key={item.path}
-                to={item.path}
-                aria-current={isActive ? "page" : undefined}
-                className={[
-                  "relative flex min-h-14 flex-col items-center justify-center rounded-full px-3 text-[0.72rem] font-semibold leading-none transition-colors",
-                  isActive
-                    ? "liquid-glass-control liquid-glass-nav-control text-gray-950 shadow-sm"
-                    : "text-gray-600 hover:text-gray-950",
-                ].join(" ")}
-              >
-                <Icon aria-hidden="true" size={19} strokeWidth={2.2} />
-                <span className="mt-1">{item.title}</span>
-              </Link>
-            );
-          })}
-
-          <button
-            type="button"
-            onClick={() => setIsOpen((value) => !value)}
-            className={[
-              "relative flex min-h-14 flex-col items-center justify-center rounded-full px-3 text-[0.72rem] font-semibold leading-none transition-colors",
-              isOpen || isSecondaryActive
-                ? "liquid-glass-control liquid-glass-nav-control text-gray-950 shadow-sm"
-                : "text-gray-600 hover:text-gray-950",
-            ].join(" ")}
-            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={isOpen}
-            aria-controls="mobile-more-menu"
-          >
-            {isOpen ? (
-              <X aria-hidden="true" size={19} strokeWidth={2.2} />
-            ) : (
-              <MoreHorizontal aria-hidden="true" size={20} strokeWidth={2.2} />
-            )}
-            <span className="mt-1">More</span>
-          </button>
-        </div>
-      </motion.nav>
+      <div className="mobile-shell-bottom pointer-events-none fixed inset-x-0 bottom-0 z-50 flex justify-center px-3 md:hidden">
+        {navPill()}
+      </div>
 
       <ContactModal
         open={contactModalOpen}

@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 
 interface ProjectHeaderProps {
   image: string;
-  tags: string[];
   title: string;
   description: string;
   role?: string;
@@ -90,7 +89,6 @@ const caseStudyHeroConfigs: Array<{
     matches: (title) => title.includes("Staybooked"),
     config: {
       image: "/images/staybooked/marketing-homepage-hero-desktop.png",
-      useProjectImage: true,
     },
   },
   {
@@ -124,7 +122,6 @@ const getCaseStudyDescription = (title: string, description: string) => {
 
 const ProjectHeader = ({
   image,
-  tags,
   title,
   description,
   role,
@@ -147,7 +144,6 @@ const ProjectHeader = ({
   );
 
   const displayDescription = getCaseStudyDescription(title, description);
-  const visibleTags = tags.slice(0, 5);
   const backTarget = "/works";
   const backLabel = "Back to Work";
 
@@ -168,19 +164,6 @@ const ProjectHeader = ({
               <ArrowLeft className="h-4 w-4" />
               {backLabel}
             </Link>
-
-            {visibleTags.length > 0 ? (
-              <div className="-mx-4 mb-4 flex min-w-0 gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:mb-5 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
-                {visibleTags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="shrink-0 rounded-md border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-600"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            ) : null}
 
             <h1 className="max-w-5xl break-words font-display text-[2.18rem] leading-[1.07] text-gray-950 [text-wrap:balance] sm:text-display-md lg:text-display-lg">
               {title}

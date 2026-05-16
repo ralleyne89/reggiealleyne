@@ -12,7 +12,7 @@ const WorksHeader = () => {
       >
         <Link
           to="/"
-          className="inline-flex items-center text-primary hover:text-primary-dark transition-colors"
+          className="-mx-2 inline-flex min-h-11 items-center px-2 text-primary transition-colors hover:text-primary-dark"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Home

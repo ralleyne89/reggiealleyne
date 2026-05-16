@@ -7,7 +7,7 @@ export const getScentStackProject = (): ProjectType => {
     title: "ScentStack – AI-Powered Fragrance Discovery Platform",
     description:
       "1700+ fragrance dupes with AI-powered scent matching, layering recommendations, and dream scent discovery. Saving users 90% on luxury fragrances.",
-    role: "Product Designer & AI Product Strategist",
+    role: "UX/UI Designer & AI Product Strategist",
     year: "2026",
     duration: "3 weeks",
     teamSize: "Lean product team",

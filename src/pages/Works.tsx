@@ -6,7 +6,9 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import Footer from "@/components/layout/Footer";
 import WorksHeader from "@/components/works/WorksHeader";
 import WorksLoadingSkeleton from "@/components/works/WorksLoadingSkeleton";
+import EvidenceNote from "@/components/ui/evidence-note";
 import { getAllProjects } from "@/services/api";
+import { getAllPredefinedProjectsSync } from "@/services/api/predefinedProjects";
 import {
   getCaseStudyBrief,
   getFeaturedConfig,
@@ -16,6 +18,7 @@ import {
   sortProjectsNewestFirst,
 } from "@/config/portfolioCuration";
 import { getProjectPath } from "@/lib/projectRoutes";
+import { cn } from "@/lib/utils";
 
 const Works = () => {
   useEffect(() => {
@@ -29,6 +32,7 @@ const Works = () => {
   } = useQuery({
     queryKey: ["projects"],
     queryFn: getAllProjects,
+    placeholderData: getAllPredefinedProjectsSync,
     retry: 1,
   });
 
@@ -118,16 +122,25 @@ const Works = () => {
               return (
                 <motion.article
                   key={project.id}
-                  className="flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm"
+                  className={cn(
+                    "flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm",
+                    index === 0 &&
+                      "lg:col-span-2 lg:grid lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]",
+                  )}
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, delay: index * 0.08 }}
                 >
                   <Link
                     to={getProjectPath(project)}
-                    className="group block"
+                    className={cn("group block", index === 0 && "lg:h-full")}
                   >
-                    <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                    <div
+                      className={cn(
+                        "relative aspect-[16/10] overflow-hidden bg-gray-100",
+                        index === 0 && "lg:h-full lg:aspect-auto",
+                      )}
+                    >
                       <img
                         src={project.image}
                         alt={project.title}
@@ -153,9 +166,9 @@ const Works = () => {
                       {project.curation.impactSummary}
                     </p>
 
-                    <p className="mt-4 border-l-2 border-primary/30 pl-3 text-sm leading-6 text-gray-500">
+                    <EvidenceNote className="mt-4" label="Reviewer signal">
                       {project.curation.reviewerSignal}
-                    </p>
+                    </EvidenceNote>
 
                     <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-gray-500">
                       <span className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1">

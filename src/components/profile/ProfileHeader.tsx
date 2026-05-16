@@ -22,7 +22,7 @@ const ProfileHeader = () => {
             I design AI products that make complexity feel intuitive
           </div>
           <div className="text-[rgba(153,153,153,1)] text-sm mt-1.5">
-            Product designer who codes, translating healthcare, education, and
+            UX/UI Designer who codes, translating healthcare, education, and
             AI workflows into production-ready experiences.
           </div>
           <div className="flex items-center gap-4 mt-2 text-xs text-[rgba(153,153,153,1)]">

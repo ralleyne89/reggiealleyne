@@ -13,7 +13,7 @@ const ProofBand = () => {
     <section className="border-y border-gray-200 bg-gray-950 text-white">
       <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:px-8">
         <div className="min-w-0">
-          <p className="text-xs font-semibold uppercase leading-5 tracking-[0.14em] text-emerald-300">
+          <p className="text-xs font-semibold uppercase leading-5 tracking-[0.14em] text-purple-200">
             Proof in 30 seconds
           </p>
           <h2 className="mt-3 max-w-2xl break-words font-display text-3xl leading-tight tracking-normal text-white [text-wrap:balance] sm:text-4xl">
@@ -52,13 +52,13 @@ const ProofBand = () => {
               <Link
                 key={metric.label}
                 to={metric.href}
-                className="group min-w-0 rounded-lg border border-white/10 bg-white/[0.05] p-4 transition-colors hover:border-emerald-300/60 hover:bg-white/[0.08]"
+                className="group min-w-0 rounded-lg border border-white/10 bg-white/[0.05] p-4 transition-colors hover:border-purple-200/60 hover:bg-white/[0.08]"
               >
                 <div className="flex min-w-0 items-start justify-between gap-3">
-                  <p className="break-words font-display text-3xl leading-tight text-emerald-300">
+                  <p className="break-words font-display text-3xl leading-tight text-purple-200">
                     {metric.value}
                   </p>
-                  <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-gray-500 transition-colors group-hover:text-emerald-300" />
+                  <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-gray-500 transition-colors group-hover:text-purple-200" />
                 </div>
                 <h3 className="mt-3 text-sm font-semibold leading-6 text-white">
                   {metric.label}
@@ -87,9 +87,9 @@ const ProofBand = () => {
                   <Link
                     key={artifact.title}
                     to={artifact.href}
-                    className="group grid min-w-0 grid-cols-[2.5rem_minmax(0,1fr)_auto] items-start gap-3 rounded-lg border border-white/10 bg-gray-950/50 p-3 transition-colors hover:border-emerald-300/50 hover:bg-gray-900"
+                    className="group grid min-w-0 grid-cols-[2.5rem_minmax(0,1fr)_auto] items-start gap-3 rounded-lg border border-white/10 bg-gray-950/50 p-3 transition-colors hover:border-purple-200/50 hover:bg-gray-900"
                   >
-                    <span className="flex h-10 w-10 items-center justify-center rounded-md bg-emerald-300/10 text-emerald-300">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-md bg-purple-200/10 text-purple-200">
                       <Icon className="h-4 w-4" />
                     </span>
                     <span className="min-w-0">
@@ -103,7 +103,7 @@ const ProofBand = () => {
                         {artifact.description}
                       </span>
                     </span>
-                    <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-gray-500 transition-colors group-hover:text-emerald-300" />
+                    <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-gray-500 transition-colors group-hover:text-purple-200" />
                   </Link>
                 );
               })}

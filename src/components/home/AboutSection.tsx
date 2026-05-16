@@ -35,7 +35,7 @@ const AboutSection = () => {
             About Reggie
           </p>
           <h2 className="break-words font-display text-[2rem] font-semibold leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
-            A product designer who uses code to make AI and workflow ideas
+            A UX/UI Designer who uses code to make AI and workflow ideas
             easier to trust.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-7 text-text-secondary sm:text-lg sm:leading-8">

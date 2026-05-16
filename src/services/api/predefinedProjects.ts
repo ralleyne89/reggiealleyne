@@ -64,17 +64,21 @@ export const getPredefinedProjectBySlug = (slug: string): ProjectType | null => 
   return getPredefinedProjectById(id);
 };
 
-// Get all predefined projects
-export const getAllPredefinedProjects = async (): Promise<ProjectType[]> => {
+// Get all predefined projects synchronously for instant route placeholders.
+export const getAllPredefinedProjectsSync = (): ProjectType[] => {
   const projects: ProjectType[] = [];
-  
+
   for (const id of Object.keys(projectGetters).map(Number)) {
     const project = getPredefinedProjectById(id);
     if (project) projects.push(project);
   }
-  
+
   return projects;
 };
+
+// Get all predefined projects
+export const getAllPredefinedProjects = async (): Promise<ProjectType[]> =>
+  getAllPredefinedProjectsSync();
 
 // Check if a project ID is for a predefined project
 export const isPredefinedProject = (id: number): boolean => {

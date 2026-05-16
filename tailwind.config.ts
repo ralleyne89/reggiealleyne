@@ -2,6 +2,8 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 
+const oklchVar = (name: string) => `oklch(var(${name}) / <alpha-value>)`;
+
 export default {
 	darkMode: ["class"],
 	content: [
@@ -26,8 +28,8 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Poppins', 'sans-serif'],
-				heading: ['Space Grotesk', 'Poppins', 'sans-serif'],
-				display: ['Space Grotesk', 'Poppins', 'sans-serif'],
+				heading: ['Poppins', 'sans-serif'],
+				display: ['Poppins', 'sans-serif'],
 			},
 			fontSize: {
 				// Typography scale (8pt grid aligned)
@@ -43,37 +45,37 @@ export default {
 			},
 			colors: {
 				primary: {
-					DEFAULT: '#8B5CF6', // Purple 500 (main accent)
-					dark: '#7C3AED',    // Purple 600 for pressed states
-					light: '#A78BFA',   // Purple 400 for hover states
-					muted: '#C4B5FD'    // Purple 300 for subtle accents
+					DEFAULT: oklchVar('--color-accent'),
+					dark: oklchVar('--color-accent-strong'),
+					light: oklchVar('--color-accent-muted'),
+					muted: oklchVar('--color-accent-soft')
 				},
 				secondary: {
-					DEFAULT: '#F8FAFC', // Gray 50 (light background sections)
-					dark: '#1F2937',    // Gray 800 (dark alternate sections)
-					light: '#F1F5F9'    // Gray 100 (subtle background variations)
+					DEFAULT: oklchVar('--color-surface-soft'),
+					dark: oklchVar('--color-ink'),
+					light: oklchVar('--color-surface-raised')
 				},
 				text: {
-					primary: '#111827',   // Gray 900 (high contrast primary text)
-					secondary: '#4B5563', // Gray 600 (secondary text with better contrast)
-					muted: '#6B7280',     // Gray 500 (muted text with sufficient contrast)
-					light: '#F9FAFB',     // Gray 50 (text on dark backgrounds)
-					dark: '#0F172A'       // Gray 900 (high contrast text)
+					primary: oklchVar('--color-ink'),
+					secondary: oklchVar('--color-ink-secondary'),
+					muted: oklchVar('--color-ink-muted'),
+					light: oklchVar('--color-surface-raised'),
+					dark: oklchVar('--color-ink')
 				},
 				accent: {
-					DEFAULT: '#8B5CF6', // Purple 500
-					light: '#F3F4F6',   // Gray 100 for subtle backgrounds/tags
-					hover: '#A78BFA'    // Purple 400 for hover states
+					DEFAULT: oklchVar('--color-signal'),
+					light: oklchVar('--color-signal-soft'),
+					hover: oklchVar('--color-accent-muted')
 				},
-				success: '#10B981',     // Green for success/complete states
-				warning: '#F59E0B',     // Amber for warnings/in progress
-				error: '#EF4444',       // Red for errors/important
-				info: '#6366F1',        // Indigo for info/neutral
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				success: oklchVar('--color-signal'),
+				warning: oklchVar('--color-warm'),
+				error: 'oklch(0.59 0.2 25 / <alpha-value>)',
+				info: oklchVar('--color-accent-muted'),
+				border: oklchVar('--color-border-soft'),
+				input: oklchVar('--color-border-soft'),
+				ring: oklchVar('--color-focus'),
+				background: oklchVar('--color-surface-page'),
+				foreground: oklchVar('--color-ink'),
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -171,13 +173,13 @@ export default {
 				'spacing': 'margin, padding',
 			},
 			dropShadow: {
-				'glow': '0 0 5px rgba(139, 92, 246, 0.5)',
-				'purple-glow': '0 0 20px rgba(139, 92, 246, 0.3)'
+				'glow': '0 0 5px oklch(var(--color-accent) / 0.42)',
+				'purple-glow': '0 0 20px oklch(var(--color-accent) / 0.28)'
 			},
 			backgroundImage: {
 				'hero-pattern': "url('/images/5d4d8a8f-272c-4d4c-be34-6f692f07cbf0.png')",
-				'gradient-purple': 'linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%)',
-				'gradient-dark': 'linear-gradient(to bottom, #111827 0%, #0F172A 100%)',
+				'gradient-purple': 'linear-gradient(135deg, oklch(var(--color-accent)) 0%, oklch(var(--color-accent-muted)) 100%)',
+				'gradient-dark': 'linear-gradient(to bottom, oklch(var(--color-ink)) 0%, oklch(0.16 0.026 268) 100%)',
 				'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238B5CF6' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
 			}
 		}

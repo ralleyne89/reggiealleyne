@@ -8,10 +8,8 @@ interface ProjectCardProps {
   description: string;
   image: string;
   href: string;
-  tags?: string[];
   eyebrow?: string;
   impactSummary?: string;
-  reviewerSignal?: string;
   role?: string;
   year?: string;
   index: number;
@@ -22,10 +20,8 @@ const ProjectCard = ({
   description,
   image,
   href,
-  tags = [],
   eyebrow,
   impactSummary,
-  reviewerSignal,
   role,
   year,
   index,
@@ -39,25 +35,27 @@ const ProjectCard = ({
         transition={{ duration: 0.5, delay: index * 0.1 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
-          <img
-            src={image}
-            alt={title}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            loading={index === 0 ? "eager" : "lazy"}
-            decoding="async"
-            sizes="(min-width: 1024px) 360px, 100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+        <div className="px-3 pt-3">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-gray-100 shadow-[0_14px_34px_rgba(15,23,42,0.1)]">
+            <img
+              src={image}
+              alt={title}
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+              sizes="(min-width: 1024px) 360px, 100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
 
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="liquid-glass-control liquid-glass-interactive rounded-full p-4 text-primary transform scale-75 group-hover:scale-100 transition-transform duration-300">
-              <ArrowUpRight className="w-6 h-6" />
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <div className="liquid-glass-control liquid-glass-interactive transform scale-75 rounded-full p-4 text-primary transition-transform duration-300 group-hover:scale-100">
+                <ArrowUpRight className="h-6 w-6" />
+              </div>
             </div>
-          </div>
 
-          <div className="liquid-glass-control absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-gray-950">
-            Case study
+            <div className="liquid-glass-control absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-gray-950">
+              Case study
+            </div>
           </div>
         </div>
 
@@ -65,17 +63,6 @@ const ProjectCard = ({
           <p className="mb-3 text-xs font-semibold uppercase leading-5 text-primary">
             {eyebrow || "Product design"}
           </p>
-
-          <div className="mb-4 flex flex-wrap gap-2">
-            {tags.slice(0, 2).map((tag, i) => (
-              <span
-                key={i}
-                className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
 
           <h3 className="mb-3 break-words font-display text-xl leading-tight text-text-primary transition-colors duration-300 group-hover:text-primary sm:text-heading-md">
             {title}
@@ -99,12 +86,6 @@ const ProjectCard = ({
               ) : null}
             </div>
           )}
-
-          {reviewerSignal ? (
-            <p className="mt-4 border-l-2 border-primary/30 pl-3 text-sm leading-6 text-gray-500">
-              {reviewerSignal}
-            </p>
-          ) : null}
 
           <div className="mt-auto flex min-h-11 items-center pt-5 text-sm font-semibold text-primary sm:pt-6">
             <span>View Case Study</span>

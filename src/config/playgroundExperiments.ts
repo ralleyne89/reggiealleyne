@@ -1,5 +1,4 @@
 import {
-  Clock,
   Code,
   Gamepad2,
   Music,
@@ -19,19 +18,6 @@ export type Experiment = {
 };
 
 export const experiments: Experiment[] = [
-  {
-    title: "Covelo Timecard System",
-    description:
-      "A client workforce portal for staff timecards, approver queues, compliance exceptions, assignments, and export workflows.",
-    proofSignal:
-      "Solo client project completed in March 2026 with a deployed Covelo demo and role-based product screens.",
-    tags: ["Next.js", "RBAC", "Postgres"],
-    icon: Clock,
-    previewImage: "/images/covelo/login-desktop.png",
-    detailPath: "/project/covelo-timecard-system",
-    liveUrl: "https://covelo.netlify.app",
-    status: "Client project",
-  },
   {
     title: "ScentStack",
     description:

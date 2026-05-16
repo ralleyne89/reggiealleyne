@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
+import EvidenceNote from "@/components/ui/evidence-note";
 import { experiments } from "@/config/playgroundExperiments";
 
 const Playground = () => {
@@ -29,7 +30,7 @@ const Playground = () => {
             >
               <Link
                 to="/"
-                className="inline-flex items-center text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
+                className="-mx-2 inline-flex min-h-11 items-center px-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Home
@@ -169,7 +170,7 @@ const Playground = () => {
                           {experiment.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary"
+                              className="rounded-full border border-slate-200 bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700"
                             >
                               {tag}
                             </span>
@@ -183,9 +184,9 @@ const Playground = () => {
                       <p className="mt-3 text-sm leading-6 text-text-secondary">
                         {experiment.description}
                       </p>
-                      <p className="mt-5 border-l-2 border-primary/30 pl-3 text-sm leading-6 text-gray-500">
+                      <EvidenceNote className="mt-5" label="Proof">
                         {experiment.proofSignal}
-                      </p>
+                      </EvidenceNote>
 
                       {experiment.detailPath ? (
                         <Link

@@ -1,0 +1,12 @@
+.git/
+node_modules/
+dist/
+dist-ssr/
+.netlify/
+coverage/
+graphify-out/
+
+*.log
+*.local
+*.tsbuildinfo
+package-lock.json

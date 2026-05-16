@@ -69,7 +69,7 @@ const Footer = () => {
 
             <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-semibold uppercase leading-5 text-primary-light">
               <Sparkles size={14} />
-              Product Designer & AI Technologist
+              UX/UI Designer & AI Technologist
             </p>
           </div>
         </div>
@@ -134,7 +134,7 @@ const Footer = () => {
 
         <div className="flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} Reggie Alleyne.</p>
-          <p>Product Designer & AI Technologist.</p>
+          <p>UX/UI Designer & AI Technologist.</p>
         </div>
       </div>
     </footer>

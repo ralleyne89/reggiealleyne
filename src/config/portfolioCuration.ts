@@ -220,7 +220,7 @@ export const caseStudyBriefs: Partial<
 
 export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
   "staybooked": {
-    role: "Product designer and frontend developer",
+    role: "UX/UI Designer and Frontend Developer",
     problem:
       "Independent hosts needed a practical way to improve room photos, listing copy, and booking signals without making the AI output feel deceptive.",
     decision:
@@ -231,7 +231,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Product framing", "Host workflow", "Room optimizer UI", "Portfolio presentation"],
   },
   "litmus-ai": {
-    role: "Product designer and AI strategist",
+    role: "UX/UI Designer and AI Strategist",
     problem:
       "Teams and learners needed a fast way to understand AI readiness before committing to training.",
     decision:
@@ -242,7 +242,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Product strategy", "Assessment UX", "Prompt/scoring logic", "Payments and admin flow"],
   },
   "cllctve-platform": {
-    role: "Product designer and design systems lead",
+    role: "UX/UI Designer and Design Systems Lead",
     problem:
       "Gen Z creators needed a mobile-first portfolio experience that felt closer to how they already shared work.",
     decision:
@@ -271,7 +271,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Risk dashboard", "Remediation flow", "Visual identity", "Frontend prototype"],
   },
   "scent-stack": {
-    role: "Product designer and AI product strategist",
+    role: "UX/UI Designer and AI Product Strategist",
     problem:
       "Fragrance discovery is expensive, opaque, and hard to translate from taste into actual products.",
     outcome:
@@ -316,7 +316,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Landing page UI", "Trust hierarchy", "Mobile layout", "Campaign-ready design"],
   },
   "wristband": {
-    role: "Lead UX/UI designer and strategist",
+    role: "Lead UX/UI Designer and Strategist",
     problem:
       "Interactive storytelling apps often felt repetitive and thin, especially around diverse character depth.",
     outcome:
@@ -343,7 +343,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Game UX", "Economy loop", "Frontend build", "Backend integration"],
   },
   "covelo-timecard-system": {
-    role: "Product Designer and Frontend Developer",
+    role: "UX/UI Designer and Frontend Developer",
     problem:
       "Covelo needed one portal for staff timecards, approver review, compliance exceptions, assignments, and export prep.",
     decision:

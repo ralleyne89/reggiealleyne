@@ -96,7 +96,7 @@ const About = () => {
           >
             <Link
               to="/"
-              className="inline-flex items-center text-primary hover:text-primary-light transition-colors"
+              className="-mx-2 inline-flex min-h-11 items-center px-2 text-primary transition-colors hover:text-primary-light"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to home
@@ -110,7 +110,7 @@ const About = () => {
             className="mx-auto max-w-4xl"
           >
             <p className="text-primary font-medium text-sm tracking-wide uppercase mb-3">
-              Product Designer & AI Technologist
+              UX/UI Designer & AI Technologist
             </p>
             <h1 className="text-4xl lg:text-6xl font-heading font-bold mb-6 text-text-primary">
               Reggie Alleyne

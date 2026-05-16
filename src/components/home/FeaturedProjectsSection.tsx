@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { getAllProjects } from "@/services/api";
+import { getAllPredefinedProjectsSync } from "@/services/api/predefinedProjects";
 import {
   isFeaturedProject,
   isPrimaryWorksProject,
@@ -16,6 +17,7 @@ const FeaturedProjectsSection = () => {
   const { data: projects = [], isLoading } = useQuery({
     queryKey: ["projects"],
     queryFn: getAllProjects,
+    placeholderData: getAllPredefinedProjectsSync,
     retry: 1,
   });
 
@@ -81,10 +83,8 @@ const FeaturedProjectsSection = () => {
                   description={project.description}
                   image={project.image}
                   href={getProjectPath(project)}
-                  tags={project.tags || []}
                   eyebrow={project.curation.eyebrow}
                   impactSummary={project.curation.impactSummary}
-                  reviewerSignal={project.curation.reviewerSignal}
                   role={project.role}
                   year={project.year}
                   index={index}

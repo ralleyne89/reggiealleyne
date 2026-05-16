@@ -18,7 +18,7 @@ export const getCoveloTimecardProject = (): ProjectType => {
       "RBAC",
       "Workforce Ops",
     ],
-    role: "Product Designer & Frontend Developer",
+    role: "UX/UI Designer & Frontend Developer",
     duration: "Completed March 2026",
     year: "2026",
     teamSize: "Solo project",
@@ -66,7 +66,7 @@ export const getCoveloTimecardProject = (): ProjectType => {
     figmaUrl: null,
     prototypeUrl: null,
     keyAchievements: [
-      "Completed the solo client project in March 2026 as Product Designer and Frontend Developer.",
+      "Completed the solo client project in March 2026 as UX/UI Designer and Frontend Developer.",
       "Created one role-aware portal model for Staff, Approver, and Ops/Admin users instead of splitting the workflow across separate tools.",
       "Built a responsive frontend that keeps daily actions clear while still supporting RBAC, audit history, and tenant-aware data boundaries.",
       "Connected the interface to typed contract patterns for timecards, approvals, exceptions, assignments, and export workflows.",

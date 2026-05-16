@@ -10,7 +10,7 @@ export const getCllctveProject = (): ProjectType => {
     image: "/images/cllctve-gen-z-card.jpg",
     category: "Platform",
     tags: ["Platform", "Creative", "Gen Z", "Portfolio"],
-    role: "Product Designer & Design Systems Lead",
+    role: "UX/UI Designer & Design Systems Lead",
     duration: "1 year, 10 months",
     year: "2022",
     challenge: "Behance already had reach, credibility, and desktop workflows. CLLCTVE had to give Gen Z creators a reason to use a smaller platform, so we bet on mobile creation, community feedback, and faster iteration instead of chasing every professional portfolio feature.",

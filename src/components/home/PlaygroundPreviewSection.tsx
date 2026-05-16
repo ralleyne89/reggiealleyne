@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 import { experiments } from "@/config/playgroundExperiments";
+import EvidenceNote from "@/components/ui/evidence-note";
 
 const PlaygroundPreviewSection = () => {
   const previewExperiments = experiments.slice(0, 3);
@@ -65,7 +66,7 @@ const PlaygroundPreviewSection = () => {
                     <span className="liquid-glass-control flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-primary">
                       <Icon size={20} />
                     </span>
-                    <span className="text-xs font-semibold uppercase text-primary">
+                    <span className="text-xs font-semibold uppercase text-teal-700">
                       {experiment.tags[0]}
                     </span>
                   </div>
@@ -75,9 +76,9 @@ const PlaygroundPreviewSection = () => {
                   <p className="mt-3 line-clamp-3 text-sm leading-6 text-text-secondary">
                     {experiment.description}
                   </p>
-                  <p className="mt-4 border-l-2 border-primary/30 pl-3 text-sm leading-6 text-gray-500">
+                  <EvidenceNote className="mt-4" label="Proof">
                     {experiment.proofSignal}
-                  </p>
+                  </EvidenceNote>
                   <span className="mt-auto inline-flex min-h-11 items-center gap-2 pt-5 text-sm font-semibold text-primary">
                     {isExternal ? "View live" : "View details"}
                     {isExternal ? <ExternalLink size={15} /> : <ArrowUpRight size={15} />}

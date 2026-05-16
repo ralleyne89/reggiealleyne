@@ -49,7 +49,7 @@ export const litmusAIOverviewData: ProjectOverviewProps = {
     },
     {
       label: "Role",
-      value: "Product Designer & AI Strategist",
+      value: "UX/UI Designer & AI Strategist",
       icon: Briefcase
     },
     {

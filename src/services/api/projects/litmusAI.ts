@@ -7,7 +7,7 @@ export const getLitmusAIProject = (): ProjectType => {
     title: "Litmus AI – AI Literacy Testing & Certification Platform",
     description:
       "An adaptive AI literacy test and certificate flow that gives users a baseline in under five minutes, then points them to the next lesson.",
-    role: "Product Designer & AI Strategist",
+    role: "UX/UI Designer & AI Strategist",
     year: "2025",
     duration: "2 months",
     teamSize: "Lean product team",

@@ -4,6 +4,10 @@ import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 import Footer from "@/components/layout/Footer";
 import { getProject } from "@/services/api";
+import {
+  getPredefinedProjectById,
+  getPredefinedProjectBySlug,
+} from "@/services/api/predefinedProjects";
 import { motion } from "framer-motion";
 import ProjectHeader from "@/components/project/ProjectHeader";
 import ProjectDetails from "@/components/project/ProjectDetails";
@@ -187,6 +191,17 @@ const Project = () => {
   const navigate = useNavigate();
   const [showHeaderImage, setShowHeaderImage] = useState(true);
   const canonicalRouteSlug = getCanonicalProjectRouteSlug(slug);
+  const getLocalProjectPlaceholder = () => {
+    const lookupSlug = canonicalRouteSlug || slug;
+    if (!lookupSlug) return undefined;
+
+    const numericId = Number(lookupSlug);
+    if (!Number.isNaN(numericId)) {
+      return getPredefinedProjectById(numericId) || undefined;
+    }
+
+    return getPredefinedProjectBySlug(lookupSlug) || undefined;
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -233,6 +248,7 @@ const Project = () => {
       }
     },
     enabled: Boolean(slug),
+    placeholderData: getLocalProjectPlaceholder,
     retry: 1
   });
   useEffect(() => {
@@ -355,13 +371,17 @@ const Project = () => {
   if (isLoading) {
     return <div className="min-h-screen bg-white px-4 pt-24 text-text-primary">
         <div className="mx-auto w-full max-w-7xl">
-          <div className="animate-pulse">
-            <div className="h-[60vh] bg-gray-200 rounded-lg mb-12"></div>
-            <div className="h-8 bg-gray-200 rounded w-1/2 mb-4"></div>
-            <div className="h-4 bg-gray-200 rounded w-3/4 mb-8"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="h-32 bg-gray-200 rounded"></div>
-              <div className="h-32 bg-gray-200 rounded"></div>
+          <div className="animate-pulse rounded-2xl border border-gray-200 bg-slate-50 p-5 sm:p-8">
+            <div className="mb-5 h-4 w-28 rounded-full bg-slate-200"></div>
+            <div className="mb-4 h-10 w-full max-w-2xl rounded bg-slate-200"></div>
+            <div className="mb-8 h-4 w-full max-w-xl rounded bg-slate-200"></div>
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-[1.2fr_0.8fr]">
+              <div className="min-h-[18rem] rounded-xl bg-slate-200"></div>
+              <div className="space-y-4">
+                <div className="h-24 rounded-xl bg-slate-200"></div>
+                <div className="h-24 rounded-xl bg-slate-200"></div>
+                <div className="h-24 rounded-xl bg-slate-200"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -389,7 +409,6 @@ const Project = () => {
     title,
     description,
     image,
-    tags = [],
     role,
     duration,
     year,
@@ -423,7 +442,7 @@ const Project = () => {
   }} transition={{
     duration: 0.3
   }} className="min-h-screen bg-white pb-24 text-text-primary md:pb-0">
-      {showHeaderImage && <ProjectHeader image={image} tags={tags} title={title} description={description} role={role} duration={duration} year={year} teamSize={teamSize} />}
+      {showHeaderImage && <ProjectHeader image={image} title={title} description={description} role={role} duration={duration} year={year} teamSize={teamSize} />}
 
       <div className="w-full">
         <CaseStudyAtGlance project={project} />

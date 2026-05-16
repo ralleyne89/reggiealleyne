@@ -39,7 +39,7 @@ export const staybookedOverviewData: ProjectOverviewProps = {
     },
     {
       label: "Role",
-      value: "Product Designer and Frontend Developer",
+      value: "UX/UI Designer and Frontend Developer",
       icon: Briefcase,
     },
     {
