@@ -46,7 +46,7 @@ const routeNavItems: NavRouteItem[] = [
   {
     kind: "route",
     title: "Work",
-    path: "/works",
+    path: "/work",
     icon: BriefcaseBusiness,
     labelWidth: 42,
     mobileLabelWidth: 42,

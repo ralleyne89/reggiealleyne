@@ -1,0 +1,141 @@
+/* Reggie Alleyne Portfolio Open Design tokens.
+   Source: /Users/reggiealleyne/Projects/reggiealleyne/src/index.css,
+   tailwind.config.ts, PRODUCT.md, and DESIGN.md. */
+
+:root {
+  color-scheme: light;
+
+  /* Open Design core aliases */
+  --bg: #f8f9fe;
+  --surface: #fdfeff;
+  --surface-soft: #f0f2f9;
+  --surface-raised: #fdfeff;
+  --fg: #0f131f;
+  --fg-2: #4c5261;
+  --muted: #6f7481;
+  --meta: #6f7481;
+  --border: #d5d7e1;
+  --border-soft: #e4e6ef;
+  --accent: #7d6aee;
+  --accent-on: #f8f9fe;
+  --accent-hover: #6b4ee0;
+  --accent-active: #5f42d6;
+  --accent-soft: #e5e5ff;
+  --accent-muted: #aeaaf7;
+  --signal: #008680;
+  --signal-soft: #c6f7f2;
+  --warm: #eacd99;
+  --danger: #c4382f;
+  --focus: #7d6aee;
+
+  /* Source OKLCH primitives from the app */
+  --color-surface-page: 0.984 0.006 275;
+  --color-surface-soft: 0.962 0.01 275;
+  --color-surface-raised: 0.996 0.004 275;
+  --color-ink: 0.19 0.024 268;
+  --color-ink-secondary: 0.44 0.026 268;
+  --color-ink-muted: 0.56 0.021 268;
+  --color-border-soft: 0.88 0.014 276;
+  --color-accent: 0.61 0.19 286;
+  --color-accent-strong: 0.54 0.21 286;
+  --color-accent-soft: 0.93 0.04 286;
+  --color-accent-muted: 0.77 0.11 286;
+  --color-signal: 0.55 0.115 190;
+  --color-signal-soft: 0.94 0.05 190;
+  --color-warm: 0.86 0.075 82;
+  --color-focus: 0.61 0.19 286;
+
+  /* Typography */
+  --font-display: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+  --text-display-xl: 4rem;
+  --text-display-lg: 3.5rem;
+  --text-display-md: 2.75rem;
+  --text-heading-xl: 2.25rem;
+  --text-heading-lg: 1.875rem;
+  --text-heading-md: 1.375rem;
+  --text-body-lg: 1.125rem;
+  --text-body-md: 1rem;
+  --text-body-sm: 0.875rem;
+  --leading-display-xl: 1.08;
+  --leading-display-lg: 1.1;
+  --leading-display-md: 1.12;
+  --leading-heading-xl: 1.2;
+  --leading-heading-lg: 1.25;
+  --leading-heading-md: 1.35;
+  --leading-body: 1.75;
+  --leading-body-sm: 1.6;
+  --tracking-normal: 0;
+
+  /* Layout */
+  --container-sm: 40rem;
+  --container-md: 48rem;
+  --container-lg: 64rem;
+  --container-xl: 80rem;
+  --container-2xl: 87.5rem;
+  --gutter-mobile: 1rem;
+  --gutter-tablet: 1.5rem;
+  --gutter-desktop: 2rem;
+  --section-y-mobile: 3rem;
+  --section-y-tablet: 4rem;
+  --section-y-desktop: 5rem;
+
+  /* Radius */
+  --radius-xs: 0.375rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+  --radius-pill: 999px;
+
+  /* Elevation and materials */
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-card-hover: 0 20px 45px rgba(125, 106, 238, 0.11);
+  --shadow-image: 0 14px 34px rgba(15, 23, 42, 0.1);
+  --shadow-liquid: 0 26px 70px rgba(15, 23, 42, 0.14), 0 6px 18px rgba(15, 23, 42, 0.08);
+  --shadow-nav: 0 22px 60px rgba(0, 0, 0, 0.24), 0 8px 26px rgba(0, 0, 0, 0.18);
+  --blur-liquid: 28px;
+  --blur-control: 18px;
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 190ms;
+  --duration-standard: 220ms;
+  --duration-slow: 450ms;
+  --spring-nav-stiffness: 350;
+  --spring-nav-damping: 32;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d111c;
+  --surface: #202636;
+  --surface-soft: #171d2a;
+  --surface-raised: #202636;
+  --fg: #f0f1f9;
+  --fg-2: #c8ccdc;
+  --muted: #a2a8ba;
+  --meta: #a2a8ba;
+  --border: #3d4455;
+  --border-soft: #30384a;
+  --accent: #9e94fd;
+  --accent-on: #0d111c;
+  --accent-hover: #aeaaf7;
+  --accent-active: #c8c4ff;
+  --accent-soft: #2f245f;
+  --accent-muted: #9e94fd;
+  --signal: #4ebcb6;
+  --signal-soft: #143d40;
+  --warm: #d2a95f;
+  --focus: #9e94fd;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-standard: 1ms;
+    --duration-slow: 1ms;
+  }
+}

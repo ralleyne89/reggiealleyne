@@ -46,7 +46,7 @@ const ProfileHeader = () => {
           <span className="ml-2">Available For Projects</span>
         </div>
         <Link
-          to="/works"
+          to="/work"
           className="bg-[rgba(20,20,20,1)] hover:bg-[rgba(30,30,30,1)] border flex items-center gap-1 text-sm text-primary px-4 py-2 rounded-[40px] border-[rgba(255,255,255,0.05)] border-solid whitespace-nowrap transition-colors duration-300"
         >
           <span>Portfolio</span>

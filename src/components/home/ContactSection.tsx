@@ -98,8 +98,7 @@ const ContactSection = () => {
             Get in touch
           </p>
           <h2 className="max-w-xl break-words font-display text-[2.25rem] font-semibold leading-tight text-white [text-wrap:balance] sm:text-display-md">
-            Have a messy product problem, an AI workflow, or a prototype that
-            needs shape?
+            Let&apos;s make the messy part clear.
           </h2>
           <p className="mt-5 max-w-lg text-base leading-7 text-slate-300 sm:text-lg">
             Send me the problem, the team, and what needs to be real enough to

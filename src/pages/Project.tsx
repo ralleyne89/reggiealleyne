@@ -209,7 +209,7 @@ const Project = () => {
     // Handle invalid slug
     if (!slug) {
       toast.error("Project ID is missing");
-      navigate("/works");
+      navigate("/work");
       return;
     }
   }, [slug, navigate]);
@@ -397,8 +397,8 @@ const Project = () => {
             Error loading project:{" "}
             {error instanceof Error ? error.message : "Unknown error"}
           </p>
-          <button onClick={() => navigate("/works")} className="px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">
-            Return to Works
+          <button onClick={() => navigate("/work")} className="px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">
+            Return to Work
           </button>
         </div>
       </div>;

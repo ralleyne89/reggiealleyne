@@ -144,7 +144,7 @@ const ProjectHeader = ({
   );
 
   const displayDescription = getCaseStudyDescription(title, description);
-  const backTarget = "/works";
+  const backTarget = "/work";
   const backLabel = "Back to Work";
 
   return (

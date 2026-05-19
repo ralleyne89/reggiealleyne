@@ -134,8 +134,8 @@ const FeaturedProjectsSection = () => {
 
         <div className="mt-12 text-center">
           <Link
-            to="/works"
-          className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-950 transition-colors hover:border-primary hover:text-primary sm:w-auto"
+            to="/work"
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-950 transition-colors hover:border-primary hover:text-primary sm:w-auto"
           >
             View all Work
             <ArrowRight size={18} />

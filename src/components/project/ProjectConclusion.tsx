@@ -79,7 +79,7 @@ const ProjectConclusion = ({
 
       <div className="mt-10 flex flex-col gap-3 border-t border-gray-200 pt-8 sm:flex-row sm:items-center">
         <Link
-          to="/works"
+          to="/work"
           className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-gray-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary"
         >
           <ArrowLeft className="h-4 w-4" />

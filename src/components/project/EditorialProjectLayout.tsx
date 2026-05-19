@@ -76,7 +76,7 @@ export const CaseStudyFooter = ({
 }: CaseStudyFooterProps) => (
   <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-8 sm:px-6 sm:pt-12">
     <Link
-      to="/works"
+      to="/work"
       className="-mx-2 inline-flex min-h-11 items-center px-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
     >
       <ArrowLeft className="mr-2 h-4 w-4" />

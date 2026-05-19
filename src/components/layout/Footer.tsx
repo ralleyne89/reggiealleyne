@@ -31,7 +31,7 @@ const Footer = () => {
   const quickLinks = [
     {
       name: "Work",
-      href: "/works",
+      href: "/work",
     },
     {
       name: "About",

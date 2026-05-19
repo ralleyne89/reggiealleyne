@@ -50,7 +50,8 @@ const App = () => (
           <Suspense fallback={<RouteFallback />}>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/works" element={<Works />} />
+              <Route path="/work" element={<Works />} />
+              <Route path="/works" element={<Navigate to="/work" replace />} />
               <Route path="/playground" element={<Playground />} />
               <Route path="/about" element={<About />} />
               {CLLCTVE_PROJECT_ROUTE_ALIASES.map((alias) => (
