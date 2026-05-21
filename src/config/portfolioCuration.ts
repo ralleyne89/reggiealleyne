@@ -173,6 +173,21 @@ export const caseStudyBriefs: Partial<
       "Ops exception and export surfaces",
     ],
   },
+  "pretty-paws-grooming": {
+    audience:
+      "Pet owners in Little Rock who need to compare grooming services, check business details, and request an appointment quickly.",
+    constraint:
+      "The website had to feel polished and trustworthy while keeping every claim tied to confirmed salon facts and every booking request clearly pending.",
+    coreDecision:
+      "Use service detail routes and a request-based booking flow instead of a generic brochure page or instant-confirmation promise.",
+    evidence:
+      "The source project includes a Vite/React app, service and booking routes, Supabase booking/contact submissions, local media, Netlify configuration, and a live Netlify deployment.",
+    artifacts: [
+      "Public salon homepage",
+      "Service detail and booking flow",
+      "Contact, policies, and local media assets",
+    ],
+  },
 };
 
 export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
@@ -309,6 +324,17 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
       "Delivered a solo client MVP with a deployed demo, product screenshots, and bounded technical framing for auth, RBAC, APIs, and exports.",
     tools: ["Next.js", "TypeScript", "Postgres", "OIDC/JWKS", "REST APIs"],
     owned: ["Product design", "Frontend build", "Role workflows", "Client demo"],
+  },
+  "pretty-paws-grooming": {
+    role: "Frontend implementation and UX presentation",
+    problem:
+      "A local grooming salon needed a web experience that made services, booking, contact details, and policies easy to trust from mobile or desktop.",
+    decision:
+      "Build around the real appointment path: service browsing, service detail pages, a preselected booking request, and clear follow-up language.",
+    outcome:
+      "Created a live Netlify site with service routes, booking and contact submissions, policy coverage, and local media assets.",
+    tools: ["Vite", "React", "TypeScript", "Tailwind CSS", "Supabase", "Netlify"],
+    owned: ["Homepage", "Service IA", "Booking flow", "Frontend build"],
   },
 };
 
