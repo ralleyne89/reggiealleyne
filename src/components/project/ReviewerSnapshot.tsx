@@ -55,6 +55,7 @@ const ReviewerSnapshot = ({ project }: ReviewerSnapshotProps) => {
     project.problem ||
     project.challenge ||
     brief?.audience;
+  const audience = brief?.audience || config?.reviewerSignal;
   const decision = tldr?.decision || brief?.coreDecision;
   const outcome =
     tldr?.outcome ||
@@ -64,7 +65,7 @@ const ReviewerSnapshot = ({ project }: ReviewerSnapshotProps) => {
     project.summary;
 
   const details = [
-    { label: "Role", value: tldr?.role || project.role },
+    { label: "Audience", value: audience },
     { label: "Problem", value: problem },
     { label: "Decision", value: decision },
     { label: "Outcome", value: outcome },
@@ -87,7 +88,7 @@ const ReviewerSnapshot = ({ project }: ReviewerSnapshotProps) => {
             Reviewer snapshot
           </h2>
           <p className="mt-3 text-sm leading-6 text-gray-600">
-            Role, product judgment, evidence, and artifacts in one compact scan.
+            Audience, product judgment, evidence, and artifacts in one compact scan.
           </p>
         </div>
 

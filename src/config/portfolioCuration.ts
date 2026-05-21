@@ -326,7 +326,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Product design", "Frontend build", "Role workflows", "Client demo"],
   },
   "pretty-paws-grooming": {
-    role: "Frontend implementation and UX presentation",
+    role: "UX/UI Designer & Frontend Developer",
     problem:
       "A local grooming salon needed a web experience that made services, booking, contact details, and policies easy to trust from mobile or desktop.",
     decision:
@@ -334,7 +334,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     outcome:
       "Created a live Netlify site with service routes, booking and contact submissions, policy coverage, and local media assets.",
     tools: ["Vite", "React", "TypeScript", "Tailwind CSS", "Supabase", "Netlify"],
-    owned: ["Homepage", "Service IA", "Booking flow", "Frontend build"],
+    owned: ["Homepage", "Booking flow", "Frontend build"],
   },
 };
 
@@ -342,6 +342,14 @@ const hiddenFromPrimaryWorksIds = new Set([3, 4, 5, 7, 8, 12]);
 
 export const getFeaturedConfig = (slug?: string) =>
   featuredProjectConfig.find((project) => project.slug === slug);
+
+export const hasCaseStudyAtGlance = (slug?: string) =>
+  Boolean(
+    slug &&
+      (caseStudyTldrs[slug] ||
+        caseStudyBriefs[slug] ||
+        getFeaturedConfig(slug)),
+  );
 
 export const getCaseStudyBrief = (slug?: string) =>
   slug ? caseStudyBriefs[slug] : undefined;

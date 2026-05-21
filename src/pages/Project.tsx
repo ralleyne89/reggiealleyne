@@ -22,6 +22,7 @@ import {
   getProjectCanonicalUrl,
   getProjectPath,
 } from "@/lib/projectRoutes";
+import { hasCaseStudyAtGlance } from "@/config/portfolioCuration";
 
 const SymptomCheckrCaseStudy = lazy(() =>
   import("@/projects/symptom-checkr").then((module) => ({
@@ -418,6 +419,7 @@ const Project = () => {
     problem,
     solution,
     challenge,
+    problemSolved,
     process,
     deliverables = [],
     images = [],
@@ -432,6 +434,7 @@ const Project = () => {
   } = project as ProjectType;
   const projectSlug = project.slug || slug || "";
   const showCaseStudy = caseStudySlugs.has(projectSlug);
+  const showAtGlance = hasCaseStudyAtGlance(projectSlug);
 
   return <motion.div initial={{
     opacity: 0
@@ -451,9 +454,11 @@ const Project = () => {
               {renderCaseStudy()}
             </Suspense>
           </> : <>
-            <ProjectDetails role={role} duration={duration} year={year} teamSize={teamSize} methodologies={methodologies} summary={summary} problem={problem} solution={solution} />
+            {!showAtGlance ? (
+              <ProjectDetails role={role} duration={duration} year={year} teamSize={teamSize} methodologies={methodologies} summary={summary} problem={problem} solution={solution} />
+            ) : null}
 
-            <ProjectProcess challenge={challenge} problem={problem} process={process} methodologies={methodologies} technicalHighlights={technicalHighlights} keyAchievements={keyAchievements} />
+            <ProjectProcess challenge={challenge} problem={problem} problemSolved={problemSolved} process={process} methodologies={methodologies} technicalHighlights={technicalHighlights} keyAchievements={keyAchievements} />
 
             <ProjectDeliverables deliverables={deliverables} images={images} projectId={project.slug || project.id} />
 
