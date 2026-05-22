@@ -178,162 +178,193 @@ const AutonomousReggieCursor = ({
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const cursor = cursorRef.current;
-    const section = sectionRef.current;
+    let frameId = 0;
+    let retryCount = 0;
+    let cleanupCursorMotion: (() => void) | undefined;
 
-    if (!cursor || !section) {
-      return undefined;
-    }
+    const setupCursorMotion = () => {
+      const cursor = cursorRef.current;
+      const section = sectionRef.current;
 
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (reduceMotion) {
-      gsap.set(cursor, {
-        autoAlpha: 1,
-        x: window.innerWidth * 0.62,
-        y: window.innerHeight * 0.38,
-      });
-      return undefined;
-    }
-
-    const clickRing = cursor.querySelector("[data-reggie-click-ring]");
-    const pointFor = (
-      selector: string,
-      fallbackX: number,
-      fallbackY: number,
-      index = 0,
-      xRatio = 0.48,
-      yRatio = 0.5,
-    ) => {
-      const target = section.querySelectorAll<HTMLElement>(selector)[index];
-
-      if (!target) {
-        return {
-          x: window.innerWidth * fallbackX,
-          y: window.innerHeight * fallbackY,
-        };
-      }
-
-      const rect = target.getBoundingClientRect();
-      return {
-        x: rect.left + rect.width * xRatio - 10,
-        y: rect.top + rect.height * yRatio - 12,
-      };
-    };
-
-    const click = (at = ">-0.08") => {
-      if (!clickRing) {
+      if (!cursor || !section) {
+        retryCount += 1;
+        if (retryCount <= 8) {
+          frameId = window.requestAnimationFrame(setupCursorMotion);
+        }
         return;
       }
 
-      timeline
-        .to(
-          clickRing,
-          {
-            autoAlpha: 0.9,
-            duration: 0.12,
-            ease: "power3.out",
-            scale: 0.85,
-          },
-          at,
-        )
-        .to(clickRing, {
-          autoAlpha: 0,
-          duration: 0.38,
-          ease: "expo.out",
-          scale: 1.9,
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      if (reduceMotion) {
+        gsap.set(cursor, {
+          autoAlpha: 1,
+          x: window.innerWidth * 0.62,
+          y: window.innerHeight * 0.38,
         });
+        cleanupCursorMotion = () => {
+          gsap.killTweensOf(cursor);
+        };
+        return;
+      }
+
+      const clickRing = cursor.querySelector("[data-reggie-click-ring]");
+      const pointFor = (
+        selector: string,
+        fallbackX: number,
+        fallbackY: number,
+        index = 0,
+        xRatio = 0.48,
+        yRatio = 0.5,
+      ) => {
+        const target = section.querySelectorAll<HTMLElement>(selector)[index];
+
+        if (!target) {
+          return {
+            x: window.innerWidth * fallbackX,
+            y: window.innerHeight * fallbackY,
+          };
+        }
+
+        const rect = target.getBoundingClientRect();
+        return {
+          x: rect.left + rect.width * xRatio - 10,
+          y: rect.top + rect.height * yRatio - 12,
+        };
+      };
+
+      const click = (at = ">-0.08") => {
+        if (!clickRing) {
+          return;
+        }
+
+        timeline
+          .to(
+            clickRing,
+            {
+              autoAlpha: 0.9,
+              duration: 0.12,
+              ease: "power3.out",
+              scale: 0.85,
+            },
+            at,
+          )
+          .to(clickRing, {
+            autoAlpha: 0,
+            duration: 0.38,
+            ease: "expo.out",
+            scale: 1.9,
+          });
+      };
+
+      gsap.set(cursor, {
+        autoAlpha: 0,
+        rotate: -6,
+        x: () => pointFor("[data-hero-tool-panel]", 0.36, 0.38).x,
+        y: () => pointFor("[data-hero-tool-panel]", 0.36, 0.38).y,
+      });
+      gsap.set(clickRing, {
+        autoAlpha: 0,
+        scale: 0.3,
+        transformOrigin: "50% 50%",
+      });
+
+      const timeline = gsap.timeline({
+        defaults: { ease: "power2.inOut" },
+        repeat: -1,
+        repeatDelay: 0.45,
+        repeatRefresh: true,
+        paused: true,
+      });
+
+      timeline
+        .to(cursor, {
+          autoAlpha: 1,
+          duration: 0.22,
+          ease: "power3.out",
+        })
+        .to(cursor, {
+          duration: 1.15,
+          rotate: -2,
+          x: () =>
+            pointFor("[data-hero-tool-panel]", 0.36, 0.38, 0, 0.54, 0.2).x,
+          y: () =>
+            pointFor("[data-hero-tool-panel]", 0.36, 0.38, 0, 0.54, 0.2).y,
+        });
+      click();
+      timeline
+        .to(cursor, {
+          duration: 0.88,
+          rotate: 3,
+          x: () =>
+            pointFor("[data-hero-search-chip]", 0.67, 0.29, 0, 0.42, 0.5).x,
+          y: () =>
+            pointFor("[data-hero-search-chip]", 0.67, 0.29, 0, 0.42, 0.5).y,
+        })
+        .to(cursor, { duration: 0.16, rotate: 1 });
+      click();
+      timeline
+        .to(cursor, {
+          duration: 1.1,
+          rotate: -4,
+          x: () => pointFor("[data-hero-card]", 0.64, 0.52, 0, 0.5, 0.56).x,
+          y: () => pointFor("[data-hero-card]", 0.64, 0.52, 0, 0.5, 0.56).y,
+        })
+        .to(cursor, { duration: 0.24, rotate: -1 });
+      click();
+      timeline
+        .to(cursor, {
+          duration: 0.92,
+          rotate: 4,
+          x: () =>
+            pointFor("[data-hero-search-chip]", 0.66, 0.63, 2, 0.46, 0.48).x,
+          y: () =>
+            pointFor("[data-hero-search-chip]", 0.66, 0.63, 2, 0.46, 0.48).y,
+        })
+        .to(cursor, {
+          duration: 1.35,
+          ease: "power1.inOut",
+          rotate: -5,
+          x: () => pointFor("[data-hero-portrait]", 0.52, 0.35, 0, 0.52, 0.18).x,
+          y: () => pointFor("[data-hero-portrait]", 0.52, 0.35, 0, 0.52, 0.18).y,
+        });
+
+      const heroTrigger = ScrollTrigger.create({
+        end: "bottom 78%",
+        onEnter: () => {
+          gsap.to(cursor, { autoAlpha: 1, duration: 0.2, overwrite: "auto" });
+          timeline.play();
+        },
+        onEnterBack: () => {
+          gsap.to(cursor, { autoAlpha: 1, duration: 0.2, overwrite: "auto" });
+          timeline.play();
+        },
+        onLeave: () => {
+          timeline.pause();
+          gsap.to(cursor, { autoAlpha: 0, duration: 0.18, overwrite: "auto" });
+        },
+        onLeaveBack: () => {
+          timeline.pause();
+          gsap.to(cursor, { autoAlpha: 0, duration: 0.18, overwrite: "auto" });
+        },
+        start: "top bottom",
+        trigger: section,
+      });
+
+      ScrollTrigger.refresh();
+      cleanupCursorMotion = () => {
+        heroTrigger.kill();
+        timeline.kill();
+      };
     };
 
-    gsap.set(cursor, {
-      autoAlpha: 0,
-      rotate: -6,
-      x: () => pointFor("[data-hero-tool-panel]", 0.36, 0.38).x,
-      y: () => pointFor("[data-hero-tool-panel]", 0.36, 0.38).y,
-    });
-    gsap.set(clickRing, { autoAlpha: 0, scale: 0.3, transformOrigin: "50% 50%" });
-
-    const timeline = gsap.timeline({
-      defaults: { ease: "power2.inOut" },
-      repeat: -1,
-      repeatDelay: 0.45,
-      repeatRefresh: true,
-      paused: true,
-    });
-
-    timeline
-      .to(cursor, {
-        autoAlpha: 1,
-        duration: 0.22,
-        ease: "power3.out",
-      })
-      .to(cursor, {
-        duration: 1.15,
-        rotate: -2,
-        x: () => pointFor("[data-hero-tool-panel]", 0.36, 0.38, 0, 0.54, 0.2).x,
-        y: () => pointFor("[data-hero-tool-panel]", 0.36, 0.38, 0, 0.54, 0.2).y,
-      });
-    click();
-    timeline
-      .to(cursor, {
-        duration: 0.88,
-        rotate: 3,
-        x: () => pointFor("[data-hero-search-chip]", 0.67, 0.29, 0, 0.42, 0.5).x,
-        y: () => pointFor("[data-hero-search-chip]", 0.67, 0.29, 0, 0.42, 0.5).y,
-      })
-      .to(cursor, { duration: 0.16, rotate: 1 });
-    click();
-    timeline
-      .to(cursor, {
-        duration: 1.1,
-        rotate: -4,
-        x: () => pointFor("[data-hero-card]", 0.64, 0.52, 0, 0.5, 0.56).x,
-        y: () => pointFor("[data-hero-card]", 0.64, 0.52, 0, 0.5, 0.56).y,
-      })
-      .to(cursor, { duration: 0.24, rotate: -1 });
-    click();
-    timeline
-      .to(cursor, {
-        duration: 0.92,
-        rotate: 4,
-        x: () => pointFor("[data-hero-search-chip]", 0.66, 0.63, 2, 0.46, 0.48).x,
-        y: () => pointFor("[data-hero-search-chip]", 0.66, 0.63, 2, 0.46, 0.48).y,
-      })
-      .to(cursor, {
-        duration: 1.35,
-        ease: "power1.inOut",
-        rotate: -5,
-        x: () => pointFor("[data-hero-portrait]", 0.52, 0.35, 0, 0.52, 0.18).x,
-        y: () => pointFor("[data-hero-portrait]", 0.52, 0.35, 0, 0.52, 0.18).y,
-      });
-
-    const heroTrigger = ScrollTrigger.create({
-      end: "bottom 78%",
-      onEnter: () => {
-        gsap.to(cursor, { autoAlpha: 1, duration: 0.2, overwrite: "auto" });
-        timeline.play();
-      },
-      onEnterBack: () => {
-        gsap.to(cursor, { autoAlpha: 1, duration: 0.2, overwrite: "auto" });
-        timeline.play();
-      },
-      onLeave: () => {
-        timeline.pause();
-        gsap.to(cursor, { autoAlpha: 0, duration: 0.18, overwrite: "auto" });
-      },
-      onLeaveBack: () => {
-        timeline.pause();
-        gsap.to(cursor, { autoAlpha: 0, duration: 0.18, overwrite: "auto" });
-      },
-      start: "top bottom",
-      trigger: section,
-    });
+    frameId = window.requestAnimationFrame(setupCursorMotion);
 
     return () => {
-      heroTrigger.kill();
-      timeline.kill();
+      window.cancelAnimationFrame(frameId);
+      cleanupCursorMotion?.();
     };
   }, [sectionRef]);
 
