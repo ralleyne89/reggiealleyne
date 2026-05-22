@@ -75,38 +75,40 @@ const ReviewerSnapshot = ({ project }: ReviewerSnapshotProps) => {
 
   return (
     <EditorialSection
-      className="border-b border-gray-200 py-5 sm:py-7"
+      className="reviewer-cinema border-b border-gray-200"
       contentClassName="max-w-7xl"
       tone="soft"
     >
-      <div className="min-w-0 rounded-lg border border-gray-200 bg-white p-4 shadow-sm sm:p-5 lg:grid lg:grid-cols-[0.72fr_1.28fr] lg:gap-6 lg:p-6">
-        <div className="min-w-0 border-b border-gray-200 pb-4 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-6">
-          <p className="text-xs font-semibold uppercase leading-5 tracking-[0.14em] text-primary">
-            Fast context
-          </p>
-          <h2 className="mt-2 break-words font-display text-2xl leading-tight text-gray-950 sm:text-3xl">
-            Reviewer snapshot
-          </h2>
-          <p className="mt-3 text-sm leading-6 text-gray-600">
-            Audience, product judgment, evidence, and artifacts in one compact scan.
-          </p>
-        </div>
+      <div className="project-cinema-snapshot__grid reviewer-cinema__grid">
+        <aside className="project-cinema-snapshot__aside" aria-hidden="true">
+          <span>01</span>
+          <p>Fast context</p>
+        </aside>
 
-        <div className="min-w-0 pt-4 lg:pt-0">
-          <dl className="grid min-w-0 gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="reviewer-cinema__body">
+          <div className="reviewer-cinema__intro">
+            <p>
+              Reviewer snapshot
+            </p>
+            <h2>
+              Proof, product judgment, and artifacts at a glance.
+            </h2>
+          </div>
+
+          <dl className="reviewer-cinema__details">
             {details.map((item) => (
-              <div key={item.label} className="min-w-0">
-                <dt className="text-xs font-semibold uppercase leading-5 tracking-[0.08em] text-gray-500">
+              <div key={item.label}>
+                <dt>
                   {item.label}
                 </dt>
-                <dd className="mt-1 break-words text-sm leading-6 text-gray-900">
+                <dd>
                   {item.value}
                 </dd>
               </div>
             ))}
           </dl>
 
-          <div className="mt-4 grid gap-4 border-t border-gray-200 pt-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto]">
+          <div className="reviewer-cinema__support">
             {tools.length ? (
               <SnapshotGroup tone="neutral" title="Tools" items={tools} />
             ) : null}
@@ -116,11 +118,11 @@ const ReviewerSnapshot = ({ project }: ReviewerSnapshotProps) => {
             ) : null}
 
             {links.length ? (
-              <div className="min-w-0">
-                <p className="text-xs font-semibold uppercase leading-5 tracking-[0.08em] text-gray-500">
+              <div className="reviewer-cinema__group reviewer-cinema__links">
+                <p>
                   Links
                 </p>
-                <div className="mt-2 flex min-w-0 flex-wrap gap-2">
+                <div>
                   {links.map((link) => (
                     <a
                       key={link.label}
@@ -129,8 +131,8 @@ const ReviewerSnapshot = ({ project }: ReviewerSnapshotProps) => {
                       rel={link.kind === "source" ? "noopener noreferrer" : undefined}
                       className={
                         link.kind === "live"
-                          ? "inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-md bg-gray-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary"
-                          : "inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm transition-colors hover:border-primary/40 hover:text-primary"
+                          ? "reviewer-cinema__link reviewer-cinema__link--live"
+                          : "reviewer-cinema__link"
                       }
                     >
                       {link.kind === "source" ? <Code className="h-4 w-4" /> : null}
@@ -155,18 +157,18 @@ interface SnapshotGroupProps {
 }
 
 const SnapshotGroup = ({ title, items, tone }: SnapshotGroupProps) => (
-  <div className="min-w-0">
-    <p className="text-xs font-semibold uppercase leading-5 tracking-[0.08em] text-gray-500">
+  <div className="reviewer-cinema__group">
+    <p>
       {title}
     </p>
-    <div className="mt-2 flex min-w-0 flex-wrap gap-2">
+    <div>
       {items.map((item) => (
         <span
           key={item}
           className={
             tone === "primary"
-              ? "rounded-md border border-primary/20 bg-primary/5 px-2.5 py-1 text-xs font-semibold leading-5 text-primary"
-              : "rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-semibold leading-5 text-gray-700"
+              ? "reviewer-cinema__pill reviewer-cinema__pill--primary"
+              : "reviewer-cinema__pill"
           }
         >
           {item}

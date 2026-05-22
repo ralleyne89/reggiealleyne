@@ -258,29 +258,29 @@ export const litmusAIUIData: FinalUIDesignProps = {
   ],
   uiImages: [
     {
-      src: "/images/litmusai-1.png",
-      alt: "Litmus AI hero: Assess → Activate → Certify AI Talent",
-      title: "Hero: Assess > Activate > Certify AI Talent"
+      src: "/images/litmus-live-home.png",
+      alt: "Litmus AI homepage with readiness dashboard preview",
+      title: "Homepage"
     },
     {
-      src: "/images/litmusai-2.png",
-      alt: "Transform teams with measurable AI mastery overview",
-      title: "Transform Teams Overview"
+      src: "/images/litmus-live-assessment.png",
+      alt: "Litmus AI assessment page with starting level choices",
+      title: "Assessment Calibration"
     },
     {
-      src: "/images/litmusai-3.png",
-      alt: "Assessment interface — Every company should be AI ready",
-      title: "Assessment Interface"
+      src: "/images/litmus-live-training.png",
+      alt: "Litmus AI training hub with role-based course cards",
+      title: "Training Hub"
     },
     {
-      src: "/images/litmusai-4.png",
-      alt: "Customer testimonials",
-      title: "Testimonials"
+      src: "/images/litmus-live-certification.png",
+      alt: "Litmus AI certification page with available certificate cards",
+      title: "Certification Catalog"
     },
     {
-      src: "/images/litmusai-5.png",
-      alt: "Before You Begin assessment modal",
-      title: "Before You Begin Modal"
+      src: "/images/litmus-live-pricing.png",
+      alt: "Litmus AI pricing page with plan cards",
+      title: "Pricing"
     }
   ]
 };

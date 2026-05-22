@@ -11,7 +11,7 @@ export const getVaultJSValidateProject = (): ProjectType => {
     duration: '2 Weeks (Sprint)',
     teamSize: '1',
     tags: ['Enterprise Security', 'AI Integration', 'Data Visualization', 'React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'OpenAI API'],
-    image: '/images/vaultjs-hero.png',
+    image: '/images/vaultjs-security-dashboard-clean.png',
     summary: 'Vault.js Validate is a dashboard for reviewing third-party script risk. It pairs attack-surface scanning with plain-English vulnerability explanations, risk visualization, and an AI-assisted remediation flow.',
     problem: 'Security teams get flooded with warnings but still have to answer two practical questions: which third-party scripts create risk, and what should we fix first? Many compliance dashboards report status without making the next step clear.',
     solution: 'I designed and built Vault.js Validate around a security analyst\'s next action: scan the attack surface, see vendor relationships, read the risk in plain English, and apply or review an AI-generated fix.',
@@ -30,7 +30,7 @@ export const getVaultJSValidateProject = (): ProjectType => {
       'Cyber-Security Visual System'
     ],
     images: [
-      '/images/vaultjs-hero.png',
+      '/images/vaultjs-security-dashboard-clean.png',
       '/images/vaultjs-dashboard.png',
       '/images/vaultjs-analysis.png',
     ],

@@ -484,14 +484,14 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
   ],
   uiImages: [
     {
-      title: "Home Screen",
-      src: "/images/symptom-checkr-home-optimized.jpg",
-      alt: "SymptomCheckr Home screen"
+      title: "Live checker",
+      src: "/images/symptom-checkr-live-checker.png",
+      alt: "SymptomCheckr live symptom checker screen"
     },
     {
-      title: "My Reports - Saved",
-      src: "/images/Symptom-Checkr-My-Reports-Saved-Final.jpg",
-      alt: "SymptomCheckr My Reports with saved reports"
+      title: "Source-backed result",
+      src: "/images/symptom-checkr-live-results.png",
+      alt: "SymptomCheckr source-backed result screen"
     },
     {
       title: "My Reports - Empty",

@@ -1,6 +1,10 @@
+import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { ArrowRight, Brain, Code2, Layers3, ShieldCheck } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const fitSignals = [
   {
@@ -20,88 +24,187 @@ const fitSignals = [
   },
 ];
 
+const cascadeNotes = [
+  {
+    label: "01 / Frame",
+    title: "Find the decision the interface has to make easier.",
+    text: "The work starts by naming the user, the constraint, and the proof a reviewer should be able to inspect.",
+  },
+  {
+    label: "02 / Shape",
+    title: "Turn rough product intent into a visible path.",
+    text: "Flows, wireframes, and prototypes make the tradeoffs concrete before the team spends energy building the wrong thing.",
+  },
+  {
+    label: "03 / Build",
+    title: "Use code when it clarifies the product.",
+    text: "React prototypes and shipped frontends help the design survive real data, responsive behavior, and edge cases.",
+  },
+  {
+    label: "04 / Prove",
+    title: "Keep evidence close to every claim.",
+    text: "Case studies should show what changed, what shipped, and what can be opened, tested, or inspected.",
+  },
+];
+
 const AboutSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) {
+      return undefined;
+    }
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    let media: ReturnType<typeof gsap.matchMedia> | null = null;
+
+    const context = gsap.context(() => {
+      const cards = gsap.utils.toArray<HTMLElement>("[data-about-cascade-card]");
+      const signals = gsap.utils.toArray<HTMLElement>("[data-about-signal]");
+
+      if (reduceMotion) {
+        gsap.set([...cards, ...signals, "[data-about-copy]"], {
+          autoAlpha: 1,
+          clearProps: "clipPath,transform",
+        });
+        return;
+      }
+
+      gsap.from("[data-about-copy]", {
+        autoAlpha: 0,
+        duration: 0.72,
+        ease: "expo.out",
+        stagger: 0.08,
+        y: 34,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 78%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.from(cards, {
+        autoAlpha: 0,
+        clipPath: "inset(12% 8% 12% 8% round 0.9rem)",
+        duration: 0.86,
+        ease: "expo.out",
+        stagger: 0.1,
+        y: 86,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 66%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.from(signals, {
+        autoAlpha: 0,
+        duration: 0.62,
+        ease: "power3.out",
+        stagger: 0.08,
+        x: -20,
+        scrollTrigger: {
+          trigger: "[data-about-signals]",
+          start: "top 82%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      media = gsap.matchMedia();
+      media.add("(min-width: 1024px)", () => {
+        cards.forEach((card, index) => {
+          gsap.to(card, {
+            ease: "none",
+            y: index % 2 === 0 ? -54 : 34,
+            scrollTrigger: {
+              trigger: section,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.1,
+            },
+          });
+        });
+      });
+    }, section);
+
+    return () => {
+      media?.revert();
+      context.revert();
+    };
+  }, []);
+
   return (
-    <section id="about" className="relative bg-gray-50 py-14 sm:py-16">
-      <div className="mx-auto grid w-full max-w-7xl min-w-0 gap-8 px-4 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:px-8">
-        <motion.div
-          className="min-w-0"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <p className="mb-3 text-xs font-semibold uppercase leading-5 text-primary sm:text-sm">
+    <section
+      id="about"
+      ref={sectionRef}
+      className="about-cascade relative overflow-clip"
+    >
+      <div className="about-cascade__grid">
+        <div className="about-cascade__intro">
+          <p data-about-copy className="about-cascade__eyebrow">
             About Reggie
           </p>
-          <h2 className="break-words font-display text-[2rem] font-semibold leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
-            A UX/UI Designer who uses code to make AI and workflow ideas
-            easier to trust.
+          <h2 data-about-copy className="about-cascade__title">
+            Product judgment, UX craft, and frontend proof in the same loop.
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-text-secondary sm:text-lg sm:leading-8">
+          <p data-about-copy className="about-cascade__text">
             I design interfaces for AI tools, dashboards, and mobile-first
-            platforms, then prototype enough of the behavior to help teams see
-            what works before they overbuild.
+            platforms, then prototype enough behavior to help teams see what
+            works before they overbuild.
           </p>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link
-              to="/about"
-              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-dark sm:w-auto"
-            >
+          <div data-about-copy className="about-cascade__actions">
+            <Link to="/about" className="about-cascade__primary">
               Read more about me
               <ArrowRight size={18} />
             </Link>
-            <a
-              href="#contact"
-              className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-950 transition-colors hover:border-primary hover:text-primary sm:w-auto"
-            >
+            <a href="#contact" className="about-cascade__secondary">
               Reach out
             </a>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="grid min-w-0 gap-4"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.08 }}
-          viewport={{ once: true, amount: 0.25 }}
-        >
-          <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
-            <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <Layers3 size={22} />
+        <div className="about-cascade__story">
+          <article className="about-cascade__lead" data-about-cascade-card>
+            <div className="about-cascade__lead-icon">
+              <Layers3 size={24} />
             </div>
-            <p className="text-xs font-semibold uppercase text-primary">
-              Best work
-            </p>
-            <h3 className="mt-2 break-words font-display text-2xl font-semibold leading-tight text-gray-950">
-              Product strategy, UX/UI craft, and frontend fluency in the same
-              loop.
+            <p>Best work</p>
+            <h3>
+              Strategy, interface design, and buildable systems moving together.
             </h3>
-            <p className="mt-4 text-sm leading-6 text-gray-600">
-              I am strongest when the product model, interface details, and
-              working prototype need to be shaped together. Here, that shows up
-              in adaptive assessment, creator-platform strategy, and service
-              workflow modeling.
-            </p>
-          </div>
+            <span aria-hidden="true">archive / working method</span>
+          </article>
 
-          <div className="grid min-w-0 gap-3 sm:grid-cols-3">
-            {fitSignals.map(({ label, value, Icon }) => (
-              <article
-                key={label}
-                className="min-w-0 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm"
-              >
-                <Icon className="h-5 w-5 text-primary" />
-                <p className="mt-4 text-xs font-semibold uppercase text-gray-500">
-                  {label}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-gray-800">{value}</p>
+          <div className="about-cascade__stack">
+            {cascadeNotes.map((note) => (
+              <article key={note.label} data-about-cascade-card>
+                <p>{note.label}</p>
+                <h3>{note.title}</h3>
+                <span>{note.text}</span>
               </article>
             ))}
           </div>
-        </motion.div>
+
+          <div
+            data-about-signals
+            className="about-cascade__signals"
+            aria-label="Working fit signals"
+          >
+            {fitSignals.map(({ label, value, Icon }) => (
+              <article key={label} data-about-signal>
+                <Icon className="h-5 w-5" />
+                <p>{label}</p>
+                <span>{value}</span>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

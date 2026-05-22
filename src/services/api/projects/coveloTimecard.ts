@@ -75,7 +75,7 @@ export const getCoveloTimecardProject = (): ProjectType => {
       "Next.js, React, TypeScript, Tailwind CSS, and Lucide Icons for the web experience.",
       "Role-based routing and layout patterns for Staff, Approver, and Ops/Admin workspaces.",
       "Postgres-oriented contracts and shared domain models for workforce operations data.",
-      "OIDC/JWKS auth model, RBAC, invite-only access, and district-scoped session handling.",
+      "Invite-only authentication, RBAC, and district-scoped session handling.",
       "Versioned REST API patterns for timecards, approvals, exceptions, assignments, and exports.",
       "Netlify deployment for the client-facing demo.",
     ],

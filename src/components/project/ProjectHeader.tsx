@@ -1,16 +1,18 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface ProjectHeaderProps {
   image: string;
   title: string;
   description: string;
-  role?: string;
-  duration?: string;
   year?: string;
-  teamSize?: string | null;
+  typeLabel?: string | null;
 }
 
 interface CaseStudyHeroConfig {
@@ -76,7 +78,7 @@ const caseStudyHeroConfigs: Array<{
   {
     matches: (title) => title.includes("Vault.js Validate"),
     config: {
-      image: "/images/vaultjs-banner.jpg",
+      image: "/images/vaultjs-security-dashboard-clean.png",
     },
   },
   {
@@ -89,12 +91,6 @@ const caseStudyHeroConfigs: Array<{
     matches: (title) => title.includes("Staybooked"),
     config: {
       image: "/images/staybooked/marketing-homepage-hero-desktop.png",
-    },
-  },
-  {
-    matches: (title) => title === "Tutor D",
-    config: {
-      image: "/images/bfe72208-e9fa-458d-9323-791c39cf2292.png",
     },
   },
   {
@@ -124,78 +120,131 @@ const ProjectHeader = ({
   image,
   title,
   description,
-  role,
-  duration,
   year,
-  teamSize,
+  typeLabel,
 }: ProjectHeaderProps) => {
+  const headerRef = useRef<HTMLElement>(null);
   const [imageError, setImageError] = useState(false);
   const heroConfig = getCaseStudyHeroConfig(title);
   const heroImage =
     heroConfig && !heroConfig.useProjectImage ? heroConfig.image : image;
 
-  const facts = [
-    { label: "Role", value: role },
-    { label: "Timeline", value: duration },
-    { label: "Year", value: year },
-    { label: "Team", value: teamSize },
-  ].filter((item): item is { label: string; value: string } =>
-    Boolean(item.value),
-  );
-
   const displayDescription = getCaseStudyDescription(title, description);
+  const eyebrowLabel = [year, typeLabel || "Project"].filter(Boolean).join(" / ");
   const backTarget = "/work";
   const backLabel = "Back to Work";
 
+  useLayoutEffect(() => {
+    const header = headerRef.current;
+
+    if (!header) {
+      return undefined;
+    }
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    const context = gsap.context(() => {
+      const revealTargets = gsap.utils.toArray<HTMLElement>(
+        "[data-project-hero-reveal]",
+      );
+      const media = header.querySelector("[data-project-hero-media]");
+
+      if (reduceMotion) {
+        const visibleTargets = media ? [...revealTargets, media] : revealTargets;
+
+        gsap.set(visibleTargets, {
+          autoAlpha: 1,
+          clearProps: "clipPath,transform",
+        });
+        return;
+      }
+
+      gsap.from(revealTargets, {
+        autoAlpha: 0,
+        duration: 0.78,
+        ease: "expo.out",
+        stagger: 0.07,
+        y: 34,
+      });
+
+      if (media) {
+        gsap.fromTo(
+          media,
+          {
+            clipPath: "inset(10% 6% 8% 6% round 1rem)",
+            scale: 1.06,
+            y: 50,
+          },
+          {
+            clipPath: "inset(0% 0% 0% 0% round 1rem)",
+            duration: 1,
+            ease: "expo.out",
+            scale: 1,
+            y: 0,
+          },
+        );
+
+        gsap.to(media, {
+          ease: "none",
+          y: -70,
+          scrollTrigger: {
+            trigger: header,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.2,
+          },
+        });
+      }
+    }, header);
+
+    return () => context.revert();
+  }, []);
+
   return (
-    <header className="border-b border-gray-200 bg-white pt-24 sm:pt-32">
-      <div className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16 lg:px-8">
+    <header ref={headerRef} className="project-cinema-hero">
+      <div className="project-cinema-hero__grid">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
-          className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.74fr)] lg:items-end lg:gap-12"
+          className="contents"
         >
-          <div className="min-w-0">
+          <div className="project-cinema-hero__copy">
             <Link
               to={backTarget}
-              className="-mx-2 mb-6 inline-flex min-h-11 items-center px-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark sm:mb-8"
+              data-project-hero-reveal
+              className="project-cinema-hero__back"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               {backLabel}
             </Link>
 
-            <h1 className="max-w-5xl break-words font-display text-[2.18rem] leading-[1.07] text-gray-950 [text-wrap:balance] sm:text-display-md lg:text-display-lg">
+            <p data-project-hero-reveal className="project-cinema-hero__eyebrow">
+              {eyebrowLabel}
+            </p>
+            <h1 data-project-hero-reveal className="project-cinema-hero__title">
               {title}
             </h1>
-            <p className="mt-4 max-w-3xl text-base leading-7 text-gray-600 sm:mt-5 sm:text-lg sm:leading-8">
+            <p data-project-hero-reveal className="project-cinema-hero__description">
               {displayDescription}
             </p>
-
-            {facts.length > 0 ? (
-              <dl className="mt-6 grid min-w-0 grid-cols-2 gap-x-6 gap-y-4 border-y border-gray-200 py-5 sm:mt-8 sm:grid-cols-4 sm:gap-y-5 sm:py-6">
-                {facts.map((fact) => (
-                  <div key={fact.label} className="min-w-0">
-                    <dt className="text-xs font-semibold text-gray-500">
-                      {fact.label}
-                    </dt>
-                    <dd className="mt-1 break-words text-sm font-semibold leading-6 text-gray-950">
-                      {fact.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            ) : null}
-
           </div>
 
-          <div className="min-w-0 max-md:pb-20">
-            <div className="overflow-hidden rounded-lg border border-gray-200 bg-gray-100 shadow-sm">
-              <div className="aspect-[16/6] sm:aspect-[4/3]">
+          <div className="project-cinema-hero__media-wrap">
+            <div data-project-hero-media className="project-cinema-hero__media">
+              <div className="project-cinema-hero__selection" aria-hidden="true">
+                <span className="project-cinema-hero__handle project-cinema-hero__handle--tl" />
+                <span className="project-cinema-hero__handle project-cinema-hero__handle--tr" />
+                <span className="project-cinema-hero__handle project-cinema-hero__handle--bl" />
+                <span className="project-cinema-hero__handle project-cinema-hero__handle--br" />
+              </div>
+              <div className="project-cinema-hero__image-frame">
                 <img
                   src={imageError ? "/placeholder.svg" : heroImage}
                   alt={title}
-                  className="h-full w-full object-cover"
+                  className="project-cinema-hero__image"
                   onError={() => setImageError(true)}
                 />
               </div>

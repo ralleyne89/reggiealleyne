@@ -250,9 +250,9 @@ export const vaultjsUIData: FinalUIDesignProps = {
   ],
   uiImages: [
     {
-      src: "/images/vaultjs-hero.png",
-      alt: "Vault.js Validate hero - Scan Your Attack Surface",
-      title: "Hero: Scan Your Attack Surface"
+      src: "/images/vaultjs-security-dashboard-clean.png",
+      alt: "Vault.js Validate security dashboard concept",
+      title: "Security dashboard concept"
     },
     {
       src: "/images/vaultjs-dashboard.png",

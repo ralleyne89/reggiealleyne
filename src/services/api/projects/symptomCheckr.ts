@@ -30,8 +30,8 @@ export const getSymptomCheckrProject = (): ProjectType => {
     ],
     images: [
       '/images/symptomcheckr-trust-ai-card.jpg',
-      '/images/Symptom-Checkr-My-Reports-Saved-Final.jpg',
-      '/images/Symptom-Checkr-My-Reports-saved.jpg',
+      '/images/symptom-checkr-live-checker.png',
+      '/images/symptom-checkr-live-results.png',
       '/images/Symptom-Checkr-My-Reports-Empty-Final.jpg',
       '/images/Symptom-Checkr-My-Reports-empty.jpg',
       '/images/Symptom-Checkr-Contact.jpg',

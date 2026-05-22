@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -10,107 +10,14 @@ import {
 } from "@/services/api/predefinedProjects";
 import { motion } from "framer-motion";
 import ProjectHeader from "@/components/project/ProjectHeader";
-import ProjectDetails from "@/components/project/ProjectDetails";
-import ProjectProcess from "@/components/project/ProjectProcess";
-import ProjectDeliverables from "@/components/project/ProjectDeliverables";
-import ProjectVideo from "@/components/project/ProjectVideo";
-import ProjectConclusion from "@/components/project/ProjectConclusion";
-import CaseStudyAtGlance from "@/components/project/CaseStudyAtGlance";
+import ProjectEssentials from "@/components/project/ProjectEssentials";
+import ProjectAudienceJourney from "@/components/project/ProjectAudienceJourney";
 import { ProjectType } from "@/types/project";
 import {
   getCanonicalProjectRouteSlug,
   getProjectCanonicalUrl,
   getProjectPath,
 } from "@/lib/projectRoutes";
-import { hasCaseStudyAtGlance } from "@/config/portfolioCuration";
-
-const SymptomCheckrCaseStudy = lazy(() =>
-  import("@/projects/symptom-checkr").then((module) => ({
-    default: module.SymptomCheckrCaseStudy,
-  })),
-);
-const TutorDCaseStudy = lazy(() =>
-  import("@/projects/tutor-d").then((module) => ({
-    default: module.TutorDCaseStudy,
-  })),
-);
-const TechNoirCaseStudy = lazy(() =>
-  import("@/projects/tech-noir").then((module) => ({
-    default: module.TechNoirCaseStudy,
-  })),
-);
-const CllctveCaseStudy = lazy(() =>
-  import("@/projects/cllctve").then((module) => ({
-    default: module.CllctveCaseStudy,
-  })),
-);
-const BobsBigBreakCaseStudy = lazy(() =>
-  import("@/projects/bobs-big-break").then((module) => ({
-    default: module.BobsBigBreakCaseStudy,
-  })),
-);
-const ChillVibesCaseStudy = lazy(() =>
-  import("@/projects/chill-vibes").then((module) => ({
-    default: module.ChillVibesCaseStudy,
-  })),
-);
-const WristbandCaseStudy = lazy(() =>
-  import("@/projects/wristband").then((module) => ({
-    default: module.WristbandCaseStudy,
-  })),
-);
-const ImprovLearningCaseStudy = lazy(() =>
-  import("@/projects/improv-learning").then((module) => ({
-    default: module.ImprovLearningCaseStudy,
-  })),
-);
-const DoggyDateCaseStudy = lazy(() =>
-  import("@/projects/doggy-date").then((module) => ({
-    default: module.DoggyDateCaseStudy,
-  })),
-);
-const LitmusAICaseStudy = lazy(() =>
-  import("@/projects/litmus-ai").then((module) => ({
-    default: module.LitmusAICaseStudy,
-  })),
-);
-const VaultJSValidateCaseStudy = lazy(() =>
-  import("@/projects/vaultjs-validate").then((module) => ({
-    default: module.VaultJSValidateCaseStudy,
-  })),
-);
-const ScentStackCaseStudy = lazy(() =>
-  import("@/projects/scent-stack").then((module) => ({
-    default: module.ScentStackCaseStudy,
-  })),
-);
-const StaybookedCaseStudy = lazy(() =>
-  import("@/projects/staybooked").then((module) => ({
-    default: module.StaybookedCaseStudy,
-  })),
-);
-
-const CaseStudyFallback = () => (
-  <div className="mx-auto max-w-7xl px-6 py-12">
-    <div className="h-48 animate-pulse rounded-2xl bg-gray-100" />
-  </div>
-);
-
-const caseStudySlugs = new Set([
-  "symptom-checkr",
-  "tutor-d",
-  "tech-noir",
-  "cllctve-platform",
-  "bobs-big-break",
-  "chill-vibes-music-player",
-  "wristband",
-  "improv-learning",
-  "doggy-date",
-  "litmus-ai",
-  "vaultjs-validate",
-  "scent-stack",
-  "staybooked",
-]);
 
 const setMetaContent = (
   selector: string,
@@ -322,52 +229,6 @@ const Project = () => {
     };
   }, [project]);
 
-  const renderCaseStudy = () => {
-    const currentSlug = project?.slug || slug;
-
-    switch (currentSlug) {
-      case "tutor-d":
-        return <TutorDCaseStudy />;
-      case "cllctve-platform":
-        return <CllctveCaseStudy />;
-      case "symptom-checkr":
-        return <SymptomCheckrCaseStudy />;
-      case "tech-noir":
-        return <TechNoirCaseStudy />;
-      case "bobs-big-break":
-        return <BobsBigBreakCaseStudy />;
-      case "chill-vibes-music-player":
-        return <ChillVibesCaseStudy />;
-      case "wristband":
-        return <WristbandCaseStudy />;
-      case "improv-learning":
-        return <ImprovLearningCaseStudy />;
-      case "doggy-date":
-        return <DoggyDateCaseStudy />;
-      case "litmus-ai":
-        return <LitmusAICaseStudy />;
-      case "vaultjs-validate":
-        return <VaultJSValidateCaseStudy />;
-      case "scent-stack":
-        return <ScentStackCaseStudy />;
-      case "staybooked":
-        return <StaybookedCaseStudy />;
-      default:
-        return (
-          <div className="min-h-screen bg-white flex items-center justify-center">
-            <div className="text-center">
-              <h1 className="text-2xl font-bold text-gray-900 mb-4">
-                Case Study Coming Soon
-              </h1>
-              <p className="text-gray-600">
-                This case study is currently being developed.
-              </p>
-            </div>
-          </div>
-        );
-    }
-  };
-
   // Handle loading state
   if (isLoading) {
     return <div className="min-h-screen bg-white px-4 pt-24 text-text-primary">
@@ -410,31 +271,9 @@ const Project = () => {
     title,
     description,
     image,
-    role,
-    duration,
     year,
-    teamSize,
-    methodologies,
-    summary,
-    problem,
-    solution,
-    challenge,
-    problemSolved,
-    process,
-    deliverables = [],
-    images = [],
-    videoUrl,
-    conclusion = {
-      impact: "",
-      learnings: "",
-      nextSteps: ""
-    },
-    technicalHighlights,
-    keyAchievements
   } = project as ProjectType;
-  const projectSlug = project.slug || slug || "";
-  const showCaseStudy = caseStudySlugs.has(projectSlug);
-  const showAtGlance = hasCaseStudyAtGlance(projectSlug);
+  const typeLabel = project.category || project.tags?.[0] || "Project";
 
   return <motion.div initial={{
     opacity: 0
@@ -445,29 +284,20 @@ const Project = () => {
   }} transition={{
     duration: 0.3
   }} className="min-h-screen bg-white pb-24 text-text-primary md:pb-0">
-      {showHeaderImage && <ProjectHeader image={image} title={title} description={description} role={role} duration={duration} year={year} teamSize={teamSize} />}
+      {showHeaderImage && (
+        <ProjectHeader
+          image={image}
+          title={title}
+          description={description}
+          year={year}
+          typeLabel={typeLabel}
+        />
+      )}
 
       <div className="w-full">
-        <CaseStudyAtGlance project={project} />
-        {showCaseStudy ? <>
-            <Suspense fallback={<CaseStudyFallback />}>
-              {renderCaseStudy()}
-            </Suspense>
-          </> : <>
-            {!showAtGlance ? (
-              <ProjectDetails role={role} duration={duration} year={year} teamSize={teamSize} methodologies={methodologies} summary={summary} problem={problem} solution={solution} />
-            ) : null}
-
-            <ProjectProcess challenge={challenge} problem={problem} problemSolved={problemSolved} process={process} methodologies={methodologies} technicalHighlights={technicalHighlights} keyAchievements={keyAchievements} />
-
-            <ProjectDeliverables deliverables={deliverables} images={images} projectId={project.slug || project.id} />
-
-            {videoUrl && <ProjectVideo videoUrl={videoUrl} projectTitle={title} />}
-          </>}
+        <ProjectEssentials project={project as ProjectType} />
+        <ProjectAudienceJourney project={project as ProjectType} />
       </div>
-
-      {/* Only show ProjectConclusion for non-case study projects */}
-      {!showCaseStudy && <ProjectConclusion conclusion={conclusion} />}
 
       <Footer />
     </motion.div>;

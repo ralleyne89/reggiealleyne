@@ -1,9 +1,13 @@
-import { type MouseEvent, useLayoutEffect, useRef, useState } from "react";
+import { type RefObject, useEffect, useLayoutEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { cn } from "@/lib/utils";
 
+gsap.registerPlugin(ScrollTrigger);
+
+const LOADER_COMPLETE_EVENT = "home-loader:complete";
 const assetBase = "/images/figma/hero-white";
 
 const heroAssets = {
@@ -57,8 +61,6 @@ type SearchChipProps = {
 };
 
 const SearchChip = ({ label, className, tone = "glass" }: SearchChipProps) => {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <div
       data-hero-search-chip
@@ -74,24 +76,7 @@ const SearchChip = ({ label, className, tone = "glass" }: SearchChipProps) => {
           <span className="whitespace-nowrap font-sans text-sm leading-[22px]">
             {label}
           </span>
-          <motion.span
-            aria-hidden="true"
-            className="h-[18px] w-px shrink-0 rounded-full bg-white/95 shadow-[0_0_8px_rgba(255,255,255,0.55)]"
-            initial={{ opacity: 1 }}
-            animate={
-              shouldReduceMotion ? { opacity: 1 } : { opacity: [1, 1, 0, 0] }
-            }
-            transition={
-              shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    duration: 1,
-                    ease: "linear",
-                    repeat: Infinity,
-                    times: [0, 0.48, 0.49, 1],
-                  }
-            }
-          />
+          <span aria-hidden="true" className="hero-search-caret" />
         </span>
       </div>
     </div>
@@ -121,7 +106,13 @@ const ToolPanel = ({ className }: { className?: string }) => (
   </div>
 );
 
-const CursorPointerIcon = ({ outlined }: { outlined: boolean }) => (
+const CursorPointerIcon = ({
+  outlined,
+  tone,
+}: {
+  outlined: boolean;
+  tone: "reggie" | "you";
+}) => (
   <svg
     aria-hidden="true"
     className="size-8 overflow-visible"
@@ -131,10 +122,16 @@ const CursorPointerIcon = ({ outlined }: { outlined: boolean }) => (
   >
     <path
       d="M8.004 5.996C8.004 5.62458 8.10743 5.26049 8.3027 4.94454C8.49797 4.62859 8.77736 4.37325 9.10957 4.20715C9.44178 4.04104 9.81369 3.97073 10.1836 4.00408C10.5535 4.03744 10.9069 4.17315 11.204 4.396L27.2 16.4C28.736 17.552 27.92 20 26 20H18.106C17.7996 19.9998 17.4972 20.0701 17.2222 20.2053C16.9472 20.3405 16.7069 20.5372 16.52 20.78L11.588 27.21C10.426 28.726 8.002 27.904 8.002 25.992L8.004 5.996Z"
-      fill="#7C3AED"
-      stroke={outlined ? "rgba(255,255,255,0.96)" : "transparent"}
+      fill={tone === "you" ? "oklch(0.996 0.004 275)" : "#7C3AED"}
+      stroke={
+        tone === "you"
+          ? "oklch(0.19 0.024 268)"
+          : outlined
+            ? "rgba(255,255,255,0.96)"
+            : "transparent"
+      }
       strokeLinejoin="round"
-      strokeWidth={outlined ? 3.2 : 0}
+      strokeWidth={tone === "you" || outlined ? 3.2 : 0}
       className="transition-[stroke,filter] duration-150 ease-out"
       style={{ paintOrder: "stroke fill" }}
     />
@@ -143,57 +140,419 @@ const CursorPointerIcon = ({ outlined }: { outlined: boolean }) => (
 
 const CursorBadge = ({
   className,
+  label,
   outlined,
+  tone = "reggie",
 }: {
   className?: string;
+  label: "Reggie" | "You";
   outlined: boolean;
+  tone?: "reggie" | "you";
 }) => (
   <div className={cn("absolute h-[78px] w-[118px]", className)}>
     <div
       className={cn(
-        "absolute left-6 top-[27px] rounded-full bg-[#7C3AED] px-4 py-2 text-white transition-[box-shadow] duration-150 ease-out",
-        outlined &&
+        "absolute left-6 top-[27px] rounded-lg px-4 py-2 transition-[box-shadow,transform] duration-150 ease-out",
+        tone === "reggie" &&
+          "bg-[#7C3AED] text-white shadow-[0_18px_42px_rgba(30,10,80,0.24)]",
+        tone === "you" &&
+          "bg-[oklch(var(--color-surface-raised))] text-[#141414] shadow-[0_0_0_1px_rgba(20,20,20,0.16),0_14px_34px_rgba(15,23,42,0.16)]",
+        tone === "reggie" &&
+          outlined &&
           "shadow-[0_0_0_2px_rgba(255,255,255,0.96),0_12px_30px_rgba(30,10,80,0.24)]",
       )}
     >
-      <span className="font-sans text-sm leading-[22px]">Reggie</span>
+      <span className="font-sans text-sm leading-[22px]">{label}</span>
     </div>
     <div className="absolute left-0 top-0 flex size-[40px] -rotate-[15deg] items-center justify-center">
-      <CursorPointerIcon outlined={outlined} />
+      <CursorPointerIcon outlined={outlined} tone={tone} />
     </div>
   </div>
 );
 
-type CursorState = {
-  isVisible: boolean;
-  isOverPurple: boolean;
-  x: number;
-  y: number;
-};
+const AutonomousReggieCursor = ({
+  sectionRef,
+}: {
+  sectionRef: RefObject<HTMLElement>;
+}) => {
+  const cursorRef = useRef<HTMLDivElement>(null);
 
-const DesktopHeroCursor = ({ cursor }: { cursor: CursorState }) => {
-  const shouldReduceMotion = useReducedMotion();
+  useLayoutEffect(() => {
+    const cursor = cursorRef.current;
+    const section = sectionRef.current;
+
+    if (!cursor || !section) {
+      return undefined;
+    }
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reduceMotion) {
+      gsap.set(cursor, {
+        autoAlpha: 1,
+        x: window.innerWidth * 0.62,
+        y: window.innerHeight * 0.38,
+      });
+      return undefined;
+    }
+
+    const clickRing = cursor.querySelector("[data-reggie-click-ring]");
+    const pointFor = (
+      selector: string,
+      fallbackX: number,
+      fallbackY: number,
+      index = 0,
+      xRatio = 0.48,
+      yRatio = 0.5,
+    ) => {
+      const target = section.querySelectorAll<HTMLElement>(selector)[index];
+
+      if (!target) {
+        return {
+          x: window.innerWidth * fallbackX,
+          y: window.innerHeight * fallbackY,
+        };
+      }
+
+      const rect = target.getBoundingClientRect();
+      return {
+        x: rect.left + rect.width * xRatio - 10,
+        y: rect.top + rect.height * yRatio - 12,
+      };
+    };
+
+    const click = (at = ">-0.08") => {
+      if (!clickRing) {
+        return;
+      }
+
+      timeline
+        .to(
+          clickRing,
+          {
+            autoAlpha: 0.9,
+            duration: 0.12,
+            ease: "power3.out",
+            scale: 0.85,
+          },
+          at,
+        )
+        .to(clickRing, {
+          autoAlpha: 0,
+          duration: 0.38,
+          ease: "expo.out",
+          scale: 1.9,
+        });
+    };
+
+    gsap.set(cursor, {
+      autoAlpha: 0,
+      rotate: -6,
+      x: () => pointFor("[data-hero-tool-panel]", 0.36, 0.38).x,
+      y: () => pointFor("[data-hero-tool-panel]", 0.36, 0.38).y,
+    });
+    gsap.set(clickRing, { autoAlpha: 0, scale: 0.3, transformOrigin: "50% 50%" });
+
+    const timeline = gsap.timeline({
+      defaults: { ease: "power2.inOut" },
+      repeat: -1,
+      repeatDelay: 0.45,
+      repeatRefresh: true,
+      paused: true,
+    });
+
+    timeline
+      .to(cursor, {
+        autoAlpha: 1,
+        duration: 0.22,
+        ease: "power3.out",
+      })
+      .to(cursor, {
+        duration: 1.15,
+        rotate: -2,
+        x: () => pointFor("[data-hero-tool-panel]", 0.36, 0.38, 0, 0.54, 0.2).x,
+        y: () => pointFor("[data-hero-tool-panel]", 0.36, 0.38, 0, 0.54, 0.2).y,
+      });
+    click();
+    timeline
+      .to(cursor, {
+        duration: 0.88,
+        rotate: 3,
+        x: () => pointFor("[data-hero-search-chip]", 0.67, 0.29, 0, 0.42, 0.5).x,
+        y: () => pointFor("[data-hero-search-chip]", 0.67, 0.29, 0, 0.42, 0.5).y,
+      })
+      .to(cursor, { duration: 0.16, rotate: 1 });
+    click();
+    timeline
+      .to(cursor, {
+        duration: 1.1,
+        rotate: -4,
+        x: () => pointFor("[data-hero-card]", 0.64, 0.52, 0, 0.5, 0.56).x,
+        y: () => pointFor("[data-hero-card]", 0.64, 0.52, 0, 0.5, 0.56).y,
+      })
+      .to(cursor, { duration: 0.24, rotate: -1 });
+    click();
+    timeline
+      .to(cursor, {
+        duration: 0.92,
+        rotate: 4,
+        x: () => pointFor("[data-hero-search-chip]", 0.66, 0.63, 2, 0.46, 0.48).x,
+        y: () => pointFor("[data-hero-search-chip]", 0.66, 0.63, 2, 0.46, 0.48).y,
+      })
+      .to(cursor, {
+        duration: 1.35,
+        ease: "power1.inOut",
+        rotate: -5,
+        x: () => pointFor("[data-hero-portrait]", 0.52, 0.35, 0, 0.52, 0.18).x,
+        y: () => pointFor("[data-hero-portrait]", 0.52, 0.35, 0, 0.52, 0.18).y,
+      });
+
+    const heroTrigger = ScrollTrigger.create({
+      end: "bottom 78%",
+      onEnter: () => {
+        gsap.to(cursor, { autoAlpha: 1, duration: 0.2, overwrite: "auto" });
+        timeline.play();
+      },
+      onEnterBack: () => {
+        gsap.to(cursor, { autoAlpha: 1, duration: 0.2, overwrite: "auto" });
+        timeline.play();
+      },
+      onLeave: () => {
+        timeline.pause();
+        gsap.to(cursor, { autoAlpha: 0, duration: 0.18, overwrite: "auto" });
+      },
+      onLeaveBack: () => {
+        timeline.pause();
+        gsap.to(cursor, { autoAlpha: 0, duration: 0.18, overwrite: "auto" });
+      },
+      start: "top bottom",
+      trigger: section,
+    });
+
+    return () => {
+      heroTrigger.kill();
+      timeline.kill();
+    };
+  }, [sectionRef]);
 
   return (
-    <motion.div
-      data-hero-desktop-cursor
-      data-cursor-over-purple={cursor.isOverPurple ? "true" : "false"}
+    <div
+      ref={cursorRef}
+      data-hero-reggie-cursor
       aria-hidden="true"
-      className="pointer-events-none fixed left-0 top-0 z-[60] hidden h-[78px] w-[118px] lg:block"
-      animate={{
-        opacity: cursor.isVisible ? 1 : 0,
-        x: cursor.x - 4,
-        y: cursor.y - 6,
-      }}
-      initial={false}
-      transition={
-        shouldReduceMotion
-          ? { duration: 0 }
-        : { duration: 0.12, ease: "easeOut" }
-      }
+      className="pointer-events-none fixed left-0 top-0 z-[71] hidden h-[78px] w-[118px] lg:block"
     >
-      <CursorBadge className="left-0 top-0" outlined={cursor.isOverPurple} />
-    </motion.div>
+      <span data-reggie-click-ring className="hero-cursor-click-ring" />
+      <CursorBadge
+        className="left-0 top-0"
+        label="Reggie"
+        outlined={false}
+        tone="reggie"
+      />
+    </div>
+  );
+};
+
+const HeroCanvasLayer = ({
+  sectionRef,
+}: {
+  sectionRef: RefObject<HTMLElement>;
+}) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const section = sectionRef.current;
+    const context = canvas?.getContext("2d");
+
+    if (!canvas || !section || !context) {
+      return undefined;
+    }
+
+    const state = {
+      active: false,
+      dpr: Math.min(window.devicePixelRatio || 1, 2),
+      height: 1,
+      pointerX: 0.5,
+      pointerY: 0.5,
+      easedX: 0.5,
+      easedY: 0.5,
+      rafId: 0,
+      width: 1,
+    };
+
+    const nodes = Array.from({ length: 38 }, (_, index) => {
+      const xSeed = Math.sin(index * 91.7) * 10000;
+      const ySeed = Math.sin(index * 47.3 + 8) * 10000;
+
+      return {
+        alpha: 0.08 + (index % 5) * 0.026,
+        drift: 0.28 + (index % 7) * 0.075,
+        label:
+          index % 13 === 0
+            ? "proof"
+            : index % 11 === 0
+              ? "flow"
+              : index % 17 === 0
+                ? "AI"
+                : "",
+        size: 4 + (index % 6) * 2.4,
+        x: xSeed - Math.floor(xSeed),
+        y: ySeed - Math.floor(ySeed),
+      };
+    });
+
+    const resize = () => {
+      const rect = section.getBoundingClientRect();
+      state.width = Math.max(1, rect.width);
+      state.height = Math.max(1, rect.height);
+      state.dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(state.width * state.dpr);
+      canvas.height = Math.round(state.height * state.dpr);
+      canvas.style.width = `${state.width}px`;
+      canvas.style.height = `${state.height}px`;
+      context.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+      draw(performance.now(), true);
+    };
+
+    const drawGrid = () => {
+      const gridSize = state.width > 720 ? 48 : 34;
+      context.save();
+      context.globalAlpha = 0.18;
+      context.strokeStyle = "rgba(124, 58, 237, 0.16)";
+      context.lineWidth = 1;
+
+      for (let x = 0; x <= state.width; x += gridSize) {
+        context.beginPath();
+        context.moveTo(x, 0);
+        context.lineTo(x + state.height * 0.28, state.height);
+        context.stroke();
+      }
+
+      context.strokeStyle = "rgba(16, 185, 129, 0.11)";
+      for (let y = gridSize * 0.5; y <= state.height; y += gridSize) {
+        context.beginPath();
+        context.moveTo(0, y);
+        context.lineTo(state.width, y - state.width * 0.08);
+        context.stroke();
+      }
+
+      context.restore();
+    };
+
+    function draw(timestamp: number, once = false) {
+      state.easedX += (state.pointerX - state.easedX) * 0.055;
+      state.easedY += (state.pointerY - state.easedY) * 0.055;
+
+      context.clearRect(0, 0, state.width, state.height);
+      drawGrid();
+
+      const radial = context.createRadialGradient(
+        state.width * state.easedX,
+        state.height * state.easedY,
+        20,
+        state.width * state.easedX,
+        state.height * state.easedY,
+        Math.max(state.width, state.height) * 0.56,
+      );
+      radial.addColorStop(0, "rgba(124, 58, 237, 0.16)");
+      radial.addColorStop(0.42, "rgba(16, 185, 129, 0.08)");
+      radial.addColorStop(1, "rgba(255, 255, 255, 0)");
+      context.fillStyle = radial;
+      context.fillRect(0, 0, state.width, state.height);
+
+      nodes.forEach((node, index) => {
+        const phase = shouldReduceMotion
+          ? index
+          : timestamp * 0.00016 * node.drift + index;
+        const x =
+          node.x * state.width +
+          Math.sin(phase) * 18 +
+          (state.easedX - 0.5) * 54;
+        const y =
+          node.y * state.height +
+          Math.cos(phase) * 18 +
+          (state.easedY - 0.5) * 42;
+
+        context.fillStyle = `rgba(20, 20, 20, ${node.alpha})`;
+        context.fillRect(x, y, node.size, node.size);
+
+        if (node.label) {
+          context.font = "700 11px Poppins, system-ui, sans-serif";
+          context.fillStyle = "rgba(124, 58, 237, 0.38)";
+          context.fillText(node.label, x + node.size + 7, y + 10);
+        }
+      });
+
+      if (state.active && !once && !shouldReduceMotion) {
+        state.rafId = window.requestAnimationFrame(draw);
+      }
+    }
+
+    const startLoop = () => {
+      if (state.active || shouldReduceMotion) {
+        return;
+      }
+
+      state.active = true;
+      state.rafId = window.requestAnimationFrame(draw);
+    };
+
+    const stopLoop = () => {
+      state.active = false;
+      window.cancelAnimationFrame(state.rafId);
+    };
+
+    const handlePointerMove = (event: PointerEvent) => {
+      const rect = section.getBoundingClientRect();
+      state.pointerX = (event.clientX - rect.left) / rect.width;
+      state.pointerY = (event.clientY - rect.top) / rect.height;
+    };
+
+    const handlePointerLeave = () => {
+      state.pointerX = 0.5;
+      state.pointerY = 0.5;
+    };
+
+    const resizeObserver = new ResizeObserver(resize);
+    const intersectionObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        startLoop();
+      } else {
+        stopLoop();
+      }
+    });
+
+    resizeObserver.observe(section);
+    resize();
+
+    if (!shouldReduceMotion) {
+      intersectionObserver.observe(section);
+      section.addEventListener("pointermove", handlePointerMove, {
+        passive: true,
+      });
+      section.addEventListener("pointerleave", handlePointerLeave);
+    }
+
+    return () => {
+      stopLoop();
+      resizeObserver.disconnect();
+      intersectionObserver.disconnect();
+      section.removeEventListener("pointermove", handlePointerMove);
+      section.removeEventListener("pointerleave", handlePointerLeave);
+    };
+  }, [sectionRef, shouldReduceMotion]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="hero-canvas-layer"
+      aria-hidden="true"
+      data-hero-canvas
+    />
   );
 };
 
@@ -348,8 +707,6 @@ const HeroLightAperture = () => (
 );
 
 const KeywordRail = ({ className }: { className?: string }) => {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <div
       data-hero-keyword-rail
@@ -359,19 +716,9 @@ const KeywordRail = ({ className }: { className?: string }) => {
       )}
       aria-label={keywordRailLabel}
     >
-      <motion.div
+      <div
         aria-hidden="true"
-        className="flex w-max items-center"
-        animate={shouldReduceMotion ? { x: "0%" } : { x: ["0%", "-50%"] }}
-        transition={
-          shouldReduceMotion
-            ? { duration: 0 }
-            : {
-                duration: 44,
-                ease: "linear",
-                repeat: Infinity,
-              }
-        }
+        className="hero-keyword-track flex w-max items-center"
       >
         {[0, 1].map((groupIndex) => (
           <div
@@ -397,15 +744,17 @@ const KeywordRail = ({ className }: { className?: string }) => {
             })}
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };
 
 const HeroArtwork = () => (
   <div
+    data-hero-artwork
     className="relative mx-auto mt-8 h-[36rem] w-full max-w-[34rem] sm:mt-16 sm:h-[38rem] sm:max-w-[44rem] lg:mt-8 lg:h-[650px] lg:max-w-[980px]"
   >
+    <div className="hero-artboard-outline" aria-hidden="true" />
     <HeroTitleLayer />
     <UxDesignCards />
 
@@ -433,54 +782,25 @@ const HeroArtwork = () => (
       label="Prototype"
       className="absolute right-3 top-[27.4rem] z-40 w-[138px] origin-top-right scale-[0.82] pr-6 sm:left-[calc(50%+105px)] sm:right-auto sm:top-[468px] sm:w-[174px] sm:scale-100"
     />
+
+    <div data-hero-selection className="hero-scroll-selection" aria-hidden="true">
+      <span className="hero-scroll-selection__handle hero-scroll-selection__handle--tl" />
+      <span className="hero-scroll-selection__handle hero-scroll-selection__handle--tr" />
+      <span className="hero-scroll-selection__handle hero-scroll-selection__handle--bl" />
+      <span className="hero-scroll-selection__handle hero-scroll-selection__handle--br" />
+      <span className="hero-scroll-selection__label">home / hero stage</span>
+    </div>
+
+    <div data-hero-scroll-toast className="hero-scroll-toast" aria-hidden="true">
+      <span>composition</span>
+      <strong>locked</strong>
+    </div>
+
   </div>
 );
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [desktopCursor, setDesktopCursor] = useState<CursorState>({
-    isVisible: false,
-    isOverPurple: false,
-    x: 0,
-    y: 0,
-  });
-
-  const isPurpleCursorZone = (x: number, y: number) => {
-    const titleImage =
-      sectionRef.current?.querySelector<HTMLElement>("[data-hero-title-word]");
-    const titleRect = titleImage?.getBoundingClientRect();
-    const isOverPurpleTitle =
-      titleRect &&
-      x >= titleRect.left &&
-      x <= titleRect.right &&
-      y >= titleRect.top + titleRect.height * 0.46 &&
-      y <= titleRect.bottom;
-
-    if (isOverPurpleTitle) {
-      return true;
-    }
-
-    return document
-      .elementsFromPoint(x, y)
-      .some((element) => element.closest("[data-purple-cursor-zone]"));
-  };
-
-  const handleCursorMove = (event: MouseEvent<HTMLElement>) => {
-    setDesktopCursor({
-      isVisible: true,
-      isOverPurple: isPurpleCursorZone(event.clientX, event.clientY),
-      x: event.clientX,
-      y: event.clientY,
-    });
-  };
-
-  const hideDesktopCursor = () => {
-    setDesktopCursor((cursor) => ({
-      ...cursor,
-      isOverPurple: false,
-      isVisible: false,
-    }));
-  };
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -491,6 +811,7 @@ const HeroSection = () => {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+    const cleanupCallbacks: Array<() => void> = [];
 
     const context = gsap.context(() => {
       const revealTargets = gsap.utils.toArray<HTMLElement>(
@@ -502,6 +823,7 @@ const HeroSection = () => {
           "[data-hero-search-chip]",
           "[data-hero-card]",
           "[data-hero-keyword-rail]",
+          "[data-hero-scroll-handoff]",
         ].join(", "),
       );
 
@@ -513,11 +835,14 @@ const HeroSection = () => {
         return;
       }
 
+      let introDelay: gsap.core.Tween | null = null;
+      let hasPlayedIntro = false;
       const timeline = gsap.timeline({
         defaults: {
           duration: 0.82,
           ease: "expo.out",
         },
+        paused: true,
       });
 
       gsap.set("[data-hero-title-word]", { transformOrigin: "50% 100%" });
@@ -526,6 +851,7 @@ const HeroSection = () => {
         transformOrigin: "50% 88%",
       });
       gsap.set("[data-hero-light-hole]", { transformOrigin: "50% 54%" });
+      gsap.set("[data-hero-scroll-handoff]", { autoAlpha: 0, y: 40 });
 
       timeline
         .fromTo(
@@ -637,28 +963,150 @@ const HeroSection = () => {
           },
           1.18,
         );
+
+      const playIntro = () => {
+        if (hasPlayedIntro) {
+          return;
+        }
+
+        hasPlayedIntro = true;
+        timeline.play(0);
+        ScrollTrigger.refresh();
+      };
+
+      const scheduleIntro = () => {
+        introDelay?.kill();
+        introDelay = gsap.delayedCall(0.08, playIntro);
+      };
+
+      const loaderAlreadyComplete =
+        document.body.dataset.homeLoaderState === "complete" ||
+        !document.querySelector(".home-loader");
+
+      if (loaderAlreadyComplete) {
+        introDelay = gsap.delayedCall(0.16, playIntro);
+      } else {
+        window.addEventListener(LOADER_COMPLETE_EVENT, scheduleIntro, {
+          once: true,
+        });
+      }
+
+      cleanupCallbacks.push(() => {
+        introDelay?.kill();
+        window.removeEventListener(LOADER_COMPLETE_EVENT, scheduleIntro);
+      });
+
+      gsap
+        .timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: "+=460",
+            anticipatePin: 1,
+            scrub: 0.72,
+          },
+        })
+        .to("[data-hero-artwork]", { scale: 0.88, y: -118 }, 0)
+        .to(
+          "[data-hero-title-word]",
+          { autoAlpha: 0.18, rotationX: 8, scale: 1.16, yPercent: -25 },
+          0,
+        )
+        .to("[data-hero-portrait]", { scale: 0.9, y: -116 }, 0)
+        .to(
+          "[data-hero-tool-panel]",
+          { autoAlpha: 0.64, rotate: -4, x: -96, y: -58 },
+          0.03,
+        )
+        .to(
+          "[data-hero-search-chip]",
+          {
+            autoAlpha: 0.7,
+            stagger: { each: 0.04, from: "end" },
+            x: 82,
+            y: -54,
+          },
+          0.02,
+        )
+        .to(
+          "[data-hero-card]",
+          {
+            autoAlpha: 0.78,
+            rotate: (index) => (index % 2 === 0 ? -6 : 5),
+            stagger: 0.02,
+            x: (index) => (index % 2 === 0 ? -72 : 74),
+            y: (index) => -76 + index * 14,
+          },
+          0,
+        )
+        .fromTo(
+          "[data-hero-selection]",
+          { autoAlpha: 0, scale: 0.95, y: 18 },
+          { autoAlpha: 0.92, scale: 1.06, y: -98 },
+          0.08,
+        )
+        .fromTo(
+          "[data-hero-scroll-toast]",
+          { autoAlpha: 0, x: 52, y: 40 },
+          { autoAlpha: 1, x: -18, y: -122 },
+          0.16,
+        )
+        .fromTo(
+          "[data-hero-scroll-handoff]",
+          { autoAlpha: 0, y: 46 },
+          { autoAlpha: 1, y: -22 },
+          0.1,
+        )
+        .fromTo(
+          "[data-hero-scroll-beam]",
+          { scaleX: 0.14 },
+          { scaleX: 1 },
+          0.18,
+        )
+        .fromTo(
+          "[data-hero-scroll-mark]",
+          { autoAlpha: 0, x: -32, y: 16 },
+          {
+            autoAlpha: 1,
+            stagger: { each: 0.06, from: "start" },
+            x: 0,
+            y: 0,
+          },
+          0.24,
+        )
+        .to("[data-hero-keyword-rail]", { autoAlpha: 1, y: -76 }, 0);
     }, section);
 
-    return () => context.revert();
+    return () => {
+      cleanupCallbacks.forEach((cleanup) => cleanup());
+      context.revert();
+    };
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[900px] overflow-hidden bg-white pt-8 text-[#141414] sm:min-h-[980px] sm:pt-20 md:pt-28 lg:min-h-[960px] lg:cursor-none lg:pt-32"
-      onMouseEnter={handleCursorMove}
-      onMouseLeave={hideDesktopCursor}
-      onMouseMove={handleCursorMove}
+      className="relative min-h-[760px] overflow-hidden bg-white pb-8 text-[#141414] sm:min-h-[860px] sm:pb-10 md:min-h-[900px] lg:min-h-[900px] lg:pb-0"
     >
-      <DesktopHeroCursor cursor={desktopCursor} />
+      <AutonomousReggieCursor sectionRef={sectionRef} />
+      <HeroCanvasLayer sectionRef={sectionRef} />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div
+        data-hero-sticky
+        className="relative z-10 mx-auto flex w-full max-w-7xl flex-col px-4 pt-8 sm:px-6 sm:pt-16 md:pt-20 lg:px-8 lg:pt-16"
+      >
         <HeroArtwork />
 
-        <KeywordRail className="relative left-1/2 z-50 mt-10 w-screen -translate-x-1/2 pb-36 lg:hidden" />
+        <KeywordRail className="relative left-1/2 z-50 mt-6 w-screen -translate-x-1/2 lg:mt-4" />
       </div>
 
-      <KeywordRail className="absolute inset-x-0 bottom-14 z-10 hidden lg:block" />
+      <div data-hero-scroll-handoff className="hero-scroll-handoff" aria-hidden="true">
+        <span data-hero-scroll-beam className="hero-scroll-handoff__beam" />
+        <span data-hero-scroll-mark className="hero-scroll-handoff__mark hero-scroll-handoff__mark--one" />
+        <span data-hero-scroll-mark className="hero-scroll-handoff__mark hero-scroll-handoff__mark--two" />
+        <span data-hero-scroll-mark className="hero-scroll-handoff__mark hero-scroll-handoff__mark--three" />
+      </div>
     </section>
   );
 };
