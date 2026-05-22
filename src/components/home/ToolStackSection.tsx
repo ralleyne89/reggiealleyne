@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Bot, Code2, GitBranch, PanelsTopLeft } from "lucide-react";
+import { Bot, GitBranch, PanelsTopLeft, PenTool } from "lucide-react";
 
-type ToolTone = "figma" | "react" | "supabase" | "vscode" | "codex" | "tailwind" | "typescript" | "framer" | "github";
+type ToolTone = "figma" | "react" | "supabase" | "vscode" | "codex" | "tailwind" | "adobe" | "framer" | "github";
 
 type ToolItem = {
   name: string;
@@ -55,11 +55,11 @@ const tools: ToolItem[] = [
     layout: "tailwind",
   },
   {
-    name: "TypeScript",
-    role: "Safer product logic.",
-    proof: "Contracts for UI state, data, and edge cases.",
-    tone: "typescript",
-    layout: "typescript",
+    name: "Adobe Suites",
+    role: "Visual systems, mockups, and asset polish.",
+    proof: "Photoshop, Illustrator, and XD for polished handoff.",
+    tone: "adobe",
+    layout: "adobe",
   },
   {
     name: "Framer Motion",
@@ -84,7 +84,7 @@ const toolCardLayout: Record<ToolTone, string> = {
   vscode: "md:col-span-3 lg:col-span-3",
   codex: "md:col-span-6 lg:col-span-6",
   tailwind: "md:col-span-3 lg:col-span-3",
-  typescript: "md:col-span-2 lg:col-span-4",
+  adobe: "md:col-span-2 lg:col-span-4",
   framer: "md:col-span-2 lg:col-span-4",
   github: "md:col-span-2 lg:col-span-4",
 };
@@ -96,7 +96,7 @@ const iconWrapTone: Record<ToolTone, string> = {
   vscode: "bg-[#082f49] text-sky-200",
   codex: "bg-gray-950 text-purple-100",
   tailwind: "bg-[#0f3443] text-cyan-100",
-  typescript: "bg-[#173463] text-blue-100",
+  adobe: "bg-[#43111f] text-rose-100",
   framer: "bg-[#17142c] text-violet-100",
   github: "bg-gray-950 text-gray-100",
 };
@@ -153,8 +153,8 @@ const ToolIcon = ({ tone }: { tone: ToolTone }) => {
     );
   }
 
-  if (tone === "typescript") {
-    return <Code2 className="h-7 w-7" />;
+  if (tone === "adobe") {
+    return <PenTool className="h-7 w-7" />;
   }
 
   if (tone === "framer") {
