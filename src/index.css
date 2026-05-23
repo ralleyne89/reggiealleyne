@@ -1921,7 +1921,7 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
     position: sticky;
     top: 5.5rem;
     display: flex;
-    height: calc(100vh - 5.5rem);
+    height: clamp(42rem, 78vh, 48rem);
     align-items: center;
     justify-content: center;
     padding: 0;
