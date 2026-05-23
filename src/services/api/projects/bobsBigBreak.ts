@@ -22,11 +22,11 @@ export const getBobsBigBreakProject = (): ProjectType => {
     ],
     deliverables: ["UX/UI Design", "Frontend Development", "Backend Integration", "Game Economy Design", "Character Art"],
     images: [
-      "/images/bobs-big-break/demo-login-page.png",
-      "/images/bobs-big-break/demo-game-dashboard.png",
-      "/images/bobs-big-break/demo-market-boosts.png",
-      "/images/bobs-big-break/demo-daily-gigs.png",
-      "/images/bobs-big-break/demo-style-inventory.png"
+      "/images/bobs-big-break/platform-login-page-20260522.png",
+      "/images/bobs-big-break/platform-command-floor-20260522.png",
+      "/images/bobs-big-break/platform-boosts-market-20260522.png",
+      "/images/bobs-big-break/platform-daily-gigs-20260522.png",
+      "/images/bobs-big-break/platform-style-bag-20260522.png"
     ],
     conclusion: {
       impact: "Successfully delivered a playable game prototype as part of a school project",
