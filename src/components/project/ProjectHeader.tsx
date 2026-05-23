@@ -85,7 +85,8 @@ const caseStudyHeroConfigs: Array<{
   {
     matches: (title) => title.includes("ScentStack"),
     config: {
-      image: "/images/scentstack-banner.png",
+      image: "/images/scentstack-project-detail-hero.png",
+      imagePosition: "center center",
     },
   },
   {
