@@ -1928,6 +1928,10 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
     perspective: 1200px;
   }
 
+  .portfolio-cinema-card-shell + .portfolio-cinema-card-shell {
+    margin-top: -0.75rem;
+  }
+
   .portfolio-cinema-card {
     grid-template-columns: minmax(22rem, 0.42fr) minmax(0, 0.58fr);
     width: min(100%, 76rem);

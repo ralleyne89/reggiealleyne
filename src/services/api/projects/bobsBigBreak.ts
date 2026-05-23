@@ -22,11 +22,10 @@ export const getBobsBigBreakProject = (): ProjectType => {
     ],
     deliverables: ["UX/UI Design", "Frontend Development", "Backend Integration", "Game Economy Design", "Character Art"],
     images: [
-      "/images/aa567c1c-6747-4cac-a70c-13fc4791def9.png", // Home page interface
-      "/images/ea29fa97-2c32-4ae6-8ba3-247cf34726a8.png", // Login page interface
-      "/images/6d034732-5293-42a4-a01b-fef0af194695.png", // Main interface
-      "/images/1b895fd4-28b2-4f60-a662-5e34d47cdccc.png", // Bob character full body
-      "/images/6193fe4b-899f-488a-aa0f-30ace572badd.png"  // Bob character portrait
+      "/images/bobs-big-break/demo-game-dashboard.png",
+      "/images/bobs-big-break/demo-market-boosts.png",
+      "/images/bobs-big-break/demo-daily-gigs.png",
+      "/images/bobs-big-break/demo-style-inventory.png"
     ],
     conclusion: {
       impact: "Successfully delivered a playable game prototype as part of a school project",
@@ -39,7 +38,7 @@ export const getBobsBigBreakProject = (): ProjectType => {
       "Created a balanced game economy with both active and passive progression systems",
       "Implemented data persistence using MongoDB to save player progress"
     ],
-    githubUrl: "https://github.com/username/bobs-big-break",
+    githubUrl: null,
     liveUrl: "https://bobsbigbreak.netlify.app/",
     problemSolved: "Creating an engaging game experience for low-attention, short-session moments",
     technicalHighlights: [

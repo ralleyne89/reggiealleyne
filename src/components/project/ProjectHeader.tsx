@@ -17,6 +17,7 @@ interface ProjectHeaderProps {
 
 interface CaseStudyHeroConfig {
   image: string;
+  imagePosition?: string;
   useProjectImage?: boolean;
 }
 
@@ -97,6 +98,7 @@ const caseStudyHeroConfigs: Array<{
     matches: (title) => title === "Bob's Big Break",
     config: {
       image: "/images/BBB-banner2.png",
+      imagePosition: "right center",
     },
   },
 ];
@@ -128,6 +130,7 @@ const ProjectHeader = ({
   const heroConfig = getCaseStudyHeroConfig(title);
   const heroImage =
     heroConfig && !heroConfig.useProjectImage ? heroConfig.image : image;
+  const heroImagePosition = heroConfig?.imagePosition;
 
   const displayDescription = getCaseStudyDescription(title, description);
   const eyebrowLabel = [year, typeLabel || "Project"].filter(Boolean).join(" / ");
@@ -245,6 +248,11 @@ const ProjectHeader = ({
                   src={imageError ? "/placeholder.svg" : heroImage}
                   alt={title}
                   className="project-cinema-hero__image"
+                  style={
+                    heroImagePosition
+                      ? { objectPosition: heroImagePosition }
+                      : undefined
+                  }
                   onError={() => setImageError(true)}
                 />
               </div>

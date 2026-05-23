@@ -197,9 +197,9 @@ const FeaturedProjectsSection = () => {
               ease: "none",
               immediateRender: false,
               opacity: 0.62,
-              rotateX: -3,
-              scale: 0.94,
-              y: -44,
+              rotateX: -2,
+              scale: 0.985,
+              y: 16,
               scrollTrigger: {
                 trigger: nextShell,
                 start: "top bottom",
