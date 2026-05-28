@@ -3,6 +3,17 @@
  * Represents a project in the portfolio.
  * This type is used throughout the application to maintain consistent project data structure.
  */
+export interface ProjectVisual {
+  /** Image URL for a case-study visual */
+  src: string;
+
+  /** Short label shown with the visual */
+  label: string;
+
+  /** Optional supporting note for comparison or context */
+  note?: string | null;
+}
+
 export interface ProjectType {
   /** Unique numeric identifier for the project */
   id: number;
@@ -90,6 +101,9 @@ export interface ProjectType {
    */
   /** Additional project images */
   images?: string[] | null;
+
+  /** Labeled case-study visuals for comparison sections */
+  visuals?: ProjectVisual[] | null;
   
   /** URL to demo video */
   videoUrl?: string | null;

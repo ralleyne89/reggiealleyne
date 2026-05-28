@@ -35,7 +35,7 @@ export const getVaultJSValidateProject = (): ProjectType => {
       '/images/vaultjs-analysis.png',
     ],
     videoUrl: null,
-    githubUrl: 'https://github.com/ralleyne89/secure-scan-dashboard',
+    githubUrl: null,
     liveUrl: 'https://vaultvalidate.netlify.app',
     prototypeUrl: null,
     keyAchievements: [

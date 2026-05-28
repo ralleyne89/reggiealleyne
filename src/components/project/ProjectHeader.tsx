@@ -96,6 +96,12 @@ const caseStudyHeroConfigs: Array<{
     },
   },
   {
+    matches: (title) => title.includes("Pretty Paws"),
+    config: {
+      image: "/images/pretty-paws/project-detail-hero-v2.jpg",
+    },
+  },
+  {
     matches: (title) => title === "Bob's Big Break",
     config: {
       image: "/images/BBB-banner2.png",

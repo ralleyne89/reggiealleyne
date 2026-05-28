@@ -12,7 +12,7 @@ import {
   getFeaturedConfig,
 } from "@/config/portfolioCuration";
 import { getProjectLiveLabel } from "@/lib/projectLiveLabels";
-import type { ProjectType } from "@/types/project";
+import type { ProjectType, ProjectVisual } from "@/types/project";
 import {
   EditorialSection,
   ProjectLightboxModal,
@@ -36,6 +36,28 @@ const getUniqueVisuals = (project: ProjectType) => {
   );
 
   return Array.from(imageSet);
+};
+
+const getProjectVisuals = (project: ProjectType): ProjectVisual[] => {
+  if (project.visuals?.length) {
+    const seen = new Set<string>();
+
+    return project.visuals.filter((visual) => {
+      if (!visual.src || seen.has(visual.src)) {
+        return false;
+      }
+
+      seen.add(visual.src);
+      return true;
+    });
+  }
+
+  return getUniqueVisuals(project)
+    .slice(1, SELECTED_VISUAL_LIMIT + 1)
+    .map((src, index) => ({
+      src,
+      label: `Project visual ${index + 2}`,
+    }));
 };
 
 const ProjectEssentials = ({ project }: ProjectEssentialsProps) => {
@@ -118,10 +140,8 @@ const ProjectEssentials = ({ project }: ProjectEssentialsProps) => {
     },
   ].filter((item) => item.value);
   const processNotes = compactItems(project.process, 3);
-  const visualStrip = useMemo(
-    () => getUniqueVisuals(project).slice(1, SELECTED_VISUAL_LIMIT + 1),
-    [project],
-  );
+  const visualStrip = useMemo(() => getProjectVisuals(project), [project]);
+  const hasLabeledVisuals = Boolean(project.visuals?.length);
 
   const links = [
     {
@@ -250,8 +270,8 @@ const ProjectEssentials = ({ project }: ProjectEssentialsProps) => {
                   <a
                     key={link.label}
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={link.tone === "dark" ? undefined : "_blank"}
+                    rel={link.tone === "dark" ? undefined : "noopener noreferrer"}
                     className={
                       link.tone === "dark"
                         ? "project-essentials__link project-essentials__link--dark"
@@ -271,21 +291,32 @@ const ProjectEssentials = ({ project }: ProjectEssentialsProps) => {
           <div className="project-essentials__visuals">
             <p>Selected visuals</p>
             <div>
-              {visualStrip.map((image, index) => (
+              {visualStrip.map((visual) => (
                 <button
-                  key={image}
+                  key={visual.src}
                   type="button"
-                  onClick={() => setSelectedImage(image)}
+                  className={
+                    hasLabeledVisuals
+                      ? "project-essentials__visual-button--labeled"
+                      : undefined
+                  }
+                  onClick={() => setSelectedImage(visual.src)}
                 >
                   <span className="sr-only">
-                    Open project visual {index + 2}
+                    Open {visual.label}
                   </span>
                   <img
-                    src={image}
-                    alt={`${project.title} visual ${index + 2}`}
+                    src={visual.src}
+                    alt={`${project.title}: ${visual.label}`}
                     loading="lazy"
                     decoding="async"
                   />
+                  {hasLabeledVisuals ? (
+                    <span className="project-essentials__visual-caption">
+                      <strong>{visual.label}</strong>
+                      {visual.note ? <em>{visual.note}</em> : null}
+                    </span>
+                  ) : null}
                 </button>
               ))}
             </div>

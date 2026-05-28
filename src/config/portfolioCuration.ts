@@ -219,8 +219,8 @@ export const caseStudyBriefs: Partial<
       "The source project includes a Vite/React app, service and booking routes, Supabase booking/contact submissions, local media, Netlify configuration, and a live Netlify deployment.",
     artifacts: [
       "Public salon homepage",
-      "Service detail and booking flow",
-      "Contact, policies, and local media assets",
+      "Services hub and booking flow",
+      "Before-and-after page screenshots",
     ],
   },
 };
@@ -369,7 +369,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     outcome:
       "Created a live Netlify site with service routes, booking and contact submissions, policy coverage, and local media assets.",
     tools: ["Vite", "React", "TypeScript", "Tailwind CSS", "Supabase", "Netlify"],
-    owned: ["Homepage", "Booking flow", "Frontend build"],
+    owned: ["Public routes", "Booking flow", "Before/after visuals"],
   },
 };
 
