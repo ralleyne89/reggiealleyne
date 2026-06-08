@@ -113,6 +113,7 @@ export const ProjectLightboxModal = ({
         <img
           src={imageSrc}
           alt={alt}
+          decoding="async"
           className={cn("h-full w-full rounded-lg object-contain", imageClassName)}
         />
         <button

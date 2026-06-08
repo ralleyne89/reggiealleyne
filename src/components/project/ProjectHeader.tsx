@@ -1,6 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useLayoutEffect, useRef, useState } from "react";
+import { type CSSProperties, useLayoutEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -17,6 +17,8 @@ interface ProjectHeaderProps {
 
 interface CaseStudyHeroConfig {
   image: string;
+  imageFit?: CSSProperties["objectFit"];
+  imageFrameRatio?: CSSProperties["aspectRatio"];
   imagePosition?: string;
   useProjectImage?: boolean;
 }
@@ -93,6 +95,9 @@ const caseStudyHeroConfigs: Array<{
     matches: (title) => title.includes("Staybooked"),
     config: {
       image: "/images/staybooked/marketing-homepage-hero-desktop.png",
+      imageFit: "contain",
+      imageFrameRatio: "16 / 10",
+      imagePosition: "center center",
     },
   },
   {
@@ -137,7 +142,19 @@ const ProjectHeader = ({
   const heroConfig = getCaseStudyHeroConfig(title);
   const heroImage =
     heroConfig && !heroConfig.useProjectImage ? heroConfig.image : image;
+  const heroImageFit = heroConfig?.imageFit;
+  const heroImageFrameRatio = heroConfig?.imageFrameRatio;
   const heroImagePosition = heroConfig?.imagePosition;
+  const heroFrameStyle: CSSProperties | undefined = heroImageFrameRatio
+    ? { aspectRatio: heroImageFrameRatio }
+    : undefined;
+  const heroImageStyle: CSSProperties | undefined =
+    heroImageFit || heroImagePosition
+      ? {
+          ...(heroImageFit ? { objectFit: heroImageFit } : {}),
+          ...(heroImagePosition ? { objectPosition: heroImagePosition } : {}),
+        }
+      : undefined;
 
   const displayDescription = getCaseStudyDescription(title, description);
   const eyebrowLabel = [year, typeLabel || "Project"].filter(Boolean).join(" / ");
@@ -250,16 +267,19 @@ const ProjectHeader = ({
                 <span className="project-cinema-hero__handle project-cinema-hero__handle--bl" />
                 <span className="project-cinema-hero__handle project-cinema-hero__handle--br" />
               </div>
-              <div className="project-cinema-hero__image-frame">
+              <div
+                className="project-cinema-hero__image-frame"
+                style={heroFrameStyle}
+              >
                 <img
                   src={imageError ? "/placeholder.svg" : heroImage}
                   alt={title}
                   className="project-cinema-hero__image"
-                  style={
-                    heroImagePosition
-                      ? { objectPosition: heroImagePosition }
-                      : undefined
-                  }
+                  style={heroImageStyle}
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                  sizes="(min-width: 1024px) 42rem, 100vw"
                   onError={() => setImageError(true)}
                 />
               </div>

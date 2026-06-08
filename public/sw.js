@@ -1,6 +1,7 @@
-const CACHE_VERSION = "reggiealleyne-pwa-v2";
+const CACHE_VERSION = "reggiealleyne-pwa-v3";
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
+const IMAGE_CACHE = `${CACHE_VERSION}-images`;
 
 const APP_SHELL_URLS = [
   "/",
@@ -59,7 +60,18 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (requestUrl.pathname.startsWith("/assets/") || requestUrl.pathname.startsWith("/icons/")) {
+  if (
+    requestUrl.pathname.startsWith("/assets/") ||
+    requestUrl.pathname.startsWith("/icons/") ||
+    requestUrl.pathname.startsWith("/images/") ||
+    requestUrl.pathname.startsWith("/lovable-uploads/")
+  ) {
+    const cacheName =
+      requestUrl.pathname.startsWith("/images/") ||
+      requestUrl.pathname.startsWith("/lovable-uploads/")
+        ? IMAGE_CACHE
+        : STATIC_CACHE;
+
     event.respondWith(
       caches.match(request).then((cachedResponse) => {
         if (cachedResponse) return cachedResponse;
@@ -68,7 +80,7 @@ self.addEventListener("fetch", (event) => {
           if (!response || response.status !== 200) return response;
 
           const responseClone = response.clone();
-          caches.open(STATIC_CACHE).then((cache) => cache.put(request, responseClone));
+          caches.open(cacheName).then((cache) => cache.put(request, responseClone));
           return response;
         });
       })

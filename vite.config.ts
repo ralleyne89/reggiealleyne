@@ -9,6 +9,23 @@ export default defineConfig(({ mode }) => ({
     host: true,
     port: 8080,
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          animation: ["framer-motion", "gsap"],
+          query: ["@tanstack/react-query"],
+          router: ["react-router-dom"],
+          ui: [
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-tooltip",
+            "@radix-ui/react-toast",
+            "lucide-react",
+          ],
+        },
+      },
+    },
+  },
   plugins: [
     react(),
     mode === 'development' &&

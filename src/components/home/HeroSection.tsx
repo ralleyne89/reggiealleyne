@@ -1,5 +1,5 @@
 import { type RefObject, useEffect, useLayoutEffect, useRef } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -13,11 +13,9 @@ const assetBase = "/images/figma/hero-white";
 const heroAssets = {
   portrait: `${assetBase}/portrait.png`,
   wordmark: `${assetBase}/reggie-alleyne-wordmark-chatgpt-flat.png`,
-  search: `${assetBase}/search-thin.svg`,
   type: `${assetBase}/type-thin.svg`,
   list: `${assetBase}/list-vector.svg`,
   image: `${assetBase}/image-group.svg`,
-  separator: `${assetBase}/separator-cursor.svg`,
 };
 
 const toolPanelItems = [
@@ -27,18 +25,32 @@ const toolPanelItems = [
   { label: "Image", icon: heroAssets.image, iconClassName: "size-6" },
 ];
 
-const keywords = [
-  "Design System",
-  "User Interface",
-  "Product Design",
-  "Web Application",
-  "AI Automations",
-  "Frontend Dev",
-  "Vibe Coding",
-  "AI Workflows",
+const capabilityItems = [
+  {
+    label: "Read the product",
+    detail: "Turn the messy brief into a clear flow.",
+    chip: "Frame",
+  },
+  {
+    label: "Shape the system",
+    detail: "Components, states, and responsive rules.",
+    chip: "System",
+  },
+  {
+    label: "Make AI usable",
+    detail: "Assessments, tools, and review paths.",
+    chip: "AI UX",
+  },
+  {
+    label: "Build the surface",
+    detail: "React screens with motion that helps.",
+    chip: "Ship",
+  },
 ];
 
-const keywordRailLabel = keywords.join(", ");
+const capabilityDockLabel = capabilityItems
+  .map((capability) => capability.label)
+  .join(", ");
 
 type AssetIconProps = {
   src: string;
@@ -50,6 +62,7 @@ const AssetIcon = ({ src, className }: AssetIconProps) => (
     src={src}
     alt=""
     aria-hidden="true"
+    decoding="async"
     className={cn("shrink-0", className)}
   />
 );
@@ -64,21 +77,16 @@ const SearchChip = ({ label, className, tone = "glass" }: SearchChipProps) => {
   return (
     <div
       data-hero-search-chip
+      aria-hidden="true"
       className={cn(
-        "flex h-[43px] items-center rounded-lg py-[10px] pl-[9px] pr-10 text-white",
+        "pointer-events-none flex h-[43px] cursor-default select-none items-center justify-center rounded-lg px-4 py-[10px] text-white",
         tone === "glass" ? "hero-liquid-glass-chip" : "hero-tool-panel-input",
         className,
       )}
     >
-      <div className="flex min-w-0 items-center gap-[9px]">
-        <AssetIcon src={heroAssets.search} className="size-[18px]" />
-        <span className="flex min-w-0 items-center gap-1">
-          <span className="whitespace-nowrap font-sans text-sm leading-[22px]">
-            {label}
-          </span>
-          <span aria-hidden="true" className="hero-search-caret" />
-        </span>
-      </div>
+      <span className="whitespace-nowrap font-sans text-sm leading-[22px]">
+        {label}
+      </span>
     </div>
   );
 };
@@ -91,7 +99,7 @@ const ToolPanel = ({ className }: { className?: string }) => (
       className,
     )}
   >
-    <SearchChip label="Components" tone="solid" className="w-full pr-6" />
+    <SearchChip label="Components" tone="solid" className="w-full" />
 
     <div className="flex flex-col gap-[20px]">
       {toolPanelItems.map((item) => (
@@ -210,7 +218,6 @@ const AutonomousReggieCursor = ({
         return;
       }
 
-      const clickRing = cursor.querySelector("[data-reggie-click-ring]");
       const pointFor = (
         selector: string,
         fallbackX: number,
@@ -235,40 +242,11 @@ const AutonomousReggieCursor = ({
         };
       };
 
-      const click = (at = ">-0.08") => {
-        if (!clickRing) {
-          return;
-        }
-
-        timeline
-          .to(
-            clickRing,
-            {
-              autoAlpha: 0.9,
-              duration: 0.12,
-              ease: "power3.out",
-              scale: 0.85,
-            },
-            at,
-          )
-          .to(clickRing, {
-            autoAlpha: 0,
-            duration: 0.38,
-            ease: "expo.out",
-            scale: 1.9,
-          });
-      };
-
       gsap.set(cursor, {
         autoAlpha: 0,
         rotate: -6,
         x: () => pointFor("[data-hero-tool-panel]", 0.36, 0.38).x,
         y: () => pointFor("[data-hero-tool-panel]", 0.36, 0.38).y,
-      });
-      gsap.set(clickRing, {
-        autoAlpha: 0,
-        scale: 0.3,
-        transformOrigin: "50% 50%",
       });
 
       const timeline = gsap.timeline({
@@ -293,7 +271,6 @@ const AutonomousReggieCursor = ({
           y: () =>
             pointFor("[data-hero-tool-panel]", 0.36, 0.38, 0, 0.54, 0.2).y,
         });
-      click();
       timeline
         .to(cursor, {
           duration: 0.88,
@@ -304,19 +281,9 @@ const AutonomousReggieCursor = ({
             pointFor("[data-hero-search-chip]", 0.67, 0.29, 0, 0.42, 0.5).y,
         })
         .to(cursor, { duration: 0.16, rotate: 1 });
-      click();
       timeline
         .to(cursor, {
-          duration: 1.1,
-          rotate: -4,
-          x: () => pointFor("[data-hero-card]", 0.64, 0.52, 0, 0.5, 0.56).x,
-          y: () => pointFor("[data-hero-card]", 0.64, 0.52, 0, 0.5, 0.56).y,
-        })
-        .to(cursor, { duration: 0.24, rotate: -1 });
-      click();
-      timeline
-        .to(cursor, {
-          duration: 0.92,
+          duration: 1.02,
           rotate: 4,
           x: () =>
             pointFor("[data-hero-search-chip]", 0.66, 0.63, 2, 0.46, 0.48).x,
@@ -375,7 +342,6 @@ const AutonomousReggieCursor = ({
       aria-hidden="true"
       className="pointer-events-none fixed left-0 top-0 z-[71] hidden h-[78px] w-[118px] lg:block"
     >
-      <span data-reggie-click-ring className="hero-cursor-click-ring" />
       <CursorBadge
         className="left-0 top-0"
         label="Reggie"
@@ -405,8 +371,9 @@ const HeroCanvasLayer = ({
 
     const state = {
       active: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2),
+      dpr: Math.min(window.devicePixelRatio || 1, 1.5),
       height: 1,
+      inView: false,
       pointerX: 0.5,
       pointerY: 0.5,
       easedX: 0.5,
@@ -415,22 +382,14 @@ const HeroCanvasLayer = ({
       width: 1,
     };
 
-    const nodes = Array.from({ length: 38 }, (_, index) => {
+    const nodes = Array.from({ length: 18 }, (_, index) => {
       const xSeed = Math.sin(index * 91.7) * 10000;
       const ySeed = Math.sin(index * 47.3 + 8) * 10000;
 
       return {
-        alpha: 0.08 + (index % 5) * 0.026,
+        alpha: 0.045 + (index % 5) * 0.016,
         drift: 0.28 + (index % 7) * 0.075,
-        label:
-          index % 13 === 0
-            ? "proof"
-            : index % 11 === 0
-              ? "flow"
-              : index % 17 === 0
-                ? "AI"
-                : "",
-        size: 4 + (index % 6) * 2.4,
+        size: 3 + (index % 6) * 1.8,
         x: xSeed - Math.floor(xSeed),
         y: ySeed - Math.floor(ySeed),
       };
@@ -440,7 +399,7 @@ const HeroCanvasLayer = ({
       const rect = section.getBoundingClientRect();
       state.width = Math.max(1, rect.width);
       state.height = Math.max(1, rect.height);
-      state.dpr = Math.min(window.devicePixelRatio || 1, 2);
+      state.dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       canvas.width = Math.round(state.width * state.dpr);
       canvas.height = Math.round(state.height * state.dpr);
       canvas.style.width = `${state.width}px`;
@@ -449,37 +408,11 @@ const HeroCanvasLayer = ({
       draw(performance.now(), true);
     };
 
-    const drawGrid = () => {
-      const gridSize = state.width > 720 ? 48 : 34;
-      context.save();
-      context.globalAlpha = 0.18;
-      context.strokeStyle = "rgba(124, 58, 237, 0.16)";
-      context.lineWidth = 1;
-
-      for (let x = 0; x <= state.width; x += gridSize) {
-        context.beginPath();
-        context.moveTo(x, 0);
-        context.lineTo(x + state.height * 0.28, state.height);
-        context.stroke();
-      }
-
-      context.strokeStyle = "rgba(16, 185, 129, 0.11)";
-      for (let y = gridSize * 0.5; y <= state.height; y += gridSize) {
-        context.beginPath();
-        context.moveTo(0, y);
-        context.lineTo(state.width, y - state.width * 0.08);
-        context.stroke();
-      }
-
-      context.restore();
-    };
-
     function draw(timestamp: number, once = false) {
       state.easedX += (state.pointerX - state.easedX) * 0.055;
       state.easedY += (state.pointerY - state.easedY) * 0.055;
 
       context.clearRect(0, 0, state.width, state.height);
-      drawGrid();
 
       const radial = context.createRadialGradient(
         state.width * state.easedX,
@@ -510,12 +443,6 @@ const HeroCanvasLayer = ({
 
         context.fillStyle = `rgba(20, 20, 20, ${node.alpha})`;
         context.fillRect(x, y, node.size, node.size);
-
-        if (node.label) {
-          context.font = "700 11px Poppins, system-ui, sans-serif";
-          context.fillStyle = "rgba(124, 58, 237, 0.38)";
-          context.fillText(node.label, x + node.size + 7, y + 10);
-        }
       });
 
       if (state.active && !once && !shouldReduceMotion) {
@@ -524,7 +451,7 @@ const HeroCanvasLayer = ({
     }
 
     const startLoop = () => {
-      if (state.active || shouldReduceMotion) {
+      if (state.active || shouldReduceMotion || !state.inView || document.hidden) {
         return;
       }
 
@@ -550,6 +477,8 @@ const HeroCanvasLayer = ({
 
     const resizeObserver = new ResizeObserver(resize);
     const intersectionObserver = new IntersectionObserver(([entry]) => {
+      state.inView = entry.isIntersecting;
+
       if (entry.isIntersecting) {
         startLoop();
       } else {
@@ -557,11 +486,21 @@ const HeroCanvasLayer = ({
       }
     });
 
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopLoop();
+        return;
+      }
+
+      startLoop();
+    };
+
     resizeObserver.observe(section);
     resize();
 
     if (!shouldReduceMotion) {
       intersectionObserver.observe(section);
+      document.addEventListener("visibilitychange", handleVisibilityChange);
       section.addEventListener("pointermove", handlePointerMove, {
         passive: true,
       });
@@ -572,6 +511,7 @@ const HeroCanvasLayer = ({
       stopLoop();
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       section.removeEventListener("pointermove", handlePointerMove);
       section.removeEventListener("pointerleave", handlePointerLeave);
     };
@@ -587,130 +527,6 @@ const HeroCanvasLayer = ({
   );
 };
 
-const FlowNode = ({
-  label,
-  tone = "neutral",
-}: {
-  label: string;
-  tone?: "neutral" | "violet" | "signal";
-}) => (
-  <div
-    data-purple-cursor-zone={tone === "violet" ? "true" : undefined}
-    className={cn(
-      "rounded-full px-2 py-1 font-sans text-[0.62rem] font-semibold leading-3",
-      tone === "violet" && "bg-[#7C3AED] text-white",
-      tone === "signal" && "bg-[#d9f6ef] text-[#047857]",
-      tone === "neutral" && "bg-[#eef2f7] text-[#4b5563]",
-    )}
-  >
-    {label}
-  </div>
-);
-
-const UserFlowCard = ({ className }: { className?: string }) => (
-  <div
-    data-hero-card
-    className={cn(
-      "pointer-events-none absolute w-[196px] rounded-xl border border-[#7C3AED]/15 bg-[#fbfaff] p-3 text-[#141414] shadow-2xl shadow-gray-950/12",
-      className,
-    )}
-    aria-hidden="true"
-  >
-    <div className="mb-3 flex items-center justify-between">
-      <p className="font-sans text-[0.68rem] font-semibold leading-4">
-        User flow
-      </p>
-      <span className="size-2 rounded-full bg-[#7C3AED]" />
-    </div>
-    <div className="flex items-center gap-1.5">
-      <FlowNode label="Need" />
-      <span className="h-px flex-1 bg-[#c7d2fe]" />
-      <FlowNode label="Map" tone="violet" />
-      <span className="h-px flex-1 bg-[#c7d2fe]" />
-      <FlowNode label="Test" tone="signal" />
-    </div>
-  </div>
-);
-
-const WireframeCard = ({ className }: { className?: string }) => (
-  <div
-    data-hero-card
-    className={cn(
-      "pointer-events-none absolute w-[172px] rounded-xl border border-gray-200 bg-white/95 p-3 text-[#141414] shadow-2xl shadow-gray-950/12",
-      className,
-    )}
-    aria-hidden="true"
-  >
-    <div className="mb-2 flex items-center gap-2">
-      <span className="grid size-4 grid-cols-2 gap-0.5">
-        <span className="rounded-[2px] bg-[#6b7280]" />
-        <span className="rounded-[2px] bg-[#d1d5db]" />
-        <span className="rounded-[2px] bg-[#d1d5db]" />
-        <span className="rounded-[2px] bg-[#6b7280]" />
-      </span>
-      <p className="font-sans text-[0.68rem] font-semibold leading-4">
-        Wireframe
-      </p>
-    </div>
-    <div className="space-y-1.5">
-      <span className="block h-2 rounded-full bg-[#d1d5db]" />
-      <span className="block h-8 rounded-md bg-[#eef2f7]" />
-      <div className="grid grid-cols-3 gap-1.5">
-        <span className="h-5 rounded bg-[#e5e7eb]" />
-        <span className="h-5 rounded bg-[#e5e7eb]" />
-        <span className="h-5 rounded bg-[#d9f6ef]" />
-      </div>
-    </div>
-  </div>
-);
-
-const UsabilityCard = ({ className }: { className?: string }) => (
-  <div
-    data-hero-card
-    className={cn(
-      "pointer-events-none absolute w-[178px] rounded-xl border border-[#10B981]/20 bg-[#f7fffc] p-3 text-[#141414] shadow-2xl shadow-gray-950/12",
-      className,
-    )}
-    aria-hidden="true"
-  >
-    <div className="mb-2 flex items-center justify-between">
-      <p className="font-sans text-[0.68rem] font-semibold leading-4">
-        Usability
-      </p>
-      <span className="rounded-full bg-[#d9f6ef] px-2 py-1 font-sans text-[0.58rem] font-semibold leading-3 text-[#047857]">
-        3/3 clear
-      </span>
-    </div>
-    <div className="space-y-1.5 font-sans text-[0.62rem] font-medium leading-3 text-[#4b5563]">
-      <div className="flex items-center gap-1.5">
-        <span className="size-1.5 rounded-full bg-[#10B981]" />
-        Label matches action
-      </div>
-      <div className="flex items-center gap-1.5">
-        <span className="size-1.5 rounded-full bg-[#10B981]" />
-        Next step is visible
-      </div>
-    </div>
-  </div>
-);
-
-const UxDesignCards = ({ className }: { className?: string }) => (
-  <div
-    className={cn(
-      "pointer-events-none absolute inset-0 text-[#141414]",
-      className,
-    )}
-  >
-    <UserFlowCard className="left-[calc(50%+96px)] top-[19.7rem] z-10 hidden opacity-95 sm:block lg:left-[calc(50%+116px)] lg:top-[20rem]" />
-    <WireframeCard className="left-[calc(50%-350px)] top-[28.7rem] z-10 hidden opacity-95 sm:block lg:left-[calc(50%-360px)] lg:top-[29.2rem]" />
-    <UsabilityCard className="left-[calc(50%+226px)] top-[30.2rem] z-30 hidden sm:block lg:left-[calc(50%+260px)] lg:top-[31rem]" />
-
-    <UserFlowCard className="right-[-3.4rem] top-[18.2rem] z-10 scale-[0.56] opacity-90 sm:hidden" />
-    <WireframeCard className="left-[-1.8rem] top-[27.3rem] z-10 scale-[0.58] opacity-90 sm:hidden" />
-    <UsabilityCard className="right-[-1.9rem] top-[28.2rem] z-30 scale-[0.55] opacity-95 sm:hidden" />
-  </div>
-);
-
 const HeroTitleLayer = () => (
   <h1
     data-hero-title
@@ -722,6 +538,9 @@ const HeroTitleLayer = () => (
       src={heroAssets.wordmark}
       alt=""
       aria-hidden="true"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
       className="block h-auto w-full select-none"
     />
   </h1>
@@ -737,44 +556,47 @@ const HeroLightAperture = () => (
   </>
 );
 
-const KeywordRail = ({ className }: { className?: string }) => {
+const CapabilitySwitchboard = ({ className }: { className?: string }) => {
   return (
     <div
       data-hero-keyword-rail
       className={cn(
-        "pointer-events-none overflow-hidden text-gray-950",
+        "hero-capability-switchboard pointer-events-none text-gray-950",
         className,
       )}
-      aria-label={keywordRailLabel}
+      aria-label={capabilityDockLabel}
     >
-      <div
-        aria-hidden="true"
-        className="hero-keyword-track flex w-max items-center"
-      >
-        {[0, 1].map((groupIndex) => (
-          <div
-            key={groupIndex}
-            className="flex shrink-0 items-center gap-5 pr-5"
-          >
-            {keywords.map((keyword) => {
-              const [muted, ...strongParts] = keyword.split(" ");
-              const strong = strongParts.join(" ");
+      <div className="hero-capability-switchboard__inner">
+        <div className="hero-capability-switchboard__header">
+          <span className="hero-capability-switchboard__kicker">
+            Design to build
+          </span>
+          <span className="hero-capability-switchboard__signal" />
+          <span className="hero-capability-switchboard__note">
+            working screens, not slideware
+          </span>
+        </div>
 
-              return (
-                <div
-                  key={`${groupIndex}-${keyword}`}
-                  className="flex shrink-0 items-center gap-5"
-                >
-                  <p className="whitespace-nowrap font-sans text-3xl font-black leading-[1.1] tracking-normal sm:text-[2.75rem]">
-                    <span className="text-[#6b7280]">{muted}</span>
-                    <span> {strong}</span>
-                  </p>
-                  <AssetIcon src={heroAssets.separator} className="size-8" />
-                </div>
-              );
-            })}
-          </div>
-        ))}
+        <ul className="hero-capability-switchboard__list">
+          {capabilityItems.map((capability, index) => (
+            <li
+              key={capability.label}
+              className="hero-capability-switchboard__module"
+            >
+              <span className="hero-capability-switchboard__node" />
+              <span className="hero-capability-switchboard__meta">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span>{capability.chip}</span>
+              </span>
+              <span className="hero-capability-switchboard__label">
+                {capability.label}
+              </span>
+              <span className="hero-capability-switchboard__detail">
+                {capability.detail}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
@@ -787,13 +609,16 @@ const HeroArtwork = () => (
   >
     <div className="hero-artboard-outline" aria-hidden="true" />
     <HeroTitleLayer />
-    <UxDesignCards />
 
     <div className="absolute left-1/2 top-[3.4rem] z-20 h-[29rem] w-[21rem] -translate-x-1/2 sm:top-0 sm:h-[638px] sm:w-[511px]">
       <img
         data-hero-portrait
         src={heroAssets.portrait}
         alt="Digital portrait of Reggie Alleyne"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        sizes="(min-width: 1024px) 511px, min(100vw, 34rem)"
         className="h-full w-full object-contain"
       />
     </div>
@@ -803,30 +628,16 @@ const HeroArtwork = () => (
 
     <SearchChip
       label="Design"
-      className="absolute right-8 top-[9.6rem] z-30 w-[126px] origin-top-right scale-[0.82] pr-6 sm:left-[calc(50%+168px)] sm:right-auto sm:top-[155px] sm:w-[174px] sm:scale-100"
+      className="absolute right-8 top-[9.6rem] z-30 w-[126px] origin-top-right scale-[0.82] sm:left-[calc(50%+168px)] sm:right-auto sm:top-[155px] sm:w-[174px] sm:scale-100"
     />
     <SearchChip
       label="Code"
-      className="absolute right-8 top-[16.25rem] z-30 w-[116px] origin-top-right scale-[0.82] pr-6 sm:left-[calc(50%+217px)] sm:right-auto sm:top-[259px] sm:w-[174px] sm:scale-100"
+      className="absolute right-8 top-[16.25rem] z-30 w-[116px] origin-top-right scale-[0.82] sm:left-[calc(50%+217px)] sm:right-auto sm:top-[259px] sm:w-[174px] sm:scale-100"
     />
     <SearchChip
       label="Prototype"
-      className="absolute right-3 top-[27.4rem] z-40 w-[138px] origin-top-right scale-[0.82] pr-6 sm:left-[calc(50%+105px)] sm:right-auto sm:top-[468px] sm:w-[174px] sm:scale-100"
+      className="absolute right-3 top-[27.4rem] z-40 w-[138px] origin-top-right scale-[0.82] sm:left-[calc(50%+105px)] sm:right-auto sm:top-[468px] sm:w-[174px] sm:scale-100"
     />
-
-    <div data-hero-selection className="hero-scroll-selection" aria-hidden="true">
-      <span className="hero-scroll-selection__handle hero-scroll-selection__handle--tl" />
-      <span className="hero-scroll-selection__handle hero-scroll-selection__handle--tr" />
-      <span className="hero-scroll-selection__handle hero-scroll-selection__handle--bl" />
-      <span className="hero-scroll-selection__handle hero-scroll-selection__handle--br" />
-      <span className="hero-scroll-selection__label">home / hero stage</span>
-    </div>
-
-    <div data-hero-scroll-toast className="hero-scroll-toast" aria-hidden="true">
-      <span>composition</span>
-      <strong>locked</strong>
-    </div>
-
   </div>
 );
 
@@ -852,7 +663,6 @@ const HeroSection = () => {
           "[data-hero-light-hole]",
           "[data-hero-tool-panel]",
           "[data-hero-search-chip]",
-          "[data-hero-card]",
           "[data-hero-keyword-rail]",
           "[data-hero-scroll-handoff]",
         ].join(", "),
@@ -967,23 +777,6 @@ const HeroSection = () => {
           0.8,
         )
         .fromTo(
-          "[data-hero-card]",
-          {
-            autoAlpha: 0,
-            x: (index) => (index % 2 === 0 ? 34 : -34),
-            y: 42,
-          },
-          {
-            autoAlpha: 1,
-            clearProps: "transform",
-            duration: 0.76,
-            stagger: { each: 0.08, from: "center" },
-            x: 0,
-            y: 0,
-          },
-          0.98,
-        )
-        .fromTo(
           "[data-hero-keyword-rail]",
           { autoAlpha: 0, y: 38 },
           {
@@ -1060,29 +853,6 @@ const HeroSection = () => {
           },
           0.02,
         )
-        .to(
-          "[data-hero-card]",
-          {
-            autoAlpha: 0.78,
-            rotate: (index) => (index % 2 === 0 ? -6 : 5),
-            stagger: 0.02,
-            x: (index) => (index % 2 === 0 ? -72 : 74),
-            y: (index) => -76 + index * 14,
-          },
-          0,
-        )
-        .fromTo(
-          "[data-hero-selection]",
-          { autoAlpha: 0, scale: 0.95, y: 18 },
-          { autoAlpha: 0.92, scale: 1.06, y: -98 },
-          0.08,
-        )
-        .fromTo(
-          "[data-hero-scroll-toast]",
-          { autoAlpha: 0, x: 52, y: 40 },
-          { autoAlpha: 1, x: -18, y: -122 },
-          0.16,
-        )
         .fromTo(
           "[data-hero-scroll-handoff]",
           { autoAlpha: 0, y: 46 },
@@ -1129,7 +899,7 @@ const HeroSection = () => {
       >
         <HeroArtwork />
 
-        <KeywordRail className="relative left-1/2 z-50 mt-6 w-screen -translate-x-1/2 lg:mt-4" />
+        <CapabilitySwitchboard className="relative left-1/2 z-50 -mt-36 w-screen -translate-x-1/2 px-4 sm:-mt-28 sm:px-6 lg:-mt-32 lg:px-8" />
       </div>
 
       <div data-hero-scroll-handoff className="hero-scroll-handoff" aria-hidden="true">

@@ -30,6 +30,28 @@ export interface CaseStudyTldr {
   owned: string[];
 }
 
+export interface CaseStudyNarrative {
+  hook: string;
+  setup: string;
+  research: string;
+  constraint: string;
+  decision: string;
+  build: string;
+  proof: string;
+  reflection: string;
+}
+
+export type CaseStudyNarrativeSlug =
+  | "cllctve-platform"
+  | "tutor-d"
+  | "wristband"
+  | "symptom-checkr"
+  | "litmus-ai"
+  | "vaultjs-validate"
+  | "staybooked"
+  | "covelo-timecard-system"
+  | "pretty-paws-grooming";
+
 export interface ProjectPersonaSnapshot {
   role: string;
   context: string;
@@ -65,6 +87,36 @@ export type ProjectPersonaJourneySlug =
   | "covelo-timecard-system"
   | "pretty-paws-grooming";
 
+export interface ProjectPersonaProfileDetail {
+  label: string;
+  value: string;
+}
+
+export interface ProjectPersonaAttribute {
+  label: string;
+  score: number;
+}
+
+export interface ProjectPersonaTheme {
+  background: string;
+  panel: string;
+  line: string;
+  ink: string;
+  muted: string;
+  accent: string;
+  shadow: string;
+}
+
+export interface ProjectPersonaProfile {
+  name: string;
+  title: string;
+  image: string;
+  imageAlt: string;
+  theme: ProjectPersonaTheme;
+  about: ProjectPersonaProfileDetail[];
+  attributes: ProjectPersonaAttribute[];
+}
+
 export interface HomepageProofMetric {
   value: string;
   label: string;
@@ -74,15 +126,6 @@ export interface HomepageProofMetric {
 
 export const featuredProjectConfig: FeaturedProjectConfig[] = [
   {
-    slug: "litmus-ai",
-    featuredTitle: "AI Literacy Platform",
-    eyebrow: "AI education / assessment",
-    impactSummary:
-      "A five-minute assessment and certificate flow that gives learners a clear AI literacy baseline.",
-    reviewerSignal:
-      "Shows AI product strategy, learning design, payments, and end-to-end MVP delivery.",
-  },
-  {
     slug: "cllctve-platform",
     featuredTitle: "Gen Z Portfolio Platform",
     eyebrow: "Creator economy / platform design",
@@ -90,6 +133,15 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
       "A mobile-first creator portfolio bet that reached 500+ creators, 15 brand partnerships, and 85% retention.",
     reviewerSignal:
       "Shows the tradeoffs behind mobile behavior, design systems, and brand constraints.",
+  },
+  {
+    slug: "litmus-ai",
+    featuredTitle: "AI Literacy Platform",
+    eyebrow: "AI education / assessment",
+    impactSummary:
+      "A five-minute assessment and certificate flow that gives learners a clear AI literacy baseline.",
+    reviewerSignal:
+      "Shows AI product strategy, learning design, payments, and end-to-end MVP delivery.",
   },
   {
     slug: "staybooked",
@@ -222,6 +274,174 @@ export const caseStudyBriefs: Partial<
       "Services hub and booking flow",
       "Before-and-after page screenshots",
     ],
+  },
+};
+
+export const caseStudyNarratives: Record<
+  CaseStudyNarrativeSlug,
+  CaseStudyNarrative
+> = {
+  "cllctve-platform": {
+    hook:
+      "CLLCTVE was not trying to out-Behance Behance. The sharper question was whether Gen Z creators would trust a portfolio product shaped around the way they already shared work.",
+    setup:
+      "The category had an obvious incumbent, so the product could not win by copying every desktop portfolio convention. The work started with a behavioral read: many target creators were browsing and sharing from phones, and their work already lived across social posts, challenge submissions, screenshots, and community feedback.",
+    research:
+      "The research signal was simple but useful: creators cared about momentum and response, not only presentation. A portfolio had to feel quick to update, easy to share, and connected to the feedback loops that made the work feel alive.",
+    constraint:
+      "The hardest constraint was choosing where not to compete. A smaller platform could not match Behance's network effects or every professional feature, and too much customization would make branded challenge pages inconsistent.",
+    decision:
+      "I focused the product on mobile creation, creator feedback, and a controlled design-token system. That meant prioritizing swipe-friendly portfolio browsing and community loops over desktop analytics and feature parity.",
+    build:
+      "I worked across the mobile portfolio builder, modular portfolio organization, branded challenge pages, notifications, and the design system that kept partner pages flexible without breaking the product.",
+    proof:
+      "The product reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed. The useful signal was not just the numbers; it was that a narrower behavior-first bet gave creators a reason to try a smaller platform.",
+    reflection:
+      "The project still guides how I think about category strategy. When an incumbent owns the obvious feature set, the design opportunity is often in the behavior they are too large or too slow to serve well.",
+  },
+  "tutor-d": {
+    hook:
+      "Tutor D began with a constraint most learning products treat as an edge case: some students could not rely on full web access at all.",
+    setup:
+      "During remote learning, teachers needed to reach students who were working through basic phones, unreliable internet, and fragmented support systems. The product had to help educators plan, send, and track lessons without assuming every student could log into a traditional classroom tool.",
+    research:
+      "Teacher feedback pointed the product toward clarity and speed. The dashboard needed to make the SMS workflow feel intentional, not like a stripped-down version of a richer platform.",
+    constraint:
+      "The design had to support low-tech student access while still giving teachers enough visibility to manage progress. That meant the educator interface carried the complexity so the student side could stay reachable.",
+    decision:
+      "I treated SMS as a product requirement. The dashboard centered lesson creation, progress visibility, engagement summaries, and messaging tools around the teacher's daily decision: who received the work, who responded, and who needs follow-up.",
+    build:
+      "I built the educator-facing dashboard in React with Ant Design, connecting lesson planning, progress cards, response tracking, weekly summaries, and responsive views through the product's backend data flow.",
+    proof:
+      "The finished work gave teachers a practical way to manage SMS-based learning from one web surface, with real-time updates and enough structure to keep remote follow-up from becoming manual guesswork.",
+    reflection:
+      "The lesson was that accessibility is not only a compliance layer. In this project, the access constraint defined the product, the interface hierarchy, and the parts of the workflow that had to stay quiet.",
+  },
+  wristband: {
+    hook:
+      "WRISTBAND was a prototype for a storytelling app that had to prove a different point: richer characters and creator input could matter as much as branching mechanics.",
+    setup:
+      "The client wanted an interactive narrative product in a market filled with fast content and familiar story loops. The product needed to feel commercial enough to evaluate while still making room for more specific characters, diverse writers, and a stronger sense of authorship.",
+    research:
+      "The early research focused on why people abandon story apps. The pattern was not only about interface friction; it was about thin stories, shallow characters, and choices that did not feel connected to a meaningful narrative.",
+    constraint:
+      "Because the product never launched, the work had to be honest about what the prototype proved. It could show a direction, a creator framework, and a mobile storytelling system, but it could not claim market traction.",
+    decision:
+      "I designed around story quality before content volume. The product model tied character depth, creator collaboration, branching choices, and creator compensation into the same experience strategy.",
+    build:
+      "I produced the UX strategy, mobile app design system, interactive prototype, content creator framework, and monetization model. The interface stayed focused on helping readers discover stories, assess characters, make choices, and follow creators.",
+    proof:
+      "The prototype demonstrated the full concept clearly enough for client evaluation: a mobile narrative system, creator-centered content model, and story flow designed around representation and character specificity.",
+    reflection:
+      "The strongest lesson was restraint. Representation works better when it shapes the content model and creator process from the beginning, not when it is added as a surface treatment after the product is already defined.",
+  },
+  "symptom-checkr": {
+    hook:
+      "SymptomCheckr was designed around a stressful moment: someone wants guidance, but a confident-looking answer can make them panic or over-trust the tool.",
+    setup:
+      "Most symptom products compress uncertainty into a result. For health guidance, that can be dangerous. The product needed to help users understand what the system considered, how confident it was, and when the next step should involve care outside the app.",
+    research:
+      "The research signal came from the way people read health information under pressure. They need plain language, visible reasoning, and a way to question the result without feeling abandoned.",
+    constraint:
+      "The interface had to stay calm without becoming casual about medical decisions. Adding confidence levels and source links made the results screen denser, but hiding those details would make the system harder to trust.",
+    decision:
+      "I made uncertainty visible. The flow uses confidence levels, source links, graduated certainty, photo-supported symptom input, and saved reports instead of presenting the product as a diagnostic authority.",
+    build:
+      "I designed the AI-assisted assessment flow, results screen, source and reasoning patterns, privacy-minded image handling, report states, and follow-up surfaces for a responsive health-tech concept.",
+    proof:
+      "The case study now shows a full product direction: calmer intake, confidence-aware results, citations, saved reports, and a visual language that treats uncertainty as part of the experience.",
+    reflection:
+      "The project clarified a design principle I keep coming back to: sensitive products should not pretend away uncertainty. They should make it readable enough for people to act with care.",
+  },
+  "litmus-ai": {
+    hook:
+      "Litmus AI started with a practical problem: people were talking about AI readiness before they had a fast way to see what someone actually understood.",
+    setup:
+      "Courses and certificates can help, but they often ask for commitment before showing the learner where they stand. The product needed to give students, professionals, and teams a credible baseline in minutes, then point them toward the right next step.",
+    research:
+      "The research signal was the gap between broad AI curiosity and usable skill evidence. A learner needed a score they could understand, and an organization needed enough structure to see patterns across users.",
+    constraint:
+      "The assessment had to stay short without becoming shallow. If the flow took too long, users would drop. If it was too light, the result would not feel useful.",
+    decision:
+      "I compressed the experience into an adaptive assessment, then made the result actionable through recommendations, credentials, admin visibility, and payment paths.",
+    build:
+      "I shaped the quiz, results, recommendation logic, certificate flow, admin dashboard, and Stripe-backed payment paths. The implementation connected assessment data, scoring behavior, and account workflows into one MVP.",
+    proof:
+      "The MVP shipped in an eight-week window with adaptive questions, results, recommendations, certification, admin review, and payment flows visible in the product.",
+    reflection:
+      "The useful design move was keeping the product honest about time. A five-minute test cannot teach everything, but it can give people a starting point they can act on.",
+  },
+  "vaultjs-validate": {
+    hook:
+      "Vault.js Validate was a security dashboard sprint built around alert fatigue: teams get warnings all day, but still need to know what to fix first.",
+    setup:
+      "The product focused on third-party script risk. A scanner can surface exposure, but the analyst still has to understand vendor relationships, data leakage paths, severity, and the next remediation step.",
+    research:
+      "The research pass treated existing security tools as a signal for what to avoid. Dense alerts and status-heavy dashboards were not enough; the workflow needed clearer priority, explanation, and reviewable fixes.",
+    constraint:
+      "The two-week sprint forced a narrow product story. I needed to make the dashboard feel technical and credible while keeping risk explanations readable enough for quick triage.",
+    decision:
+      "I designed the product around the analyst's next action: scan the surface, see relationships, understand the risk in plain English, and review a generated remediation before applying it.",
+    build:
+      "I built the React and Tailwind prototype with risk visuals, Recharts data views, compliance-oriented sections, a dark technical visual system, and a remediation flow connected through Supabase and OpenAI-backed functions.",
+    proof:
+      "The shipped prototype shows a working security dashboard direction in a short sprint: attack-surface scanning, risk visualization, vulnerability explanation, and an Apply Fix path.",
+    reflection:
+      "The lesson was that technical interfaces still need editorial judgment. A dashboard can be dense, but it should not make the user assemble the story of the risk from scattered fragments.",
+  },
+  staybooked: {
+    hook:
+      "Staybooked was not about making AI output look impressive. It was about helping hosts improve the listing details guests judge fastest without making the property feel misrepresented.",
+    setup:
+      "Independent short-term rental hosts often know a listing could perform better, but the problem is scattered across photos, titles, opening copy, amenities, and trust cues. A generic tool can polish one asset, but it rarely keeps the host's real property context intact.",
+    research:
+      "The product signal came from the guest decision path. Guests judge first impressions quickly, so the host workflow needed to organize the rooms, images, copy, and improvement history around the listing assets that shape trust.",
+    constraint:
+      "The main constraint was trust. AI-generated room direction had to feel useful and believable, not like a fantasy renovation that would make the live listing misleading.",
+    decision:
+      "I framed AI as improvement direction inside a saved host workspace. The product keeps rooms, generated renders, listing copy, audit cues, and recent work connected to the property.",
+    build:
+      "I built the portfolio-facing product story across the marketing homepage, sign-in, dashboard, and room optimizer screens. The interface shows uploads, room context, realistic visual direction, and saved optimization work.",
+    proof:
+      "The case study includes desktop product screens across the homepage, auth, dashboard, and optimizer workflow, with a live product surface for reviewers to inspect.",
+    reflection:
+      "The biggest product lesson was that AI tools need a point of view about responsibility. For Staybooked, the useful output is not spectacle; it is a believable next step a host can evaluate before changing a listing.",
+  },
+  "covelo-timecard-system": {
+    hook:
+      "Covelo needed a workforce portal where timecards, approvals, exceptions, and exports could move through one operating model instead of several disconnected workflows.",
+    setup:
+      "The product served staff, approvers, and operations users who each touched the same time record for different reasons. The design challenge was not only making screens; it was keeping role boundaries clear while the work moved toward payroll and billing handoffs.",
+    research:
+      "The workflow mapping started with what each role needed to know before touching a record. Staff needed shift and submission context, approvers needed review queues, and operations needed exception visibility before exports.",
+    constraint:
+      "Daily use had to stay simple while the product still respected heavier requirements: invite-only access, RBAC, district-scoped data, audit history, and typed API contracts.",
+    decision:
+      "I organized the MVP around three role-specific workspaces tied to one record model: Staff submission, Approver review, and Ops/Admin exception management.",
+    build:
+      "I designed and built the frontend for staff dashboards, clock and timesheet flows, approver inboxes, exception queues, assignment and member management, settings, and export-oriented operations work.",
+    proof:
+      "The client received a completed solo MVP and deployed demo with role-aware workflows, product screenshots, and technical framing for auth, RBAC, APIs, Postgres-oriented contracts, and exports.",
+    reflection:
+      "The strongest UX decision was keeping one operational record visible through different role views. That kept the product coherent without forcing every team to rebuild context from scratch.",
+  },
+  "pretty-paws-grooming": {
+    hook:
+      "Pretty Paws needed a site that felt polished, but the real product problem was trust: pet owners needed clear service information before sending an appointment request.",
+    setup:
+      "Local service websites succeed when the basic questions are easy to answer. Where is the business? What services are offered? What happens after I ask for an appointment? The project had to make those answers visible without inventing claims the source material could not support.",
+    research:
+      "The strongest signal came from the customer's path. A pet owner is likely to compare services, check business details, open the service that fits their pet, and then send a request from a phone or desktop.",
+    constraint:
+      "The site needed a premium pet-spa feel while keeping booking language honest. A submitted form is not a confirmed appointment, and merch could not be treated as live commerce before fulfillment details were ready.",
+    decision:
+      "I centered the experience on service browsing, service detail routes, request-based booking, contact clarity, policies, and real local media instead of a generic brochure page.",
+    build:
+      "I built the Vite and React site with public routes for the homepage, services, service details, booking, policies, store, product details, checkout states, and fallback handling, with Supabase-backed booking and contact submissions.",
+    proof:
+      "The portfolio includes before-and-after screenshots, local media, a live Netlify deployment, service and booking routes, contact capture, policies, and a paused merch surface with honest launch state.",
+    reflection:
+      "The project reinforced that small-business UX is often about restraint. Make the business feel real, keep the next action obvious, and avoid turning uncertainty into a promise.",
   },
 };
 
@@ -799,36 +1019,36 @@ export const projectPersonaJourneys: Record<
   },
   staybooked: {
     persona: {
-      role: "Independent short-term rental host improving listing assets before guests decide.",
+      role: "Independent host tightening up a short-term rental listing before guests book.",
       context:
-        "They manage real rooms and need better photos, copy, amenities, and trust cues without making the listing misleading.",
+        "He manages real rooms and needs better photos, copy, amenities, and trust cues without overselling the property.",
       goal:
-        "Turn unclear listing problems into practical improvements they can save and act on.",
+        "Find the weak spots in a listing, turn them into practical fixes, and save the work for the next update.",
       friction:
-        "Generic AI image tools can create impressive output that does not represent the actual property responsibly.",
+        "Most AI image tools make the room look better than it is, which creates the wrong expectation for guests.",
       need:
-        "A saved host workspace that frames AI as believable improvement direction tied to property and room context.",
+        "A workspace that keeps AI suggestions tied to the real room, property details, and booking context.",
     },
     journey: [
       {
         label: "Find the listing gap",
         description:
-          "Start from photos, title, copy, amenities, or audit cues that affect guest trust.",
+          "Start with the photo, title, copy, amenity, or trust cue that could make a guest hesitate.",
       },
       {
         label: "Upload room context",
         description:
-          "Attach the actual room and property details so the AI task is grounded in a real space.",
+          "Add real room and property details so the suggestions stay grounded.",
       },
       {
         label: "Review direction",
         description:
-          "Evaluate room and listing recommendations as practical improvements, not fantasy renovation claims.",
+          "Check recommendations as listing improvements, not fantasy renovation claims.",
       },
       {
         label: "Save the work",
         description:
-          "Return to a dashboard where property context, generated output, and next actions stay connected.",
+          "Keep the property context, outputs, and next actions in one workspace.",
       },
     ],
   },
@@ -904,6 +1124,432 @@ export const projectPersonaJourneys: Record<
   },
 };
 
+export const projectPersonaProfiles: Record<
+  ProjectPersonaJourneySlug,
+  ProjectPersonaProfile
+> = {
+  "cllctve-platform": {
+    name: "Maya",
+    title: "Mobile creator",
+    image: "/images/personas/cllctve-platform.jpg",
+    imageAlt:
+      "Generated portrait of Maya, a mobile creator persona for the CLLCTVE Platform case study.",
+    theme: {
+      background: "linear-gradient(135deg, #ff7a5f 0%, #ef5f9d 55%, #7658ff 100%)",
+      panel: "rgba(255, 255, 255, 0.15)",
+      line: "rgba(255, 255, 255, 0.42)",
+      ink: "#fffaf7",
+      muted: "rgba(255, 250, 247, 0.78)",
+      accent: "#fff0a6",
+      shadow: "rgba(148, 74, 255, 0.34)",
+    },
+    about: [
+      { label: "Role", value: "Gen Z portfolio builder" },
+      { label: "Primary device", value: "Phone-first creation" },
+      { label: "Decision mode", value: "Share, refine, return" },
+    ],
+    attributes: [
+      { label: "Mobile fit", score: 92 },
+      { label: "Peer proof", score: 84 },
+      { label: "Brand readiness", score: 78 },
+      { label: "Edit speed", score: 88 },
+      { label: "Creative identity", score: 94 },
+    ],
+  },
+  "tutor-d": {
+    name: "Ms. Carter",
+    title: "SMS-first teacher",
+    image: "/images/personas/tutor-d.jpg",
+    imageAlt:
+      "Generated portrait of Ms. Carter, an SMS-first teacher persona for the Tutor D case study.",
+    theme: {
+      background: "linear-gradient(135deg, #0e6d68 0%, #24a98c 58%, #f0a94c 100%)",
+      panel: "rgba(255, 255, 255, 0.14)",
+      line: "rgba(255, 255, 255, 0.38)",
+      ink: "#f8fffb",
+      muted: "rgba(248, 255, 251, 0.78)",
+      accent: "#ffe6a6",
+      shadow: "rgba(14, 109, 104, 0.32)",
+    },
+    about: [
+      { label: "Role", value: "Remote learning teacher" },
+      { label: "Constraint", value: "Unreliable student access" },
+      { label: "Workflow", value: "Assign, track, follow up" },
+    ],
+    attributes: [
+      { label: "Access equity", score: 94 },
+      { label: "Lesson clarity", score: 82 },
+      { label: "Response tracking", score: 88 },
+      { label: "Teacher speed", score: 79 },
+      { label: "Device tolerance", score: 96 },
+    ],
+  },
+  "tech-noir": {
+    name: "Ari",
+    title: "Wearable tech shopper",
+    image: "/images/personas/tech-noir.jpg",
+    imageAlt:
+      "Generated portrait of Ari, a wearable tech shopper persona for the Tech Noir case study.",
+    theme: {
+      background: "linear-gradient(135deg, #12121d 0%, #512872 52%, #00a6c8 100%)",
+      panel: "rgba(255, 255, 255, 0.12)",
+      line: "rgba(255, 255, 255, 0.34)",
+      ink: "#fbfbff",
+      muted: "rgba(251, 251, 255, 0.74)",
+      accent: "#7ff3ff",
+      shadow: "rgba(0, 166, 200, 0.3)",
+    },
+    about: [
+      { label: "Role", value: "Style-led explorer" },
+      { label: "Entry point", value: "Fashion before specs" },
+      { label: "Decision mode", value: "Picture it in daily wear" },
+    ],
+    attributes: [
+      { label: "Style confidence", score: 91 },
+      { label: "Spec clarity", score: 72 },
+      { label: "Try-on value", score: 86 },
+      { label: "Editorial trust", score: 78 },
+      { label: "Purchase intent", score: 74 },
+    ],
+  },
+  "doggy-date": {
+    name: "Nina",
+    title: "Dog-centered connector",
+    image: "/images/personas/doggy-date.jpg",
+    imageAlt:
+      "Generated portrait of Nina, a dog-centered connector persona for the Doggy Date case study.",
+    theme: {
+      background: "linear-gradient(135deg, #247ba0 0%, #62b67f 54%, #f5b84b 100%)",
+      panel: "rgba(255, 255, 255, 0.14)",
+      line: "rgba(255, 255, 255, 0.4)",
+      ink: "#fbfffd",
+      muted: "rgba(251, 255, 253, 0.78)",
+      accent: "#fff1ba",
+      shadow: "rgba(36, 123, 160, 0.3)",
+    },
+    about: [
+      { label: "Role", value: "Local dog owner" },
+      { label: "Social goal", value: "Meet people through routines" },
+      { label: "Retention cue", value: "Places, parks, and plans" },
+    ],
+    attributes: [
+      { label: "Local relevance", score: 89 },
+      { label: "Profile depth", score: 76 },
+      { label: "Message comfort", score: 81 },
+      { label: "Community habit", score: 85 },
+      { label: "Novelty control", score: 69 },
+    ],
+  },
+  "improv-learning": {
+    name: "Jordan",
+    title: "Referral course visitor",
+    image: "/images/personas/improv-learning.jpg",
+    imageAlt:
+      "Generated portrait of Jordan, a referral course visitor persona for the Improv Learning case study.",
+    theme: {
+      background: "linear-gradient(135deg, #0f4c81 0%, #3b7dd8 48%, #ff8b45 100%)",
+      panel: "rgba(255, 255, 255, 0.14)",
+      line: "rgba(255, 255, 255, 0.38)",
+      ink: "#f8fbff",
+      muted: "rgba(248, 251, 255, 0.78)",
+      accent: "#ffe3b0",
+      shadow: "rgba(15, 76, 129, 0.3)",
+    },
+    about: [
+      { label: "Role", value: "Mobile referral visitor" },
+      { label: "Trust check", value: "Co-brand and course proof" },
+      { label: "Decision mode", value: "Scan quickly, then enroll" },
+    ],
+    attributes: [
+      { label: "Referral trust", score: 88 },
+      { label: "Copy clarity", score: 84 },
+      { label: "Enrollment speed", score: 82 },
+      { label: "Mobile scanning", score: 90 },
+      { label: "Effort confidence", score: 75 },
+    ],
+  },
+  wristband: {
+    name: "Leah",
+    title: "Interactive story reader",
+    image: "/images/personas/wristband.jpg",
+    imageAlt:
+      "Generated portrait of Leah, an interactive story reader persona for the Wristband case study.",
+    theme: {
+      background: "linear-gradient(135deg, #4b2a73 0%, #9b4a9d 52%, #f07893 100%)",
+      panel: "rgba(255, 255, 255, 0.14)",
+      line: "rgba(255, 255, 255, 0.38)",
+      ink: "#fff9ff",
+      muted: "rgba(255, 249, 255, 0.78)",
+      accent: "#ffd4f1",
+      shadow: "rgba(75, 42, 115, 0.34)",
+    },
+    about: [
+      { label: "Role", value: "Mobile fiction reader" },
+      { label: "Taste signal", value: "Characters with depth" },
+      { label: "Decision mode", value: "Start when choices feel real" },
+    ],
+    attributes: [
+      { label: "Character depth", score: 94 },
+      { label: "Choice meaning", score: 88 },
+      { label: "Creator trust", score: 82 },
+      { label: "Mobile rhythm", score: 86 },
+      { label: "Representation", score: 91 },
+    ],
+  },
+  "chill-vibes-music-player": {
+    name: "Eli",
+    title: "Focused listener",
+    image: "/images/personas/chill-vibes-music-player.jpg",
+    imageAlt:
+      "Generated portrait of Eli, a focused listener persona for the Chill Vibes Music Player case study.",
+    theme: {
+      background: "linear-gradient(135deg, #0e7478 0%, #59b6a6 56%, #f1d9a7 100%)",
+      panel: "rgba(255, 255, 255, 0.15)",
+      line: "rgba(255, 255, 255, 0.4)",
+      ink: "#f7fffd",
+      muted: "rgba(247, 255, 253, 0.78)",
+      accent: "#fff1c9",
+      shadow: "rgba(14, 116, 120, 0.3)",
+    },
+    about: [
+      { label: "Role", value: "Calm music listener" },
+      { label: "Primary task", value: "Start playback without noise" },
+      { label: "Session mode", value: "Browse lightly, listen longer" },
+    ],
+    attributes: [
+      { label: "Control clarity", score: 88 },
+      { label: "Visual calm", score: 92 },
+      { label: "Browse effort", score: 72 },
+      { label: "Responsive comfort", score: 84 },
+      { label: "Client testability", score: 78 },
+    ],
+  },
+  "bobs-big-break": {
+    name: "Drew",
+    title: "Short-session player",
+    image: "/images/personas/bobs-big-break.jpg",
+    imageAlt:
+      "Generated portrait of Drew, a short-session player persona for the Bob's Big Break case study.",
+    theme: {
+      background: "linear-gradient(135deg, #1f5fc4 0%, #5e8cf2 52%, #f6be3f 100%)",
+      panel: "rgba(255, 255, 255, 0.15)",
+      line: "rgba(255, 255, 255, 0.4)",
+      ink: "#fbfdff",
+      muted: "rgba(251, 253, 255, 0.78)",
+      accent: "#fff1a8",
+      shadow: "rgba(31, 95, 196, 0.3)",
+    },
+    about: [
+      { label: "Role", value: "Casual progress seeker" },
+      { label: "Time window", value: "Tiny sessions, visible gains" },
+      { label: "Decision mode", value: "Click, upgrade, return" },
+    ],
+    attributes: [
+      { label: "Loop clarity", score: 91 },
+      { label: "Upgrade pull", score: 86 },
+      { label: "Economy pacing", score: 79 },
+      { label: "First-minute read", score: 88 },
+      { label: "Return habit", score: 76 },
+    ],
+  },
+  "symptom-checkr": {
+    name: "Sam",
+    title: "Cautious health checker",
+    image: "/images/personas/symptom-checkr.jpg",
+    imageAlt:
+      "Generated portrait of Sam, a cautious health checker persona for the Symptom Checkr case study.",
+    theme: {
+      background: "linear-gradient(135deg, #2f6f9f 0%, #6aa9ce 52%, #f1a38e 100%)",
+      panel: "rgba(255, 255, 255, 0.16)",
+      line: "rgba(255, 255, 255, 0.42)",
+      ink: "#fbfdff",
+      muted: "rgba(251, 253, 255, 0.8)",
+      accent: "#ffe4d8",
+      shadow: "rgba(47, 111, 159, 0.28)",
+    },
+    about: [
+      { label: "Role", value: "Anxious symptom checker" },
+      { label: "Trust need", value: "Uncertainty made visible" },
+      { label: "Decision mode", value: "Understand before acting" },
+    ],
+    attributes: [
+      { label: "Calm language", score: 91 },
+      { label: "Confidence cues", score: 88 },
+      { label: "Source visibility", score: 84 },
+      { label: "Next-step clarity", score: 86 },
+      { label: "Safety framing", score: 94 },
+    ],
+  },
+  "litmus-ai": {
+    name: "Priya",
+    title: "AI readiness learner",
+    image: "/images/personas/litmus-ai.jpg",
+    imageAlt:
+      "Generated portrait of Priya, an AI readiness learner persona for the Litmus AI case study.",
+    theme: {
+      background: "linear-gradient(135deg, #28318f 0%, #6b50d8 52%, #a5d936 100%)",
+      panel: "rgba(255, 255, 255, 0.14)",
+      line: "rgba(255, 255, 255, 0.38)",
+      ink: "#fbfbff",
+      muted: "rgba(251, 251, 255, 0.78)",
+      accent: "#eaff8a",
+      shadow: "rgba(40, 49, 143, 0.32)",
+    },
+    about: [
+      { label: "Role", value: "Learner or team lead" },
+      { label: "Time budget", value: "Minutes, not weeks" },
+      { label: "Decision mode", value: "Baseline, gap, path" },
+    ],
+    attributes: [
+      { label: "Assessment trust", score: 90 },
+      { label: "Adaptive fit", score: 86 },
+      { label: "Result clarity", score: 88 },
+      { label: "Learning path", score: 82 },
+      { label: "Credential value", score: 76 },
+    ],
+  },
+  "vaultjs-validate": {
+    name: "Owen",
+    title: "Security risk triager",
+    image: "/images/personas/vaultjs-validate.jpg",
+    imageAlt:
+      "Generated portrait of Owen, a security risk triager persona for the VaultJS Validate case study.",
+    theme: {
+      background: "linear-gradient(135deg, #151923 0%, #333b4b 50%, #d94d4d 100%)",
+      panel: "rgba(255, 255, 255, 0.12)",
+      line: "rgba(255, 255, 255, 0.34)",
+      ink: "#f9fbff",
+      muted: "rgba(249, 251, 255, 0.74)",
+      accent: "#7fe7ff",
+      shadow: "rgba(21, 25, 35, 0.36)",
+    },
+    about: [
+      { label: "Role", value: "Third-party script analyst" },
+      { label: "Review mode", value: "Prioritize before remediating" },
+      { label: "Decision mode", value: "See why the risk matters" },
+    ],
+    attributes: [
+      { label: "Risk priority", score: 94 },
+      { label: "Issue context", score: 88 },
+      { label: "Plain language", score: 82 },
+      { label: "Fix reviewability", score: 86 },
+      { label: "Alert reduction", score: 80 },
+    ],
+  },
+  "scent-stack": {
+    name: "Noor",
+    title: "Fragrance explorer",
+    image: "/images/personas/scent-stack.jpg",
+    imageAlt:
+      "Generated portrait of Noor, a fragrance explorer persona for the Scent Stack case study.",
+    theme: {
+      background: "linear-gradient(135deg, #7b3551 0%, #bd6b7c 52%, #85a978 100%)",
+      panel: "rgba(255, 255, 255, 0.15)",
+      line: "rgba(255, 255, 255, 0.4)",
+      ink: "#fffafb",
+      muted: "rgba(255, 250, 251, 0.78)",
+      accent: "#f9e0a6",
+      shadow: "rgba(123, 53, 81, 0.32)",
+    },
+    about: [
+      { label: "Role", value: "Taste-led fragrance shopper" },
+      { label: "Search style", value: "Notes, moods, and dupes" },
+      { label: "Decision mode", value: "Compare value and layer" },
+    ],
+    attributes: [
+      { label: "Dupe confidence", score: 88 },
+      { label: "Scent translation", score: 91 },
+      { label: "Value compare", score: 84 },
+      { label: "Layering help", score: 80 },
+      { label: "Vocabulary bridge", score: 86 },
+    ],
+  },
+  staybooked: {
+    name: "Mateo",
+    title: "Independent host",
+    image: "/images/personas/staybooked.jpg",
+    imageAlt:
+      "Portrait of Mateo, an independent host persona for the Staybooked case study.",
+    theme: {
+      background: "linear-gradient(135deg, #b45a3c 0%, #db8a59 48%, #2f8f91 100%)",
+      panel: "rgba(255, 255, 255, 0.15)",
+      line: "rgba(255, 255, 255, 0.4)",
+      ink: "#fffaf6",
+      muted: "rgba(255, 250, 246, 0.78)",
+      accent: "#ffefbf",
+      shadow: "rgba(180, 90, 60, 0.34)",
+    },
+    about: [
+      { label: "Role", value: "Short-term rental host" },
+      { label: "Asset focus", value: "Photos, copy, and trust cues" },
+      { label: "Decision mode", value: "Improve honestly" },
+    ],
+    attributes: [
+      { label: "Listing honesty", score: 94 },
+      { label: "Photo direction", score: 87 },
+      { label: "Copy usefulness", score: 84 },
+      { label: "Room context", score: 89 },
+      { label: "Saved workflow", score: 81 },
+    ],
+  },
+  "covelo-timecard-system": {
+    name: "Dana",
+    title: "Operations approver",
+    image: "/images/personas/covelo-timecard-system.jpg",
+    imageAlt:
+      "Generated portrait of Dana, an operations approver persona for the Covelo Timecard System case study.",
+    theme: {
+      background: "linear-gradient(135deg, #202a35 0%, #2d6f73 52%, #ef7b42 100%)",
+      panel: "rgba(255, 255, 255, 0.13)",
+      line: "rgba(255, 255, 255, 0.36)",
+      ink: "#f9fcfb",
+      muted: "rgba(249, 252, 251, 0.76)",
+      accent: "#ffd2a6",
+      shadow: "rgba(32, 42, 53, 0.36)",
+    },
+    about: [
+      { label: "Role", value: "District operations lead" },
+      { label: "Control surface", value: "Time, approvals, exports" },
+      { label: "Decision mode", value: "Resolve before payroll risk" },
+    ],
+    attributes: [
+      { label: "Role clarity", score: 91 },
+      { label: "Exception handling", score: 88 },
+      { label: "Audit history", score: 86 },
+      { label: "Export readiness", score: 83 },
+      { label: "Tenant boundaries", score: 89 },
+    ],
+  },
+  "pretty-paws-grooming": {
+    name: "Tanya",
+    title: "Mobile booking pet owner",
+    image: "/images/personas/pretty-paws-grooming.jpg",
+    imageAlt:
+      "Generated portrait of Tanya, a mobile booking pet owner persona for the Pretty Paws Grooming case study.",
+    theme: {
+      background: "linear-gradient(135deg, #c45e75 0%, #f09aa0 48%, #3f9b98 100%)",
+      panel: "rgba(255, 255, 255, 0.16)",
+      line: "rgba(255, 255, 255, 0.42)",
+      ink: "#fffaf9",
+      muted: "rgba(255, 250, 249, 0.8)",
+      accent: "#fff0c7",
+      shadow: "rgba(196, 94, 117, 0.32)",
+    },
+    about: [
+      { label: "Role", value: "Local grooming customer" },
+      { label: "Booking path", value: "Service detail to request" },
+      { label: "Decision mode", value: "Trust first, then schedule" },
+    ],
+    attributes: [
+      { label: "Service clarity", score: 89 },
+      { label: "Mobile comfort", score: 92 },
+      { label: "Local trust", score: 86 },
+      { label: "Policy visibility", score: 78 },
+      { label: "Follow-up clarity", score: 84 },
+    ],
+  },
+};
+
 const hiddenFromPrimaryWorksIds = new Set([3, 4, 5, 7, 8, 12]);
 
 export const getFeaturedConfig = (slug?: string) =>
@@ -923,10 +1569,22 @@ export const getCaseStudyBrief = (slug?: string) =>
 export const getCaseStudyTldr = (slug?: string) =>
   slug ? caseStudyTldrs[slug] : undefined;
 
+export const getCaseStudyNarrative = (slug?: string) => {
+  if (!slug || !(slug in caseStudyNarratives)) return undefined;
+
+  return caseStudyNarratives[slug as CaseStudyNarrativeSlug];
+};
+
 export const getProjectPersonaJourney = (slug?: string) => {
   if (!slug || !(slug in projectPersonaJourneys)) return undefined;
 
   return projectPersonaJourneys[slug as ProjectPersonaJourneySlug];
+};
+
+export const getProjectPersonaProfile = (slug?: string) => {
+  if (!slug || !(slug in projectPersonaProfiles)) return undefined;
+
+  return projectPersonaProfiles[slug as ProjectPersonaJourneySlug];
 };
 
 export const isFeaturedProject = (project: Pick<ProjectType, "slug">) =>

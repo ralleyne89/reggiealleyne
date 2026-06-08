@@ -428,6 +428,7 @@ const FeaturedProjectsSection = () => {
                             alt=""
                             loading={index === 0 ? "eager" : "lazy"}
                             decoding="async"
+                            fetchpriority={index === 0 ? "high" : "auto"}
                             sizes="(min-width: 1024px) 760px, 100vw"
                             onError={(event) => {
                               event.currentTarget.src = "/placeholder.svg";
@@ -497,6 +498,7 @@ const FeaturedProjectsSection = () => {
                         alt=""
                         loading="lazy"
                         decoding="async"
+                        sizes="18rem"
                         onError={(event) => {
                           event.currentTarget.src = "/placeholder.svg";
                         }}
@@ -511,6 +513,7 @@ const FeaturedProjectsSection = () => {
                           className="h-full w-full object-cover"
                           loading="lazy"
                           decoding="async"
+                          sizes="7rem"
                           onError={(event) => {
                             event.currentTarget.src = "/placeholder.svg";
                           }}

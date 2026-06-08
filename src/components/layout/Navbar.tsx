@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   BriefcaseBusiness,
@@ -72,17 +72,38 @@ const routeNavItems: NavRouteItem[] = [
 const MotionLink = motion.create(Link);
 
 const itemTransition = {
-  width: { type: "spring", stiffness: 350, damping: 32 },
-  opacity: { duration: 0.19 },
-  marginLeft: { duration: 0.19 },
+  width: { type: "spring", stiffness: 260, damping: 31, mass: 0.78 },
+  opacity: { duration: 0.24, ease: [0.16, 1, 0.3, 1] },
+  marginLeft: { type: "spring", stiffness: 260, damping: 31, mass: 0.78 },
 } as const;
+
+const getNavItemKey = (item: NavItem) =>
+  item.kind === "route" ? item.path : `action:${item.title}`;
+
+const getSurfaceNavItemKey = (item: NavItem, surface: NavSurface) =>
+  `${surface}:${getNavItemKey(item)}`;
+
+const getNavItemLabelWidth = (item: NavItem, surface: NavSurface) =>
+  surface === "mobile" && item.mobileLabelWidth
+    ? item.mobileLabelWidth
+    : item.labelWidth;
+
+const getNavItemStyle = (item: NavItem, surface: NavSurface) =>
+  ({
+    "--portfolio-nav-label-gap": surface === "mobile" ? "0.45rem" : "0.5rem",
+    "--portfolio-nav-label-width": `${getNavItemLabelWidth(item, surface)}px`,
+  }) as CSSProperties;
 
 const Navbar = () => {
   const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [hoveredNavKey, setHoveredNavKey] = useState<string | null>(null);
+  const [focusedNavKey, setFocusedNavKey] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
     setContactModalOpen(false);
+    setHoveredNavKey(null);
+    setFocusedNavKey(null);
   }, [location]);
 
   const isActivePath = (path: string) => {
@@ -124,7 +145,7 @@ const Navbar = () => {
 
   const navItemClassName = (isActive: boolean, surface: NavSurface) =>
     cn(
-      "relative inline-flex h-10 min-h-10 min-w-11 max-w-[9rem] items-center justify-center overflow-hidden rounded-full px-3 py-2 text-sm font-semibold transition-colors duration-200",
+      "portfolio-nav-item relative inline-flex h-10 min-h-10 min-w-11 max-w-[9rem] items-center justify-center overflow-hidden rounded-full border border-transparent px-3 py-2 text-sm font-semibold transition-colors duration-200",
       surface === "mobile" &&
         "h-12 min-h-12 max-w-[8.75rem] px-3 text-[0.82rem]",
       "focus:outline-none focus-visible:ring-0",
@@ -135,14 +156,11 @@ const Navbar = () => {
 
   const renderNavItemContent = (
     item: NavItem,
-    isActive: boolean,
+    isExpanded: boolean,
     surface: NavSurface,
   ) => {
     const Icon = item.icon;
-    const labelWidth =
-      surface === "mobile" && item.mobileLabelWidth
-        ? item.mobileLabelWidth
-        : item.labelWidth;
+    const labelWidth = getNavItemLabelWidth(item, surface);
 
     return (
       <>
@@ -158,23 +176,23 @@ const Navbar = () => {
         <motion.span
           initial={false}
           animate={{
-            width: isActive ? `${labelWidth}px` : "0px",
-            opacity: isActive ? 1 : 0,
-            marginLeft: isActive
+            width: isExpanded ? `${labelWidth}px` : "0px",
+            opacity: isExpanded ? 1 : 0,
+            marginLeft: isExpanded
               ? surface === "mobile"
                 ? "0.45rem"
                 : "0.5rem"
               : "0rem",
           }}
           transition={itemTransition}
-          className="flex max-w-[6rem] items-center overflow-hidden"
-          aria-hidden={!isActive}
+          className="portfolio-nav-item__label flex max-w-[6rem] items-center overflow-hidden"
+          aria-hidden={!isExpanded}
         >
           <span
             className={cn(
-              "truncate text-xs font-semibold leading-5 transition-opacity duration-200",
+              "portfolio-nav-item__label-text truncate text-xs font-semibold leading-5 transition-opacity duration-200",
               surface === "mobile" && "text-[0.8rem]",
-              isActive ? "opacity-100" : "opacity-0",
+              isExpanded ? "opacity-100" : "opacity-0",
             )}
             title={item.title}
           >
@@ -188,35 +206,58 @@ const Navbar = () => {
   const renderNavItem = (item: NavItem, surface: NavSurface) => {
     const isActive =
       item.kind === "route" ? isActivePath(item.path) : item.isActive;
+    const itemKey = getNavItemKey(item);
+    const surfaceItemKey = getSurfaceNavItemKey(item, surface);
+    const itemStyle = getNavItemStyle(item, surface);
+    const activeInteractionKey = hoveredNavKey ?? focusedNavKey;
+    const hasSurfaceInteraction = activeInteractionKey?.startsWith(`${surface}:`);
+    const isInteracting = activeInteractionKey === surfaceItemKey;
+    const isExpanded = isInteracting || (isActive && !hasSurfaceInteraction);
+    const interactionHandlers = {
+      onMouseEnter: () => setHoveredNavKey(surfaceItemKey),
+      onMouseLeave: () =>
+        setHoveredNavKey((currentKey) =>
+          currentKey === surfaceItemKey ? null : currentKey,
+        ),
+      onFocus: () => setFocusedNavKey(surfaceItemKey),
+      onBlur: () =>
+        setFocusedNavKey((currentKey) =>
+          currentKey === surfaceItemKey ? null : currentKey,
+        ),
+    };
 
     if (item.kind === "route") {
       return (
         <MotionLink
-          key={item.path}
+          key={itemKey}
           to={item.path}
           aria-label={item.title}
           aria-current={isActive ? "page" : undefined}
           title={item.title}
           whileTap={{ scale: 0.97 }}
           className={navItemClassName(isActive, surface)}
+          style={itemStyle}
+          {...interactionHandlers}
         >
-          {renderNavItemContent(item, isActive, surface)}
+          {renderNavItemContent(item, isExpanded, surface)}
         </MotionLink>
       );
     }
 
     return (
       <motion.button
-        key={item.title}
+        key={itemKey}
         type="button"
         aria-label={item.title}
         aria-pressed={isActive}
         title={item.title}
         whileTap={{ scale: 0.97 }}
         className={navItemClassName(isActive, surface)}
+        style={itemStyle}
         onClick={item.onSelect}
+        {...interactionHandlers}
       >
-        {renderNavItemContent(item, isActive, surface)}
+        {renderNavItemContent(item, isExpanded, surface)}
       </motion.button>
     );
   };

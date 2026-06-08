@@ -61,6 +61,8 @@ const Footer = () => {
               <img
                 src="/images/RA_logo_black.png"
                 alt="Reggie Alleyne Logo"
+                loading="lazy"
+                decoding="async"
                 className="h-9 w-auto"
               />
             </Link>

@@ -1,4 +1,3 @@
-import { useMemo, useState } from "react";
 import {
   Code,
   ExternalLink,
@@ -12,11 +11,9 @@ import {
   getFeaturedConfig,
 } from "@/config/portfolioCuration";
 import { getProjectLiveLabel } from "@/lib/projectLiveLabels";
-import type { ProjectType, ProjectVisual } from "@/types/project";
-import {
-  EditorialSection,
-  ProjectLightboxModal,
-} from "./EditorialProjectLayout";
+import { cn } from "@/lib/utils";
+import type { ProjectType } from "@/types/project";
+import { EditorialSection } from "./EditorialProjectLayout";
 
 interface ProjectEssentialsProps {
   project: ProjectType;
@@ -28,40 +25,7 @@ const firstText = (...values: Array<string | null | undefined>) =>
 const compactItems = (items?: string[] | null, limit = 4) =>
   items?.filter(Boolean).slice(0, limit) || [];
 
-const SELECTED_VISUAL_LIMIT = 5;
-
-const getUniqueVisuals = (project: ProjectType) => {
-  const imageSet = new Set(
-    [project.image, ...(project.images || [])].filter(Boolean),
-  );
-
-  return Array.from(imageSet);
-};
-
-const getProjectVisuals = (project: ProjectType): ProjectVisual[] => {
-  if (project.visuals?.length) {
-    const seen = new Set<string>();
-
-    return project.visuals.filter((visual) => {
-      if (!visual.src || seen.has(visual.src)) {
-        return false;
-      }
-
-      seen.add(visual.src);
-      return true;
-    });
-  }
-
-  return getUniqueVisuals(project)
-    .slice(1, SELECTED_VISUAL_LIMIT + 1)
-    .map((src, index) => ({
-      src,
-      label: `Project visual ${index + 2}`,
-    }));
-};
-
 const ProjectEssentials = ({ project }: ProjectEssentialsProps) => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const tldr = getCaseStudyTldr(project.slug);
   const brief = getCaseStudyBrief(project.slug);
   const featured = getFeaturedConfig(project.slug);
@@ -110,38 +74,7 @@ const ProjectEssentials = ({ project }: ProjectEssentialsProps) => {
   ].filter((item): item is { label: string; value: string } =>
     Boolean(item.value),
   );
-  const decisionPath = [
-    {
-      label: "User need",
-      value: firstText(
-        brief?.audience,
-        tldr?.problem,
-        project.problemSolved,
-        project.problem,
-        project.challenge,
-      ),
-    },
-    {
-      label: "Constraint",
-      value: firstText(brief?.constraint, project.problem, project.challenge),
-    },
-    {
-      label: "Product move",
-      value: firstText(tldr?.decision, brief?.coreDecision, project.solution),
-    },
-    {
-      label: "Proof point",
-      value: firstText(
-        brief?.evidence,
-        tldr?.outcome,
-        project.conclusion?.impact,
-        featured?.impactSummary,
-      ),
-    },
-  ].filter((item) => item.value);
   const processNotes = compactItems(project.process, 3);
-  const visualStrip = useMemo(() => getProjectVisuals(project), [project]);
-  const hasLabeledVisuals = Boolean(project.visuals?.length);
 
   const links = [
     {
@@ -177,158 +110,148 @@ const ProjectEssentials = ({ project }: ProjectEssentialsProps) => {
 
   return (
     <EditorialSection
-      className="project-essentials border-b border-gray-200"
-      contentClassName="project-essentials__content"
+      className="border-b border-gray-200"
+      contentClassName="max-w-[82rem] space-y-8 px-4 sm:px-6 lg:px-0"
       tone="soft"
     >
-      <div className="project-essentials__grid">
-        <aside className="project-essentials__aside" aria-label="Project facts">
-          <p>Essentials</p>
-          <dl>
-            {metadata.map((item) => (
-              <div key={item.label}>
-                <dt>{item.label}</dt>
-                <dd>{item.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </aside>
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+        <div className="max-w-3xl">
+          <p className="mb-3 text-sm font-semibold leading-5 text-primary">
+            Project summary
+          </p>
+          <h2 className="font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
+            What to inspect after the story
+          </h2>
+        </div>
 
-        <div className="project-essentials__body">
-          <div className="project-essentials__summary">
-            {essentials.map((item) => (
-              <article key={item.label}>
-                <p>{item.label}</p>
-                <h2>{item.value}</h2>
+        {links.length ? (
+          <div className="flex flex-wrap gap-3 lg:justify-end">
+            {links.map((link) => {
+              const Icon = link.icon;
+
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.tone === "dark" ? undefined : "_blank"}
+                  rel={link.tone === "dark" ? undefined : "noopener noreferrer"}
+                  className={cn(
+                    "inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-4 text-sm font-semibold text-gray-950 shadow-sm transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
+                    link.tone === "dark" &&
+                      "border-gray-950 bg-gray-950 text-white hover:border-primary hover:bg-primary hover:text-white",
+                  )}
+                >
+                  <Icon className="h-4 w-4" />
+                  <span>{link.label}</span>
+                </a>
+              );
+            })}
+          </div>
+        ) : null}
+      </div>
+
+      <dl className="grid gap-5 border-b border-gray-200 pb-5 md:grid-cols-3 md:gap-8">
+        {metadata.map((item) => (
+          <div key={item.label} className="min-w-0">
+            <dt className="text-xs font-semibold uppercase leading-5 text-primary">
+              {item.label}
+            </dt>
+            <dd className="mt-2 text-base font-semibold leading-6 text-gray-950">
+              {item.value}
+            </dd>
+          </div>
+        ))}
+      </dl>
+
+      {essentials.length ? (
+        <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+          <div className="grid divide-y divide-gray-200 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
+            {essentials.map((item, index) => (
+              <article
+                key={item.label}
+                className="grid min-h-[14rem] content-between gap-8 p-5 sm:p-6"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <p className="text-sm font-semibold leading-5 text-primary">
+                    {item.label}
+                  </p>
+                  <span
+                    className="font-display text-4xl leading-none text-gray-200"
+                    aria-hidden="true"
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                <h3 className="text-lg font-normal leading-8 text-gray-700 [text-wrap:pretty]">
+                  {item.value}
+                </h3>
               </article>
             ))}
           </div>
         </div>
+      ) : null}
 
-        {decisionPath.length || processNotes.length ? (
-          <section className="project-essentials__thinking">
-            <div className="project-essentials__thinking-header">
-              <p>Thought process</p>
-              <h2>What shaped the work</h2>
-            </div>
+      {processNotes.length ? (
+        <div className="border-t border-gray-200 pt-8">
+          <p className="text-sm font-semibold leading-5 text-primary">
+            Build receipts
+          </p>
+          <ol className="mt-5 grid gap-3 md:grid-cols-3">
+            {processNotes.map((item, index) => (
+              <li
+                key={item}
+                className="rounded-lg border border-gray-200 bg-white p-4 text-lg leading-8 text-gray-700"
+              >
+                <span className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <p>{item}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ) : null}
 
-            <div className="project-essentials__thinking-grid">
-              {decisionPath.length ? (
-                <div className="project-essentials__decision-path">
-                  {decisionPath.map((item) => (
-                    <article key={item.label}>
-                      <p>{item.label}</p>
-                      <h3>{item.value}</h3>
-                    </article>
-                  ))}
-                </div>
-              ) : null}
-
-              {processNotes.length ? (
-                <div className="project-essentials__process">
-                  <p>Build path</p>
-                  <ol>
-                    {processNotes.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ol>
-                </div>
-              ) : null}
-            </div>
-          </section>
-        ) : null}
-
-        <div className="project-essentials__support">
+      {tools.length || built.length ? (
+        <div className="grid gap-6 border-t border-gray-200 pt-8 sm:grid-cols-2">
           {tools.length ? (
-            <div className="project-essentials__group">
-              <p>Tools</p>
-              <div>
+            <div>
+              <p className="text-sm font-semibold leading-5 text-primary">
+                Tools
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
                 {tools.map((item) => (
-                  <span key={item}>{item}</span>
+                  <span
+                    key={item}
+                    className="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-700"
+                  >
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
           ) : null}
 
           {built.length ? (
-            <div className="project-essentials__group">
-              <p>Built</p>
-              <div>
+            <div>
+              <p className="text-sm font-semibold leading-5 text-primary">
+                Built
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
                 {built.map((item) => (
-                  <span key={item}>{item}</span>
+                  <span
+                    key={item}
+                    className="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-700"
+                  >
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
           ) : null}
-
-          {links.length ? (
-            <div className="project-essentials__links">
-              {links.map((link) => {
-                const Icon = link.icon;
-
-                return (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target={link.tone === "dark" ? undefined : "_blank"}
-                    rel={link.tone === "dark" ? undefined : "noopener noreferrer"}
-                    className={
-                      link.tone === "dark"
-                        ? "project-essentials__link project-essentials__link--dark"
-                        : "project-essentials__link"
-                    }
-                  >
-                    <Icon className="h-4 w-4" />
-                    <span>{link.label}</span>
-                  </a>
-                );
-              })}
-            </div>
-          ) : null}
         </div>
-
-        {visualStrip.length ? (
-          <div className="project-essentials__visuals">
-            <p>Selected visuals</p>
-            <div>
-              {visualStrip.map((visual) => (
-                <button
-                  key={visual.src}
-                  type="button"
-                  className={
-                    hasLabeledVisuals
-                      ? "project-essentials__visual-button--labeled"
-                      : undefined
-                  }
-                  onClick={() => setSelectedImage(visual.src)}
-                >
-                  <span className="sr-only">
-                    Open {visual.label}
-                  </span>
-                  <img
-                    src={visual.src}
-                    alt={`${project.title}: ${visual.label}`}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  {hasLabeledVisuals ? (
-                    <span className="project-essentials__visual-caption">
-                      <strong>{visual.label}</strong>
-                      {visual.note ? <em>{visual.note}</em> : null}
-                    </span>
-                  ) : null}
-                </button>
-              ))}
-            </div>
-          </div>
-        ) : null}
-      </div>
-
-      <ProjectLightboxModal
-        imageSrc={selectedImage}
-        alt={`${project.title} visual`}
-        onClose={() => setSelectedImage(null)}
-      />
+      ) : null}
     </EditorialSection>
   );
 };

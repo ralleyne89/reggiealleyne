@@ -11,7 +11,9 @@ import {
 import { motion } from "framer-motion";
 import ProjectHeader from "@/components/project/ProjectHeader";
 import ProjectEssentials from "@/components/project/ProjectEssentials";
+import ProjectNarrative from "@/components/project/ProjectNarrative";
 import ProjectAudienceJourney from "@/components/project/ProjectAudienceJourney";
+import ProjectInterfaceEvidence from "@/components/project/ProjectInterfaceEvidence";
 import { ProjectType } from "@/types/project";
 import {
   getCanonicalProjectRouteSlug,
@@ -297,6 +299,8 @@ const Project = () => {
       <div className="w-full">
         <ProjectEssentials project={project as ProjectType} />
         <ProjectAudienceJourney project={project as ProjectType} />
+        <ProjectNarrative project={project as ProjectType} />
+        <ProjectInterfaceEvidence project={project as ProjectType} />
       </div>
 
       <Footer />
