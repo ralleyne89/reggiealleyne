@@ -27,18 +27,20 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Poppins', 'sans-serif'],
-				heading: ['Poppins', 'sans-serif'],
-				display: ['Poppins', 'sans-serif'],
+				sans: ['"Geist Variable"', 'system-ui', 'sans-serif'],
+				heading: ['"Geist Variable"', 'system-ui', 'sans-serif'],
+				display: ['"Bricolage Grotesque Variable"', '"Bricolage Grotesque Fallback"', 'system-ui', 'sans-serif'],
+				mono: ['"Geist Mono Variable"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
 			},
 			fontSize: {
-				// Typography scale (8pt grid aligned)
-				'display-xl': ['4rem', { lineHeight: '1.08', letterSpacing: '0' }],
-				'display-lg': ['3.5rem', { lineHeight: '1.1', letterSpacing: '0' }],
-				'display-md': ['2.75rem', { lineHeight: '1.12', letterSpacing: '0' }],
-				'heading-xl': ['2.25rem', { lineHeight: '1.2', letterSpacing: '0' }],
-				'heading-lg': ['1.875rem', { lineHeight: '1.25', letterSpacing: '0' }],
-				'heading-md': ['1.375rem', { lineHeight: '1.35', letterSpacing: '0' }],
+				// Fluid typography scale (values defined in index.css :root)
+				'display-2xl': ['var(--fs-display-2xl)', { lineHeight: '0.98', letterSpacing: '-0.03em' }],
+				'display-xl': ['var(--fs-display-xl)', { lineHeight: '1.02', letterSpacing: '-0.025em' }],
+				'display-lg': ['var(--fs-display-lg)', { lineHeight: '1.06', letterSpacing: '-0.02em' }],
+				'display-md': ['var(--fs-display-md)', { lineHeight: '1.1', letterSpacing: '-0.015em' }],
+				'heading-xl': ['var(--fs-heading-xl)', { lineHeight: '1.16', letterSpacing: '-0.01em' }],
+				'heading-lg': ['var(--fs-heading-lg)', { lineHeight: '1.22', letterSpacing: '-0.01em' }],
+				'heading-md': ['var(--fs-heading-md)', { lineHeight: '1.3', letterSpacing: '0' }],
 				'body-lg': ['1.125rem', { lineHeight: '1.75' }],
 				'body-md': ['1rem', { lineHeight: '1.75' }],
 				'body-sm': ['0.875rem', { lineHeight: '1.6' }],

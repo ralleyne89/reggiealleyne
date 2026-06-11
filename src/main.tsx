@@ -1,6 +1,9 @@
 
 import { createRoot } from 'react-dom/client';
 import { StrictMode } from 'react';
+import '@fontsource-variable/bricolage-grotesque';
+import '@fontsource-variable/geist';
+import '@fontsource-variable/geist-mono';
 import App from './App.tsx';
 import './index.css';
 
