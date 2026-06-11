@@ -1,10 +1,10 @@
-import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Brain, Code2, Layers3, ShieldCheck } from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Brain, Code2, ShieldCheck } from "lucide-react";
+import SectionRule from "@/components/motion/SectionRule";
+import TextReveal from "@/components/motion/TextReveal";
+import RollingText from "@/components/motion/RollingText";
+import { DUR, EASE, STAGGER } from "@/lib/motion";
 
 const fitSignals = [
   {
@@ -24,184 +24,131 @@ const fitSignals = [
   },
 ];
 
-const cascadeNotes = [
+const principles = [
   {
-    label: "01 / Frame",
+    step: "01",
+    chip: "Frame",
     title: "Find the decision the interface has to make easier.",
     text: "The work starts by naming the user, the constraint, and the proof a reviewer should be able to inspect.",
   },
   {
-    label: "02 / Shape",
+    step: "02",
+    chip: "Shape",
     title: "Turn rough product intent into a visible path.",
     text: "Flows, wireframes, and prototypes make the tradeoffs concrete before the team spends energy building the wrong thing.",
   },
   {
-    label: "03 / Build",
+    step: "03",
+    chip: "Build",
     title: "Use code when it clarifies the product.",
     text: "React prototypes and shipped frontends help the design survive real data, responsive behavior, and edge cases.",
   },
   {
-    label: "04 / Prove",
+    step: "04",
+    chip: "Prove",
     title: "Keep evidence close to every claim.",
     text: "Case studies should show what changed, what shipped, and what can be opened, tested, or inspected.",
   },
 ];
 
 const AboutSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
-  useLayoutEffect(() => {
-    const section = sectionRef.current;
-
-    if (!section) {
-      return undefined;
-    }
-
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    let media: ReturnType<typeof gsap.matchMedia> | null = null;
-
-    const context = gsap.context(() => {
-      const cards = gsap.utils.toArray<HTMLElement>("[data-about-cascade-card]");
-      const signals = gsap.utils.toArray<HTMLElement>("[data-about-signal]");
-
-      if (reduceMotion) {
-        gsap.set([...cards, ...signals, "[data-about-copy]"], {
-          autoAlpha: 1,
-          clearProps: "clipPath,transform",
-        });
-        return;
-      }
-
-      gsap.from("[data-about-copy]", {
-        autoAlpha: 0,
-        duration: 0.72,
-        ease: "expo.out",
-        stagger: 0.08,
-        y: 34,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 78%",
-          toggleActions: "play none none reverse",
-        },
-      });
-
-      gsap.from(cards, {
-        autoAlpha: 0,
-        clipPath: "inset(12% 8% 12% 8% round 0.9rem)",
-        duration: 0.86,
-        ease: "expo.out",
-        stagger: 0.1,
-        y: 86,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 66%",
-          toggleActions: "play none none reverse",
-        },
-      });
-
-      gsap.from(signals, {
-        autoAlpha: 0,
-        duration: 0.62,
-        ease: "power3.out",
-        stagger: 0.08,
-        x: -20,
-        scrollTrigger: {
-          trigger: "[data-about-signals]",
-          start: "top 82%",
-          toggleActions: "play none none reverse",
-        },
-      });
-
-      media = gsap.matchMedia();
-      media.add("(min-width: 1024px)", () => {
-        cards.forEach((card, index) => {
-          gsap.to(card, {
-            ease: "none",
-            y: index % 2 === 0 ? -54 : 34,
-            scrollTrigger: {
-              trigger: section,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 1.1,
-            },
-          });
-        });
-      });
-    }, section);
-
-    return () => {
-      media?.revert();
-      context.revert();
-    };
-  }, []);
+  const fadeUp = (delay = 0) => ({
+    initial: shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.35 } as const,
+    transition: { duration: DUR.base, delay, ease: EASE.out },
+  });
 
   return (
     <section
       id="about"
-      ref={sectionRef}
-      className="about-cascade relative overflow-clip"
+      className="relative border-t border-gray-200 bg-[oklch(var(--color-surface-soft))] py-16 sm:py-24"
     >
-      <div className="about-cascade__grid">
-        <div className="about-cascade__intro">
-          <p data-about-copy className="about-cascade__eyebrow">
-            About Reggie
-          </p>
-          <h2 data-about-copy className="about-cascade__title">
-            Product judgment, UX craft, and frontend proof in the same loop.
-          </h2>
-          <p data-about-copy className="about-cascade__text">
-            I design interfaces for AI tools, dashboards, and mobile-first
-            platforms, then prototype enough behavior to help teams see what
-            works before they overbuild.
-          </p>
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionRule index="05" label="About Reggie" className="mb-6" />
 
-          <div data-about-copy className="about-cascade__actions">
-            <Link to="/about" className="about-cascade__primary">
-              Read more about me
-              <ArrowRight size={18} />
-            </Link>
-            <a href="#contact" className="about-cascade__secondary">
-              Reach out
-            </a>
+        <TextReveal
+          as="h2"
+          split="lines"
+          className="max-w-4xl break-words font-display text-[2.25rem] font-semibold leading-[1.05] text-gray-950 sm:text-display-md"
+        >
+          Product judgment, UX craft, and frontend proof in the same loop.
+        </TextReveal>
+
+        <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
+          <div className="min-w-0">
+            <motion.p
+              {...fadeUp()}
+              className="max-w-xl text-base leading-7 text-text-secondary sm:text-lg sm:leading-8"
+            >
+              I design interfaces for AI tools, dashboards, and mobile-first
+              platforms, then prototype enough behavior to help teams see what
+              works before they overbuild.
+            </motion.p>
+
+            <motion.div {...fadeUp(0.08)} className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/about"
+                className="rolling-trigger inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-dark"
+              >
+                <RollingText>Read more about me</RollingText>
+                <ArrowRight size={16} />
+              </Link>
+              <a
+                href="#contact"
+                className="rolling-trigger inline-flex min-h-12 items-center rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-950 transition-colors hover:border-primary hover:text-primary"
+              >
+                <RollingText>Reach out</RollingText>
+              </a>
+            </motion.div>
+
+            <motion.dl
+              {...fadeUp(0.14)}
+              className="mt-12 divide-y divide-gray-200 border-y border-gray-200"
+            >
+              {fitSignals.map(({ label, value, Icon }) => (
+                <div key={label} className="grid gap-2 py-5">
+                  <dt className="flex items-center gap-2 font-mono text-[0.65rem] font-medium uppercase tracking-[0.22em] text-primary">
+                    <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+                    {label}
+                  </dt>
+                  <dd className="text-sm leading-6 text-text-secondary">
+                    {value}
+                  </dd>
+                </div>
+              ))}
+            </motion.dl>
           </div>
-        </div>
 
-        <div className="about-cascade__story">
-          <article className="about-cascade__lead" data-about-cascade-card>
-            <div className="about-cascade__lead-icon">
-              <Layers3 size={24} />
-            </div>
-            <p>Best work</p>
-            <h3>
-              Strategy, interface design, and buildable systems moving together.
-            </h3>
-            <span aria-hidden="true">archive / working method</span>
-          </article>
-
-          <div className="about-cascade__stack">
-            {cascadeNotes.map((note) => (
-              <article key={note.label} data-about-cascade-card>
-                <p>{note.label}</p>
-                <h3>{note.title}</h3>
-                <span>{note.text}</span>
-              </article>
-            ))}
-          </div>
-
-          <div
-            data-about-signals
-            className="about-cascade__signals"
-            aria-label="Working fit signals"
-          >
-            {fitSignals.map(({ label, value, Icon }) => (
-              <article key={label} data-about-signal>
-                <Icon className="h-5 w-5" />
-                <p>{label}</p>
-                <span>{value}</span>
-              </article>
+          <div className="min-w-0 divide-y divide-gray-200 border-y border-gray-200">
+            {principles.map((principle, index) => (
+              <motion.article
+                key={principle.step}
+                {...fadeUp(index * STAGGER.tight)}
+                className="group grid min-w-0 gap-3 py-7 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-6"
+              >
+                <div className="flex items-baseline gap-3 sm:flex-col sm:gap-2">
+                  <span
+                    aria-hidden="true"
+                    className="font-mono text-[2rem] font-medium leading-none tracking-tight text-primary/30 transition-colors duration-300 group-hover:text-primary"
+                  >
+                    {principle.step}
+                  </span>
+                  <span className="font-mono text-[0.65rem] font-medium uppercase tracking-[0.22em] text-text-muted">
+                    {principle.chip}
+                  </span>
+                </div>
+                <div className="min-w-0">
+                  <h3 className="break-words font-display text-xl font-semibold leading-snug text-gray-950 sm:text-heading-md">
+                    {principle.title}
+                  </h3>
+                  <p className="mt-2 max-w-xl text-sm leading-6 text-text-secondary">
+                    {principle.text}
+                  </p>
+                </div>
+              </motion.article>
             ))}
           </div>
         </div>

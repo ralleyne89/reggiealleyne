@@ -42,6 +42,20 @@ const ScrollToHash = () => {
         hasScrolled = true;
         scrollToElement(target);
 
+        // The destination page may still be laying out (images, lazy
+        // sections), which shifts the target after the first scroll.
+        // Re-assert until it settles near the top of the viewport.
+        [300, 700, 1300, 2000].forEach((delay) => {
+          timeoutIds.push(
+            window.setTimeout(() => {
+              const settled = document.getElementById(targetId);
+              if (settled && Math.abs(settled.getBoundingClientRect().top) > 150) {
+                scrollToElement(settled);
+              }
+            }, delay),
+          );
+        });
+
         window.history.replaceState(
           window.history.state,
           "",

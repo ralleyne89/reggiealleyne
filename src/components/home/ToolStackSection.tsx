@@ -9,7 +9,6 @@ type ToolItem = {
   role: string;
   proof: string;
   tone: ToolTone;
-  layout: ToolTone;
 };
 
 const tools: ToolItem[] = [
@@ -18,88 +17,67 @@ const tools: ToolItem[] = [
     role: "Design systems, flows, and prototype states.",
     proof: "Where product shape gets clear before build.",
     tone: "figma",
-    layout: "figma",
   },
   {
     name: "React",
     role: "Production frontends and testable prototypes.",
     proof: "Turns interface decisions into working behavior.",
     tone: "react",
-    layout: "react",
   },
   {
     name: "Supabase",
     role: "Auth, data, storage, and product backends.",
     proof: "Enough backend to make the interface real.",
     tone: "supabase",
-    layout: "supabase",
   },
   {
     name: "VS Code",
     role: "Daily build environment.",
     proof: "Fast iteration, debugging, and code review.",
     tone: "vscode",
-    layout: "vscode",
   },
   {
     name: "Codex",
     role: "AI pair-programming and repo inspection.",
     proof: "Useful for audits, refactors, and implementation passes.",
     tone: "codex",
-    layout: "codex",
   },
   {
     name: "Tailwind CSS",
     role: "Responsive UI systems.",
     proof: "Keeps spacing, states, and polish close to code.",
     tone: "tailwind",
-    layout: "tailwind",
   },
   {
     name: "Adobe Suites",
     role: "Visual systems, mockups, and asset polish.",
     proof: "Photoshop, Illustrator, and XD for polished handoff.",
     tone: "adobe",
-    layout: "adobe",
   },
   {
     name: "Framer Motion",
     role: "Quiet interaction polish.",
     proof: "Motion that supports hierarchy instead of distracting from it.",
     tone: "framer",
-    layout: "framer",
   },
   {
     name: "GitHub",
     role: "Versioning and shipping discipline.",
     proof: "Keeps implementation traceable.",
     tone: "github",
-    layout: "github",
   },
 ];
 
-const toolCardLayout: Record<ToolTone, string> = {
-  figma: "md:col-span-6 lg:col-span-5",
-  react: "md:col-span-6 lg:col-span-4",
-  supabase: "md:col-span-3 lg:col-span-3",
-  vscode: "md:col-span-3 lg:col-span-3",
-  codex: "md:col-span-6 lg:col-span-6",
-  tailwind: "md:col-span-3 lg:col-span-3",
-  adobe: "md:col-span-2 lg:col-span-4",
-  framer: "md:col-span-2 lg:col-span-4",
-  github: "md:col-span-2 lg:col-span-4",
-};
-
-const iconWrapTone: Record<ToolTone, string> = {
-  figma: "bg-[#2f1b3c] text-white",
-  react: "bg-[#082f49] text-cyan-200",
-  supabase: "bg-[#073127] text-emerald-200",
-  vscode: "bg-[#082f49] text-sky-200",
-  codex: "bg-gray-950 text-purple-100",
-  tailwind: "bg-[#0f3443] text-cyan-100",
-  adobe: "bg-[#43111f] text-rose-100",
-  framer: "bg-[#17142c] text-violet-100",
-  github: "bg-gray-950 text-gray-100",
+const iconTone: Record<ToolTone, string> = {
+  figma: "text-gray-950",
+  react: "text-[#149eca]",
+  supabase: "text-[#3ecf8e]",
+  vscode: "text-[#0098e0]",
+  codex: "text-primary",
+  tailwind: "text-[#38bdf8]",
+  adobe: "text-[#e11d48]",
+  framer: "text-violet-500",
+  github: "text-gray-950",
 };
 
 const ToolIcon = ({ tone }: { tone: ToolTone }) => {
@@ -169,12 +147,10 @@ const ToolStackSection = () => {
   return (
     <section
       id="tools"
-      className="relative overflow-hidden border-t border-gray-200 bg-gray-50 py-14 sm:py-16"
+      className="relative border-t border-gray-200 bg-white py-14 sm:py-20"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(124,58,237,0.08),transparent_28%),radial-gradient(circle_at_82%_22%,rgba(20,184,166,0.08),transparent_24%)]" />
-
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 grid min-w-0 gap-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <div className="mb-10 grid min-w-0 gap-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -199,38 +175,39 @@ const ToolStackSection = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-6 lg:grid-cols-12">
+        <div className="min-w-0 divide-y divide-gray-200 border-y border-gray-200">
           {tools.map((tool, index) => (
             <motion.article
               key={tool.name}
-              className={[
-                "group flex min-h-[12.5rem] min-w-0 flex-col justify-between overflow-hidden rounded-[1.25rem] border border-gray-200 bg-white p-5 shadow-sm shadow-gray-950/5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10",
-                toolCardLayout[tool.layout],
-              ].join(" ")}
-              initial={{ opacity: 0, y: 24 }}
+              className="group grid min-w-0 grid-cols-[2.75rem_minmax(0,1fr)] items-center gap-x-4 gap-y-1 py-5 transition-colors duration-300 hover:bg-gray-50/80 sm:grid-cols-[3.5rem_2.75rem_minmax(0,14rem)_minmax(0,1fr)] sm:gap-x-6 sm:px-2 sm:py-6"
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.42, delay: index * 0.035 }}
-              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.42, delay: index * 0.03 }}
+              viewport={{ once: true, amount: 0.5 }}
             >
-              <div className="flex min-w-0 items-start">
-                <span
-                  className={[
-                    "flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl shadow-sm",
-                    iconWrapTone[tool.tone],
-                  ].join(" ")}
-                >
-                  <ToolIcon tone={tool.tone} />
-                </span>
-              </div>
+              <span
+                aria-hidden="true"
+                className="hidden font-mono text-sm font-medium tracking-[0.18em] text-text-muted sm:block"
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
 
-              <div className="mt-6 min-w-0">
-                <h3 className="break-words font-display text-xl leading-tight text-gray-950 transition-colors group-hover:text-primary">
-                  {tool.name}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-gray-600">
-                  {tool.role}
-                </p>
-                <p className="mt-4 border-t border-gray-200 pt-4 text-xs font-semibold uppercase leading-5 text-gray-500">
+              <span
+                className={[
+                  "flex h-9 w-9 shrink-0 items-center justify-center transition-transform duration-300 [&>svg]:h-6 [&>svg]:w-6 group-hover:scale-110",
+                  iconTone[tool.tone],
+                ].join(" ")}
+              >
+                <ToolIcon tone={tool.tone} />
+              </span>
+
+              <h3 className="break-words font-display text-lg leading-tight text-gray-950 transition-colors duration-300 group-hover:text-primary sm:text-heading-md">
+                {tool.name}
+              </h3>
+
+              <div className="col-span-2 min-w-0 sm:col-span-1 sm:grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:items-baseline sm:gap-6">
+                <p className="text-sm leading-6 text-gray-600">{tool.role}</p>
+                <p className="mt-1 font-mono text-[0.65rem] font-medium uppercase tracking-[0.16em] leading-5 text-gray-400 sm:mt-0 sm:text-right">
                   {tool.proof}
                 </p>
               </div>

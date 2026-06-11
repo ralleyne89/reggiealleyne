@@ -11,7 +11,6 @@ import {
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { DUR, EASE, SPRING } from "@/lib/motion";
-import ContactModal from "./ContactModal";
 
 type NavRouteItem = {
   kind: "route";
@@ -105,13 +104,11 @@ const getNavItemStyle = (item: NavItem, surface: NavSurface) =>
   }) as CSSProperties;
 
 const Navbar = () => {
-  const [contactModalOpen, setContactModalOpen] = useState(false);
   const [hoveredNavKey, setHoveredNavKey] = useState<string | null>(null);
   const [focusedNavKey, setFocusedNavKey] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
-    setContactModalOpen(false);
     setHoveredNavKey(null);
     setFocusedNavKey(null);
   }, [location]);
@@ -124,20 +121,15 @@ const Navbar = () => {
     return location.pathname.startsWith(path);
   };
 
-  const openContactModal = () => {
-    setContactModalOpen(true);
-  };
-
   const navItems: NavItem[] = [
     ...routeNavItems,
     {
-      kind: "action",
+      kind: "route",
       title: "Contact",
+      path: "/#contact",
       icon: MessageCircle,
       labelWidth: 62,
       mobileLabelWidth: 54,
-      onSelect: openContactModal,
-      isActive: contactModalOpen,
     },
   ];
 
@@ -331,11 +323,6 @@ const Navbar = () => {
           "mobile",
         )}
       </div>
-
-      <ContactModal
-        open={contactModalOpen}
-        onOpenChange={setContactModalOpen}
-      />
     </>
   );
 };

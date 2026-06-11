@@ -89,7 +89,7 @@ const FeaturedProjectsSection = () => {
         scrollTrigger: {
           trigger: section,
           start: "top 78%",
-          toggleActions: "play none none reverse",
+          once: true,
         },
       });
 
@@ -99,25 +99,24 @@ const FeaturedProjectsSection = () => {
         const content = card?.querySelector(".portfolio-cinema-card__content");
         const scan = card?.querySelector(".portfolio-cinema-card__scan");
 
+        // Entrance owns clipPath/alpha only; the dim tween below owns
+        // scale/opacity. Keeping the property sets disjoint stops the two
+        // tweens fighting mid-handoff.
         if (card) {
           gsap.fromTo(
             card,
             {
               autoAlpha: 0,
-              clipPath: "inset(10% 6% 10% 6% round 1rem)",
-              rotateX: 7,
-              y: 96,
+              clipPath: "inset(8% 5% 8% 5% round 1rem)",
             },
             {
               autoAlpha: 1,
               clipPath: "inset(0% 0% 0% 0% round 1rem)",
               duration: 0.8,
               ease: EASE.gsapOut,
-              rotateX: 0,
-              y: 0,
               scrollTrigger: {
                 trigger: shell,
-                start: "top 72%",
+                start: "top 78%",
                 toggleActions: "play none none none",
               },
             },
@@ -192,22 +191,16 @@ const FeaturedProjectsSection = () => {
           gsap.fromTo(
             card,
             {
-              opacity: 1,
-              rotateX: 0,
               scale: 1,
-              y: 0,
             },
             {
               ease: "none",
               immediateRender: false,
-              opacity: 0.62,
-              rotateX: -2,
-              scale: 0.985,
-              y: 16,
+              scale: 0.95,
               scrollTrigger: {
                 trigger: nextShell,
                 start: "top bottom",
-                end: "top 18%",
+                end: "top 12%",
                 scrub: true,
               },
             },
@@ -267,7 +260,7 @@ const FeaturedProjectsSection = () => {
           scrollTrigger: {
             trigger: "[data-supporting-work]",
             start: "top 82%",
-            toggleActions: "play none none reverse",
+            once: true,
           },
         });
       }
