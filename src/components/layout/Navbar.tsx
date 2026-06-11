@@ -4,6 +4,7 @@ import {
   BriefcaseBusiness,
   Home,
   MessageCircle,
+  PanelsTopLeft,
   Sparkles,
   UserRound,
   type LucideIcon,
@@ -41,7 +42,7 @@ const routeNavItems: NavRouteItem[] = [
     path: "/",
     icon: Home,
     labelWidth: 44,
-    mobileLabelWidth: 46,
+    mobileLabelWidth: 42,
   },
   {
     kind: "route",
@@ -53,11 +54,19 @@ const routeNavItems: NavRouteItem[] = [
   },
   {
     kind: "route",
+    title: "Services",
+    path: "/services",
+    icon: PanelsTopLeft,
+    labelWidth: 68,
+    mobileLabelWidth: 58,
+  },
+  {
+    kind: "route",
     title: "Playground",
     path: "/playground",
     icon: Sparkles,
     labelWidth: 86,
-    mobileLabelWidth: 80,
+    mobileLabelWidth: 70,
   },
   {
     kind: "route",
@@ -125,7 +134,7 @@ const Navbar = () => {
       title: "Contact",
       icon: MessageCircle,
       labelWidth: 62,
-      mobileLabelWidth: 58,
+      mobileLabelWidth: 54,
       onSelect: openContactModal,
       isActive: contactModalOpen,
     },
@@ -147,7 +156,7 @@ const Navbar = () => {
     cn(
       "portfolio-nav-item relative inline-flex h-10 min-h-10 min-w-11 max-w-[9rem] items-center justify-center overflow-hidden rounded-full border border-transparent px-3 py-2 text-sm font-semibold transition-colors duration-200",
       surface === "mobile" &&
-        "h-12 min-h-12 max-w-[8.75rem] px-3 text-[0.82rem]",
+        "h-12 min-h-12 min-w-10 max-w-[8.75rem] px-2 text-[0.82rem]",
       "focus:outline-none focus-visible:ring-0",
       isActive
         ? "liquid-glass-control liquid-glass-nav-control text-zinc-50 shadow-sm"

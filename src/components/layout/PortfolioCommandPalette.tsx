@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Bot, BriefcaseBusiness, Home, MessageCircle, Search, Sparkles, UserRound } from "lucide-react";
+import { Bot, BriefcaseBusiness, Home, MessageCircle, PanelsTopLeft, Search, Sparkles, UserRound } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Command,
@@ -138,6 +138,13 @@ const PortfolioCommandPalette = () => {
       description: "Browse case studies and supporting projects.",
       shortcut: "W",
       onSelect: () => navigateTo("/work"),
+    },
+    {
+      id: "services",
+      label: "Open Services",
+      description: "Review Growth Websites and related service capabilities.",
+      shortcut: "G",
+      onSelect: () => navigateTo("/services"),
     },
     {
       id: "home-projects",
@@ -299,6 +306,8 @@ const PortfolioCommandPalette = () => {
                         ? Home
                         : command.id === "work" || command.id === "home-projects"
                           ? BriefcaseBusiness
+                          : command.id === "services"
+                            ? PanelsTopLeft
                           : command.id === "playground"
                             ? Sparkles
                             : command.id === "about"
