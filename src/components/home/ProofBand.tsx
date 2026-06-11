@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import CountUp from "@/components/motion/CountUp";
 import { homepageProofMetrics } from "@/config/portfolioCuration";
 
 const workingSteps = [
@@ -33,7 +35,7 @@ const ProofBand = () => {
       <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase leading-5 tracking-[0.14em] text-purple-200">
+            <p className="font-mono text-xs font-medium uppercase leading-5 tracking-[0.22em] text-purple-200">
               Proof in 30 seconds
             </p>
             <h2 className="mt-3 max-w-2xl break-words font-display text-3xl leading-tight tracking-normal text-white [text-wrap:balance] sm:text-4xl">
@@ -46,20 +48,23 @@ const ProofBand = () => {
 
           <div className="grid min-w-0 gap-3 sm:grid-cols-3">
             {homepageProofMetrics.map((metric) => (
-              <article
+              <Link
                 key={metric.label}
-                className="min-w-0 rounded-lg border border-white/10 bg-white/[0.05] p-4 shadow-sm shadow-black/10"
+                to={metric.href}
+                data-cursor-label="View case study"
+                className="group min-w-0 rounded-xl border border-white/10 bg-white/[0.05] p-4 shadow-sm shadow-black/10 transition-colors duration-300 hover:border-purple-300/40 hover:bg-white/[0.09] focus-visible:border-purple-300/40"
               >
-                <p className="break-words font-display text-3xl leading-tight text-purple-200">
-                  {metric.value}
-                </p>
+                <CountUp
+                  value={metric.value}
+                  className="block text-[clamp(1.9rem,2.6vw,2.4rem)] font-medium leading-[1.05] tracking-tight text-purple-200"
+                />
                 <h3 className="mt-3 text-sm font-semibold leading-6 text-white">
                   {metric.label}
                 </h3>
                 <p className="mt-2 text-xs leading-5 text-gray-400">
                   {metric.description}
                 </p>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -68,7 +73,7 @@ const ProofBand = () => {
           <div className="min-w-0 rounded-xl border border-white/10 bg-white/[0.04] p-4 sm:p-5">
             <div className="mb-4 flex min-w-0 flex-wrap items-end justify-between gap-3">
               <div className="min-w-0">
-                <p className="text-xs font-semibold uppercase leading-5 tracking-[0.14em] text-teal-200">
+                <p className="font-mono text-xs font-medium uppercase leading-5 tracking-[0.22em] text-teal-200">
                   How I work
                 </p>
                 <h3 className="mt-2 break-words font-display text-2xl leading-tight text-white">
@@ -86,7 +91,7 @@ const ProofBand = () => {
                   key={item.step}
                   className="min-w-0 border-b border-white/10 py-4 md:border-b-0 md:border-r md:px-4 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
                 >
-                  <p className="text-xs font-semibold leading-5 text-teal-200">
+                  <p className="font-mono text-xs font-medium leading-5 tracking-[0.18em] text-teal-200">
                     {item.step}
                   </p>
                   <h4 className="mt-3 text-sm font-semibold leading-6 text-white">
@@ -101,7 +106,7 @@ const ProofBand = () => {
           </div>
 
           <aside className="min-w-0 rounded-xl border border-white/10 bg-white/[0.04] p-4 sm:p-5">
-            <p className="text-xs font-semibold uppercase leading-5 tracking-[0.14em] text-purple-200">
+            <p className="font-mono text-xs font-medium uppercase leading-5 tracking-[0.22em] text-purple-200">
               Good to know
             </p>
             <ul className="mt-4 space-y-3">

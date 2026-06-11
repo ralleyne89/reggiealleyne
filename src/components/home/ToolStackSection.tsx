@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Bot, GitBranch, PanelsTopLeft, PenTool } from "lucide-react";
+import SectionRule from "@/components/motion/SectionRule";
 
 type ToolTone = "figma" | "react" | "supabase" | "vscode" | "codex" | "tailwind" | "adobe" | "framer" | "github";
 
@@ -180,9 +181,7 @@ const ToolStackSection = () => {
             transition={{ duration: 0.45 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <p className="mb-3 text-xs font-semibold uppercase leading-5 text-primary sm:text-sm">
-              Tools I use
-            </p>
+            <SectionRule index="04" label="Tools I use" className="mb-4" />
             <h2 className="break-words font-display text-[2rem] font-semibold leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
               The stack behind the prototypes, systems, and product screens.
             </h2>

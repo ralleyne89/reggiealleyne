@@ -2037,8 +2037,8 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
 }
 
 .portfolio-cinema-card:hover .portfolio-cinema-card__media-inner img {
-  filter: brightness(0.98) saturate(1.05);
-  transform: scale(1.035);
+  filter: brightness(0.98) saturate(1.08);
+  transform: scale(1.05) rotate(0.4deg);
 }
 
 .portfolio-cinema-progress {

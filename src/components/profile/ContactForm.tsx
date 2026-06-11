@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Turnstile from "@/components/contact/Turnstile";
+import MagneticButton from "@/components/motion/MagneticButton";
 import {
   createContactMailtoHref,
   isTurnstileConfigured,
@@ -187,17 +188,19 @@ const ContactForm = ({
             </FormItem>
           )}
         />
-        <Button
-          type="submit"
-          className="min-h-11 w-full rounded-full bg-primary py-2.5 font-medium text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-50"
-          disabled={isLoading}
-        >
-          {isLoading
-            ? "Sending..."
-            : isTurnstileConfigured
-              ? "Send Message"
-              : "Open Email Draft"}
-        </Button>
+        <MagneticButton strength={0.18} className="block w-full">
+          <Button
+            type="submit"
+            className="min-h-11 w-full rounded-full bg-primary py-2.5 font-medium text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-50"
+            disabled={isLoading}
+          >
+            {isLoading
+              ? "Sending..."
+              : isTurnstileConfigured
+                ? "Send Message"
+                : "Open Email Draft"}
+          </Button>
+        </MagneticButton>
       </form>
     </Form>
   );

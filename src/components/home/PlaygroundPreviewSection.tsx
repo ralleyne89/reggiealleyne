@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 import { experiments } from "@/config/playgroundExperiments";
+import SectionRule from "@/components/motion/SectionRule";
 
 const PlaygroundPreviewSection = () => {
   const previewExperiments = experiments.slice(0, 3);
@@ -16,9 +17,7 @@ const PlaygroundPreviewSection = () => {
             transition={{ duration: 0.45 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <p className="mb-3 text-xs font-semibold uppercase leading-5 text-primary sm:text-sm">
-              Prototype lab
-            </p>
+            <SectionRule index="03" label="Prototype lab" className="mb-4" />
             <h2 className="break-words font-display text-[2rem] font-semibold leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
               Small experiments that show how ideas behave.
             </h2>

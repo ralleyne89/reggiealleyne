@@ -14,6 +14,10 @@ import {
   sortProjectsNewestFirst,
 } from "@/config/portfolioCuration";
 import { getProjectPath } from "@/lib/projectRoutes";
+import { EASE, SCRUB, STAGGER } from "@/lib/motion";
+import TextReveal from "@/components/motion/TextReveal";
+import RollingText from "@/components/motion/RollingText";
+import SectionRule from "@/components/motion/SectionRule";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,8 +83,8 @@ const FeaturedProjectsSection = () => {
       gsap.from("[data-cinema-header]", {
         autoAlpha: 0,
         duration: 0.8,
-        ease: "expo.out",
-        stagger: 0.08,
+        ease: EASE.gsapOut,
+        stagger: STAGGER.base,
         y: 34,
         scrollTrigger: {
           trigger: section,
@@ -108,7 +112,7 @@ const FeaturedProjectsSection = () => {
               autoAlpha: 1,
               clipPath: "inset(0% 0% 0% 0% round 1rem)",
               duration: 0.8,
-              ease: "expo.out",
+              ease: EASE.gsapOut,
               rotateX: 0,
               y: 0,
               scrollTrigger: {
@@ -127,8 +131,8 @@ const FeaturedProjectsSection = () => {
             {
               autoAlpha: 1,
               duration: 0.76,
-              ease: "expo.out",
-              stagger: 0.06,
+              ease: EASE.gsapOut,
+              stagger: STAGGER.tight,
               y: 0,
               scrollTrigger: {
                 trigger: shell,
@@ -152,7 +156,7 @@ const FeaturedProjectsSection = () => {
                 trigger: shell,
                 start: "top bottom",
                 end: "bottom top",
-                scrub: 1.35,
+                scrub: SCRUB.base,
               },
             },
           );
@@ -258,7 +262,7 @@ const FeaturedProjectsSection = () => {
           autoAlpha: 0,
           duration: 0.62,
           ease: "power3.out",
-          stagger: 0.08,
+          stagger: STAGGER.base,
           y: 28,
           scrollTrigger: {
             trigger: "[data-supporting-work]",
@@ -286,18 +290,16 @@ const FeaturedProjectsSection = () => {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 grid w-full min-w-0 gap-6 border-b border-gray-200 pb-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
           <div>
-            <p
-              data-cinema-header
-              className="mb-3 text-xs font-semibold uppercase leading-5 text-primary sm:text-sm"
-            >
-              Selected work
-            </p>
-            <h2
-              data-cinema-header
+            <div data-cinema-header className="mb-4">
+              <SectionRule index="01" label="Selected work" />
+            </div>
+            <TextReveal
+              as="h2"
+              split="lines"
               className="max-w-2xl break-words font-display text-[2.25rem] font-semibold leading-[1.05] text-gray-950 [text-wrap:balance] sm:text-[3.1rem]"
             >
               Case studies with room for the decision.
-            </h2>
+            </TextReveal>
           </div>
 
           <p
@@ -416,6 +418,7 @@ const FeaturedProjectsSection = () => {
                         className="portfolio-cinema-card__media"
                         aria-hidden="true"
                         tabIndex={-1}
+                        data-cursor-label="View case study"
                       >
                         <div
                           ref={(node) => {
@@ -473,6 +476,7 @@ const FeaturedProjectsSection = () => {
                       supportingRowRefs.current[index] = node;
                     }}
                     className="portfolio-work-row group"
+                    data-cursor-label="View project"
                   >
                     <div className="relative z-10 grid min-w-0 gap-2 py-6 sm:grid-cols-[1fr_12rem] sm:items-center sm:py-8">
                       <div className="min-w-0">
@@ -529,9 +533,9 @@ const FeaturedProjectsSection = () => {
             <div className="mt-12 text-center">
               <Link
                 to="/work"
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-[oklch(var(--color-surface-raised))] px-6 py-3 font-semibold text-gray-950 transition-colors hover:border-primary hover:text-primary sm:w-auto"
+                className="rolling-trigger inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-[oklch(var(--color-surface-raised))] px-6 py-3 font-semibold text-gray-950 transition-colors hover:border-primary hover:text-primary sm:w-auto"
               >
-                View all Work
+                <RollingText>View all Work</RollingText>
                 <ArrowRight size={18} />
               </Link>
             </div>

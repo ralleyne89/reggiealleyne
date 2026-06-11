@@ -136,12 +136,11 @@ const SiteCursor = () => {
       <motion.div
         layout
         transition={{ type: "spring", ...SPRING.bouncy }}
+        initial={false}
         animate={{
           scale: hasLabel ? 1.08 : 1,
-          backgroundColor: hasLabel
-            ? "oklch(var(--color-accent))"
-            : "oklch(var(--color-surface-raised))",
-          color: hasLabel ? "oklch(0.985 0.01 286)" : "#141414",
+          backgroundColor: hasLabel ? "#7C3AED" : "#FDFCFF",
+          color: hasLabel ? "#FFFFFF" : "#141414",
         }}
         className="absolute left-6 top-[27px] flex items-center gap-1.5 whitespace-nowrap rounded-lg px-4 py-2 shadow-[0_0_0_1px_rgba(20,20,20,0.16),0_14px_34px_rgba(15,23,42,0.16)]"
       >
