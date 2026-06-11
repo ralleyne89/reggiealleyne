@@ -64,6 +64,7 @@ const FeaturedProjectsSection = () => {
       "(prefers-reduced-motion: reduce)",
     ).matches;
     const rowCleanups: Array<() => void> = [];
+    let deckMedia: ReturnType<typeof gsap.matchMedia> | null = null;
 
     const context = gsap.context(() => {
       const shells = cardShellRefs.current.filter(Boolean) as HTMLDivElement[];
@@ -99,18 +100,16 @@ const FeaturedProjectsSection = () => {
         const content = card?.querySelector(".portfolio-cinema-card__content");
         const scan = card?.querySelector(".portfolio-cinema-card__scan");
 
-        // Entrance owns clipPath/alpha only; the dim tween below owns
-        // scale/opacity. Keeping the property sets disjoint stops the two
-        // tweens fighting mid-handoff.
+        // Entrance owns clipPath only; the pinned overscroll timeline below
+        // owns scale/opacity. Keeping the property sets disjoint stops the
+        // two tweens fighting mid-handoff.
         if (card) {
           gsap.fromTo(
             card,
             {
-              autoAlpha: 0,
               clipPath: "inset(8% 5% 8% 5% round 1rem)",
             },
             {
-              autoAlpha: 1,
               clipPath: "inset(0% 0% 0% 0% round 1rem)",
               duration: 0.8,
               ease: EASE.gsapOut,
@@ -185,27 +184,37 @@ const FeaturedProjectsSection = () => {
           onEnter: () => setActiveProjectIndex(index),
           onEnterBack: () => setActiveProjectIndex(index),
         });
+      });
 
-        const nextShell = shells[index + 1];
-        if (card && nextShell) {
-          gsap.fromTo(
-            card,
-            {
-              scale: 1,
-            },
-            {
-              ease: "none",
-              immediateRender: false,
-              scale: 0.95,
+      // GSAP "pinned panels with overscroll" pattern: every panel except the
+      // last pins (no pin spacing) while the next slides up flush over it;
+      // the pinned card scales down and fades out under the incoming one.
+      deckMedia = gsap.matchMedia();
+      deckMedia.add("(min-width: 1024px)", () => {
+        shells.forEach((shell, index) => {
+          const card = cardRefs.current[index];
+          if (!card || index === shells.length - 1) {
+            return;
+          }
+
+          gsap
+            .timeline({
               scrollTrigger: {
-                trigger: nextShell,
-                start: "top bottom",
-                end: "top 12%",
+                trigger: shell,
+                start: "top 88px",
+                end: () => `+=${shell.offsetHeight}`,
+                pin: true,
+                pinSpacing: false,
                 scrub: true,
               },
-            },
-          );
-        }
+            })
+            .fromTo(
+              card,
+              { opacity: 1, scale: 1 },
+              { duration: 0.9, ease: "none", opacity: 0.5, scale: 0.7 },
+            )
+            .to(card, { duration: 0.1, ease: "none", opacity: 0 });
+        });
       });
 
       rows.forEach((row) => {
@@ -268,6 +277,7 @@ const FeaturedProjectsSection = () => {
 
     return () => {
       rowCleanups.forEach((cleanup) => cleanup());
+      deckMedia?.revert();
       context.revert();
     };
   }, [featuredProjects.length, isLoading, supportingProjects.length]);
@@ -315,7 +325,7 @@ const FeaturedProjectsSection = () => {
           </div>
         ) : (
           <>
-            <div className="relative pb-4 lg:pb-[12vh]">
+            <div className="relative">
               <div
                 ref={progressRef}
                 className="portfolio-cinema-progress hidden lg:flex"
