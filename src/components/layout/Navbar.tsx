@@ -4,7 +4,6 @@ import {
   BriefcaseBusiness,
   Home,
   MessageCircle,
-  PanelsTopLeft,
   Sparkles,
   UserRound,
   type LucideIcon,
@@ -53,14 +52,15 @@ const routeNavItems: NavRouteItem[] = [
     labelWidth: 42,
     mobileLabelWidth: 42,
   },
-  {
-    kind: "route",
-    title: "Services",
-    path: "/services",
-    icon: PanelsTopLeft,
-    labelWidth: 68,
-    mobileLabelWidth: 58,
-  },
+  // Services temporarily hidden — re-add this entry to restore the nav link.
+  // {
+  //   kind: "route",
+  //   title: "Services",
+  //   path: "/services",
+  //   icon: PanelsTopLeft,
+  //   labelWidth: 68,
+  //   mobileLabelWidth: 58,
+  // },
   {
     kind: "route",
     title: "Playground",

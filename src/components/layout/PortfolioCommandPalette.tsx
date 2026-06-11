@@ -141,13 +141,7 @@ const PortfolioCommandPalette = () => {
       shortcut: "W",
       onSelect: () => navigateTo("/work"),
     },
-    {
-      id: "services",
-      label: "Open Services",
-      description: "Review Growth Websites and related service capabilities.",
-      shortcut: "G",
-      onSelect: () => navigateTo("/services"),
-    },
+    // Services temporarily hidden — re-add this command to restore the shortcut.
     {
       id: "home-projects",
       label: "Jump to selected work",

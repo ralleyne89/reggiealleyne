@@ -528,31 +528,22 @@ const HeroCanvasLayer = ({
   );
 };
 
-const HERO_TITLE_TEXT = "Reggie Alleyne";
-
 const HeroTitleLayer = () => (
   <h1
     data-hero-title
-    aria-label={HERO_TITLE_TEXT}
-    className="pointer-events-none absolute left-1/2 top-[4.2rem] z-0 w-[min(108vw,36rem)] -translate-x-1/2 overflow-visible text-center sm:top-14 sm:w-[min(116vw,82rem)] lg:top-[4.5rem]"
+    aria-label="Reggie Alleyne"
+    className="pointer-events-none absolute left-1/2 top-[3.65rem] z-0 w-[min(108vw,36rem)] -translate-x-1/2 overflow-visible sm:top-12 sm:w-[min(116vw,82rem)] lg:top-16"
   >
-    <span
+    <img
       data-hero-title-word
+      src={heroAssets.wordmark}
+      alt=""
       aria-hidden="true"
-      className="block select-none whitespace-nowrap font-display uppercase leading-[0.9] text-[#141414]"
-      style={{ fontSize: "clamp(3.1rem, 10.8vw, 10.5rem)", letterSpacing: "-0.035em" }}
-    >
-      {HERO_TITLE_TEXT.split("").map((char, index) => (
-        <span
-          key={`${char}-${index}`}
-          className="inline-block overflow-hidden align-top"
-        >
-          <span data-hero-title-char className="inline-block will-change-transform">
-            {char === " " ? " " : char}
-          </span>
-        </span>
-      ))}
-    </span>
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      className="block h-auto w-full select-none"
+    />
   </h1>
 );
 
@@ -583,7 +574,7 @@ const CapabilitySwitchboard = ({ className }: { className?: string }) => {
           </span>
           <span className="hero-capability-switchboard__signal" />
           <span className="hero-capability-switchboard__note">
-            working screens, not slideware
+            from research to shipped UI
           </span>
         </div>
 
@@ -706,19 +697,19 @@ const HeroSection = () => {
 
       timeline
         .fromTo(
-          "[data-hero-title-char]",
+          "[data-hero-title-word]",
           {
             autoAlpha: 0,
-            rotate: 8,
-            yPercent: 112,
+            filter: "blur(10px)",
+            rotationX: -26,
+            yPercent: 118,
           },
           {
             autoAlpha: 1,
-            clearProps: "transform",
-            duration: 0.9,
-            ease: EASE.gsapBack,
-            rotate: 0,
-            stagger: { each: 0.032, from: "start" },
+            clearProps: "filter,transform",
+            filter: "blur(0px)",
+            rotationX: 0,
+            stagger: 0.08,
             yPercent: 0,
           },
           0.08,

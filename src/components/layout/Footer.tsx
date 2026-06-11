@@ -33,10 +33,11 @@ const Footer = () => {
       name: "Work",
       href: "/work",
     },
-    {
-      name: "Services",
-      href: "/services",
-    },
+    // Services temporarily hidden — re-add this entry to restore the footer link.
+    // {
+    //   name: "Services",
+    //   href: "/services",
+    // },
     {
       name: "About",
       href: "/about",
