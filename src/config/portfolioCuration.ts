@@ -28,6 +28,8 @@ export interface CaseStudyTldr {
   outcome: string;
   tools: string[];
   owned: string[];
+  /** Quantified proof points. Only populate with real, verifiable numbers. */
+  metrics?: { value: string; label: string }[];
 }
 
 export interface CaseStudyNarrative {
@@ -467,6 +469,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
       "Shipped an MVP with adaptive assessment, recommendations, certification, admin visibility, and payment paths.",
     tools: ["React", "OpenAI API", "Supabase", "Stripe", "Auth0"],
     owned: ["Product strategy", "Assessment UX", "Prompt/scoring logic", "Payments and admin flow"],
+    metrics: [{ value: "8 weeks", label: "Thesis to shipped MVP" }],
   },
   "cllctve-platform": {
     role: "UX/UI Designer and Design Systems Lead",
@@ -478,6 +481,11 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
       "Reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
     tools: ["Figma", "React", "Ant Design", "MongoDB", "Styled Components"],
     owned: ["Mobile portfolio flow", "Creator feedback loops", "Design system", "Usability testing"],
+    metrics: [
+      { value: "500+", label: "Creators on platform" },
+      { value: "85%", label: "Creator retention" },
+      { value: "15", label: "Brand partnerships" },
+    ],
   },
   "symptom-checkr": {
     role: "UI/UX designer",
@@ -579,6 +587,11 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
       "Delivered a solo client MVP with a deployed demo, product screenshots, and bounded technical framing for auth, RBAC, APIs, and exports.",
     tools: ["Next.js", "TypeScript", "Postgres", "Figma", "REST APIs"],
     owned: ["Product design", "Frontend build", "Role workflows", "Client demo"],
+    metrics: [
+      { value: "Solo", label: "Client build" },
+      { value: "3", label: "Role-specific workspaces" },
+      { value: "March 2026", label: "Deployed demo" },
+    ],
   },
   "pretty-paws-grooming": {
     role: "UX/UI Designer & Frontend Developer",

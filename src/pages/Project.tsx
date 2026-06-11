@@ -15,7 +15,18 @@ import ProjectEssentials from "@/components/project/ProjectEssentials";
 import ProjectNarrative from "@/components/project/ProjectNarrative";
 import ProjectAudienceJourney from "@/components/project/ProjectAudienceJourney";
 import ProjectInterfaceEvidence from "@/components/project/ProjectInterfaceEvidence";
+import CaseStudyStatsBand from "@/components/project/CaseStudyStatsBand";
+import CaseStudyChapterNav, {
+  type CaseStudyChapter,
+} from "@/components/project/CaseStudyChapterNav";
+import PullQuote from "@/components/project/PullQuote";
+import NextProjectTakeover from "@/components/project/NextProjectTakeover";
 import { ProjectType } from "@/types/project";
+import {
+  getCaseStudyNarrative,
+  getCaseStudyTldr,
+  getProjectPersonaJourney,
+} from "@/config/portfolioCuration";
 import {
   getCanonicalProjectRouteSlug,
   getProjectCanonicalUrl,
@@ -278,6 +289,22 @@ const Project = () => {
   } = project as ProjectType;
   const typeLabel = project.category || project.tags?.[0] || "Project";
 
+  const narrative = getCaseStudyNarrative(project.slug);
+  const hasTldr = Boolean(getCaseStudyTldr(project.slug));
+  const hasJourney = Boolean(getProjectPersonaJourney(project.slug));
+  const hasEvidence = Boolean(
+    (project.visuals && project.visuals.length > 0) ||
+      (project.images && project.images.length > 0),
+  );
+
+  const chapters: CaseStudyChapter[] = [
+    hasTldr ? { id: "chapter-glance", label: "At a glance" } : null,
+    { id: "chapter-overview", label: "Overview" },
+    hasJourney ? { id: "chapter-audience", label: "Audience" } : null,
+    narrative ? { id: "chapter-process", label: "Process" } : null,
+    hasEvidence ? { id: "chapter-evidence", label: "Evidence" } : null,
+  ].filter(Boolean) as CaseStudyChapter[];
+
   return <motion.div initial={{
     opacity: 0
   }} animate={{
@@ -287,6 +314,8 @@ const Project = () => {
   }} transition={{
     duration: 0.3
   }} className="min-h-screen bg-white pb-24 text-text-primary md:pb-0">
+      <CaseStudyChapterNav chapters={chapters} />
+
       {showHeaderImage && (
         <ProjectHeader
           image={image}
@@ -298,12 +327,25 @@ const Project = () => {
       )}
 
       <div className="w-full">
-        <ProjectEssentials project={project as ProjectType} />
-        <ProjectAudienceJourney project={project as ProjectType} />
-        <ProjectNarrative project={project as ProjectType} />
-        <ProjectInterfaceEvidence project={project as ProjectType} />
+        <div id="chapter-glance" className="scroll-mt-24">
+          <CaseStudyStatsBand project={project as ProjectType} />
+        </div>
+        <PullQuote quote={narrative?.hook} attribution="The thesis" />
+        <div id="chapter-overview" className="scroll-mt-24">
+          <ProjectEssentials project={project as ProjectType} />
+        </div>
+        <div id="chapter-audience" className="scroll-mt-24">
+          <ProjectAudienceJourney project={project as ProjectType} />
+        </div>
+        <div id="chapter-process" className="scroll-mt-24">
+          <ProjectNarrative project={project as ProjectType} />
+        </div>
+        <div id="chapter-evidence" className="scroll-mt-24">
+          <ProjectInterfaceEvidence project={project as ProjectType} />
+        </div>
       </div>
 
+      <NextProjectTakeover project={project as ProjectType} />
       <Footer />
     </motion.div>;
 };

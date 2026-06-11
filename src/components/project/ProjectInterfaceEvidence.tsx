@@ -148,7 +148,7 @@ const ProjectInterfaceEvidence = ({
     >
       <div className="grid gap-10 lg:grid-cols-[minmax(18rem,0.35fr)_minmax(0,1fr)] lg:items-start">
         <div className="lg:sticky lg:top-28">
-          <p className="mb-3 text-sm font-semibold leading-5 text-primary">
+          <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.22em] text-primary">
             Interface evidence
           </p>
           <h2 className="font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
@@ -187,9 +187,11 @@ const ProjectInterfaceEvidence = ({
             <button
               key={screen.src}
               type="button"
+              data-cursor-label="Inspect"
               className={cn(
                 "group min-w-0 overflow-hidden rounded-lg border border-gray-200 bg-white text-left shadow-sm transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
                 index === 0 && "md:col-span-2",
+                index > 0 && index % 2 === 0 && "md:translate-y-8",
               )}
               onClick={() => setSelectedImage(screen.src)}
             >

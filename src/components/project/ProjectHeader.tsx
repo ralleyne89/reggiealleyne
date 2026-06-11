@@ -4,6 +4,7 @@ import { type CSSProperties, useLayoutEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { EASE } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -191,10 +192,30 @@ const ProjectHeader = ({
       gsap.from(revealTargets, {
         autoAlpha: 0,
         duration: 0.78,
-        ease: "expo.out",
+        ease: EASE.gsapOut,
         stagger: 0.07,
         y: 34,
       });
+
+      const titleChars = gsap.utils.toArray<HTMLElement>(
+        "[data-project-hero-title-char]",
+      );
+      if (titleChars.length) {
+        gsap.fromTo(
+          titleChars,
+          { autoAlpha: 0, rotate: 6, yPercent: 112 },
+          {
+            autoAlpha: 1,
+            clearProps: "transform",
+            delay: 0.12,
+            duration: 0.85,
+            ease: EASE.gsapBack,
+            rotate: 0,
+            stagger: { each: 0.022, from: "start" },
+            yPercent: 0,
+          },
+        );
+      }
 
       if (media) {
         gsap.fromTo(
@@ -251,8 +272,32 @@ const ProjectHeader = ({
             <p data-project-hero-reveal className="project-cinema-hero__eyebrow">
               {eyebrowLabel}
             </p>
-            <h1 data-project-hero-reveal className="project-cinema-hero__title">
-              {title}
+            <h1 className="project-cinema-hero__title" aria-label={title}>
+              {title.split(/(\s+)/).map((segment, segmentIndex) =>
+                segment.trim() === "" ? (
+                  <span key={`space-${segmentIndex}`}> </span>
+                ) : (
+                  <span
+                    key={`word-${segmentIndex}`}
+                    aria-hidden="true"
+                    className="inline-block whitespace-nowrap"
+                  >
+                    {segment.split("").map((char, charIndex) => (
+                      <span
+                        key={`${char}-${charIndex}`}
+                        className="inline-block overflow-hidden align-top"
+                      >
+                        <span
+                          data-project-hero-title-char
+                          className="inline-block will-change-transform"
+                        >
+                          {char}
+                        </span>
+                      </span>
+                    ))}
+                  </span>
+                ),
+              )}
             </h1>
             <p data-project-hero-reveal className="project-cinema-hero__description">
               {displayDescription}
