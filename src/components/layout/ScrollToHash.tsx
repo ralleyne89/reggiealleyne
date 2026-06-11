@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { scrollToElement } from "./SmoothScroll";
 
 const ScrollToHash = () => {
   const { hash, pathname, search } = useLocation();
@@ -39,7 +40,7 @@ const ScrollToHash = () => {
 
       if (target) {
         hasScrolled = true;
-        target.scrollIntoView({ behavior: "auto", block: "start" });
+        scrollToElement(target);
 
         window.history.replaceState(
           window.history.state,

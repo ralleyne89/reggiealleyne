@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { scrollToTop } from "@/components/layout/SmoothScroll";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
@@ -20,7 +21,7 @@ import { getProjectPath } from "@/lib/projectRoutes";
 
 const Works = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    scrollToTop();
   }, []);
 
   const {

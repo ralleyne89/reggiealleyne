@@ -28,6 +28,7 @@ import {
   sortProjectsNewestFirst,
 } from "@/config/portfolioCuration";
 import { getProjectPath } from "@/lib/projectRoutes";
+import { useLenisLock } from "./SmoothScroll";
 
 type PaletteCommand = {
   id: string;
@@ -56,6 +57,7 @@ const PortfolioCommandPalette = () => {
   const location = useLocation();
   const shouldReduceMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
+  useLenisLock(open);
   const [assistantResponse, setAssistantResponse] = useState(
     "Ask about the work, jump to a case study, or open a section.",
   );

@@ -22,10 +22,11 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
+import { scrollToTop } from "@/components/layout/SmoothScroll";
 
 const About = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    scrollToTop();
   }, []);
 
   // Core Competencies for LLM/AI SEO parsing

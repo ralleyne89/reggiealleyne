@@ -5,6 +5,7 @@ import {
   CLLCTVE_PROJECT_CANONICAL_PATH,
   CLLCTVE_PROJECT_ROUTE_ALIASES,
 } from "@/lib/projectRoutes";
+import { DUR, EASE } from "@/lib/motion";
 
 const Index = lazy(() => import("@/pages/Index"));
 const Works = lazy(() => import("@/pages/Works"));
@@ -45,7 +46,7 @@ const PageTransitionLayer = ({ routeKey }: { routeKey: string }) => {
       }}
       transition={{
         duration: 0.74,
-        ease: [0.16, 1, 0.3, 1],
+        ease: EASE.out,
         times: [0, 0.46, 1],
       }}
     >
@@ -70,8 +71,8 @@ const AnimatedRoutes = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
           transition={{
-            duration: shouldReduceMotion ? 0 : 0.34,
-            ease: [0.22, 1, 0.36, 1],
+            duration: shouldReduceMotion ? 0 : DUR.base * 0.75,
+            ease: EASE.out,
           }}
         >
           <Suspense fallback={<RouteFallback />}>

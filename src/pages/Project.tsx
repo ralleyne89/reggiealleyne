@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { scrollToTop } from "@/components/layout/SmoothScroll";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -114,7 +115,7 @@ const Project = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    scrollToTop();
 
     // Handle invalid slug
     if (!slug) {

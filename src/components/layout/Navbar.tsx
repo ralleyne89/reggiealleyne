@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { DUR, EASE, SPRING } from "@/lib/motion";
 import ContactModal from "./ContactModal";
 
 type NavRouteItem = {
@@ -81,9 +82,9 @@ const routeNavItems: NavRouteItem[] = [
 const MotionLink = motion.create(Link);
 
 const itemTransition = {
-  width: { type: "spring", stiffness: 260, damping: 31, mass: 0.78 },
-  opacity: { duration: 0.24, ease: [0.16, 1, 0.3, 1] },
-  marginLeft: { type: "spring", stiffness: 260, damping: 31, mass: 0.78 },
+  width: { type: "spring", ...SPRING.nav },
+  opacity: { duration: DUR.fast * 1.2, ease: EASE.out },
+  marginLeft: { type: "spring", ...SPRING.nav },
 } as const;
 
 const getNavItemKey = (item: NavItem) =>

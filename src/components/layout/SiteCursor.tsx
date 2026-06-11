@@ -1,10 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import {
   motion,
   useMotionValue,
   useReducedMotion,
   useSpring,
 } from "framer-motion";
+import { SPRING } from "@/lib/motion";
+import {
+  getCursorLabel,
+  setCursorLabel,
+  subscribeCursorLabel,
+} from "@/lib/cursorState";
 
 const SiteCursorIcon = () => (
   <svg
@@ -25,21 +31,20 @@ const SiteCursorIcon = () => (
   </svg>
 );
 
+const getServerCursorLabel = () => null;
+
 const SiteCursor = () => {
   const shouldReduceMotion = useReducedMotion();
+  const cursorLabel = useSyncExternalStore(
+    subscribeCursorLabel,
+    getCursorLabel,
+    getServerCursorLabel,
+  );
   const cursorX = useMotionValue(-120);
   const cursorY = useMotionValue(-120);
   const cursorOpacity = useMotionValue(0);
-  const smoothX = useSpring(cursorX, {
-    damping: 32,
-    mass: 0.5,
-    stiffness: 620,
-  });
-  const smoothY = useSpring(cursorY, {
-    damping: 32,
-    mass: 0.5,
-    stiffness: 620,
-  });
+  const smoothX = useSpring(cursorX, SPRING.cursor);
+  const smoothY = useSpring(cursorY, SPRING.cursor);
   const smoothOpacity = useSpring(cursorOpacity, {
     damping: 24,
     stiffness: 520,
@@ -73,20 +78,44 @@ const SiteCursor = () => {
       cursorOpacity.set(1);
     };
 
-    const hideCursor = () => cursorOpacity.set(0);
+    const handlePointerOver = (event: PointerEvent) => {
+      if (!pointerQuery.matches) {
+        return;
+      }
+
+      const target = event.target as Element | null;
+      const labelled = target?.closest?.("[data-cursor-label]") ?? null;
+      setCursorLabel(labelled?.getAttribute("data-cursor-label") ?? null);
+    };
+
+    const hideCursor = () => {
+      cursorOpacity.set(0);
+      setCursorLabel(null);
+    };
+
+    // Labelled elements are nearly always links — clear on click so the
+    // balloon never lingers after a route change removes its anchor.
+    const handleClick = () => setCursorLabel(null);
 
     syncCursorMode();
     pointerQuery.addEventListener("change", syncCursorMode);
     window.addEventListener("pointermove", handlePointerMove, {
       passive: true,
     });
+    document.addEventListener("pointerover", handlePointerOver, {
+      passive: true,
+    });
+    document.addEventListener("click", handleClick);
     window.addEventListener("blur", hideCursor);
     document.addEventListener("mouseleave", hideCursor);
 
     return () => {
       document.body.classList.remove("site-custom-cursor-active");
+      setCursorLabel(null);
       pointerQuery.removeEventListener("change", syncCursorMode);
       window.removeEventListener("pointermove", handlePointerMove);
+      document.removeEventListener("pointerover", handlePointerOver);
+      document.removeEventListener("click", handleClick);
       window.removeEventListener("blur", hideCursor);
       document.removeEventListener("mouseleave", hideCursor);
     };
@@ -96,15 +125,40 @@ const SiteCursor = () => {
     return null;
   }
 
+  const hasLabel = Boolean(cursorLabel);
+
   return (
     <motion.div
       aria-hidden="true"
-      className="site-you-cursor pointer-events-none fixed left-0 top-0 z-[70] hidden h-[78px] w-[118px] lg:block"
+      className="site-you-cursor pointer-events-none fixed left-0 top-0 z-[70] hidden lg:block"
       style={{ opacity: smoothOpacity, x: smoothX, y: smoothY }}
     >
-      <div className="absolute left-6 top-[27px] rounded-lg bg-[oklch(var(--color-surface-raised))] px-4 py-2 text-[#141414] shadow-[0_0_0_1px_rgba(20,20,20,0.16),0_14px_34px_rgba(15,23,42,0.16)]">
-        <span className="font-sans text-sm leading-[22px]">You</span>
-      </div>
+      <motion.div
+        layout
+        transition={{ type: "spring", ...SPRING.bouncy }}
+        animate={{
+          scale: hasLabel ? 1.08 : 1,
+          backgroundColor: hasLabel
+            ? "oklch(var(--color-accent))"
+            : "oklch(var(--color-surface-raised))",
+          color: hasLabel ? "oklch(0.985 0.01 286)" : "#141414",
+        }}
+        className="absolute left-6 top-[27px] flex items-center gap-1.5 whitespace-nowrap rounded-lg px-4 py-2 shadow-[0_0_0_1px_rgba(20,20,20,0.16),0_14px_34px_rgba(15,23,42,0.16)]"
+      >
+        <motion.span layout="position" className="font-sans text-sm leading-[22px]">
+          {cursorLabel ?? "You"}
+        </motion.span>
+        {hasLabel ? (
+          <motion.span
+            layout="position"
+            initial={{ opacity: 0, x: -4 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-sm leading-[22px]"
+          >
+            ↗
+          </motion.span>
+        ) : null}
+      </motion.div>
       <div className="absolute left-0 top-0 flex size-[40px] -rotate-[15deg] items-center justify-center">
         <SiteCursorIcon />
       </div>

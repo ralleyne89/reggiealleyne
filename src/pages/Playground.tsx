@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { scrollToTop } from "@/components/layout/SmoothScroll";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -13,7 +14,7 @@ import { experiments } from "@/config/playgroundExperiments";
 
 const Playground = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    scrollToTop();
   }, []);
 
   return (

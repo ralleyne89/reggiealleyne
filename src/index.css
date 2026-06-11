@@ -63,7 +63,7 @@
     --dur-fast: 200ms;
     --dur-base: 450ms;
     --dur-slow: 800ms;
-    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out: var(--ease-out);
     --ease-overshoot: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     --sidebar-background: 0 0% 98%;
@@ -146,7 +146,8 @@
   html {
     position: relative;
     overflow-x: hidden;
-    scroll-behavior: smooth;
+    /* Smooth scrolling handled by Lenis (SmoothScroll.tsx); native
+       scroll-behavior would fight its animation loop. */
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -362,10 +363,10 @@
   --portfolio-nav-label-gap: 0.5rem;
   --portfolio-nav-label-width: 0px;
   transition:
-    background-color 320ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 320ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1),
-    color 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    background-color 320ms var(--ease-out),
+    border-color 320ms var(--ease-out),
+    box-shadow 320ms var(--ease-out),
+    color 220ms var(--ease-out);
 }
 
 .portfolio-nav-item__label {
@@ -373,7 +374,7 @@
 }
 
 .portfolio-nav-item__label-text {
-  transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 220ms var(--ease-out);
 }
 
 .portfolio-nav-item:hover,
@@ -564,10 +565,10 @@
 
 .liquid-glass-interactive {
   transition:
-    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 220ms var(--ease-out),
+    border-color 220ms var(--ease-out),
+    background-color 220ms var(--ease-out),
+    box-shadow 220ms var(--ease-out);
 }
 
 .liquid-glass-interactive:hover {
@@ -870,11 +871,11 @@
 }
 
 .home-loader[data-handoff="true"]::before {
-  animation: loader-scan-reveal 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: loader-scan-reveal 760ms var(--ease-out) both;
 }
 
 .home-loader[data-handoff="true"] {
-  animation: loader-shell-soften 860ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: loader-shell-soften 860ms var(--ease-out) both;
 }
 
 .home-loader__grid {
@@ -887,11 +888,11 @@
   background-size: 42px 42px;
   transform: perspective(900px) rotateX(62deg) translateY(12%);
   transform-origin: 50% 55%;
-  animation: loader-grid-drift 1.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: loader-grid-drift 1.9s var(--ease-out) both;
 }
 
 .home-loader[data-handoff="true"] .home-loader__grid {
-  animation: loader-grid-exit 860ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: loader-grid-exit 860ms var(--ease-out) both;
 }
 
 .home-loader__aperture {
@@ -910,7 +911,7 @@
 }
 
 .home-loader[data-handoff="true"] .home-loader__aperture {
-  animation: loader-aperture-open 820ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: loader-aperture-open 820ms var(--ease-out) both;
 }
 
 .home-loader__shutter {
@@ -933,11 +934,11 @@
 }
 
 .home-loader[data-handoff="true"] .home-loader__shutter--top {
-  animation: loader-shutter-top 780ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: loader-shutter-top 780ms var(--ease-out) both;
 }
 
 .home-loader[data-handoff="true"] .home-loader__shutter--bottom {
-  animation: loader-shutter-bottom 780ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: loader-shutter-bottom 780ms var(--ease-out) both;
 }
 
 .home-loader__selection {
@@ -953,7 +954,7 @@
 }
 
 .home-loader[data-handoff="true"] .home-loader__selection {
-  animation: loader-selection-handoff 840ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: loader-selection-handoff 840ms var(--ease-out) both;
 }
 
 .home-loader__cursor {
@@ -992,7 +993,7 @@
 }
 
 .home-loader[data-handoff="true"] .home-loader__cursor {
-  animation: loader-cursor-handoff 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: loader-cursor-handoff 760ms var(--ease-out) both;
 }
 
 .home-loader__label {
@@ -1048,7 +1049,7 @@
 }
 
 .home-loader[data-handoff="true"] .home-loader__content {
-  animation: loader-content-handoff 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: loader-content-handoff 720ms var(--ease-out) both;
 }
 
 .home-loader__eyebrow {
@@ -1169,9 +1170,9 @@
   padding: 0.58rem 0.66rem 0.58rem 0.85rem;
   backdrop-filter: blur(18px);
   transition:
-    border-color 180ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 180ms cubic-bezier(0.22, 1, 0.36, 1);
+    border-color 180ms var(--ease-out),
+    transform 180ms var(--ease-out),
+    box-shadow 180ms var(--ease-out);
 }
 
 .portfolio-command-trigger:hover,
@@ -1972,11 +1973,11 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   font-weight: 800;
   line-height: 1.3;
   text-transform: uppercase;
-  transition: color 220ms cubic-bezier(0.22, 1, 0.36, 1), border-color 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: color 220ms var(--ease-out), border-color 220ms var(--ease-out);
 }
 
 .portfolio-cinema-card__cta svg {
-  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 220ms var(--ease-out);
 }
 
 .portfolio-cinema-card__cta:hover,
@@ -2031,7 +2032,7 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   object-position: top left;
   filter: brightness(0.9) saturate(0.95);
   transform: scale(1);
-  transition: filter 520ms cubic-bezier(0.22, 1, 0.36, 1), transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: filter 520ms var(--ease-out), transform 520ms var(--ease-out);
   will-change: filter, transform;
 }
 
@@ -2050,7 +2051,7 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   gap: 0.8rem;
   opacity: 0;
   transform: translateY(-50%);
-  transition: opacity 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 220ms var(--ease-out);
   pointer-events: none;
 }
 
@@ -2063,7 +2064,7 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   height: 2rem;
   border-radius: 999px;
   background: oklch(var(--color-ink) / 0.16);
-  transition: background 260ms cubic-bezier(0.22, 1, 0.36, 1), height 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: background 260ms var(--ease-out), height 260ms var(--ease-out);
 }
 
 .portfolio-cinema-progress__pip--active {
@@ -2080,7 +2081,7 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   --preview-shift-x: 2rem;
   --preview-shift-y: 0px;
   color: inherit;
-  transition: background 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: background 260ms var(--ease-out);
 }
 
 .portfolio-work-row:hover,
@@ -2100,7 +2101,7 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   text-transform: uppercase;
   color: oklch(var(--color-ink) / 0.34);
   -webkit-text-stroke: 1px oklch(var(--color-ink) / 0.24);
-  transition: color 260ms cubic-bezier(0.22, 1, 0.36, 1), transform 360ms cubic-bezier(0.22, 1, 0.36, 1), -webkit-text-stroke-color 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: color 260ms var(--ease-out), transform 360ms var(--ease-out), -webkit-text-stroke-color 260ms var(--ease-out);
 }
 
 .portfolio-work-row:hover .portfolio-work-row__title,
@@ -2124,7 +2125,7 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   opacity: 0;
   box-shadow: 0 28px 70px oklch(0.2 0.025 268 / 0.18);
   transform: translate3d(var(--preview-shift-x), calc(-50% + var(--preview-shift-y)), 0) rotate(1deg);
-  transition: opacity 260ms cubic-bezier(0.22, 1, 0.36, 1), transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 260ms var(--ease-out), transform 360ms var(--ease-out);
 }
 
 .portfolio-work-row__preview img {
@@ -2301,9 +2302,9 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   line-height: 1.3;
   padding: 0.76rem 1.15rem;
   transition:
-    border-color 180ms cubic-bezier(0.22, 1, 0.36, 1),
-    color 180ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+    border-color 180ms var(--ease-out),
+    color 180ms var(--ease-out),
+    transform 180ms var(--ease-out);
 }
 
 .about-cascade__primary {
@@ -2533,7 +2534,7 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   font-weight: 600;
   line-height: 1.25rem;
   padding-inline: 0.5rem;
-  transition: color 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: color 180ms var(--ease-out);
 }
 
 .project-cinema-hero__back:hover,
@@ -2906,9 +2907,9 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   color: oklch(var(--color-ink));
   padding: 0.65rem 0.9rem;
   transition:
-    border-color 180ms cubic-bezier(0.22, 1, 0.36, 1),
-    color 180ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+    border-color 180ms var(--ease-out),
+    color 180ms var(--ease-out),
+    transform 180ms var(--ease-out);
 }
 
 .reviewer-cinema__link:hover,
@@ -3234,9 +3235,9 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   line-height: 1.3;
   padding: 0.62rem 0.9rem;
   transition:
-    border-color 180ms cubic-bezier(0.22, 1, 0.36, 1),
-    color 180ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+    border-color 180ms var(--ease-out),
+    color 180ms var(--ease-out),
+    transform 180ms var(--ease-out);
 }
 
 .project-essentials__link:hover,
@@ -3290,7 +3291,7 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: top left;
-  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 420ms var(--ease-out);
 }
 
 .project-essentials__visual-caption {
@@ -3906,6 +3907,64 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   color: oklch(var(--color-accent));
+}
+
+/* Rolling link text — duplicate copy rolls up on trigger hover/focus */
+.rolling-text {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.rolling-text__inner {
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--dur-base) var(--ease-overshoot);
+  will-change: transform;
+}
+
+.rolling-text__copy {
+  display: block;
+}
+
+.rolling-trigger:hover .rolling-text__inner,
+.rolling-trigger:focus-visible .rolling-text__inner {
+  transform: translateY(-50%);
+}
+
+/* Accent gradient text */
+.text-gradient-accent {
+  background: linear-gradient(120deg, oklch(var(--color-accent)) 0%, oklch(var(--color-signal)) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Duotone media wash — accent tint that lifts on hover */
+.duotone-media {
+  position: relative;
+}
+
+.duotone-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: oklch(var(--color-accent) / 0.5);
+  mix-blend-mode: color;
+  opacity: 1;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.duotone-media:hover::after,
+.group:hover .duotone-media::after,
+a:hover .duotone-media::after {
+  opacity: 0;
+}
+
+/* Mask wrapper line for SplitText reveals */
+.text-reveal__line {
+  will-change: transform;
 }
 
 /* Print styles for PDF export */

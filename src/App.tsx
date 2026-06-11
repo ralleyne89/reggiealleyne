@@ -7,6 +7,7 @@ import AnimatedRoutes from "./components/layout/AnimatedRoutes";
 import Navbar from "./components/layout/Navbar";
 import SiteCursor from "./components/layout/SiteCursor";
 import ScrollToHash from "./components/layout/ScrollToHash";
+import SmoothScroll from "./components/layout/SmoothScroll";
 
 // Create a new QueryClient instance with proper configuration
 const queryClient = new QueryClient({
@@ -26,6 +27,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <SmoothScroll />
         <Navbar />
         <SiteCursor />
         <ScrollToHash />

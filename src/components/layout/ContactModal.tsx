@@ -9,6 +9,7 @@ import {
 import ContactForm from "@/components/profile/ContactForm";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useLenisLock } from "./SmoothScroll";
 import type { ContactFormData } from "@/components/profile/ContactForm";
 
 interface ContactModalProps {
@@ -19,6 +20,7 @@ interface ContactModalProps {
 const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  useLenisLock(open);
 
   const handleSubmit = async (formData: ContactFormData) => {
     setIsLoading(true);
