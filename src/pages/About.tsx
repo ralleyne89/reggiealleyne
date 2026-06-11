@@ -23,6 +23,8 @@ import {
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
+import TextReveal from "@/components/motion/TextReveal";
+import { SPRING } from "@/lib/motion";
 
 const About = () => {
   useEffect(() => {
@@ -110,12 +112,17 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mx-auto max-w-4xl"
           >
-            <p className="text-primary font-medium text-sm tracking-wide uppercase mb-3">
+            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.22em] text-primary">
               UX/UI Designer & AI Technologist
             </p>
-            <h1 className="text-4xl lg:text-6xl font-heading font-bold mb-6 text-text-primary">
+            <TextReveal
+              as="h1"
+              split="chars"
+              trigger="mount"
+              className="mb-6 font-display text-display-lg text-text-primary"
+            >
               Reggie Alleyne
-            </h1>
+            </TextReveal>
           </motion.div>
         </div>
       </div>
@@ -209,9 +216,11 @@ const About = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {coreCompetencies.map((competency, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="bg-white rounded-lg p-5 border border-gray-200 hover:border-primary/30 transition-colors group"
+                  whileHover={{ y: -6, rotate: index % 2 === 0 ? -0.6 : 0.6 }}
+                  transition={{ type: "spring", ...SPRING.bouncy }}
+                  className="bg-white rounded-lg p-5 border border-gray-200 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-colors group"
                 >
                   <div className="flex items-start gap-3">
                     <competency.icon className="w-6 h-6 text-primary flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
@@ -222,7 +231,7 @@ const About = () => {
                       <p className="text-sm text-text-muted">{competency.description}</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.section>
@@ -325,9 +334,11 @@ const About = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {interests.map((interest, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="bg-secondary rounded-lg p-6 border border-gray-200 hover:border-primary/30 transition-colors"
+                  whileHover={{ y: -6, rotate: index % 2 === 0 ? 0.7 : -0.7 }}
+                  transition={{ type: "spring", ...SPRING.bouncy }}
+                  className="bg-secondary rounded-lg p-6 border border-gray-200 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-colors"
                 >
                   <div className="flex items-center gap-4 mb-3">
                     <interest.icon className="w-6 h-6 text-primary" />
@@ -336,7 +347,7 @@ const About = () => {
                     </h3>
                   </div>
                   <p className="text-text-secondary">{interest.description}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.section>

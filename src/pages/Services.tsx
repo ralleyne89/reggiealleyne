@@ -18,7 +18,14 @@ import {
   Workflow,
   type LucideIcon,
 } from "lucide-react";
+import { Fragment } from "react";
 import Footer from "@/components/layout/Footer";
+import Marquee from "@/components/motion/Marquee";
+import MagneticButton from "@/components/motion/MagneticButton";
+import RollingText from "@/components/motion/RollingText";
+import SectionRule from "@/components/motion/SectionRule";
+import TextReveal from "@/components/motion/TextReveal";
+import { DUR, EASE, STAGGER } from "@/lib/motion";
 
 type Capability = {
   title: string;
@@ -142,13 +149,18 @@ const Services = () => {
               transition={{ duration: 0.5 }}
               className="min-w-0"
             >
-              <p className="mb-3 text-xs font-semibold uppercase leading-5 text-primary sm:text-sm">
+              <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.22em] text-primary">
                 Services
               </p>
-              <h1 className="max-w-4xl break-words font-display text-[2.45rem] leading-[1.06] text-gray-950 [text-wrap:balance] sm:text-display-lg">
+              <TextReveal
+                as="h1"
+                split="lines"
+                trigger="mount"
+                className="max-w-4xl break-words font-display text-[2.45rem] leading-[1.06] text-gray-950 sm:text-display-lg"
+              >
                 Growth Websites for service businesses that need more than a
                 brochure page.
-              </h1>
+              </TextReveal>
               <p className="mt-6 max-w-2xl text-base leading-7 text-text-secondary sm:text-lg sm:leading-8">
                 I design and build websites around the moment a visitor becomes
                 an inquiry: clear service pages, contact paths, booking or
@@ -156,19 +168,23 @@ const Services = () => {
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  to="/#contact"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2"
-                >
-                  Start a project
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  to="/work"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-text-primary transition-colors hover:border-primary/30 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2"
-                >
-                  View work
-                </Link>
+                <MagneticButton strength={0.2}>
+                  <Link
+                    to="/#contact"
+                    className="rolling-trigger inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-colors hover:bg-primary-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 sm:w-auto"
+                  >
+                    <RollingText>Start a project</RollingText>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </MagneticButton>
+                <MagneticButton strength={0.2}>
+                  <Link
+                    to="/work"
+                    className="rolling-trigger inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-text-primary transition-colors hover:border-primary/30 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 sm:w-auto"
+                  >
+                    <RollingText>View work</RollingText>
+                  </Link>
+                </MagneticButton>
               </div>
             </motion.div>
 
@@ -213,77 +229,110 @@ const Services = () => {
             </motion.aside>
           </section>
 
+          <div className="border-b border-gray-200 py-5">
+            <Marquee speed={70} groupClassName="gap-7 pr-7">
+              {capabilities.map((capability) => (
+                <Fragment key={capability.title}>
+                  <span className="font-display text-[clamp(1.6rem,3.2vw,2.6rem)] uppercase leading-none text-text-primary/15">
+                    {capability.title}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="text-[clamp(0.9rem,1.6vw,1.3rem)] leading-none text-primary/60"
+                  >
+                    ✦
+                  </span>
+                </Fragment>
+              ))}
+            </Marquee>
+          </div>
+
           <section className="py-12 sm:py-16">
+            <SectionRule index="01" label="What this includes" className="mb-5" />
             <div className="mb-8 max-w-3xl">
-              <p className="text-xs font-semibold uppercase leading-5 text-primary sm:text-sm">
-                What this includes
-              </p>
-              <h2 className="mt-3 break-words font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
+              <h2 className="break-words font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
                 Capability-led work, not a generic website package.
               </h2>
             </div>
 
-            <div className="grid min-w-0 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="min-w-0 divide-y divide-gray-200 border-y border-gray-200">
               {capabilities.map(({ title, description, icon: Icon }, index) => (
                 <motion.article
                   key={title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.45, delay: index * 0.04 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  className="min-w-0 rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-colors hover:border-primary/30"
+                  transition={{
+                    duration: DUR.base,
+                    delay: index * STAGGER.tight,
+                    ease: EASE.out,
+                  }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  className="group grid min-w-0 gap-3 py-6 transition-colors duration-300 hover:bg-gray-50/80 sm:grid-cols-[3.5rem_minmax(0,0.55fr)_minmax(0,1fr)_2.5rem] sm:items-baseline sm:gap-6 sm:px-2"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <Icon className="h-5 w-5" />
+                  <span
+                    aria-hidden="true"
+                    className="font-mono text-sm font-medium tracking-[0.18em] text-text-muted"
+                  >
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-5 break-words text-lg font-semibold leading-7 text-gray-950">
+                  <h3 className="break-words font-display text-xl font-semibold leading-7 text-gray-950 transition-colors duration-300 group-hover:text-primary sm:text-heading-md">
                     {title}
                   </h3>
-                  <p className="mt-2 text-sm leading-6 text-text-secondary">
+                  <p className="text-sm leading-6 text-text-secondary">
                     {description}
                   </p>
+                  <span className="hidden h-9 w-9 items-center justify-center justify-self-end rounded-full border border-gray-200 text-primary opacity-0 transition-all duration-300 group-hover:opacity-100 sm:flex">
+                    <Icon className="h-4 w-4" />
+                  </span>
                 </motion.article>
               ))}
             </div>
           </section>
 
-          <section className="grid gap-8 border-t border-gray-200 py-12 sm:py-16 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-            <div className="max-w-xl">
-              <p className="text-xs font-semibold uppercase leading-5 text-primary sm:text-sm">
-                How the work runs
-              </p>
-              <h2 className="mt-3 break-words font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
-                Start with the customer path, then build the system around it.
-              </h2>
-              <p className="mt-5 text-base leading-7 text-text-secondary">
-                This can begin as an audit, a focused build, or a cleanup of an
-                existing site and response process.
-              </p>
-            </div>
+          <section className="border-t border-gray-200 py-12 sm:py-16">
+            <SectionRule index="02" label="How the work runs" className="mb-8" />
+            <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+              <div className="max-w-xl">
+                <h2 className="break-words font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
+                  Start with the customer path, then build the system around it.
+                </h2>
+                <p className="mt-5 text-base leading-7 text-text-secondary">
+                  This can begin as an audit, a focused build, or a cleanup of an
+                  existing site and response process.
+                </p>
+              </div>
 
-            <div className="grid gap-4">
-              {processSteps.map((step, index) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  viewport={{ once: true, amount: 0.35 }}
-                  className="grid min-w-0 gap-4 rounded-xl border border-gray-200 bg-gray-50 p-5 sm:grid-cols-[3.25rem_1fr] sm:items-start"
-                >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-white text-sm font-semibold text-primary shadow-sm">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div className="min-w-0">
-                    <h3 className="break-words text-lg font-semibold leading-7 text-gray-950">
-                      {step.title}
-                    </h3>
-                    <p className="mt-1 text-sm leading-6 text-text-secondary">
-                      {step.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+              <div className="grid gap-4">
+                {processSteps.map((step, index) => (
+                  <motion.div
+                    key={step.title}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: DUR.base,
+                      delay: index * STAGGER.tight,
+                      ease: EASE.out,
+                    }}
+                    viewport={{ once: true, amount: 0.35 }}
+                    className="grid min-w-0 gap-4 rounded-xl border border-gray-200 bg-gray-50 p-5 sm:grid-cols-[4.5rem_1fr] sm:items-start"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="font-mono text-[2.6rem] font-medium leading-none tracking-tight text-primary/25"
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="break-words text-lg font-semibold leading-7 text-gray-950">
+                        {step.title}
+                      </h3>
+                      <p className="mt-1 text-sm leading-6 text-text-secondary">
+                        {step.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </section>
 

@@ -1,23 +1,22 @@
 import { useEffect } from "react";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
-import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
 import Footer from "@/components/layout/Footer";
 import WorksHeader from "@/components/works/WorksHeader";
 import WorksLoadingSkeleton from "@/components/works/WorksLoadingSkeleton";
+import WorkRow from "@/components/works/WorkRow";
+import SectionRule from "@/components/motion/SectionRule";
 import { getAllProjects } from "@/services/api";
 import { getAllPredefinedProjectsSync } from "@/services/api/predefinedProjects";
 import {
-  getCaseStudyBrief,
   getFeaturedConfig,
   isFeaturedProject,
   isPrimaryWorksProject,
   orderFeaturedProjects,
   sortProjectsNewestFirst,
 } from "@/config/portfolioCuration";
-import { getProjectPath } from "@/lib/projectRoutes";
+import { DUR, EASE, STAGGER } from "@/lib/motion";
 
 const Works = () => {
   useEffect(() => {
@@ -87,10 +86,10 @@ const Works = () => {
 
           <section className="w-full max-w-4xl min-w-0 pb-10 pt-4 sm:pb-12 sm:pt-6">
             <motion.p
-              className="mb-3 text-xs font-semibold uppercase leading-5 text-primary sm:text-sm"
+              className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.22em] text-primary"
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45 }}
+              transition={{ duration: DUR.base, ease: EASE.out }}
             >
               Work
             </motion.p>
@@ -98,7 +97,7 @@ const Works = () => {
               className="break-words font-display text-[2.35rem] leading-[1.08] text-gray-950 [text-wrap:balance] sm:text-display-lg"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: DUR.base, ease: EASE.out }}
             >
               The product decisions behind the interface.
             </motion.h1>
@@ -106,7 +105,7 @@ const Works = () => {
               className="mt-5 max-w-2xl text-base leading-7 text-text-secondary sm:text-lg sm:leading-8"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.08 }}
+              transition={{ duration: DUR.base, delay: 0.08, ease: EASE.out }}
             >
               The featured case studies focus on AI and product-design
               judgment. Each one shows the problem, constraint, decision, and
@@ -114,157 +113,62 @@ const Works = () => {
             </motion.p>
           </section>
 
-          <section className="mx-auto grid w-full max-w-6xl min-w-0 grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-3">
-            {featuredProjects.map((project, index) => {
-              const brief = getCaseStudyBrief(project.slug);
-
-              return (
-                <motion.article
+          <section aria-label="Featured case studies">
+            <SectionRule index="01" label="Featured case studies" className="mb-2" />
+            <motion.div
+              className="divide-y divide-gray-200 border-y border-gray-200"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: STAGGER.base } },
+              }}
+            >
+              {featuredProjects.map((project, index) => (
+                <motion.div
                   key={project.id}
-                  className="group flex h-full min-h-[24rem] min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 sm:min-h-[28rem]"
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  variants={{
+                    hidden: { opacity: 0, y: 28 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: DUR.base, ease: EASE.out },
+                    },
+                  }}
                 >
-                  <Link
-                    to={getProjectPath(project)}
-                    className="flex h-full min-w-0 flex-col rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4"
-                  >
-                    <div className="px-3 pt-3">
-                      <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-gray-100 shadow-[0_14px_34px_rgba(15,23,42,0.1)]">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          loading={index === 0 ? "eager" : "lazy"}
-                          decoding="async"
-                          fetchpriority={index === 0 ? "high" : "auto"}
-                          sizes="(min-width: 1024px) 360px, 100vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                          <div className="liquid-glass-control liquid-glass-interactive scale-75 rounded-full p-4 text-primary transition-transform duration-300 group-hover:scale-100">
-                            <ArrowUpRight className="h-6 w-6" />
-                          </div>
-                        </div>
-
-                        <div className="liquid-glass-control absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-gray-950">
-                          Case study
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-6">
-                      <p className="mb-3 text-xs font-semibold uppercase leading-5 text-primary">
-                        {project.curation.eyebrow}
-                      </p>
-                      <h2 className="mb-3 break-words font-display text-xl leading-tight text-text-primary transition-colors duration-300 group-hover:text-primary sm:text-heading-md">
-                        {project.curation.featuredTitle}
-                      </h2>
-                      <p className="text-sm leading-6 text-text-secondary">
-                        {project.curation.impactSummary}
-                      </p>
-
-                      <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-gray-500">
-                        <span className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1">
-                          {project.role}
-                        </span>
-                        <span className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1">
-                          {project.year}
-                        </span>
-                      </div>
-
-                      {brief ? (
-                        <dl className="mt-5 grid gap-3 border-t border-gray-200 pt-5 text-sm">
-                          <div>
-                            <dt className="font-semibold text-gray-950">
-                              Key decision
-                            </dt>
-                            <dd className="mt-1 text-gray-600">
-                              {brief.coreDecision}
-                            </dd>
-                          </div>
-                          <div>
-                            <dt className="font-semibold text-gray-950">
-                              Proof
-                            </dt>
-                            <dd className="mt-1 text-gray-600">
-                              {brief.evidence}
-                            </dd>
-                          </div>
-                        </dl>
-                      ) : null}
-
-                      <div className="mt-auto flex min-h-11 items-center pt-5 text-sm font-semibold text-primary sm:pt-6">
-                        Read case study
-                        <ArrowUpRight className="ml-1 h-4 w-4" />
-                      </div>
-                    </div>
-                  </Link>
-                </motion.article>
-              );
-            })}
+                  <WorkRow
+                    project={project}
+                    index={index}
+                    title={project.curation.featuredTitle}
+                    eyebrow={project.curation.eyebrow}
+                    summary={project.curation.impactSummary}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
           </section>
 
-          <section className="mt-10 border-t border-gray-200 py-10 sm:mt-14 sm:py-12">
-            <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <h2 className="break-words font-display text-3xl leading-tight text-gray-950 sm:text-heading-xl">
-                  Additional selected work
-                </h2>
-                <p className="mt-2 max-w-2xl text-text-secondary">
-                  More examples across education, security, entertainment, and
-                  product systems.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid w-full min-w-0 grid-cols-1 gap-4 md:grid-cols-2">
-              {additionalProjects.map((project) => {
+          <section className="mt-14 sm:mt-20" aria-label="Additional selected work">
+            <SectionRule index="02" label="Additional selected work" className="mb-2" />
+            <div className="divide-y divide-gray-200 border-y border-gray-200">
+              {additionalProjects.map((project, index) => {
                 const config = getFeaturedConfig(project.slug);
 
                 return (
-                  <Link
+                  <motion.div
                     key={project.id}
-                    to={getProjectPath(project)}
-                    className="group grid min-w-0 gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-4 transition-colors hover:border-primary/30 hover:bg-white sm:grid-cols-[9rem_1fr]"
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: DUR.base, ease: EASE.out }}
                   >
-                    <div className="aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        loading="lazy"
-                        decoding="async"
-                        sizes="(min-width: 768px) 144px, 100vw"
-                      />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs font-semibold uppercase text-primary">
-                        {config?.eyebrow ||
-                          project.category ||
-                          project.tags?.[0] ||
-                          "Product design"}
-                      </p>
-                      <h3 className="mt-2 break-words text-lg font-semibold leading-snug text-gray-950 transition-colors group-hover:text-primary">
-                        {project.title}
-                      </h3>
-                      <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-600">
-                        {project.fullDescription || project.description}
-                      </p>
-                      <div className="mt-3 flex min-w-0 flex-wrap items-center gap-3 text-xs text-gray-500">
-                        <span>{project.year}</span>
-                        <span>{project.role}</span>
-                        {project.liveUrl ? (
-                          <span className="inline-flex items-center gap-1 text-primary">
-                            Live
-                            <ExternalLink size={12} />
-                          </span>
-                        ) : null}
-                      </div>
-                    </div>
-                  </Link>
+                    <WorkRow
+                      project={project}
+                      index={index}
+                      eyebrow={config?.eyebrow}
+                      size="compact"
+                    />
+                  </motion.div>
                 );
               })}
             </div>

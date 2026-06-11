@@ -2111,6 +2111,11 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   transform: translate3d(0.7rem, 0, 0);
 }
 
+.portfolio-work-row__title--compact {
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  -webkit-text-stroke-width: 0.5px;
+}
+
 .portfolio-work-row__preview {
   position: absolute;
   top: 50%;
@@ -3919,8 +3924,8 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
 }
 
 .rolling-text__inner {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  display: block;
   transition: transform var(--dur-base) var(--ease-overshoot);
   will-change: transform;
 }
@@ -3929,9 +3934,16 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   display: block;
 }
 
+.rolling-text__copy + .rolling-text__copy {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
 .rolling-trigger:hover .rolling-text__inner,
 .rolling-trigger:focus-visible .rolling-text__inner {
-  transform: translateY(-50%);
+  transform: translateY(-100%);
 }
 
 /* Accent gradient text */
