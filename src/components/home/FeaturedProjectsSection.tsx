@@ -27,7 +27,7 @@ const FeaturedProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="relative scroll-mt-24 overflow-hidden bg-[oklch(var(--color-surface-soft))] py-16 text-text-primary sm:py-24"
+      className="relative scroll-mt-24 overflow-clip bg-[oklch(var(--color-surface-soft))] py-16 text-text-primary sm:py-24"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[linear-gradient(180deg,oklch(var(--color-surface-page)),oklch(var(--color-surface-soft)/0))]" />
 
@@ -38,109 +38,124 @@ const FeaturedProjectsSection = () => {
               <SectionRule index="01" label="Selected work" />
             </div>
             <h2 className="max-w-2xl break-words font-display text-[2.25rem] font-semibold leading-[1.05] text-gray-950 [text-wrap:balance] sm:text-[3.1rem]">
-              Two case studies worth reading first.
+              Case studies with room for the decision.
             </h2>
           </div>
 
           <p className="max-w-2xl text-base leading-7 text-text-secondary sm:text-body-md lg:justify-self-end">
-            Start here if you want the clearest view of how I connect product
-            thinking, UX decisions, and frontend execution.
+            Start with the two projects that best show how I move from product
+            questions to working interfaces.
           </p>
         </div>
 
         {isLoading ? (
-          <div className="grid w-full grid-cols-1 gap-5 lg:grid-cols-2">
+          <div className="grid w-full grid-cols-1 gap-5">
             {[1, 2].map((item) => (
               <div
                 key={item}
-                className="h-[32rem] animate-pulse rounded-lg border border-gray-200 bg-white"
+                className="h-[28rem] animate-pulse rounded-2xl border border-gray-200 bg-white sm:h-[34rem]"
               />
             ))}
           </div>
         ) : (
           <>
-            <div className="grid gap-5 lg:grid-cols-2">
+            <div className="portfolio-cinema-list">
               {featuredProjects.map((project, index) => {
                 const brief = getCaseStudyBrief(project.slug);
 
                 return (
-                  <article
+                  <div
                     key={project.id}
-                    className="group grid min-w-0 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-md"
+                    className="portfolio-cinema-card-shell portfolio-cinema-card-shell--static"
                   >
-                    <Link
-                      to={getProjectPath(project)}
-                      className="relative block aspect-[16/10] overflow-hidden bg-gray-950"
-                      aria-label={`Read case study: ${project.curation.featuredTitle}`}
-                      data-cursor-label="Read case study"
+                    <article
+                      className="portfolio-cinema-card group"
+                      aria-labelledby={`home-featured-${project.id}`}
                     >
-                      <img
-                        src={project.image}
-                        alt=""
-                        loading={index === 0 ? "eager" : "lazy"}
-                        decoding="async"
-                        fetchPriority={index === 0 ? "high" : "auto"}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
-                        sizes="(min-width: 1024px) 40rem, 100vw"
-                        onError={(event) => {
-                          event.currentTarget.src = "/placeholder.svg";
-                        }}
+                      <span
+                        className="portfolio-cinema-card__scan"
+                        aria-hidden="true"
                       />
-                      <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-gray-950 shadow-sm">
+                      <span
+                        className="portfolio-cinema-card__index"
+                        aria-hidden="true"
+                      >
                         {String(index + 1).padStart(2, "0")}
                       </span>
-                    </Link>
 
-                    <div className="grid gap-7 p-5 sm:p-6">
-                      <div>
-                        <p className="text-xs font-semibold uppercase leading-5 text-primary">
-                          {project.curation.eyebrow}
-                        </p>
-                        <h3 className="mt-3 font-display text-[2rem] font-semibold leading-tight text-gray-950 [text-wrap:balance] sm:text-[2.55rem]">
-                          {project.curation.featuredTitle}
-                        </h3>
-                        <p className="mt-4 text-base leading-7 text-gray-600">
-                          {project.curation.impactSummary}
-                        </p>
-                      </div>
-
-                      <dl className="grid gap-4 border-y border-gray-200 py-5 sm:grid-cols-2">
+                      <div className="portfolio-cinema-card__content">
                         <div>
-                          <dt className="text-xs font-semibold uppercase leading-5 text-gray-500">
-                            Decision
-                          </dt>
-                          <dd className="mt-2 text-sm leading-6 text-gray-700">
-                            {brief?.coreDecision ||
-                              "Shape the interface around the user's next useful move."}
-                          </dd>
+                          <p className="portfolio-cinema-card__eyebrow">
+                            {String(index + 1).padStart(2, "0")} /{" "}
+                            {project.curation.eyebrow}
+                          </p>
+                          <h3
+                            id={`home-featured-${project.id}`}
+                            className="portfolio-cinema-card__title"
+                          >
+                            {project.curation.featuredTitle}
+                          </h3>
+                          <p className="portfolio-cinema-card__summary">
+                            {project.curation.impactSummary}
+                          </p>
                         </div>
-                        <div>
-                          <dt className="text-xs font-semibold uppercase leading-5 text-gray-500">
-                            Proof
-                          </dt>
-                          <dd className="mt-2 text-sm leading-6 text-gray-700">
-                            {brief?.evidence ||
-                              "The case study keeps implementation notes and visible artifacts close to the claim."}
-                          </dd>
-                        </div>
-                      </dl>
 
-                      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                        <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase leading-5 text-gray-500">
-                          <span>{project.role}</span>
-                          <span aria-hidden="true">/</span>
-                          <span>{project.year}</span>
-                        </div>
                         <Link
                           to={getProjectPath(project)}
-                          className="inline-flex min-h-11 w-fit items-center gap-2 rounded-full border border-gray-300 px-4 text-sm font-semibold text-gray-950 transition-colors hover:border-primary hover:text-primary"
+                          className="portfolio-cinema-card__cta"
+                          aria-label={`Read case study: ${project.curation.featuredTitle}`}
                         >
                           Read case study
                           <ArrowUpRight size={16} />
                         </Link>
+
+                        <dl className="portfolio-cinema-card__proof">
+                          <div>
+                            <dt>Decision</dt>
+                            <dd>
+                              {brief?.coreDecision ||
+                                "Shape the interface around the user's next useful move."}
+                            </dd>
+                          </div>
+                          <div>
+                            <dt>Proof</dt>
+                            <dd>
+                              {brief?.evidence ||
+                                "The case study keeps implementation notes and visible artifacts close to the claim."}
+                            </dd>
+                          </div>
+                        </dl>
+
+                        <div className="portfolio-cinema-card__footer">
+                          <div className="portfolio-cinema-card__meta">
+                            <span>{project.role}</span>
+                            <span>{project.year}</span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </article>
+
+                      <Link
+                        to={getProjectPath(project)}
+                        className="portfolio-cinema-card__media"
+                        aria-label={`Read case study: ${project.curation.featuredTitle}`}
+                        data-cursor-label="View case study"
+                      >
+                        <div className="portfolio-cinema-card__media-inner">
+                          <img
+                            src={project.image}
+                            alt=""
+                            loading={index === 0 ? "eager" : "lazy"}
+                            decoding="async"
+                            fetchPriority={index === 0 ? "high" : "auto"}
+                            sizes="(min-width: 1024px) 760px, 100vw"
+                            onError={(event) => {
+                              event.currentTarget.src = "/placeholder.svg";
+                            }}
+                          />
+                        </div>
+                      </Link>
+                    </article>
+                  </div>
                 );
               })}
             </div>

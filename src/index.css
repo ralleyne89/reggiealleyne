@@ -1806,6 +1806,11 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   padding: 0 0 1rem;
 }
 
+.portfolio-cinema-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
 .portfolio-cinema-card {
   position: relative;
   display: grid;
@@ -1892,7 +1897,7 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 750;
   line-height: 0.98;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   text-wrap: balance;
 }
 
@@ -2155,6 +2160,18 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
     align-items: stretch;
     justify-content: center;
     padding: 0;
+  }
+
+  .portfolio-cinema-list {
+    gap: 1.5rem;
+  }
+
+  .portfolio-cinema-card-shell--static {
+    height: auto;
+  }
+
+  .portfolio-cinema-card-shell--static .portfolio-cinema-card {
+    min-height: min(68vh, 40rem);
   }
 
   .portfolio-cinema-card {
