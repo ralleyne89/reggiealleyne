@@ -172,20 +172,6 @@ const ContactSection = () => {
           transition={{ duration: 0.55, delay: 0.1 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="mb-6 flex items-start justify-between gap-4">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-normal text-primary-light">
-                Project note
-              </p>
-              <h3 className="mt-2 font-display text-2xl font-semibold text-white">
-                Tell me what you are building.
-              </h3>
-            </div>
-            <span className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-white sm:flex">
-              <Send size={18} />
-            </span>
-          </div>
-
           <form onSubmit={handleContactFormSubmit} className="min-w-0 space-y-4">
             <div>
               <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-200">
