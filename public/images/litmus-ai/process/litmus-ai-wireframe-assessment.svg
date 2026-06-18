@@ -1,0 +1,52 @@
+<svg width="1080" height="810" viewBox="0 0 1080 810" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Litmus AI assessment wireframe</title>
+  <desc id="desc">Low-fidelity assessment screen with level selection, progress, domain context, question card, answer options, and next action.</desc>
+  <rect width="1080" height="810" fill="#10131F"/>
+  <rect x="44" y="42" width="992" height="726" rx="34" fill="#F8FAFC"/>
+  <rect x="78" y="78" width="924" height="654" rx="28" fill="#FFFFFF" stroke="#DCE3EE" stroke-width="2"/>
+  <text x="112" y="132" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Assessment cockpit wireframe</text>
+  <text x="112" y="166" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="17">Keep the test credible, fast, and easy to finish.</text>
+
+  <rect x="112" y="216" width="228" height="458" rx="22" fill="#111827"/>
+  <text x="142" y="260" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Calibration</text>
+  <text x="142" y="292" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="14">Starting level</text>
+  <rect x="142" y="318" width="168" height="54" rx="14" fill="#FFFFFF" fill-opacity="0.08" stroke="#334155"/>
+  <text x="164" y="351" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">New to AI</text>
+  <rect x="142" y="386" width="168" height="54" rx="14" fill="#7C3AED"/>
+  <text x="164" y="419" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Some experience</text>
+  <rect x="142" y="454" width="168" height="54" rx="14" fill="#FFFFFF" fill-opacity="0.08" stroke="#334155"/>
+  <text x="164" y="487" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Advanced</text>
+  <text x="142" y="570" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="14">3-5 min target</text>
+  <text x="142" y="598" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="14">15 questions</text>
+  <text x="142" y="626" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="14">4 domains</text>
+
+  <rect x="388" y="216" width="580" height="458" rx="22" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2"/>
+  <rect x="426" y="254" width="504" height="12" rx="6" fill="#E2E8F0"/>
+  <rect x="426" y="254" width="232" height="12" rx="6" fill="#7C3AED"/>
+  <text x="426" y="304" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Question 6 of 15</text>
+  <rect x="774" y="284" width="156" height="34" rx="17" fill="#EEF2FF" stroke="#C4B5FD"/>
+  <text x="794" y="307" fill="#4C1D95" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">Ethics domain</text>
+
+  <rect x="426" y="344" width="504" height="104" rx="18" fill="#FFFFFF" stroke="#DCE3EE" stroke-width="2"/>
+  <rect x="456" y="378" width="378" height="14" rx="7" fill="#CBD5E1"/>
+  <rect x="456" y="406" width="296" height="14" rx="7" fill="#E2E8F0"/>
+
+  <rect x="426" y="478" width="238" height="62" rx="16" fill="#FFFFFF" stroke="#DCE3EE" stroke-width="2"/>
+  <circle cx="458" cy="509" r="15" fill="#EEF2FF" stroke="#7C3AED"/>
+  <rect x="486" y="502" width="128" height="14" rx="7" fill="#CBD5E1"/>
+  <rect x="692" y="478" width="238" height="62" rx="16" fill="#FFFFFF" stroke="#DCE3EE" stroke-width="2"/>
+  <circle cx="724" cy="509" r="15" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <rect x="752" y="502" width="128" height="14" rx="7" fill="#CBD5E1"/>
+  <rect x="426" y="560" width="238" height="62" rx="16" fill="#FFFFFF" stroke="#DCE3EE" stroke-width="2"/>
+  <circle cx="458" cy="591" r="15" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <rect x="486" y="584" width="144" height="14" rx="7" fill="#CBD5E1"/>
+  <rect x="692" y="560" width="238" height="62" rx="16" fill="#FFFFFF" stroke="#DCE3EE" stroke-width="2"/>
+  <circle cx="724" cy="591" r="15" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <rect x="752" y="584" width="116" height="14" rx="7" fill="#CBD5E1"/>
+
+  <rect x="734" y="642" width="196" height="46" rx="23" fill="#111827"/>
+  <text x="802" y="671" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">Next</text>
+
+  <rect x="112" y="700" width="446" height="1" fill="#DCE3EE"/>
+  <text x="112" y="726" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="14">UX note: progress and domain context reduce uncertainty without making the test feel heavy.</text>
+</svg>

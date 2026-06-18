@@ -31,11 +31,47 @@ const artifactTypeMeta: Record<
   wireframe: { label: "Wireframe", icon: LayoutTemplate },
 };
 
+const processArtifactCopyBySlug: Record<
+  string,
+  {
+    title: string;
+    description: string;
+    sourceTitle: string;
+    sourceDescription: string;
+  }
+> = {
+  "cllctve-platform": {
+    title: "How the persona became a product path.",
+    description:
+      "These maps connect Maya's creator needs to the product routes, flows, and screen structure that made CLLCTVE more than a static portfolio.",
+    sourceTitle: "Mapped from the CLLCTVE app",
+    sourceDescription:
+      "The structure follows the actual app surfaces: landing, creator discovery, profile, login, signup, and challenge paths.",
+  },
+  "litmus-ai": {
+    title: "How the assessment became a learning path.",
+    description:
+      "These maps connect Priya's need for a fast readiness signal to the assessment, training, certification, billing, and admin surfaces that made the MVP usable.",
+    sourceTitle: "Mapped from the LitmusAI app",
+    sourceDescription:
+      "The structure follows the actual app routes: home, assessment, training, certification, billing, dashboard, profile, login, and registration.",
+  },
+};
+
 const ProjectProcessArtifacts = ({ project }: ProjectProcessArtifactsProps) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const artifacts = getCaseStudyProcessArtifacts(project.slug);
 
   if (!artifacts?.length) return null;
+
+  const copy = processArtifactCopyBySlug[project.slug] || {
+    title: "How the product path came together.",
+    description:
+      "These maps connect user needs to the routes, flows, and screen structure behind the final product direction.",
+    sourceTitle: `Mapped from ${project.title}`,
+    sourceDescription:
+      "The structure follows the product surfaces shown in the case study and supporting interface evidence.",
+  };
 
   return (
     <EditorialSection
@@ -49,12 +85,10 @@ const ProjectProcessArtifacts = ({ project }: ProjectProcessArtifactsProps) => {
             Process artifacts
           </p>
           <h2 className="font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
-            How the persona became a product path.
+            {copy.title}
           </h2>
           <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
-            These maps connect Maya&apos;s creator needs to the product routes,
-            flows, and screen structure that made CLLCTVE more than a static
-            portfolio.
+            {copy.description}
           </p>
 
           <div className="mt-8 rounded-lg border border-gray-200 bg-gray-50 p-5">
@@ -63,12 +97,11 @@ const ProjectProcessArtifacts = ({ project }: ProjectProcessArtifactsProps) => {
                 <Workflow className="h-4 w-4" aria-hidden="true" />
               </span>
               <p className="text-sm font-semibold leading-5 text-gray-950">
-                Mapped from the CLLCTVE app
+                {copy.sourceTitle}
               </p>
             </div>
             <p className="mt-4 text-sm leading-6 text-gray-600">
-              The structure follows the actual app surfaces: landing, creator
-              discovery, profile, login, signup, and challenge paths.
+              {copy.sourceDescription}
             </p>
           </div>
         </div>

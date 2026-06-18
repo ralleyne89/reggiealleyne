@@ -10,6 +10,13 @@ interface ProjectAudienceJourneyProps {
   project: ProjectType;
 }
 
+const audienceDescriptionBySlug: Record<string, string> = {
+  "cllctve-platform":
+    "The persona connects creator behavior to product structure: what the user needed, where the business needed repeat activity, and which flow could serve both.",
+  "litmus-ai":
+    "The persona connects learner behavior to the product model: what the user needed to understand quickly, where teams needed a usable readiness signal, and which flow could serve both.",
+};
+
 const ProjectAudienceJourney = ({ project }: ProjectAudienceJourneyProps) => {
   const audienceJourney = getProjectPersonaJourney(project.slug);
   const personaProfile = getProjectPersonaProfile(project.slug);
@@ -31,7 +38,10 @@ const ProjectAudienceJourney = ({ project }: ProjectAudienceJourneyProps) => {
     <EditorialSection
       eyebrow="Discovery"
       title="Persona and audience context"
-      description="The persona connects creator behavior to product structure: what the user needed, where the business needed repeat activity, and which flow could serve both."
+      description={
+        audienceDescriptionBySlug[project.slug] ||
+        "The persona connects user behavior to product structure: what the user needed, what the business needed, and which flow could serve both."
+      }
       className="project-audience-journey border-b border-gray-200"
       contentClassName="project-audience-journey__content"
       headerClassName="project-audience-journey__header"

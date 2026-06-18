@@ -214,13 +214,13 @@ export const caseStudyBriefs: Partial<
     constraint:
       "The test had to stay short enough for busy users while still producing learning signals a team could trust.",
     coreDecision:
-      "Start with adaptive assessment, then send people to learning paths based on what they missed.",
+      "Start with adaptive assessment, then route people into the training, certification, or team view that matched what they missed.",
     evidence:
-      "Shipped an MVP with GPT-powered assessment, certification, admin visibility, and Stripe payment paths.",
+      "Shipped an MVP with assessment, role-aware recommendations, progress tracking, certification, billing, and admin visibility.",
     artifacts: [
       "Adaptive assessment flow",
       "Results and recommendations",
-      "Certificate and payment flow",
+      "Training, certificate, and billing paths",
     ],
   },
   "cllctve-platform": {
@@ -378,21 +378,21 @@ export const caseStudyNarratives: Record<
   },
   "litmus-ai": {
     hook:
-      "Litmus AI started with a practical problem: people were talking about AI readiness before they had a fast way to see what someone actually understood.",
+      "Litmus AI started with a practical gap: people were buying AI training before they had a fast way to see what someone actually understood.",
     setup:
-      "Courses and certificates can help, but they often ask for commitment before showing the learner where they stand. The product needed to give students, professionals, and teams a credible baseline in minutes, then point them toward the right next step.",
+      "Courses and certificates can help, but they often ask for commitment before showing the learner where they stand. The product needed to give students, professionals, and teams a credible baseline in minutes, then point them toward training or certification only when it made sense.",
     research:
-      "The research signal was the gap between broad AI curiosity and usable skill evidence. A learner needed a score they could understand, and an organization needed enough structure to see patterns across users.",
+      "The source product was organized around Assess, Activate, and Certify. That shaped the research read: a learner needed a score they could understand, while a team needed enough structure to compare readiness and keep progress visible.",
     constraint:
-      "The assessment had to stay short without becoming shallow. If the flow took too long, users would drop. If it was too light, the result would not feel useful.",
+      "The assessment had to stay short without becoming shallow. If the flow took too long, users would leave. If it was too light, the score would not justify the learning path, certificate, or team rollout.",
     decision:
-      "I compressed the experience into an adaptive assessment, then made the result actionable through recommendations, credentials, admin visibility, and payment paths.",
+      "I compressed the first session into an adaptive assessment, then made the result actionable through recommendations, training modules, certification access, billing plans, and admin visibility.",
     build:
-      "I shaped the quiz, results, recommendation logic, certificate flow, admin dashboard, and Stripe-backed payment paths. The implementation connected assessment data, scoring behavior, and account workflows into one MVP.",
+      "I shaped the quiz, results, recommendation logic, certificate flow, training surfaces, admin dashboard, auth paths, and Stripe-backed billing. The implementation connected assessment data, account state, and subscription rules into one MVP.",
     proof:
-      "The MVP shipped in an eight-week window with adaptive questions, results, recommendations, certification, admin review, and payment flows visible in the product.",
+      "The MVP shipped in an eight-week window with a 3-5 minute assessment target, 15 practical questions, four readiness domains, training modules, certification, dashboard visibility, and three billing paths.",
     reflection:
-      "The useful design move was keeping the product honest about time. A five-minute test cannot teach everything, but it can give people a starting point they can act on.",
+      "The useful design move was keeping the product honest about time. A five-minute test cannot teach everything, but it can give people and teams a starting point they can act on.",
   },
   "vaultjs-validate": {
     hook:
@@ -481,16 +481,20 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Product framing", "Host workflow", "Room optimizer UI", "Portfolio presentation"],
   },
   "litmus-ai": {
-    role: "UX/UI Designer and AI Strategist",
+    role: "UX/UI Designer and Frontend Developer",
     problem:
-      "Teams and learners needed a fast way to understand AI readiness before committing to training.",
+      "Teams and learners needed a fast AI readiness baseline before committing to training, certification, or paid rollout plans.",
     decision:
-      "Compress assessment into an adaptive five-minute flow with recommendations and credentials after the score.",
+      "Compress assessment into a five-minute flow, then connect the result to recommendations, training, certification, billing, and admin visibility.",
     outcome:
-      "Shipped an MVP with adaptive assessment, recommendations, certification, admin visibility, and payment paths.",
-    tools: ["React", "OpenAI API", "Supabase", "Stripe", "Auth0"],
-    owned: ["Product strategy", "Assessment UX", "Prompt/scoring logic", "Payments and admin flow"],
-    metrics: [{ value: "8 weeks", label: "Thesis to shipped MVP" }],
+      "Shipped an MVP around Assess, Activate, and Certify: assessment, recommendations, training modules, certification, dashboard, auth, and billing.",
+    tools: ["React", "Vite", "Tailwind CSS", "Supabase", "Stripe"],
+    owned: ["Assessment UX", "Results logic", "Training path", "Certification and billing UI"],
+    metrics: [
+      { value: "8 weeks", label: "MVP delivery window" },
+      { value: "15", label: "Assessment questions" },
+      { value: "4", label: "Readiness domains" },
+    ],
   },
   "cllctve-platform": {
     role: "UX/UI Designer and Frontend Developer",
@@ -630,6 +634,52 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
 export const caseStudyProcessArtifacts: Partial<
   Record<string, CaseStudyProcessArtifact[]>
 > = {
+  "litmus-ai": [
+    {
+      type: "sitemap",
+      title: "Assess, Activate, Certify product map",
+      image: "/images/litmus-ai/process/litmus-ai-sitemap.svg",
+      alt:
+        "Litmus AI sitemap connecting home, assessment, results, training, certification, billing, dashboard, profile, login, and registration routes.",
+      insight:
+        "The map keeps the free readiness check close to the paid learning and certification paths instead of treating assessment as a dead end.",
+      connectsPersonaNeedTo:
+        "Priya needs a quick baseline; the business needs that baseline to create a clear path into training, certification, or team rollout.",
+    },
+    {
+      type: "user-flow",
+      title: "Readiness assessment to learning path",
+      image: "/images/litmus-ai/process/litmus-ai-assessment-flow.svg",
+      alt:
+        "Litmus AI user flow from starting the assessment through level selection, 15 questions, score review, recommendations, training, certification, and billing.",
+      insight:
+        "The core loop makes the score useful immediately by pairing readiness gaps with the next action instead of ending at a percentage.",
+      connectsPersonaNeedTo:
+        "Learners need to know what to do after the score; teams need progress and subscription signals tied to the same path.",
+    },
+    {
+      type: "wireframe",
+      title: "Assessment cockpit wireframe",
+      image: "/images/litmus-ai/process/litmus-ai-wireframe-assessment.svg",
+      alt:
+        "Low-fidelity Litmus AI assessment wireframe with level selection, progress, current domain, question card, answer options, and next action.",
+      insight:
+        "The assessment layout separates calibration, progress, and answer choices so the test feels quick without feeling casual.",
+      connectsPersonaNeedTo:
+        "Priya needs confidence that the test is credible; the product needs completion momentum before recommending training.",
+    },
+    {
+      type: "wireframe",
+      title: "Results and recommendations wireframe",
+      image: "/images/litmus-ai/process/litmus-ai-wireframe-results.svg",
+      alt:
+        "Low-fidelity Litmus AI results wireframe with readiness score, domain breakdown, recommended modules, certification path, and dashboard action.",
+      insight:
+        "The results screen turns a score into a decision surface: learn now, certify later, or move into the dashboard when account state matters.",
+      connectsPersonaNeedTo:
+        "Learners need plain next steps; the business needs a natural handoff from free assessment to paid training and credential paths.",
+    },
+  ],
   "cllctve-platform": [
     {
       type: "sitemap",
@@ -679,6 +729,21 @@ export const caseStudyProcessArtifacts: Partial<
 };
 
 export const caseStudyImpacts: Partial<Record<string, CaseStudyImpact>> = {
+  "litmus-ai": {
+    title: "What the MVP made measurable",
+    summary:
+      "Litmus AI turned AI readiness from a vague training conversation into a short product loop: assess the user, show the gap, recommend a path, and support certification or team rollout when the user is ready.",
+    metrics: [
+      { value: "8 weeks", label: "MVP delivery window" },
+      { value: "5 min", label: "Assessment target" },
+      { value: "4", label: "Readiness domains" },
+    ],
+    notes: [
+      "The assessment gives learners a low-commitment starting point before they choose a training plan.",
+      "The results and recommendation path connects user clarity to the product's training, certification, and billing model.",
+      "The dashboard and billing work make the product usable for both individuals and team leads without splitting the experience into separate products.",
+    ],
+  },
   "cllctve-platform": {
     title: "What the product proved",
     summary:
@@ -1017,36 +1082,36 @@ export const projectPersonaJourneys: Record<
   },
   "litmus-ai": {
     persona: {
-      role: "Learner or team lead who needs a fast AI readiness baseline.",
+      role: "Learner or team lead trying to make AI training practical.",
       context:
-        "They need to understand practical AI literacy before choosing training, buying seats, or claiming competency.",
+        "They need to understand practical AI literacy before choosing training, buying seats, or claiming that a team is ready.",
       goal:
-        "Get a credible signal in minutes and know which learning path should come next.",
+        "Get a credible readiness signal in minutes and know which learning path should come next.",
       friction:
-        "Traditional certifications ask for too much time before users learn whether the content fits their level.",
+        "Traditional certifications and courses ask for too much time before users learn whether the content fits their level.",
       need:
-        "Adaptive assessment, readable results, recommendations, and credentials that make the score useful after the session.",
+        "A short assessment, readable results, recommendations, and credentials that make the score useful after the session.",
     },
     journey: [
       {
-        label: "Start assessment",
+        label: "Calibrate level",
         description:
-          "Enter a short test that feels credible without asking for a large upfront time commitment.",
+          "Pick a starting level so the first question set feels relevant instead of generic.",
       },
       {
-        label: "Answer adaptively",
+        label: "Answer the test",
         description:
-          "Move through questions that adjust to the user's level across AI concepts and applied judgment.",
+          "Move through 15 practical questions across AI concepts, communication, ethics, and workplace judgment.",
       },
       {
-        label: "Read the gaps",
+        label: "Read the result",
         description:
-          "Understand strengths, missed areas, and what the score means in plain language.",
+          "See the readiness score, domain gaps, and plain-language recommendations before committing to training.",
       },
       {
         label: "Choose a path",
         description:
-          "Use recommendations, credentials, and payment paths to continue only where it makes sense.",
+          "Continue into training, certification, billing, or dashboard review only when the score gives a reason.",
       },
     ],
   },
