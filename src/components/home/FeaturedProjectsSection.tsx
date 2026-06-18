@@ -104,6 +104,7 @@ const FeaturedProjectsSection = () => {
                           to={getProjectPath(project)}
                           className="portfolio-cinema-card__cta"
                           aria-label={`Read case study: ${project.curation.featuredTitle}`}
+                          data-cursor-label="Read case study"
                         >
                           Read case study
                           <ArrowUpRight size={16} />
@@ -138,7 +139,7 @@ const FeaturedProjectsSection = () => {
                         to={getProjectPath(project)}
                         className="portfolio-cinema-card__media"
                         aria-label={`Read case study: ${project.curation.featuredTitle}`}
-                        data-cursor-label="View case study"
+                        data-cursor-label="Read case study"
                       >
                         <div className="portfolio-cinema-card__media-inner">
                           <img

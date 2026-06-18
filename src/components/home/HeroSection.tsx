@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { cn } from "@/lib/utils";
 import { EASE, SCRUB } from "@/lib/motion";
+import { scrollToTop } from "@/components/layout/SmoothScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -651,6 +652,10 @@ const HeroSection = () => {
       return undefined;
     }
 
+    if (!window.location.hash) {
+      scrollToTop();
+    }
+
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
@@ -678,6 +683,7 @@ const HeroSection = () => {
       }
 
       let introDelay: gsap.core.Tween | null = null;
+      let loaderPoll = 0;
       let hasPlayedIntro = false;
       const timeline = gsap.timeline({
         defaults: {
@@ -806,20 +812,32 @@ const HeroSection = () => {
         introDelay = gsap.delayedCall(0.08, playIntro);
       };
 
-      const loaderAlreadyComplete =
+      const isLoaderComplete = () =>
         document.body.dataset.homeLoaderState === "complete" ||
         !document.querySelector(".home-loader");
 
-      if (loaderAlreadyComplete) {
+      if (isLoaderComplete()) {
         introDelay = gsap.delayedCall(0.16, playIntro);
       } else {
         window.addEventListener(LOADER_COMPLETE_EVENT, scheduleIntro, {
           once: true,
         });
+        loaderPoll = window.setInterval(() => {
+          if (!isLoaderComplete()) {
+            return;
+          }
+
+          window.clearInterval(loaderPoll);
+          loaderPoll = 0;
+          scheduleIntro();
+        }, 120);
       }
 
       cleanupCallbacks.push(() => {
         introDelay?.kill();
+        if (loaderPoll) {
+          window.clearInterval(loaderPoll);
+        }
         window.removeEventListener(LOADER_COMPLETE_EVENT, scheduleIntro);
       });
 

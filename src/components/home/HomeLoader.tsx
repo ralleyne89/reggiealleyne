@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 const LOADER_DURATION = 1900;
 const REDUCED_MOTION_DURATION = 350;
@@ -37,7 +37,7 @@ const HomeLoader = () => {
   const [isHandoff, setIsHandoff] = useState(false);
   const [isVisible, setIsVisible] = useState(shouldRunLoader);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!shouldRunLoader) {
       document.body.dataset.homeLoaderState = "complete";
       window.dispatchEvent(new CustomEvent(LOADER_COMPLETE_EVENT));
