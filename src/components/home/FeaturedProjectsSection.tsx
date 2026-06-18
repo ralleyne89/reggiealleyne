@@ -21,6 +21,8 @@ import SectionRule from "@/components/motion/SectionRule";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const hiddenFromHomepageSupportingWork = new Set(["vaultjs-validate"]);
+
 const FeaturedProjectsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const cardShellRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -47,7 +49,9 @@ const FeaturedProjectsSection = () => {
       sortProjectsNewestFirst(
         projects.filter(
           (project) =>
-            isPrimaryWorksProject(project) && !isFeaturedProject(project),
+            isPrimaryWorksProject(project) &&
+            !isFeaturedProject(project) &&
+            !hiddenFromHomepageSupportingWork.has(project.slug),
         ),
       ).slice(0, 4),
     [projects],
