@@ -5,7 +5,6 @@ import HomeMarquee from "@/components/home/HomeMarquee";
 import FeaturedProjectsSection from "@/components/home/FeaturedProjectsSection";
 import PlaygroundPreviewSection from "@/components/home/PlaygroundPreviewSection";
 import ToolStackSection from "@/components/home/ToolStackSection";
-import AboutSection from "@/components/home/AboutSection";
 import ContactSection from "@/components/home/ContactSection";
 
 const Index = () => {
@@ -17,7 +16,6 @@ const Index = () => {
       <FeaturedProjectsSection />
       <PlaygroundPreviewSection />
       <ToolStackSection />
-      <AboutSection />
       <ContactSection />
       <Footer />
     </>
