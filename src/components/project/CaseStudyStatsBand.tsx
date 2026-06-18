@@ -20,10 +20,21 @@ const CaseStudyStatsBand = ({ project }: CaseStudyStatsBandProps) => {
     return null;
   }
 
+  const listText = (items?: string[] | null, limit = 4) =>
+    items?.filter(Boolean).slice(0, limit).join(", ") || "";
+  const description =
+    project.fullDescription || project.description || project.summary;
   const columns = [
-    { label: "Role", value: tldr.role },
-    { label: "Problem", value: tldr.problem },
-    { label: "Outcome", value: tldr.outcome },
+    { label: "Project", value: description },
+    { label: "Role", value: tldr.role || project.role },
+    {
+      label: "Tools",
+      value: listText(tldr.tools?.length ? tldr.tools : project.techStack),
+    },
+    {
+      label: "Owned",
+      value: listText(tldr.owned?.length ? tldr.owned : project.deliverables),
+    },
   ].filter((column) => Boolean(column.value));
 
   const hasMetrics = Boolean(tldr.metrics?.length);
@@ -41,31 +52,36 @@ const CaseStudyStatsBand = ({ project }: CaseStudyStatsBandProps) => {
               : "grid gap-10"
           }
         >
-          <dl className="grid gap-6 sm:grid-cols-3">
-            {columns.map((column, index) => (
-              <motion.div
-                key={column.label}
-                className="min-w-0"
-                initial={
-                  shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }
-                }
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{
-                  duration: DUR.base,
-                  delay: index * STAGGER.base,
-                  ease: EASE.out,
-                }}
-              >
-                <dt className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-purple-200">
-                  {column.label}
-                </dt>
-                <dd className="mt-3 text-sm leading-6 text-gray-300">
-                  {column.value}
-                </dd>
-              </motion.div>
-            ))}
-          </dl>
+          <div>
+            <p className="mb-6 font-mono text-xs font-medium uppercase tracking-[0.22em] text-purple-200">
+              Project details
+            </p>
+            <dl className="grid gap-6 sm:grid-cols-2">
+              {columns.map((column, index) => (
+                <motion.div
+                  key={column.label}
+                  className="min-w-0"
+                  initial={
+                    shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }
+                  }
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{
+                    duration: DUR.base,
+                    delay: index * STAGGER.base,
+                    ease: EASE.out,
+                  }}
+                >
+                  <dt className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-purple-200">
+                    {column.label}
+                  </dt>
+                  <dd className="mt-3 text-sm leading-6 text-gray-300">
+                    {column.value}
+                  </dd>
+                </motion.div>
+              ))}
+            </dl>
+          </div>
 
           {hasMetrics ? (
             <div className="grid gap-3 sm:grid-cols-3 lg:border-l lg:border-white/10 lg:pl-10">

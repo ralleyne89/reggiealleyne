@@ -32,6 +32,27 @@ export interface CaseStudyTldr {
   metrics?: { value: string; label: string }[];
 }
 
+export type CaseStudyProcessArtifactType =
+  | "sitemap"
+  | "user-flow"
+  | "wireframe";
+
+export interface CaseStudyProcessArtifact {
+  type: CaseStudyProcessArtifactType;
+  title: string;
+  image: string;
+  alt: string;
+  insight: string;
+  connectsPersonaNeedTo: string;
+}
+
+export interface CaseStudyImpact {
+  title: string;
+  summary: string;
+  metrics: { value: string; label: string }[];
+  notes: string[];
+}
+
 export interface CaseStudyNarrative {
   hook: string;
   setup: string;
@@ -603,6 +624,75 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
       "Created a live Netlify site with service routes, booking and contact submissions, policy coverage, and local media assets.",
     tools: ["Vite", "React", "TypeScript", "Tailwind CSS", "Supabase", "Netlify"],
     owned: ["Public routes", "Booking flow", "Before/after visuals"],
+  },
+};
+
+export const caseStudyProcessArtifacts: Partial<
+  Record<string, CaseStudyProcessArtifact[]>
+> = {
+  "cllctve-platform": [
+    {
+      type: "sitemap",
+      title: "Product map",
+      image: "/images/cllctve/process/cllctve-sitemap.svg",
+      alt:
+        "CLLCTVE sitemap connecting the landing page, creator discovery, creator profiles, challenges, brand collaboration, login, and signup routes.",
+      insight:
+        "The route map keeps discovery and opportunity close together instead of treating a portfolio as a static destination.",
+      connectsPersonaNeedTo:
+        "Maya needs one shareable home for scattered work; the business needs a browsable creator inventory for brands.",
+    },
+    {
+      type: "user-flow",
+      title: "Creator to brand-opportunity flow",
+      image: "/images/cllctve/process/cllctve-creator-flow.svg",
+      alt:
+        "CLLCTVE user flow from signup through profile creation, feedback, challenge discovery, and brand opportunity review.",
+      insight:
+        "The main loop gives creators a reason to return: update work, get community response, and find a relevant brand challenge.",
+      connectsPersonaNeedTo:
+        "Fast profile updates support creator momentum; return loops support retention and partner challenge supply.",
+    },
+    {
+      type: "wireframe",
+      title: "Profile builder wireframe",
+      image: "/images/cllctve/process/cllctve-wireframe-profile-builder.svg",
+      alt:
+        "Low-fidelity CLLCTVE creator profile builder wireframe with profile details, work cards, and share actions.",
+      insight:
+        "The profile builder starts with identity and recent work before deeper customization, so creators can publish without a blank-page problem.",
+      connectsPersonaNeedTo:
+        "Maya needs edit speed; the product needs enough structure for profiles to stay consistent and brand-readable.",
+    },
+    {
+      type: "wireframe",
+      title: "Discovery feed wireframe",
+      image: "/images/cllctve/process/cllctve-wireframe-discovery-feed.svg",
+      alt:
+        "Low-fidelity CLLCTVE discovery feed wireframe with creator cards, challenge prompts, and community feedback actions.",
+      insight:
+        "The feed puts work, feedback, and challenges in the same scanning path instead of splitting discovery from opportunity.",
+      connectsPersonaNeedTo:
+        "Creators need response and reach; brands need a cleaner path to find active talent.",
+    },
+  ],
+};
+
+export const caseStudyImpacts: Partial<Record<string, CaseStudyImpact>> = {
+  "cllctve-platform": {
+    title: "What the product proved",
+    summary:
+      "CLLCTVE did not beat incumbents by trying to match every portfolio feature. The product proved that a narrower mobile-first loop could attract creators and brand partners before the company closed.",
+    metrics: [
+      { value: "500+", label: "Creators on platform" },
+      { value: "15", label: "Brand partnerships" },
+      { value: "85%", label: "Creator retention" },
+    ],
+    notes: [
+      "The strongest product signal was retention: creators had a reason to come back, not only a place to publish once.",
+      "The brand-partnership count gave the creator-side experience a business reason to exist.",
+      "The company closed, so the case study stays honest about product traction without overstating business survival.",
+    ],
   },
 };
 
@@ -1581,6 +1671,12 @@ export const getCaseStudyBrief = (slug?: string) =>
 
 export const getCaseStudyTldr = (slug?: string) =>
   slug ? caseStudyTldrs[slug] : undefined;
+
+export const getCaseStudyProcessArtifacts = (slug?: string) =>
+  slug ? caseStudyProcessArtifacts[slug] : undefined;
+
+export const getCaseStudyImpact = (slug?: string) =>
+  slug ? caseStudyImpacts[slug] : undefined;
 
 export const getCaseStudyNarrative = (slug?: string) => {
   if (!slug || !(slug in caseStudyNarratives)) return undefined;

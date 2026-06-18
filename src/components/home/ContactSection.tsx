@@ -29,11 +29,11 @@ const ContactSection = () => {
             Get in touch
           </p>
           <h2 className="mx-auto max-w-3xl break-words font-display text-[3rem] font-semibold leading-[0.98] text-white [text-wrap:balance] sm:text-[4rem] lg:text-[5rem]">
-            Let&apos;s build something clear.
+            Let&apos;s work together.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
-            Email me with the project, the goal, and what you need help making
-            real.
+            Email me with the project, the goal, and the part you want help
+            shaping.
           </p>
 
           <div className="mx-auto mt-10 grid max-w-2xl gap-3 sm:grid-cols-2">

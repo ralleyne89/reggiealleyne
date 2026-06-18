@@ -34,15 +34,15 @@ const screenCopyBySlug: Record<string, Record<string, ScreenCopy>> = {
   "cllctve-platform": {
     "/images/cllctve-card-optimized.jpg": {
       label: "Creator profile surface",
-      note: "Profile, bio, skills, interests, and suggested content in the desktop portfolio view.",
+      note: "The profile makes identity, skills, and work scannable for brands without forcing creators into a desktop resume shape.",
     },
     "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png": {
       label: "Creator dashboard",
-      note: "Profile views, connections, projects, earnings, activity, skill progress, and brand opportunities.",
+      note: "The dashboard turns views, connections, activity, and brand opportunities into a reason to return after publishing.",
     },
     "/images/fbb376a0-30ad-4530-8445-159e6767e748.png": {
       label: "Platform landing page",
-      note: "Public page for creators, brand challenges, news, events, and the core platform pitch.",
+      note: "The public page frames CLLCTVE as a creator-to-brand bridge, not just another place to park a portfolio.",
       orientation: "tall",
     },
   },
@@ -152,11 +152,11 @@ const ProjectInterfaceEvidence = ({
             Interface evidence
           </p>
           <h2 className="font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
-            The next UX/UI pass: make the platform visible.
+            How the UX rationale shows up on screen.
           </h2>
           <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
-            Personas and strategy explain the why. The next pass has to show
-            how the product actually behaves on screen.
+            These screens show the product decisions reviewers should inspect:
+            profile credibility, return loops, and opportunity discovery.
           </p>
 
           <ol className="mt-8 divide-y divide-gray-200 border-y border-gray-200">

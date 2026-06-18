@@ -1,0 +1,66 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">CLLCTVE product sitemap</title>
+  <desc id="desc">A sitemap connecting the CLLCTVE landing page, creator discovery, creator profiles, challenges, brand collaboration, login, and signup routes.</desc>
+  <rect width="1200" height="675" fill="#0D0D12"/>
+  <path d="M0 96H1200M0 192H1200M0 288H1200M0 384H1200M0 480H1200M0 576H1200M120 0V675M240 0V675M360 0V675M480 0V675M600 0V675M720 0V675M840 0V675M960 0V675M1080 0V675" stroke="white" stroke-opacity=".06"/>
+  <rect x="58" y="48" width="1084" height="579" rx="28" fill="#15151C" stroke="white" stroke-opacity=".12"/>
+  <text x="92" y="102" fill="#FF4967" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800">CLLCTVE</text>
+  <text x="92" y="134" fill="#F6F4FF" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Product map</text>
+  <text x="92" y="162" fill="#A8A7B7" font-family="Arial, Helvetica, sans-serif" font-size="15">Landing, discovery, profile, challenge, and account routes reconstructed from the source app.</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2L10 6L2 10" fill="none" stroke="#F6F4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <linearGradient id="home" x1="454" y1="215" x2="746" y2="323" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF4967"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="454" y="215" width="292" height="108" rx="22" fill="url(#home)"/>
+  <text x="600" y="264" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800">Home</text>
+  <text x="600" y="292" text-anchor="middle" fill="#FFFFFF" fill-opacity=".82" font-family="Arial, Helvetica, sans-serif" font-size="14">platform pitch + creator entry point</text>
+
+  <path d="M454 269H276" stroke="#F6F4FF" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M746 269H924" stroke="#F6F4FF" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M600 323V430" stroke="#F6F4FF" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M510 323L342 438" stroke="#F6F4FF" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M690 323L858 438" stroke="#F6F4FF" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="126" y="216" width="150" height="106" rx="18" fill="#20212B" stroke="#FF4967" stroke-width="2"/>
+    <text x="201" y="258" text-anchor="middle" fill="#F6F4FF" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800">Creators</text>
+    <text x="201" y="286" text-anchor="middle" fill="#A8A7B7" font-family="Arial, Helvetica, sans-serif" font-size="13">browse talent</text>
+  </g>
+
+  <g>
+    <rect x="924" y="216" width="150" height="106" rx="18" fill="#20212B" stroke="#22D3EE" stroke-width="2"/>
+    <text x="999" y="258" text-anchor="middle" fill="#F6F4FF" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800">Sign up</text>
+    <text x="999" y="286" text-anchor="middle" fill="#A8A7B7" font-family="Arial, Helvetica, sans-serif" font-size="13">join beta</text>
+  </g>
+
+  <g>
+    <rect x="252" y="438" width="180" height="108" rx="18" fill="#20212B" stroke="#A3E635" stroke-width="2"/>
+    <text x="342" y="480" text-anchor="middle" fill="#F6F4FF" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800">Creator profile</text>
+    <text x="342" y="508" text-anchor="middle" fill="#A8A7B7" font-family="Arial, Helvetica, sans-serif" font-size="13">work, skills, social proof</text>
+  </g>
+
+  <g>
+    <rect x="510" y="438" width="180" height="108" rx="18" fill="#20212B" stroke="#8B5CF6" stroke-width="2"/>
+    <text x="600" y="480" text-anchor="middle" fill="#F6F4FF" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800">Challenges</text>
+    <text x="600" y="508" text-anchor="middle" fill="#A8A7B7" font-family="Arial, Helvetica, sans-serif" font-size="13">prompts + return loop</text>
+  </g>
+
+  <g>
+    <rect x="768" y="438" width="180" height="108" rx="18" fill="#20212B" stroke="#FFB86B" stroke-width="2"/>
+    <text x="858" y="480" text-anchor="middle" fill="#F6F4FF" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800">Brands</text>
+    <text x="858" y="508" text-anchor="middle" fill="#A8A7B7" font-family="Arial, Helvetica, sans-serif" font-size="13">partner opportunity</text>
+  </g>
+
+  <path d="M276 269C340 372 344 402 342 438" stroke="#F6F4FF" stroke-opacity=".58" stroke-width="2" stroke-dasharray="8 10" marker-end="url(#arrow)"/>
+  <path d="M924 269C846 328 833 378 858 438" stroke="#F6F4FF" stroke-opacity=".58" stroke-width="2" stroke-dasharray="8 10" marker-end="url(#arrow)"/>
+
+  <rect x="92" y="566" width="1016" height="34" rx="17" fill="white" fill-opacity=".05"/>
+  <text x="600" y="589" text-anchor="middle" fill="#D8D6E8" font-family="Arial, Helvetica, sans-serif" font-size="14">Design point: keep the portfolio loop and opportunity loop close enough that creators have a reason to return.</text>
+</svg>

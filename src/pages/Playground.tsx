@@ -46,15 +46,15 @@ const Playground = () => {
                 className="max-w-4xl"
               >
                 <p className="mb-3 text-sm font-semibold uppercase text-primary">
-                  Prototype lab
+                  Coded AI prototypes
                 </p>
                 <h1 className="font-display text-[2.7rem] font-semibold leading-[1.04] tracking-normal text-gray-950 sm:text-[3.5rem] lg:text-[4.15rem]">
-                  Live experiments that prove the product instinct.
+                  Coded product experiments you can inspect.
                 </h1>
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-text-secondary">
-                  A focused playground of prototypes, creative systems, and
-                  AI-adjacent demos. Each one is here because it shows how an
-                  idea moves from rough concept to usable product surface.
+                  A focused set of prototypes, creative systems, and AI work.
+                  Each one shows how a rough idea becomes a usable product
+                  surface.
                 </p>
               </motion.div>
 

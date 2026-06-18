@@ -1,0 +1,76 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">CLLCTVE creator to opportunity flow</title>
+  <desc id="desc">A user flow showing a creator moving from signup to profile creation, publishing, feedback, challenge discovery, and brand opportunity review.</desc>
+  <rect width="1200" height="675" fill="#0D0D12"/>
+  <path d="M0 112H1200M0 224H1200M0 336H1200M0 448H1200M0 560H1200M150 0V675M300 0V675M450 0V675M600 0V675M750 0V675M900 0V675M1050 0V675" stroke="white" stroke-opacity=".055"/>
+  <rect x="56" y="48" width="1088" height="579" rx="28" fill="#15151C" stroke="white" stroke-opacity=".12"/>
+  <text x="92" y="103" fill="#FF4967" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="800">Creator flow</text>
+  <text x="92" y="135" fill="#F6F4FF" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">From scattered work to repeat opportunity</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="10" refY="6.5" orient="auto">
+      <path d="M2 2L10 6.5L2 11" fill="none" stroke="#F6F4FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <linearGradient id="active" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#FF4967"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M156 338H1042" stroke="#F6F4FF" stroke-opacity=".34" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M714 386C728 486 816 514 910 486C989 462 1013 520 1034 570" stroke="#A3E635" stroke-width="3" stroke-dasharray="8 10" marker-end="url(#arrow)"/>
+  <path d="M1034 570C850 620 522 616 280 474" stroke="#22D3EE" stroke-opacity=".72" stroke-width="3" stroke-dasharray="8 10" marker-end="url(#arrow)"/>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <g transform="translate(104 250)">
+      <circle cx="60" cy="88" r="54" fill="url(#active)"/>
+      <text x="60" y="80" text-anchor="middle" fill="white" font-size="18" font-weight="800">01</text>
+      <text x="60" y="108" text-anchor="middle" fill="white" font-size="16" font-weight="700">Sign up</text>
+      <text x="60" y="176" text-anchor="middle" fill="#A8A7B7" font-size="13">phone-first entry</text>
+    </g>
+    <g transform="translate(252 250)">
+      <circle cx="60" cy="88" r="54" fill="#20212B" stroke="#FF4967" stroke-width="2"/>
+      <text x="60" y="80" text-anchor="middle" fill="#F6F4FF" font-size="18" font-weight="800">02</text>
+      <text x="60" y="108" text-anchor="middle" fill="#F6F4FF" font-size="16" font-weight="700">Build profile</text>
+      <text x="60" y="176" text-anchor="middle" fill="#A8A7B7" font-size="13">identity + work</text>
+    </g>
+    <g transform="translate(400 250)">
+      <circle cx="60" cy="88" r="54" fill="#20212B" stroke="#8B5CF6" stroke-width="2"/>
+      <text x="60" y="80" text-anchor="middle" fill="#F6F4FF" font-size="18" font-weight="800">03</text>
+      <text x="60" y="108" text-anchor="middle" fill="#F6F4FF" font-size="16" font-weight="700">Publish</text>
+      <text x="60" y="176" text-anchor="middle" fill="#A8A7B7" font-size="13">shareable link</text>
+    </g>
+    <g transform="translate(548 250)">
+      <circle cx="60" cy="88" r="54" fill="#20212B" stroke="#22D3EE" stroke-width="2"/>
+      <text x="60" y="80" text-anchor="middle" fill="#F6F4FF" font-size="18" font-weight="800">04</text>
+      <text x="60" y="108" text-anchor="middle" fill="#F6F4FF" font-size="16" font-weight="700">Feedback</text>
+      <text x="60" y="176" text-anchor="middle" fill="#A8A7B7" font-size="13">peer response</text>
+    </g>
+    <g transform="translate(696 250)">
+      <circle cx="60" cy="88" r="54" fill="#20212B" stroke="#A3E635" stroke-width="2"/>
+      <text x="60" y="80" text-anchor="middle" fill="#F6F4FF" font-size="18" font-weight="800">05</text>
+      <text x="60" y="108" text-anchor="middle" fill="#F6F4FF" font-size="16" font-weight="700">Challenges</text>
+      <text x="60" y="176" text-anchor="middle" fill="#A8A7B7" font-size="13">return prompt</text>
+    </g>
+    <g transform="translate(844 250)">
+      <circle cx="60" cy="88" r="54" fill="#20212B" stroke="#FFB86B" stroke-width="2"/>
+      <text x="60" y="80" text-anchor="middle" fill="#F6F4FF" font-size="18" font-weight="800">06</text>
+      <text x="60" y="108" text-anchor="middle" fill="#F6F4FF" font-size="16" font-weight="700">Brand fit</text>
+      <text x="60" y="176" text-anchor="middle" fill="#A8A7B7" font-size="13">opportunity review</text>
+    </g>
+    <g transform="translate(992 250)">
+      <circle cx="60" cy="88" r="54" fill="url(#active)"/>
+      <text x="60" y="80" text-anchor="middle" fill="white" font-size="18" font-weight="800">07</text>
+      <text x="60" y="108" text-anchor="middle" fill="white" font-size="16" font-weight="700">Return</text>
+      <text x="60" y="176" text-anchor="middle" fill="#A8A7B7" font-size="13">update + apply</text>
+    </g>
+  </g>
+
+  <rect x="174" y="510" width="284" height="64" rx="18" fill="white" fill-opacity=".055" stroke="#22D3EE" stroke-opacity=".4"/>
+  <text x="316" y="538" text-anchor="middle" fill="#F6F4FF" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Creator need</text>
+  <text x="316" y="560" text-anchor="middle" fill="#A8A7B7" font-family="Arial, Helvetica, sans-serif" font-size="13">move fast without rebuilding a portfolio</text>
+
+  <rect x="742" y="510" width="284" height="64" rx="18" fill="white" fill-opacity=".055" stroke="#A3E635" stroke-opacity=".4"/>
+  <text x="884" y="538" text-anchor="middle" fill="#F6F4FF" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Business need</text>
+  <text x="884" y="560" text-anchor="middle" fill="#A8A7B7" font-family="Arial, Helvetica, sans-serif" font-size="13">retain creators and give brands active talent</text>
+</svg>

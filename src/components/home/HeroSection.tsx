@@ -532,7 +532,7 @@ const HeroTitleLayer = () => (
   <h1
     data-hero-title
     aria-label="Reggie Alleyne"
-    className="pointer-events-none absolute left-1/2 top-[3.65rem] z-0 w-[min(108vw,36rem)] -translate-x-1/2 overflow-visible sm:top-12 sm:w-[min(116vw,82rem)] lg:top-16"
+    className="pointer-events-none absolute left-1/2 top-[3.65rem] z-0 w-[min(92vw,34rem)] -translate-x-1/2 overflow-visible sm:top-12 sm:w-[min(116vw,82rem)] lg:top-16"
   >
     <img
       data-hero-title-word

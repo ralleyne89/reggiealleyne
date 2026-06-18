@@ -31,7 +31,7 @@ const ProjectAudienceJourney = ({ project }: ProjectAudienceJourneyProps) => {
     <EditorialSection
       eyebrow="Discovery"
       title="Persona and audience context"
-      description="The persona captures who the work had to serve before the project moved into structure, interface decisions, build work, and proof."
+      description="The persona connects creator behavior to product structure: what the user needed, where the business needed repeat activity, and which flow could serve both."
       className="project-audience-journey border-b border-gray-200"
       contentClassName="project-audience-journey__content"
       headerClassName="project-audience-journey__header"

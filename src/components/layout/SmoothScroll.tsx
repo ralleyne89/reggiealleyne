@@ -55,7 +55,11 @@ const SmoothScroll = () => {
   const shouldReduceMotion = useReducedMotion();
 
   useLayoutEffect(() => {
-    if (shouldReduceMotion) {
+    const coarsePointer =
+      window.matchMedia("(hover: none)").matches ||
+      window.matchMedia("(pointer: coarse)").matches;
+
+    if (shouldReduceMotion || coarsePointer) {
       return undefined;
     }
 
