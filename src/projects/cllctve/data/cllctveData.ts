@@ -44,7 +44,7 @@ export const cllctveOverviewData = {
   title: "The mobile-first bet",
   description: [
     "Behance had the network effects. We had a narrower hypothesis: Gen Z creators would trade network size for a portfolio experience that felt native to mobile. The product reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
-    "As UX/UI Designer & Design Systems Lead, I owned the decision to build mobile-first while most competitors treated mobile as a smaller desktop. That was a market positioning choice, not a visual preference.",
+    "As UX/UI Designer & Frontend Developer, I owned the decision to build mobile-first while most competitors treated mobile as a smaller desktop. That was a market positioning choice, not a visual preference.",
     "The creator economy is worth $104B+, but we weren't trying to compete with Behance on features. We were competing on behavior fit. That distinction shaped every technical and design decision."
   ],
   projectDetails: [
@@ -56,7 +56,7 @@ export const cllctveOverviewData = {
     {
       icon: Users,
       label: "Role",
-      value: "UX/UI Designer & Design Systems Lead"
+      value: "UX/UI Designer & Frontend Developer"
     },
     {
       icon: Calendar,

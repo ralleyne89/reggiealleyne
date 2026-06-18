@@ -472,7 +472,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     metrics: [{ value: "8 weeks", label: "Thesis to shipped MVP" }],
   },
   "cllctve-platform": {
-    role: "UX/UI Designer and Design Systems Lead",
+    role: "UX/UI Designer and Frontend Developer",
     problem:
       "Gen Z creators needed a mobile-first portfolio experience that felt closer to how they already shared work.",
     decision:

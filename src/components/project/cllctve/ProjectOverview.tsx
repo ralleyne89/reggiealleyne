@@ -31,7 +31,7 @@ const ProjectOverview = () => {
           >
             <Users className="w-8 h-8 text-primary mx-auto mb-3" />
             <h3 className="font-semibold text-gray-900">Role</h3>
-            <p className="text-gray-700">Frontend Developer</p>
+            <p className="text-gray-700">UX/UI Designer & Frontend Developer</p>
           </motion.div>
           
           <motion.div 
