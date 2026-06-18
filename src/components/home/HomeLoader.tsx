@@ -4,14 +4,46 @@ import { useEffect, useState } from "react";
 const LOADER_DURATION = 1900;
 const REDUCED_MOTION_DURATION = 350;
 const LOADER_COMPLETE_EVENT = "home-loader:complete";
+const LOADER_SEEN_KEY = "reggie-home-loader-seen";
+
+const hasSeenHomeLoader = () => {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  try {
+    return window.sessionStorage.getItem(LOADER_SEEN_KEY) === "true";
+  } catch {
+    return false;
+  }
+};
+
+const markHomeLoaderSeen = () => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  try {
+    window.sessionStorage.setItem(LOADER_SEEN_KEY, "true");
+  } catch {
+    // Session storage can be unavailable in some privacy modes; the loader still completes normally.
+  }
+};
 
 const HomeLoader = () => {
   const shouldReduceMotion = useReducedMotion();
-  const [progress, setProgress] = useState(0);
+  const [shouldRunLoader] = useState(() => !hasSeenHomeLoader());
+  const [progress, setProgress] = useState(shouldRunLoader ? 0 : 100);
   const [isHandoff, setIsHandoff] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(shouldRunLoader);
 
   useEffect(() => {
+    if (!shouldRunLoader) {
+      document.body.dataset.homeLoaderState = "complete";
+      window.dispatchEvent(new CustomEvent(LOADER_COMPLETE_EVENT));
+      return undefined;
+    }
+
     document.body.dataset.homeLoaderState = "loading";
 
     const duration = shouldReduceMotion
@@ -23,6 +55,7 @@ const HomeLoader = () => {
     let startTime = 0;
 
     const completeLoader = () => {
+      markHomeLoaderSeen();
       setIsVisible(false);
       handoffEventTimeout = window.setTimeout(
         () => {
@@ -62,11 +95,11 @@ const HomeLoader = () => {
       window.clearTimeout(hideTimeout);
       window.clearTimeout(handoffEventTimeout);
     };
-  }, [shouldReduceMotion]);
+  }, [shouldReduceMotion, shouldRunLoader]);
 
   return (
     <AnimatePresence>
-      {isVisible ? (
+      {shouldRunLoader && isVisible ? (
         <motion.div
           className="home-loader"
           data-handoff={isHandoff ? "true" : "false"}
