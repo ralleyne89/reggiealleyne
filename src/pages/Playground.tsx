@@ -46,7 +46,7 @@ const Playground = () => {
                 className="max-w-4xl"
               >
                 <p className="mb-3 text-sm font-semibold uppercase text-primary">
-                  Coded AI prototypes
+                  Building for fun
                 </p>
                 <h1 className="font-display text-[2.7rem] font-semibold leading-[1.04] tracking-normal text-gray-950 sm:text-[3.5rem] lg:text-[4.15rem]">
                   Coded product experiments you can inspect.

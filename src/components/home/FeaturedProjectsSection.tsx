@@ -11,6 +11,11 @@ import {
 import { getProjectPath } from "@/lib/projectRoutes";
 import SectionRule from "@/components/motion/SectionRule";
 
+const moreSelectedProjectSlugs = [
+  "covelo-timecard-system",
+  "symptom-checkr",
+] as const;
+
 const FeaturedProjectsSection = () => {
   const { data: projects = [], isLoading } = useQuery({
     queryKey: ["projects"],
@@ -20,7 +25,16 @@ const FeaturedProjectsSection = () => {
   });
 
   const featuredProjects = useMemo(
-    () => orderFeaturedProjects(projects).slice(0, 2),
+    () => orderFeaturedProjects(projects).slice(0, 3),
+    [projects],
+  );
+
+  const moreSelectedProjects = useMemo(
+    () =>
+      moreSelectedProjectSlugs.flatMap((slug) => {
+        const project = projects.find((candidate) => candidate.slug === slug);
+        return project ? [project] : [];
+      }),
     [projects],
   );
 
@@ -38,19 +52,18 @@ const FeaturedProjectsSection = () => {
               <SectionRule index="01" label="Selected work" />
             </div>
             <h2 className="max-w-2xl break-words font-display text-[2.25rem] font-semibold leading-[1.05] text-gray-950 [text-wrap:balance] sm:text-[3.1rem]">
-              Case studies with room for the decision.
+              Three case studies built around product decisions.
             </h2>
           </div>
-
           <p className="max-w-2xl text-base leading-7 text-text-secondary sm:text-body-md lg:justify-self-end">
-            Start with the two projects that best show how I move from product
-            questions to working interfaces.
+            Start with three projects that show product questions moving into
+            working interfaces.
           </p>
         </div>
 
         {isLoading ? (
           <div className="grid w-full grid-cols-1 gap-5">
-            {[1, 2].map((item) => (
+            {[1, 2, 3].map((item) => (
               <div
                 key={item}
                 className="h-[28rem] animate-pulse rounded-2xl border border-gray-200 bg-white sm:h-[34rem]"
@@ -115,14 +128,14 @@ const FeaturedProjectsSection = () => {
                             <dt>Decision</dt>
                             <dd>
                               {brief?.coreDecision ||
-                                "Shape the interface around the user's next useful move."}
+                                "Shape interface around the user's next useful move."}
                             </dd>
                           </div>
                           <div>
                             <dt>Proof</dt>
                             <dd>
                               {brief?.evidence ||
-                                "The case study keeps implementation notes and visible artifacts close to the claim."}
+                                "The case study keeps implementation notes and visible artifacts close to claim."}
                             </dd>
                           </div>
                         </dl>
@@ -148,6 +161,7 @@ const FeaturedProjectsSection = () => {
                             loading={index === 0 ? "eager" : "lazy"}
                             decoding="async"
                             fetchPriority={index === 0 ? "high" : "auto"}
+                            className="h-full w-full object-cover"
                             sizes="(min-width: 1024px) 760px, 100vw"
                             onError={(event) => {
                               event.currentTarget.src = "/placeholder.svg";
@@ -161,15 +175,70 @@ const FeaturedProjectsSection = () => {
               })}
             </div>
 
-            <div className="mt-10 flex justify-center">
-              <Link
-                to="/work"
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-[oklch(var(--color-surface-raised))] px-6 py-3 font-semibold text-gray-950 transition-colors hover:border-primary hover:text-primary sm:w-auto"
+            {moreSelectedProjects.length > 0 ? (
+              <div
+                className="mt-12 border-t border-gray-200 pt-8"
+                data-supporting-work
               >
-                View all work
-                <ArrowRight size={18} />
-              </Link>
-            </div>
+                <div className="mb-5 grid gap-2 sm:grid-cols-[1fr_auto] sm:items-end">
+                  <div>
+                    <h3 className="font-display text-2xl font-semibold leading-tight text-gray-950">
+                      More selected work
+                    </h3>
+                    <p className="mt-2 max-w-2xl text-sm leading-6 text-text-secondary">
+                      Two product systems: a workforce timecard portal and a
+                      cautious health guidance flow.
+                    </p>
+                  </div>
+                  <Link
+                    to="/work"
+                    className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
+                  >
+                    View all work
+                    <ArrowRight size={16} />
+                  </Link>
+                </div>
+
+                <div className="grid divide-y divide-gray-200 border-y border-gray-200">
+                  {moreSelectedProjects.map((project) => (
+                    <Link
+                      key={project.id}
+                      to={getProjectPath(project)}
+                      className="portfolio-work-row group py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4"
+                      data-cursor-label="View project"
+                    >
+                      <div className="relative z-10 grid min-w-0 gap-3 pr-0 lg:max-w-[58%] lg:pr-10">
+                        <p className="portfolio-work-row__title portfolio-work-row__title--compact">
+                          {project.title}
+                        </p>
+                        <p className="max-w-2xl text-sm leading-6 text-gray-600">
+                          {project.description}
+                        </p>
+                        <p className="text-xs font-semibold uppercase leading-5 text-primary">
+                          {project.category ||
+                            project.tags?.[0] ||
+                            "Product design"}
+                        </p>
+                      </div>
+                      <span
+                        className="portfolio-work-row__preview"
+                        aria-hidden="true"
+                      >
+                        <img
+                          src={project.image}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                          onError={(event) => {
+                            event.currentTarget.src = "/placeholder.svg";
+                          }}
+                        />
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </>
         )}
       </div>

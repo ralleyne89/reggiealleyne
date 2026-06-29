@@ -23,7 +23,7 @@ const PlaygroundPreviewSection = () => {
             transition={{ duration: 0.42 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <SectionRule index="02" label="Coded AI prototypes" className="mb-4" />
+            <SectionRule index="02" label="Building for fun" className="mb-4" />
             <h2 className="break-words font-display text-[2rem] font-semibold leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
               Small builds that make product ideas easier to judge.
             </h2>
