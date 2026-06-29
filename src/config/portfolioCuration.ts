@@ -644,7 +644,7 @@ export const caseStudyProcessArtifacts: Partial<
       insight:
         "The map keeps the free readiness check close to the paid learning and certification paths instead of treating assessment as a dead end.",
       connectsPersonaNeedTo:
-        "Priya needs a quick baseline; the business needs that baseline to create a clear path into training, certification, or team rollout.",
+        "Eric needs a quick baseline; the business needs that baseline to create a clear path into training, certification, or team rollout.",
     },
     {
       type: "user-flow",
@@ -659,25 +659,25 @@ export const caseStudyProcessArtifacts: Partial<
     },
     {
       type: "wireframe",
-      title: "Assessment cockpit wireframe",
+      title: "Assessment setup wireframe",
       image: "/images/litmus-ai/process/litmus-ai-wireframe-assessment.svg",
       alt:
-        "Low-fidelity Litmus AI assessment wireframe with level selection, progress, current domain, question card, answer options, and next action.",
+        "Low-fidelity Litmus AI assessment setup wireframe based on the assessment screenshot, with calibration panel, level cards, timing cues, and start action.",
       insight:
-        "The assessment layout separates calibration, progress, and answer choices so the test feels quick without feeling casual.",
+        "The setup screen gives users enough context to choose a starting level without making the assessment feel heavy.",
       connectsPersonaNeedTo:
-        "Priya needs confidence that the test is credible; the product needs completion momentum before recommending training.",
+        "Eric needs confidence that the test is credible; the product needs completion momentum before recommending training.",
     },
     {
       type: "wireframe",
-      title: "Results and recommendations wireframe",
-      image: "/images/litmus-ai/process/litmus-ai-wireframe-results.svg",
+      title: "Training path wireframe",
+      image: "/images/litmus-ai/process/litmus-ai-wireframe-training-path.svg",
       alt:
-        "Low-fidelity Litmus AI results wireframe with readiness score, domain breakdown, recommended modules, certification path, and dashboard action.",
+        "Low-fidelity Litmus AI training path wireframe based on the training hub screenshot, with filter chips, module cards, learning bullets, and module actions.",
       insight:
-        "The results screen turns a score into a decision surface: learn now, certify later, or move into the dashboard when account state matters.",
+        "The training screen turns the assessment promise into concrete role-based modules that show what to do after the score.",
       connectsPersonaNeedTo:
-        "Learners need plain next steps; the business needs a natural handoff from free assessment to paid training and credential paths.",
+        "Eric needs a next step he can act on; the business needs the free assessment to lead naturally into learning and certification.",
     },
   ],
   "cllctve-platform": [
@@ -1549,11 +1549,11 @@ export const projectPersonaProfiles: Record<
     ],
   },
   "litmus-ai": {
-    name: "Priya",
+    name: "Eric",
     title: "AI readiness learner",
     image: "/images/personas/litmus-ai.jpg",
     imageAlt:
-      "Generated portrait of Priya, an AI readiness learner persona for the Litmus AI case study.",
+      "Generated portrait of Eric, an AI readiness learner persona for the Litmus AI case study.",
     theme: {
       background: "linear-gradient(135deg, #28318f 0%, #6b50d8 52%, #a5d936 100%)",
       panel: "rgba(255, 255, 255, 0.14)",

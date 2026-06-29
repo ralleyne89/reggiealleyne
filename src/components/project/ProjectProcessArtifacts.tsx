@@ -51,7 +51,7 @@ const processArtifactCopyBySlug: Record<
   "litmus-ai": {
     title: "How the assessment became a learning path.",
     description:
-      "These maps connect Priya's need for a fast readiness signal to the assessment, training, certification, billing, and admin surfaces that made the MVP usable.",
+      "These maps connect Eric's need for a fast readiness signal to the assessment, training, certification, billing, and admin surfaces that made the MVP usable.",
     sourceTitle: "Mapped from the LitmusAI app",
     sourceDescription:
       "The structure follows the actual app routes: home, assessment, training, certification, billing, dashboard, profile, login, and registration.",

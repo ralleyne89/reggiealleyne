@@ -13,8 +13,8 @@ Use this brief when replacing the source-derived process SVGs with Claude Design
 
 - `litmus-ai-sitemap.svg`: product map for home, assessment, results, training, certification, billing, dashboard, profile, login, and registration.
 - `litmus-ai-assessment-flow.svg`: user flow from assessment entry to level calibration, 15 questions, score review, recommendations, training, certification, billing, and dashboard review.
-- `litmus-ai-wireframe-assessment.svg`: low-fidelity assessment cockpit wireframe focused on level selection, progress, current domain, question card, answer options, and next action.
-- `litmus-ai-wireframe-results.svg`: low-fidelity results and recommendations wireframe focused on readiness score, domain breakdown, recommended modules, certification path, and dashboard action.
+- `litmus-ai-wireframe-assessment.svg`: low-fidelity assessment setup wireframe focused on the calibration panel, level selection cards, timing cues, save-path note, and start action.
+- `litmus-ai-wireframe-training-path.svg`: low-fidelity training hub wireframe focused on role filters, module cards, learning bullets, locked premium states, and module actions.
 
 ## Direction
 

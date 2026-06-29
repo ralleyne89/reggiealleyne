@@ -1,4 +1,10 @@
-import { Eye, LayoutDashboard, PanelsTopLeft, Workflow } from "lucide-react";
+import {
+  Eye,
+  LayoutDashboard,
+  PanelsTopLeft,
+  Workflow,
+  type LucideIcon,
+} from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import type { ProjectType } from "@/types/project";
@@ -24,10 +30,30 @@ interface PlatformScreen {
   orientation: "wide" | "tall";
 }
 
+interface InterfaceEvidenceStep {
+  icon: LucideIcon;
+  label: string;
+  body: string;
+}
+
+interface InterfaceEvidenceCopy {
+  title: string;
+  description: string;
+  steps: InterfaceEvidenceStep[];
+}
+
 const cllctveScreenOrder = [
   "/images/cllctve-card-optimized.jpg",
   "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png",
   "/images/fbb376a0-30ad-4530-8445-159e6767e748.png",
+];
+
+const litmusScreenOrder = [
+  "/images/litmus-live-home.png",
+  "/images/litmus-live-assessment.png",
+  "/images/litmus-live-training.png",
+  "/images/litmus-live-certification.png",
+  "/images/litmus-live-pricing.png",
 ];
 
 const screenCopyBySlug: Record<string, Record<string, ScreenCopy>> = {
@@ -46,10 +72,38 @@ const screenCopyBySlug: Record<string, Record<string, ScreenCopy>> = {
       orientation: "tall",
     },
   },
+  "litmus-ai": {
+    "/images/litmus-live-home.png": {
+      label: "Homepage",
+      note:
+        "The homepage positions the assessment as the first step and previews the readiness dashboard users unlock after answering.",
+    },
+    "/images/litmus-live-assessment.png": {
+      label: "Assessment calibration",
+      note:
+        "The start screen asks users to choose a level before the test, matching the calibration console and three-option setup.",
+    },
+    "/images/litmus-live-training.png": {
+      label: "Training hub",
+      note:
+        "The training hub organizes modules by role, access state, duration, and learning outcomes so recommendations lead somewhere concrete.",
+    },
+    "/images/litmus-live-certification.png": {
+      label: "Certification catalog",
+      note:
+        "The catalog shows requirements, skills validated, readiness warnings, and apply states before payment or sign-in.",
+    },
+    "/images/litmus-live-pricing.png": {
+      label: "Pricing",
+      note:
+        "The pricing page explains the free, premium, and team paths around training, practice, and certification value.",
+    },
+  },
 };
 
 const excludedScreenSourcesBySlug: Record<string, string[]> = {
   "cllctve-platform": ["/images/cllctve-gen-z-card.jpg"],
+  "litmus-ai": ["/images/litmus-ai-literacy-card.jpg"],
   staybooked: [
     "/images/staybooked/staybooked-ai-optimizer-light-featured-card.png",
   ],
@@ -76,6 +130,34 @@ const processSteps = [
   },
 ];
 
+const interfaceEvidenceCopyBySlug: Record<string, InterfaceEvidenceCopy> = {
+  "litmus-ai": {
+    title: "How the Litmus AI path shows up on screen.",
+    description:
+      "These screens show the product decisions reviewers should inspect: assessment entry, role-based training, certification readiness, and pricing.",
+    steps: [
+      {
+        icon: Workflow,
+        label: "Frame the promise",
+        body:
+          "The home and pricing pages explain assessment, training, certification, and plan value before sign-in.",
+      },
+      {
+        icon: PanelsTopLeft,
+        label: "Reduce test friction",
+        body:
+          "The assessment start screen keeps level choice, timing, and user expectations clear before the test begins.",
+      },
+      {
+        icon: LayoutDashboard,
+        label: "Carry the next step",
+        body:
+          "Training and certification screens turn the readiness signal into modules, requirements, and account paths.",
+      },
+    ],
+  },
+};
+
 const compactItems = (items?: string[] | null) =>
   items?.filter(Boolean).map((item) => item.trim()).filter(Boolean) || [];
 
@@ -85,6 +167,11 @@ const unique = (items: string[]) =>
 const orderScreens = (slug: string | undefined, images: string[]) => {
   if (slug === "cllctve-platform") {
     const ordered = cllctveScreenOrder.filter((image) => images.includes(image));
+    return [...ordered, ...images.filter((image) => !ordered.includes(image))];
+  }
+
+  if (slug === "litmus-ai") {
+    const ordered = litmusScreenOrder.filter((image) => images.includes(image));
     return [...ordered, ...images.filter((image) => !ordered.includes(image))];
   }
 
@@ -137,6 +224,8 @@ const ProjectInterfaceEvidence = ({
 }: ProjectInterfaceEvidenceProps) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const screens = getPlatformScreens(project);
+  const copy = project.slug ? interfaceEvidenceCopyBySlug[project.slug] : null;
+  const steps = copy?.steps || processSteps;
 
   if (!screens.length) return null;
 
@@ -152,15 +241,15 @@ const ProjectInterfaceEvidence = ({
             Interface evidence
           </p>
           <h2 className="font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
-            How the UX rationale shows up on screen.
+            {copy?.title || "How the UX rationale shows up on screen."}
           </h2>
           <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
-            These screens show the product decisions reviewers should inspect:
-            profile credibility, return loops, and opportunity discovery.
+            {copy?.description ||
+              "These screens show the product decisions reviewers should inspect: profile credibility, return loops, and opportunity discovery."}
           </p>
 
           <ol className="mt-8 divide-y divide-gray-200 border-y border-gray-200">
-            {processSteps.map((step, index) => {
+            {steps.map((step, index) => {
               const Icon = step.icon;
 
               return (
