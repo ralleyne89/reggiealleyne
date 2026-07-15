@@ -1,4 +1,3 @@
-import { useEffect, useState, type CSSProperties } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   BriefcaseBusiness,
@@ -10,23 +9,18 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { DUR, EASE, SPRING } from "@/lib/motion";
 
 type NavRouteItem = {
   kind: "route";
   title: string;
   path: string;
   icon: LucideIcon;
-  labelWidth: number;
-  mobileLabelWidth?: number;
 };
 
 type NavActionItem = {
   kind: "action";
   title: string;
   icon: LucideIcon;
-  labelWidth: number;
-  mobileLabelWidth?: number;
   onSelect: () => void;
   isActive: boolean;
 };
@@ -40,16 +34,12 @@ const routeNavItems: NavRouteItem[] = [
     title: "Home",
     path: "/",
     icon: Home,
-    labelWidth: 44,
-    mobileLabelWidth: 42,
   },
   {
     kind: "route",
     title: "Work",
     path: "/work",
     icon: BriefcaseBusiness,
-    labelWidth: 42,
-    mobileLabelWidth: 42,
   },
   // Services temporarily hidden — re-add this entry to restore the nav link.
   // {
@@ -65,53 +55,22 @@ const routeNavItems: NavRouteItem[] = [
     title: "Playground",
     path: "/playground",
     icon: Sparkles,
-    labelWidth: 86,
-    mobileLabelWidth: 70,
   },
   {
     kind: "route",
     title: "About",
     path: "/about",
     icon: UserRound,
-    labelWidth: 52,
-    mobileLabelWidth: 50,
   },
 ];
 
 const MotionLink = motion.create(Link);
 
-const itemTransition = {
-  width: { type: "spring", ...SPRING.nav },
-  opacity: { duration: DUR.fast * 1.2, ease: EASE.out },
-  marginLeft: { type: "spring", ...SPRING.nav },
-} as const;
-
 const getNavItemKey = (item: NavItem) =>
   item.kind === "route" ? item.path : `action:${item.title}`;
 
-const getSurfaceNavItemKey = (item: NavItem, surface: NavSurface) =>
-  `${surface}:${getNavItemKey(item)}`;
-
-const getNavItemLabelWidth = (item: NavItem, surface: NavSurface) =>
-  surface === "mobile" && item.mobileLabelWidth
-    ? item.mobileLabelWidth
-    : item.labelWidth;
-
-const getNavItemStyle = (item: NavItem, surface: NavSurface) =>
-  ({
-    "--portfolio-nav-label-gap": surface === "mobile" ? "0.45rem" : "0.5rem",
-    "--portfolio-nav-label-width": `${getNavItemLabelWidth(item, surface)}px`,
-  }) as CSSProperties;
-
 const Navbar = () => {
-  const [hoveredNavKey, setHoveredNavKey] = useState<string | null>(null);
-  const [focusedNavKey, setFocusedNavKey] = useState<string | null>(null);
   const location = useLocation();
-
-  useEffect(() => {
-    setHoveredNavKey(null);
-    setFocusedNavKey(null);
-  }, [location]);
 
   const isActivePath = (path: string) => {
     if (path === "/") {
@@ -128,8 +87,6 @@ const Navbar = () => {
       title: "Contact",
       path: "/#contact",
       icon: MessageCircle,
-      labelWidth: 62,
-      mobileLabelWidth: 54,
     },
   ];
 
@@ -147,10 +104,10 @@ const Navbar = () => {
 
   const navItemClassName = (isActive: boolean, surface: NavSurface) =>
     cn(
-      "portfolio-nav-item relative inline-flex h-10 min-h-10 min-w-11 max-w-[9rem] items-center justify-center overflow-hidden rounded-full border border-transparent px-3 py-2 text-sm font-semibold transition-colors duration-200",
+      "portfolio-nav-item relative inline-flex h-10 min-h-10 items-center justify-center overflow-hidden rounded-full border border-transparent px-3 py-2 text-sm font-semibold transition-colors duration-200",
       surface === "mobile" &&
-        "h-12 min-h-12 min-w-10 max-w-[8.75rem] px-2 text-[0.82rem]",
-      "focus:outline-none focus-visible:ring-0",
+        "h-12 min-h-12 min-w-0 flex-1 flex-col gap-0.5 px-1 py-1 text-[0.65rem]",
+      "focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950",
       isActive
         ? "liquid-glass-control liquid-glass-nav-control text-zinc-50 shadow-sm"
         : "text-zinc-400 hover:bg-white/10 hover:text-zinc-50",
@@ -158,11 +115,9 @@ const Navbar = () => {
 
   const renderNavItemContent = (
     item: NavItem,
-    isExpanded: boolean,
     surface: NavSurface,
   ) => {
     const Icon = item.icon;
-    const labelWidth = getNavItemLabelWidth(item, surface);
 
     return (
       <>
@@ -170,37 +125,27 @@ const Navbar = () => {
           aria-hidden="true"
           className={cn(
             "h-[1.18rem] w-[1.18rem] shrink-0 transition-colors duration-200",
-            surface === "mobile" && "h-5 w-5",
+            surface === "mobile" && "h-[1.05rem] w-[1.05rem]",
           )}
           strokeWidth={2.2}
         />
 
-        <motion.span
-          initial={false}
-          animate={{
-            width: isExpanded ? `${labelWidth}px` : "0px",
-            opacity: isExpanded ? 1 : 0,
-            marginLeft: isExpanded
-              ? surface === "mobile"
-                ? "0.45rem"
-                : "0.5rem"
-              : "0rem",
-          }}
-          transition={itemTransition}
-          className="portfolio-nav-item__label flex max-w-[6rem] items-center overflow-hidden"
-          aria-hidden={!isExpanded}
+        <span
+          className={cn(
+            "portfolio-nav-item__label flex max-w-[6rem] items-center overflow-hidden",
+            surface === "desktop" && "ml-2",
+          )}
         >
           <span
             className={cn(
               "portfolio-nav-item__label-text truncate text-xs font-semibold leading-5 transition-opacity duration-200",
-              surface === "mobile" && "text-[0.8rem]",
-              isExpanded ? "opacity-100" : "opacity-0",
+              surface === "mobile" && "max-w-full text-[0.62rem] leading-none",
             )}
             title={item.title}
           >
             {item.title}
           </span>
-        </motion.span>
+        </span>
       </>
     );
   };
@@ -209,24 +154,6 @@ const Navbar = () => {
     const isActive =
       item.kind === "route" ? isActivePath(item.path) : item.isActive;
     const itemKey = getNavItemKey(item);
-    const surfaceItemKey = getSurfaceNavItemKey(item, surface);
-    const itemStyle = getNavItemStyle(item, surface);
-    const activeInteractionKey = hoveredNavKey ?? focusedNavKey;
-    const hasSurfaceInteraction = activeInteractionKey?.startsWith(`${surface}:`);
-    const isInteracting = activeInteractionKey === surfaceItemKey;
-    const isExpanded = isInteracting || (isActive && !hasSurfaceInteraction);
-    const interactionHandlers = {
-      onMouseEnter: () => setHoveredNavKey(surfaceItemKey),
-      onMouseLeave: () =>
-        setHoveredNavKey((currentKey) =>
-          currentKey === surfaceItemKey ? null : currentKey,
-        ),
-      onFocus: () => setFocusedNavKey(surfaceItemKey),
-      onBlur: () =>
-        setFocusedNavKey((currentKey) =>
-          currentKey === surfaceItemKey ? null : currentKey,
-        ),
-    };
 
     if (item.kind === "route") {
       return (
@@ -238,10 +165,8 @@ const Navbar = () => {
           title={item.title}
           whileTap={{ scale: 0.97 }}
           className={navItemClassName(isActive, surface)}
-          style={itemStyle}
-          {...interactionHandlers}
         >
-          {renderNavItemContent(item, isExpanded, surface)}
+          {renderNavItemContent(item, surface)}
         </MotionLink>
       );
     }
@@ -255,11 +180,9 @@ const Navbar = () => {
         title={item.title}
         whileTap={{ scale: 0.97 }}
         className={navItemClassName(isActive, surface)}
-        style={itemStyle}
         onClick={item.onSelect}
-        {...interactionHandlers}
       >
-        {renderNavItemContent(item, isExpanded, surface)}
+        {renderNavItemContent(item, surface)}
       </motion.button>
     );
   };
@@ -276,14 +199,14 @@ const Navbar = () => {
       role="navigation"
       aria-label="Primary navigation"
       className={cn(
-        "liquid-glass liquid-glass-nav pointer-events-auto flex h-[3.35rem] min-w-[20rem] max-w-[calc(100vw-1.5rem)] items-center gap-1 rounded-full p-1.5 shadow-xl",
+        "liquid-glass liquid-glass-nav pointer-events-auto flex h-[3.35rem] min-w-0 max-w-[calc(100vw-1.5rem)] items-center gap-1 rounded-full p-1.5 shadow-xl",
         className,
       )}
     >
       {showLogo ? (
         <MotionLink
           to="/"
-          className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-zinc-100 transition-colors hover:bg-white/10 focus:outline-none focus-visible:ring-0"
+          className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-zinc-100 transition-colors hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
           aria-label="Reggie Alleyne home"
           title="Reggie Alleyne home"
           whileTap={{ scale: 0.97 }}
@@ -318,7 +241,7 @@ const Navbar = () => {
 
       <div className="mobile-shell-bottom pointer-events-none fixed inset-x-0 bottom-0 z-50 flex justify-center px-2 md:hidden">
         {navPill(
-          "h-16 w-full min-w-0 max-w-[24rem] justify-between gap-1 rounded-[2rem] p-2",
+          "h-16 w-full min-w-0 max-w-[24rem] justify-between gap-0.5 rounded-[2rem] p-2",
           false,
           "mobile",
         )}

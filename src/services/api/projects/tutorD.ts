@@ -11,7 +11,7 @@ export const getTutorDProject = (): ProjectType => {
     image: "/images/tutord-sms-learning-card.jpg",
     category: "Education",
     tags: ["Education", "Distance Learning", "Accessibility"],
-    role: "Frontend Developer & UI/UX Designer",
+    role: "UX/UI Designer & Frontend Developer",
     duration: "10 months",
     year: "2021",
     challenge: "In many school districts, particularly underserved communities, students don't have access to internet-based learning platforms. Traditional online classrooms don't reach students using basic cell phones. Educators needed a way to send, track, and manage assignments sent via SMS, while still maintaining visibility into student progress and engagement.",

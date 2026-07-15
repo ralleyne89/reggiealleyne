@@ -19,12 +19,64 @@ import {
   Accessibility,
   Sparkles,
   Cpu,
+  BriefcaseBusiness,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
 import TextReveal from "@/components/motion/TextReveal";
 import { SPRING } from "@/lib/motion";
+
+const careerTimeline = [
+  {
+    period: "11/2016 - Present",
+    role: "Product Designer & Frontend Developer",
+    organization: "Freelance / Self-Employed",
+    location: "Los Angeles",
+    detail:
+      "I design and build responsive web products and AI-enabled tools, moving from user flows and prototypes into React, TypeScript, and deployed interfaces.",
+  },
+  {
+    period: "04/2022 - 07/2025",
+    role: "Principal UX/UI Designer",
+    organization: "Blue Shield of California",
+    location: "Oakland",
+    detail:
+      "I led UX strategy for regulated healthcare web and mobile work, partnering with product, engineering, research, compliance, and business teams.",
+  },
+  {
+    period: "05/2020 - 02/2022",
+    role: "Frontend Engineer",
+    organization: "CLLCTVE Inc. (Techstars Startup)",
+    location: "Los Angeles",
+    detail:
+      "I built mobile-first React interfaces and reusable Ant Design components, supported user research, and helped prioritize product improvements for a creator platform.",
+  },
+  {
+    period: "09/2018 - 10/2019",
+    role: "UX/UI Designer",
+    organization: "IMPROV Learning",
+    location: "Woodland Hills",
+    detail:
+      "I improved responsive layouts, marketing funnels, email campaigns, and A/B-tested journeys using research and performance data.",
+  },
+  {
+    period: "04/2017 - 07/2017",
+    role: "Freelance UX/UI Designer",
+    organization: "A Different Kind of Creative - Doggy Date",
+    location: "Los Angeles",
+    detail:
+      "I managed the UX/UI lifecycle for an iOS social product and partnered with an iOS developer to deliver specifications and assets through Zeplin.",
+  },
+  {
+    period: "11/2016 - 12/2016",
+    role: "Freelance UX/UI Designer",
+    organization: "Tech Noir",
+    location: "Los Angeles",
+    detail:
+      "I researched wearable technology buying behavior and designed the primary flow and discovery pages for a specialized marketplace.",
+  },
+];
 
 const About = () => {
   useEffect(() => {
@@ -130,6 +182,49 @@ const About = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 pb-20">
         <div className="mx-auto max-w-4xl space-y-16">
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.18 }}
+            aria-labelledby="experience-heading"
+          >
+            <div className="mb-6 flex items-center gap-3 border-b border-gray-200 pb-3">
+              <BriefcaseBusiness
+                aria-hidden="true"
+                className="h-5 w-5 text-primary"
+              />
+              <h2
+                id="experience-heading"
+                className="font-heading text-2xl font-bold text-text-primary"
+              >
+                Selected experience
+              </h2>
+            </div>
+
+            <ol className="border-y border-gray-200">
+              {careerTimeline.map((entry) => (
+                <li
+                  key={`${entry.organization}-${entry.period}`}
+                  className="grid gap-2 py-6 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-8 [&+&]:border-t [&+&]:border-gray-200"
+                >
+                  <p className="font-mono text-xs font-medium leading-5 text-text-muted">
+                    {entry.period}
+                  </p>
+                  <div>
+                    <h3 className="font-heading text-lg font-semibold text-text-primary">
+                      {entry.role}
+                    </h3>
+                    <p className="mt-1 font-semibold text-primary">
+                      {entry.organization}, {entry.location}
+                    </p>
+                    <p className="mt-3 max-w-2xl leading-7 text-text-secondary">
+                      {entry.detail}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </motion.section>
           
           {/* The Philosophy - NEW SECTION */}
           <motion.section

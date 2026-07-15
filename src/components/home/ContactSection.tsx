@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import {
+  Download,
+  FileText,
   Github,
   Linkedin,
   Mail,
@@ -7,6 +9,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { CONTACT_EMAIL } from "@/config/contact";
+import { RESUME_DOWNLOAD_NAME, RESUME_URL } from "@/config/resume";
 
 const ContactSection = () => {
   return (
@@ -50,6 +53,24 @@ const ContactSection = () => {
                   {CONTACT_EMAIL}
                 </span>
               </span>
+            </a>
+
+            <a
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-16 items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 font-semibold text-slate-200 transition-colors hover:border-primary/40 hover:text-white"
+            >
+              <FileText size={18} />
+              View resume
+            </a>
+            <a
+              href={RESUME_URL}
+              download={RESUME_DOWNLOAD_NAME}
+              className="flex min-h-16 items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 font-semibold text-slate-200 transition-colors hover:border-primary/40 hover:text-white"
+            >
+              <Download size={18} />
+              Download
             </a>
 
             <a

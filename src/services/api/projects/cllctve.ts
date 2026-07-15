@@ -6,29 +6,29 @@ export const getCllctveProject = (): ProjectType => {
     slug: "cllctve-platform",
     title: "CLLCTVE Platform",
     description: "A mobile-first creator portfolio platform that reached 500+ creators by focusing on behavior fit instead of Behance-style feature parity.",
-    fullDescription: "We chose mobile-first over feature parity because 67% of our target creators browsed portfolios on phones. Behance had the network effects, so our position had to be sharper: move faster on creator behavior, community feedback, and mobile-native portfolio browsing. The product reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
+    fullDescription: "We chose mobile-first over desktop feature parity because creators needed a portfolio they could update and share from a phone. The resume reports 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
     image: "/images/cllctve-gen-z-card.jpg",
     category: "Platform",
     tags: ["Platform", "Creative", "Gen Z", "Portfolio"],
-    role: "UX/UI Designer & Frontend Developer",
+    role: "UX/UI Designer & Frontend Engineer",
     duration: "1 year, 10 months",
     year: "2022",
     challenge: "Behance already had reach, credibility, and desktop workflows. CLLCTVE had to give Gen Z creators a reason to use a smaller platform, so we bet on mobile creation, community feedback, and faster iteration instead of chasing every professional portfolio feature.",
     process: [
       "Used mobile browsing data to prioritize phone-first portfolio creation and viewing over desktop power tools.",
-      "Stayed with React because the team could ship and learn faster there than by retraining on Flutter.",
-      "Built the community feed before analytics after research found creators cared more about feedback than dashboards.",
+      "Stayed with React because it was the existing product stack and supported fast design-to-code iteration.",
+      "Built the community feed before analytics to test whether feedback could create a stronger return loop.",
       "Constrained brand customization so challenge pages could flex without breaking the platform system."
     ],
     deliverables: [
-      "Custom Portfolio Builder – Drag-and-drop interface that prioritized mobile touch interactions",
-      "Modular Portfolios – Category-based organization designed for swipe-based browsing",
-      "Branded Challenge Pages – Customization within strict design system constraints",
-      "Real-time Notifications – Engagement hooks that felt native to Gen Z social patterns"
+      "Custom Portfolio Builder - Drag-and-drop interface that prioritized mobile touch interactions",
+      "Modular Portfolios - Category-based organization designed for swipe-based browsing",
+      "Branded Challenge Pages - Customization within strict design system constraints",
+      "Real-time Notifications - Engagement hooks designed for return visits"
     ],
     images: [
       "/images/cllctve-gen-z-card.jpg",
-      "/images/cllctve-card-optimized.jpg",
+      "/images/cllctve-profile-rebuilt.jpg",
       "/images/fbb376a0-30ad-4530-8445-159e6767e748.png",
       "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png"
     ],
@@ -45,15 +45,14 @@ export const getCllctveProject = (): ProjectType => {
     ],
     problemSolved: "Gave Gen Z creators a portfolio flow built for mobile, visual sharing, and community feedback without forcing them into a desktop-first professional mold.",
     technicalHighlights: [
-      "Chose lazy loading over pre-rendering despite slower initial perception—Gen Z tolerates spinners better than 5MB page weights",
+      "Used lazy loading to keep media-heavy portfolio pages manageable on mobile connections",
       "Built design token system that enabled brand customization without breaking platform coherence",
       "Implemented optimistic UI updates for instant-feeling interactions on slower mobile connections"
     ],
-    teamSize: "6 members",
     methodologies: ["Agile", "Bi-weekly Sprints", "User Testing", "React.js", "Figma", "Ant Design"],
     summary: "A mobile-first portfolio platform that proved Gen Z creators would trade network size for a product shaped around how they already shared work.",
     date: "2022-06-15",
-    solution: "Built a mobile-first portfolio platform that felt native to Gen Z digital behavior, sacrificing desktop feature parity to win the mobile experience where 67% of our users actually browsed.",
+    solution: "Built a mobile-first portfolio platform that prioritized quick publishing, visual browsing, feedback, and brand opportunities over desktop feature parity.",
     liveUrl: "https://cllctve-demo.web.app"
   };
 };

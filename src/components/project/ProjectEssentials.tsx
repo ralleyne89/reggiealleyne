@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import {
   getCaseStudyBrief,
+  getCaseStudyImpact,
+  getCaseStudyPresentation,
   getCaseStudyTldr,
   getFeaturedConfig,
 } from "@/config/portfolioCuration";
@@ -25,7 +27,11 @@ const firstText = (...values: Array<string | null | undefined>) =>
 const ProjectEssentials = ({ project }: ProjectEssentialsProps) => {
   const tldr = getCaseStudyTldr(project.slug);
   const brief = getCaseStudyBrief(project.slug);
+  const impact = getCaseStudyImpact(project.slug);
   const featured = getFeaturedConfig(project.slug);
+  const presentation = getCaseStudyPresentation(project.slug);
+  const proofLabel =
+    presentation?.variant === "outcome-led" ? "Outcome" : "Shipped proof";
 
   const essentials = [
     {
@@ -43,16 +49,20 @@ const ProjectEssentials = ({ project }: ProjectEssentialsProps) => {
       label: "Decision",
       value: firstText(tldr?.decision, brief?.coreDecision, project.solution),
     },
-    {
-      label: "Outcome",
-      value: firstText(
-        tldr?.outcome,
-        brief?.evidence,
-        project.conclusion?.impact,
-        featured?.impactSummary,
-        project.summary,
-      ),
-    },
+    ...(!impact
+      ? [
+          {
+            label: proofLabel,
+            value: firstText(
+              tldr?.outcome,
+              brief?.evidence,
+              project.conclusion?.impact,
+              featured?.impactSummary,
+              project.summary,
+            ),
+          },
+        ]
+      : []),
   ].filter((item) => item.value);
 
   const links = [
@@ -96,10 +106,12 @@ const ProjectEssentials = ({ project }: ProjectEssentialsProps) => {
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
         <div className="max-w-3xl">
           <p className="mb-3 text-sm font-semibold leading-5 text-primary">
-            Problem and outcome
+            {impact ? "Problem and decision" : "Problem, decision, evidence"}
           </p>
           <h2 className="font-display text-3xl leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
-            The design problem and the decision that shaped it.
+            {impact
+              ? "The problem and the product choice."
+              : "The product choice and the proof available today."}
           </h2>
         </div>
 
@@ -131,7 +143,12 @@ const ProjectEssentials = ({ project }: ProjectEssentialsProps) => {
 
       {essentials.length ? (
         <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-          <div className="grid divide-y divide-gray-200 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
+          <div
+            className={cn(
+              "grid divide-y divide-gray-200 lg:divide-x lg:divide-y-0",
+              essentials.length === 2 ? "lg:grid-cols-2" : "lg:grid-cols-3",
+            )}
+          >
             {essentials.map((item, index) => (
               <article
                 key={item.label}

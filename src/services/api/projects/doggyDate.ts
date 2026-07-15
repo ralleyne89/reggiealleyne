@@ -10,13 +10,13 @@ export const getDoggyDateProject = (): ProjectType => {
     fullDescription: "Doggy Date is a social network for dog owners with a dating app component. Once downloaded, and a user profile is created they will discover our multifaceted dog community.",
     image: "/images/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
     tags: ["Social", "Dating App", "Dog Lovers"],
-    role: "UX, UI & Visual Design",
+    role: "UX/UI & Visual Designer",
     duration: "4 months",
     year: "2016",
     challenge: "Users that are accustomed to dating apps are already using competitors. Finding a way to make the app unique and interactive so users will use it continuously.",
     process: [
       "Visited dog parks around Los Angeles to interview dog owners about their views on dating apps.",
-      "Created user personas based on the collected data to guide design decisions.",
+      "Synthesized the interview themes into an audience model and product questions to guide design decisions.",
       "Developed wireframes focusing on key features that would provide the most value.",
       "Designed a homepage featuring profiles and local hangouts to make suggestions to users.",
       "Integrated interactive features like 'Bark, Sniff & Lick' to make the app engaging and unique.",
@@ -24,7 +24,7 @@ export const getDoggyDateProject = (): ProjectType => {
     ],
     deliverables: [
       "User Research Report", 
-      "User Personas", 
+      "Audience Model",
       "Wireframes", 
       "Interactive Prototype", 
       "User Interface"
@@ -60,7 +60,7 @@ export const getDoggyDateProject = (): ProjectType => {
       "Dual profile system for owners and dogs"
     ],
     teamSize: "4 members",
-    methodologies: ["User Interviews", "Persona Creation", "Wireframing", "Prototyping", "User Testing"],
+    methodologies: ["User Interviews", "Audience Modeling", "Wireframing", "Prototyping", "User Testing"],
     // Removed liveUrl property
     githubUrl: null,
     summary: "Doggy Date is a social network and dating app for dog owners that enables them to connect with other local dog lovers, share hangout spots, and potentially find romance with someone who shares their passion for dogs."

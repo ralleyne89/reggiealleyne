@@ -83,6 +83,7 @@ const NextProjectTakeover = ({ project }: NextProjectTakeoverProps) => {
           <img
             src={nextProject.image}
             alt=""
+            aria-hidden="true"
             loading="lazy"
             decoding="async"
             className="h-full w-full scale-105 object-cover opacity-25 transition-[transform,opacity] duration-700 ease-[var(--ease-out)] group-hover:scale-110 group-hover:opacity-40"

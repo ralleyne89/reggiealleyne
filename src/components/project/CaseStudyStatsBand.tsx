@@ -1,11 +1,23 @@
 import { motion, useReducedMotion } from "framer-motion";
 import CountUp from "@/components/motion/CountUp";
-import { getCaseStudyTldr } from "@/config/portfolioCuration";
+import {
+  getCaseStudyImpact,
+  getCaseStudyTldr,
+  type CaseStudyMetricKind,
+} from "@/config/portfolioCuration";
 import { DUR, EASE, STAGGER } from "@/lib/motion";
 import type { ProjectType } from "@/types/project";
 
 type CaseStudyStatsBandProps = {
   project: ProjectType;
+};
+
+const metricKindLabels: Record<CaseStudyMetricKind, string> = {
+  "measured-outcome": "Measured result",
+  "delivery-fact": "Delivery fact",
+  "design-target": "Design target",
+  "product-guardrail": "Product guardrail",
+  "future-measure": "Measure next",
 };
 
 /**
@@ -15,6 +27,7 @@ type CaseStudyStatsBandProps = {
 const CaseStudyStatsBand = ({ project }: CaseStudyStatsBandProps) => {
   const shouldReduceMotion = useReducedMotion();
   const tldr = getCaseStudyTldr(project.slug);
+  const impact = getCaseStudyImpact(project.slug);
 
   if (!tldr) {
     return null;
@@ -22,10 +35,7 @@ const CaseStudyStatsBand = ({ project }: CaseStudyStatsBandProps) => {
 
   const listText = (items?: string[] | null, limit = 4) =>
     items?.filter(Boolean).slice(0, limit).join(", ") || "";
-  const description =
-    project.fullDescription || project.description || project.summary;
   const columns = [
-    { label: "Project", value: description },
     { label: "Role", value: tldr.role || project.role },
     {
       label: "Tools",
@@ -37,7 +47,7 @@ const CaseStudyStatsBand = ({ project }: CaseStudyStatsBandProps) => {
     },
   ].filter((column) => Boolean(column.value));
 
-  const hasMetrics = Boolean(tldr.metrics?.length);
+  const hasMetrics = Boolean(tldr.metrics?.length && !impact?.metrics.length);
 
   return (
     <section
@@ -56,7 +66,7 @@ const CaseStudyStatsBand = ({ project }: CaseStudyStatsBandProps) => {
             <p className="mb-6 font-mono text-xs font-medium uppercase tracking-[0.22em] text-purple-200">
               Project details
             </p>
-            <dl className="grid gap-6 sm:grid-cols-2">
+            <dl className="grid gap-6 sm:grid-cols-3">
               {columns.map((column, index) => (
                 <motion.div
                   key={column.label}
@@ -94,6 +104,11 @@ const CaseStudyStatsBand = ({ project }: CaseStudyStatsBandProps) => {
                   <p className="mt-2 text-xs font-semibold leading-5 text-gray-400">
                     {metric.label}
                   </p>
+                  {metric.kind ? (
+                    <p className="mt-1 font-mono text-[0.65rem] font-medium uppercase tracking-[0.14em] text-gray-500">
+                      {metricKindLabels[metric.kind]}
+                    </p>
+                  ) : null}
                 </div>
               ))}
             </div>

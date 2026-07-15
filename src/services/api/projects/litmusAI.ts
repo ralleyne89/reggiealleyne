@@ -6,11 +6,11 @@ export const getLitmusAIProject = (): ProjectType => {
     slug: "litmus-ai",
     title: "Litmus AI - AI Literacy Testing & Certification Platform",
     description:
-      "An adaptive AI literacy test and certificate flow that gives users a baseline in under five minutes, then points them to the next lesson.",
+      "An adaptive AI literacy test and certificate flow designed around a five-minute target, followed by role-aware lessons and recommendations.",
     role: "UX/UI Designer & Frontend Developer",
     year: "2025",
-    duration: "2 months",
-    teamSize: "Lean product team",
+    duration: "2025-2026",
+    teamSize: "Solo product build",
     tags: [
       "AI Education",
       "EdTech",
@@ -27,7 +27,7 @@ export const getLitmusAIProject = (): ProjectType => {
     problem:
       "People and teams were trying to talk about AI skills without a quick way to check the basics. Courses help after someone commits, but they do not answer the first question: what does this person already understand, and where are the gaps?",
     solution:
-      "I built a short assessment that calibrates the user's starting level, scores across core AI topics, recommends lessons, and supports certification and billing paths through Stripe.",
+      "I built a short assessment that calibrates the user's starting level, scores five AI readiness domains, recommends lessons, and supports certification and three subscription tiers through Stripe.",
     methodologies: [
       "Human-Centered Design (HCD)",
       "Information Architecture",
@@ -47,7 +47,7 @@ export const getLitmusAIProject = (): ProjectType => {
       "Functional MVP Web Platform",
       "Adaptive AI Literacy Test Engine",
       "Personalized Course Recommendations",
-      "Stripe Subscription and Certificate Payments",
+      "Stripe Subscription Plans",
       "Admin Dashboard for User Progress",
       "User-Facing Digital Certificate Flow",
     ],
@@ -63,14 +63,14 @@ export const getLitmusAIProject = (): ProjectType => {
     liveUrl: "https://litmusai.netlify.app",
     prototypeUrl: null,
     keyAchievements: [
-      "Delivered the MVP in two months against a focused product brief",
+      "Shipped the assessment, training, certification, billing, and admin paths as one MVP",
       "Built a short AI readiness assessment with level selection, scoring, and learning recommendations",
-      "Added Stripe payments for subscriptions, one-time certification, and enterprise packages",
+      "Added Stripe subscription checkout for Free, Premium, and Enterprise plans",
       "Designed admin analytics for scores, progress, and payment signals across individual and group customers",
     ],
     technicalHighlights: [
       "Assessment flow with level calibration, progress tracking, domain scoring, and recommendations",
-      "Stripe checkout for subscriptions and one-time certificate purchases",
+      "Stripe subscription checkout across three plan tiers",
       "Supabase authentication for user accounts",
       "Netlify frontend with Supabase backend services",
       "Admin dashboard for progress, scores, and payment review",

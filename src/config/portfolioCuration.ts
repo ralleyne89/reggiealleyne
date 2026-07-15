@@ -29,7 +29,7 @@ export interface CaseStudyTldr {
   tools: string[];
   owned: string[];
   /** Quantified proof points. Only populate with real, verifiable numbers. */
-  metrics?: { value: string; label: string }[];
+  metrics?: CaseStudyMetric[];
 }
 
 export type CaseStudyProcessArtifactType =
@@ -46,11 +46,58 @@ export interface CaseStudyProcessArtifact {
   connectsPersonaNeedTo: string;
 }
 
+export type CaseStudyMetricKind =
+  | "measured-outcome"
+  | "delivery-fact"
+  | "design-target"
+  | "product-guardrail"
+  | "future-measure";
+
+export interface CaseStudyMetric {
+  value: string;
+  label: string;
+  kind?: CaseStudyMetricKind;
+  context?: string;
+}
+
+export type CaseStudyImpactFraming =
+  | "measured-outcomes"
+  | "mvp-proof"
+  | "measurement-plan";
+
 export interface CaseStudyImpact {
   title: string;
   summary: string;
-  metrics: { value: string; label: string }[];
+  framing?: CaseStudyImpactFraming;
+  metrics: CaseStudyMetric[];
   notes: string[];
+}
+
+export type CaseStudyChapterKey =
+  | "glance"
+  | "overview"
+  | "audience"
+  | "process"
+  | "artifacts"
+  | "evidence"
+  | "impact";
+
+export type CaseStudyPresentationVariant =
+  | "outcome-led"
+  | "assessment-led"
+  | "trust-led";
+
+export interface CaseStudyPresentation {
+  variant: CaseStudyPresentationVariant;
+  audienceEyebrow: string;
+  audienceTitle: string;
+  audienceDescription: string;
+  evidenceBasis: string;
+  teamContext: string;
+  limitation: string;
+  validationQuestions: string[];
+  chapterOrder: CaseStudyChapterKey[];
+  chapterLabels: Partial<Record<CaseStudyChapterKey, string>>;
 }
 
 export interface CaseStudyNarrative {
@@ -162,7 +209,7 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
     featuredTitle: "AI Literacy Platform",
     eyebrow: "AI education / assessment",
     impactSummary:
-      "A five-minute assessment and certificate flow that gives learners a clear AI literacy baseline.",
+      "A shipped assessment, recommendation, training, and certificate path designed around a five-minute target.",
     reviewerSignal:
       "Shows AI product strategy, learning design, payments, and end-to-end MVP delivery.",
   },
@@ -171,9 +218,9 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
     featuredTitle: "AI Airbnb Optimizer",
     eyebrow: "Hospitality AI / host workflow",
     impactSummary:
-      "A room and listing optimizer that helps short-term rental hosts improve photos, copy, and booking signals.",
+      "A host workflow that turns listing review into an audit, one grounded fix, and a clear re-check.",
     reviewerSignal:
-      "Shows a concrete AI product surface: host workflow, trust-aware image generation, and frontend execution.",
+      "Shows how product constraints keep AI suggestions tied to the property a host can deliver.",
   },
 ];
 
@@ -181,12 +228,122 @@ export const featuredProjectSlugs = featuredProjectConfig.map(
   (project) => project.slug,
 );
 
+export const caseStudyPresentations: Partial<
+  Record<FeaturedProjectSlug, CaseStudyPresentation>
+> = {
+  "cllctve-platform": {
+    variant: "outcome-led",
+    audienceEyebrow: "Evidence base",
+    audienceTitle: "Creator behavior and team context",
+    audienceDescription:
+      "The source repo confirms a mobile-first React build and multi-contributor delivery. The resume supplies the launch outcomes.",
+    evidenceBasis:
+      "The resume reports 500+ creators, 15 brand partnerships, and 85% retention. The source repository confirms the mobile-first React product, but it does not preserve the research sample behind the strategy.",
+    teamContext:
+      "Git history confirms a multi-contributor build, and the resume records my Frontend Engineer role with UX/UI ownership. The available sources do not document collaborator roles or team size.",
+    limitation:
+      "The available project archive does not document participant counts, interview transcripts, collaborator roles, or team size, so the case study does not claim them.",
+    validationQuestions: [
+      "Which profile steps caused creators to pause or abandon setup?",
+      "Which feedback loops brought creators back after publishing?",
+    ],
+    chapterOrder: [
+      "glance",
+      "impact",
+      "overview",
+      "audience",
+      "process",
+      "artifacts",
+      "evidence",
+    ],
+    chapterLabels: {
+      glance: "Details",
+      impact: "Results",
+      overview: "Product bet",
+      audience: "Evidence",
+      process: "Decisions",
+      artifacts: "Artifacts",
+      evidence: "Interface",
+    },
+  },
+  "litmus-ai": {
+    variant: "assessment-led",
+    audienceEyebrow: "Validation plan",
+    audienceTitle: "Assessment assumptions to test",
+    audienceDescription:
+      "The MVP proves the assessment path works as a product. User outcomes still need a measured study.",
+    evidenceBasis:
+      "The shipped product supports level selection, a 15-question assessment, five readiness domains, recommendations, training, certification, billing, and admin review.",
+    teamContext:
+      "I designed and built the MVP as a solo UX/UI and frontend project.",
+    limitation:
+      "No verified participant sample or completion-rate dataset is available, so the five-minute duration remains a design target rather than a measured outcome.",
+    validationQuestions: [
+      "How many learners finish the assessment after starting it?",
+      "Do learners understand why the result leads to a specific training path?",
+    ],
+    chapterOrder: [
+      "glance",
+      "overview",
+      "audience",
+      "process",
+      "artifacts",
+      "evidence",
+      "impact",
+    ],
+    chapterLabels: {
+      glance: "Details",
+      overview: "Assessment",
+      audience: "Validation",
+      process: "Decisions",
+      artifacts: "Artifacts",
+      evidence: "Interface",
+      impact: "Next measures",
+    },
+  },
+  staybooked: {
+    variant: "trust-led",
+    audienceEyebrow: "Working assumptions",
+    audienceTitle: "Host needs to validate",
+    audienceDescription:
+      "The MVP starts with a host workflow hypothesis and makes the riskiest trust decisions inspectable.",
+    evidenceBasis:
+      "The product includes a marketing page, account entry, host dashboard, and room optimizer tied to real property photos and details.",
+    teamContext:
+      "I designed and built the MVP as a solo UX/UI and frontend project.",
+    limitation:
+      "No host interviews or external usability sessions are documented, so this section labels assumptions instead of presenting a fictional research participant.",
+    validationQuestions: [
+      "Can a host understand why the optimizer flagged a room?",
+      "Will hosts accept, revise, or reject suggestions before updating a live listing?",
+    ],
+    chapterOrder: [
+      "glance",
+      "overview",
+      "audience",
+      "evidence",
+      "process",
+      "artifacts",
+      "impact",
+    ],
+    chapterLabels: {
+      glance: "Details",
+      overview: "Trust problem",
+      audience: "Assumptions",
+      evidence: "Interface",
+      process: "Decisions",
+      artifacts: "Artifacts",
+      impact: "Next measures",
+    },
+  },
+};
+
 export const homepageProofMetrics: HomepageProofMetric[] = [
   {
-    value: "8 weeks",
-    label: "MVP shipped",
+    value: "5 domains",
+    label: "Readiness assessment",
     description:
-      "Litmus AI moved from product thesis to adaptive assessment, certification, admin, and payments.",
+      "Litmus AI connects a 15-question assessment to recommendations, certification, admin, and subscription plans.",
     href: "/project/litmus-ai",
   },
   {
@@ -197,10 +354,10 @@ export const homepageProofMetrics: HomepageProofMetric[] = [
     href: "/project/cllctve-platform",
   },
   {
-    value: "4 surfaces",
-    label: "AI host workflow",
+    value: "Audit to fix",
+    label: "Grounded host workflow",
     description:
-      "Staybooked connects marketing, auth, dashboard, and room optimization into one product story.",
+      "Staybooked keeps room suggestions tied to real property photos and details before a host updates a listing.",
     href: "/project/staybooked",
   },
 ];
@@ -246,7 +403,7 @@ export const caseStudyBriefs: Partial<
     coreDecision:
       "Build around first impressions: room photos, titles, opening copy, amenities, and audit cues.",
     evidence:
-      "Desktop product screens cover the homepage, sign-in, dashboard, and room optimizer workflow.",
+      "The MVP connects account entry, a saved host dashboard, and a room optimizer that keeps suggestions attached to real property evidence.",
     artifacts: [
       "Marketing homepage",
       "Room optimizer upload flow",
@@ -306,19 +463,19 @@ export const caseStudyNarratives: Record<
 > = {
   "cllctve-platform": {
     hook:
-      "CLLCTVE was not trying to out-Behance Behance. The sharper question was whether Gen Z creators would trust a portfolio product shaped around the way they already shared work.",
+      "CLLCTVE gave Gen Z creators a mobile-first portfolio shaped around how they already shared work, found feedback, and discovered brand opportunities.",
     setup:
-      "The category had an obvious incumbent, so the product could not win by copying every desktop portfolio convention. The work started with a behavioral read: many target creators were browsing and sharing from phones, and their work already lived across social posts, challenge submissions, screenshots, and community feedback.",
+      "Behance already owned the professional portfolio category. Creator work lived across phones, social posts, screenshots, challenge submissions, and community feedback, so the team focused on faster mobile publishing instead of desktop feature parity.",
     research:
-      "The research signal was simple but useful: creators cared about momentum and response, not only presentation. A portfolio had to feel quick to update, easy to share, and connected to the feedback loops that made the work feel alive.",
+      "The product strategy focused on a profile creators could update from a phone and a reason to return after publishing. The available archive does not preserve participant counts or interview transcripts, so this case study presents those ideas as product hypotheses.",
     constraint:
       "The hardest constraint was choosing where not to compete. A smaller platform could not match Behance's network effects or every professional feature, and too much customization would make branded challenge pages inconsistent.",
     decision:
       "I focused the product on mobile creation, creator feedback, and a controlled design-token system. That meant prioritizing swipe-friendly portfolio browsing and community loops over desktop analytics and feature parity.",
     build:
-      "I worked across the mobile portfolio builder, modular portfolio organization, branded challenge pages, notifications, and the design system that kept partner pages flexible without breaking the product.",
+      "In my Product Designer and Frontend Developer role, I worked across the mobile portfolio builder, modular portfolio organization, branded challenge pages, notifications, and the design system that kept partner pages consistent.",
     proof:
-      "The product reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed. The useful signal was not just the numbers; it was that a narrower behavior-first bet gave creators a reason to try a smaller platform.",
+      "The product reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed. Those outcomes support the mobile-first product decision without turning the company closure into a success story.",
     reflection:
       "The project still guides how I think about category strategy. When an incumbent owns the obvious feature set, the design opportunity is often in the behavior they are too large or too slow to serve well.",
   },
@@ -382,7 +539,7 @@ export const caseStudyNarratives: Record<
     setup:
       "Courses and certificates can help, but they often ask for commitment before showing the learner where they stand. The product needed to give students, professionals, and teams a credible baseline in minutes, then point them toward training or certification only when it made sense.",
     research:
-      "The source product was organized around Assess, Activate, and Certify. That shaped the research read: a learner needed a score they could understand, while a team needed enough structure to compare readiness and keep progress visible.",
+      "The product brief organized the experience around assessment, training, and certification. No verified participant study is available, so I treated fast completion and result clarity as hypotheses to test rather than research findings.",
     constraint:
       "The assessment had to stay short without becoming shallow. If the flow took too long, users would leave. If it was too light, the score would not justify the learning path, certificate, or team rollout.",
     decision:
@@ -390,7 +547,7 @@ export const caseStudyNarratives: Record<
     build:
       "I shaped the quiz, results, recommendation logic, certificate flow, training surfaces, admin dashboard, auth paths, and Stripe-backed billing. The implementation connected assessment data, account state, and subscription rules into one MVP.",
     proof:
-      "The MVP shipped in an eight-week window with a 3-5 minute assessment target, 15 practical questions, four readiness domains, training modules, certification, dashboard visibility, and three billing paths.",
+      "The MVP shipped with a 3-5 minute assessment target, 15 questions, five readiness domains, training modules, certification, dashboard visibility, and three subscription tiers. The delivery is verified; learner completion and comprehension still need measurement.",
     reflection:
       "The useful design move was keeping the product honest about time. A five-minute test cannot teach everything, but it can give people and teams a starting point they can act on.",
   },
@@ -414,11 +571,11 @@ export const caseStudyNarratives: Record<
   },
   staybooked: {
     hook:
-      "Staybooked was not about making AI output look impressive. It was about helping hosts improve the listing details guests judge fastest without making the property feel misrepresented.",
+      "Staybooked helps hosts improve the listing details guests judge first while keeping every suggestion tied to the property they can deliver.",
     setup:
       "Independent short-term rental hosts often know a listing could perform better, but the problem is scattered across photos, titles, opening copy, amenities, and trust cues. A generic tool can polish one asset, but it rarely keeps the host's real property context intact.",
     research:
-      "The product signal came from the guest decision path. Guests judge first impressions quickly, so the host workflow needed to organize the rooms, images, copy, and improvement history around the listing assets that shape trust.",
+      "No host interviews or external usability sessions are documented for this MVP. I used the guest decision path as a working hypothesis, then organized rooms, images, copy, and improvement history around the listing assets that shape trust.",
     constraint:
       "The main constraint was trust. AI-generated room direction had to feel useful and believable, not like a fantasy renovation that would make the live listing misleading.",
     decision:
@@ -426,7 +583,7 @@ export const caseStudyNarratives: Record<
     build:
       "I built the portfolio-facing product story across the marketing homepage, sign-in, dashboard, and room optimizer screens. The interface shows uploads, room context, realistic visual direction, and saved optimization work.",
     proof:
-      "The case study includes desktop product screens across the homepage, auth, dashboard, and optimizer workflow, with a live product surface for reviewers to inspect.",
+      "The product connects account entry, a saved host dashboard, and room optimization. The screens show what the AI reviews, why it flags a room, and where a host can accept, adjust, or reject a suggestion.",
     reflection:
       "The biggest product lesson was that AI tools need a point of view about responsibility. For Staybooked, the useful output is not spectacle; it is a believable next step a host can evaluate before changing a listing.",
   },
@@ -491,13 +648,13 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     tools: ["React", "Vite", "Tailwind CSS", "Supabase", "Stripe"],
     owned: ["Assessment UX", "Results logic", "Training path", "Certification and billing UI"],
     metrics: [
-      { value: "8 weeks", label: "MVP delivery window" },
-      { value: "15", label: "Assessment questions" },
-      { value: "4", label: "Readiness domains" },
+      { value: "15", label: "Assessment questions", kind: "delivery-fact" },
+      { value: "5", label: "Readiness domains", kind: "delivery-fact" },
+      { value: "3", label: "Subscription tiers", kind: "delivery-fact" },
     ],
   },
   "cllctve-platform": {
-    role: "UX/UI Designer and Frontend Developer",
+    role: "UX/UI Designer and Frontend Engineer",
     problem:
       "Gen Z creators needed a mobile-first portfolio experience that felt closer to how they already shared work.",
     decision:
@@ -505,15 +662,15 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     outcome:
       "Reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
     tools: ["Figma", "React", "Ant Design", "MongoDB", "Styled Components"],
-    owned: ["Mobile portfolio flow", "Creator feedback loops", "Design system", "Usability testing"],
+    owned: ["Mobile portfolio flow", "Creator feedback loops", "Design system", "Mobile behavior synthesis"],
     metrics: [
-      { value: "500+", label: "Creators on platform" },
-      { value: "85%", label: "Creator retention" },
-      { value: "15", label: "Brand partnerships" },
+      { value: "500+", label: "Creators on platform", kind: "measured-outcome", context: "Reported in the resume." },
+      { value: "85%", label: "Creator retention", kind: "measured-outcome", context: "Reported in the resume." },
+      { value: "15", label: "Brand partnerships", kind: "measured-outcome", context: "Reported in the resume." },
     ],
   },
   "symptom-checkr": {
-    role: "UI/UX designer",
+    role: "UX/UI Designer",
     problem:
       "Symptom guidance can make people more anxious when it does not show confidence, sources, or limits.",
     outcome:
@@ -522,7 +679,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Guidance model", "Assessment UI", "Citation patterns", "Saved report flow"],
   },
   "vaultjs-validate": {
-    role: "UI/UX designer and frontend developer",
+    role: "UX/UI Designer and Frontend Developer",
     problem:
       "Security teams needed to know which third-party scripts mattered and what to fix first.",
     outcome:
@@ -540,7 +697,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Product concept", "Dupe database", "Dream Lab", "Layering Lab"],
   },
   "tutor-d": {
-    role: "Frontend developer and UI/UX designer",
+    role: "UX/UI Designer and Frontend Developer",
     problem:
       "Teachers needed to reach students who lacked reliable internet or smart devices during remote learning.",
     outcome:
@@ -549,7 +706,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Teacher dashboard", "Responsive UI", "Progress views", "Frontend integration"],
   },
   "tech-noir": {
-    role: "UX, UI, and visual designer",
+    role: "UX/UI and Visual Designer",
     problem:
       "Shoppers were interested in wearable tech but struggled to understand fit, styling, and everyday use.",
     outcome:
@@ -558,16 +715,16 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Research synthesis", "Mobile commerce flow", "Luxury visual system", "Prototype testing"],
   },
   "doggy-date": {
-    role: "UX, UI, and visual designer",
+    role: "UX/UI and Visual Designer",
     problem:
       "A dating-style product for dog owners needed a reason to feel more useful than another swipe app.",
     outcome:
       "Created a community-focused app concept around local connections, profiles, and shared dog-friendly places.",
     tools: ["Adobe XD", "Photoshop", "Illustrator", "User interviews"],
-    owned: ["Concept strategy", "Personas", "Wireframes", "Visual design"],
+    owned: ["Concept strategy", "Audience model", "Wireframes", "Visual design"],
   },
   "improv-learning": {
-    role: "UI designer",
+    role: "UI Designer",
     problem:
       "Traffic-school visitors needed quick reassurance that the course was legitimate, simple, and worth starting on mobile.",
     outcome:
@@ -585,7 +742,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Product strategy", "Narrative UX", "Prototype design", "Creator-centered framing"],
   },
   "chill-vibes-music-player": {
-    role: "UI/UX designer and frontend developer",
+    role: "UX/UI Designer and Frontend Developer",
     problem:
       "A client wanted to prove a music app could feel calm and focused instead of becoming another social feed.",
     outcome:
@@ -594,7 +751,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["MVP interface", "Responsive player", "Frontend build", "Client validation flow"],
   },
   "bobs-big-break": {
-    role: "UI/UX designer and web developer",
+    role: "UX/UI Designer and Web Developer",
     problem:
       "The game needed to reward short, low-attention play sessions without asking players to learn a complex system.",
     outcome:
@@ -644,7 +801,7 @@ export const caseStudyProcessArtifacts: Partial<
       insight:
         "The map keeps the free readiness check close to the paid learning and certification paths instead of treating assessment as a dead end.",
       connectsPersonaNeedTo:
-        "Eric needs a quick baseline; the business needs that baseline to create a clear path into training, certification, or team rollout.",
+        "Learners need a quick baseline; the product needs that baseline to create a clear path into training, certification, or team rollout.",
     },
     {
       type: "user-flow",
@@ -666,7 +823,7 @@ export const caseStudyProcessArtifacts: Partial<
       insight:
         "The setup screen gives users enough context to choose a starting level without making the assessment feel heavy.",
       connectsPersonaNeedTo:
-        "Eric needs confidence that the test is credible; the product needs completion momentum before recommending training.",
+        "Learners need confidence that the test is credible; the product needs completion momentum before recommending training.",
     },
     {
       type: "wireframe",
@@ -677,7 +834,7 @@ export const caseStudyProcessArtifacts: Partial<
       insight:
         "The training screen turns the assessment promise into concrete role-based modules that show what to do after the score.",
       connectsPersonaNeedTo:
-        "Eric needs a next step he can act on; the business needs the free assessment to lead naturally into learning and certification.",
+        "Learners need a next step they can act on; the business needs the free assessment to lead naturally into learning and certification.",
     },
   ],
   "cllctve-platform": [
@@ -690,7 +847,7 @@ export const caseStudyProcessArtifacts: Partial<
       insight:
         "The route map keeps discovery and opportunity close together instead of treating a portfolio as a static destination.",
       connectsPersonaNeedTo:
-        "Maya needs one shareable home for scattered work; the business needs a browsable creator inventory for brands.",
+        "Creators need one shareable home for scattered work; the business needs a browsable creator inventory for brands.",
     },
     {
       type: "user-flow",
@@ -712,7 +869,7 @@ export const caseStudyProcessArtifacts: Partial<
       insight:
         "The profile builder starts with identity and recent work before deeper customization, so creators can publish without a blank-page problem.",
       connectsPersonaNeedTo:
-        "Maya needs edit speed; the product needs enough structure for profiles to stay consistent and brand-readable.",
+        "Creators need edit speed; the product needs enough structure for profiles to stay consistent and brand-readable.",
     },
     {
       type: "wireframe",
@@ -730,33 +887,77 @@ export const caseStudyProcessArtifacts: Partial<
 
 export const caseStudyImpacts: Partial<Record<string, CaseStudyImpact>> = {
   "litmus-ai": {
-    title: "What the MVP made measurable",
+    title: "What the MVP made testable",
     summary:
-      "Litmus AI turned AI readiness from a vague training conversation into a short product loop: assess the user, show the gap, recommend a path, and support certification or team rollout when the user is ready.",
+      "Litmus AI shipped the full assessment path: choose a level, answer 15 questions, review five readiness domains, and continue into training or certification. Completion and comprehension still need measurement.",
+    framing: "mvp-proof",
     metrics: [
-      { value: "8 weeks", label: "MVP delivery window" },
-      { value: "5 min", label: "Assessment target" },
-      { value: "4", label: "Readiness domains" },
+      {
+        value: "15",
+        label: "Assessment questions",
+        kind: "delivery-fact",
+      },
+      {
+        value: "5 min",
+        label: "Assessment target",
+        kind: "design-target",
+        context: "Target duration, not a measured completion time.",
+      },
+      {
+        value: "5",
+        label: "Readiness domains",
+        kind: "delivery-fact",
+      },
     ],
     notes: [
-      "The assessment gives learners a low-commitment starting point before they choose a training plan.",
-      "The results and recommendation path connects user clarity to the product's training, certification, and billing model.",
-      "The dashboard and billing work make the product usable for both individuals and team leads without splitting the experience into separate products.",
+      "The first study should measure start-to-completion rate and the time learners spend on each question.",
+      "Result comprehension matters as much as speed: learners should understand why a domain score leads to a specific training path.",
+      "Team buyers need a separate check for whether the five-domain view supports a real training decision.",
     ],
   },
   "cllctve-platform": {
     title: "What the product proved",
     summary:
-      "CLLCTVE did not beat incumbents by trying to match every portfolio feature. The product proved that a narrower mobile-first loop could attract creators and brand partners before the company closed.",
+      "A focused mobile workflow attracted creators and brand partners without matching every desktop portfolio feature. The company later closed, so the case study separates product traction from business survival.",
+    framing: "measured-outcomes",
     metrics: [
-      { value: "500+", label: "Creators on platform" },
-      { value: "15", label: "Brand partnerships" },
-      { value: "85%", label: "Creator retention" },
+      { value: "500+", label: "Creators on platform", kind: "measured-outcome", context: "Reported in the resume." },
+      { value: "15", label: "Brand partnerships", kind: "measured-outcome", context: "Reported in the resume." },
+      { value: "85%", label: "Creator retention", kind: "measured-outcome", context: "Reported in the resume." },
     ],
     notes: [
       "The strongest product signal was retention: creators had a reason to come back, not only a place to publish once.",
       "The brand-partnership count gave the creator-side experience a business reason to exist.",
       "The company closed, so the case study stays honest about product traction without overstating business survival.",
+    ],
+  },
+  staybooked: {
+    title: "What the MVP made judgeable",
+    summary:
+      "Staybooked turns listing optimization into a short loop: audit the listing, show what guests judge first, fix one room, and re-check the work against the real property.",
+    framing: "measurement-plan",
+    metrics: [
+      {
+        value: "1 loop",
+        label: "Audit, fix, re-check",
+        kind: "delivery-fact",
+      },
+      {
+        value: "4",
+        label: "Connected product surfaces",
+        kind: "delivery-fact",
+      },
+      {
+        value: "0",
+        label: "Fabrications allowed",
+        kind: "product-guardrail",
+        context: "A product requirement, not a measured user outcome.",
+      },
+    ],
+    notes: [
+      "The audit gives hosts a starting point before they change a room photo or rewrite listing copy.",
+      "The room optimizer keeps each suggestion attached to the source photo and property details so a host can accept, revise, or reject it with context.",
+      "The next study should track audit-to-fix completion, photo updates, and whether optimized listings convert more visitors into bookings.",
     ],
   },
 };
@@ -1189,7 +1390,7 @@ export const projectPersonaJourneys: Record<
     persona: {
       role: "Independent host tightening up a short-term rental listing before guests book.",
       context:
-        "He manages real rooms and needs better photos, copy, amenities, and trust cues without overselling the property.",
+        "They manage real rooms and need better photos, copy, amenities, and trust cues without overselling the property.",
       goal:
         "Find the weak spots in a listing, turn them into practical fixes, and save the work for the next update.",
       friction:
@@ -1292,38 +1493,10 @@ export const projectPersonaJourneys: Record<
   },
 };
 
-export const projectPersonaProfiles: Record<
+export const projectPersonaProfiles: Partial<Record<
   ProjectPersonaJourneySlug,
   ProjectPersonaProfile
-> = {
-  "cllctve-platform": {
-    name: "Maya",
-    title: "Mobile creator",
-    image: "/images/personas/cllctve-platform.jpg",
-    imageAlt:
-      "Generated portrait of Maya, a mobile creator persona for the CLLCTVE Platform case study.",
-    theme: {
-      background: "linear-gradient(135deg, #ff7a5f 0%, #ef5f9d 55%, #7658ff 100%)",
-      panel: "rgba(255, 255, 255, 0.15)",
-      line: "rgba(255, 255, 255, 0.42)",
-      ink: "#fffaf7",
-      muted: "rgba(255, 250, 247, 0.78)",
-      accent: "#fff0a6",
-      shadow: "rgba(148, 74, 255, 0.34)",
-    },
-    about: [
-      { label: "Role", value: "Gen Z portfolio builder" },
-      { label: "Primary device", value: "Phone-first creation" },
-      { label: "Decision mode", value: "Share, refine, return" },
-    ],
-    attributes: [
-      { label: "Mobile fit", score: 92 },
-      { label: "Peer proof", score: 84 },
-      { label: "Brand readiness", score: 78 },
-      { label: "Edit speed", score: 88 },
-      { label: "Creative identity", score: 94 },
-    ],
-  },
+>> = {
   "tutor-d": {
     name: "Ms. Carter",
     title: "SMS-first teacher",
@@ -1548,34 +1721,6 @@ export const projectPersonaProfiles: Record<
       { label: "Safety framing", score: 94 },
     ],
   },
-  "litmus-ai": {
-    name: "Eric",
-    title: "AI readiness learner",
-    image: "/images/personas/litmus-ai.jpg",
-    imageAlt:
-      "Generated portrait of Eric, an AI readiness learner persona for the Litmus AI case study.",
-    theme: {
-      background: "linear-gradient(135deg, #28318f 0%, #6b50d8 52%, #a5d936 100%)",
-      panel: "rgba(255, 255, 255, 0.14)",
-      line: "rgba(255, 255, 255, 0.38)",
-      ink: "#fbfbff",
-      muted: "rgba(251, 251, 255, 0.78)",
-      accent: "#eaff8a",
-      shadow: "rgba(40, 49, 143, 0.32)",
-    },
-    about: [
-      { label: "Role", value: "Learner or team lead" },
-      { label: "Time budget", value: "Minutes, not weeks" },
-      { label: "Decision mode", value: "Baseline, gap, path" },
-    ],
-    attributes: [
-      { label: "Assessment trust", score: 90 },
-      { label: "Adaptive fit", score: 86 },
-      { label: "Result clarity", score: 88 },
-      { label: "Learning path", score: 82 },
-      { label: "Credential value", score: 76 },
-    ],
-  },
   "vaultjs-validate": {
     name: "Owen",
     title: "Security risk triager",
@@ -1630,34 +1775,6 @@ export const projectPersonaProfiles: Record<
       { label: "Value compare", score: 84 },
       { label: "Layering help", score: 80 },
       { label: "Vocabulary bridge", score: 86 },
-    ],
-  },
-  staybooked: {
-    name: "Mateo",
-    title: "Independent host",
-    image: "/images/personas/staybooked.jpg",
-    imageAlt:
-      "Portrait of Mateo, an independent host persona for the Staybooked case study.",
-    theme: {
-      background: "linear-gradient(135deg, #b45a3c 0%, #db8a59 48%, #2f8f91 100%)",
-      panel: "rgba(255, 255, 255, 0.15)",
-      line: "rgba(255, 255, 255, 0.4)",
-      ink: "#fffaf6",
-      muted: "rgba(255, 250, 246, 0.78)",
-      accent: "#ffefbf",
-      shadow: "rgba(180, 90, 60, 0.34)",
-    },
-    about: [
-      { label: "Role", value: "Short-term rental host" },
-      { label: "Asset focus", value: "Photos, copy, and trust cues" },
-      { label: "Decision mode", value: "Improve honestly" },
-    ],
-    attributes: [
-      { label: "Listing honesty", score: 94 },
-      { label: "Photo direction", score: 87 },
-      { label: "Copy usefulness", score: 84 },
-      { label: "Room context", score: 89 },
-      { label: "Saved workflow", score: 81 },
     ],
   },
   "covelo-timecard-system": {
@@ -1722,6 +1839,9 @@ const hiddenFromPrimaryWorksIds = new Set([3, 4, 5, 7, 8, 12]);
 
 export const getFeaturedConfig = (slug?: string) =>
   featuredProjectConfig.find((project) => project.slug === slug);
+
+export const getCaseStudyPresentation = (slug?: string) =>
+  slug ? caseStudyPresentations[slug as FeaturedProjectSlug] : undefined;
 
 export const hasCaseStudyAtGlance = (slug?: string) =>
   Boolean(

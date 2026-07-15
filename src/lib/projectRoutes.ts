@@ -1,6 +1,6 @@
 import type { ProjectType } from "@/types/project";
 
-export const SITE_ORIGIN = "https://reggiealleyne.lovable.app";
+export const SITE_ORIGIN = "https://reggiealleyne.com";
 
 export const CLLCTVE_PROJECT_CANONICAL_SLUG = "cllctve-platform";
 export const CLLCTVE_PROJECT_CANONICAL_PATH = `/project/${CLLCTVE_PROJECT_CANONICAL_SLUG}`;

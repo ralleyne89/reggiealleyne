@@ -14,7 +14,7 @@ interface BentoFeaturedProjectsProps {
 
 // Map of project ID to icon component
 const projectIcons = {
-  2: Palette, // Tutor D - UI/UX Design focus
+  2: Palette, // Tutor D - UX/UI Design focus
   3: Code, // Tech Noir - Development focus
   1: Layout, // Cllctve
   10: Brain, // Litmus AI - AI/EdTech focus

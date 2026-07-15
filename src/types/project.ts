@@ -54,7 +54,7 @@ export interface ProjectType {
   /** Category tags for filtering and grouping */
   tags: string[] | null;
   
-  /** Category of the project (e.g., "UI/UX Design", "Web Development") */
+  /** Category of the project (e.g., "UX/UI Design", "Web Development") */
   category?: string | null;
   
   /** Technologies used in the project */

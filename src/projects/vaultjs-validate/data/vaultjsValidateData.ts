@@ -36,7 +36,7 @@ export const vaultjsOverviewData: ProjectOverviewProps = {
   projectDetails: [
     {
       label: "My Role",
-      value: "UI/UX Designer & Frontend Developer",
+      value: "UX/UI Designer & Frontend Developer",
       icon: Briefcase
     },
     {

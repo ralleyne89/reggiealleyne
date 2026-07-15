@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Bot, BriefcaseBusiness, Home, MessageCircle, PanelsTopLeft, Search, Sparkles, UserRound } from "lucide-react";
+import { Bot, BriefcaseBusiness, Download, Home, MessageCircle, PanelsTopLeft, Search, Sparkles, UserRound } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Command,
@@ -28,6 +28,7 @@ import {
   sortProjectsNewestFirst,
 } from "@/config/portfolioCuration";
 import { getProjectPath } from "@/lib/projectRoutes";
+import { RESUME_URL } from "@/config/resume";
 import { useLenisLock } from "./SmoothScroll";
 
 type PaletteCommand = {
@@ -170,6 +171,16 @@ const PortfolioCommandPalette = () => {
       shortcut: "C",
       onSelect: () => navigateTo("/#contact"),
     },
+    {
+      id: "resume",
+      label: "View resume",
+      description: "Open the July 2026 UX/UI designer resume.",
+      shortcut: "R",
+      onSelect: () => {
+        window.open(RESUME_URL, "_blank", "noopener,noreferrer");
+        setOpen(false);
+      },
+    },
   ];
 
   const aiCommands: PaletteCommand[] = [
@@ -306,8 +317,10 @@ const PortfolioCommandPalette = () => {
                             ? PanelsTopLeft
                           : command.id === "playground"
                             ? Sparkles
-                            : command.id === "about"
+                          : command.id === "about"
                               ? UserRound
+                              : command.id === "resume"
+                                ? Download
                               : Search;
 
                     return (

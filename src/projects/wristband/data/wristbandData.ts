@@ -10,7 +10,7 @@ export const wristbandOverviewData = {
   projectDetails: [
     {
       label: "Role",
-      value: "UI/UX Designer",
+      value: "UX/UI Designer",
       icon: User
     },
     {

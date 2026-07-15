@@ -2,10 +2,13 @@ import { type RefObject, useEffect, useLayoutEffect, useRef } from "react";
 import { useReducedMotion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowRight, FileText } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { cn } from "@/lib/utils";
 import { EASE, SCRUB } from "@/lib/motion";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
+import { RESUME_URL } from "@/config/resume";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -532,9 +535,11 @@ const HeroCanvasLayer = ({
 const HeroTitleLayer = () => (
   <h1
     data-hero-title
-    aria-label="Reggie Alleyne"
     className="pointer-events-none absolute left-1/2 top-[3.65rem] z-0 w-[min(92vw,34rem)] -translate-x-1/2 overflow-visible sm:top-12 sm:w-[min(116vw,82rem)] lg:top-16"
   >
+    <span className="sr-only">
+      Reggie Alleyne, UX/UI Designer and frontend developer
+    </span>
     <img
       data-hero-title-word
       src={heroAssets.wordmark}
@@ -546,6 +551,32 @@ const HeroTitleLayer = () => (
       className="block h-auto w-full select-none"
     />
   </h1>
+);
+
+const HeroPositioningPanel = () => (
+  <div className="hero-positioning-panel absolute -bottom-28 left-4 right-4 z-[55] rounded-lg border border-zinc-200/90 bg-white/95 p-4 text-[#141414] shadow-[0_18px_50px_rgba(15,23,42,0.14)] backdrop-blur-md sm:bottom-6 sm:left-auto sm:right-6 sm:w-[22rem] lg:bottom-10 lg:right-2 xl:-right-28">
+    <p className="font-heading text-lg font-semibold leading-snug [text-wrap:balance]">
+      I design AI products people can question — and build them in React.
+    </p>
+    <div className="mt-4 grid grid-cols-2 gap-2.5">
+      <Link
+        to="/work"
+        className="inline-flex min-h-11 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-[#171717] px-4 py-2.5 text-sm font-semibold text-white transition-[background-color,transform] duration-200 hover:bg-[#7C3AED] active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:ring-offset-2"
+      >
+        View work
+        <ArrowRight aria-hidden="true" className="h-4 w-4" />
+      </Link>
+      <a
+        href={RESUME_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex min-h-11 items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-900 transition-[border-color,background-color,transform] duration-200 hover:border-[#7C3AED] hover:bg-violet-50 active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED] focus-visible:ring-offset-2"
+      >
+        <FileText aria-hidden="true" className="h-4 w-4" />
+        Resume
+      </a>
+    </div>
+  </div>
 );
 
 const HeroLightAperture = () => (
@@ -626,7 +657,7 @@ const HeroArtwork = () => (
     </div>
     <HeroLightAperture />
 
-    <ToolPanel className="absolute left-3 top-[18.8rem] z-30 origin-top-left scale-[0.58] sm:left-[calc(50%-300px)] sm:top-[178px] sm:scale-90 lg:left-[calc(50%-458px)] lg:scale-100" />
+    <ToolPanel className="absolute left-3 top-[18.8rem] z-30 origin-top-left scale-[0.58] sm:left-[calc(50%-300px)] sm:top-[178px] sm:scale-90 lg:left-[calc(50%-50vw+1rem)] lg:top-[464px] lg:scale-[0.65] 2xl:left-[calc(50%-458px)] 2xl:top-[178px] 2xl:scale-100" />
 
     <SearchChip
       label="Design"
@@ -640,6 +671,7 @@ const HeroArtwork = () => (
       label="Prototype"
       className="absolute right-3 top-[27.4rem] z-40 w-[138px] origin-top-right scale-[0.82] sm:left-[calc(50%+105px)] sm:right-auto sm:top-[468px] sm:w-[174px] sm:scale-100"
     />
+    <HeroPositioningPanel />
   </div>
 );
 
@@ -920,7 +952,7 @@ const HeroSection = () => {
       >
         <HeroArtwork />
 
-        <CapabilitySwitchboard className="relative left-1/2 z-50 -mt-36 w-screen -translate-x-1/2 px-4 sm:-mt-28 sm:px-6 lg:-mt-32 lg:px-8" />
+        <CapabilitySwitchboard className="relative left-1/2 z-50 mt-32 w-screen -translate-x-1/2 px-4 sm:-mt-4 sm:px-6 lg:-mt-6 lg:px-8" />
       </div>
 
       <div data-hero-scroll-handoff className="hero-scroll-handoff" aria-hidden="true">

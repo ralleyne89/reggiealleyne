@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Github, Globe2, Linkedin, Mail, MapPin } from "lucide-react";
 import { CONTACT_EMAIL } from "@/config/contact";
+import { RESUME_URL } from "@/config/resume";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -43,6 +44,11 @@ const Footer = () => {
       href: "/about",
     },
     {
+      name: "Resume",
+      href: RESUME_URL,
+      external: true,
+    },
+    {
       name: "Playground",
       href: "/playground",
     },
@@ -65,7 +71,8 @@ const Footer = () => {
             <Link to="/" className="inline-flex shrink-0" aria-label="Reggie Alleyne home">
               <img
                 src="/images/RA_logo_black.png"
-                alt="Reggie Alleyne Logo"
+                alt=""
+                aria-hidden="true"
                 loading="lazy"
                 decoding="async"
                 className="h-9 w-auto"
@@ -82,13 +89,25 @@ const Footer = () => {
             className="flex min-w-0 flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold text-text-secondary"
           >
             {quickLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className="transition-colors hover:text-primary focus-visible:text-primary"
-              >
-                {link.name}
-              </Link>
+              link.external ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-primary focus-visible:text-primary"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="transition-colors hover:text-primary focus-visible:text-primary"
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
           </nav>
 

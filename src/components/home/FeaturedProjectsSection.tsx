@@ -158,9 +158,10 @@ const FeaturedProjectsSection = () => {
                           <img
                             src={project.image}
                             alt=""
+                            aria-hidden="true"
                             loading={index === 0 ? "eager" : "lazy"}
                             decoding="async"
-                            fetchPriority={index === 0 ? "high" : "auto"}
+                            fetchpriority={index === 0 ? "high" : "auto"}
                             className="h-full w-full object-cover"
                             sizes="(min-width: 1024px) 760px, 100vw"
                             onError={(event) => {
@@ -227,6 +228,7 @@ const FeaturedProjectsSection = () => {
                         <img
                           src={project.image}
                           alt=""
+                          aria-hidden="true"
                           loading="lazy"
                           decoding="async"
                           onError={(event) => {

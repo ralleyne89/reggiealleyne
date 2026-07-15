@@ -11,8 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import ContactForm from "./ContactForm";
 import type { ContactFormData } from "./ContactForm";
-
-const RESUME_URL = "/resume/Reginald_Alleyne_Resume_FINAL_2026.pdf";
+import { RESUME_DOWNLOAD_NAME, RESUME_URL } from "@/config/resume";
 
 const ContactCard = () => {
   const { toast: uiToast } = useToast();
@@ -82,7 +81,7 @@ const ContactCard = () => {
         </Dialog>
         <a
           href={RESUME_URL}
-          download="Reginald_Alleyne_Resume_FINAL_2026.pdf"
+          download={RESUME_DOWNLOAD_NAME}
           className="bg-[rgba(25,25,25,1)] w-full gap-2.5 p-4 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(30,30,30,1)] hover:scale-[1.02] hover:shadow-lg active:scale-95 active:shadow-inner border border-gray-700"
         >
           <Download className="w-4 h-4 text-primary" />

@@ -1,8 +1,9 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLayoutEffect, useState } from "react";
 
-const LOADER_DURATION = 1900;
-const REDUCED_MOTION_DURATION = 350;
+const LOADER_PROGRESS_DURATION = 1100;
+const LOADER_EXIT_DURATION = 400;
+const LOADER_HARD_FINISH = 1600;
 const LOADER_COMPLETE_EVENT = "home-loader:complete";
 const LOADER_SEEN_KEY = "reggie-home-loader-seen";
 let hasRunHomeLoaderThisVisit = false;
@@ -43,15 +44,23 @@ const markHomeLoaderSeen = () => {
   }
 };
 
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 const HomeLoader = () => {
   const shouldReduceMotion = useReducedMotion();
-  const [shouldRunLoader] = useState(() => !hasSeenHomeLoader());
+  const [shouldRunLoader] = useState(
+    () => !hasSeenHomeLoader() && !prefersReducedMotion(),
+  );
   const [progress, setProgress] = useState(shouldRunLoader ? 0 : 100);
   const [isHandoff, setIsHandoff] = useState(false);
   const [isVisible, setIsVisible] = useState(shouldRunLoader);
 
   useLayoutEffect(() => {
-    if (!shouldRunLoader) {
+    if (!shouldRunLoader || shouldReduceMotion) {
+      markHomeLoaderSeen();
+      setIsVisible(false);
       document.body.dataset.homeLoaderState = "complete";
       window.dispatchEvent(new CustomEvent(LOADER_COMPLETE_EVENT));
       return undefined;
@@ -60,24 +69,40 @@ const HomeLoader = () => {
     markHomeLoaderSeen();
     document.body.dataset.homeLoaderState = "loading";
 
-    const duration = shouldReduceMotion
-      ? REDUCED_MOTION_DURATION
-      : LOADER_DURATION;
     let animationFrame = 0;
-    let hideTimeout = 0;
-    let handoffEventTimeout = 0;
+    let exitFrame = 0;
+    let completeEventTimeout = 0;
+    let hardFinishTimeout = 0;
     let startTime = 0;
+    let hasStartedExit = false;
+    let hasSignaledComplete = false;
 
-    const completeLoader = () => {
+    const signalComplete = () => {
+      if (hasSignaledComplete) {
+        return;
+      }
+
+      hasSignaledComplete = true;
       markHomeLoaderSeen();
-      setIsVisible(false);
-      handoffEventTimeout = window.setTimeout(
-        () => {
-          document.body.dataset.homeLoaderState = "complete";
-          window.dispatchEvent(new CustomEvent(LOADER_COMPLETE_EVENT));
-        },
-        shouldReduceMotion ? 0 : 160,
-      );
+      document.body.dataset.homeLoaderState = "complete";
+      window.dispatchEvent(new CustomEvent(LOADER_COMPLETE_EVENT));
+    };
+
+    const startExit = () => {
+      if (hasStartedExit) {
+        return;
+      }
+
+      hasStartedExit = true;
+      setProgress(100);
+      setIsHandoff(true);
+      exitFrame = window.requestAnimationFrame(() => {
+        setIsVisible(false);
+        completeEventTimeout = window.setTimeout(
+          signalComplete,
+          LOADER_EXIT_DURATION + 24,
+        );
+      });
     };
 
     const tick = (time: number) => {
@@ -86,28 +111,31 @@ const HomeLoader = () => {
       }
 
       const elapsed = time - startTime;
-      const nextProgress = Math.min(100, Math.round((elapsed / duration) * 100));
+      const nextProgress = Math.min(
+        100,
+        Math.round((elapsed / LOADER_PROGRESS_DURATION) * 100),
+      );
       setProgress(nextProgress);
 
-      if (elapsed < duration) {
+      if (elapsed < LOADER_PROGRESS_DURATION) {
         animationFrame = window.requestAnimationFrame(tick);
         return;
       }
 
-      setProgress(100);
-      setIsHandoff(true);
-      hideTimeout = window.setTimeout(
-        completeLoader,
-        shouldReduceMotion ? 40 : 860,
-      );
+      startExit();
     };
 
     animationFrame = window.requestAnimationFrame(tick);
+    hardFinishTimeout = window.setTimeout(() => {
+      setIsVisible(false);
+      signalComplete();
+    }, LOADER_HARD_FINISH);
 
     return () => {
       window.cancelAnimationFrame(animationFrame);
-      window.clearTimeout(hideTimeout);
-      window.clearTimeout(handoffEventTimeout);
+      window.cancelAnimationFrame(exitFrame);
+      window.clearTimeout(completeEventTimeout);
+      window.clearTimeout(hardFinishTimeout);
 
       if (document.body.dataset.homeLoaderState === "loading") {
         document.body.dataset.homeLoaderState = "complete";
@@ -133,7 +161,7 @@ const HomeLoader = () => {
                 }
           }
           transition={{
-            duration: shouldReduceMotion ? 0.12 : 0.78,
+            duration: shouldReduceMotion ? 0 : LOADER_EXIT_DURATION / 1000,
             ease: [0.16, 1, 0.3, 1],
           }}
           aria-live="polite"

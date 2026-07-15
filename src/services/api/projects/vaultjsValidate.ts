@@ -6,7 +6,7 @@ export const getVaultJSValidateProject = (): ProjectType => {
     slug: 'vaultjs-validate',
     title: 'Vault.js Validate – Enterprise Security Visualization & AI Tool',
     description: 'A security monitoring dashboard that turns third-party script risk into readable scans, risk visuals, and AI-generated code fixes.',
-    role: 'UI/UX Designer & Frontend Developer',
+    role: 'UX/UI Designer & Frontend Developer',
     year: '2026',
     duration: '2 Weeks (Sprint)',
     teamSize: '1',

@@ -6,7 +6,7 @@ export const getSymptomCheckrProject = (): ProjectType => {
     slug: 'symptom-checkr',
     title: 'SymptomCheckr: a calmer way to check symptoms',
     description: "A health-tech concept for people who check symptoms online and need guidance that feels clear, cautious, and easy to question.",
-    role: 'UI/UX Designer',
+    role: 'UX/UI Designer',
     year: '2024',
     duration: '8 weeks',
     teamSize: '4',

@@ -16,19 +16,19 @@ export const cllctveStrategicDecisionsData = {
     {
       decision: "Mobile-first experience",
       alternative: "Desktop feature parity with Behance",
-      reasoning: "67% of our target users browsed portfolios on phones. We sacrificed desktop power-user features to win the mobile experience. Behance was strong on desktop, but mobile was the opening.",
+      reasoning: "The product prioritized quick profile updates, visual browsing, and sharing from a phone. That choice created a clearer position than copying Behance's desktop feature set.",
       icon: Smartphone
     },
     {
-      decision: "React.js with our existing expertise",
-      alternative: "Flutter for true cross-platform mobile",
-      reasoning: "Flutter would have given us better mobile performance, but our team's React expertise meant 3x faster iteration cycles. Speed of learning beat theoretical mobile advantages for an unvalidated product.",
+      decision: "React.js production stack",
+      alternative: "A separate native app before validating web demand",
+      reasoning: "The product already used React, which kept interface design and frontend iteration in one stack without a platform rewrite.",
       icon: Code
     },
     {
       decision: "Community feed before analytics",
       alternative: "Professional analytics dashboard",
-      reasoning: "User research showed creators wanted validation, not metrics. They wanted to know who viewed their work, not study conversion funnels. We built for that behavior.",
+      reasoning: "The first product hypothesis prioritized feedback and brand opportunities as return loops before building a deeper analytics product.",
       icon: Users
     },
     {
@@ -44,8 +44,8 @@ export const cllctveOverviewData = {
   title: "The mobile-first bet",
   description: [
     "Behance had the network effects. We had a narrower hypothesis: Gen Z creators would trade network size for a portfolio experience that felt native to mobile. The product reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
-    "As UX/UI Designer & Frontend Developer, I owned the decision to build mobile-first while most competitors treated mobile as a smaller desktop. That was a market positioning choice, not a visual preference.",
-    "The creator economy is worth $104B+, but we weren't trying to compete with Behance on features. We were competing on behavior fit. That distinction shaped every technical and design decision."
+    "As UX/UI Designer & Frontend Engineer, I worked across the mobile-first product while most competitors treated mobile as a smaller desktop. That was a market positioning choice, not a visual preference.",
+    "The product competed on mobile behavior instead of feature count. That distinction shaped the interface and technical choices."
   ],
   projectDetails: [
     {
@@ -56,7 +56,7 @@ export const cllctveOverviewData = {
     {
       icon: Users,
       label: "Role",
-      value: "UX/UI Designer & Frontend Developer"
+      value: "UX/UI Designer & Frontend Engineer"
     },
     {
       icon: Calendar,
@@ -65,15 +65,15 @@ export const cllctveOverviewData = {
     },
     {
       icon: Users,
-      label: "Team size",
-      value: "6 members"
+      label: "Outcome source",
+      value: "Resume"
     }
   ],
   toolDetails: [
     {
       icon: Code,
       label: "Strategic choice",
-      value: "React.js (team expertise over ideal tech)"
+      value: "React.js (existing product stack)"
     },
     {
       icon: Palette,
@@ -143,16 +143,16 @@ export const cllctveProblemSpaceData = {
 };
 
 export const cllctveResearchData = {
-  title: "What we learned and what we chose to ignore",
-  introduction: "User research supported the mobile-first bet, but it also forced us to accept who the product would not serve. 67% had abandoned other platforms because mobile felt poor. 89% wanted visual-first design. We optimized for those creators and let desktop power users stay with Behance.",
+  title: "Product hypotheses and tradeoffs",
+  introduction: "The available archive does not preserve participant counts or interview transcripts. These product hypotheses explain the mobile-first direction without presenting unsupported research precision.",
   researchSections: [
     {
-      title: "The validation",
-      description: "Research that confirmed our mobile-first bet was right.",
+      title: "The working hypotheses",
+      description: "Ideas the product needed to validate through use.",
       items: [
-        { text: "67% of Gen Z creators had abandoned platforms due to poor mobile experience, which gave us the opening" },
-        { text: "89% prioritized visual content over text descriptions, so we designed for scrolling instead of long portfolio pages" },
-        { text: "78% wanted supportive community dynamics, so we built support loops instead of leaderboards" }
+        { text: "Creators would update a portfolio more often if the core flow worked well from a phone" },
+        { text: "Visual browsing would help recent work read faster than long portfolio pages" },
+        { text: "Feedback and brand opportunities could give creators a reason to return after publishing" }
       ]
     },
     {
@@ -208,7 +208,7 @@ export const cllctveIdeationData = {
     },
     {
       highlight: "Speed of iteration beats ideal technology.",
-      description: "React wasn't ideal for mobile. But our team's expertise meant 3x faster iteration. For an unvalidated product, learning speed mattered more than technical perfection."
+      description: "React kept the product in its existing stack and let design decisions move into the working interface without a platform rewrite."
     }
   ],
   flowSteps: [
@@ -349,12 +349,12 @@ export const cllctveChallengesData = {
   ],
   learnings: [
     {
-      title: "User research only works if you listen",
-      description: "I thought I knew what Gen Z wanted. Talking to 15+ creators changed my approach. The mobile-first insight came from listening to their frustration with competitors."
+      title: "Research needs a durable record",
+      description: "I would preserve participant counts, interview notes, and synthesis artifacts so later reviewers could trace each product decision to its evidence."
     },
     {
-      title: "Sometimes the imperfect technology is the right choice",
-      description: "React wasn't ideal for mobile. Flutter would have been better technically. But our team's React expertise meant faster iteration, and for an unvalidated product, learning speed beat technical perfection."
+      title: "The existing stack can be the right constraint",
+      description: "React kept the product and interface work in one codebase. I would compare that decision against measured mobile performance before adding a separate native app."
     },
     {
       title: "Constraints can be product decisions",

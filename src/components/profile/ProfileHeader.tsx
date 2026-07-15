@@ -10,7 +10,7 @@ const ProfileHeader = () => {
             loading="lazy"
             src="/images/1686931266900.jpeg"
             className="aspect-square object-cover w-full h-full rounded-lg"
-            alt="Profile"
+            alt="Reggie Alleyne"
           />
           <div className="absolute inset-0 rounded-lg border-2 border-primary glow-effect"></div>
         </div>

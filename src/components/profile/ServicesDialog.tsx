@@ -15,7 +15,7 @@ const services = [
   {
     icon: Smartphone,
     title: "Mobile App Design",
-    description: "Create intuitive and engaging mobile experiences with modern UI/UX principles."
+    description: "Create intuitive and engaging mobile experiences with modern UX/UI principles."
   },
   {
     icon: Code,
@@ -29,7 +29,7 @@ const services = [
   },
   {
     icon: Palette,
-    title: "UI/UX Design",
+    title: "UX/UI Design",
     description: "Create user-centered designs with a focus on usability and accessibility."
   },
   {

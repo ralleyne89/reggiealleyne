@@ -24,14 +24,14 @@ export const techNoirData = {
   overview: {
     title: "Designing TECH NOIR as a first full product brief",
     description: [
-      "Tech Noir was my first full product brief after completing a UI/UX bootcamp. The client wanted a mobile shopping app for wearable technology, but the positioning had to feel closer to luxury fashion than consumer electronics.",
+      "Tech Noir was my first full product brief after completing a UX/UI bootcamp. The client wanted a mobile shopping app for wearable technology, but the positioning had to feel closer to luxury fashion than consumer electronics.",
       "The product problem was not awareness. People knew smartwatches and fitness trackers existed, but many did not know how to style them or where they fit in a fashion context.",
       "My role was to design a shopping experience that paired product discovery with styling guidance, editorial content, and enough context to make a new category feel approachable."
     ],
     projectDetails: [
       {
         label: "Role",
-        value: "UI/UX Designer",
+        value: "UX/UI Designer",
         icon: User,
       },
       {

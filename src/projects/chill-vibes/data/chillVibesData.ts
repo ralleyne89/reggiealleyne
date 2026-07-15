@@ -56,7 +56,7 @@ export const chillVibesOverviewData: ProjectOverviewProps = {
   projectDetails: [
     {
       label: "Role",
-      value: "UI/UX Designer & Frontend Developer",
+      value: "UX/UI Designer & Frontend Developer",
       icon: Briefcase
     },
     {

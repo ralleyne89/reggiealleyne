@@ -8,7 +8,7 @@ const IntegratedOverview = () => {
     {
       icon: User,
       label: "Role",
-      value: "UI/UX Designer & Web Developer"
+      value: "UX/UI Designer & Web Developer"
     },
     {
       icon: Clock,

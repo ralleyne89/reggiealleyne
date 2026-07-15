@@ -30,21 +30,21 @@ export const litmusAIAIPMData: AIProductThinkingProps = {
   title: "Testing AI judgment quickly",
   challenge: "How do we test genuine understanding vs. buzzword familiarity without requiring hours of assessment?",
   dataStrategy: "Used GPT-5 for dynamic question generation, with prompt guardrails that changed difficulty based on each answer.",
-  successMetric: "Compressed a traditional two-hour assessment into a five-minute test without turning the result into a generic quiz score."
+  successMetric: "Designed the assessment around a five-minute target, with completion and result comprehension left as measures for the first user study."
 };
 
 // Project Overview Data - Minto Pyramid: Lead with Impact
 export const litmusAIOverviewData: ProjectOverviewProps = {
-  title: "AI literacy certification MVP in 2 months",
+  title: "AI literacy assessment and certification MVP",
   description: [
-    "Delivered an AI literacy certification platform in 8 weeks: adaptive testing, Stripe payments, verifiable credentials, and an admin dashboard.",
+    "Shipped an AI literacy platform with adaptive testing, Stripe subscription plans, certificate paths, and an admin dashboard.",
     "Most certification products ask users to commit hours before they learn anything useful. HR leaders needed a faster baseline signal. Learners needed to know whether a course was worth their time.",
-    "The product uses a React and Next.js frontend, GPT-5 assessment prompts across machine learning, prompt engineering, ethics, and applications, a Supabase backend, and Stripe for subscription, one-time, and enterprise payments."
+    "The product uses a React and Next.js frontend, GPT-5 assessment prompts across five readiness domains, a Supabase backend, and Stripe subscription checkout for Free, Premium, and Enterprise plans."
   ],
   projectDetails: [
     {
       label: "Outcome",
-      value: "Full MVP shipped in 2 months",
+      value: "Full MVP shipped",
       icon: CheckCircle
     },
     {
@@ -184,7 +184,7 @@ export const litmusAIIdeationData: IdeationStrategyProps = {
     },
     {
       highlight: "Pricing had to support more than one buyer.",
-      description: "Subscriptions, one-time purchases, and enterprise packages mapped to students, professionals, and team buyers."
+      description: "Free, Premium, and Enterprise subscription tiers map the same product to individual learners and team buyers."
     }
   ],
   flowSteps: [
@@ -290,20 +290,20 @@ export const litmusAIOutcomesData: OutcomesImpactProps = {
   metrics: [
     {
       title: "Full MVP launch",
-      value: "2 months",
-      description: "Shipped complete platform with AI literacy testing, Stripe payments, and verifiable certification",
+      value: "MVP shipped",
+      description: "Shipped AI literacy testing, Stripe subscription plans, certification paths, and admin review",
       icon: CheckCircle
     },
     {
       title: "Adaptive testing",
-      value: "4 AI skill areas",
-      description: "Implemented dynamic difficulty adjustment and real-time question generation across four core AI skill areas: machine learning, prompt engineering, ethics, and applications",
+      value: "5 AI readiness domains",
+      description: "Implemented assessment scoring across AI fundamentals, practical usage, ethics and critical thinking, AI impact and applications, and strategic understanding",
       icon: Brain
     },
     {
-      title: "Revenue streams",
-      value: "3 models",
-      description: "Built flexible monetization supporting subscriptions, one-time purchases, and enterprise packages",
+      title: "Subscription plans",
+      value: "3 tiers",
+      description: "Built Free, Premium, and Enterprise subscription paths",
       icon: TrendingUp
     },
     {
@@ -324,12 +324,12 @@ export interface TradeoffItem {
 
 export const litmusAITradeoffsData = {
   title: "What shipped and what waited",
-  introduction: "With a 2-month engagement and a lean delivery team, every feature had to earn its place. These are the tradeoffs that shaped the MVP.",
+  introduction: "The MVP kept a narrow first-session path so the assessment, result, training, and subscription states could ship as one product.",
   tradeoffs: [
     {
       built: "5-minute adaptive test",
       rejected: "30-minute comprehensive assessment",
-      reasoning: "User testing showed 70% drop-off after 7 minutes. Speed beat thoroughness. The market gap was rapid assessment, not exhaustive testing."
+      reasoning: "A shorter assessment reduced the commitment required for a first session. Completion time and drop-off still need a measured study before the duration can be treated as an outcome."
     },
     {
       built: "Simple admin dashboard",
@@ -342,9 +342,9 @@ export const litmusAITradeoffsData = {
       reasoning: "Building custom adaptive logic would have taken 3+ months alone. Prompt engineering let us leverage GPT-5's capabilities, dramatically reducing dev time while improving question quality."
     },
     {
-      built: "3 revenue models (subscription, one-time, enterprise)",
+      built: "3 subscription tiers (Free, Premium, Enterprise)",
       rejected: "Single pricing tier",
-      reasoning: "Different user segments (students, professionals, HR teams) have different willingness-to-pay. Flexibility was essential for market validation even if it added complexity."
+      reasoning: "Individual learners and team buyers needed different access levels, while one subscription model kept checkout behavior consistent."
     }
   ]
 };

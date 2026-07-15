@@ -18,7 +18,9 @@ import {
 import {
   getCaseStudyBrief,
   getCaseStudyNarrative,
+  getCaseStudyPresentation,
   type CaseStudyNarrative,
+  type CaseStudyPresentationVariant,
 } from "@/config/portfolioCuration";
 import { cn } from "@/lib/utils";
 import type { ProjectType } from "@/types/project";
@@ -311,6 +313,24 @@ const compactItems = (items?: string[] | null, limit = 2) =>
 const joinSentences = (items?: string[] | null, limit = 2) =>
   compactItems(items, limit).join(" ");
 
+const presentationHeadings: Record<
+  CaseStudyPresentationVariant,
+  { eyebrow: string; title: string }
+> = {
+  "outcome-led": {
+    eyebrow: "Product decisions",
+    title: "Mobile-first choices that shaped the product",
+  },
+  "assessment-led": {
+    eyebrow: "Assessment decisions",
+    title: "How the assessment shaped the MVP",
+  },
+  "trust-led": {
+    eyebrow: "Trust decisions",
+    title: "How trust shaped the host workflow",
+  },
+};
+
 const getFlowCopy = (
   key: NarrativeStepKey | "structure",
   narrative: CaseStudyNarrative | undefined,
@@ -384,6 +404,13 @@ const getProjectFlow = (
 const ProjectNarrative = ({ project }: ProjectNarrativeProps) => {
   const narrative = getCaseStudyNarrative(project.slug);
   const brief = getCaseStudyBrief(project.slug);
+  const presentation = getCaseStudyPresentation(project.slug);
+  const heading = presentation
+    ? presentationHeadings[presentation.variant]
+    : {
+        eyebrow: "Case study flow",
+        title: "From research to product decisions",
+      };
   const flowSteps = getProjectFlow(narrative, project);
   const shouldReduceMotion = useReducedMotion();
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -429,10 +456,10 @@ const ProjectNarrative = ({ project }: ProjectNarrativeProps) => {
         >
           <div>
             <p className="mb-3 text-sm font-semibold leading-5 text-primary">
-              Case study flow
+              {heading.eyebrow}
             </p>
             <h2 className="font-display text-4xl leading-tight text-gray-950 [text-wrap:balance] sm:text-5xl">
-              From persona to product decisions
+              {heading.title}
             </h2>
             {hook || setup ? (
               <div className="mt-6 space-y-5">

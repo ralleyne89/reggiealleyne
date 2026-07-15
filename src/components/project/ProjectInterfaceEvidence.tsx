@@ -43,7 +43,7 @@ interface InterfaceEvidenceCopy {
 }
 
 const cllctveScreenOrder = [
-  "/images/cllctve-card-optimized.jpg",
+  "/images/cllctve-profile-rebuilt.jpg",
   "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png",
   "/images/fbb376a0-30ad-4530-8445-159e6767e748.png",
 ];
@@ -56,11 +56,17 @@ const litmusScreenOrder = [
   "/images/litmus-live-pricing.png",
 ];
 
+const staybookedScreenOrder = [
+  "/images/staybooked/room-optimizer-upload-desktop.png",
+  "/images/staybooked/dashboard-overview-desktop.png",
+  "/images/staybooked/auth-sign-in-desktop.png",
+];
+
 const screenCopyBySlug: Record<string, Record<string, ScreenCopy>> = {
   "cllctve-platform": {
-    "/images/cllctve-card-optimized.jpg": {
-      label: "Creator profile surface",
-      note: "The profile makes identity, skills, and work scannable for brands without forcing creators into a desktop resume shape.",
+    "/images/cllctve-profile-rebuilt.jpg": {
+      label: "Rebuilt creator profile study",
+      note: "This source-project rebuild shows how identity, skills, and recent work could scan for brands. It is an interface study, not a historical production capture.",
     },
     "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png": {
       label: "Creator dashboard",
@@ -97,6 +103,20 @@ const screenCopyBySlug: Record<string, Record<string, ScreenCopy>> = {
       label: "Pricing",
       note:
         "The pricing page explains the free, premium, and team paths around training, practice, and certification value.",
+    },
+  },
+  staybooked: {
+    "/images/staybooked/room-optimizer-upload-desktop.png": {
+      label: "Room optimizer flow",
+      note: "Suggestions stay attached to the actual room photos and details, with audit cues that show why something was flagged: the anti-misrepresentation decision in practice.",
+    },
+    "/images/staybooked/dashboard-overview-desktop.png": {
+      label: "Host workspace",
+      note: "The dashboard leads with property readiness and the next highest-leverage fix, so hosts act on one room at a time instead of facing a wall of AI suggestions.",
+    },
+    "/images/staybooked/auth-sign-in-desktop.png": {
+      label: "Account entry",
+      note: "Account entry makes the saved-workspace promise clear before a host uploads private property media or returns to recent work.",
     },
   },
 };
@@ -156,6 +176,31 @@ const interfaceEvidenceCopyBySlug: Record<string, InterfaceEvidenceCopy> = {
       },
     ],
   },
+  staybooked: {
+    title: "How trust stays visible in the host workflow.",
+    description:
+      "These screens show the product decisions reviewers should inspect: what the AI flags first, how suggestions stay tied to the real room, and where hosts stay in control.",
+    steps: [
+      {
+        icon: Workflow,
+        label: "Prototype the path",
+        body:
+          "After the strategy was set, the next step was turning the host workflow into screens: connect a listing, see what guests judge first, and act on one fix at a time.",
+      },
+      {
+        icon: PanelsTopLeft,
+        label: "Design the real states",
+        body:
+          "The interface had to cover listing audits, photo review, copy suggestions, and readiness states without letting AI output drift from what the property actually offers.",
+      },
+      {
+        icon: LayoutDashboard,
+        label: "Show the product proof",
+        body:
+          "The screenshots below make the product easier to judge: the room optimizer, the host workspace, and account entry.",
+      },
+    ],
+  },
 };
 
 const compactItems = (items?: string[] | null) =>
@@ -175,6 +220,13 @@ const orderScreens = (slug: string | undefined, images: string[]) => {
     return [...ordered, ...images.filter((image) => !ordered.includes(image))];
   }
 
+  if (slug === "staybooked") {
+    const ordered = staybookedScreenOrder.filter((image) =>
+      images.includes(image),
+    );
+    return [...ordered, ...images.filter((image) => !ordered.includes(image))];
+  }
+
   return images;
 };
 
@@ -188,8 +240,8 @@ const getScreenCopy = (
   if (projectCopy) return projectCopy;
 
   return {
-    label: `Platform screen ${index + 1}`,
-    note: "A product screenshot included so the interface can be inspected alongside the case-study decisions.",
+    label: `Interface view ${index + 1}`,
+    note: "This product view keeps the interface evidence next to the case-study decisions it supports.",
   };
 };
 
@@ -208,7 +260,14 @@ const getPlatformScreens = (project: ProjectType): PlatformScreen[] => {
   return orderScreens(project.slug, imageList)
     .slice(0, 6)
     .map((src, index) => {
-      const copy = getScreenCopy(project.slug, src, index);
+      const visual = project.visuals?.find((item) => item.src === src);
+      const fallbackCopy = getScreenCopy(project.slug, src, index);
+      const copy = visual
+        ? {
+            label: visual.label,
+            note: visual.note || fallbackCopy.note,
+          }
+        : fallbackCopy;
 
       return {
         src,
@@ -222,7 +281,9 @@ const getPlatformScreens = (project: ProjectType): PlatformScreen[] => {
 const ProjectInterfaceEvidence = ({
   project,
 }: ProjectInterfaceEvidenceProps) => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedScreen, setSelectedScreen] = useState<PlatformScreen | null>(
+    null,
+  );
   const screens = getPlatformScreens(project);
   const copy = project.slug ? interfaceEvidenceCopyBySlug[project.slug] : null;
   const steps = copy?.steps || processSteps;
@@ -282,11 +343,14 @@ const ProjectInterfaceEvidence = ({
                 index === 0 && "md:col-span-2",
                 index > 0 && index % 2 === 0 && "md:translate-y-8",
               )}
-              onClick={() => setSelectedImage(screen.src)}
+              onClick={() => setSelectedScreen(screen)}
             >
               <span
                 className={cn(
-                  "relative block overflow-hidden bg-gray-950",
+                  "relative block overflow-hidden",
+                  project.slug === "litmus-ai"
+                    ? "bg-slate-100 p-3 sm:p-4"
+                    : "bg-gray-950",
                   screen.orientation === "tall"
                     ? "aspect-[3/4]"
                     : "aspect-[16/10]",
@@ -294,10 +358,15 @@ const ProjectInterfaceEvidence = ({
               >
                 <img
                   src={screen.src}
-                  alt={`${screen.label} screenshot`}
-                  className="h-full w-full object-contain object-top transition-transform duration-500 group-hover:scale-[1.015]"
-                  loading="lazy"
+                  alt={`${screen.label} interface`}
+                  className={cn(
+                    "h-full w-full object-contain object-top transition-transform duration-500 group-hover:scale-[1.015]",
+                    project.slug === "litmus-ai" &&
+                      "rounded-md border border-slate-300 bg-slate-950 shadow-sm",
+                  )}
+                  loading={index === 0 ? "eager" : "lazy"}
                   decoding="async"
+                  fetchpriority={index === 0 ? "high" : "auto"}
                   sizes={
                     index === 0
                       ? "(min-width: 1024px) 56rem, 100vw"
@@ -326,9 +395,13 @@ const ProjectInterfaceEvidence = ({
       </div>
 
       <ProjectLightboxModal
-        imageSrc={selectedImage}
-        alt="Full size platform screenshot"
-        onClose={() => setSelectedImage(null)}
+        imageSrc={selectedScreen?.src || null}
+        alt={
+          selectedScreen
+            ? `${selectedScreen.label}, full-size interface view`
+            : ""
+        }
+        onClose={() => setSelectedScreen(null)}
         imageClassName="bg-gray-950"
       />
     </EditorialSection>

@@ -10,7 +10,7 @@ export const getChillVibesProject = (): ProjectType => {
     fullDescription: "Got hired by a client who wanted to prove that music apps didn't have to be overwhelming. I designed and built the entire thing from wireframes to deployment - a responsive web app focused on just playing music without all the usual bells and whistles.",
     image: "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
     tags: ["Music", "UX/UI", "React.js", "Firebase"],
-    role: "UI/UX Designer & Frontend Developer",
+    role: "UX/UI Designer & Frontend Developer",
     duration: "3 months",
     year: "2020",
     challenge: "The client was frustrated with how every music app felt like a social media platform. They wanted something for people who just want to listen to music - no podcasts, no social feeds, no algorithmic chaos. Just clean design and good tunes.",
@@ -60,7 +60,7 @@ export const getChillVibesProject = (): ProjectType => {
     ],
     teamSize: "1 member (Solo Project)",
     liveUrl: "https://chill-vibes.web.app/",
-    methodologies: ["Mobile-First Design", "Minimalist UI/UX", "Design Thinking"],
+    methodologies: ["Mobile-First Design", "Minimalist UX/UI", "Design Thinking"],
     summary: "A freelance project where I helped a client prove that music apps could be simple and focused instead of overwhelming and cluttered.",
     solution: "A clean, responsive music streaming MVP that prioritizes the music experience over everything else - no social feeds, no complex menus, just good tunes."
   };

@@ -945,11 +945,11 @@
 }
 
 .home-loader[data-handoff="true"]::before {
-  animation: loader-scan-reveal 760ms var(--ease-out) both;
+  animation: loader-scan-reveal 360ms var(--ease-out) both;
 }
 
 .home-loader[data-handoff="true"] {
-  animation: loader-shell-soften 860ms var(--ease-out) both;
+  animation: loader-shell-soften 400ms var(--ease-out) both;
 }
 
 .home-loader__grid {
@@ -962,11 +962,11 @@
   background-size: 42px 42px;
   transform: perspective(900px) rotateX(62deg) translateY(12%);
   transform-origin: 50% 55%;
-  animation: loader-grid-drift 1.9s var(--ease-out) both;
+  animation: loader-grid-drift 1.1s var(--ease-out) both;
 }
 
 .home-loader[data-handoff="true"] .home-loader__grid {
-  animation: loader-grid-exit 860ms var(--ease-out) both;
+  animation: loader-grid-exit 400ms var(--ease-out) both;
 }
 
 .home-loader__aperture {
@@ -985,7 +985,7 @@
 }
 
 .home-loader[data-handoff="true"] .home-loader__aperture {
-  animation: loader-aperture-open 820ms var(--ease-out) both;
+  animation: loader-aperture-open 380ms var(--ease-out) both;
 }
 
 .home-loader__shutter {
@@ -1008,11 +1008,11 @@
 }
 
 .home-loader[data-handoff="true"] .home-loader__shutter--top {
-  animation: loader-shutter-top 780ms var(--ease-out) both;
+  animation: loader-shutter-top 380ms var(--ease-out) both;
 }
 
 .home-loader[data-handoff="true"] .home-loader__shutter--bottom {
-  animation: loader-shutter-bottom 780ms var(--ease-out) both;
+  animation: loader-shutter-bottom 380ms var(--ease-out) both;
 }
 
 .home-loader__selection {
@@ -1028,7 +1028,7 @@
 }
 
 .home-loader[data-handoff="true"] .home-loader__selection {
-  animation: loader-selection-handoff 840ms var(--ease-out) both;
+  animation: loader-selection-handoff 400ms var(--ease-out) both;
 }
 
 .home-loader__cursor {
@@ -1067,7 +1067,7 @@
 }
 
 .home-loader[data-handoff="true"] .home-loader__cursor {
-  animation: loader-cursor-handoff 760ms var(--ease-out) both;
+  animation: loader-cursor-handoff 360ms var(--ease-out) both;
 }
 
 .home-loader__label {
@@ -1123,7 +1123,7 @@
 }
 
 .home-loader[data-handoff="true"] .home-loader__content {
-  animation: loader-content-handoff 720ms var(--ease-out) both;
+  animation: loader-content-handoff 360ms var(--ease-out) both;
 }
 
 .home-loader__eyebrow {

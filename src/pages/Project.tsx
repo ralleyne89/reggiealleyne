@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -27,9 +27,11 @@ import { ProjectType } from "@/types/project";
 import {
   getCaseStudyNarrative,
   getCaseStudyImpact,
+  getCaseStudyPresentation,
   getCaseStudyProcessArtifacts,
   getCaseStudyTldr,
   getProjectPersonaJourney,
+  type CaseStudyChapterKey,
 } from "@/config/portfolioCuration";
 import {
   getCanonicalProjectRouteSlug,
@@ -106,6 +108,31 @@ const createMetaByProperty = (property: string) => {
   const element = document.createElement("meta");
   element.setAttribute("property", property);
   return element;
+};
+
+const DEFAULT_SHARE_IMAGE =
+  "https://reggiealleyne.com/images/reggie-alleyne-portfolio-og.jpg";
+const DEFAULT_SHARE_IMAGE_ALT =
+  "Reggie Alleyne portfolio with a Figma-inspired canvas and selected product design work.";
+
+const defaultChapterOrder: CaseStudyChapterKey[] = [
+  "glance",
+  "overview",
+  "audience",
+  "process",
+  "artifacts",
+  "evidence",
+  "impact",
+];
+
+const defaultChapterLabels: Record<CaseStudyChapterKey, string> = {
+  glance: "Details",
+  overview: "Problem",
+  audience: "Audience",
+  process: "Process",
+  artifacts: "Artifacts",
+  evidence: "Evidence",
+  impact: "Impact",
 };
 
 const Project = () => {
@@ -228,6 +255,16 @@ const Project = () => {
         canonicalUrl,
       ),
       setMetaContent(
+        'meta[property="og:image"]',
+        () => createMetaByProperty("og:image"),
+        DEFAULT_SHARE_IMAGE,
+      ),
+      setMetaContent(
+        'meta[property="og:image:alt"]',
+        () => createMetaByProperty("og:image:alt"),
+        DEFAULT_SHARE_IMAGE_ALT,
+      ),
+      setMetaContent(
         'meta[name="twitter:title"]',
         () => createMetaByName("twitter:title"),
         title,
@@ -236,6 +273,16 @@ const Project = () => {
         'meta[name="twitter:description"]',
         () => createMetaByName("twitter:description"),
         description,
+      ),
+      setMetaContent(
+        'meta[name="twitter:image"]',
+        () => createMetaByName("twitter:image"),
+        DEFAULT_SHARE_IMAGE,
+      ),
+      setMetaContent(
+        'meta[name="twitter:image:alt"]',
+        () => createMetaByName("twitter:image:alt"),
+        DEFAULT_SHARE_IMAGE_ALT,
       ),
     ];
 
@@ -294,6 +341,7 @@ const Project = () => {
   const typeLabel = project.category || project.tags?.[0] || "Project";
 
   const narrative = getCaseStudyNarrative(project.slug);
+  const presentation = getCaseStudyPresentation(project.slug);
   const hasTldr = Boolean(getCaseStudyTldr(project.slug));
   const hasJourney = Boolean(getProjectPersonaJourney(project.slug));
   const hasArtifacts = Boolean(getCaseStudyProcessArtifacts(project.slug)?.length);
@@ -303,15 +351,59 @@ const Project = () => {
       (project.images && project.images.length > 0),
   );
 
-  const chapters: CaseStudyChapter[] = [
-    hasTldr ? { id: "chapter-glance", label: "Details" } : null,
-    { id: "chapter-overview", label: "Problem" },
-    hasJourney ? { id: "chapter-audience", label: "Audience" } : null,
-    narrative ? { id: "chapter-process", label: "Process" } : null,
-    hasArtifacts ? { id: "chapter-artifacts", label: "Artifacts" } : null,
-    hasEvidence ? { id: "chapter-evidence", label: "Evidence" } : null,
-    hasImpact ? { id: "chapter-impact", label: "Impact" } : null,
-  ].filter(Boolean) as CaseStudyChapter[];
+  const chapterAvailability: Record<CaseStudyChapterKey, boolean> = {
+    glance: hasTldr,
+    overview: true,
+    audience: hasJourney,
+    process: Boolean(narrative),
+    artifacts: hasArtifacts,
+    evidence: hasEvidence,
+    impact: hasImpact,
+  };
+  const chapterOrder = (presentation?.chapterOrder || defaultChapterOrder).filter(
+    (chapter) => chapterAvailability[chapter],
+  );
+  const chapters: CaseStudyChapter[] = chapterOrder.map((chapter) => ({
+    id: `chapter-${chapter}`,
+    label: presentation?.chapterLabels[chapter] || defaultChapterLabels[chapter],
+  }));
+  const chapterSections: Record<CaseStudyChapterKey, ReactNode> = {
+    glance: (
+      <div id="chapter-glance" className="scroll-mt-24">
+        <CaseStudyStatsBand project={project as ProjectType} />
+      </div>
+    ),
+    overview: (
+      <div id="chapter-overview" className="scroll-mt-24">
+        <ProjectEssentials project={project as ProjectType} />
+      </div>
+    ),
+    audience: (
+      <div id="chapter-audience" className="scroll-mt-24">
+        <ProjectAudienceJourney project={project as ProjectType} />
+      </div>
+    ),
+    process: (
+      <div id="chapter-process" className="scroll-mt-24">
+        <ProjectNarrative project={project as ProjectType} />
+      </div>
+    ),
+    artifacts: (
+      <div id="chapter-artifacts" className="scroll-mt-24">
+        <ProjectProcessArtifacts project={project as ProjectType} />
+      </div>
+    ),
+    evidence: (
+      <div id="chapter-evidence" className="scroll-mt-24">
+        <ProjectInterfaceEvidence project={project as ProjectType} />
+      </div>
+    ),
+    impact: (
+      <div id="chapter-impact" className="scroll-mt-24">
+        <ProjectImpactSection project={project as ProjectType} />
+      </div>
+    ),
+  };
 
   return <motion.div initial={{
     opacity: 0
@@ -335,28 +427,10 @@ const Project = () => {
       )}
 
       <div className="w-full">
-        <div id="chapter-glance" className="scroll-mt-24">
-          <CaseStudyStatsBand project={project as ProjectType} />
-        </div>
         <PullQuote quote={narrative?.hook} attribution="The thesis" />
-        <div id="chapter-overview" className="scroll-mt-24">
-          <ProjectEssentials project={project as ProjectType} />
-        </div>
-        <div id="chapter-audience" className="scroll-mt-24">
-          <ProjectAudienceJourney project={project as ProjectType} />
-        </div>
-        <div id="chapter-process" className="scroll-mt-24">
-          <ProjectNarrative project={project as ProjectType} />
-        </div>
-        <div id="chapter-artifacts" className="scroll-mt-24">
-          <ProjectProcessArtifacts project={project as ProjectType} />
-        </div>
-        <div id="chapter-evidence" className="scroll-mt-24">
-          <ProjectInterfaceEvidence project={project as ProjectType} />
-        </div>
-        <div id="chapter-impact" className="scroll-mt-24">
-          <ProjectImpactSection project={project as ProjectType} />
-        </div>
+        {chapterOrder.map((chapter) => (
+          <div key={chapter}>{chapterSections[chapter]}</div>
+        ))}
       </div>
 
       <NextProjectTakeover project={project as ProjectType} />

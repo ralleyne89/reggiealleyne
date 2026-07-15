@@ -41,9 +41,9 @@ const processArtifactCopyBySlug: Record<
   }
 > = {
   "cllctve-platform": {
-    title: "How the persona became a product path.",
+    title: "How creator behavior became a product path.",
     description:
-      "These maps connect Maya's creator needs to the product routes, flows, and screen structure that made CLLCTVE more than a static portfolio.",
+      "These maps connect the mobile-first creator hypothesis to the routes, flows, and screen structure that made CLLCTVE more than a static portfolio.",
     sourceTitle: "Mapped from the CLLCTVE app",
     sourceDescription:
       "The structure follows the actual app surfaces: landing, creator discovery, profile, login, signup, and challenge paths.",
@@ -51,7 +51,7 @@ const processArtifactCopyBySlug: Record<
   "litmus-ai": {
     title: "How the assessment became a learning path.",
     description:
-      "These maps connect Eric's need for a fast readiness signal to the assessment, training, certification, billing, and admin surfaces that made the MVP usable.",
+      "These maps connect the fast-readiness hypothesis to the assessment, training, certification, billing, and admin surfaces that made the MVP usable.",
     sourceTitle: "Mapped from the LitmusAI app",
     sourceDescription:
       "The structure follows the actual app routes: home, assessment, training, certification, billing, dashboard, profile, login, and registration.",
@@ -176,7 +176,7 @@ const ProjectProcessArtifacts = ({ project }: ProjectProcessArtifactsProps) => {
 
                   <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
                     <p className="text-xs font-semibold uppercase leading-5 text-gray-500">
-                      Persona to business need
+                      Audience need to product need
                     </p>
                     <p className="mt-2 text-sm leading-6 text-gray-700">
                       {artifact.connectsPersonaNeedTo}
