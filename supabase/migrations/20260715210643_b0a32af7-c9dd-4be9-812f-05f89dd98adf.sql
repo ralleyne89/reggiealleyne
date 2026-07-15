@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Give public access to documents" ON storage.objects;
