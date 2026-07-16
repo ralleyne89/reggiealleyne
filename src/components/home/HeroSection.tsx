@@ -214,8 +214,8 @@ const AutonomousReggieCursor = ({
       if (reduceMotion) {
         gsap.set(cursor, {
           autoAlpha: 1,
-          x: window.innerWidth * 0.62,
-          y: window.innerHeight * 0.38,
+          x: section.clientWidth * 0.62,
+          y: section.clientHeight * 0.38,
         });
         cleanupCursorMotion = () => {
           gsap.killTweensOf(cursor);
@@ -235,15 +235,16 @@ const AutonomousReggieCursor = ({
 
         if (!target) {
           return {
-            x: window.innerWidth * fallbackX,
-            y: window.innerHeight * fallbackY,
+            x: section.clientWidth * fallbackX,
+            y: section.clientHeight * fallbackY,
           };
         }
 
+        const sectionRect = section.getBoundingClientRect();
         const rect = target.getBoundingClientRect();
         return {
-          x: rect.left + rect.width * xRatio - 10,
-          y: rect.top + rect.height * yRatio - 12,
+          x: rect.left - sectionRect.left + rect.width * xRatio - 10,
+          y: rect.top - sectionRect.top + rect.height * yRatio - 12,
         };
       };
 
@@ -345,7 +346,7 @@ const AutonomousReggieCursor = ({
       ref={cursorRef}
       data-hero-reggie-cursor
       aria-hidden="true"
-      className="pointer-events-none fixed left-0 top-0 z-[71] hidden h-[78px] w-[118px] lg:block"
+      className="pointer-events-none absolute left-0 top-0 z-[71] hidden h-[78px] w-[118px] lg:block"
     >
       <CursorBadge
         className="left-0 top-0"
