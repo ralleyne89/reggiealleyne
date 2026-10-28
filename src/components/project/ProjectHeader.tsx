@@ -18,6 +18,7 @@ interface ProjectHeaderProps {
 
 interface CaseStudyHeroConfig {
   image: string;
+  layout?: "wide";
   imageFit?: CSSProperties["objectFit"];
   imageFrameRatio?: CSSProperties["aspectRatio"];
   imagePosition?: string;
@@ -39,8 +40,10 @@ const caseStudyHeroConfigs: Array<{
     matches: (title) => title === "TECH NOIR",
     config: {
       image: "/images/a473ef7d-6076-4386-af99-13262b6e684f.png",
+      layout: "wide",
       imageFit: "contain",
-      imageFrameRatio: "16 / 10",
+      imageFrameRatio: "2 / 1",
+      imagePosition: "center",
       useProjectImage: true,
     },
   },
@@ -144,6 +147,7 @@ const ProjectHeader = ({
   const headerRef = useRef<HTMLElement>(null);
   const [imageError, setImageError] = useState(false);
   const heroConfig = getCaseStudyHeroConfig(title);
+  const isWideHero = heroConfig?.layout === "wide";
   const heroImage =
     heroConfig && !heroConfig.useProjectImage ? heroConfig.image : image;
   const heroImageFit = heroConfig?.imageFit;
@@ -237,24 +241,26 @@ const ProjectHeader = ({
           },
         );
 
-        gsap.to(media, {
-          ease: "none",
-          y: -70,
-          scrollTrigger: {
-            trigger: header,
-            start: "top top",
-            end: "bottom top",
-            scrub: 1.2,
-          },
-        });
+        if (!isWideHero) {
+          gsap.to(media, {
+            ease: "none",
+            y: -70,
+            scrollTrigger: {
+              trigger: header,
+              start: "top top",
+              end: "bottom top",
+              scrub: 1.2,
+            },
+          });
+        }
       }
     }, header);
 
     return () => context.revert();
-  }, []);
+  }, [isWideHero]);
 
   return (
-    <header ref={headerRef} className="project-cinema-hero">
+    <header ref={headerRef} className="project-cinema-hero" data-hero-layout={heroConfig?.layout}>
       <div className="project-cinema-hero__grid">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -327,7 +333,7 @@ const ProjectHeader = ({
                   loading="eager"
                   decoding="async"
                   fetchpriority="high"
-                  sizes="(min-width: 1024px) 42rem, 100vw"
+                  sizes={isWideHero ? "(min-width: 1280px) 76rem, 100vw" : "(min-width: 1024px) 42rem, 100vw"}
                   onError={() => setImageError(true)}
                 />
               </div>

@@ -31,3 +31,9 @@ Run state tests with `node --test tests/technoir/model.test.mjs`, then the exist
 In-app browser checks on October 28 covered search and empty states; designer and sorting filters; options and saved pieces; local photo selection and try-on sliders; the decoded film; quantity changes; checkout; orders and saves after reload; reset; image zoom; Escape and focus return; the iframe; and a 390-pixel phone layout without horizontal page overflow. Browser error logs were empty.
 
 Code changes are made locally and delivered through the connected GitHub repository. Lovable remains the website host; no Lovable AI generation is required to edit or publish this code.
+
+## Header spacing follow-up
+
+On October 28, 2026, Reggie requested a larger header image and better spacing. Tech Noir now uses a wide hero variant: a compact title and summary above the full-width archive image, with content-driven height and less top padding on phones. The image uses its original 1920 × 960 proportions, with no dark letterbox strip, scanlines, selection handles or scrolling offset. Other projects retain their existing header layout.
+
+Taste remained the design authority (variance 3, motion 2, density 4). The existing portfolio and the supplied browser comment were the layout references; the original Tech Noir image was inspected directly. No new external design source was used. Type checks, changed-file lint and the production build passed. Browser checks covered desktop at the comment’s 1384 × 911 size, 768px tablet, 390px phone, no horizontal overflow, the embedded demo and Back to Work navigation. A second project retained its original two-column hero.
