@@ -6,6 +6,7 @@ export const getTechNoirProject = (): ProjectType => {
     id: 3,
     slug: "tech-noir", 
     title: "TECH NOIR",
+    liveUrl: "/technoir-demo/index.html",
     description: "A shipped mobile application for luxury wearable-tech shopping, with designer collections, styling guides, and editorial discovery.",
     fullDescription: "Tech Noir is a shipped mobile application that brings wearable technology into a luxury fashion shopping experience. Product discovery, designer collections, How to Wear guides, and editorial content help shoppers understand what to wear and why. AR try-on was explored as a concept. A new native demonstration recreates the experience for client presentations using sample inventory and simulated checkout.",
     image: "/images/a473ef7d-6076-4386-af99-13262b6e684f.png",
