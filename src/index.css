@@ -2756,6 +2756,78 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   filter: brightness(0.9) saturate(0.96);
 }
 
+.project-cinema-hero[data-hero-layout="wide"] {
+  min-height: 0;
+  padding-block: 2rem 2.5rem;
+}
+
+.project-cinema-hero[data-hero-layout="wide"] .project-cinema-hero__grid {
+  width: min(100%, 76rem);
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.project-cinema-hero[data-hero-layout="wide"] .project-cinema-hero__eyebrow {
+  margin-top: 1rem;
+}
+
+.project-cinema-hero[data-hero-layout="wide"] .project-cinema-hero__media-wrap {
+  padding-top: 0;
+}
+
+.project-cinema-hero[data-hero-layout="wide"] .project-cinema-hero__media {
+  background: white;
+  box-shadow: 0 20px 60px oklch(0.2 0.025 268 / 0.09);
+}
+
+.project-cinema-hero[data-hero-layout="wide"] .project-cinema-hero__media::after,
+.project-cinema-hero[data-hero-layout="wide"] .project-cinema-hero__selection {
+  display: none;
+}
+
+.project-cinema-hero[data-hero-layout="wide"] .project-cinema-hero__image {
+  filter: none;
+}
+
+@media (min-width: 768px) {
+  .project-cinema-hero[data-hero-layout="wide"] {
+    padding-block: 6rem 3rem;
+  }
+
+  .project-cinema-hero[data-hero-layout="wide"] .project-cinema-hero__copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-areas: "back back" "eyebrow description" "title description";
+    column-gap: clamp(2rem, 5vw, 4rem);
+    row-gap: 0.75rem;
+  }
+
+  .project-cinema-hero[data-hero-layout="wide"] .project-cinema-hero__back {
+    grid-area: back;
+    justify-self: start;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-cinema-hero[data-hero-layout="wide"] .project-cinema-hero__eyebrow {
+    grid-area: eyebrow;
+    margin: 0;
+  }
+
+  .project-cinema-hero[data-hero-layout="wide"] .project-cinema-hero__title {
+    grid-area: title;
+    margin: 0;
+    max-width: none;
+    font-size: clamp(3rem, 5.8vw, 5.75rem);
+  }
+
+  .project-cinema-hero[data-hero-layout="wide"] .project-cinema-hero__description {
+    grid-area: description;
+    align-self: end;
+    margin: 0;
+    max-width: 34rem;
+  }
+}
+
 .project-cinema-snapshot {
   background: oklch(var(--color-surface-soft));
 }
