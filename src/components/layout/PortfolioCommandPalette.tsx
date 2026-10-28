@@ -174,7 +174,7 @@ const PortfolioCommandPalette = () => {
     {
       id: "resume",
       label: "View resume",
-      description: "Open the July 2026 AI Product Designer resume.",
+      description: "Open the Senior UX/UI Designer resume.",
       shortcut: "R",
       onSelect: () => {
         window.open(RESUME_URL, "_blank", "noopener,noreferrer");

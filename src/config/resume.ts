@@ -1,5 +1,5 @@
 export const RESUME_URL =
-  "/resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf";
+  "/resume/Reginald_Alleyne_Senior_UXUI_Designer.pdf";
 
 export const RESUME_DOWNLOAD_NAME =
-  "Reggie-Alleyne-AI-Product-Designer-Resume.pdf";
+  "Reginald_Alleyne_Senior_UXUI_Designer.pdf";
