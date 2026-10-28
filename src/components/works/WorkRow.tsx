@@ -85,6 +85,11 @@ const WorkRow = ({
               {summary}
             </p>
           ) : null}
+          {project.slug === "tech-noir" ? (
+            <p className="mt-2 font-mono text-[0.65rem] font-medium uppercase tracking-[0.18em] text-primary sm:hidden">
+              Mobile application · Shipped
+            </p>
+          ) : null}
         </div>
 
         <div className="hidden min-w-0 text-right sm:block">

@@ -114,6 +114,7 @@ export interface CaseStudyNarrative {
 export type CaseStudyNarrativeSlug =
   | "cllctve-platform"
   | "tutor-d"
+  | "tech-noir"
   | "wristband"
   | "symptom-checkr"
   | "litmus-ai"
@@ -623,6 +624,16 @@ export const caseStudyNarratives: Record<
     reflection:
       "The project reinforced that small-business UX is often about restraint. Make the business feel real, keep the next action obvious, and avoid turning uncertainty into a promise.",
   },
+  "tech-noir": {
+    hook: "Make wearable technology feel like something you would choose to wear.",
+    setup: "Tech Noir shipped as a mobile application for luxury fashion and wearable technology. The brief joined shopping, styling advice, and editorial discovery in one place.",
+    research: "Shopper interviews and surveys pointed to a gap between knowing wearable tech exists and knowing how to wear it. The archived competitive study compared designer browsing, filtering, product details, and content across fashion retailers.",
+    constraint: "Technical specifications alone could not explain how a connected accessory fits into an outfit. Education had to help the purchase decision without interrupting shopping.",
+    decision: "Use a monochrome editorial system with designer collections, product-led imagery, and How to Wear guides. Keep the path clear: discover, learn, visualize, buy.",
+    build: "Designed the mobile shopping flow, designer directory, product filters, styling content, and checkout. AR try-on was explored as a concept. A new native SwiftUI demonstration recreates those flows with local sample inventory and a simulated visual try-on.",
+    proof: "The original mobile application shipped. Archived interface boards preserve the designer, filter, editorial, product, and checkout screens. The current native demonstration is a separate reconstruction for client presentations.",
+    reflection: "Product education works best next to the choice it helps someone make. I would measure whether styling guidance improves product understanding before adding more personalization or live AR.",
+  },
 };
 
 export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
@@ -710,7 +721,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     problem:
       "Shoppers were interested in wearable tech but struggled to understand fit, styling, and everyday use.",
     outcome:
-      "75% of testers felt more confident exploring wearable tech after the mobile shopping prototype.",
+      "Shipped a mobile application for luxury wearable-tech shopping, with designer collections, styling guides, and editorial discovery. The new native client demo reconstructs the experience with sample inventory.",
     tools: ["Figma", "Adobe XD", "Illustrator", "Miro", "UserZoom"],
     owned: ["Research synthesis", "Mobile commerce flow", "Luxury visual system", "Prototype testing"],
   },
@@ -1835,7 +1846,7 @@ export const projectPersonaProfiles: Partial<Record<
   },
 };
 
-const hiddenFromPrimaryWorksIds = new Set([3, 4, 5, 7, 8, 12]);
+const hiddenFromPrimaryWorksIds = new Set([4, 5, 7, 8, 12]);
 
 export const getFeaturedConfig = (slug?: string) =>
   featuredProjectConfig.find((project) => project.slug === slug);

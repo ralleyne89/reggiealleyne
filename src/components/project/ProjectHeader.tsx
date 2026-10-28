@@ -38,7 +38,10 @@ const caseStudyHeroConfigs: Array<{
   {
     matches: (title) => title === "TECH NOIR",
     config: {
-      image: "/images/tech-noir-banner.png",
+      image: "/images/a473ef7d-6076-4386-af99-13262b6e684f.png",
+      imageFit: "contain",
+      imageFrameRatio: "16 / 10",
+      useProjectImage: true,
     },
   },
   {
