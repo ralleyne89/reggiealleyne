@@ -1,0 +1,222 @@
+{
+  "articles" : [
+    {
+      "category" : "HOW TO WEAR",
+      "id" : "after-dark",
+      "image" : "runway",
+      "intro" : "A connected accessory should feel like part of your outfit. Start with the silhouette, then choose the technology that belongs with it.",
+      "productIDs" : [
+        "nocturne",
+        "sculpt",
+        "orbit"
+      ],
+      "readingTime" : "3 min read",
+      "sections" : [
+        "01 / Start with one focal point\nChoose a watch, a light-led bag, or a sculptural ring. Give one piece the lead and let the rest stay quiet.",
+        "02 / Match the finish\nBrushed metals sit well beside matte fabric. Polished finishes work as a small contrast against structured tailoring.",
+        "03 / Make room at the cuff\nA watch reads as an accessory when you can see its shape. Roll a sleeve once, or choose a cropped cuff.",
+        "04 / Keep the useful parts close\nBefore choosing a piece, check the fit, charging routine, and controls. Style works best when the object fits your day."
+      ],
+      "title" : "Connected, after dark."
+    },
+    {
+      "category" : "THE JOURNAL",
+      "id" : "couture",
+      "image" : "bag",
+      "intro" : "What happens when the handbag becomes a display? The original Tech Noir archive used illuminated couture to open a different conversation about wearable technology.",
+      "productIDs" : [
+        "signal",
+        "frame"
+      ],
+      "readingTime" : "4 min read",
+      "sections" : [
+        "The object comes first\nA recognisable silhouette gives a new technology a familiar place to live. The details should explain what changes and what stays useful.",
+        "Light as a material\nTreat illuminated surfaces like colour or jewellery. They shape a look, draw attention, and change with the setting.",
+        "The next question\nA compelling image starts discovery. Clear details about care, power, fit, and everyday use support the purchase decision."
+      ],
+      "title" : "Couture in a digital age"
+    },
+    {
+      "category" : "MATERIAL STUDY",
+      "id" : "future",
+      "image" : "sneakers",
+      "intro" : "Engineered footwear connects performance and fashion through material, form, and movement.",
+      "productIDs" : [
+        "futurecraft"
+      ],
+      "readingTime" : "3 min read",
+      "sections" : [
+        "Look at the structure\nA technical sole can carry the visual weight of an outfit. Pair it with simple trousers and let the construction show.",
+        "Understand the material\nKnit, leather, and printed structures feel different in motion. A useful product page explains the practical tradeoffs beside the image.",
+        "Wear it your way\nThe styling guide is a starting point. Try the piece with clothing you already own before adding anything else."
+      ],
+      "title" : "Running into the future"
+    }
+  ],
+  "categories" : [
+    "All",
+    "Watches",
+    "Accessories",
+    "Footwear",
+    "Couture"
+  ],
+  "designers" : [
+    {
+      "description" : "Explore technical footwear through an editorial lens. The collection draws on the Futurecraft and fashion collaborations in the original Tech Noir archive.",
+      "image" : "sneakers",
+      "name" : "ADIDAS",
+      "subtitle" : "Performance, reimagined"
+    },
+    {
+      "description" : "Classic silhouettes meet unexpected technology. This demonstration revisits the LED handbag story from the original application.",
+      "image" : "bag",
+      "name" : "CHANEL",
+      "subtitle" : "Couture in a digital age"
+    },
+    {
+      "description" : "Sculptural shapes, strong contrasts, and considered proportions. An archive-inspired collection that makes space for a single connected accessory.",
+      "image" : "collection",
+      "name" : "GARETH PUGH",
+      "subtitle" : "Architecture for the body"
+    },
+    {
+      "description" : "A fictional house created for this demonstration. Connected watches, rings, and eyewear explore the original brief: technology you choose for how it feels and how it looks.",
+      "image" : "watch",
+      "name" : "NOIR ATELIER",
+      "subtitle" : "Objects for a connected life"
+    }
+  ],
+  "products" : [
+    {
+      "category" : "Watches",
+      "colors" : [
+        "Onyx",
+        "Silver"
+      ],
+      "designer" : "NOIR ATELIER",
+      "detail" : "A quiet silhouette with a connected core. A sapphire-inspired face, activity glance, and discreet notification view bring everyday technology into an evening wardrobe.",
+      "id" : "nocturne",
+      "image" : "watch",
+      "isNew" : true,
+      "material" : "Brushed titanium · Onyx leather",
+      "name" : "Nocturne Smartwatch",
+      "price" : 640,
+      "sizes" : [
+        "38 mm",
+        "42 mm"
+      ],
+      "styling" : "Wear it just above the wrist bone. Pair the onyx strap with a black cuff, then leave one sleeve slightly raised. Let the brushed metal be the only accent.",
+      "symbol" : "applewatch"
+    },
+    {
+      "category" : "Accessories",
+      "colors" : [
+        "Onyx"
+      ],
+      "designer" : "CHANEL",
+      "detail" : "A study in couture and circuitry. An illuminated surface turns a classic evening shape into a conversation piece. Inspired by the original Tech Noir editorial archive.",
+      "id" : "signal",
+      "image" : "bag",
+      "isNew" : true,
+      "material" : "Leather · Programmable light detail",
+      "name" : "Signal LED Handbag",
+      "price" : 1500,
+      "sizes" : [
+        "One size"
+      ],
+      "styling" : "Keep the outfit matte and simple. Carry it with a tailored coat or a plain black dress so the light becomes the focal point.",
+      "symbol" : "handbag"
+    },
+    {
+      "category" : "Footwear",
+      "colors" : [
+        "Silver",
+        "Onyx"
+      ],
+      "designer" : "ADIDAS",
+      "detail" : "Technical footwear with an architectural profile. A knit upper and sculptural sole translate performance language into an everyday wardrobe.",
+      "id" : "futurecraft",
+      "image" : "sneakers",
+      "isNew" : false,
+      "material" : "Engineered knit · Sculpted sole",
+      "name" : "Futurecraft Runner",
+      "price" : 320,
+      "sizes" : [
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "styling" : "Try a cropped trouser with a relaxed jacket. Keep the ankle visible and let the shape of the sole define the look.",
+      "symbol" : "shoe"
+    },
+    {
+      "category" : "Couture",
+      "colors" : [
+        "Onyx"
+      ],
+      "designer" : "GARETH PUGH",
+      "detail" : "An architectural evening silhouette from the original shopping study. Clean lines and a structured shape give connected accessories a strong, quiet backdrop.",
+      "id" : "sculpt",
+      "image" : "dress",
+      "isNew" : false,
+      "material" : "Structured leather · Sculpted fit",
+      "name" : "Sculpt Leather Dress",
+      "price" : 1500,
+      "sizes" : [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "styling" : "Pair with a slim connected cuff or a single metallic watch. Skip a necklace; the neckline already carries the silhouette.",
+      "symbol" : "tshirt"
+    },
+    {
+      "category" : "Accessories",
+      "colors" : [
+        "Silver",
+        "Gold"
+      ],
+      "designer" : "NOIR ATELIER",
+      "detail" : "A minimal ring imagined for a connected wardrobe. The demo pairs a sculptural form with a simple view of everyday wellbeing features.",
+      "id" : "orbit",
+      "image" : "",
+      "isNew" : true,
+      "material" : "Polished titanium · Connected sensor",
+      "name" : "Orbit Connected Ring",
+      "price" : 290,
+      "sizes" : [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "styling" : "Wear it alone on the index finger or beside a fine plain band. Repeat one metal across your other accessories.",
+      "symbol" : "circle"
+    },
+    {
+      "category" : "Accessories",
+      "colors" : [
+        "Onyx",
+        "Silver"
+      ],
+      "designer" : "NOIR ATELIER",
+      "detail" : "A familiar frame with discreet audio details. This sample product explores how eyewear can explain a technical feature without losing its fashion identity.",
+      "id" : "frame",
+      "image" : "",
+      "isNew" : true,
+      "material" : "Acetate · Open-ear audio",
+      "name" : "Frame Audio Eyewear",
+      "price" : 380,
+      "sizes" : [
+        "Standard",
+        "Wide"
+      ],
+      "styling" : "Balance the strong frame with a clean neckline. Choose one matching accessory and keep the rest of the palette neutral.",
+      "symbol" : "eyeglasses"
+    }
+  ]
+}

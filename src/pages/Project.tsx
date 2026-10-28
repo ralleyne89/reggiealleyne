@@ -11,6 +11,7 @@ import {
 } from "@/services/api/predefinedProjects";
 import { motion } from "framer-motion";
 import ProjectHeader from "@/components/project/ProjectHeader";
+import TechNoirInteractiveDemo from "@/components/project/TechNoirInteractiveDemo";
 import ProjectEssentials from "@/components/project/ProjectEssentials";
 import ProjectNarrative from "@/components/project/ProjectNarrative";
 import ProjectAudienceJourney from "@/components/project/ProjectAudienceJourney";
@@ -367,6 +368,7 @@ const Project = () => {
     id: `chapter-${chapter}`,
     label: presentation?.chapterLabels[chapter] || defaultChapterLabels[chapter],
   }));
+  if (project.slug === "tech-noir") chapters.unshift({ id: "chapter-demo", label: "Demo" });
   const chapterSections: Record<CaseStudyChapterKey, ReactNode> = {
     glance: (
       <div id="chapter-glance" className="scroll-mt-24">
@@ -427,6 +429,7 @@ const Project = () => {
       )}
 
       <div className="w-full">
+        {project.slug === "tech-noir" && <TechNoirInteractiveDemo />}
         <PullQuote quote={narrative?.hook} attribution="The thesis" />
         {chapterOrder.map((chapter) => (
           <div key={chapter}>{chapterSections[chapter]}</div>
