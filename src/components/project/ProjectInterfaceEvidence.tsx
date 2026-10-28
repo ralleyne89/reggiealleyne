@@ -151,6 +151,31 @@ const processSteps = [
 ];
 
 const interfaceEvidenceCopyBySlug: Record<string, InterfaceEvidenceCopy> = {
+  "tech-noir": {
+    title: "From discovery to a considered purchase.",
+    description:
+      "The original mobile screens and the new native reconstruction show how product discovery, styling guidance, and checkout connect. AR try-on remained a concept; the reconstruction simulates that step.",
+    steps: [
+      {
+        icon: Workflow,
+        label: "Discover through style",
+        body:
+          "Designer collections, filters, and editorial stories help shoppers find wearable technology in a fashion context.",
+      },
+      {
+        icon: PanelsTopLeft,
+        label: "Learn and visualize",
+        body:
+          "Product details and How to Wear guides explain the piece before purchase. The new native demonstration includes a labeled visual try-on simulation.",
+      },
+      {
+        icon: Eye,
+        label: "Complete the journey",
+        body:
+          "The archived flow connects product selection to the bag and checkout. The reconstruction completes that path with sample inventory and a locally saved demo order.",
+      },
+    ],
+  },
   "litmus-ai": {
     title: "How the Litmus AI path shows up on screen.",
     description:
