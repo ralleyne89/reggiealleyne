@@ -151,6 +151,28 @@ const processSteps = [
 ];
 
 const interfaceEvidenceCopyBySlug: Record<string, InterfaceEvidenceCopy> = {
+  motorflow: {
+    title: "The service path, on screen.",
+    description:
+      "Live captures show how Motorflow introduces its offer, guides the AI experience, explains service scope, and carries the owner’s choice into setup.",
+    steps: [
+      {
+        icon: Workflow,
+        label: "Start with the shop’s work",
+        body: "The homepage connects the offer to calls, inquiries, and follow-up. Owners can explore the service before choosing a plan.",
+      },
+      {
+        icon: PanelsTopLeft,
+        label: "Make the AI roles clear",
+        body: "Mary introduces a fictional repair-shop intake; Jamie explains Motorflow. The guide makes the conversation change and native call controls visible.",
+      },
+      {
+        icon: Eye,
+        label: "Carry the next step forward",
+        body: "Plan selection opens the chosen service with its inclusions, costs, and setup steps. Payment and activation are explained separately.",
+      },
+    ],
+  },
   "tech-noir": {
     title: "From discovery to a considered purchase.",
     description:

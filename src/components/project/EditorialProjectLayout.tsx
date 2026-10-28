@@ -1,6 +1,8 @@
 import { ArrowLeft, X } from "lucide-react";
-import type { ReactNode } from "react";
+import { type ReactNode, useRef } from "react";
+import * as Dialog from "@radix-ui/react-dialog";
 import { Link } from "react-router-dom";
+import { useLenisLock } from "@/components/layout/SmoothScroll";
 import { cn } from "@/lib/utils";
 
 interface EditorialSectionProps {
@@ -98,33 +100,39 @@ export const ProjectLightboxModal = ({
   onClose,
   imageClassName,
 }: ProjectLightboxModalProps) => {
-  if (!imageSrc) return null;
+  useLenisLock(Boolean(imageSrc));
+  const returnFocusRef = useRef<HTMLElement | null>(null);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-gray-950/95 p-4 backdrop-blur-sm"
-      onClick={onClose}
-      role="presentation"
-    >
-      <div
-        className="relative h-full max-h-[90vh] w-full max-w-7xl"
-        onClick={(event) => event.stopPropagation()}
-      >
-        <img
-          src={imageSrc}
-          alt={alt}
-          decoding="async"
-          className={cn("h-full w-full rounded-lg object-contain", imageClassName)}
-        />
-        <button
-          type="button"
-          className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-gray-950 shadow-lg transition-colors hover:bg-gray-100"
-          onClick={onClose}
-          aria-label="Close full-size image"
+    <Dialog.Root open={Boolean(imageSrc)} onOpenChange={(open) => { if (!open) onClose(); }}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-[100] bg-gray-950/95 backdrop-blur-sm" />
+        <Dialog.Content
+          aria-describedby={undefined}
+          className="fixed left-1/2 top-1/2 z-[101] h-[90dvh] w-[calc(100%-2rem)] max-w-7xl -translate-x-1/2 -translate-y-1/2 outline-none"
+          onOpenAutoFocus={() => {
+            returnFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+          }}
+          onCloseAutoFocus={(event) => {
+            event.preventDefault();
+            if (returnFocusRef.current?.isConnected) returnFocusRef.current.focus();
+          }}
         >
-          <X className="h-5 w-5" />
-        </button>
-      </div>
-    </div>
+          <Dialog.Title className="sr-only">{alt}</Dialog.Title>
+          <img
+            src={imageSrc || undefined}
+            alt={alt}
+            decoding="async"
+            className={cn("h-full w-full rounded-lg object-contain", imageClassName)}
+          />
+          <Dialog.Close
+            className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-gray-950 shadow-lg transition-colors hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            aria-label="Close full-size image"
+          >
+            <X className="h-5 w-5" />
+          </Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 };

@@ -12,6 +12,7 @@ import { getProjectPath } from "@/lib/projectRoutes";
 import SectionRule from "@/components/motion/SectionRule";
 
 const moreSelectedProjectSlugs = [
+  "motorflow",
   "covelo-timecard-system",
   "symptom-checkr",
 ] as const;

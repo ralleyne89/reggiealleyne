@@ -1,5 +1,7 @@
 export const getProjectLiveLabel = (projectSlug?: string) => {
   switch (projectSlug) {
+    case "motorflow":
+      return "Visit Motorflow";
     case "tech-noir":
       return "Open interactive demo";
     case "chill-vibes-music-player":
