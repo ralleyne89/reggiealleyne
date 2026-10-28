@@ -30,6 +30,17 @@ const caseStudyHeroConfigs: Array<{
   config: CaseStudyHeroConfig;
 }> = [
   {
+    matches: (title) => title === "Motorflow",
+    config: {
+      image: "/images/motorflow/home-desktop.png",
+      layout: "wide",
+      imageFit: "contain",
+      imageFrameRatio: "16 / 10",
+      imagePosition: "center",
+      useProjectImage: true,
+    },
+  },
+  {
     matches: (title) => title.includes("SymptomCheckr"),
     config: {
       image: "/images/symptomcheckr-trust-ai-card.jpg",

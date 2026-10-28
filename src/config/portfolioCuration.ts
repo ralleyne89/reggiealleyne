@@ -1,4 +1,12 @@
 import type { ProjectType } from "@/types/project";
+import {
+  motorflowBrief,
+  motorflowImpact,
+  motorflowJourney,
+  motorflowNarrative,
+  motorflowPresentation,
+  motorflowTldr,
+} from "./motorflowCaseStudy";
 
 export type FeaturedProjectSlug =
   | "litmus-ai"
@@ -85,6 +93,7 @@ export type CaseStudyChapterKey =
 export type CaseStudyPresentationVariant =
   | "outcome-led"
   | "assessment-led"
+  | "service-led"
   | "trust-led";
 
 export interface CaseStudyPresentation {
@@ -112,6 +121,7 @@ export interface CaseStudyNarrative {
 }
 
 export type CaseStudyNarrativeSlug =
+  | "motorflow"
   | "cllctve-platform"
   | "tutor-d"
   | "tech-noir"
@@ -142,6 +152,7 @@ export interface ProjectPersonaJourney {
 }
 
 export type ProjectPersonaJourneySlug =
+  | "motorflow"
   | "cllctve-platform"
   | "tutor-d"
   | "tech-noir"
@@ -230,8 +241,9 @@ export const featuredProjectSlugs = featuredProjectConfig.map(
 );
 
 export const caseStudyPresentations: Partial<
-  Record<FeaturedProjectSlug, CaseStudyPresentation>
+  Record<FeaturedProjectSlug | "motorflow", CaseStudyPresentation>
 > = {
+  motorflow: motorflowPresentation,
   "cllctve-platform": {
     variant: "outcome-led",
     audienceEyebrow: "Evidence base",
@@ -366,6 +378,7 @@ export const homepageProofMetrics: HomepageProofMetric[] = [
 export const caseStudyBriefs: Partial<
   Record<FeaturedProjectSlug | string, CaseStudyBrief>
 > = {
+  motorflow: motorflowBrief,
   "litmus-ai": {
     audience:
       "Students, professionals, and teams who need a credible AI literacy baseline before choosing training.",
@@ -462,6 +475,7 @@ export const caseStudyNarratives: Record<
   CaseStudyNarrativeSlug,
   CaseStudyNarrative
 > = {
+  motorflow: motorflowNarrative,
   "cllctve-platform": {
     hook:
       "CLLCTVE gave Gen Z creators a mobile-first portfolio shaped around how they already shared work, found feedback, and discovered brand opportunities.",
@@ -637,6 +651,7 @@ export const caseStudyNarratives: Record<
 };
 
 export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
+  motorflow: motorflowTldr,
   "staybooked": {
     role: "UX/UI Designer and Frontend Developer",
     problem:
@@ -897,6 +912,7 @@ export const caseStudyProcessArtifacts: Partial<
 };
 
 export const caseStudyImpacts: Partial<Record<string, CaseStudyImpact>> = {
+  motorflow: motorflowImpact,
   "litmus-ai": {
     title: "What the MVP made testable",
     summary:
@@ -977,6 +993,7 @@ export const projectPersonaJourneys: Record<
   ProjectPersonaJourneySlug,
   ProjectPersonaJourney
 > = {
+  motorflow: motorflowJourney,
   "cllctve-platform": {
     persona: {
       role: "Gen Z creator building a public body of work from a phone.",
@@ -1852,7 +1869,7 @@ export const getFeaturedConfig = (slug?: string) =>
   featuredProjectConfig.find((project) => project.slug === slug);
 
 export const getCaseStudyPresentation = (slug?: string) =>
-  slug ? caseStudyPresentations[slug as FeaturedProjectSlug] : undefined;
+  slug ? caseStudyPresentations[slug as FeaturedProjectSlug | "motorflow"] : undefined;
 
 export const hasCaseStudyAtGlance = (slug?: string) =>
   Boolean(

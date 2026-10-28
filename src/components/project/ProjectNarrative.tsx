@@ -329,6 +329,10 @@ const presentationHeadings: Record<
     eyebrow: "Trust decisions",
     title: "How trust shaped the host workflow",
   },
+  "service-led": {
+    eyebrow: "Design decisions",
+    title: "From the first inquiry to a clear handoff.",
+  },
 };
 
 const getFlowCopy = (
@@ -397,6 +401,7 @@ const getProjectFlow = (
   narrativeSteps
     .map((step) => ({
       ...step,
+      label: project.slug === "motorflow" && step.key === "structure" ? "Map the service path" : step.label,
       body: getFlowCopy(step.key, narrative, project),
     }))
     .filter((step) => step.body);

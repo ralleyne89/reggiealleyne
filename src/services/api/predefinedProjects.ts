@@ -15,6 +15,7 @@ import { getScentStackProject } from './projects/scentStack';
 import { getStaybookedProject } from './projects/staybooked';
 import { getCoveloTimecardProject } from './projects/coveloTimecard';
 import { getPrettyPawsGroomingProject } from './projects/prettyPawsGrooming';
+import { getMotorflowProject } from './projects/motorflow';
 
 // Map of ID to project getter functions
 const projectGetters: Record<number, () => ProjectType> = {
@@ -33,6 +34,7 @@ const projectGetters: Record<number, () => ProjectType> = {
   13: getStaybookedProject,
   14: getCoveloTimecardProject,
   15: getPrettyPawsGroomingProject,
+  16: getMotorflowProject,
 };
 
 // Map of slug to project ID - FIXED to ensure correct mapping
@@ -52,6 +54,7 @@ const slugToIdMap: Record<string, number> = {
   'staybooked': 13,
   'covelo-timecard-system': 14,
   'pretty-paws-grooming': 15,
+  'motorflow': 16,
 };
 
 // Get a predefined project by ID
