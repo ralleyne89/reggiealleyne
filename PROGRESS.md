@@ -14,9 +14,10 @@ Branch: `claude/portfolio-audit-fixes`. Nothing is published.
 - Nov 12: at Checkpoint B Reggie asked for Work and About rebuilt and a dark liquid-glass nav first. Done: `src/pages/Works.tsx`, `src/pages/About.tsx`, nav glass in `src/index.css` and `Navbar.tsx`. axe AA clean on both pages at two widths. Copy on both pages is unchanged; About dropped its duplicate closing CTA.
 - Nov 12: Reggie approved launch. PR #5 merged and published to the Netlify project, but reggiealleyne.com DNS points at Lovable (185.158.133.1), so the domain still shows the old site. Reggie chose to repoint DNS to Netlify (A @ 75.2.60.5, CNAME www reggiealleyne.netlify.app); waiting on a Namecheap sign-in.
 - Nov 12: Figma canvas section added to case studies that have a file in Reggie's Figma team (Tutor D, SymptomCheckr, Staybooked) or Drafts (Motorflow, Litmus AI; frames cut from page exports into `src/config/figmaCanvasDrafts.json`). Frames exported from the files; manifest in `src/config/figmaCanvas.ts`; scene in `src/components/project/figmaCanvasScene.ts`. On branch `figma-canvas`, not yet on production.
-- **Stage 8 Launch: in progress, blocked on DNS.** Preview: https://6af56842330e7793ba89cb5a--reggiealleyne-pr5-preview.netlify.app
-- 8 Launch: not started
-- 9 Handoff: `handoff.md` drafted, to be finalised after launch
+- Nov 12: Reggie updated DNS at Namecheap; Netlify issued the certificate; reggiealleyne.com serves the new build over HTTPS. Live verify script passes. PRs #6 (Figma canvas) and #7 (nav refraction) merged and published.
+- **Stage 8 Launch: done.** Preview: https://6af56842330e7793ba89cb5a--reggiealleyne-pr5-preview.netlify.app
+- 8 Launch: done Nov 12 (DNS moved from Lovable to Netlify)
+- 9 Handoff: `handoff.md` finalised; open items listed there under Still to do
 
 ## Done on this branch
 - Share/icon logo: favicon, apple-touch-icon and PWA icons rebuilt from the current RA logo (they were the old circled monogram). Old icon files and `ra-logo*.svg` removed. Share image renamed to `reggie-alleyne-portfolio-og-20260915.jpg` so platforms refetch it. Service worker cache bumped to v4.
