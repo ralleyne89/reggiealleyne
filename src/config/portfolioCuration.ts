@@ -9,9 +9,9 @@ import {
 } from "./motorflowCaseStudy";
 
 export type FeaturedProjectSlug =
-  | "litmus-ai"
-  | "cllctve-platform"
-  | "staybooked";
+  | "motorflow"
+  | "staybooked"
+  | "tech-noir";
 
 export interface FeaturedProjectConfig {
   slug: FeaturedProjectSlug;
@@ -208,22 +208,13 @@ export interface HomepageProofMetric {
 
 export const featuredProjectConfig: FeaturedProjectConfig[] = [
   {
-    slug: "cllctve-platform",
-    featuredTitle: "Gen Z Portfolio Platform",
-    eyebrow: "Creator economy / platform design",
+    slug: "motorflow",
+    featuredTitle: "Motorflow",
+    eyebrow: "AI services / live website",
     impactSummary:
-      "A mobile-first creator portfolio bet that reached 500+ creators, 15 brand partnerships, and 85% retention.",
+      "A website and AI service experience that connects calls, bookings, and customer follow-up for independent auto repair shops.",
     reviewerSignal:
-      "Shows the tradeoffs behind mobile behavior, design systems, and brand constraints.",
-  },
-  {
-    slug: "litmus-ai",
-    featuredTitle: "AI Literacy Platform",
-    eyebrow: "AI education / assessment",
-    impactSummary:
-      "A shipped assessment, recommendation, training, and certificate path designed around a five-minute target.",
-    reviewerSignal:
-      "Shows AI product strategy, learning design, payments, and end-to-end MVP delivery.",
+      "Shows one connected service path with clear AI roles, visible costs, and an explicit step before activation.",
   },
   {
     slug: "staybooked",
@@ -234,6 +225,15 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
     reviewerSignal:
       "Shows how product constraints keep AI suggestions tied to the property a host can deliver.",
   },
+  {
+    slug: "tech-noir",
+    featuredTitle: "Tech Noir",
+    eyebrow: "Mobile application / shipped",
+    impactSummary:
+      "A shipped mobile application for luxury wearable-tech shopping, with designer collections, styling guides, and editorial discovery.",
+    reviewerSignal:
+      "Shows a monochrome editorial system built around one path: discover, learn, visualize, buy.",
+  },
 ];
 
 export const featuredProjectSlugs = featuredProjectConfig.map(
@@ -241,7 +241,7 @@ export const featuredProjectSlugs = featuredProjectConfig.map(
 );
 
 export const caseStudyPresentations: Partial<
-  Record<FeaturedProjectSlug | "motorflow", CaseStudyPresentation>
+  Record<string, CaseStudyPresentation>
 > = {
   motorflow: motorflowPresentation,
   "cllctve-platform": {
@@ -1869,7 +1869,7 @@ export const getFeaturedConfig = (slug?: string) =>
   featuredProjectConfig.find((project) => project.slug === slug);
 
 export const getCaseStudyPresentation = (slug?: string) =>
-  slug ? caseStudyPresentations[slug as FeaturedProjectSlug | "motorflow"] : undefined;
+  slug ? caseStudyPresentations[slug] : undefined;
 
 export const hasCaseStudyAtGlance = (slug?: string) =>
   Boolean(

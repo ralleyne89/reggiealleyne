@@ -24,6 +24,7 @@ import {
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/lib/pageMeta";
 import Footer from "@/components/layout/Footer";
+import ToolStackSection from "@/components/home/ToolStackSection";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
 import TextReveal from "@/components/motion/TextReveal";
 import { SPRING } from "@/lib/motion";
@@ -554,6 +555,7 @@ const About = () => {
         </div>
       </div>
 
+      <ToolStackSection index="//" />
       <Footer />
     </div>
   );

@@ -196,7 +196,7 @@ const ToolIcon = ({ tone }: { tone: ToolTone }) => {
   return <GitBranch className="h-7 w-7" />;
 };
 
-const ToolStackSection = () => {
+const ToolStackSection = ({ index = "03" }: { index?: string }) => {
   const reduceMotion = useReducedMotion();
   const headerMotionProps = reduceMotion
     ? { initial: false, whileInView: undefined }
@@ -223,7 +223,7 @@ const ToolStackSection = () => {
             transition={{ duration: 0.45 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <SectionRule index="03" label="Tools I use" className="mb-4" />
+            <SectionRule index={index} label="Tools I use" className="mb-4" />
             <h2 className="break-words font-display text-[2rem] font-semibold leading-tight text-gray-950 [text-wrap:balance] sm:text-heading-xl">
               The stack behind the prototypes, systems, and product screens.
             </h2>

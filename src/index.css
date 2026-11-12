@@ -4615,3 +4615,232 @@ a:hover .duotone-media::after {
 
   .cs-stage__screen { transform: none; }
 }
+
+/* ---------- Home: lead work stack ---------- */
+.lw-section {
+  padding-block: clamp(4rem, 9vw, 8rem);
+  background: oklch(var(--color-surface-page));
+}
+
+.lw-shell {
+  width: 100%;
+  max-width: 88rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.lw-heading {
+  max-width: 16ch;
+  font-family: "Bricolage Grotesque Variable", "Bricolage Grotesque Fallback", system-ui, sans-serif;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 650;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.lw-grid { margin-top: clamp(2.5rem, 6vw, 5rem); }
+
+.lw-stage-wrap { display: none; }
+
+.lw-list { display: grid; gap: 4.5rem; }
+
+.lw-item__media { display: block; margin-top: 1.75rem; margin-bottom: 1.5rem; }
+
+.lw-item__media img,
+.lw-stage__screen {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  background: oklch(var(--color-surface-soft));
+}
+
+.lw-item__index {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  color: oklch(var(--color-ink));
+}
+
+.lw-item__index span {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: oklch(var(--color-accent-strong));
+}
+
+.lw-item__title {
+  margin-top: 0.9rem;
+  font-family: "Bricolage Grotesque Variable", "Bricolage Grotesque Fallback", system-ui, sans-serif;
+  font-variation-settings: "opsz" 96;
+  font-size: clamp(2.6rem, 6.4vw, 5.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.lw-item__title a { transition: color 260ms var(--ease-out); }
+
+.lw-item__title a:hover,
+.lw-item__title a:focus-visible { color: oklch(var(--color-accent-strong)); outline: none; }
+
+.lw-item__summary {
+  margin-top: 1.25rem;
+  max-width: 40ch;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: oklch(var(--color-ink-secondary));
+}
+
+.lw-item__signal {
+  margin-top: 1rem;
+  max-width: 42ch;
+  padding-top: 1rem;
+  border-top: 1px solid oklch(var(--color-border-soft));
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: oklch(var(--color-ink-secondary));
+}
+
+.lw-item__meta {
+  margin-top: 1rem;
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: oklch(var(--color-ink-muted));
+}
+
+.lw-item__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  min-height: 3rem;
+  margin-top: 1.5rem;
+  padding-inline: 1.4rem;
+  border-radius: 999px;
+  background: oklch(var(--color-ink));
+  color: white;
+  font-weight: 600;
+  transition: transform 220ms var(--ease-out), background-color 220ms var(--ease-out);
+}
+
+.lw-item__cta:hover { transform: translateY(-2px); background: oklch(var(--color-accent-strong)); }
+
+.lw-item__cta:focus-visible { outline: 2px solid oklch(var(--color-accent)); outline-offset: 3px; }
+
+/* ---------- Home: statement ---------- */
+.st-section {
+  overflow: clip;
+  padding-block: clamp(5rem, 12vw, 11rem);
+  background: oklch(var(--color-ink));
+  color: white;
+}
+
+.st-eyebrow {
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: oklch(var(--color-accent-muted));
+}
+
+.st-headline {
+  margin-top: 1.5rem;
+  font-family: "Bricolage Grotesque Variable", "Bricolage Grotesque Fallback", system-ui, sans-serif;
+  font-variation-settings: "opsz" 96;
+  font-size: clamp(2.5rem, 8.2vw, 8rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.st-headline div { will-change: transform; }
+
+.st-body {
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+  margin-left: auto;
+  max-width: 30ch;
+  font-size: clamp(1.4rem, 2.6vw, 2.4rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+@media (min-width: 768px) {
+  .lw-shell { padding-inline: 2.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .lw-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .lw-list { gap: 0; }
+
+  .lw-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 82vh;
+    opacity: 0.28;
+    transition: opacity 380ms var(--ease-out);
+  }
+
+  .lw-item.is-active { opacity: 1; }
+
+  .lw-item__media { display: none; }
+
+  .lw-stage-wrap {
+    display: block;
+    position: sticky;
+    top: 15vh;
+    padding-top: 1.75rem;
+  }
+
+  .lw-stage {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10.5;
+    background: oklch(var(--color-surface-soft));
+  }
+
+  .lw-stage__screen {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    aspect-ratio: auto;
+    opacity: 0;
+    transform: scale(1.05) translateY(2%);
+    transition: opacity 560ms var(--ease-out), transform 1000ms var(--ease-out);
+  }
+
+  .lw-stage__screen.is-active { opacity: 1; transform: none; }
+
+  .lw-stage__count {
+    margin-top: 1rem;
+    font-family: "Geist Mono Variable", ui-monospace, monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: oklch(var(--color-ink-muted));
+  }
+
+  .lw-stage__count span { color: oklch(var(--color-ink)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lw-item,
+  .lw-stage__screen,
+  .lw-item__cta {
+    transition: none;
+  }
+
+  .lw-stage__screen { transform: none; }
+}
