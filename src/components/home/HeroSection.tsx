@@ -539,7 +539,7 @@ const HeroTitleLayer = () => (
     className="pointer-events-none absolute left-1/2 top-[3.65rem] z-0 w-[min(92vw,34rem)] -translate-x-1/2 overflow-visible sm:top-12 sm:w-[min(116vw,82rem)] lg:top-16"
   >
     <span className="sr-only">
-      Reggie Alleyne, UX/UI Designer and frontend developer
+      Reggie Alleyne, Senior UX/UI Designer who codes and builds with AI
     </span>
     <img
       data-hero-title-word

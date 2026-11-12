@@ -83,7 +83,7 @@ const About = () => {
   usePageMeta({
     title: "About | Reggie Alleyne",
     description:
-      "Background, selected experience, and design process of Reggie Alleyne, a UX/UI designer and frontend developer.",
+      "Background, selected experience, and design process of Reggie Alleyne, a senior UX/UI designer who codes and builds with AI.",
     path: "/about",
   });
 
@@ -173,7 +173,7 @@ const About = () => {
             className="mx-auto max-w-4xl"
           >
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.22em] text-primary">
-              UX/UI Designer & AI Technologist
+              Senior UX/UI Designer · Code + AI
             </p>
             <TextReveal
               as="h1"

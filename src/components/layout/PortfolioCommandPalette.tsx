@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Bot, BriefcaseBusiness, Download, Home, MessageCircle, PanelsTopLeft, Search, Sparkles, UserRound } from "lucide-react";
+import { Bot, BriefcaseBusiness, Download, Home, MessageCircle, Search, Sparkles, UserRound } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Command,
@@ -142,7 +142,6 @@ const PortfolioCommandPalette = () => {
       shortcut: "W",
       onSelect: () => navigateTo("/work"),
     },
-    // Services temporarily hidden — re-add this command to restore the shortcut.
     {
       id: "home-projects",
       label: "Jump to selected work",
@@ -313,8 +312,6 @@ const PortfolioCommandPalette = () => {
                         ? Home
                         : command.id === "work" || command.id === "home-projects"
                           ? BriefcaseBusiness
-                          : command.id === "services"
-                            ? PanelsTopLeft
                           : command.id === "playground"
                             ? Sparkles
                           : command.id === "about"

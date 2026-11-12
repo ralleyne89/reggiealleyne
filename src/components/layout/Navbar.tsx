@@ -41,15 +41,6 @@ const routeNavItems: NavRouteItem[] = [
     path: "/work",
     icon: BriefcaseBusiness,
   },
-  // Services temporarily hidden — re-add this entry to restore the nav link.
-  // {
-  //   kind: "route",
-  //   title: "Services",
-  //   path: "/services",
-  //   icon: PanelsTopLeft,
-  //   labelWidth: 68,
-  //   mobileLabelWidth: 58,
-  // },
   {
     kind: "route",
     title: "Playground",

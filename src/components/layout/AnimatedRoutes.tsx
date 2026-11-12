@@ -9,7 +9,6 @@ import { DUR, EASE } from "@/lib/motion";
 
 const Index = lazy(() => import("@/pages/Index"));
 const Works = lazy(() => import("@/pages/Works"));
-const Services = lazy(() => import("@/pages/Services"));
 const About = lazy(() => import("@/pages/About"));
 const Playground = lazy(() => import("@/pages/Playground"));
 const Project = lazy(() => import("@/pages/Project"));
@@ -81,7 +80,6 @@ const AnimatedRoutes = () => {
               <Route path="/" element={<Index />} />
               <Route path="/work" element={<Works />} />
               <Route path="/works" element={<Navigate to="/work" replace />} />
-              <Route path="/services" element={<Services />} />
               <Route path="/playground" element={<Playground />} />
               <Route path="/about" element={<About />} />
               {CLLCTVE_PROJECT_ROUTE_ALIASES.map((alias) => (

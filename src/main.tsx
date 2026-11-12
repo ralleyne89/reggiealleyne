@@ -6,6 +6,7 @@ import '@fontsource-variable/geist';
 import '@fontsource-variable/geist-mono';
 import App from './App.tsx';
 import './index.css';
+import { initAnalytics } from './lib/analytics';
 
 const rootElement = document.getElementById("root");
 
@@ -20,6 +21,8 @@ root.render(
     <App />
   </StrictMode>
 );
+
+initAnalytics();
 
 if (import.meta.env.PROD && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {

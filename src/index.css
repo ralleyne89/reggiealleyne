@@ -2179,29 +2179,18 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   line-height: 0.95;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: oklch(var(--color-ink) / 0.34);
-  -webkit-text-stroke: 1px oklch(var(--color-ink) / 0.24);
-  transition: color 260ms var(--ease-out), transform 360ms var(--ease-out), -webkit-text-stroke-color 260ms var(--ease-out);
+  color: oklch(var(--color-ink));
+  transition: color 260ms var(--ease-out), transform 360ms var(--ease-out);
 }
 
 .portfolio-work-row:hover .portfolio-work-row__title,
 .portfolio-work-row:focus-visible .portfolio-work-row__title {
   color: oklch(var(--color-accent));
-  -webkit-text-stroke-color: transparent;
   transform: translate3d(0.7rem, 0, 0);
 }
 
 .portfolio-work-row__title--compact {
   font-size: clamp(1.5rem, 3vw, 2.6rem);
-  -webkit-text-stroke-width: 0.5px;
-}
-
-/* Touch screens have no hover to fill the title, so show it at full contrast. */
-@media (hover: none) {
-  .portfolio-work-row__title {
-    color: oklch(var(--color-ink));
-    -webkit-text-stroke-color: transparent;
-  }
 }
 
 .portfolio-work-row__preview {

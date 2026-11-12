@@ -34,7 +34,7 @@ const handlePointerLeave = (event: PointerEvent<HTMLAnchorElement>) => {
 };
 
 /**
- * Editorial work list row: oversized outlined title that fills with accent on
+ * Editorial work list row: oversized title that shifts to the accent color on
  * hover, mono index + meta column, and a cursor-following image preview on
  * desktop. Mobile falls back to a thumbnail strip.
  */

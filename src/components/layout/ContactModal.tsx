@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import ContactForm from "@/components/profile/ContactForm";
 import { supabase } from "@/integrations/supabase/client";
+import { track } from "@/lib/analytics";
 import { useToast } from "@/hooks/use-toast";
 import { useLenisLock } from "./SmoothScroll";
 import type { ContactFormData } from "@/components/profile/ContactForm";
@@ -33,6 +34,8 @@ const ContactModal = ({ open, onOpenChange }: ContactModalProps) => {
       );
 
       if (error) throw error;
+
+      track("contact-sent");
 
       toast({
         title: "Message Sent!",
