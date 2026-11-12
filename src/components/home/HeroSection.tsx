@@ -16,8 +16,8 @@ const LOADER_COMPLETE_EVENT = "home-loader:complete";
 const assetBase = "/images/figma/hero-white";
 
 const heroAssets = {
-  portrait: `${assetBase}/portrait.png`,
-  wordmark: `${assetBase}/reggie-alleyne-wordmark-chatgpt-flat.png`,
+  portrait: `${assetBase}/portrait.webp`,
+  wordmark: `${assetBase}/reggie-alleyne-wordmark-chatgpt-flat.webp`,
   type: `${assetBase}/type-thin.svg`,
   list: `${assetBase}/list-vector.svg`,
   image: `${assetBase}/image-group.svg`,

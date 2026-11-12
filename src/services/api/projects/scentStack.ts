@@ -12,7 +12,7 @@ export const getScentStackProject = (): ProjectType => {
     duration: "3 weeks",
     teamSize: "Lean product team",
     tags: ["AI/ML", "Consumer Product", "React", "Product Strategy", "Computer Vision", "GPT-5", "UX Design"],
-    image: "/images/scentstack-project-detail-hero.png",
+    image: "/images/scentstack-project-detail-hero.webp",
     summary:
       'ScentStack is an AI-powered fragrance discovery platform that democratizes luxury scents through a database of 1700+ affordable dupes, computer vision-powered layering suggestions, and natural language "dream scent" matching. Built as a focused consumer-product engagement for fragrance discovery.',
     problem:
@@ -43,9 +43,9 @@ export const getScentStackProject = (): ProjectType => {
       "Price Comparison System",
     ],
     images: [
-      "/images/scentstack-project-detail-hero.png",
+      "/images/scentstack-project-detail-hero.webp",
       "/images/scentstack-dupes.png",
-      "/images/scentstack-dreamlab.png",
+      "/images/scentstack-dreamlab.webp",
       "/images/scentstack-layering.png",
     ],
     videoUrl: null,

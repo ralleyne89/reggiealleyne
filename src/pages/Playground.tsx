@@ -8,11 +8,19 @@ import {
   Layers3,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { usePageMeta } from "@/lib/pageMeta";
 import Footer from "@/components/layout/Footer";
 import EvidenceNote from "@/components/ui/evidence-note";
 import { experiments } from "@/config/playgroundExperiments";
 
 const Playground = () => {
+  usePageMeta({
+    title: "Playground | Reggie Alleyne",
+    description:
+      "Coded product experiments you can inspect, including ScentStack, Chill Vibes Music Player, and Bob's Big Break.",
+    path: "/playground",
+  });
+
   useEffect(() => {
     scrollToTop();
   }, []);

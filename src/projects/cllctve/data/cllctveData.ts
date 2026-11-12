@@ -249,12 +249,12 @@ export const cllctveSitemapData = {
   wireframeImages: [
     {
       title: "Portfolio Builder Interface",
-      imageSrc: "/images/66a4a04b-aa90-4553-b44c-c75f89b3b3d4.png",
+      imageSrc: "/images/66a4a04b-aa90-4553-b44c-c75f89b3b3d4.webp",
       imageAlt: "CLLCTVE portfolio builder wireframe"
     },
     {
       title: "Challenge Discovery Feed",
-      imageSrc: "/images/bb480e3a-f008-47a7-ab1f-621a3954be31.png",
+      imageSrc: "/images/bb480e3a-f008-47a7-ab1f-621a3954be31.webp",
       imageAlt: "CLLCTVE challenge discovery wireframe"
     }
   ]
@@ -305,22 +305,22 @@ export const cllctveUIData = {
   ],
   uiImages: [
     {
-      src: "/images/cllctve-card-optimized.jpg",
+      src: "/images/cllctve-card-optimized.webp",
       alt: "CLLCTVE main interface",
       title: "Profile Page"
     },
     {
-      src: "/images/fbb376a0-30ad-4530-8445-159e6767e748.png",
+      src: "/images/fbb376a0-30ad-4530-8445-159e6767e748.webp",
       alt: "CLLCTVE portfolio interface",
       title: "Home Page"
     },
     {
-      src: "/images/d9b301ae-9592-4d5a-aa48-b05f60a01cf0.png",
+      src: "/images/d9b301ae-9592-4d5a-aa48-b05f60a01cf0.webp",
       alt: "CLLCTVE profile interface",
       title: "Creative Profile"
     },
     {
-      src: "/images/da4363f9-b23f-4565-bf77-783c3bc7de68.png",
+      src: "/images/da4363f9-b23f-4565-bf77-783c3bc7de68.webp",
       alt: "CLLCTVE dashboard interface",
       title: "Dashboard Interface"
     }

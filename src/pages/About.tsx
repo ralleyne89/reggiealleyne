@@ -22,6 +22,7 @@ import {
   BriefcaseBusiness,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { usePageMeta } from "@/lib/pageMeta";
 import Footer from "@/components/layout/Footer";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
 import TextReveal from "@/components/motion/TextReveal";
@@ -79,6 +80,13 @@ const careerTimeline = [
 ];
 
 const About = () => {
+  usePageMeta({
+    title: "About | Reggie Alleyne",
+    description:
+      "Background, selected experience, and design process of Reggie Alleyne, a UX/UI designer and frontend developer.",
+    path: "/about",
+  });
+
   useEffect(() => {
     scrollToTop();
   }, []);

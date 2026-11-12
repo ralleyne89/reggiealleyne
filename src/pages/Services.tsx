@@ -19,6 +19,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Fragment } from "react";
+import { usePageMeta } from "@/lib/pageMeta";
 import Footer from "@/components/layout/Footer";
 import Marquee from "@/components/motion/Marquee";
 import MagneticButton from "@/components/motion/MagneticButton";
@@ -119,6 +120,13 @@ const boundaries = [
 ];
 
 const Services = () => {
+  usePageMeta({
+    title: "Services | Reggie Alleyne",
+    description:
+      "Growth websites for service businesses that need more than a brochure page.",
+    path: "/services",
+  });
+
   useEffect(() => {
     scrollToTop();
   }, []);

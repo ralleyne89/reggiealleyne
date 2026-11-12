@@ -13,9 +13,9 @@ interface ProjectDeliverablesProps {
 }
 
 const prettyPawsVisualLabels: Record<string, string> = {
-  "/images/pretty-paws/interface/homepage.png": "Homepage",
-  "/images/pretty-paws/interface/service-detail.png": "Service detail page",
-  "/images/pretty-paws/interface/booking-request.png": "Booking request page",
+  "/images/pretty-paws/interface/homepage.webp": "Homepage",
+  "/images/pretty-paws/interface/service-detail.webp": "Service detail page",
+  "/images/pretty-paws/interface/booking-request.webp": "Booking request page",
 };
 
 const getVisualLabel = (

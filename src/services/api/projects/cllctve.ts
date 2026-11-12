@@ -7,7 +7,7 @@ export const getCllctveProject = (): ProjectType => {
     title: "CLLCTVE Platform",
     description: "A mobile-first creator portfolio platform that reached 500+ creators by focusing on behavior fit instead of Behance-style feature parity.",
     fullDescription: "We chose mobile-first over desktop feature parity because creators needed a portfolio they could update and share from a phone. The resume reports 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
-    image: "/images/cllctve-gen-z-card.jpg",
+    image: "/images/cllctve-gen-z-card.webp",
     category: "Platform",
     tags: ["Platform", "Creative", "Gen Z", "Portfolio"],
     role: "UX/UI Designer & Frontend Engineer",
@@ -27,10 +27,10 @@ export const getCllctveProject = (): ProjectType => {
       "Real-time Notifications - Engagement hooks designed for return visits"
     ],
     images: [
-      "/images/cllctve-gen-z-card.jpg",
+      "/images/cllctve-gen-z-card.webp",
       "/images/cllctve-profile-rebuilt.jpg",
-      "/images/fbb376a0-30ad-4530-8445-159e6767e748.png",
-      "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png"
+      "/images/fbb376a0-30ad-4530-8445-159e6767e748.webp",
+      "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.webp"
     ],
     conclusion: {
       impact: "Reached 500+ creators, 15 brand partnerships, and 85% user retention. The mobile-first choice gave us an engagement path larger desktop-first platforms were not prioritizing.",

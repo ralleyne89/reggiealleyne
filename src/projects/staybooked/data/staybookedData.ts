@@ -210,7 +210,7 @@ export const staybookedUIData: FinalUIDesignProps = {
   ],
   uiImages: [
     {
-      src: "/images/staybooked/marketing-homepage-hero-desktop.png",
+      src: "/images/staybooked/marketing-homepage-hero-desktop.webp",
       alt: "Staybooked marketing homepage showing the AI room optimizer product surface",
       title: "Homepage with product-first proof",
     },
@@ -220,7 +220,7 @@ export const staybookedUIData: FinalUIDesignProps = {
       title: "Room optimizer upload",
     },
     {
-      src: "/images/staybooked/dashboard-overview-desktop.png",
+      src: "/images/staybooked/dashboard-overview-desktop.webp",
       alt: "Staybooked host dashboard with recent room work and optimization actions",
       title: "Host dashboard",
     },

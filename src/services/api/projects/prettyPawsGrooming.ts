@@ -9,7 +9,7 @@ export const getPrettyPawsGroomingProject = (): ProjectType => {
       "A public website for Pretty Paws Grooming in Little Rock, built around service discovery, local trust signals, and a request-based appointment flow.",
     fullDescription:
       "Pretty Paws Grooming needed a polished local-business site that helps pet owners compare services, check contact details, understand policies, and request an appointment without treating the request as a confirmed booking. The project pairs a premium pet-spa visual direction with practical proof: real media, service detail routes, phone and location access, policy pages, and Supabase-backed booking and contact submissions.",
-    image: "/images/pretty-paws/hero-poster.png",
+    image: "/images/pretty-paws/hero-poster.webp",
     category: "Local Business Website",
     tags: [
       "React",
@@ -79,7 +79,7 @@ export const getPrettyPawsGroomingProject = (): ProjectType => {
     ],
     visuals: [
       {
-        src: "/images/pretty-paws/before/source-homepage-20260528.jpg",
+        src: "/images/pretty-paws/before/source-homepage-20260528.webp",
         label: "Before: Homepage",
         note: "Original lrprettypaws.com home page.",
       },
@@ -89,7 +89,7 @@ export const getPrettyPawsGroomingProject = (): ProjectType => {
         note: "New demo home page with service entry points.",
       },
       {
-        src: "/images/pretty-paws/before/source-services-20260528.jpg",
+        src: "/images/pretty-paws/before/source-services-20260528.webp",
         label: "Before: Services",
         note: "Original services page.",
       },
@@ -124,17 +124,17 @@ export const getPrettyPawsGroomingProject = (): ProjectType => {
         note: "Unavailable merch detail route.",
       },
       {
-        src: "/images/pretty-paws/before/source-mission-20260528.jpg",
+        src: "/images/pretty-paws/before/source-mission-20260528.webp",
         label: "Before: Mission",
         note: "Original mission page.",
       },
       {
-        src: "/images/pretty-paws/before/source-gallery-20260528.jpg",
+        src: "/images/pretty-paws/before/source-gallery-20260528.webp",
         label: "Before: Gallery",
         note: "Original grooming gallery page.",
       },
       {
-        src: "/images/pretty-paws/before/source-reviews-20260528.jpg",
+        src: "/images/pretty-paws/before/source-reviews-20260528.webp",
         label: "Before: Reviews",
         note: "Original customer reviews page.",
       },

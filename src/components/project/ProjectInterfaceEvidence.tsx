@@ -44,21 +44,21 @@ interface InterfaceEvidenceCopy {
 
 const cllctveScreenOrder = [
   "/images/cllctve-profile-rebuilt.jpg",
-  "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png",
-  "/images/fbb376a0-30ad-4530-8445-159e6767e748.png",
+  "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.webp",
+  "/images/fbb376a0-30ad-4530-8445-159e6767e748.webp",
 ];
 
 const litmusScreenOrder = [
-  "/images/litmus-live-home.png",
-  "/images/litmus-live-assessment.png",
-  "/images/litmus-live-training.png",
-  "/images/litmus-live-certification.png",
-  "/images/litmus-live-pricing.png",
+  "/images/litmus-live-home.webp",
+  "/images/litmus-live-assessment.webp",
+  "/images/litmus-live-training.webp",
+  "/images/litmus-live-certification.webp",
+  "/images/litmus-live-pricing.webp",
 ];
 
 const staybookedScreenOrder = [
   "/images/staybooked/room-optimizer-upload-desktop.png",
-  "/images/staybooked/dashboard-overview-desktop.png",
+  "/images/staybooked/dashboard-overview-desktop.webp",
   "/images/staybooked/auth-sign-in-desktop.png",
 ];
 
@@ -68,38 +68,38 @@ const screenCopyBySlug: Record<string, Record<string, ScreenCopy>> = {
       label: "Rebuilt creator profile study",
       note: "This source-project rebuild shows how identity, skills, and recent work could scan for brands. It is an interface study, not a historical production capture.",
     },
-    "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png": {
+    "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.webp": {
       label: "Creator dashboard",
       note: "The dashboard turns views, connections, activity, and brand opportunities into a reason to return after publishing.",
     },
-    "/images/fbb376a0-30ad-4530-8445-159e6767e748.png": {
+    "/images/fbb376a0-30ad-4530-8445-159e6767e748.webp": {
       label: "Platform landing page",
       note: "The public page frames CLLCTVE as a creator-to-brand bridge, not just another place to park a portfolio.",
       orientation: "tall",
     },
   },
   "litmus-ai": {
-    "/images/litmus-live-home.png": {
+    "/images/litmus-live-home.webp": {
       label: "Homepage",
       note:
         "The homepage positions the assessment as the first step and previews the readiness dashboard users unlock after answering.",
     },
-    "/images/litmus-live-assessment.png": {
+    "/images/litmus-live-assessment.webp": {
       label: "Assessment calibration",
       note:
         "The start screen asks users to choose a level before the test, matching the calibration console and three-option setup.",
     },
-    "/images/litmus-live-training.png": {
+    "/images/litmus-live-training.webp": {
       label: "Training hub",
       note:
         "The training hub organizes modules by role, access state, duration, and learning outcomes so recommendations lead somewhere concrete.",
     },
-    "/images/litmus-live-certification.png": {
+    "/images/litmus-live-certification.webp": {
       label: "Certification catalog",
       note:
         "The catalog shows requirements, skills validated, readiness warnings, and apply states before payment or sign-in.",
     },
-    "/images/litmus-live-pricing.png": {
+    "/images/litmus-live-pricing.webp": {
       label: "Pricing",
       note:
         "The pricing page explains the free, premium, and team paths around training, practice, and certification value.",
@@ -110,7 +110,7 @@ const screenCopyBySlug: Record<string, Record<string, ScreenCopy>> = {
       label: "Room optimizer flow",
       note: "Suggestions stay attached to the actual room photos and details, with audit cues that show why something was flagged: the anti-misrepresentation decision in practice.",
     },
-    "/images/staybooked/dashboard-overview-desktop.png": {
+    "/images/staybooked/dashboard-overview-desktop.webp": {
       label: "Host workspace",
       note: "The dashboard leads with property readiness and the next highest-leverage fix, so hosts act on one room at a time instead of facing a wall of AI suggestions.",
     },
@@ -122,10 +122,10 @@ const screenCopyBySlug: Record<string, Record<string, ScreenCopy>> = {
 };
 
 const excludedScreenSourcesBySlug: Record<string, string[]> = {
-  "cllctve-platform": ["/images/cllctve-gen-z-card.jpg"],
-  "litmus-ai": ["/images/litmus-ai-literacy-card.jpg"],
+  "cllctve-platform": ["/images/cllctve-gen-z-card.webp"],
+  "litmus-ai": ["/images/litmus-ai-literacy-card.webp"],
   staybooked: [
-    "/images/staybooked/staybooked-ai-optimizer-light-featured-card.png",
+    "/images/staybooked/staybooked-ai-optimizer-light-featured-card.webp",
   ],
 };
 

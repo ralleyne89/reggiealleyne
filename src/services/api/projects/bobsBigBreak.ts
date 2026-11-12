@@ -22,8 +22,8 @@ export const getBobsBigBreakProject = (): ProjectType => {
     ],
     deliverables: ["UX/UI Design", "Frontend Development", "Backend Integration", "Game Economy Design", "Character Art"],
     images: [
-      "/images/bobs-big-break/platform-login-page-20260522.png",
-      "/images/bobs-big-break/platform-command-floor-20260522.png",
+      "/images/bobs-big-break/platform-login-page-20260522.webp",
+      "/images/bobs-big-break/platform-command-floor-20260522.webp",
       "/images/bobs-big-break/platform-boosts-market-20260522.png",
       "/images/bobs-big-break/platform-daily-gigs-20260522.png",
       "/images/bobs-big-break/platform-style-bag-20260522.png"

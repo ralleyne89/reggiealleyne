@@ -21,7 +21,7 @@ export const getLitmusAIProject = (): ProjectType => {
       "UX Design",
       "Training Platform",
     ],
-    image: "/images/litmus-ai-literacy-card.jpg",
+    image: "/images/litmus-ai-literacy-card.webp",
     summary:
       "Litmus AI measures practical AI literacy across concepts, communication, ethics, and everyday use cases. The MVP uses a short readiness assessment, results page, role-aware training recommendations, and a certificate flow so users can see what they know and what to study next.",
     problem:
@@ -52,11 +52,11 @@ export const getLitmusAIProject = (): ProjectType => {
       "User-Facing Digital Certificate Flow",
     ],
     images: [
-      "/images/litmus-live-home.png",
-      "/images/litmus-live-assessment.png",
-      "/images/litmus-live-training.png",
-      "/images/litmus-live-certification.png",
-      "/images/litmus-live-pricing.png",
+      "/images/litmus-live-home.webp",
+      "/images/litmus-live-assessment.webp",
+      "/images/litmus-live-training.webp",
+      "/images/litmus-live-certification.webp",
+      "/images/litmus-live-pricing.webp",
     ],
     videoUrl: null,
     githubUrl: null,

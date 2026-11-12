@@ -270,7 +270,7 @@ export const scentStackUIData: FinalUIDesignProps = {
   ],
   uiImages: [
     {
-      src: "/images/scentstack-home.png",
+      src: "/images/scentstack-home.webp",
       alt: "ScentStack homepage with search and key metrics",
       title: "Homepage: Find Your Perfect Fragrance Dupe",
     },
@@ -285,7 +285,7 @@ export const scentStackUIData: FinalUIDesignProps = {
       title: "Browse A-Z: Complete Brand Directory",
     },
     {
-      src: "/images/scentstack-dreamlab.png",
+      src: "/images/scentstack-dreamlab.webp",
       alt: "Dream Lab interface for describing your ideal scent",
       title: "Dream Lab: Create Your Dream Scent",
     },

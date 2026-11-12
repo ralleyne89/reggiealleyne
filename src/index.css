@@ -2196,6 +2196,14 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   -webkit-text-stroke-width: 0.5px;
 }
 
+/* Touch screens have no hover to fill the title, so show it at full contrast. */
+@media (hover: none) {
+  .portfolio-work-row__title {
+    color: oklch(var(--color-ink));
+    -webkit-text-stroke-color: transparent;
+  }
+}
+
 .portfolio-work-row__preview {
   position: absolute;
   top: 50%;

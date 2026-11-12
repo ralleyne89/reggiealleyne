@@ -8,7 +8,7 @@ export const getChillVibesProject = (): ProjectType => {
     title: "Chill Vibes Music Player",
     description: "A freelance project where I built a minimalist music streaming MVP for a client who was tired of cluttered music apps. Clean interface, smooth playback, no distractions.",
     fullDescription: "Got hired by a client who wanted to prove that music apps didn't have to be overwhelming. I designed and built the entire thing from wireframes to deployment - a responsive web app focused on just playing music without all the usual bells and whistles.",
-    image: "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
+    image: "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.webp",
     tags: ["Music", "UX/UI", "React.js", "Firebase"],
     role: "UX/UI Designer & Frontend Developer",
     duration: "3 months",
@@ -31,12 +31,12 @@ export const getChillVibesProject = (): ProjectType => {
       "Live MVP Deployment - Hosted and ready for the client to test with real users"
     ],
     images: [
-      "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.png",
-      "/images/668e3d64-e2f9-4f31-9499-72d8db2269f0.png",
-      "/images/7c5ca8bf-a2f4-41e8-a3fa-71e0099a2adf.png",
-      "/images/6c61f05a-9d32-4df9-bcbe-d5187f822b51.png",
-      "/images/6f0c29e0-049e-4fed-addf-089a0fd9abbe.png",
-      "/images/77847d00-98c9-4081-9595-ed324d71c1e6.png"
+      "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.webp",
+      "/images/668e3d64-e2f9-4f31-9499-72d8db2269f0.webp",
+      "/images/7c5ca8bf-a2f4-41e8-a3fa-71e0099a2adf.webp",
+      "/images/6c61f05a-9d32-4df9-bcbe-d5187f822b51.webp",
+      "/images/6f0c29e0-049e-4fed-addf-089a0fd9abbe.webp",
+      "/images/77847d00-98c9-4081-9595-ed324d71c1e6.webp"
     ],
     conclusion: {
       impact: "The client was stoked with how the MVP turned out. It proved their point that music apps could be simple and still functional. They got the validation they needed to move forward with user testing.",

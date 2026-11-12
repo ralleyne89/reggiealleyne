@@ -13,6 +13,7 @@ const Services = lazy(() => import("@/pages/Services"));
 const About = lazy(() => import("@/pages/About"));
 const Playground = lazy(() => import("@/pages/Playground"));
 const Project = lazy(() => import("@/pages/Project"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 
 const RouteFallback = () => (
   <main className="min-h-screen bg-white pt-28">
@@ -93,7 +94,7 @@ const AnimatedRoutes = () => {
                 />
               ))}
               <Route path="/project/:slug" element={<Project />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </motion.div>
