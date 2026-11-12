@@ -52,8 +52,13 @@ Branch: `claude/portfolio-audit-fixes`. Nothing is published.
   - Titles: "Staybooked: AI Airbnb Optimizer", "Litmus AI: AI Literacy Testing & Certification Platform".
 - Verified in headless Chrome: layers panel lists and jumps; playground drag moves a board; handoff appears and clears and the route title updates; home title is restored on back; 19 route files written with correct tags; no page errors.
 - Not verified: whether Netlify serves `/project/<slug>/index.html` ahead of the SPA rewrite (expected, untested until a deploy); real-GPU frame rate; Safari, Firefox, touch; Lighthouse.
-- Known gaps: Work, About and the 404 page have the rulers and layers chrome but no layout changes of their own; the Layers jump lands the section about 120px below the top.
-- Blender: not used. The concept is flat planes in a design file, which code handles. A Blender-authored piece would only add something as a real 3D RA mark or a true 3D portrait bust; either needs a session on the Mac with Blender open.
+- Built (Nov 11, third pass):
+  - Relief bust: the hero portrait is displaced by a height map (`portrait-depth.png`, built from the portrait's silhouette) and drawn on its own small canvas in the portrait's slot, so it turns toward the pointer with real parallax and light sliding across it. The `<img>` stays underneath as poster, alt text and fallback. It is a relief, not a full 360 model: the back does not exist and facial features share the depth of the head dome.
+  - Layers panel falls back to page headings where a page names no sections (Work, About, 404) and now lands sections under the nav.
+  - 404 shows an empty selection frame tagged with the missing path. Work row previews are framed.
+- A true 360 bust was not possible: the Higgsfield account has 0.4 credits and image-to-3D costs 38. Blender is installed on the Mac but cannot produce a likeness from one photo on its own.
+- Local preview finding: `~/Projects/reggiealleyne` was on branch `update-resume-ai-product-designer`, so `npm run dev` showed old code. Port 8080 is also used by another app (lobsterboard) on IPv4.
+- Known gaps: Work and About have chrome and layers but no layout changes of their own.
 - Preview deploy is on hold until Reggie's Mac can run it (workspace cannot reach Netlify).
 
 ## Deploy facts (found Nov 11)

@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/layout/Footer";
+import SelectionFrame from "@/components/project/SelectionFrame";
 import { usePageMeta } from "@/lib/pageMeta";
 
 const NotFound = () => {
@@ -16,7 +17,12 @@ const NotFound = () => {
   return (
     <div className="min-h-screen bg-white text-text-primary">
       <main className="container mx-auto flex min-h-[70vh] flex-col justify-center px-4 pb-32 pt-28">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+        <div className="nf-frame" aria-hidden="true">
+          <SelectionFrame label={`Frame 404 / ${pathname}`}>
+            <div className="nf-frame__empty">Empty frame</div>
+          </SelectionFrame>
+        </div>
+        <p className="mt-10 font-mono text-xs uppercase tracking-[0.2em] text-primary">
           404
         </p>
         <h1 className="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight sm:text-6xl">

@@ -25,6 +25,7 @@ const assetBase = "/images/figma/hero-white";
 
 const heroAssets = {
   portrait: `${assetBase}/portrait.webp`,
+  portraitDepth: `${assetBase}/portrait-depth.png`,
   wordmark: `${assetBase}/reggie-alleyne-wordmark-chatgpt-flat.webp`,
   type: `${assetBase}/type-thin.svg`,
   list: `${assetBase}/list-vector.svg`,
@@ -644,6 +645,58 @@ const CapabilitySwitchboard = ({ className }: { className?: string }) => {
   );
 };
 
+// three.js stays out of the first bundle; it loads once the page is idle.
+const HeroDepthScene = lazy(() => import("./HeroDepthScene"));
+const HeroBust = lazy(() => import("./HeroBust"));
+
+/**
+ * True where the WebGL layers can run well: a wide viewport with a fine
+ * pointer, motion allowed and data saver off. Everywhere else the HTML hero
+ * is the whole experience.
+ */
+const useDepthCapable = () => {
+  const shouldReduceMotion = useReducedMotion();
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    if (shouldReduceMotion) return undefined;
+
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } })
+      .connection;
+    const capable =
+      window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches &&
+      !connection?.saveData;
+    if (!capable) return undefined;
+
+    const timer = window.setTimeout(() => setEnabled(true), 900);
+    return () => window.clearTimeout(timer);
+  }, [shouldReduceMotion]);
+
+  return enabled;
+};
+
+const HeroDepthLayer = ({ sectionRef }: { sectionRef: RefObject<HTMLElement> }) => {
+  const enabled = useDepthCapable();
+  if (!enabled) return null;
+
+  return (
+    <Suspense fallback={null}>
+      <HeroDepthScene sectionRef={sectionRef} />
+    </Suspense>
+  );
+};
+
+const HeroBustLayer = () => {
+  const enabled = useDepthCapable();
+  if (!enabled) return null;
+
+  return (
+    <Suspense fallback={null}>
+      <HeroBust portrait={heroAssets.portrait} depth={heroAssets.portraitDepth} />
+    </Suspense>
+  );
+};
+
 const HeroArtwork = () => (
   <div
     data-hero-artwork
@@ -653,16 +706,18 @@ const HeroArtwork = () => (
     <HeroTitleLayer />
 
     <div data-hero-portrait-plane className="absolute left-1/2 top-[3.4rem] z-20 h-[29rem] w-[21rem] -translate-x-1/2 sm:top-0 sm:h-[638px] sm:w-[511px]">
-      <img
-        data-hero-portrait
-        src={heroAssets.portrait}
-        alt="Digital portrait of Reggie Alleyne"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-        sizes="(min-width: 1024px) 511px, min(100vw, 34rem)"
-        className="h-full w-full object-contain"
-      />
+      <div data-hero-portrait className="hero-portrait relative h-full w-full">
+        <img
+          src={heroAssets.portrait}
+          alt="Digital portrait of Reggie Alleyne"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          sizes="(min-width: 1024px) 511px, min(100vw, 34rem)"
+          className="h-full w-full object-contain"
+        />
+        <HeroBustLayer />
+      </div>
     </div>
     <HeroLightAperture />
 
@@ -683,41 +738,6 @@ const HeroArtwork = () => (
     <HeroPositioningPanel />
   </div>
 );
-
-// three.js stays out of the first bundle; it loads once the page is idle.
-const HeroDepthScene = lazy(() => import("./HeroDepthScene"));
-
-/**
- * Mounts the WebGL depth layer only where it can run well: a wide viewport
- * with a fine pointer, motion allowed and data saver off. Everywhere else the
- * HTML hero is the whole experience.
- */
-const HeroDepthLayer = ({ sectionRef }: { sectionRef: RefObject<HTMLElement> }) => {
-  const shouldReduceMotion = useReducedMotion();
-  const [enabled, setEnabled] = useState(false);
-
-  useEffect(() => {
-    if (shouldReduceMotion) return undefined;
-
-    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } })
-      .connection;
-    const capable =
-      window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches &&
-      !connection?.saveData;
-    if (!capable) return undefined;
-
-    const timer = window.setTimeout(() => setEnabled(true), 900);
-    return () => window.clearTimeout(timer);
-  }, [shouldReduceMotion]);
-
-  if (!enabled) return null;
-
-  return (
-    <Suspense fallback={null}>
-      <HeroDepthScene sectionRef={sectionRef} />
-    </Suspense>
-  );
-};
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);

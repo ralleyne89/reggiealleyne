@@ -22,10 +22,29 @@ const getPageName = (pathname: string) => {
   return "Page";
 };
 
-const collectLayers = (): Layer[] =>
-  Array.from(document.querySelectorAll<HTMLElement>("[data-layer]")).map(
-    (element) => ({ name: element.dataset.layer || "Layer", element }),
+const collectLayers = (): Layer[] => {
+  const named = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-layer]"),
+  ).map((element) => ({ name: element.dataset.layer || "Layer", element }));
+
+  // Pages that name only their footer (or nothing) fall back to their headings.
+  if (named.length > 2) return named;
+
+  const headings = Array.from(
+    document.querySelectorAll<HTMLElement>(".route-motion-shell h1, .route-motion-shell h2"),
+  )
+    .filter((element) => element.innerText.trim().length > 0)
+    .map((element) => ({
+      name: element.innerText.trim().replace(/\s+/g, " ").slice(0, 34),
+      element,
+    }));
+
+  return [...headings, ...named].sort((a, b) =>
+    a.element.compareDocumentPosition(b.element) & Node.DOCUMENT_POSITION_FOLLOWING
+      ? -1
+      : 1,
   );
+};
 
 /**
  * The file chrome that makes the site read as an open design file: rulers
@@ -115,11 +134,16 @@ const DesignFileChrome = () => {
   }, [open, refreshLayers]);
 
   const jumpTo = (layer: Layer) => {
+    // Land the section just under the floating nav.
+    const top = Math.max(
+      0,
+      layer.element.getBoundingClientRect().top + window.scrollY - 96,
+    );
     const lenis = getLenis();
     if (lenis) {
-      lenis.scrollTo(layer.element, { offset: -24 });
+      lenis.scrollTo(top);
     } else {
-      layer.element.scrollIntoView({ block: "start" });
+      window.scrollTo({ top });
     }
   };
 
