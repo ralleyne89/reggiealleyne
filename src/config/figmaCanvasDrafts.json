@@ -1,0 +1,1132 @@
+{
+ "litmus-ai": {
+  "project": "Drafts",
+  "fileName": "Litmus AI",
+  "pages": [
+   {
+    "name": "Research & Assumptions",
+    "frames": [
+     {
+      "name": "A — Research brief",
+      "file": "01-01-a-research-brief",
+      "x": 184,
+      "y": 184,
+      "width": 1600,
+      "height": 992
+     },
+     {
+      "name": "B — Scope and validation",
+      "file": "01-02-b-scope-and-validation",
+      "x": 2004,
+      "y": 184,
+      "width": 1600,
+      "height": 1080
+     },
+     {
+      "name": "C — Assumptions register",
+      "file": "01-03-c-assumptions-register",
+      "x": 184,
+      "y": 2364,
+      "width": 1600,
+      "height": 1173
+     },
+     {
+      "name": "D — Source ledger",
+      "file": "01-04-d-source-ledger",
+      "x": 2004,
+      "y": 2364,
+      "width": 1600,
+      "height": 1801
+     },
+     {
+      "name": "E — Findings and responses",
+      "file": "01-05-e-findings-and-responses",
+      "x": 184,
+      "y": 4914,
+      "width": 1600,
+      "height": 1204
+     },
+     {
+      "name": "F — Competitive review",
+      "file": "01-06-f-competitive-review",
+      "x": 2004,
+      "y": 5864,
+      "width": 1600,
+      "height": 1088
+     }
+    ]
+   },
+   {
+    "name": "Personas & Flows",
+    "frames": [
+     {
+      "name": "P01 — Cautious beginner",
+      "file": "02-01-p01-cautious-beginner",
+      "x": 184,
+      "y": 184,
+      "width": 1600,
+      "height": 1021
+     },
+     {
+      "name": "P02 — Occasional practitioner",
+      "file": "02-02-p02-occasional-practitioner",
+      "x": 2024,
+      "y": 184,
+      "width": 1600,
+      "height": 1021
+     },
+     {
+      "name": "P03 — Learning sponsor",
+      "file": "02-03-p03-learning-sponsor",
+      "x": 3864,
+      "y": 184,
+      "width": 1600,
+      "height": 1052
+     },
+     {
+      "name": "IA — Current route sitemap",
+      "file": "02-04-ia-current-route-sitemap",
+      "x": 184,
+      "y": 2164,
+      "width": 2800,
+      "height": 1892
+     },
+     {
+      "name": "F01 — Assessment and recovery",
+      "file": "02-05-f01-assessment-and-recovery",
+      "x": 184,
+      "y": 4314,
+      "width": 2200,
+      "height": 2104
+     },
+     {
+      "name": "F02 — Training and provider handoff",
+      "file": "02-06-f02-training-and-provider-handoff",
+      "x": 2624,
+      "y": 4314,
+      "width": 2200,
+      "height": 2074
+     },
+     {
+      "name": "F03 — Plans, account and checkout",
+      "file": "02-07-f03-plans-account-and-checkout",
+      "x": 184,
+      "y": 6714,
+      "width": 2200,
+      "height": 2104
+     },
+     {
+      "name": "F04 — Certification and verification",
+      "file": "02-08-f04-certification-and-verification",
+      "x": 2624,
+      "y": 6714,
+      "width": 2200,
+      "height": 2064
+     },
+     {
+      "name": "Coverage — Evidence to verification",
+      "file": "02-09-coverage-evidence-to-verification",
+      "x": 184,
+      "y": 9114,
+      "width": 2200,
+      "height": 687
+     }
+    ]
+   },
+   {
+    "name": "Wireframes",
+    "frames": [
+     {
+      "name": "00 — Wireframe guide",
+      "file": "03-01-00-wireframe-guide",
+      "x": 184,
+      "y": 184,
+      "width": 2350,
+      "height": 542
+     },
+     {
+      "name": "W01 — Homepage",
+      "file": "03-02-w01-homepage",
+      "x": 184,
+      "y": 1034,
+      "width": 1600,
+      "height": 3444
+     },
+     {
+      "name": "W02 — Assessment setup",
+      "file": "03-03-w02-assessment-setup",
+      "x": 2032,
+      "y": 1034,
+      "width": 1600,
+      "height": 1325
+     },
+     {
+      "name": "W03 — Active question",
+      "file": "03-04-w03-active-question",
+      "x": 3880,
+      "y": 1034,
+      "width": 1600,
+      "height": 1603
+     },
+     {
+      "name": "W04 — Results and saving",
+      "file": "03-05-w04-results-and-saving",
+      "x": 5728,
+      "y": 1034,
+      "width": 1600,
+      "height": 1803
+     },
+     {
+      "name": "W05 — Training Hub",
+      "file": "03-06-w05-training-hub",
+      "x": 184,
+      "y": 4786,
+      "width": 1600,
+      "height": 2231
+     },
+     {
+      "name": "W06 — Module and learning",
+      "file": "03-07-w06-module-and-learning",
+      "x": 2032,
+      "y": 4786,
+      "width": 1600,
+      "height": 1514
+     },
+     {
+      "name": "W07 — Certification",
+      "file": "03-08-w07-certification",
+      "x": 3880,
+      "y": 4786,
+      "width": 1600,
+      "height": 2092
+     },
+     {
+      "name": "W08 — Plans and Pricing",
+      "file": "03-09-w08-plans-and-pricing",
+      "x": 184,
+      "y": 7325,
+      "width": 1600,
+      "height": 1950
+     },
+     {
+      "name": "W09 — Account transition",
+      "file": "03-10-w09-account-transition",
+      "x": 2032,
+      "y": 7325,
+      "width": 1600,
+      "height": 1513
+     },
+     {
+      "name": "W10 — Legal template",
+      "file": "03-11-w10-legal-template",
+      "x": 3880,
+      "y": 7325,
+      "width": 1600,
+      "height": 1758
+     },
+     {
+      "name": "W11 — Mobile / Homepage",
+      "file": "03-12-w11-mobile-homepage",
+      "x": 184,
+      "y": 9583,
+      "width": 580,
+      "height": 2200
+     },
+     {
+      "name": "W12 — Mobile / Assessment setup",
+      "file": "03-13-w12-mobile-assessment-setup",
+      "x": 1012,
+      "y": 9583,
+      "width": 580,
+      "height": 1626
+     },
+     {
+      "name": "W13 — Mobile / Active question",
+      "file": "03-14-w13-mobile-active-question",
+      "x": 1840,
+      "y": 9583,
+      "width": 580,
+      "height": 1478
+     },
+     {
+      "name": "W14 — Mobile / Results",
+      "file": "03-15-w14-mobile-results",
+      "x": 2668,
+      "y": 9583,
+      "width": 580,
+      "height": 1713
+     },
+     {
+      "name": "W15 — Internal course viewer",
+      "file": "03-16-w15-internal-course-viewer",
+      "x": 3564,
+      "y": 9583,
+      "width": 1600,
+      "height": 1408
+     }
+    ]
+   },
+   {
+    "name": "Foundations",
+    "frames": [
+     {
+      "name": "01 — Typography",
+      "file": "04-01-01-typography",
+      "x": 200,
+      "y": 200,
+      "width": 1440,
+      "height": 926
+     },
+     {
+      "name": "02 — Color and spacing",
+      "file": "04-02-02-color-and-spacing",
+      "x": 2000,
+      "y": 200,
+      "width": 1440,
+      "height": 1157
+     }
+    ]
+   },
+   {
+    "name": "Components",
+    "frames": [
+     {
+      "name": "01 — Brand & navigation",
+      "file": "05-01-01-brand-navigation",
+      "x": 120,
+      "y": 120,
+      "width": 1840,
+      "height": 981
+     },
+     {
+      "name": "02 — Actions",
+      "file": "05-02-02-actions",
+      "x": 2240,
+      "y": 120,
+      "width": 1840,
+      "height": 1028
+     },
+     {
+      "name": "03 — Form controls",
+      "file": "05-03-03-form-controls",
+      "x": 120,
+      "y": 1368,
+      "width": 1840,
+      "height": 736
+     },
+     {
+      "name": "04 — Learning & pricing",
+      "file": "05-04-04-learning-pricing",
+      "x": 2240,
+      "y": 1368,
+      "width": 1840,
+      "height": 3178
+     },
+     {
+      "name": "05 — Lists & filters",
+      "file": "05-05-05-lists-filters",
+      "x": 120,
+      "y": 4766,
+      "width": 1840,
+      "height": 622
+     },
+     {
+      "name": "06 — Assessment & progress",
+      "file": "05-06-06-assessment-progress",
+      "x": 2240,
+      "y": 4766,
+      "width": 1840,
+      "height": 2293
+     },
+     {
+      "name": "07 — Sections & footers",
+      "file": "05-07-07-sections-footers",
+      "x": 120,
+      "y": 7279,
+      "width": 1840,
+      "height": 3190
+     },
+     {
+      "name": "08 — Feedback & access",
+      "file": "05-08-08-feedback-access",
+      "x": 2240,
+      "y": 7279,
+      "width": 1840,
+      "height": 762
+     },
+     {
+      "name": "09 — Main components",
+      "file": "05-09-09-main-components",
+      "x": 4480,
+      "y": 120,
+      "width": 5320,
+      "height": 4124
+     }
+    ]
+   },
+   {
+    "name": "Core Screens",
+    "frames": [
+     {
+      "name": "00 — Start / Workflow and presenter scenarios",
+      "file": "06-01-00-start-workflow-and-presenter-scenarios",
+      "x": 200,
+      "y": 200,
+      "width": 2480,
+      "height": 743
+     },
+     {
+      "name": "01 — Homepage",
+      "file": "06-02-01-homepage",
+      "x": 200,
+      "y": 1680,
+      "width": 1488,
+      "height": 7431
+     },
+     {
+      "name": "02 — Assessment / Choose level",
+      "file": "06-03-02-assessment-choose-level",
+      "x": 2088,
+      "y": 1680,
+      "width": 1460,
+      "height": 936
+     },
+     {
+      "name": "03 — Training / Current catalog state",
+      "file": "06-04-03-training-current-catalog-state",
+      "x": 3976,
+      "y": 1680,
+      "width": 1460,
+      "height": 993
+     },
+     {
+      "name": "04 — Certification / Current catalog state",
+      "file": "06-05-04-certification-current-catalog-state",
+      "x": 5864,
+      "y": 1680,
+      "width": 1460,
+      "height": 1061
+     },
+     {
+      "name": "05 — Plans & Pricing",
+      "file": "06-06-05-plans-pricing",
+      "x": 7752,
+      "y": 1680,
+      "width": 1460,
+      "height": 1877
+     },
+     {
+      "name": "06 — Homepage / Mobile · 390 px",
+      "file": "06-07-06-homepage-mobile-390-px",
+      "x": 9640,
+      "y": 1680,
+      "width": 390,
+      "height": 15186
+     },
+     {
+      "name": "07 — Assessment / Mobile · 390 px",
+      "file": "06-08-07-assessment-mobile-390-px",
+      "x": 10270,
+      "y": 1680,
+      "width": 390,
+      "height": 917
+     },
+     {
+      "name": "08 — Sign in",
+      "file": "06-09-08-sign-in",
+      "x": 200,
+      "y": 17780,
+      "width": 1460,
+      "height": 908
+     },
+     {
+      "name": "09 — Create account",
+      "file": "06-10-09-create-account",
+      "x": 2088,
+      "y": 17780,
+      "width": 1460,
+      "height": 968
+     },
+     {
+      "name": "10 — Terms",
+      "file": "06-11-10-terms",
+      "x": 3976,
+      "y": 17780,
+      "width": 1460,
+      "height": 936
+     },
+     {
+      "name": "11 — Privacy",
+      "file": "06-12-11-privacy",
+      "x": 5864,
+      "y": 17780,
+      "width": 1460,
+      "height": 936
+     }
+    ]
+   },
+   {
+    "name": "Presentation",
+    "frames": [
+     {
+      "name": "Slide 01",
+      "file": "09-01-slide-01",
+      "x": 200,
+      "y": 200,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 02",
+      "file": "09-02-slide-02",
+      "x": 2280,
+      "y": 200,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 03",
+      "file": "09-03-slide-03",
+      "x": 4360,
+      "y": 200,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 04",
+      "file": "09-04-slide-04",
+      "x": 200,
+      "y": 1440,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 05",
+      "file": "09-05-slide-05",
+      "x": 2280,
+      "y": 1440,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 06",
+      "file": "09-06-slide-06",
+      "x": 4360,
+      "y": 1440,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 07",
+      "file": "09-07-slide-07",
+      "x": 200,
+      "y": 2680,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 08",
+      "file": "09-08-slide-08",
+      "x": 2280,
+      "y": 2680,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 09",
+      "file": "09-09-slide-09",
+      "x": 4360,
+      "y": 2680,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 10",
+      "file": "09-10-slide-10",
+      "x": 200,
+      "y": 3920,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 11",
+      "file": "09-11-slide-11",
+      "x": 2280,
+      "y": 3920,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 12",
+      "file": "09-12-slide-12",
+      "x": 4360,
+      "y": 3920,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Rationale — Presenter notes",
+      "file": "09-13-rationale-presenter-notes",
+      "x": 6564,
+      "y": 184,
+      "width": 1700,
+      "height": 811
+     }
+    ]
+   }
+  ]
+ },
+ "motorflow": {
+  "project": "Drafts",
+  "fileName": "Motorflow — Website & Brand Design",
+  "pages": [
+   {
+    "name": "Research & Assumptions",
+    "frames": [
+     {
+      "name": "A / Research brief",
+      "file": "01-01-a-research-brief",
+      "x": 200,
+      "y": 200,
+      "width": 1440,
+      "height": 1548
+     },
+     {
+      "name": "B / Scope, success and validation plan",
+      "file": "01-02-b-scope-success-and-validation-plan",
+      "x": 1740,
+      "y": 200,
+      "width": 1440,
+      "height": 1759
+     },
+     {
+      "name": "C / Assumptions register",
+      "file": "01-03-c-assumptions-register",
+      "x": 3580,
+      "y": 200,
+      "width": 1440,
+      "height": 1941
+     },
+     {
+      "name": "D / Sources and validation rules",
+      "file": "01-04-d-sources-and-validation-rules",
+      "x": 5120,
+      "y": 200,
+      "width": 1120,
+      "height": 3323
+     },
+     {
+      "name": "E / Research findings and design responses",
+      "file": "01-05-e-research-findings-and-design-responses",
+      "x": 200,
+      "y": 2399,
+      "width": 1440,
+      "height": 2241
+     },
+     {
+      "name": "F / Competitive review and transfer choices",
+      "file": "01-06-f-competitive-review-and-transfer-choices",
+      "x": 1740,
+      "y": 2399,
+      "width": 1440,
+      "height": 2194
+     }
+    ]
+   },
+   {
+    "name": "Personas & Flows",
+    "frames": [
+     {
+      "name": "Alex / Working persona",
+      "file": "02-01-alex-working-persona",
+      "x": 200,
+      "y": 220,
+      "width": 740,
+      "height": 820
+     },
+     {
+      "name": "Taylor / Working persona",
+      "file": "02-02-taylor-working-persona",
+      "x": 1020,
+      "y": 220,
+      "width": 740,
+      "height": 848
+     },
+     {
+      "name": "Motorflow / Public sitemap",
+      "file": "02-03-motorflow-public-sitemap",
+      "x": 2100,
+      "y": 220,
+      "width": 828,
+      "height": 938
+     },
+     {
+      "name": "Motorflow / Visual sitemap",
+      "file": "02-04-motorflow-visual-sitemap",
+      "x": 3008,
+      "y": 220,
+      "width": 2048,
+      "height": 1419
+     },
+     {
+      "name": "Motorflow / Core user flow",
+      "file": "02-05-motorflow-core-user-flow",
+      "x": 2100,
+      "y": 1740,
+      "width": 2640,
+      "height": 558
+     },
+     {
+      "name": "Motorflow / Recovery paths",
+      "file": "02-06-motorflow-recovery-paths",
+      "x": 5396,
+      "y": 220,
+      "width": 2640,
+      "height": 536
+     },
+     {
+      "name": "Motorflow / Walkthrough checks",
+      "file": "02-07-motorflow-walkthrough-checks",
+      "x": 8116,
+      "y": 220,
+      "width": 1100,
+      "height": 532
+     },
+     {
+      "name": "Motorflow / Entry-to-setup screen map",
+      "file": "02-08-motorflow-entry-to-setup-screen-map",
+      "x": 9556,
+      "y": 220,
+      "width": 3200,
+      "height": 486
+     },
+     {
+      "name": "Motorflow / Screen plan and scope",
+      "file": "02-09-motorflow-screen-plan-and-scope",
+      "x": 9556,
+      "y": 826,
+      "width": 2640,
+      "height": 476
+     }
+    ]
+   },
+   {
+    "name": "Wireframes",
+    "frames": [
+     {
+      "name": "START / Motorflow wireframe walkthrough",
+      "file": "03-01-start-motorflow-wireframe-walkthrough",
+      "x": 200,
+      "y": 220,
+      "width": 2480,
+      "height": 685
+     },
+     {
+      "name": "W01 / Homepage — Desktop",
+      "file": "03-02-w01-homepage-desktop",
+      "x": 3040,
+      "y": 220,
+      "width": 1488,
+      "height": 6850
+     },
+     {
+      "name": "W02 / Services",
+      "file": "03-03-w02-services",
+      "x": 4888,
+      "y": 220,
+      "width": 1488,
+      "height": 9983
+     },
+     {
+      "name": "W03 / Plans & Pricing",
+      "file": "03-04-w03-plans-pricing",
+      "x": 200,
+      "y": 10583,
+      "width": 1488,
+      "height": 6472
+     },
+     {
+      "name": "W04 / Get started",
+      "file": "03-05-w04-get-started",
+      "x": 2048,
+      "y": 10583,
+      "width": 1488,
+      "height": 4097
+     },
+     {
+      "name": "W05 / Contact",
+      "file": "03-06-w05-contact",
+      "x": 3896,
+      "y": 10583,
+      "width": 1488,
+      "height": 2097
+     },
+     {
+      "name": "W06 / About",
+      "file": "03-07-w06-about",
+      "x": 200,
+      "y": 17435,
+      "width": 1488,
+      "height": 3762
+     },
+     {
+      "name": "W07 / Privacy",
+      "file": "03-08-w07-privacy",
+      "x": 2048,
+      "y": 17435,
+      "width": 1488,
+      "height": 4969
+     },
+     {
+      "name": "W08 / Terms",
+      "file": "03-09-w08-terms",
+      "x": 3696,
+      "y": 17435,
+      "width": 1488,
+      "height": 6050
+     },
+     {
+      "name": "W09 / Voice-demo introduction",
+      "file": "03-10-w09-voice-demo-introduction",
+      "x": 5544,
+      "y": 17435,
+      "width": 560,
+      "height": 555
+     },
+     {
+      "name": "W10 / Homepage — 390 px",
+      "file": "03-11-w10-homepage-390-px",
+      "x": 200,
+      "y": 23866,
+      "width": 390,
+      "height": 9436
+     },
+     {
+      "name": "Wireframe / Reusable navigation and controls",
+      "file": "03-12-wireframe-reusable-navigation-and-controls",
+      "x": 950,
+      "y": 23866,
+      "width": 1648,
+      "height": 2012
+     },
+     {
+      "name": "Wireframe / Build and review handoff",
+      "file": "03-13-wireframe-build-and-review-handoff",
+      "x": 200,
+      "y": 33681,
+      "width": 1440,
+      "height": 476
+     }
+    ]
+   },
+   {
+    "name": "Foundations",
+    "frames": [
+     {
+      "name": "01 — Typography / Mark Pro",
+      "file": "04-01-01-typography-mark-pro",
+      "x": 80,
+      "y": 100,
+      "width": 1440,
+      "height": 1133
+     },
+     {
+      "name": "02 — Color and contrast",
+      "file": "04-02-02-color-and-contrast",
+      "x": 1880,
+      "y": 100,
+      "width": 1440,
+      "height": 1175
+     }
+    ]
+   },
+   {
+    "name": "Components",
+    "frames": [
+     {
+      "name": "01 — Brand & navigation",
+      "file": "05-01-01-brand-navigation",
+      "x": 120,
+      "y": 120,
+      "width": 1840,
+      "height": 1116
+     },
+     {
+      "name": "02 — Actions",
+      "file": "05-02-02-actions",
+      "x": 2240,
+      "y": 120,
+      "width": 1840,
+      "height": 1374
+     },
+     {
+      "name": "03 — Form controls",
+      "file": "05-03-03-form-controls",
+      "x": 120,
+      "y": 1714,
+      "width": 1840,
+      "height": 2229
+     },
+     {
+      "name": "04 — Service cards & pricing",
+      "file": "05-04-04-service-cards-pricing",
+      "x": 2240,
+      "y": 1714,
+      "width": 1840,
+      "height": 2689
+     },
+     {
+      "name": "05 — Lists & filters",
+      "file": "05-05-05-lists-filters",
+      "x": 120,
+      "y": 4623,
+      "width": 1840,
+      "height": 1921
+     },
+     {
+      "name": "06 — Workflows & setup",
+      "file": "05-06-06-workflows-setup",
+      "x": 2240,
+      "y": 4623,
+      "width": 1840,
+      "height": 2728
+     },
+     {
+      "name": "07 — Sections & footers",
+      "file": "05-07-07-sections-footers",
+      "x": 120,
+      "y": 7571,
+      "width": 1840,
+      "height": 2897
+     },
+     {
+      "name": "08 — Dialogs & feedback",
+      "file": "05-08-08-dialogs-feedback",
+      "x": 2240,
+      "y": 7571,
+      "width": 1840,
+      "height": 1472
+     },
+     {
+      "name": "09 — Main components",
+      "file": "05-09-09-main-components",
+      "x": 4480,
+      "y": 120,
+      "width": 5320,
+      "height": 7617
+     }
+    ]
+   },
+   {
+    "name": "Core Screens",
+    "frames": [
+     {
+      "name": "START / Workflow and scenario launcher",
+      "file": "06-01-start-workflow-and-scenario-launcher",
+      "x": 200,
+      "y": 220,
+      "width": 2480,
+      "height": 895
+     },
+     {
+      "name": "Homepage / Desktop · 1488 px",
+      "file": "06-02-homepage-desktop-1488-px",
+      "x": 200,
+      "y": 1700,
+      "width": 1488,
+      "height": 6928
+     },
+     {
+      "name": "Services / Desktop",
+      "file": "06-03-services-desktop",
+      "x": 2088,
+      "y": 1700,
+      "width": 1488,
+      "height": 9983
+     },
+     {
+      "name": "Plans & Pricing / Desktop",
+      "file": "06-04-plans-pricing-desktop",
+      "x": 3976,
+      "y": 1700,
+      "width": 1488,
+      "height": 6472
+     },
+     {
+      "name": "Get started / Desktop",
+      "file": "06-05-get-started-desktop",
+      "x": 5864,
+      "y": 1700,
+      "width": 1488,
+      "height": 4097
+     },
+     {
+      "name": "Homepage / Mobile · 390 px",
+      "file": "06-06-homepage-mobile-390-px",
+      "x": 7957,
+      "y": 1700,
+      "width": 390,
+      "height": 9436
+     },
+     {
+      "name": "Contact / Desktop",
+      "file": "06-07-contact-desktop",
+      "x": 200,
+      "y": 12423,
+      "width": 1488,
+      "height": 2097
+     },
+     {
+      "name": "About / Desktop",
+      "file": "06-08-about-desktop",
+      "x": 2088,
+      "y": 12423,
+      "width": 1488,
+      "height": 3762
+     },
+     {
+      "name": "Privacy / Desktop",
+      "file": "06-09-privacy-desktop",
+      "x": 3976,
+      "y": 12423,
+      "width": 1488,
+      "height": 4969
+     },
+     {
+      "name": "Terms / Desktop",
+      "file": "06-10-terms-desktop",
+      "x": 5864,
+      "y": 12423,
+      "width": 1488,
+      "height": 6050
+     },
+     {
+      "name": "Voice demo / Introduction",
+      "file": "06-11-voice-demo-introduction",
+      "x": 7872,
+      "y": 12423,
+      "width": 560,
+      "height": 555
+     }
+    ]
+   },
+   {
+    "name": "Presentation",
+    "frames": [
+     {
+      "name": "Slide 01 / Keep jobs moving.",
+      "file": "09-01-slide-01-keep-jobs-moving",
+      "x": 200,
+      "y": 340,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 02 / Give every inquiry a clear next step.",
+      "file": "09-02-slide-02-give-every-inquiry-a-clear-next-step",
+      "x": 2200,
+      "y": 340,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 03 / Two roles. One clear handoff.",
+      "file": "09-03-slide-03-two-roles-one-clear-handoff",
+      "x": 200,
+      "y": 1530,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 04",
+      "file": "09-04-slide-04",
+      "x": 2200,
+      "y": 1530,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 05 / Let the decision shape the sitemap.",
+      "file": "09-05-slide-05-let-the-decision-shape-the-sitemap",
+      "x": 200,
+      "y": 2720,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 06 / Lead with the front desk’s job.",
+      "file": "09-06-slide-06-lead-with-the-front-desk-s-job",
+      "x": 2200,
+      "y": 2720,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 07 / Compare scope before commitment.",
+      "file": "09-07-slide-07-compare-scope-before-commitment",
+      "x": 200,
+      "y": 3910,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 08 / Show trigger, action, and handoff.",
+      "file": "09-08-slide-08-show-trigger-action-and-handoff",
+      "x": 2200,
+      "y": 3910,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 09 / Make setup a sequence.",
+      "file": "09-09-slide-09-make-setup-a-sequence",
+      "x": 200,
+      "y": 5100,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 10 / One visual language. Every width.",
+      "file": "09-10-slide-10-one-visual-language-every-width",
+      "x": 2200,
+      "y": 5100,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 11 / Define what a good outcome means.",
+      "file": "09-11-slide-11-define-what-a-good-outcome-means",
+      "x": 200,
+      "y": 6290,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 12 / Good work deserves good follow-up.",
+      "file": "09-12-slide-12-good-work-deserves-good-follow-up",
+      "x": 2200,
+      "y": 6290,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Rationale / 1 of 2",
+      "file": "09-13-rationale-1-of-2",
+      "x": 4540,
+      "y": 220,
+      "width": 1120,
+      "height": 1584
+     },
+     {
+      "name": "Rationale / 2 of 2",
+      "file": "09-14-rationale-2-of-2",
+      "x": 5740,
+      "y": 220,
+      "width": 1120,
+      "height": 1584
+     }
+    ]
+   }
+  ]
+ }
+}
