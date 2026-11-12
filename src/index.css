@@ -169,13 +169,14 @@
     background: oklch(var(--color-surface-page));
     color: oklch(var(--color-ink));
     font-family: "Geist Variable", system-ui, sans-serif;
-    overflow-x: hidden;
+    /* clip, not hidden: hidden turns this into a scroll container and breaks position: sticky. */
+    overflow-x: clip;
     min-height: 100dvh;
     padding-bottom: 0;
   }
 
   #root {
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1,
@@ -4185,4 +4186,432 @@ a:hover .duotone-media::after {
     background: white !important;
     color: black !important;
   }
+}
+
+/* ---------- Selection frame (recurring design-file object) ---------- */
+.sel-frame {
+  position: relative;
+  outline: 1.5px solid oklch(var(--color-accent));
+  outline-offset: 0;
+  border-radius: 2px;
+}
+
+.sel-frame__tag {
+  position: absolute;
+  left: -1.5px;
+  bottom: calc(100% + 6px);
+  z-index: 2;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  background: oklch(var(--color-accent));
+  color: white;
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: 0.6875rem;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sel-frame__handle {
+  position: absolute;
+  z-index: 2;
+  width: 9px;
+  height: 9px;
+  border: 1.5px solid oklch(var(--color-accent));
+  background: white;
+}
+
+.sel-frame__handle--tl { top: -5px; left: -5px; }
+.sel-frame__handle--tr { top: -5px; right: -5px; }
+.sel-frame__handle--bl { bottom: -5px; left: -5px; }
+.sel-frame__handle--br { bottom: -5px; right: -5px; }
+
+/* ---------- Screens-first case study ---------- */
+.cs-page {
+  background: oklch(var(--color-surface-page));
+  color: oklch(var(--color-ink));
+}
+
+.cs-shell {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.cs-shell--wide { max-width: 88rem; }
+
+.cs-header { padding-top: clamp(5.5rem, 12vh, 9rem); }
+
+.cs-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  color: oklch(var(--color-accent-strong));
+  font-weight: 500;
+}
+
+.cs-back:hover { text-decoration: underline; }
+
+.cs-eyebrow {
+  margin-top: 1.5rem;
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: oklch(var(--color-accent-strong));
+}
+
+.cs-eyebrow--on-dark { color: oklch(var(--color-accent-muted)); }
+
+.cs-title {
+  margin-top: 1rem;
+  max-width: 16ch;
+  font-family: "Bricolage Grotesque Variable", "Bricolage Grotesque Fallback", system-ui, sans-serif;
+  font-variation-settings: "opsz" 96;
+  font-size: clamp(2.6rem, 8vw, 6.5rem);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.cs-lede {
+  margin-top: 1.5rem;
+  max-width: 46ch;
+  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+  line-height: 1.5;
+  color: oklch(var(--color-ink-secondary));
+}
+
+.cs-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 2rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid oklch(var(--color-border-soft));
+}
+
+.cs-meta dt {
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: oklch(var(--color-ink-muted));
+}
+
+.cs-meta dd { margin-top: 0.4rem; font-weight: 500; line-height: 1.4; }
+
+.cs-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: oklch(var(--color-accent-strong));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cs-header .sel-frame { margin-top: clamp(3.5rem, 7vw, 5.5rem); }
+
+.cs-cover {
+  overflow: hidden;
+  border-radius: 14px;
+  background: oklch(var(--color-surface-soft));
+  aspect-ratio: 16 / 10;
+}
+
+.cs-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.cs-brief {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: clamp(4rem, 10vw, 8rem);
+}
+
+.cs-brief__item {
+  padding-top: 1.25rem;
+  border-top: 1px solid oklch(var(--color-ink));
+}
+
+.cs-index {
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: oklch(var(--color-ink-muted));
+}
+
+.cs-brief__label {
+  margin-top: 0.6rem;
+  font-family: "Bricolage Grotesque Variable", "Bricolage Grotesque Fallback", system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.cs-brief__body {
+  margin-top: 0.75rem;
+  line-height: 1.6;
+  color: oklch(var(--color-ink-secondary));
+}
+
+.cs-thesis-wrap { margin-top: clamp(5rem, 12vw, 10rem); }
+
+.cs-thesis {
+  margin-top: 1.25rem;
+  max-width: 22ch;
+  font-family: "Bricolage Grotesque Variable", "Bricolage Grotesque Fallback", system-ui, sans-serif;
+  font-variation-settings: "opsz" 72;
+  font-size: clamp(1.9rem, 4.6vw, 4rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.cs-walk { margin-top: clamp(5rem, 12vw, 10rem); }
+
+.cs-walk__stage { display: none; }
+
+.cs-h2 {
+  margin-top: 1rem;
+  max-width: 18ch;
+  font-family: "Bricolage Grotesque Variable", "Bricolage Grotesque Fallback", system-ui, sans-serif;
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  font-weight: 650;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.cs-h2--on-dark { color: white; }
+
+.cs-steps { margin-top: 2.5rem; display: grid; gap: 3.5rem; }
+
+.cs-step__image {
+  width: 100%;
+  margin-bottom: 1.25rem;
+  border-radius: 10px;
+  border: 1px solid oklch(var(--color-border-soft));
+  background: oklch(var(--color-surface-soft));
+}
+
+.cs-step__title {
+  margin-top: 0.5rem;
+  font-family: "Bricolage Grotesque Variable", "Bricolage Grotesque Fallback", system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.cs-step__note {
+  margin-top: 0.75rem;
+  max-width: 38ch;
+  line-height: 1.6;
+  color: oklch(var(--color-ink-secondary));
+}
+
+.cs-proof {
+  position: relative;
+  overflow: hidden;
+  margin-top: clamp(5rem, 12vw, 10rem);
+  padding-block: clamp(5rem, 11vw, 9rem);
+  background: oklch(var(--color-ink));
+  color: oklch(0.86 0.012 275);
+}
+
+.cs-proof__drift {
+  position: absolute;
+  top: clamp(1rem, 4vw, 3rem);
+  left: 0;
+  white-space: nowrap;
+  font-family: "Bricolage Grotesque Variable", "Bricolage Grotesque Fallback", system-ui, sans-serif;
+  font-variation-settings: "opsz" 96;
+  font-size: clamp(6rem, 22vw, 20rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: oklch(1 0 0 / 0.05);
+  pointer-events: none;
+  user-select: none;
+}
+
+.cs-proof__inner { position: relative; }
+
+.cs-proof__summary {
+  margin-top: 1.5rem;
+  max-width: 52ch;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.cs-figures {
+  display: grid;
+  gap: 2rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid oklch(1 0 0 / 0.16);
+}
+
+.cs-figures dd {
+  font-family: "Bricolage Grotesque Variable", "Bricolage Grotesque Fallback", system-ui, sans-serif;
+  font-variation-settings: "opsz" 96;
+  font-size: clamp(2.75rem, 6.5vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: white;
+}
+
+.cs-figures dt { margin-top: 0.6rem; font-weight: 500; color: white; }
+
+.cs-figures p {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: oklch(0.72 0.014 275);
+}
+
+.cs-notes {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 3.5rem;
+  max-width: 60ch;
+}
+
+.cs-notes li {
+  padding-top: 1.25rem;
+  border-top: 1px solid oklch(1 0 0 / 0.16);
+  line-height: 1.6;
+}
+
+.cs-reflection { margin-top: 3.5rem; max-width: 60ch; }
+
+.cs-reflection h3 {
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: oklch(var(--color-accent-muted));
+}
+
+.cs-reflection p {
+  margin-top: 1rem;
+  font-size: clamp(1.125rem, 1.7vw, 1.4rem);
+  line-height: 1.5;
+  color: white;
+}
+
+.cs-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  margin-top: 3rem;
+  padding-inline: 1.5rem;
+  border-radius: 999px;
+  background: white;
+  color: oklch(var(--color-ink));
+  font-weight: 600;
+  transition: transform 220ms var(--ease-out);
+}
+
+.cs-cta:hover { transform: translateY(-2px); }
+
+.cs-cta:focus-visible,
+.cs-link:focus-visible,
+.cs-back:focus-visible {
+  outline: 2px solid oklch(var(--color-accent));
+  outline-offset: 3px;
+}
+
+@media (min-width: 768px) {
+  .cs-shell { padding-inline: 2.5rem; }
+  .cs-meta { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .cs-brief { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+  .cs-figures { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .cs-walk__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .cs-walk__stage {
+    display: block;
+    position: sticky;
+    top: 14vh;
+    padding-top: 1.75rem;
+  }
+
+  .cs-stage {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10.5;
+    background: oklch(var(--color-surface-soft));
+  }
+
+  .cs-stage__screen {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0;
+    transform: scale(1.035);
+    transition: opacity 520ms var(--ease-out), transform 900ms var(--ease-out);
+  }
+
+  .cs-stage__screen--tall { object-fit: contain; padding: 1.5rem; }
+
+  .cs-stage__screen.is-active { opacity: 1; transform: scale(1); }
+
+  .cs-stage__count {
+    margin-top: 1rem;
+    font-family: "Geist Mono Variable", ui-monospace, monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: oklch(var(--color-ink-muted));
+  }
+
+  .cs-stage__count span { color: oklch(var(--color-ink)); }
+
+  .cs-steps { gap: 0; margin-top: 3rem; }
+
+  .cs-step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 62vh;
+    opacity: 0.32;
+    transition: opacity 360ms var(--ease-out);
+  }
+
+  .cs-step.is-active { opacity: 1; }
+
+  .cs-step__image { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-stage__screen,
+  .cs-step,
+  .cs-cta {
+    transition: none;
+  }
+
+  .cs-stage__screen { transform: none; }
 }

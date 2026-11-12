@@ -292,7 +292,7 @@ const getScreenCopy = (
   };
 };
 
-const getPlatformScreens = (project: ProjectType): PlatformScreen[] => {
+export const getPlatformScreens = (project: ProjectType): PlatformScreen[] => {
   const visualImages =
     project.visuals?.map((visual) => visual.src).filter(Boolean) || [];
   const excludedScreens = project.slug

@@ -24,6 +24,7 @@ import CaseStudyChapterNav, {
 } from "@/components/project/CaseStudyChapterNav";
 import PullQuote from "@/components/project/PullQuote";
 import NextProjectTakeover from "@/components/project/NextProjectTakeover";
+import ScreensFirstCaseStudy from "@/components/project/ScreensFirstCaseStudy";
 import { ProjectType } from "@/types/project";
 import {
   getCaseStudyNarrative,
@@ -406,6 +407,17 @@ const Project = () => {
       </div>
     ),
   };
+
+  // Projects with a curated narrative use the screens-first layout.
+  if (narrative) {
+    return (
+      <div className="min-h-screen pb-24 md:pb-0">
+        <ScreensFirstCaseStudy project={project as ProjectType} />
+        <NextProjectTakeover project={project as ProjectType} />
+        <Footer />
+      </div>
+    );
+  }
 
   return <motion.div initial={{
     opacity: 0
