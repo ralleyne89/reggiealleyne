@@ -1,6 +1,6 @@
 # Progress: portfolio audit
 
-Branch: `claude/portfolio-audit-fixes`. Nothing is published; Lovable deploys from `main`.
+Branch: `claude/portfolio-audit-fixes`. Nothing is published.
 
 ## Stage status
 - 0 Brief: done (`brief.md`)
@@ -30,7 +30,18 @@ Branch: `claude/portfolio-audit-fixes`. Nothing is published; Lovable deploys fr
 5. Analytics: Umami Cloud chosen (cookieless, free Hobby plan). Wired in `src/lib/analytics.ts` with `resume-open`, `email-click`, `outbound-click` and `contact-sent` events. Off until `VITE_UMAMI_WEBSITE_ID` is set in `.env`. Blocked on Reggie creating the Umami site and supplying the ID; no test event fired yet.
 6. Work titles: solid ink at rest on every device, accent on hover. Text stroke removed.
 
+## Pass 2 (design, motion, case studies), started Nov 11
+- Audit done from scroll captures at 1440 and 390: hero is the strongest surface; below it the home page is stacked cards, text rows and a nine-row tool list with fade-in motion only; case studies run about 8,100px desktop / 11,500px mobile, mostly bordered text boxes, small screenshots and stock 3D icons; no WebGL anywhere; `DESIGN.md` describes an older build.
+- Research: five Mobbin section sweeps done. Awwwards list gathered but no site watched live (see `direction.md`, Open items).
+- Reggie's decisions: keep hero and rebuild the rest; 3D moment is the hero canvas in depth; case studies go screens first; lead work is Staybooked, MotorFlow, Litmus AI.
+- `direction.md` written. Build not started: waiting on Reggie's go on the direction.
+- Still to do in this pass: per-project share cards, CreativeWork structured data, empty H2s on case studies, case-study title punctuation.
+- Preview deploy is on hold until this pass is built (Reggie, Nov 11).
+
+## Deploy facts (found Nov 11)
+- reggiealleyne.com is served by Netlify project `reggiealleyne` via CLI deploys, last on Oct 28. Lovable does not serve the domain.
+- That deploy contains per-route HTML files this repo's build does not produce. Source unknown; ask Reggie before any production deploy.
+- Empty Netlify project `reggiealleyne-pr5-preview` was created for a preview and has no deploy.
+
 ## After publishing
 - Re-scrape the home URL in LinkedIn Post Inspector and Facebook Sharing Debugger; iMessage caches previews per device.
-- Check Lovable's own publish settings for a favicon or share image set there.
-- `netlify.toml` redirects (`/project/2` to `/project/13`) do not apply on Lovable; only the CLLCTVE aliases are handled in the router.
