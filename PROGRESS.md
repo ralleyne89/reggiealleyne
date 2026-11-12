@@ -2,15 +2,18 @@
 
 Branch: `claude/portfolio-audit-fixes`. Nothing is published.
 
-## Stage status
-- 0 Brief: done (`brief.md`)
-- 1 Structure: audited, decisions waiting on Reggie (below)
-- 2 Copy: audited, decisions waiting on Reggie (below)
-- 3 Design/build: no redesign in this pass
-- 4 Working parts: contact form NOT tested (sandbox cannot reach Supabase or the live site)
-- 5 Search and measurement: technical fixes done; analytics blocked on a tool choice
-- 6 Accessibility: automated pass only; manual keyboard and screen reader pass still open
-- 7-9: not started. Checkpoint B (publish) needs Reggie's go.
+## Stage status (Nov 11, end of day)
+- 0 Brief: done
+- 1 Structure: done (existing pages kept; `/services` removed; lead order Motorflow, Staybooked, CLLCTVE)
+- 2 Copy: done for new sections using existing copy; no new claims written
+- 3 Design and build: done (`direction.md`)
+- 4 Working parts: contact is mailto, resume and social links, all present; the Supabase contact function needs a Turnstile key this build does not set, so it is not used
+- 5 Search and measurement: done except analytics (blocked on an Umami website ID) and Search Console (no access)
+- 6 Accessibility: axe AA clean on 7 pages at two widths, keyboard pass done; screen reader pass not done
+- 7 Final QA: verify script passes on the preview; Lighthouse home mobile 83, case study mobile 86, home desktop 92; Chrome only
+- **Checkpoint B: waiting on Reggie's go for production.** Preview: https://6af56842330e7793ba89cb5a--reggiealleyne-pr5-preview.netlify.app
+- 8 Launch: not started
+- 9 Handoff: `handoff.md` drafted, to be finalised after launch
 
 ## Done on this branch
 - Share/icon logo: favicon, apple-touch-icon and PWA icons rebuilt from the current RA logo (they were the old circled monogram). Old icon files and `ra-logo*.svg` removed. Share image renamed to `reggie-alleyne-portfolio-og-20260915.jpg` so platforms refetch it. Service worker cache bumped to v4.
@@ -62,7 +65,7 @@ Branch: `claude/portfolio-audit-fixes`. Nothing is published.
 
 ## Local repo and preview (found Nov 11, late)
 - `~/Projects/reggiealleyne` on the Mac is on branch `update-resume-ai-product-designer` with 38 modified and 30 untracked files, last touched Oct 28: new `ra-stars-*` icons, a `build/routeMetadata.ts`, a 404 rewrite in `netlify.toml`, `HomeLoader` deleted, and edits across hero, pages and project data. The Oct 28 production deploy almost certainly came from this folder. None of it is on GitHub.
-- PR #5 is built on GitHub `main`, so it does not contain that work. **Do not deploy PR #5 to production until the local work is committed and merged in.** Waiting on Reggie.
+- Resolved Nov 11: the local work was committed to branch `local-oct28-work` (stale `.git/HEAD.lock` from July moved aside first) and merged into PR #5. Icons, share image name, responsive images, scripts, audit notes, skip link and the 404 rule were taken; local source edits that `main` had already superseded were not.
 - That folder was not touched. A separate worktree at `~/Projects/reggiealleyne-pr5` holds the PR branch; a dev server runs from it on port 5180.
 - Draft preview deployed from the worktree to the `reggiealleyne-pr5-preview` Netlify project (not production). Verified there: home 200, `/project/motorflow` and `/work` serve their own title and share image after a trailing-slash redirect, favicon and depth map load.
 
