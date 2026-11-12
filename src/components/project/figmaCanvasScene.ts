@@ -63,6 +63,7 @@ const shadowMaterial = (width: number, height: number, pad: number) =>
   new ShaderMaterial({
     transparent: true,
     depthWrite: false,
+    depthTest: false,
     uniforms: {
       uHalf: { value: new Vector2(width / 2, height / 2) },
       uPad: { value: pad },
@@ -92,6 +93,7 @@ const gridMaterial = () =>
   new ShaderMaterial({
     transparent: true,
     depthWrite: false,
+    depthTest: false,
     uniforms: { uSoft: { value: 0.02 }, uStrength: { value: 1 } },
     vertexShader: /* glsl */ `
       varying vec2 vPos;
@@ -140,6 +142,7 @@ export const createFigmaCanvasScene = (
 
   const grid = new Mesh(new PlaneGeometry(400, 400), gridMaterial());
   grid.position.z = -0.05;
+  grid.renderOrder = -1;
   scene.add(grid);
 
   const disposables: Array<{ dispose: () => void }> = [grid.geometry, grid.material];
@@ -173,6 +176,7 @@ export const createFigmaCanvasScene = (
       const shadowGeometry = new PlaneGeometry(width + pad * 2, height + pad * 2);
       const shadow = new Mesh(shadowGeometry, shadowMaterial(width, height, pad));
       shadow.position.set(0, -0.18, -0.02);
+      shadow.renderOrder = 0;
       holder.add(shadow);
 
       const geometry = new PlaneGeometry(width, height);
@@ -183,6 +187,7 @@ export const createFigmaCanvasScene = (
         toneMapped: false,
       });
       const mesh = new Mesh(geometry, material);
+      mesh.renderOrder = 1;
       holder.add(mesh);
 
       const outlineGeometry = new BufferGeometry();
@@ -192,9 +197,10 @@ export const createFigmaCanvasScene = (
         "position",
         new Float32BufferAttribute([-hw, -hh, 0, hw, -hh, 0, hw, hh, 0, -hw, hh, 0], 3),
       );
-      const outlineMaterial = new LineBasicMaterial({ color: ACCENT, toneMapped: false });
+      const outlineMaterial = new LineBasicMaterial({ color: ACCENT, toneMapped: false, depthTest: false });
       const outline = new LineLoop(outlineGeometry, outlineMaterial);
       outline.position.z = 0.01;
+      outline.renderOrder = 2;
       outline.visible = false;
       holder.add(outline);
 
@@ -269,9 +275,11 @@ export const createFigmaCanvasScene = (
 
   const goOverview = () => {
     const { bounds } = pages[pageIndex];
-    fitDist = distanceFor(bounds.width, bounds.height, 1.22);
+    // Very tall pages open on their top rows instead of shrinking to a sliver.
+    const shownHeight = Math.min(bounds.height, (bounds.width / camera.aspect) * 2.6);
+    fitDist = distanceFor(bounds.width, shownHeight, 1.22);
     target.x = 0;
-    target.y = -bounds.height * 0.04;
+    target.y = bounds.height / 2 - shownHeight / 2 - shownHeight * 0.04;
     target.dist = fitDist;
     target.tilt = OVERVIEW_TILT;
     wake();
@@ -455,7 +463,7 @@ export const createFigmaCanvasScene = (
     wake();
   };
 
-  const clampDist = (value: number) => Math.min(fitDist * 2.2, Math.max(fitDist * 0.06, value));
+  const clampDist = (value: number) => Math.min(fitDist * 6, Math.max(fitDist * 0.06, value));
 
   // Only pinch or Ctrl/Cmd + wheel zooms, so the page keeps its scroll.
   const onWheel = (event: WheelEvent) => {
@@ -587,7 +595,8 @@ export const createFigmaCanvasScene = (
     ready = true;
     callbacks.onReady();
     start();
-    pages.slice(1).forEach((page) => void loadPage(page));
+    // Other pages load when they are opened; the next one is warmed up.
+    if (pages[1]) void loadPage(pages[1]);
   });
 
   return {

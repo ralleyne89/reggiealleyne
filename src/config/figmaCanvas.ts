@@ -1,3 +1,5 @@
+import draftFiles from "./figmaCanvasDrafts.json";
+
 /**
  * Frames exported from Reggie's own Figma files, one entry per case study
  * that has a file. Positions and sizes are the frames' real canvas
@@ -33,7 +35,8 @@ const f = (
   height: number,
 ): FigmaFrame => ({ name, file, x, y, width, height });
 
-export const figmaFiles: Record<string, FigmaFile> = {
+/** Team files, entered by hand. */
+const teamFiles: Record<string, FigmaFile> = {
   "tutor-d": {
     project: "Portfolio Projects",
     fileName: "TutorD Scholars",
@@ -132,6 +135,15 @@ export const figmaFiles: Record<string, FigmaFile> = {
       },
     ],
   },
+};
+
+/**
+ * Litmus AI and Motorflow live in Drafts. Their frames were cut from page
+ * exports by script, which wrote figmaCanvasDrafts.json.
+ */
+export const figmaFiles: Record<string, FigmaFile> = {
+  ...teamFiles,
+  ...(draftFiles as Record<string, FigmaFile>),
 };
 
 export const getFigmaFile = (slug?: string) => (slug ? figmaFiles[slug] : undefined);

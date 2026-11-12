@@ -169,7 +169,7 @@ const FigmaCanvasSection = ({ slug, title }: FigmaCanvasSectionProps) => {
                   <p className="fc-panel__title" id="fc-layers">
                     Layers
                   </p>
-                  <ul className="fc-layers" aria-labelledby="fc-layers">
+                  <ul className="fc-layers" aria-labelledby="fc-layers" data-lenis-prevent>
                     {page.frames.map((frame, index) => (
                       <li key={frame.file}>
                         <button

@@ -13,7 +13,7 @@ Branch: `claude/portfolio-audit-fixes`. Nothing is published.
 - 7 Final QA: verify script passes on the preview; Lighthouse home mobile 83, case study mobile 86, home desktop 92; Chrome only
 - Nov 12: at Checkpoint B Reggie asked for Work and About rebuilt and a dark liquid-glass nav first. Done: `src/pages/Works.tsx`, `src/pages/About.tsx`, nav glass in `src/index.css` and `Navbar.tsx`. axe AA clean on both pages at two widths. Copy on both pages is unchanged; About dropped its duplicate closing CTA.
 - Nov 12: Reggie approved launch. PR #5 merged and published to the Netlify project, but reggiealleyne.com DNS points at Lovable (185.158.133.1), so the domain still shows the old site. Reggie chose to repoint DNS to Netlify (A @ 75.2.60.5, CNAME www reggiealleyne.netlify.app); waiting on a Namecheap sign-in.
-- Nov 12: Figma canvas section added to case studies that have a file in Reggie's Figma team: Tutor D, SymptomCheckr, Staybooked. Frames exported from the files; manifest in `src/config/figmaCanvas.ts`; scene in `src/components/project/figmaCanvasScene.ts`. On branch `figma-canvas`, not yet on production.
+- Nov 12: Figma canvas section added to case studies that have a file in Reggie's Figma team (Tutor D, SymptomCheckr, Staybooked) or Drafts (Motorflow, Litmus AI; frames cut from page exports into `src/config/figmaCanvasDrafts.json`). Frames exported from the files; manifest in `src/config/figmaCanvas.ts`; scene in `src/components/project/figmaCanvasScene.ts`. On branch `figma-canvas`, not yet on production.
 - **Stage 8 Launch: in progress, blocked on DNS.** Preview: https://6af56842330e7793ba89cb5a--reggiealleyne-pr5-preview.netlify.app
 - 8 Launch: not started
 - 9 Handoff: `handoff.md` drafted, to be finalised after launch

@@ -6036,7 +6036,8 @@ a:hover .duotone-media::after {
   .fc-body { display: grid; grid-template-columns: 15rem minmax(0, 1fr); }
   .fc-panel { border-right: 1px solid oklch(1 0 0 / 0.1); border-bottom: 0; }
   .fc-pages { display: block; overflow: visible; margin-bottom: 1.4rem; }
-  .fc-layers { margin-top: 0.6rem; }
+  .fc-panel { display: flex; flex-direction: column; height: clamp(32rem, 76vh, 50rem); }
+  .fc-layers { flex: 1; min-height: 0; overflow-y: auto; margin-top: 0.6rem; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: oklch(1 0 0 / 0.2) transparent; }
   .fc-row--layer > span { overflow: hidden; margin-left: 0 !important; text-overflow: ellipsis; }
   .fc-row--layer svg { flex: none; color: oklch(0.72 0.1 286); }
 
