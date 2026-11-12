@@ -1,4 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
+import { projectPageTitle } from "@/config/routeMeta";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -229,7 +230,7 @@ const Project = () => {
   useEffect(() => {
     if (!project) return;
 
-    const title = `${project.title} | Reggie Alleyne`;
+    const title = projectPageTitle(project.title);
     const description =
       project.fullDescription || project.description || project.summary;
     const canonicalUrl = getProjectCanonicalUrl(project);
