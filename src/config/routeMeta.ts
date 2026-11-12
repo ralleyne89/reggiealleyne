@@ -12,28 +12,28 @@ export type RouteMeta = {
 
 export const HOME_ROUTE_META: RouteMeta = {
   path: "/",
-  title: "Reggie Alleyne | Senior UX/UI Designer Who Codes and Builds with AI",
+  title: "Reggie Alleyne | Senior UX/UI Designer Who Codes with AI",
   description:
     "Senior UX/UI designer who codes and builds with AI. I design AI products people can question and build them in React. Explore selected case studies.",
 };
 
 export const WORK_ROUTE_META: RouteMeta = {
   path: "/work",
-  title: "Work | Reggie Alleyne",
+  title: "UX/UI Case Studies: AI and Product Design | Reggie Alleyne",
   description:
     "Selected AI and product design case studies. Each one shows the problem, constraint, decision, and evidence behind the interface.",
 };
 
 export const ABOUT_ROUTE_META: RouteMeta = {
   path: "/about",
-  title: "About | Reggie Alleyne",
+  title: "About Reggie Alleyne | Senior UX/UI Designer in Los Angeles",
   description:
     "Background, selected experience, and design process of Reggie Alleyne, a senior UX/UI designer who codes and builds with AI.",
 };
 
 export const PLAYGROUND_ROUTE_META: RouteMeta = {
   path: "/playground",
-  title: "Playground | Reggie Alleyne",
+  title: "Playground: Coded Product Experiments | Reggie Alleyne",
   description:
     "Coded product experiments you can inspect, including ScentStack, Chill Vibes Music Player, and Bob's Big Break.",
 };
@@ -43,3 +43,15 @@ export const STATIC_ROUTE_META: RouteMeta[] = [
   ABOUT_ROUTE_META,
   PLAYGROUND_ROUTE_META,
 ];
+
+/**
+ * Search title for a case study. Long project names keep only the part
+ * before their subtitle so the whole title fits a results line.
+ */
+export const projectPageTitle = (projectTitle: string) => {
+  const suffix = " UX/UI Case Study | Reggie Alleyne";
+  const full = `${projectTitle}${suffix}`;
+  if (full.length <= 62) return full;
+  const short = projectTitle.split(/\s[–—-]\s|:\s/)[0].trim();
+  return `${short}${suffix}`;
+};

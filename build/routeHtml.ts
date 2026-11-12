@@ -13,6 +13,8 @@ type ProjectLike = {
   description: string;
   image: string;
   year: string;
+  role?: string;
+  category?: string | null;
 };
 
 const escapeHtml = (value: string) =>
@@ -41,7 +43,39 @@ const shareImageFor = (root: string, image: string) => {
   return original ? `${base}${original}` : image;
 };
 
-type PageInput = RouteMeta & { image?: string; imageAlt?: string; jsonLd?: object };
+type PageInput = RouteMeta & {
+  image?: string;
+  imageAlt?: string;
+  jsonLd?: object[];
+  /** Plain HTML for readers that do not run JavaScript. */
+  fallback?: string;
+};
+
+const breadcrumb = (trail: Array<[name: string, pagePath: string]>) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: trail.map(([name, pagePath], index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name,
+    item: `${SITE}${pagePath}`,
+  })),
+});
+
+const withFallback = (html: string, fallback?: string) =>
+  fallback
+    ? html.replace('<div id="root"></div>', `<noscript>${fallback}</noscript>\n    <div id="root"></div>`)
+    : html;
+
+const withJsonLd = (html: string, blocks: object[] = []) =>
+  blocks.reduce(
+    (result, block) =>
+      result.replace(
+        "</head>",
+        `  <script type="application/ld+json">${JSON.stringify(block)}</script>\n  </head>`,
+      ),
+    html,
+  );
 
 const renderPage = (template: string, page: PageInput) => {
   const url = `${SITE}${page.path}`;
@@ -71,14 +105,7 @@ const renderPage = (template: string, page: PageInput) => {
     html = html.replace(/\s*<meta property="og:image:(width|height|type)"[^>]*>/g, "");
   }
 
-  if (page.jsonLd) {
-    html = html.replace(
-      "</head>",
-      `  <script type="application/ld+json">${JSON.stringify(page.jsonLd)}</script>\n  </head>`,
-    );
-  }
-
-  return html;
+  return withFallback(withJsonLd(html, page.jsonLd), page.fallback);
 };
 
 /**
@@ -101,7 +128,7 @@ export const routeHtml = (): Plugin => ({
       stdin: {
         contents: `
           export { getAllPredefinedProjectsSync } from "./src/services/api/predefinedProjects";
-          export { STATIC_ROUTE_META } from "./src/config/routeMeta";
+          export { HOME_ROUTE_META, STATIC_ROUTE_META, projectPageTitle } from "./src/config/routeMeta";
         `,
         resolveDir: root,
         loader: "ts",
@@ -116,38 +143,61 @@ export const routeHtml = (): Plugin => ({
 
     const data = (await import(`${pathToFileURL(outfile).href}?t=${Date.now()}`)) as {
       getAllPredefinedProjectsSync: () => ProjectLike[];
+      HOME_ROUTE_META: RouteMeta;
       STATIC_ROUTE_META: RouteMeta[];
+      projectPageTitle: (title: string) => string;
     };
 
     const template = fs.readFileSync(templatePath, "utf8");
-    const pages: PageInput[] = [...data.STATIC_ROUTE_META];
+    const projects = data.getAllPredefinedProjectsSync().filter((project) => project.slug);
+    const projectLinks = projects
+      .map(
+        (project) =>
+          `<li><a href="/project/${project.slug}">${escapeHtml(project.title)}</a>: ${escapeHtml(clip(project.description, 140))}</li>`,
+      )
+      .join("");
+    const siteLinks =
+      '<p><a href="/">Home</a> · <a href="/work">Work</a> · <a href="/about">About</a> · <a href="/playground">Playground</a></p>';
 
-    data.getAllPredefinedProjectsSync().forEach((project) => {
-      if (!project.slug) return;
+    const pages: PageInput[] = data.STATIC_ROUTE_META.map((route) => {
+      const name = route.title.split(/[:|]/)[0].replace("About Reggie Alleyne", "About").trim();
+      return {
+        ...route,
+        jsonLd: [breadcrumb([["Home", "/"], [name, route.path]])],
+        fallback: `<main><h1>${escapeHtml(route.title.split(" | ")[0])}</h1><p>${escapeHtml(route.description)}</p>${route.path === "/about" ? "" : `<ul>${projectLinks}</ul>`}${siteLinks}</main>`,
+      };
+    });
+
+    projects.forEach((project) => {
       const pagePath = `/project/${project.slug}`;
       const description = clip(project.description);
       const image = shareImageFor(root, project.image);
+      const facts = [project.category, project.role, project.year].filter(Boolean).join(" · ");
 
       pages.push({
         path: pagePath,
-        title: `${project.title} | Reggie Alleyne`,
+        title: data.projectPageTitle(project.title),
         description,
         image,
         imageAlt: `${project.title} interface`,
-        jsonLd: {
-          "@context": "https://schema.org",
-          "@type": "CreativeWork",
-          name: project.title,
-          description,
-          url: `${SITE}${pagePath}`,
-          image: `${SITE}${image}`,
-          dateCreated: project.year,
-          author: {
-            "@type": "Person",
-            name: "Reggie Alleyne",
-            url: SITE,
+        fallback: `<main><h1>${escapeHtml(project.title)}</h1><p>${escapeHtml(facts)}</p><p>${escapeHtml(project.description)}</p><p><img src="${image}" alt="${escapeHtml(project.title)} interface" width="800"></p>${siteLinks}</main>`,
+        jsonLd: [
+          {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: project.title,
+            description,
+            url: `${SITE}${pagePath}`,
+            image: `${SITE}${image}`,
+            dateCreated: project.year,
+            author: {
+              "@type": "Person",
+              name: "Reggie Alleyne",
+              url: SITE,
+            },
           },
-        },
+          breadcrumb([["Home", "/"], ["Work", "/work"], [project.title, pagePath]]),
+        ],
       });
     });
 
@@ -174,6 +224,34 @@ export const routeHtml = (): Plugin => ({
       ),
     );
 
-    console.log(`route-html: wrote ${pages.length} route pages`);
+    // The home page keeps its own tags; it gains site data and a no-JS summary.
+    const home = data.HOME_ROUTE_META;
+    fs.writeFileSync(
+      templatePath,
+      withFallback(
+        withJsonLd(template, [
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Reggie Alleyne",
+            url: `${SITE}/`,
+            description: home.description,
+          },
+        ]),
+        `<main><h1>${escapeHtml(home.title.split(" | ").reverse().join(": "))}</h1><p>${escapeHtml(home.description)}</p><h2>Case studies</h2><ul>${projectLinks}</ul>${siteLinks}</main>`,
+      ),
+    );
+
+    // One sitemap entry per indexable page, dated with this build.
+    const today = new Date().toISOString().slice(0, 10);
+    const urls = ["/", ...pages.map((page) => page.path)]
+      .map((pagePath) => `  <url><loc>${SITE}${pagePath}</loc><lastmod>${today}</lastmod></url>`)
+      .join("\n");
+    fs.writeFileSync(
+      path.join(dist, "sitemap.xml"),
+      `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
+    );
+
+    console.log(`route-html: wrote ${pages.length} route pages and sitemap.xml`);
   },
 });
