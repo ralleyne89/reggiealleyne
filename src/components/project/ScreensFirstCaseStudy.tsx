@@ -17,6 +17,7 @@ import { getProjectLiveLabel } from "@/lib/projectLiveLabels";
 import { cn } from "@/lib/utils";
 import type { ProjectType } from "@/types/project";
 import { getPlatformScreens } from "./ProjectInterfaceEvidence";
+import FigmaCanvasSection from "./FigmaCanvasSection";
 import SelectionFrame from "./SelectionFrame";
 import TechNoirInteractiveDemo from "./TechNoirInteractiveDemo";
 
@@ -351,6 +352,8 @@ const ScreensFirstCaseStudy = ({ project }: ScreensFirstCaseStudyProps) => {
           </div>
         </section>
       ) : null}
+
+      <FigmaCanvasSection slug={project.slug} title={project.title} />
 
       <section className="cs-proof" data-layer="Proof" data-cs-proof aria-labelledby="cs-proof-title">
         <p className="cs-proof__drift" data-cs-drift aria-hidden="true">
