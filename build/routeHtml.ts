@@ -154,7 +154,10 @@ export const routeHtml = (): Plugin => ({
     pages.forEach((page) => {
       const directory = path.join(dist, page.path);
       fs.mkdirSync(directory, { recursive: true });
-      fs.writeFileSync(path.join(directory, "index.html"), renderPage(template, page));
+      const html = renderPage(template, page);
+      fs.writeFileSync(path.join(directory, "index.html"), html);
+      // A sibling .html file lets hosts serve /work without a trailing-slash redirect.
+      fs.writeFileSync(`${directory}.html`, html);
     });
 
     console.log(`route-html: wrote ${pages.length} route pages`);

@@ -59,7 +59,12 @@ Branch: `claude/portfolio-audit-fixes`. Nothing is published.
 - A true 360 bust was not possible: the Higgsfield account has 0.4 credits and image-to-3D costs 38. Blender is installed on the Mac but cannot produce a likeness from one photo on its own.
 - Local preview finding: `~/Projects/reggiealleyne` was on branch `update-resume-ai-product-designer`, so `npm run dev` showed old code. Port 8080 is also used by another app (lobsterboard) on IPv4.
 - Known gaps: Work and About have chrome and layers but no layout changes of their own.
-- Preview deploy is on hold until Reggie's Mac can run it (workspace cannot reach Netlify).
+
+## Local repo and preview (found Nov 11, late)
+- `~/Projects/reggiealleyne` on the Mac is on branch `update-resume-ai-product-designer` with 38 modified and 30 untracked files, last touched Oct 28: new `ra-stars-*` icons, a `build/routeMetadata.ts`, a 404 rewrite in `netlify.toml`, `HomeLoader` deleted, and edits across hero, pages and project data. The Oct 28 production deploy almost certainly came from this folder. None of it is on GitHub.
+- PR #5 is built on GitHub `main`, so it does not contain that work. **Do not deploy PR #5 to production until the local work is committed and merged in.** Waiting on Reggie.
+- That folder was not touched. A separate worktree at `~/Projects/reggiealleyne-pr5` holds the PR branch; a dev server runs from it on port 5180.
+- Draft preview deployed from the worktree to the `reggiealleyne-pr5-preview` Netlify project (not production). Verified there: home 200, `/project/motorflow` and `/work` serve their own title and share image after a trailing-slash redirect, favicon and depth map load.
 
 ## Deploy facts (found Nov 11)
 - reggiealleyne.com is served by Netlify project `reggiealleyne` via CLI deploys, last on Oct 28. Lovable does not serve the domain.
