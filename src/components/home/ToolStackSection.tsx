@@ -274,7 +274,7 @@ const ToolStackSection = ({ index = "03" }: { index?: string }) => {
 
               <div className="home-tools-row__body">
                 <p className="text-sm leading-6 text-gray-600">{tool.role}</p>
-                <p className="home-tools-row__proof font-mono text-[0.65rem] font-medium uppercase leading-5 tracking-[0.16em] text-gray-400">
+                <p className="home-tools-row__proof font-mono text-[0.65rem] font-medium uppercase leading-5 tracking-[0.16em] text-text-muted">
                   {tool.proof}
                 </p>
               </div>

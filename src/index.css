@@ -9,9 +9,9 @@
     --color-surface-raised: 0.996 0.004 275;
     --color-ink: 0.19 0.024 268;
     --color-ink-secondary: 0.44 0.026 268;
-    --color-ink-muted: 0.56 0.021 268;
+    --color-ink-muted: 0.53 0.021 268;
     --color-border-soft: 0.88 0.014 276;
-    --color-accent: 0.61 0.19 286;
+    --color-accent: 0.55 0.19 286;
     --color-accent-strong: 0.54 0.21 286;
     --color-accent-soft: 0.93 0.04 286;
     --color-accent-muted: 0.77 0.11 286;
@@ -4474,12 +4474,20 @@ a:hover .duotone-media::after {
   color: white;
 }
 
+.cs-figures > div { display: flex; flex-direction: column; }
+
+.cs-figures dd.cs-figures__value { order: -1; }
+
 .cs-figures dt { margin-top: 0.6rem; font-weight: 500; color: white; }
 
-.cs-figures p {
+.cs-figures dd.cs-figures__context {
   margin-top: 0.25rem;
+  font-family: inherit;
   font-size: 0.875rem;
-  color: oklch(0.72 0.014 275);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: oklch(0.76 0.014 275);
 }
 
 .cs-notes {
@@ -4688,7 +4696,12 @@ a:hover .duotone-media::after {
 .lw-item__title a { transition: color 260ms var(--ease-out); }
 
 .lw-item__title a:hover,
-.lw-item__title a:focus-visible { color: oklch(var(--color-accent-strong)); outline: none; }
+.lw-item__title a:focus-visible { color: oklch(var(--color-accent-strong)); }
+
+.lw-item__title a:focus-visible {
+  outline: 2px solid oklch(var(--color-accent));
+  outline-offset: 6px;
+}
 
 .lw-item__summary {
   margin-top: 1.25rem;

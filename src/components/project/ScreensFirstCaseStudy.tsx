@@ -173,7 +173,7 @@ const ScreensFirstCaseStudy = ({ project }: ScreensFirstCaseStudyProps) => {
       if (!thesis) return;
 
       context.add(() => {
-        split = SplitText.create(thesis, { type: "words" });
+        split = SplitText.create(thesis, { type: "words", aria: "none" });
         gsap.fromTo(
           split.words,
           { opacity: 0.16 },
@@ -371,11 +371,13 @@ const ScreensFirstCaseStudy = ({ project }: ScreensFirstCaseStudyProps) => {
             <dl className="cs-figures">
               {metrics.map((metric) => (
                 <div key={`${metric.value}-${metric.label}`} data-cs-reveal>
-                  <dd>
+                  <dt>{metric.label}</dt>
+                  <dd className="cs-figures__value">
                     <CountUp value={metric.value} />
                   </dd>
-                  <dt>{metric.label}</dt>
-                  {metric.context ? <p>{metric.context}</p> : null}
+                  {metric.context ? (
+                    <dd className="cs-figures__context">{metric.context}</dd>
+                  ) : null}
                 </div>
               ))}
             </dl>

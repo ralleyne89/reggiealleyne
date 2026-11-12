@@ -32,7 +32,7 @@ const StatementSection = () => {
       if (!headline || !body) return;
 
       context.add(() => {
-        const bodySplit = SplitText.create(body, { type: "words" });
+        const bodySplit = SplitText.create(body, { type: "words", aria: "none" });
         splits.push(bodySplit);
         gsap.fromTo(
           bodySplit.words,

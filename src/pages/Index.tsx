@@ -14,11 +14,13 @@ const Index = () => {
   return (
     <>
       <HomeLoader />
-      <HeroSection />
-      <FeaturedProjectsSection />
-      <StatementSection />
-      <PlaygroundPreviewSection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <FeaturedProjectsSection />
+        <StatementSection />
+        <PlaygroundPreviewSection />
+        <ContactSection />
+      </main>
       <Footer />
     </>
   );

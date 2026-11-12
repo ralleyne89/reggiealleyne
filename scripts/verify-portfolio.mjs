@@ -19,7 +19,8 @@ for (const route of routes) {
   assert.equal(canonical, `https://reggiealleyne.com${route}`, route);
   assert.equal(/name="robots"[^>]*noindex/.test(html), false, route);
   assert.ok(html.includes('ra-stars-180-20260915.png'), route);
-  assert.ok(html.includes('reggie-alleyne-portfolio-og-20260915.jpg'), route);
+  // Project routes carry their own share image; every route must have one.
+  assert.ok(/property="og:image" content="https:\/\/reggiealleyne\.com\/images\//.test(html), route);
   titles.add(title);
   results.push({ route, status: response.status, title, canonical });
 }

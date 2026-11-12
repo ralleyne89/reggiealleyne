@@ -61,11 +61,10 @@ const NextProjectTakeover = ({ project }: NextProjectTakeoverProps) => {
     <Link
       data-layer="Next project"
       to={getProjectPath(nextProject)}
-      aria-label={`Next case study: ${nextProject.title}`}
       data-cursor-label="Next project"
       className="group relative block overflow-hidden border-t border-white/10 bg-gray-950 text-white"
     >
-      <div className="border-b border-white/10 py-4">
+      <div className="border-b border-white/10 py-4" aria-hidden="true">
         <Marquee speed={60} groupClassName="gap-6 pr-6">
           <span className="font-mono text-xs font-medium uppercase tracking-[0.3em] text-purple-200">
             Next case study

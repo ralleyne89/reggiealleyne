@@ -165,10 +165,9 @@ export const routeHtml = (): Plugin => ({
     fs.writeFileSync(
       path.join(dist, "404.html"),
       setMeta(
-        template.replace(
-          /<title>[^<]*<\/title>/,
-          "<title>Page not found | Reggie Alleyne</title>",
-        ),
+        template
+          .replace(/<title>[^<]*<\/title>/, "<title>Page not found | Reggie Alleyne</title>")
+          .replace(/\s*<link rel="canonical"[^>]*>/, ""),
         "name",
         "robots",
         "noindex, follow",

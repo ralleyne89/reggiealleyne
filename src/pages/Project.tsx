@@ -412,8 +412,10 @@ const Project = () => {
   if (narrative) {
     return (
       <div className="min-h-screen pb-24 md:pb-0">
-        <ScreensFirstCaseStudy project={project as ProjectType} />
-        <NextProjectTakeover project={project as ProjectType} />
+        <main>
+          <ScreensFirstCaseStudy project={project as ProjectType} />
+          <NextProjectTakeover project={project as ProjectType} />
+        </main>
         <Footer />
       </div>
     );
