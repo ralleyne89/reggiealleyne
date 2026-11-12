@@ -47,6 +47,7 @@ export interface CaseStudyProcessArtifact {
 }
 
 export type CaseStudyMetricKind =
+  | "reported-outcome"
   | "measured-outcome"
   | "delivery-fact"
   | "design-target"
@@ -61,6 +62,7 @@ export interface CaseStudyMetric {
 }
 
 export type CaseStudyImpactFraming =
+  | "reported-outcomes"
   | "measured-outcomes"
   | "mvp-proof"
   | "measurement-plan";
@@ -112,6 +114,7 @@ export interface CaseStudyNarrative {
 }
 
 export type CaseStudyNarrativeSlug =
+  | "tech-noir"
   | "cllctve-platform"
   | "tutor-d"
   | "wristband"
@@ -197,16 +200,16 @@ export interface HomepageProofMetric {
 export const featuredProjectConfig: FeaturedProjectConfig[] = [
   {
     slug: "cllctve-platform",
-    featuredTitle: "Gen Z Portfolio Platform",
+    featuredTitle: "CLLCTVE — Creator Platform",
     eyebrow: "Creator economy / platform design",
     impactSummary:
-      "A mobile-first creator portfolio bet that reached 500+ creators, 15 brand partnerships, and 85% retention.",
+      "A mobile-first creator platform with resume-reported traction: 500+ creators and 15 brand partnerships.",
     reviewerSignal:
       "Shows the tradeoffs behind mobile behavior, design systems, and brand constraints.",
   },
   {
     slug: "litmus-ai",
-    featuredTitle: "AI Literacy Platform",
+    featuredTitle: "Litmus AI — Literacy Assessment",
     eyebrow: "AI education / assessment",
     impactSummary:
       "A shipped assessment, recommendation, training, and certificate path designed around a five-minute target.",
@@ -215,10 +218,10 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
   },
   {
     slug: "staybooked",
-    featuredTitle: "AI Airbnb Optimizer",
+    featuredTitle: "Staybooked — Host Workspace",
     eyebrow: "Hospitality AI / host workflow",
     impactSummary:
-      "A host workflow that turns listing review into an audit, one grounded fix, and a clear re-check.",
+      "A room-focused MVP connecting property setup, photo uploads, a host dashboard, and account entry.",
     reviewerSignal:
       "Shows how product constraints keep AI suggestions tied to the property a host can deliver.",
   },
@@ -249,12 +252,12 @@ export const caseStudyPresentations: Partial<
     ],
     chapterOrder: [
       "glance",
-      "impact",
       "overview",
+      "evidence",
+      "impact",
       "audience",
       "process",
       "artifacts",
-      "evidence",
     ],
     chapterLabels: {
       glance: "Details",
@@ -285,10 +288,10 @@ export const caseStudyPresentations: Partial<
     chapterOrder: [
       "glance",
       "overview",
+      "evidence",
       "audience",
       "process",
       "artifacts",
-      "evidence",
       "impact",
     ],
     chapterLabels: {
@@ -320,8 +323,8 @@ export const caseStudyPresentations: Partial<
     chapterOrder: [
       "glance",
       "overview",
-      "audience",
       "evidence",
+      "audience",
       "process",
       "artifacts",
       "impact",
@@ -388,7 +391,7 @@ export const caseStudyBriefs: Partial<
     coreDecision:
       "Prioritize mobile creation and creator feedback over desktop feature parity and deep analytics.",
     evidence:
-      "Reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
+      "Resume-reported traction before closure: 500+ creators, 15 brand partnerships, and 85% retention. The retention period and cohort are not documented.",
     artifacts: [
       "Mobile-first portfolio builder",
       "Creator feed and engagement loops",
@@ -403,7 +406,7 @@ export const caseStudyBriefs: Partial<
     coreDecision:
       "Build around first impressions: room photos, titles, opening copy, amenities, and audit cues.",
     evidence:
-      "The MVP connects account entry, a saved host dashboard, and a room optimizer that keeps suggestions attached to real property evidence.",
+      "The captured MVP connects account entry, a saved host dashboard, and a room setup and photo-upload screen.",
     artifacts: [
       "Marketing homepage",
       "Room optimizer upload flow",
@@ -461,6 +464,16 @@ export const caseStudyNarratives: Record<
   CaseStudyNarrativeSlug,
   CaseStudyNarrative
 > = {
+  "tech-noir": {
+    hook: "Make wearable technology feel like something you would choose to wear.",
+    setup: "Tech Noir shipped as a mobile application for luxury fashion and wearable technology. The brief joined shopping, styling advice, and editorial discovery in one place.",
+    research: "Shopper interviews and surveys pointed to a gap between knowing wearable tech exists and knowing how to wear it. The archived competitive study compared designer browsing, filtering, product details, and content across fashion retailers.",
+    constraint: "Technical specifications alone could not explain how a connected accessory fits into an outfit. Education had to help the purchase decision without interrupting shopping.",
+    decision: "Use a monochrome editorial system with designer collections, product-led imagery, and How to Wear guides. Keep the path clear: discover, learn, visualize, buy.",
+    build: "Designed the mobile shopping flow, designer directory, product filters, styling content, and checkout. AR try-on was explored as a concept. A new native SwiftUI demonstration recreates those flows with local sample inventory and a simulated visual try-on.",
+    proof: "The original mobile application shipped. Archived interface boards preserve the designer, filter, editorial, product, and checkout screens. The current native demonstration is a separate reconstruction for client presentations.",
+    reflection: "Product education works best next to the choice it helps someone make. I would measure whether styling guidance improves product understanding before adding more personalization or live AR.",
+  },
   "cllctve-platform": {
     hook:
       "CLLCTVE gave Gen Z creators a mobile-first portfolio shaped around how they already shared work, found feedback, and discovered brand opportunities.",
@@ -475,7 +488,7 @@ export const caseStudyNarratives: Record<
     build:
       "In my Product Designer and Frontend Developer role, I worked across the mobile portfolio builder, modular portfolio organization, branded challenge pages, notifications, and the design system that kept partner pages consistent.",
     proof:
-      "The product reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed. Those outcomes support the mobile-first product decision without turning the company closure into a success story.",
+      "The resume reports 500+ creators, 15 brand partnerships, and 85% retention before closure. The retention period and cohort are not documented, and the available records do not establish that the mobile-first decision caused those results.",
     reflection:
       "The project still guides how I think about category strategy. When an incumbent owns the obvious feature set, the design opportunity is often in the behavior they are too large or too slow to serve well.",
   },
@@ -583,7 +596,7 @@ export const caseStudyNarratives: Record<
     build:
       "I built the portfolio-facing product story across the marketing homepage, sign-in, dashboard, and room optimizer screens. The interface shows uploads, room context, realistic visual direction, and saved optimization work.",
     proof:
-      "The product connects account entry, a saved host dashboard, and room optimization. The screens show what the AI reviews, why it flags a room, and where a host can accept, adjust, or reject a suggestion.",
+      "The captured MVP screens show account entry, a host dashboard, and the room setup and upload state. Generated results and accept, adjust, or reject interactions still need a recorded walkthrough.",
     reflection:
       "The biggest product lesson was that AI tools need a point of view about responsibility. For Staybooked, the useful output is not spectacle; it is a believable next step a host can evaluate before changing a listing.",
   },
@@ -660,13 +673,13 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     decision:
       "Prioritize mobile creation and feedback loops over desktop feature parity with older portfolio platforms.",
     outcome:
-      "Reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
+      "Resume-reported traction before closure: 500+ creators, 15 brand partnerships, and 85% retention. The retention period and cohort are not documented.",
     tools: ["Figma", "React", "Ant Design", "MongoDB", "Styled Components"],
     owned: ["Mobile portfolio flow", "Creator feedback loops", "Design system", "Mobile behavior synthesis"],
     metrics: [
-      { value: "500+", label: "Creators on platform", kind: "measured-outcome", context: "Reported in the resume." },
-      { value: "85%", label: "Creator retention", kind: "measured-outcome", context: "Reported in the resume." },
-      { value: "15", label: "Brand partnerships", kind: "measured-outcome", context: "Reported in the resume." },
+      { value: "500+", label: "Creators on platform", kind: "reported-outcome", context: "Reported in the resume; underlying analytics are not archived." },
+      { value: "85%", label: "Creator retention", kind: "reported-outcome", context: "Resume-reported; retention period and cohort are not documented." },
+      { value: "15", label: "Brand partnerships", kind: "reported-outcome", context: "Reported in the resume; partnership records are not archived." },
     ],
   },
   "symptom-checkr": {
@@ -710,7 +723,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     problem:
       "Shoppers were interested in wearable tech but struggled to understand fit, styling, and everyday use.",
     outcome:
-      "75% of testers felt more confident exploring wearable tech after the mobile shopping prototype.",
+      "Shipped a mobile application for luxury wearable-tech shopping, with designer collections, styling guides, and editorial discovery. The new native client demo reconstructs the experience with sample inventory.",
     tools: ["Figma", "Adobe XD", "Illustrator", "Miro", "UserZoom"],
     owned: ["Research synthesis", "Mobile commerce flow", "Luxury visual system", "Prototype testing"],
   },
@@ -916,17 +929,17 @@ export const caseStudyImpacts: Partial<Record<string, CaseStudyImpact>> = {
     ],
   },
   "cllctve-platform": {
-    title: "What the product proved",
+    title: "Reported product traction",
     summary:
-      "A focused mobile workflow attracted creators and brand partners without matching every desktop portfolio feature. The company later closed, so the case study separates product traction from business survival.",
-    framing: "measured-outcomes",
+      "The resume records creator adoption and brand partnerships before the company closed. The available archive does not establish the retention measurement method or a causal link to a specific design decision.",
+    framing: "reported-outcomes",
     metrics: [
-      { value: "500+", label: "Creators on platform", kind: "measured-outcome", context: "Reported in the resume." },
-      { value: "15", label: "Brand partnerships", kind: "measured-outcome", context: "Reported in the resume." },
-      { value: "85%", label: "Creator retention", kind: "measured-outcome", context: "Reported in the resume." },
+      { value: "500+", label: "Creators on platform", kind: "reported-outcome", context: "Reported in the resume; underlying analytics are not archived." },
+      { value: "15", label: "Brand partnerships", kind: "reported-outcome", context: "Reported in the resume; partnership records are not archived." },
+      { value: "85%", label: "Creator retention", kind: "reported-outcome", context: "Resume-reported; retention period and cohort are not documented." },
     ],
     notes: [
-      "The strongest product signal was retention: creators had a reason to come back, not only a place to publish once.",
+      "A future evaluation should define the retention cohort and time window before comparing engagement.",
       "The brand-partnership count gave the creator-side experience a business reason to exist.",
       "The company closed, so the case study stays honest about product traction without overstating business survival.",
     ],
@@ -1835,7 +1848,7 @@ export const projectPersonaProfiles: Partial<Record<
   },
 };
 
-const hiddenFromPrimaryWorksIds = new Set([3, 4, 5, 7, 8, 12]);
+const hiddenFromPrimaryWorksIds = new Set([4, 5, 7, 8, 12]);
 
 export const getFeaturedConfig = (slug?: string) =>
   featuredProjectConfig.find((project) => project.slug === slug);

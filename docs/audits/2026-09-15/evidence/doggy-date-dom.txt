@@ -1,0 +1,179 @@
+- region "Notifications (F8)":
+  - list
+- banner:
+  - navigation "Primary navigation":
+    - link "Reggie Alleyne home":
+      - /url: /
+    - link "Home":
+      - /url: /
+      - generic "Home"
+    - link "Work":
+      - /url: /work
+      - generic "Work"
+    - link "Playground":
+      - /url: /playground
+      - generic "Playground"
+    - link "About":
+      - /url: /about
+      - generic "About"
+    - link "Contact":
+      - /url: /#contact
+      - generic "Contact"
+- generic: You
+- navigation "Case study chapters":
+  - list:
+    - button "Details":
+      - generic: Details
+    - button "Problem":
+      - generic: Problem
+    - button "Audience":
+      - generic: Audience
+    - button "Evidence":
+      - generic: Evidence
+- banner:
+  - link "Back to Work":
+    - /url: /work
+    - text: Back to Work
+  - paragraph: 2016 / Social
+  - heading "Doggy Date" [level=1]
+  - img "Doggy Date"
+- region "Case study at a glance":
+  - paragraph: Project details
+  - term: Role
+  - definition: UX/UI and Visual Designer
+  - term: Tools
+  - definition: Adobe XD, Photoshop, Illustrator, User interviews
+  - term: Owned
+  - definition: Concept strategy, Audience model, Wireframes, Visual design
+- paragraph: Problem, decision, evidence
+- heading "The product choice and the proof available today." [level=2]
+- article:
+  - paragraph: Problem
+  - generic: "01"
+  - heading "A dating-style product for dog owners needed a reason to feel more useful than another swipe app." [level=3]
+- article:
+  - paragraph: Decision
+  - generic: "02"
+  - heading "Along with a fun and interactive experience, Doggy Date will have a free messaging system that will allow users to interact with other local users. We also believe that having a dog focused theme that our users will enjoy the profile customization they can do for themselves and their furry best friend." [level=3]
+- article:
+  - paragraph: Shipped proof
+  - generic: "03"
+  - heading "Created a community-focused app concept around local connections, profiles, and shared dog-friendly places." [level=3]
+- paragraph: Evidence-aware audience model
+- heading "Audience assumptions to validate" [level=2]
+- generic: This model connects the available project evidence to a workflow that still needs direct research.
+- article:
+  - paragraph: Audience hypothesis
+  - heading "Dog owner looking for local connection beyond another swipe app." [level=3]
+  - paragraph: They want their dog to be part of their social life, from walks and meetups to shared dog-friendly places.
+  - term: Working need
+  - definition: Profiles, messaging, and local discovery that make the product feel like a dog-centered community rather than a novelty.
+  - term: Risk to test
+  - definition: A dating-style interface can feel shallow if it does not give users a reason to keep engaging after the first match.
+- article:
+  - paragraph: Evidence boundary
+  - paragraph: The available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.
+- article:
+  - paragraph: What the sources support
+  - paragraph: The project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.
+  - paragraph: The portfolio record identifies my role as UX/UI & Visual Designer. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.
+- article:
+  - paragraph: Workflow to validate
+  - list:
+    - text: "01"
+    - heading "Create the pair profile" [level=4]
+    - paragraph: Set up identity for both owner and dog so matches have more context than a single photo.
+    - text: "02"
+    - heading "Browse nearby matches" [level=4]
+    - paragraph: Scan local people, dogs, and interests through a familiar discovery pattern.
+    - text: "03"
+    - heading "Start a conversation" [level=4]
+    - paragraph: Use free messaging to turn a match into a practical meetup or shared dog activity.
+    - text: "04"
+    - heading "Build local habit" [level=4]
+    - paragraph: Return for parks, places, and community connections that keep the app useful after matching.
+- article:
+  - paragraph: Questions for the first study
+  - list:
+    - listitem: Where does this audience hesitate, abandon the flow, or need more context?
+    - listitem: Which step creates enough value for them to continue or return?
+- paragraph: Interface evidence
+- heading "How the UX rationale shows up on screen." [level=2]
+- paragraph: "These screens show the product decisions reviewers should inspect: profile credibility, return loops, and opportunity discovery."
+- list:
+  - paragraph: 01 / Prototype the path
+  - paragraph: After the strategy was set, the next UX/UI step was turning the creator journey into screens people could react to.
+  - paragraph: 02 / Design the real states
+  - paragraph: The interface had to cover profile setup, content browsing, community feedback, and brand moments without becoming a copy of older portfolio tools.
+  - paragraph: 03 / Show the product proof
+  - paragraph: "The screenshots below make the platform easier to judge: the profile surface, dashboard, and public landing page."
+- button "Interface view 1 interface View full size Interface view 1 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 1 interface"
+  - text: View full size
+  - generic: Interface view 1
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 2 interface View full size Interface view 2 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 2 interface"
+  - text: View full size
+  - generic: Interface view 2
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 3 interface View full size Interface view 3 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 3 interface"
+  - text: View full size
+  - generic: Interface view 3
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 4 interface View full size Interface view 4 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 4 interface"
+  - text: View full size
+  - generic: Interface view 4
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 5 interface View full size Interface view 5 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 5 interface"
+  - text: View full size
+  - generic: Interface view 5
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 6 interface View full size Interface view 6 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 6 interface"
+  - text: View full size
+  - generic: Interface view 6
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- 'link "Next case study: CLLCTVE Platform"':
+  - /url: /project/cllctve-platform
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - paragraph: 2022 / Platform
+  - text: CLLCTVE Platform
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne

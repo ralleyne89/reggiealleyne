@@ -107,8 +107,8 @@ const screenCopyBySlug: Record<string, Record<string, ScreenCopy>> = {
   },
   staybooked: {
     "/images/staybooked/room-optimizer-upload-desktop.png": {
-      label: "Room optimizer flow",
-      note: "Suggestions stay attached to the actual room photos and details, with audit cues that show why something was flagged: the anti-misrepresentation decision in practice.",
+      label: "Room setup and upload state",
+      note: "Hosts add property details and a room photo before requesting optimization. This capture shows the empty upload state, not generated recommendations.",
     },
     "/images/staybooked/dashboard-overview-desktop.png": {
       label: "Host workspace",
@@ -126,6 +126,7 @@ const excludedScreenSourcesBySlug: Record<string, string[]> = {
   "litmus-ai": ["/images/litmus-ai-literacy-card.jpg"],
   staybooked: [
     "/images/staybooked/staybooked-ai-optimizer-light-featured-card.png",
+    "/images/staybooked/featured-1280.webp",
   ],
 };
 
@@ -151,6 +152,28 @@ const processSteps = [
 ];
 
 const interfaceEvidenceCopyBySlug: Record<string, InterfaceEvidenceCopy> = {
+  "tech-noir": {
+    title: "From discovery to a considered purchase.",
+    description:
+      "The original mobile screens and the new native reconstruction show how product discovery, styling guidance, and checkout connect. AR try-on remained a concept; the reconstruction simulates that step.",
+    steps: [
+      {
+        icon: Workflow,
+        label: "Discover through style",
+        body: "Designer collections, filters, and editorial stories help shoppers find wearable technology in a fashion context.",
+      },
+      {
+        icon: PanelsTopLeft,
+        label: "Learn and visualize",
+        body: "Product details and How to Wear guides explain the piece before purchase. The new native demonstration includes a labeled visual try-on simulation.",
+      },
+      {
+        icon: Eye,
+        label: "Complete the journey",
+        body: "The archived flow connects product selection to the bag and checkout. The reconstruction completes that path with sample inventory and a locally saved demo order.",
+      },
+    ],
+  },
   "litmus-ai": {
     title: "How the Litmus AI path shows up on screen.",
     description:
@@ -179,7 +202,7 @@ const interfaceEvidenceCopyBySlug: Record<string, InterfaceEvidenceCopy> = {
   staybooked: {
     title: "How trust stays visible in the host workflow.",
     description:
-      "These screens show the product decisions reviewers should inspect: what the AI flags first, how suggestions stay tied to the real room, and where hosts stay in control.",
+      "These captures document the room-focused MVP: setup, the host dashboard, and account entry. The linked live product has since shifted its homepage toward listing copy review; these screens preserve the earlier version.",
     steps: [
       {
         icon: Workflow,
@@ -306,10 +329,12 @@ const ProjectInterfaceEvidence = ({
           </h2>
           <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
             {copy?.description ||
-              "These screens show the product decisions reviewers should inspect: profile credibility, return loops, and opportunity discovery."}
+              "Inspect the key screens and their annotations. Open any image for a larger view."}
           </p>
 
-          <ol className="mt-8 divide-y divide-gray-200 border-y border-gray-200">
+          <details className="mt-6 border-y border-gray-200">
+          <summary className="cursor-pointer py-4 text-sm font-semibold text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Design notes</summary>
+          <ol className="divide-y divide-gray-200">
             {steps.map((step, index) => {
               const Icon = step.icon;
 
@@ -330,6 +355,7 @@ const ProjectInterfaceEvidence = ({
               );
             })}
           </ol>
+          </details>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">

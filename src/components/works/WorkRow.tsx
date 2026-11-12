@@ -85,6 +85,11 @@ const WorkRow = ({
               {summary}
             </p>
           ) : null}
+          {project.slug === "tech-noir" ? (
+            <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-[0.15em] text-primary sm:hidden">
+              Mobile application · Shipped
+            </p>
+          ) : null}
         </div>
 
         <div className="hidden min-w-0 text-right sm:block">
@@ -100,6 +105,7 @@ const WorkRow = ({
       <div className="portfolio-work-row__preview" aria-hidden="true">
         <img
           src={project.image}
+                            srcSet={project.slug === "staybooked" ? "/images/staybooked/featured-640.webp 640w, /images/staybooked/featured-1280.webp 1280w" : undefined}
           alt=""
           loading="lazy"
           decoding="async"
@@ -114,6 +120,7 @@ const WorkRow = ({
         <div className="aspect-[16/10] w-28 shrink-0 overflow-hidden rounded-lg bg-gray-100">
           <img
             src={project.image}
+                            srcSet={project.slug === "staybooked" ? "/images/staybooked/featured-640.webp 640w, /images/staybooked/featured-1280.webp 1280w" : undefined}
             alt=""
             className="h-full w-full object-cover"
             loading="lazy"

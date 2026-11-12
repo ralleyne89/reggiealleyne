@@ -73,6 +73,18 @@ const CaseStudyChapterNav = ({ chapters }: CaseStudyChapterNavProps) => {
         style={{ scaleX: shouldReduceMotion ? scrollYProgress : progress }}
       />
 
+      <nav aria-label="On this page" className="mx-auto max-w-6xl px-4 pb-4 pt-20 sm:px-6 xl:hidden">
+        <details className="rounded-lg border border-gray-300 bg-white p-4">
+          <summary className="cursor-pointer py-2 font-semibold text-gray-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">On this page</summary>
+          <ul className="mt-2 grid grid-cols-2 gap-1">
+            {chapters.map((chapter) => (
+              <li key={chapter.id}>
+                <a href={`#${chapter.id}`} className="flex min-h-11 items-center rounded px-2 text-sm font-medium text-primary underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-current={chapter.id === activeId ? "location" : undefined}>{chapter.label}</a>
+              </li>
+            ))}
+          </ul>
+        </details>
+      </nav>
       <nav
         aria-label="Case study chapters"
         className="fixed right-5 top-1/2 z-[55] hidden -translate-y-1/2 xl:block"

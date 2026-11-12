@@ -33,13 +33,13 @@ export const getCllctveProject = (): ProjectType => {
       "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png"
     ],
     conclusion: {
-      impact: "Reached 500+ creators, 15 brand partnerships, and 85% user retention. The mobile-first choice gave us an engagement path larger desktop-first platforms were not prioritizing.",
+      impact: "Resume-reported traction: 500+ creators, 15 brand partnerships, and 85% retention. The retention cohort and period are not documented.",
       learnings: "The useful lesson was that the best technical choice depends on product risk. React was not the purest mobile answer, but it let our team learn faster.",
       nextSteps: "The company closed, but the product lesson still guides how I weigh user behavior against category convention."
     },
     techStack: ["React.js", "MongoDB", "Ant Design", "Axios", "Styled Components"],
     keyAchievements: [
-      "85% user retention by prioritizing mobile experience over feature parity",
+      "Resume-reported 85% retention; cohort and measurement period are not documented",
       "15 brand partnerships by limiting customization to maintain platform quality", 
       "500+ active creators in a market dominated by established players"
     ],

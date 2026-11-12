@@ -6,7 +6,7 @@ export const getTutorDProject = (): ProjectType => {
     id: 2,
     slug: "tutor-d",
     title: "Tutor D",
-    description: "Educational platform connecting students with qualified tutors for personalized learning sessions.",
+    description: "An educator dashboard for sending assignments by SMS and tracking progress when students lack reliable internet.",
     fullDescription: "A distance learning platform designed to close the homework and accessibility gap in education. By leveraging SMS technology, it enables students without reliable internet or smart devices to receive assignments, engage with lessons, and stay on track—remotely.",
     image: "/images/tutord-sms-learning-card.jpg",
     category: "Education",

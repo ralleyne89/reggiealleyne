@@ -157,6 +157,7 @@ const FeaturedProjectsSection = () => {
                         <div className="portfolio-cinema-card__media-inner">
                           <img
                             src={project.image}
+                            srcSet={project.slug === "staybooked" ? "/images/staybooked/featured-640.webp 640w, /images/staybooked/featured-1280.webp 1280w" : undefined}
                             alt=""
                             aria-hidden="true"
                             loading={index === 0 ? "eager" : "lazy"}
@@ -227,6 +228,7 @@ const FeaturedProjectsSection = () => {
                       >
                         <img
                           src={project.image}
+                            srcSet={project.slug === "staybooked" ? "/images/staybooked/featured-640.webp 640w, /images/staybooked/featured-1280.webp 1280w" : undefined}
                           alt=""
                           aria-hidden="true"
                           loading="lazy"

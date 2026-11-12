@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { usePageMetadata } from "@/hooks/usePageMetadata";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
@@ -19,6 +20,7 @@ import {
 import { DUR, EASE, STAGGER } from "@/lib/motion";
 
 const Works = () => {
+  usePageMetadata("/work");
   useEffect(() => {
     scrollToTop();
   }, []);
@@ -80,7 +82,7 @@ const Works = () => {
 
   return (
     <div className="min-h-screen bg-white text-text-primary">
-      <main className="pb-24 pt-24 md:pb-0">
+      <main id="main-content" tabIndex={-1} className="pb-24 pt-24 md:pb-0">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <WorksHeader />
 

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { usePageMetadata } from "@/hooks/usePageMetadata";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -119,13 +120,14 @@ const boundaries = [
 ];
 
 const Services = () => {
+  usePageMetadata("/services");
   useEffect(() => {
     scrollToTop();
   }, []);
 
   return (
     <div className="min-h-screen bg-white text-text-primary">
-      <main className="pb-24 pt-24 md:pb-0">
+      <main id="main-content" tabIndex={-1} className="pb-24 pt-24 md:pb-0">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, x: -16 }}

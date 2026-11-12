@@ -13,6 +13,7 @@ type CaseStudyStatsBandProps = {
 };
 
 const metricKindLabels: Record<CaseStudyMetricKind, string> = {
+  "reported-outcome": "Reported result",
   "measured-outcome": "Measured result",
   "delivery-fact": "Delivery fact",
   "design-target": "Design target",

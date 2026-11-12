@@ -38,7 +38,10 @@ const caseStudyHeroConfigs: Array<{
   {
     matches: (title) => title === "TECH NOIR",
     config: {
-      image: "/images/tech-noir-banner.png",
+      image: "/images/a473ef7d-6076-4386-af99-13262b6e684f.png",
+      imageFit: "contain",
+      imageFrameRatio: "16 / 10",
+      useProjectImage: true,
     },
   },
   {
@@ -68,15 +71,17 @@ const caseStudyHeroConfigs: Array<{
   {
     matches: (title) => title === "CLLCTVE Platform",
     config: {
-      image: "/images/cllctve-gen-z-card.jpg",
-      useProjectImage: true,
+      image: "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.png",
+      imageFit: "contain",
+      imageFrameRatio: "16 / 10",
     },
   },
   {
     matches: (title) => title.includes("Litmus AI"),
     config: {
-      image: "/images/litmus-ai-literacy-card.jpg",
-      useProjectImage: true,
+      image: "/images/litmus-live-assessment.png",
+      imageFit: "contain",
+      imageFrameRatio: "16 / 10",
     },
   },
   {
@@ -144,6 +149,13 @@ const ProjectHeader = ({
   const heroImage =
     heroConfig && !heroConfig.useProjectImage ? heroConfig.image : image;
   const heroImageFit = heroConfig?.imageFit;
+  const heroCaption = title === "CLLCTVE Platform"
+    ? "Creator dashboard from the project archive."
+    : title.includes("Litmus AI")
+      ? "Assessment start: choose a level before answering."
+      : title.includes("Staybooked")
+        ? "Marketing page from the room-focused MVP. The current live product has since evolved."
+        : undefined;
   const heroImageFrameRatio = heroConfig?.imageFrameRatio;
   const heroImagePosition = heroConfig?.imagePosition;
   const heroFrameStyle: CSSProperties | undefined = heroImageFrameRatio
@@ -251,7 +263,7 @@ const ProjectHeader = ({
   }, []);
 
   return (
-    <header ref={headerRef} className="project-cinema-hero">
+    <header ref={headerRef} className={`project-cinema-hero${heroCaption ? " project-cinema-hero--interface" : ""}`}>
       <div className="project-cinema-hero__grid">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -305,7 +317,7 @@ const ProjectHeader = ({
           </div>
 
           <div className="project-cinema-hero__media-wrap">
-            <div data-project-hero-media className="project-cinema-hero__media">
+            <div data-project-hero-media className={`project-cinema-hero__media${heroCaption ? " project-cinema-hero__media--interface" : ""}`}>
               <div className="project-cinema-hero__selection" aria-hidden="true">
                 <span className="project-cinema-hero__handle project-cinema-hero__handle--tl" />
                 <span className="project-cinema-hero__handle project-cinema-hero__handle--tr" />
@@ -318,7 +330,7 @@ const ProjectHeader = ({
               >
                 <img
                   src={imageError ? "/placeholder.svg" : heroImage}
-                  alt={title}
+                  alt={heroCaption || title}
                   className="project-cinema-hero__image"
                   style={heroImageStyle}
                   loading="eager"
@@ -329,6 +341,7 @@ const ProjectHeader = ({
                 />
               </div>
             </div>
+            {heroCaption ? <p className="mt-4 text-sm leading-6 text-gray-600">{heroCaption}</p> : null}
           </div>
         </motion.div>
       </div>

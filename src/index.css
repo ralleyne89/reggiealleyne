@@ -2179,8 +2179,8 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   line-height: 0.95;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: oklch(var(--color-ink) / 0.34);
-  -webkit-text-stroke: 1px oklch(var(--color-ink) / 0.24);
+  color: oklch(var(--color-ink));
+  -webkit-text-stroke: 0;
   transition: color 260ms var(--ease-out), transform 360ms var(--ease-out), -webkit-text-stroke-color 260ms var(--ease-out);
 }
 
@@ -2732,6 +2732,11 @@ body.portfolio-command-open [data-hero-reggie-cursor] {
   background:
     radial-gradient(ellipse at center, transparent 52%, oklch(0.13 0.02 268 / 0.5) 100%),
     repeating-linear-gradient(to bottom, transparent, transparent 4px, oklch(0.13 0.02 268 / 0.16) 4px, oklch(0.13 0.02 268 / 0.16) 5px);
+}
+
+.project-cinema-hero__media--interface::after,
+.project-cinema-hero__media--interface .project-cinema-hero__selection {
+  display: none;
 }
 
 .project-cinema-hero__selection {
@@ -4115,5 +4120,11 @@ a:hover .duotone-media::after {
   .bg-gray-900, .bg-gray-800, .bg-dark-gradient {
     background: white !important;
     color: black !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-cinema-hero--interface {
+    min-height: auto;
   }
 }

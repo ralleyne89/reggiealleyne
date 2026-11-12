@@ -1,4 +1,4 @@
-import type { ProjectType } from "@/types/project";
+import type { ProjectType } from "../types/project";
 
 export const SITE_ORIGIN = "https://reggiealleyne.com";
 

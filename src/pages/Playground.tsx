@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { usePageMetadata } from "@/hooks/usePageMetadata";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
 import { motion } from "framer-motion";
 import {
@@ -13,13 +14,14 @@ import EvidenceNote from "@/components/ui/evidence-note";
 import { experiments } from "@/config/playgroundExperiments";
 
 const Playground = () => {
+  usePageMetadata("/playground");
   useEffect(() => {
     scrollToTop();
   }, []);
 
   return (
     <div className="min-h-screen bg-white text-text-primary">
-      <main className="pt-14 md:pt-24">
+      <main id="main-content" tabIndex={-1} className="pt-14 md:pt-24">
         <section className="relative overflow-hidden border-b border-gray-200 bg-white pb-20 pt-8 sm:py-20">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:88px_88px] opacity-35" />
           <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">

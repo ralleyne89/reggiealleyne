@@ -1,0 +1,303 @@
+- region "Notifications (F8)":
+  - list
+- banner:
+  - navigation "Primary navigation":
+    - link "Reggie Alleyne home":
+      - /url: /
+    - link "Home":
+      - /url: /
+      - generic "Home"
+    - link "Work":
+      - /url: /work
+      - generic "Work"
+    - link "Playground":
+      - /url: /playground
+      - generic "Playground"
+    - link "About":
+      - /url: /about
+      - generic "About"
+    - link "Contact":
+      - /url: /#contact
+      - generic "Contact"
+- generic: You
+- navigation "Case study chapters":
+  - list:
+    - button "Details":
+      - generic: Details
+    - button "Results":
+      - generic: Results
+    - button "Product bet":
+      - generic: Product bet
+    - button "Evidence":
+      - generic: Evidence
+    - button "Decisions":
+      - generic: Decisions
+    - button "Artifacts":
+      - generic: Artifacts
+    - button "Interface":
+      - generic: Interface
+- banner:
+  - link "Back to Work":
+    - /url: /work
+    - text: Back to Work
+  - paragraph: 2022 / Platform
+  - heading "CLLCTVE Platform" [level=1]:
+    - generic: C
+    - generic: L
+    - generic: L
+    - generic: C
+    - generic: T
+    - generic: V
+    - generic: E
+    - generic: P
+    - generic: l
+    - generic: a
+    - generic: t
+    - generic: f
+    - generic: o
+    - generic: r
+    - generic: m
+  - paragraph: A mobile-first creator portfolio platform that reached 500+ creators by focusing on behavior fit instead of Behance-style feature parity.
+  - img "CLLCTVE Platform"
+- figure "The thesis":
+  - generic: “
+  - blockquote: CLLCTVE gave Gen Z creators a mobile-first portfolio shaped around how they already shared work, found feedback, and discovered brand opportunities.
+  - generic: The thesis
+- region "Case study at a glance":
+  - paragraph: Project details
+  - term: Role
+  - definition: UX/UI Designer and Frontend Engineer
+  - term: Tools
+  - definition: Figma, React, Ant Design, MongoDB
+  - term: Owned
+  - definition: Mobile portfolio flow, Creator feedback loops, Design system, Mobile behavior synthesis
+- paragraph: Measured outcomes
+- heading "What the product proved" [level=2]
+- paragraph: A focused mobile workflow attracted creators and brand partners without matching every desktop portfolio feature. The company later closed, so the case study separates product traction from business survival.
+- paragraph: Creators on platform
+- paragraph: Measured result
+- paragraph: Reported in the resume.
+- paragraph: Brand partnerships
+- paragraph: Measured result
+- paragraph: Reported in the resume.
+- paragraph: Creator retention
+- paragraph: Measured result
+- paragraph: Reported in the resume.
+- list:
+  - listitem: "The strongest product signal was retention: creators had a reason to come back, not only a place to publish once."
+  - listitem: The brand-partnership count gave the creator-side experience a business reason to exist.
+  - listitem: The company closed, so the case study stays honest about product traction without overstating business survival.
+- paragraph: Problem and decision
+- heading "The problem and the product choice." [level=2]
+- link "View Live Demo":
+  - /url: https://cllctve-demo.web.app
+  - generic: View Live Demo
+- article:
+  - paragraph: Problem
+  - generic: "01"
+  - heading "Gen Z creators needed a mobile-first portfolio experience that felt closer to how they already shared work." [level=3]
+- article:
+  - paragraph: Decision
+  - generic: "02"
+  - heading "Prioritize mobile creation and feedback loops over desktop feature parity with older portfolio platforms." [level=3]
+- paragraph: Evidence base
+- heading "Creator behavior and team context" [level=2]
+- generic: The source repo confirms a mobile-first React build and multi-contributor delivery. The resume supplies the launch outcomes.
+- article:
+  - paragraph: Documented creator behavior
+  - heading "Gen Z creator building a public body of work from a phone." [level=3]
+  - paragraph: Their projects, collaborations, and identity live across social channels, screenshots, and brand challenge submissions.
+  - term: Working need
+  - definition: A lightweight profile flow, fast feedback loops, and enough structure to make the work feel credible without flattening the creator's style.
+  - term: Risk to test
+  - definition: Traditional portfolio tools feel too desktop-heavy, too slow to update, and too disconnected from how creators already publish.
+- article:
+  - paragraph: Evidence boundary
+  - paragraph: The available project archive does not document participant counts, interview transcripts, collaborator roles, or team size, so the case study does not claim them.
+- article:
+  - paragraph: What the sources support
+  - paragraph: The resume reports 500+ creators, 15 brand partnerships, and 85% retention. The source repository confirms the mobile-first React product, but it does not preserve the research sample behind the strategy.
+  - paragraph: Git history confirms a multi-contributor build, and the resume records my Frontend Engineer role with UX/UI ownership. The available sources do not document collaborator roles or team size.
+- article:
+  - paragraph: Workflow to validate
+  - list:
+    - text: "01"
+    - heading "Collect work" [level=4]
+    - paragraph: Bring recent projects, visuals, and creator details into one profile instead of sending people across several links.
+    - text: "02"
+    - heading "Shape the profile" [level=4]
+    - paragraph: Use a mobile-native portfolio flow that can be edited quickly and still read as intentional.
+    - text: "03"
+    - heading "Share for feedback" [level=4]
+    - paragraph: Put work in front of peers, brands, and community moments where feedback can create momentum.
+    - text: "04"
+    - heading "Return for opportunity" [level=4]
+    - paragraph: Keep the portfolio active as new challenges, collaborations, and brand work come in.
+- article:
+  - paragraph: Questions for the first study
+  - list:
+    - listitem: Which profile steps caused creators to pause or abandon setup?
+    - listitem: Which feedback loops brought creators back after publishing?
+- paragraph: Product decisions
+- heading "Mobile-first choices that shaped the product" [level=2]
+- paragraph: CLLCTVE gave Gen Z creators a mobile-first portfolio shaped around how they already shared work, found feedback, and discovered brand opportunities.
+- paragraph: Behance already owned the professional portfolio category. Creator work lived across phones, social posts, screenshots, challenge submissions, and community feedback, so the team focused on faster mobile publishing instead of desktop feature parity.
+- list:
+  - generic: "01"
+  - article:
+    - paragraph: Synthesis
+    - generic: "01"
+    - heading "Define the problem" [level=3]
+    - paragraph: The hardest constraint was choosing where not to compete. A smaller platform could not match Behance's network effects or every professional feature, and too much customization would make branded challenge pages inconsistent.
+  - figure:
+    - img "Faceted magnifying glass and prism for research synthesis."
+  - generic: "02"
+  - article:
+    - paragraph: Information architecture
+    - generic: "02"
+    - heading "Map flows and wireframes" [level=3]
+    - paragraph: Stayed with React because it was the existing product stack and supported fast design-to-code iteration.
+  - figure:
+    - img "Glossy branching route nodes for information architecture."
+  - generic: "03"
+  - article:
+    - paragraph: UI system
+    - generic: "03"
+    - heading "Design the interface" [level=3]
+    - paragraph: I focused the product on mobile creation, creator feedback, and a controlled design-token system. That meant prioritizing swipe-friendly portfolio browsing and community loops over desktop analytics and feature parity.
+  - figure:
+    - img "Stacked modular interface blocks for a UI system."
+  - generic: "04"
+  - article:
+    - paragraph: Implementation
+    - generic: "04"
+    - heading "Prototype and build" [level=3]
+    - paragraph: In my Product Designer and Frontend Developer role, I worked across the mobile portfolio builder, modular portfolio organization, branded challenge pages, notifications, and the design system that kept partner pages consistent.
+  - figure:
+    - img "Glossy code cube for prototype and build work."
+  - generic: "05"
+  - article:
+    - paragraph: Evidence
+    - generic: "05"
+    - heading "Validate the proof" [level=3]
+    - paragraph: The product reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed. Those outcomes support the mobile-first product decision without turning the company closure into a success story.
+  - figure:
+    - img "Proof badge with chart facets for validation."
+  - generic: "06"
+  - article:
+    - paragraph: Learning
+    - generic: "06"
+    - heading "Reflection" [level=3]
+    - paragraph: The project still guides how I think about category strategy. When an incumbent owns the obvious feature set, the design opportunity is often in the behavior they are too large or too slow to serve well.
+  - figure:
+    - img "Luminous prism lamp for reflection and learning."
+- paragraph: Process artifacts
+- heading "How creator behavior became a product path." [level=2]
+- paragraph: These maps connect the mobile-first creator hypothesis to the routes, flows, and screen structure that made CLLCTVE more than a static portfolio.
+- paragraph: Mapped from the CLLCTVE app
+- paragraph: "The structure follows the actual app surfaces: landing, creator discovery, profile, login, signup, and challenge paths."
+- article:
+  - button "CLLCTVE sitemap connecting the landing page, creator discovery, creator profiles, challenges, brand collaboration, login, and signup routes. View full size":
+    - img "CLLCTVE sitemap connecting the landing page, creator discovery, creator profiles, challenges, brand collaboration, login, and signup routes."
+    - text: View full size
+  - paragraph: Sitemap
+  - generic: "01"
+  - heading "Product map" [level=3]
+  - paragraph: The route map keeps discovery and opportunity close together instead of treating a portfolio as a static destination.
+  - paragraph: Audience need to product need
+  - paragraph: Creators need one shareable home for scattered work; the business needs a browsable creator inventory for brands.
+- article:
+  - button "CLLCTVE user flow from signup through profile creation, feedback, challenge discovery, and brand opportunity review. View full size":
+    - img "CLLCTVE user flow from signup through profile creation, feedback, challenge discovery, and brand opportunity review."
+    - text: View full size
+  - paragraph: User flow
+  - generic: "02"
+  - heading "Creator to brand-opportunity flow" [level=3]
+  - paragraph: "The main loop gives creators a reason to return: update work, get community response, and find a relevant brand challenge."
+  - paragraph: Audience need to product need
+  - paragraph: Fast profile updates support creator momentum; return loops support retention and partner challenge supply.
+- article:
+  - button "Low-fidelity CLLCTVE creator profile builder wireframe with profile details, work cards, and share actions. View full size":
+    - img "Low-fidelity CLLCTVE creator profile builder wireframe with profile details, work cards, and share actions."
+    - text: View full size
+  - paragraph: Wireframe
+  - generic: "03"
+  - heading "Profile builder wireframe" [level=3]
+  - paragraph: The profile builder starts with identity and recent work before deeper customization, so creators can publish without a blank-page problem.
+  - paragraph: Audience need to product need
+  - paragraph: Creators need edit speed; the product needs enough structure for profiles to stay consistent and brand-readable.
+- article:
+  - button "Low-fidelity CLLCTVE discovery feed wireframe with creator cards, challenge prompts, and community feedback actions. View full size":
+    - img "Low-fidelity CLLCTVE discovery feed wireframe with creator cards, challenge prompts, and community feedback actions."
+    - text: View full size
+  - paragraph: Wireframe
+  - generic: "04"
+  - heading "Discovery feed wireframe" [level=3]
+  - paragraph: The feed puts work, feedback, and challenges in the same scanning path instead of splitting discovery from opportunity.
+  - paragraph: Audience need to product need
+  - paragraph: Creators need response and reach; brands need a cleaner path to find active talent.
+- paragraph: Interface evidence
+- heading "How the UX rationale shows up on screen." [level=2]
+- paragraph: "These screens show the product decisions reviewers should inspect: profile credibility, return loops, and opportunity discovery."
+- list:
+  - paragraph: 01 / Prototype the path
+  - paragraph: After the strategy was set, the next UX/UI step was turning the creator journey into screens people could react to.
+  - paragraph: 02 / Design the real states
+  - paragraph: The interface had to cover profile setup, content browsing, community feedback, and brand moments without becoming a copy of older portfolio tools.
+  - paragraph: 03 / Show the product proof
+  - paragraph: "The screenshots below make the platform easier to judge: the profile surface, dashboard, and public landing page."
+- button "Rebuilt creator profile study interface View full size Rebuilt creator profile study This source-project rebuild shows how identity, skills, and recent work could scan for brands. It is an interface study, not a historical production capture.":
+  - img "Rebuilt creator profile study interface"
+  - text: View full size
+  - generic: Rebuilt creator profile study
+  - generic: This source-project rebuild shows how identity, skills, and recent work could scan for brands. It is an interface study, not a historical production capture.
+- button "Creator dashboard interface View full size Creator dashboard The dashboard turns views, connections, activity, and brand opportunities into a reason to return after publishing.":
+  - img "Creator dashboard interface"
+  - text: View full size
+  - generic: Creator dashboard
+  - generic: The dashboard turns views, connections, activity, and brand opportunities into a reason to return after publishing.
+- button "Platform landing page interface View full size Platform landing page The public page frames CLLCTVE as a creator-to-brand bridge, not just another place to park a portfolio.":
+  - img "Platform landing page interface"
+  - text: View full size
+  - generic: Platform landing page
+  - generic: The public page frames CLLCTVE as a creator-to-brand bridge, not just another place to park a portfolio.
+- 'link "Next case study: Litmus AI - AI Literacy Testing & Certification Platform"':
+  - /url: /project/litmus-ai
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - paragraph: 2025 / AI Education
+  - text: Litmus AI - AI Literacy Testing & Certification Platform
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne

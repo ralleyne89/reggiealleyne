@@ -12,12 +12,14 @@ interface ProjectImpactSectionProps {
 }
 
 const impactLabels: Record<CaseStudyImpactFraming, string> = {
+  "reported-outcomes": "Reported outcomes",
   "measured-outcomes": "Measured outcomes",
   "mvp-proof": "Shipped proof",
   "measurement-plan": "Measurement plan",
 };
 
 const metricKindLabels: Record<CaseStudyMetricKind, string> = {
+  "reported-outcome": "Reported result",
   "measured-outcome": "Measured result",
   "delivery-fact": "Delivery fact",
   "design-target": "Design target",

@@ -12,10 +12,11 @@ const Works = lazy(() => import("@/pages/Works"));
 const Services = lazy(() => import("@/pages/Services"));
 const About = lazy(() => import("@/pages/About"));
 const Playground = lazy(() => import("@/pages/Playground"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 const Project = lazy(() => import("@/pages/Project"));
 
 const RouteFallback = () => (
-  <main className="min-h-screen bg-white pt-28">
+  <main id="main-content" tabIndex={-1} className="min-h-screen bg-white pt-28">
     <div className="container mx-auto px-4">
       <div className="h-2 w-32 rounded-full bg-primary/20" />
     </div>
@@ -93,7 +94,7 @@ const AnimatedRoutes = () => {
                 />
               ))}
               <Route path="/project/:slug" element={<Project />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </motion.div>

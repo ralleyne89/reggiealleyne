@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { usePageMetadata } from "@/hooks/usePageMetadata";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -79,6 +80,7 @@ const careerTimeline = [
 ];
 
 const About = () => {
+  usePageMetadata("/about");
   useEffect(() => {
     scrollToTop();
   }, []);
@@ -140,6 +142,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-white text-text-primary">
+      <main id="main-content" tabIndex={-1}>
       {/* Header */}
       <div className="pt-24 pb-12">
         <div className="container mx-auto px-4">
@@ -165,7 +168,7 @@ const About = () => {
             className="mx-auto max-w-4xl"
           >
             <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.22em] text-primary">
-              UX/UI Designer & AI Technologist
+              UX/UI Designer & Frontend Developer
             </p>
             <TextReveal
               as="h1"
@@ -343,7 +346,7 @@ const About = () => {
             </h2>
             
             <p className="text-lg text-text-secondary leading-relaxed">
-              10+ years designing for <span className="text-primary font-semibold">education and healthcare</span>, industries
+              Designing digital products since 2016, including work in <span className="text-primary font-semibold">education and healthcare</span>, industries
               where bad UX has real consequences. I've built tools for teachers managing 30 students, 
               patients navigating health anxiety, and HR leaders trying to assess AI literacy at scale.
             </p>
@@ -546,6 +549,7 @@ const About = () => {
         </div>
       </div>
 
+      </main>
       <Footer />
     </div>
   );

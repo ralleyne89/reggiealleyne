@@ -1,0 +1,10 @@
+[
+  {
+    "path": "/favicon.ico",
+    "status": 403
+  },
+  {
+    "path": "/apple-touch-icon.png",
+    "status": 403
+  }
+]

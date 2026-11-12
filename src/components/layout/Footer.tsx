@@ -80,7 +80,7 @@ const Footer = () => {
             </Link>
             <span className="h-8 w-px bg-border" />
             <p className="max-w-[16rem] text-xs font-semibold uppercase leading-5 text-text-muted sm:max-w-none">
-              UX/UI Designer & AI Technologist
+              UX/UI Designer & Frontend Developer
             </p>
           </div>
 

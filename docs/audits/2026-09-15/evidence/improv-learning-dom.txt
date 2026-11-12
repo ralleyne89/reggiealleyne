@@ -1,0 +1,155 @@
+- region "Notifications (F8)":
+  - list
+- banner:
+  - navigation "Primary navigation":
+    - link "Reggie Alleyne home":
+      - /url: /
+    - link "Home":
+      - /url: /
+      - generic "Home"
+    - link "Work":
+      - /url: /work
+      - generic "Work"
+    - link "Playground":
+      - /url: /playground
+      - generic "Playground"
+    - link "About":
+      - /url: /about
+      - generic "About"
+    - link "Contact":
+      - /url: /#contact
+      - generic "Contact"
+- generic: You
+- navigation "Case study chapters":
+  - list:
+    - button "Details":
+      - generic: Details
+    - button "Problem":
+      - generic: Problem
+    - button "Audience":
+      - generic: Audience
+    - button "Evidence":
+      - generic: Evidence
+- banner:
+  - link "Back to Work":
+    - /url: /work
+    - text: Back to Work
+  - paragraph: 2019 / Web Design
+  - heading "Improv Learning – Traffic School Landing Page" [level=1]
+  - img "Improv Learning – Traffic School Landing Page"
+- region "Case study at a glance":
+  - paragraph: Project details
+  - term: Role
+  - definition: UI Designer
+  - term: Tools
+  - definition: Figma, Photoshop, HTML/CSS, Conversion UX
+  - term: Owned
+  - definition: Landing page UI, Trust hierarchy, Mobile layout, Campaign-ready design
+- paragraph: Problem, decision, evidence
+- heading "The product choice and the proof available today." [level=2]
+- article:
+  - paragraph: Problem
+  - generic: "01"
+  - heading "Traffic-school visitors needed quick reassurance that the course was legitimate, simple, and worth starting on mobile." [level=3]
+- article:
+  - paragraph: Shipped proof
+  - generic: "02"
+  - heading "Delivered the landing page design in time for the GEICO campaign rollout with clearer trust and signup paths." [level=3]
+- paragraph: Evidence-aware audience model
+- heading "Audience assumptions to validate" [level=2]
+- generic: This model connects the available project evidence to a workflow that still needs direct research.
+- article:
+  - paragraph: Audience hypothesis
+  - heading "GEICO referral visitor deciding whether an online traffic school is legitimate." [level=3]
+  - paragraph: They arrive on mobile with limited patience and need to understand the course, credibility, and next step quickly.
+  - term: Working need
+  - definition: A co-branded landing page with clear trust signals, short benefit hierarchy, and visible enrollment path.
+  - term: Risk to test
+  - definition: Online traffic school pages can feel cluttered, generic, or uncertain about what the user gets after signing up.
+- article:
+  - paragraph: Evidence boundary
+  - paragraph: The available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.
+- article:
+  - paragraph: What the sources support
+  - paragraph: The project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.
+  - paragraph: The portfolio record identifies my role as UI Designer. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.
+- article:
+  - paragraph: Workflow to validate
+  - list:
+    - text: "01"
+    - heading "Land from referral" [level=4]
+    - paragraph: Arrive from the GEICO partnership path and immediately check whether the page feels legitimate.
+    - text: "02"
+    - heading "Scan the promise" [level=4]
+    - paragraph: Understand the course value, requirements, and credibility without digging through dense copy.
+    - text: "03"
+    - heading "Compare effort" [level=4]
+    - paragraph: Look for reassurance that the course is simple enough to complete from the current device.
+    - text: "04"
+    - heading "Start enrollment" [level=4]
+    - paragraph: Move into signup through a prominent call to action that does not compete with extra content.
+- article:
+  - paragraph: Questions for the first study
+  - list:
+    - listitem: Where does this audience hesitate, abandon the flow, or need more context?
+    - listitem: Which step creates enough value for them to continue or return?
+- paragraph: Interface evidence
+- heading "How the UX rationale shows up on screen." [level=2]
+- paragraph: "These screens show the product decisions reviewers should inspect: profile credibility, return loops, and opportunity discovery."
+- list:
+  - paragraph: 01 / Prototype the path
+  - paragraph: After the strategy was set, the next UX/UI step was turning the creator journey into screens people could react to.
+  - paragraph: 02 / Design the real states
+  - paragraph: The interface had to cover profile setup, content browsing, community feedback, and brand moments without becoming a copy of older portfolio tools.
+  - paragraph: 03 / Show the product proof
+  - paragraph: "The screenshots below make the platform easier to judge: the profile surface, dashboard, and public landing page."
+- button "Interface view 1 interface View full size Interface view 1 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 1 interface"
+  - text: View full size
+  - generic: Interface view 1
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 2 interface View full size Interface view 2 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 2 interface"
+  - text: View full size
+  - generic: Interface view 2
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- 'link "Next case study: CLLCTVE Platform"':
+  - /url: /project/cllctve-platform
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - paragraph: 2022 / Platform
+  - text: CLLCTVE Platform
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne

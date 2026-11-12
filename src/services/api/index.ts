@@ -10,6 +10,8 @@ import {
 } from './predefinedProjects';
 import { sortProjectsByDate } from './utils';
 
+export class ProjectNotFoundError extends Error {}
+
 export const getProject = async (idOrSlug: number | string): Promise<ProjectType> => {
   try {
     // Handle string slugs
@@ -32,7 +34,7 @@ export const getProject = async (idOrSlug: number | string): Promise<ProjectType
         return getProjectById(numericId);
       }
       
-      throw new Error(`Project with slug "${idOrSlug}" not found`);
+      throw new ProjectNotFoundError(`Project with slug "${idOrSlug}" not found`);
     }
     
     // Handle numeric IDs
@@ -58,7 +60,7 @@ const getProjectById = async (id: number): Promise<ProjectType> => {
     return supabaseProject;
   }
 
-  throw new Error(`Project with ID ${id} not found`);
+  throw new ProjectNotFoundError(`Project with ID ${id} not found`);
 };
 
 export const getAllProjects = async (): Promise<ProjectType[]> => {

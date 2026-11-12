@@ -12,12 +12,11 @@ import { RESUME_URL } from "@/config/resume";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const LOADER_COMPLETE_EVENT = "home-loader:complete";
 const assetBase = "/images/figma/hero-white";
 
 const heroAssets = {
-  portrait: `${assetBase}/portrait.png`,
-  wordmark: `${assetBase}/reggie-alleyne-wordmark-chatgpt-flat.png`,
+  portrait: `${assetBase}/portrait-768.webp`,
+  wordmark: `${assetBase}/wordmark-1280.webp`,
   type: `${assetBase}/type-thin.svg`,
   list: `${assetBase}/list-vector.svg`,
   image: `${assetBase}/image-group.svg`,
@@ -536,7 +535,7 @@ const HeroCanvasLayer = ({
 const HeroTitleLayer = () => (
   <h1
     data-hero-title
-    className="pointer-events-none absolute left-1/2 top-[3.65rem] z-0 w-[min(92vw,34rem)] -translate-x-1/2 overflow-visible sm:top-12 sm:w-[min(116vw,82rem)] lg:top-16"
+    className="pointer-events-none absolute left-1/2 top-[3.65rem] z-0 w-[min(92vw,34rem)] -translate-x-1/2 overflow-visible sm:top-12 sm:w-[min(92vw,82rem)] lg:top-16"
   >
     <span className="sr-only">
       Reggie Alleyne, UX/UI Designer and frontend developer
@@ -544,6 +543,10 @@ const HeroTitleLayer = () => (
     <img
       data-hero-title-word
       src={heroAssets.wordmark}
+      srcSet={`${assetBase}/wordmark-640.webp 640w, ${assetBase}/wordmark-1280.webp 1280w, ${assetBase}/wordmark-2092.webp 2092w`}
+      sizes="(min-width: 1426px) 1312px, 92vw"
+      width={2092}
+      height={637}
       alt=""
       aria-hidden="true"
       loading="eager"
@@ -555,10 +558,13 @@ const HeroTitleLayer = () => (
 );
 
 const HeroPositioningPanel = () => (
-  <div className="hero-positioning-panel absolute -bottom-28 left-4 right-4 z-[55] rounded-lg border border-zinc-200/90 bg-white/95 p-4 text-[#141414] shadow-[0_18px_50px_rgba(15,23,42,0.14)] backdrop-blur-md sm:bottom-6 sm:left-auto sm:right-6 sm:w-[22rem] lg:bottom-10 lg:right-2 xl:-right-28">
-    <p className="font-heading text-lg font-semibold leading-snug [text-wrap:balance]">
-      I design AI products people can question — and build them in React.
+  <div className="hero-positioning-panel relative z-[55] mb-6 rounded-lg border border-zinc-200/90 bg-white/95 p-4 text-[#141414] shadow-[0_18px_50px_rgba(15,23,42,0.14)] backdrop-blur-md lg:absolute lg:mb-0 lg:bottom-10 lg:right-2 lg:w-[24rem] xl:-right-28">
+    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-violet-700">UX/UI designer &amp; frontend developer</p>
+    <p className="font-heading text-xl font-semibold leading-snug [text-wrap:balance]">
+      I turn complex workflows into clear, usable products.
     </p>
+    <p className="mt-3 text-sm leading-6 text-zinc-700">From healthcare platforms to AI tools, I connect research, interface design, and working React prototypes.</p>
+    <p className="mt-3 text-xs leading-5 text-zinc-600">Previously Principal UX/UI Designer at Blue Shield of California.</p>
     <div className="mt-4 grid grid-cols-2 gap-2.5">
       <Link
         to="/work"
@@ -638,9 +644,10 @@ const CapabilitySwitchboard = ({ className }: { className?: string }) => {
 
 const HeroArtwork = () => (
   <div
-    data-hero-artwork
-    className="relative mx-auto mt-8 h-[36rem] w-full max-w-[34rem] sm:mt-16 sm:h-[38rem] sm:max-w-[44rem] lg:mt-8 lg:h-[650px] lg:max-w-[980px]"
+    className="relative mx-auto mt-8 w-full max-w-[34rem] sm:mt-16 sm:max-w-[44rem] lg:mt-8 lg:max-w-[980px]"
   >
+    <HeroPositioningPanel />
+    <div data-hero-artwork className="relative h-[32rem] sm:h-[38rem] lg:h-[650px]">
     <div className="hero-artboard-outline" aria-hidden="true" />
     <HeroTitleLayer />
 
@@ -648,31 +655,34 @@ const HeroArtwork = () => (
       <img
         data-hero-portrait
         src={heroAssets.portrait}
+        srcSet={`${assetBase}/portrait-384.webp 384w, ${assetBase}/portrait-768.webp 768w, ${assetBase}/portrait-1024.webp 1024w`}
+        width={1024}
+        height={1280}
         alt="Digital portrait of Reggie Alleyne"
         loading="eager"
         decoding="async"
         fetchpriority="high"
-        sizes="(min-width: 1024px) 511px, min(100vw, 34rem)"
+        sizes="(min-width: 640px) 511px, 336px"
         className="h-full w-full object-contain"
       />
     </div>
     <HeroLightAperture />
 
-    <ToolPanel className="absolute left-3 top-[18.8rem] z-30 origin-top-left scale-[0.58] sm:left-[calc(50%-300px)] sm:top-[178px] sm:scale-90 lg:left-[calc(50%-50vw+1rem)] lg:top-[464px] lg:scale-[0.65] 2xl:left-[calc(50%-458px)] 2xl:top-[178px] 2xl:scale-100" />
+    <ToolPanel className="hidden lg:flex absolute left-3 top-[18.8rem] z-30 origin-top-left scale-[0.58] sm:left-[calc(50%-300px)] sm:top-[178px] sm:scale-90 lg:left-[calc(50%-50vw+1rem)] lg:top-[464px] lg:scale-[0.65] 2xl:left-[calc(50%-458px)] 2xl:top-[178px] 2xl:scale-100" />
 
     <SearchChip
       label="Design"
-      className="absolute right-8 top-[9.6rem] z-30 w-[126px] origin-top-right scale-[0.82] sm:left-[calc(50%+168px)] sm:right-auto sm:top-[155px] sm:w-[174px] sm:scale-100"
+      className="hidden lg:flex absolute right-8 top-[9.6rem] z-30 w-[126px] origin-top-right scale-[0.82] sm:left-[calc(50%+168px)] sm:right-auto sm:top-[155px] sm:w-[174px] sm:scale-100"
     />
     <SearchChip
       label="Code"
-      className="absolute right-8 top-[16.25rem] z-30 w-[116px] origin-top-right scale-[0.82] sm:left-[calc(50%+217px)] sm:right-auto sm:top-[259px] sm:w-[174px] sm:scale-100"
+      className="hidden lg:flex absolute right-8 top-[16.25rem] z-30 w-[116px] origin-top-right scale-[0.82] sm:left-[calc(50%+217px)] sm:right-auto sm:top-[259px] sm:w-[174px] sm:scale-100"
     />
     <SearchChip
       label="Prototype"
-      className="absolute right-3 top-[27.4rem] z-40 w-[138px] origin-top-right scale-[0.82] sm:left-[calc(50%+105px)] sm:right-auto sm:top-[468px] sm:w-[174px] sm:scale-100"
+      className="hidden lg:flex absolute right-3 top-[27.4rem] z-40 w-[138px] origin-top-right scale-[0.82] sm:left-[calc(50%+105px)] sm:right-auto sm:top-[468px] sm:w-[174px] sm:scale-100"
     />
-    <HeroPositioningPanel />
+    </div>
   </div>
 );
 
@@ -715,8 +725,7 @@ const HeroSection = () => {
         return;
       }
 
-      let introDelay: gsap.core.Tween | null = null;
-      let loaderPoll = 0;
+
       let hasPlayedIntro = false;
       const timeline = gsap.timeline({
         defaults: {
@@ -840,39 +849,7 @@ const HeroSection = () => {
         ScrollTrigger.refresh();
       };
 
-      const scheduleIntro = () => {
-        introDelay?.kill();
-        introDelay = gsap.delayedCall(0.08, playIntro);
-      };
-
-      const isLoaderComplete = () =>
-        document.body.dataset.homeLoaderState === "complete" ||
-        !document.querySelector(".home-loader");
-
-      if (isLoaderComplete()) {
-        introDelay = gsap.delayedCall(0.16, playIntro);
-      } else {
-        window.addEventListener(LOADER_COMPLETE_EVENT, scheduleIntro, {
-          once: true,
-        });
-        loaderPoll = window.setInterval(() => {
-          if (!isLoaderComplete()) {
-            return;
-          }
-
-          window.clearInterval(loaderPoll);
-          loaderPoll = 0;
-          scheduleIntro();
-        }, 120);
-      }
-
-      cleanupCallbacks.push(() => {
-        introDelay?.kill();
-        if (loaderPoll) {
-          window.clearInterval(loaderPoll);
-        }
-        window.removeEventListener(LOADER_COMPLETE_EVENT, scheduleIntro);
-      });
+      playIntro();
 
       gsap
         .timeline({
@@ -953,7 +930,7 @@ const HeroSection = () => {
       >
         <HeroArtwork />
 
-        <CapabilitySwitchboard className="relative left-1/2 z-50 mt-32 w-screen -translate-x-1/2 px-4 sm:-mt-4 sm:px-6 lg:-mt-6 lg:px-8" />
+        <CapabilitySwitchboard className="relative left-1/2 z-50 mt-4 w-screen -translate-x-1/2 px-4 sm:-mt-4 sm:px-6 lg:-mt-6 lg:px-8" />
       </div>
 
       <div data-hero-scroll-handoff className="hero-scroll-handoff" aria-hidden="true">

@@ -4,7 +4,7 @@ export const getLitmusAIProject = (): ProjectType => {
   return {
     id: 10,
     slug: "litmus-ai",
-    title: "Litmus AI - AI Literacy Testing & Certification Platform",
+    title: "Litmus AI — Literacy Assessment",
     description:
       "An adaptive AI literacy test and certificate flow designed around a five-minute target, followed by role-aware lessons and recommendations.",
     role: "UX/UI Designer & Frontend Developer",

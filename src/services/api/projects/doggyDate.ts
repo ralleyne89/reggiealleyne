@@ -12,7 +12,7 @@ export const getDoggyDateProject = (): ProjectType => {
     tags: ["Social", "Dating App", "Dog Lovers"],
     role: "UX/UI & Visual Designer",
     duration: "4 months",
-    year: "2016",
+    year: "2017",
     challenge: "Users that are accustomed to dating apps are already using competitors. Finding a way to make the app unique and interactive so users will use it continuously.",
     process: [
       "Visited dog parks around Los Angeles to interview dog owners about their views on dating apps.",

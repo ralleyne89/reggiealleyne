@@ -1,0 +1,344 @@
+- region "Notifications (F8)":
+  - list
+- banner:
+  - navigation "Primary navigation":
+    - link "Reggie Alleyne home":
+      - /url: /
+    - link "Home":
+      - /url: /
+      - generic "Home"
+    - link "Work":
+      - /url: /work
+      - generic "Work"
+    - link "Playground":
+      - /url: /playground
+      - generic "Playground"
+    - link "About":
+      - /url: /about
+      - generic "About"
+    - link "Contact":
+      - /url: /#contact
+      - generic "Contact"
+- generic: You
+- navigation "Case study chapters":
+  - list:
+    - button "Details":
+      - generic: Details
+    - button "Assessment":
+      - generic: Assessment
+    - button "Validation":
+      - generic: Validation
+    - button "Decisions":
+      - generic: Decisions
+    - button "Artifacts":
+      - generic: Artifacts
+    - button "Interface":
+      - generic: Interface
+    - button "Next measures":
+      - generic: Next measures
+- banner:
+  - link "Back to Work":
+    - /url: /work
+    - text: Back to Work
+  - paragraph: 2025 / AI Education
+  - heading "Litmus AI - AI Literacy Testing & Certification Platform" [level=1]:
+    - generic: L
+    - generic: i
+    - generic: t
+    - generic: m
+    - generic: u
+    - generic: s
+    - generic: A
+    - generic: I
+    - generic: "-"
+    - generic: A
+    - generic: I
+    - generic: L
+    - generic: i
+    - generic: t
+    - generic: e
+    - generic: r
+    - generic: a
+    - generic: c
+    - generic: "y"
+    - generic: T
+    - generic: e
+    - generic: s
+    - generic: t
+    - generic: i
+    - generic: "n"
+    - generic: g
+    - generic: "&"
+    - generic: C
+    - generic: e
+    - generic: r
+    - generic: t
+    - generic: i
+    - generic: f
+    - generic: i
+    - generic: c
+    - generic: a
+    - generic: t
+    - generic: i
+    - generic: o
+    - generic: "n"
+    - generic: P
+    - generic: l
+    - generic: a
+    - generic: t
+    - generic: f
+    - generic: o
+    - generic: r
+    - generic: m
+  - paragraph: An adaptive AI literacy test and certificate flow designed around a five-minute target, followed by role-aware lessons and recommendations.
+  - img "Litmus AI - AI Literacy Testing & Certification Platform"
+- figure "The thesis":
+  - generic: “
+  - blockquote: "Litmus AI started with a practical gap: people were buying AI training before they had a fast way to see what someone actually understood."
+  - generic: The thesis
+- region "Case study at a glance":
+  - paragraph: Project details
+  - term: Role
+  - definition: UX/UI Designer and Frontend Developer
+  - term: Tools
+  - definition: React, Vite, Tailwind CSS, Supabase
+  - term: Owned
+  - definition: Assessment UX, Results logic, Training path, Certification and billing UI
+- paragraph: Problem and decision
+- heading "The problem and the product choice." [level=2]
+- link "View Live Demo":
+  - /url: https://litmusai.netlify.app
+  - generic: View Live Demo
+- article:
+  - paragraph: Problem
+  - generic: "01"
+  - heading "Teams and learners needed a fast AI readiness baseline before committing to training, certification, or paid rollout plans." [level=3]
+- article:
+  - paragraph: Decision
+  - generic: "02"
+  - heading "Compress assessment into a five-minute flow, then connect the result to recommendations, training, certification, billing, and admin visibility." [level=3]
+- paragraph: Validation plan
+- heading "Assessment assumptions to test" [level=2]
+- generic: The MVP proves the assessment path works as a product. User outcomes still need a measured study.
+- article:
+  - paragraph: Assessment hypothesis
+  - heading "Learner or team lead trying to make AI training practical." [level=3]
+  - paragraph: They need to understand practical AI literacy before choosing training, buying seats, or claiming that a team is ready.
+  - term: Working need
+  - definition: A short assessment, readable results, recommendations, and credentials that make the score useful after the session.
+  - term: Risk to test
+  - definition: Traditional certifications and courses ask for too much time before users learn whether the content fits their level.
+- article:
+  - paragraph: Evidence boundary
+  - paragraph: No verified participant sample or completion-rate dataset is available, so the five-minute duration remains a design target rather than a measured outcome.
+- article:
+  - paragraph: What the sources support
+  - paragraph: The shipped product supports level selection, a 15-question assessment, five readiness domains, recommendations, training, certification, billing, and admin review.
+  - paragraph: I designed and built the MVP as a solo UX/UI and frontend project.
+- article:
+  - paragraph: Workflow to validate
+  - list:
+    - text: "01"
+    - heading "Calibrate level" [level=4]
+    - paragraph: Pick a starting level so the first question set feels relevant instead of generic.
+    - text: "02"
+    - heading "Answer the test" [level=4]
+    - paragraph: Move through 15 practical questions across AI concepts, communication, ethics, and workplace judgment.
+    - text: "03"
+    - heading "Read the result" [level=4]
+    - paragraph: See the readiness score, domain gaps, and plain-language recommendations before committing to training.
+    - text: "04"
+    - heading "Choose a path" [level=4]
+    - paragraph: Continue into training, certification, billing, or dashboard review only when the score gives a reason.
+- article:
+  - paragraph: Questions for the first study
+  - list:
+    - listitem: How many learners finish the assessment after starting it?
+    - listitem: Do learners understand why the result leads to a specific training path?
+- paragraph: Assessment decisions
+- heading "How the assessment shaped the MVP" [level=2]
+- paragraph: "Litmus AI started with a practical gap: people were buying AI training before they had a fast way to see what someone actually understood."
+- paragraph: Courses and certificates can help, but they often ask for commitment before showing the learner where they stand. The product needed to give students, professionals, and teams a credible baseline in minutes, then point them toward training or certification only when it made sense.
+- list:
+  - generic: "01"
+  - article:
+    - paragraph: Synthesis
+    - generic: "01"
+    - heading "Define the problem" [level=3]
+    - paragraph: The assessment had to stay short without becoming shallow. If the flow took too long, users would leave. If it was too light, the score would not justify the learning path, certificate, or team rollout.
+  - figure:
+    - img "Faceted magnifying glass and prism for research synthesis."
+  - generic: "02"
+  - article:
+    - paragraph: Information architecture
+    - generic: "02"
+    - heading "Map flows and wireframes" [level=3]
+    - paragraph: Mapped the quiz, results, recommendations, and admin dashboard in Figma before building the MVP.
+  - figure:
+    - img "Glossy branching route nodes for information architecture."
+  - generic: "03"
+  - article:
+    - paragraph: UI system
+    - generic: "03"
+    - heading "Design the interface" [level=3]
+    - paragraph: I compressed the first session into an adaptive assessment, then made the result actionable through recommendations, training modules, certification access, billing plans, and admin visibility.
+  - figure:
+    - img "Stacked modular interface blocks for a UI system."
+  - generic: "04"
+  - article:
+    - paragraph: Implementation
+    - generic: "04"
+    - heading "Prototype and build" [level=3]
+    - paragraph: I shaped the quiz, results, recommendation logic, certificate flow, training surfaces, admin dashboard, auth paths, and Stripe-backed billing. The implementation connected assessment data, account state, and subscription rules into one MVP.
+  - figure:
+    - img "Glossy code cube for prototype and build work."
+  - generic: "05"
+  - article:
+    - paragraph: Evidence
+    - generic: "05"
+    - heading "Validate the proof" [level=3]
+    - paragraph: The MVP shipped with a 3-5 minute assessment target, 15 questions, five readiness domains, training modules, certification, dashboard visibility, and three subscription tiers. The delivery is verified; learner completion and comprehension still need measurement.
+  - figure:
+    - img "Proof badge with chart facets for validation."
+  - generic: "06"
+  - article:
+    - paragraph: Learning
+    - generic: "06"
+    - heading "Reflection" [level=3]
+    - paragraph: The useful design move was keeping the product honest about time. A five-minute test cannot teach everything, but it can give people and teams a starting point they can act on.
+  - figure:
+    - img "Luminous prism lamp for reflection and learning."
+- paragraph: Process artifacts
+- heading "How the assessment became a learning path." [level=2]
+- paragraph: These maps connect the fast-readiness hypothesis to the assessment, training, certification, billing, and admin surfaces that made the MVP usable.
+- paragraph: Mapped from the LitmusAI app
+- paragraph: "The structure follows the actual app routes: home, assessment, training, certification, billing, dashboard, profile, login, and registration."
+- article:
+  - button "Litmus AI sitemap connecting home, assessment, results, training, certification, billing, dashboard, profile, login, and registration routes. View full size":
+    - img "Litmus AI sitemap connecting home, assessment, results, training, certification, billing, dashboard, profile, login, and registration routes."
+    - text: View full size
+  - paragraph: Sitemap
+  - generic: "01"
+  - heading "Assess, Activate, Certify product map" [level=3]
+  - paragraph: The map keeps the free readiness check close to the paid learning and certification paths instead of treating assessment as a dead end.
+  - paragraph: Audience need to product need
+  - paragraph: Learners need a quick baseline; the product needs that baseline to create a clear path into training, certification, or team rollout.
+- article:
+  - button "Litmus AI user flow from starting the assessment through level selection, 15 questions, score review, recommendations, training, certification, and billing. View full size":
+    - img "Litmus AI user flow from starting the assessment through level selection, 15 questions, score review, recommendations, training, certification, and billing."
+    - text: View full size
+  - paragraph: User flow
+  - generic: "02"
+  - heading "Readiness assessment to learning path" [level=3]
+  - paragraph: The core loop makes the score useful immediately by pairing readiness gaps with the next action instead of ending at a percentage.
+  - paragraph: Audience need to product need
+  - paragraph: Learners need to know what to do after the score; teams need progress and subscription signals tied to the same path.
+- article:
+  - button "Low-fidelity Litmus AI assessment setup wireframe based on the assessment screenshot, with calibration panel, level cards, timing cues, and start action. View full size":
+    - img "Low-fidelity Litmus AI assessment setup wireframe based on the assessment screenshot, with calibration panel, level cards, timing cues, and start action."
+    - text: View full size
+  - paragraph: Wireframe
+  - generic: "03"
+  - heading "Assessment setup wireframe" [level=3]
+  - paragraph: The setup screen gives users enough context to choose a starting level without making the assessment feel heavy.
+  - paragraph: Audience need to product need
+  - paragraph: Learners need confidence that the test is credible; the product needs completion momentum before recommending training.
+- article:
+  - button "Low-fidelity Litmus AI training path wireframe based on the training hub screenshot, with filter chips, module cards, learning bullets, and module actions. View full size":
+    - img "Low-fidelity Litmus AI training path wireframe based on the training hub screenshot, with filter chips, module cards, learning bullets, and module actions."
+    - text: View full size
+  - paragraph: Wireframe
+  - generic: "04"
+  - heading "Training path wireframe" [level=3]
+  - paragraph: The training screen turns the assessment promise into concrete role-based modules that show what to do after the score.
+  - paragraph: Audience need to product need
+  - paragraph: Learners need a next step they can act on; the business needs the free assessment to lead naturally into learning and certification.
+- paragraph: Interface evidence
+- heading "How the Litmus AI path shows up on screen." [level=2]
+- paragraph: "These screens show the product decisions reviewers should inspect: assessment entry, role-based training, certification readiness, and pricing."
+- list:
+  - paragraph: 01 / Frame the promise
+  - paragraph: The home and pricing pages explain assessment, training, certification, and plan value before sign-in.
+  - paragraph: 02 / Reduce test friction
+  - paragraph: The assessment start screen keeps level choice, timing, and user expectations clear before the test begins.
+  - paragraph: 03 / Carry the next step
+  - paragraph: Training and certification screens turn the readiness signal into modules, requirements, and account paths.
+- button "Homepage interface View full size Homepage The homepage positions the assessment as the first step and previews the readiness dashboard users unlock after answering.":
+  - img "Homepage interface"
+  - text: View full size
+  - generic: Homepage
+  - generic: The homepage positions the assessment as the first step and previews the readiness dashboard users unlock after answering.
+- button "Assessment calibration interface View full size Assessment calibration The start screen asks users to choose a level before the test, matching the calibration console and three-option setup.":
+  - img "Assessment calibration interface"
+  - text: View full size
+  - generic: Assessment calibration
+  - generic: The start screen asks users to choose a level before the test, matching the calibration console and three-option setup.
+- button "Training hub interface View full size Training hub The training hub organizes modules by role, access state, duration, and learning outcomes so recommendations lead somewhere concrete.":
+  - img "Training hub interface"
+  - text: View full size
+  - generic: Training hub
+  - generic: The training hub organizes modules by role, access state, duration, and learning outcomes so recommendations lead somewhere concrete.
+- button "Certification catalog interface View full size Certification catalog The catalog shows requirements, skills validated, readiness warnings, and apply states before payment or sign-in.":
+  - img "Certification catalog interface"
+  - text: View full size
+  - generic: Certification catalog
+  - generic: The catalog shows requirements, skills validated, readiness warnings, and apply states before payment or sign-in.
+- button "Pricing interface View full size Pricing The pricing page explains the free, premium, and team paths around training, practice, and certification value.":
+  - img "Pricing interface"
+  - text: View full size
+  - generic: Pricing
+  - generic: The pricing page explains the free, premium, and team paths around training, practice, and certification value.
+- paragraph: Shipped proof
+- heading "What the MVP made testable" [level=2]
+- paragraph: "Litmus AI shipped the full assessment path: choose a level, answer 15 questions, review five readiness domains, and continue into training or certification. Completion and comprehension still need measurement."
+- paragraph: Assessment questions
+- paragraph: Delivery fact
+- paragraph: Assessment target
+- paragraph: Design target
+- paragraph: Target duration, not a measured completion time.
+- paragraph: Readiness domains
+- paragraph: Delivery fact
+- list:
+  - listitem: The first study should measure start-to-completion rate and the time learners spend on each question.
+  - listitem: "Result comprehension matters as much as speed: learners should understand why a domain score leads to a specific training path."
+  - listitem: Team buyers need a separate check for whether the five-domain view supports a real training decision.
+- 'link "Next case study: Staybooked - AI Airbnb Optimizer"':
+  - /url: /project/staybooked
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - paragraph: 2026 / Product Design
+  - text: Staybooked - AI Airbnb Optimizer
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne

@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
+  Copy,
   Download,
   FileText,
   Github,
@@ -12,6 +15,15 @@ import { CONTACT_EMAIL } from "@/config/contact";
 import { RESUME_DOWNLOAD_NAME, RESUME_URL } from "@/config/resume";
 
 const ContactSection = () => {
+  const [copyStatus, setCopyStatus] = useState("");
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setCopyStatus("Email copied. Paste it into your preferred email app.");
+    } catch {
+      setCopyStatus(`Could not copy automatically. Select and copy ${CONTACT_EMAIL}.`);
+    }
+  };
   return (
     <section
       id="contact"
@@ -35,8 +47,8 @@ const ContactSection = () => {
             Let&apos;s work together.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
-            Email me with the project, the goal, and the part you want help
-            shaping.
+            Have a role or project in mind? Email me about the team, the problem,
+            and where you need design help.
           </p>
 
           <div className="mx-auto mt-10 grid max-w-2xl gap-3 sm:grid-cols-2">
@@ -55,6 +67,12 @@ const ContactSection = () => {
               </span>
             </a>
 
+            <div className="sm:col-span-2">
+              <button type="button" onClick={copyEmail} className="inline-flex min-h-11 items-center gap-2 rounded-md px-4 text-sm font-semibold text-white underline underline-offset-4 hover:text-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                <Copy size={16} aria-hidden="true" /> Copy email address
+              </button>
+              <p role="status" className="min-h-6 text-sm leading-6 text-slate-300">{copyStatus}</p>
+            </div>
             <a
               href={RESUME_URL}
               target="_blank"
@@ -70,7 +88,7 @@ const ContactSection = () => {
               className="flex min-h-16 items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 font-semibold text-slate-200 transition-colors hover:border-primary/40 hover:text-white"
             >
               <Download size={18} />
-              Download
+              Download resume
             </a>
 
             <a
@@ -93,13 +111,14 @@ const ContactSection = () => {
             </a>
           </div>
 
+          <p className="mt-6 text-sm leading-6 text-slate-300">Need a website for your business? <Link to="/services" className="inline-flex min-h-11 items-center font-semibold text-white underline underline-offset-4 hover:text-primary-light">Explore website services</Link>.</p>
           <div className="mx-auto mt-8 max-w-2xl rounded-xl border border-white/10 bg-white/[0.04] p-5">
             <div className="flex items-center justify-center gap-3 text-sm font-semibold text-white">
               <span className="relative flex h-3 w-3">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-400" />
               </span>
-              Available for new projects
+              Open to design roles and projects
             </div>
             <div className="mt-4 flex flex-wrap justify-center gap-3 text-sm text-slate-400">
               <span className="inline-flex items-center gap-2">

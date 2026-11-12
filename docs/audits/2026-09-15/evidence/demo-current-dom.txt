@@ -1,0 +1,206 @@
+- main:
+  - navigation "Main navigation":
+    - link "Listing scan":
+      - /url: /tools#audit
+    - link "Rewrite":
+      - /url: /tools#listing-tools
+    - link "Pricing":
+      - /url: /#pricing
+    - link "Staybooked home":
+      - /url: /
+      - img "Staybooked"
+    - link "Sign in":
+      - /url: /login
+    - link "Get started free":
+      - /url: /signup?redirectTo=%2Foptimize%2Faudit
+  - paragraph: For short-term rental hosts
+  - heading "Fix the listing before you rebuild the whole product." [level=1]
+  - paragraph: Staybooked scans your title and description for booking clarity, trust risks, and missing proof, then turns the scan into a rewrite you can actually use.
+  - link "Start with your listing":
+    - /url: /signup?redirectTo=%2Foptimize%2Faudit
+  - link "View listing tools":
+    - /url: /tools#listing-tools
+    - text: View listing tools
+  - paragraph: Account-first, no scraping, built around host-provided copy.
+  - generic: Title clarity
+  - generic: Guest fit
+  - generic: Trust risk
+  - figure:
+    - paragraph: Listing scan
+    - paragraph: Guest-ready copy
+    - generic: Accuracy-aware
+    - img "Guest-ready bedroom styled with warmer light and polished hosting details"
+    - generic: Trust-safe rewrite path
+    - paragraph: Listing audit
+    - generic: +24 pts
+    - paragraph: "86"
+    - paragraph: from 62
+    - paragraph: Title
+    - paragraph: Sharper hook
+    - paragraph: Copy
+    - paragraph: Clearer opening
+    - paragraph: Trust
+    - paragraph: Claims checked
+  - list:
+    - generic: Paste
+    - generic: title and description
+    - generic: Scan
+    - generic: conversion and trust gaps
+    - generic: Rewrite
+    - generic: verified guest benefits
+    - generic: No scrape
+    - generic: host-provided content
+    - generic: Saved
+    - generic: listing history
+  - generic: "1"
+  - generic: "2"
+  - generic: "3"
+  - paragraph: How it works
+  - heading "A focused workflow for improving the stay you already offer." [level=2]
+  - paragraph: Staybooked does not need a live Airbnb integration to be useful. It works from the title and description hosts already control. The goal is to sharpen what is real, not invent amenities guests will not find.
+  - paragraph: Host worksheet
+  - paragraph: "Built for the real host rhythm: paste the listing, read the guest signals, then leave with one useful improvement to make."
+  - paragraph: Today's input
+  - paragraph: Oak Street listing draft
+  - article:
+    - text: Paste
+    - generic: "1"
+    - heading "Start with the live listing copy" [level=3]
+    - paragraph: Add the current title and description. No Airbnb connection or scraping needed.
+    - paragraph: What it produces
+    - paragraph: Current title and description
+  - article:
+    - text: Scan
+    - generic: "2"
+    - heading "Find the first fixes" [level=3]
+    - paragraph: See the trust risks, vague claims, missing details, and places where the opening copy loses momentum.
+    - paragraph: What it produces
+    - paragraph: Score, claim checks, and ranked fixes
+  - article:
+    - text: Rewrite
+    - generic: "3"
+    - heading "Keep the facts and sharpen the pitch" [level=3]
+    - paragraph: Turn the scan into clearer guest-facing copy without adding amenities, promises, or certainty the host has not verified.
+    - paragraph: What it produces
+    - paragraph: Recommended title and description
+  - paragraph: "Staybooked fits the work hosts already do: paste the listing, compare the scan and rewrite, save what is useful, and make one realistic copy change before moving to the next property."
+  - generic: Upload
+  - generic: Paste
+  - generic: Compare
+  - generic: Save
+  - paragraph: Booking signals
+  - heading "Product tools that sharpen the signals guests scan first." [level=2]
+  - link "View all tools":
+    - /url: /tools
+    - text: View all tools
+  - article:
+    - img "Host listing audit workspace with rental details and review notes"
+    - paragraph: "86"
+    - paragraph: Strong
+    - generic: Title
+    - generic: Accuracy
+    - generic: Claims
+    - generic: Guest-facing claims checked
+    - paragraph:
+      - text: Audit score
+    - heading "Scan the claims guests judge first" [level=3]
+    - paragraph: Score conversion clarity, trust risks, supplied facts, and claims to verify before rewriting.
+    - generic: Title clarity
+    - generic: Claim checks
+    - generic: Ranked fixes
+    - link "Scan listing":
+      - /url: /optimize/audit
+      - text: Scan listing
+  - article:
+    - paragraph: Current
+    - generic: Vague benefit
+    - paragraph: Recommended
+    - paragraph: Bright suite with a work nook, calmer sleep setup, and walkable neighborhood favorites.
+    - generic: Facts kept
+    - generic: Clearer lead
+    - paragraph:
+      - text: Listing rewrite
+    - heading "Rewrite with verified facts" [level=3]
+    - paragraph: Turn plain copy into sharper guest benefits while keeping tradeoffs and unsupported claims visible.
+    - generic: Fact-safe copy
+    - generic: Guest-first opening
+    - generic: Claims stay visible
+    - link "Rewrite listing":
+      - /url: /optimize/listing
+      - text: Rewrite listing
+  - paragraph: Pricing
+  - heading "Start free with the listing conversion engine. Upgrade when saved scans and rewrites become part of your workflow." [level=2]
+  - paragraph: Paid plans start in Stripe Checkout with server-side price IDs. If you are signed out, we route you through account creation first and bring you back to the upgrade flow.
+  - generic: Monthly billing
+  - article:
+    - generic: Starter
+    - paragraph: $0
+    - heading "Run the first listing check" [level=3]
+    - paragraph: Create an account, paste a listing draft, and see the scan before you commit to a paid workflow.
+    - list:
+      - generic: Listing conversion scan
+      - generic: Saved property and listing workspace
+      - generic: Rewrite workspace for title and description
+    - generic: Included when a host creates an account.
+  - article:
+    - generic: Host
+    - paragraph: $19/mo
+    - heading "For one active listing refresh cycle" [level=3]
+    - paragraph: Keep the scan, rewrite, and saved-history workflow moving for one active short-term rental.
+    - list:
+      - generic: Ongoing listing scans
+      - generic: Unlimited listing rewrites
+      - generic: Saved scan and rewrite history
+    - button "Choose Host"
+  - article:
+    - generic: Pro
+    - paragraph: $49/mo
+    - heading "For more active listings" [level=3]
+    - paragraph: Use the same listing optimization workflow across a larger host workspace.
+    - list:
+      - generic: Multi-property listing workspace
+      - generic: Unlimited listing rewrites
+      - generic: Best fit for 2-5 active listings
+    - button "Choose Pro"
+  - paragraph: Start with one useful fix
+  - heading "Pick the part of the listing guests judge first." [level=2]
+  - link "Start free":
+    - /url: /signup?redirectTo=%2Foptimize%2Faudit
+  - link "Rewrite the opening paragraph":
+    - /url: /optimize/listing
+    - generic: Rewrite the opening paragraph
+  - link "Audit the signals guests scan first":
+    - /url: /optimize/audit
+    - generic: Audit the signals guests scan first
+  - link "Staybooked home":
+    - /url: /
+    - img "Staybooked"
+  - paragraph: Listing scans and rewrites for short-term rental hosts who want clearer copy without inventing claims.
+  - link "Explore tools":
+    - /url: /tools
+    - text: Explore tools
+  - heading "Optimize" [level=3]
+  - list:
+    - link "Listing scan":
+      - /url: /optimize/audit
+    - link "Listing rewrite":
+      - /url: /optimize/listing
+    - link "Pricing":
+      - /url: /#pricing
+  - heading "Learn" [level=3]
+  - list:
+    - link "How it works":
+      - /url: /#how-it-works
+    - link "Tools":
+      - /url: /tools
+    - link "Trust-safe audit":
+      - /url: /tools#audit
+  - heading "Account" [level=3]
+  - list:
+    - link "Sign in":
+      - /url: /login
+    - link "Create account":
+      - /url: /signup
+    - link "Dashboard":
+      - /url: /dashboard
+- alert

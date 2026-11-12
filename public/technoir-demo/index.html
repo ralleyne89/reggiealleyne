@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0e0e10" />
+    <meta name="description" content="Explore the Tech Noir client demonstration: luxury wearable-tech shopping, designer collections, styling guides, and simulated try-on and checkout." />
+    <title>Tech Noir — Interactive Demo</title>
+    <link rel="stylesheet" href="./app.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to app content</a>
+    <div class="app" id="app">
+      <header class="masthead">
+        <button class="icon-button" data-action="guide" aria-label="Presentation guide and settings"></button>
+        <button class="wordmark" data-action="tab" data-tab="discover" aria-label="Tech Noir home">TECHNOIR</button>
+        <button class="icon-button bag-button" data-action="bag" aria-label="Shopping bag"><span id="bag-count" hidden></span></button>
+      </header>
+      <div class="demo-strip"><span>CLIENT DEMONSTRATION</span><button data-action="guide">About this demo <span aria-hidden="true">↗</span></button></div>
+      <main id="content" tabindex="-1"><div class="loading"><span class="loading-mark">TN</span><p>Opening the edit…</p></div></main>
+      <nav id="tabs" class="tabs" aria-label="App navigation"></nav>
+      <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    </div>
+    <dialog id="dialog" class="sheet" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
+  </body>
+</html>

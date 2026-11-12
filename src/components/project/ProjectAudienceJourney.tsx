@@ -45,6 +45,7 @@ const ProjectAudienceJourney = ({ project }: ProjectAudienceJourneyProps) => {
     "The project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.";
   const teamContext =
     presentation?.teamContext ||
+    (project.teamSize === "1" || project.teamSize === "Solo project" ? `Solo MVP. My role: ${project.role || "UX/UI designer and frontend developer"}.` : undefined) ||
     `The portfolio record identifies my role as ${project.role || "the project designer"}. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.`;
   const validationQuestions =
     presentation?.validationQuestions || defaultValidationQuestions;

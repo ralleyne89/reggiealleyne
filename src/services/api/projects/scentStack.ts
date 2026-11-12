@@ -6,7 +6,7 @@ export const getScentStackProject = (): ProjectType => {
     slug: "scent-stack",
     title: "ScentStack – AI-Powered Fragrance Discovery Platform",
     description:
-      "1700+ fragrance dupes with AI-powered scent matching, layering recommendations, and dream scent discovery. Saving users 90% on luxury fragrances.",
+      "1700+ fragrance dupes with AI-powered scent matching, layering recommendations, and dream scent discovery. Compare lower-cost alternatives to luxury fragrances.",
     role: "UX/UI Designer & AI Product Strategist",
     year: "2026",
     duration: "3 weeks",
@@ -18,7 +18,7 @@ export const getScentStackProject = (): ProjectType => {
     problem:
       "The fragrance industry operates on a fundamental inequity: identical scent formulas command wildly different prices based on branding alone. Meanwhile, the art of fragrance layering remains inaccessible to beginners, and the gap between imagining your perfect scent and actually finding it has no bridge.",
     solution:
-      "ScentStack addresses these gaps through three integrated features: (1) Discover—a comprehensive dupe database showing luxury fragrances alongside affordable alternatives with 90% average savings, (2) Layering Lab—computer vision technology that analyzes your existing fragrances and suggests complementary combinations, and (3) Dream Lab—GPT-5 powered natural language processing that translates scent descriptions into concrete fragrance recommendations.",
+      "ScentStack addresses these gaps through three integrated features: (1) Discover—a comprehensive dupe database showing luxury fragrances alongside affordable alternatives with price comparisons, (2) Layering Lab—computer vision technology that analyzes your existing fragrances and suggests complementary combinations, and (3) Dream Lab—GPT-5 powered natural language processing that translates scent descriptions into concrete fragrance recommendations.",
     methodologies: [
       "Human-Centered Design",
       "Product Strategy",
@@ -54,7 +54,7 @@ export const getScentStackProject = (): ProjectType => {
     prototypeUrl: null,
     keyAchievements: [
       "Delivered a complete consumer product in just 3 weeks",
-      "Curated database of 1700+ fragrance dupes with 90% average savings for users",
+      "Curated database of 1700+ fragrance dupes with price comparisons for users",
       "Integrated GPT-5 for natural language scent matching (Dream Lab feature)",
       "Implemented computer vision for photo-based fragrance layering recommendations",
       "Covered 150+ designer brands in comprehensive A-Z browser",

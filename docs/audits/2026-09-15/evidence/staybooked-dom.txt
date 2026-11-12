@@ -1,0 +1,238 @@
+- region "Notifications (F8)":
+  - list
+- banner:
+  - navigation "Primary navigation":
+    - link "Reggie Alleyne home":
+      - /url: /
+    - link "Home":
+      - /url: /
+      - generic "Home"
+    - link "Work":
+      - /url: /work
+      - generic "Work"
+    - link "Playground":
+      - /url: /playground
+      - generic "Playground"
+    - link "About":
+      - /url: /about
+      - generic "About"
+    - link "Contact":
+      - /url: /#contact
+      - generic "Contact"
+- generic: You
+- navigation "Case study chapters":
+  - list:
+    - button "Details":
+      - generic: Details
+    - button "Trust problem":
+      - generic: Trust problem
+    - button "Assumptions":
+      - generic: Assumptions
+    - button "Interface":
+      - generic: Interface
+    - button "Decisions":
+      - generic: Decisions
+    - button "Next measures":
+      - generic: Next measures
+- banner:
+  - link "Back to Work":
+    - /url: /work
+    - text: Back to Work
+  - paragraph: 2026 / Product Design
+  - heading "Staybooked - AI Airbnb Optimizer" [level=1]
+  - img "Staybooked - AI Airbnb Optimizer"
+- figure "The thesis":
+  - generic: “
+  - blockquote: Staybooked helps hosts improve the listing details guests judge first while keeping every suggestion tied to the property they can deliver.
+  - generic: The thesis
+- region "Case study at a glance":
+  - paragraph: Project details
+  - term: Role
+  - definition: UX/UI Designer and Frontend Developer
+  - term: Tools
+  - definition: Next.js, Supabase, AI UX, Responsive UI
+  - term: Owned
+  - definition: Product framing, Host workflow, Room optimizer UI, Portfolio presentation
+- paragraph: Problem and decision
+- heading "The problem and the product choice." [level=2]
+- link "Visit Staybooked":
+  - /url: https://staybooked-ai.netlify.app/
+  - generic: Visit Staybooked
+- article:
+  - paragraph: Problem
+  - generic: "01"
+  - heading "Independent hosts needed a practical way to improve room photos, listing copy, and booking signals without making the AI output feel deceptive." [level=3]
+- article:
+  - paragraph: Decision
+  - generic: "02"
+  - heading "Frame AI as believable improvement direction inside a saved host workspace, not as a generic image generator." [level=3]
+- paragraph: Working assumptions
+- heading "Host needs to validate" [level=2]
+- generic: The MVP starts with a host workflow hypothesis and makes the riskiest trust decisions inspectable.
+- article:
+  - paragraph: Host assumptions
+  - heading "Independent host tightening up a short-term rental listing before guests book." [level=3]
+  - paragraph: They manage real rooms and need better photos, copy, amenities, and trust cues without overselling the property.
+  - term: Working need
+  - definition: A workspace that keeps AI suggestions tied to the real room, property details, and booking context.
+  - term: Risk to test
+  - definition: Most AI image tools make the room look better than it is, which creates the wrong expectation for guests.
+- article:
+  - paragraph: Evidence boundary
+  - paragraph: No host interviews or external usability sessions are documented, so this section labels assumptions instead of presenting a fictional research participant.
+- article:
+  - paragraph: What the sources support
+  - paragraph: The product includes a marketing page, account entry, host dashboard, and room optimizer tied to real property photos and details.
+  - paragraph: I designed and built the MVP as a solo UX/UI and frontend project.
+- article:
+  - paragraph: Workflow to validate
+  - list:
+    - text: "01"
+    - heading "Find the listing gap" [level=4]
+    - paragraph: Start with the photo, title, copy, amenity, or trust cue that could make a guest hesitate.
+    - text: "02"
+    - heading "Upload room context" [level=4]
+    - paragraph: Add real room and property details so the suggestions stay grounded.
+    - text: "03"
+    - heading "Review direction" [level=4]
+    - paragraph: Check recommendations as listing improvements, not fantasy renovation claims.
+    - text: "04"
+    - heading "Save the work" [level=4]
+    - paragraph: Keep the property context, outputs, and next actions in one workspace.
+- article:
+  - paragraph: Questions for the first study
+  - list:
+    - listitem: Can a host understand why the optimizer flagged a room?
+    - listitem: Will hosts accept, revise, or reject suggestions before updating a live listing?
+- paragraph: Interface evidence
+- heading "How trust stays visible in the host workflow." [level=2]
+- paragraph: "These screens show the product decisions reviewers should inspect: what the AI flags first, how suggestions stay tied to the real room, and where hosts stay in control."
+- list:
+  - paragraph: 01 / Prototype the path
+  - paragraph: "After the strategy was set, the next step was turning the host workflow into screens: connect a listing, see what guests judge first, and act on one fix at a time."
+  - paragraph: 02 / Design the real states
+  - paragraph: The interface had to cover listing audits, photo review, copy suggestions, and readiness states without letting AI output drift from what the property actually offers.
+  - paragraph: 03 / Show the product proof
+  - paragraph: "The screenshots below make the product easier to judge: the room optimizer, the host workspace, and account entry."
+- 'button "Room optimizer flow interface View full size Room optimizer flow Suggestions stay attached to the actual room photos and details, with audit cues that show why something was flagged: the anti-misrepresentation decision in practice."':
+  - img "Room optimizer flow interface"
+  - text: View full size
+  - generic: Room optimizer flow
+  - generic: "Suggestions stay attached to the actual room photos and details, with audit cues that show why something was flagged: the anti-misrepresentation decision in practice."
+- button "Host workspace interface View full size Host workspace The dashboard leads with property readiness and the next highest-leverage fix, so hosts act on one room at a time instead of facing a wall of AI suggestions.":
+  - img "Host workspace interface"
+  - text: View full size
+  - generic: Host workspace
+  - generic: The dashboard leads with property readiness and the next highest-leverage fix, so hosts act on one room at a time instead of facing a wall of AI suggestions.
+- button "Account entry interface View full size Account entry Account entry makes the saved-workspace promise clear before a host uploads private property media or returns to recent work.":
+  - img "Account entry interface"
+  - text: View full size
+  - generic: Account entry
+  - generic: Account entry makes the saved-workspace promise clear before a host uploads private property media or returns to recent work.
+- paragraph: Trust decisions
+- heading "How trust shaped the host workflow" [level=2]
+- paragraph: Staybooked helps hosts improve the listing details guests judge first while keeping every suggestion tied to the property they can deliver.
+- paragraph: Independent short-term rental hosts often know a listing could perform better, but the problem is scattered across photos, titles, opening copy, amenities, and trust cues. A generic tool can polish one asset, but it rarely keeps the host's real property context intact.
+- list:
+  - generic: "01"
+  - article:
+    - paragraph: Synthesis
+    - generic: "01"
+    - heading "Define the problem" [level=3]
+    - paragraph: The main constraint was trust. AI-generated room direction had to feel useful and believable, not like a fantasy renovation that would make the live listing misleading.
+  - figure:
+    - img "Faceted magnifying glass and prism for research synthesis."
+  - generic: "02"
+  - article:
+    - paragraph: Information architecture
+    - generic: "02"
+    - heading "Map flows and wireframes" [level=3]
+    - paragraph: Designed the room optimizer around property and room context so uploads, generated renders, design direction, and history stay connected.
+  - figure:
+    - img "Glossy branching route nodes for information architecture."
+  - generic: "03"
+  - article:
+    - paragraph: UI system
+    - generic: "03"
+    - heading "Design the interface" [level=3]
+    - paragraph: I framed AI as improvement direction inside a saved host workspace. The product keeps rooms, generated renders, listing copy, audit cues, and recent work connected to the property.
+  - figure:
+    - img "Stacked modular interface blocks for a UI system."
+  - generic: "04"
+  - article:
+    - paragraph: Implementation
+    - generic: "04"
+    - heading "Prototype and build" [level=3]
+    - paragraph: I built the portfolio-facing product story across the marketing homepage, sign-in, dashboard, and room optimizer screens. The interface shows uploads, room context, realistic visual direction, and saved optimization work.
+  - figure:
+    - img "Glossy code cube for prototype and build work."
+  - generic: "05"
+  - article:
+    - paragraph: Evidence
+    - generic: "05"
+    - heading "Validate the proof" [level=3]
+    - paragraph: The product connects account entry, a saved host dashboard, and room optimization. The screens show what the AI reviews, why it flags a room, and where a host can accept, adjust, or reject a suggestion.
+  - figure:
+    - img "Proof badge with chart facets for validation."
+  - generic: "06"
+  - article:
+    - paragraph: Learning
+    - generic: "06"
+    - heading "Reflection" [level=3]
+    - paragraph: The biggest product lesson was that AI tools need a point of view about responsibility. For Staybooked, the useful output is not spectacle; it is a believable next step a host can evaluate before changing a listing.
+  - figure:
+    - img "Luminous prism lamp for reflection and learning."
+- paragraph: Measurement plan
+- heading "What the MVP made judgeable" [level=2]
+- paragraph: "Staybooked turns listing optimization into a short loop: audit the listing, show what guests judge first, fix one room, and re-check the work against the real property."
+- paragraph: Audit, fix, re-check
+- paragraph: Delivery fact
+- paragraph: Connected product surfaces
+- paragraph: Delivery fact
+- paragraph: Fabrications allowed
+- paragraph: Product guardrail
+- paragraph: A product requirement, not a measured user outcome.
+- list:
+  - listitem: The audit gives hosts a starting point before they change a room photo or rewrite listing copy.
+  - listitem: The room optimizer keeps each suggestion attached to the source photo and property details so a host can accept, revise, or reject it with context.
+  - listitem: The next study should track audit-to-fix completion, photo updates, and whether optimized listings convert more visitors into bookings.
+- 'link "Next case study: Vault.js Validate – Enterprise Security Visualization & AI Tool"':
+  - /url: /project/vaultjs-validate
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - paragraph: 2026 / Enterprise Security
+  - text: Vault.js Validate – Enterprise Security Visualization & AI Tool
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne

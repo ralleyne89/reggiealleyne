@@ -1,16 +1,18 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
-import { useParams, useNavigate } from "react-router-dom";
+import NotFound from "@/pages/NotFound";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 import Footer from "@/components/layout/Footer";
-import { getProject } from "@/services/api";
+import { getProject, ProjectNotFoundError } from "@/services/api";
 import {
   getPredefinedProjectById,
   getPredefinedProjectBySlug,
 } from "@/services/api/predefinedProjects";
 import { motion } from "framer-motion";
 import ProjectHeader from "@/components/project/ProjectHeader";
+import TechNoirInteractiveDemo from "@/components/project/TechNoirInteractiveDemo";
 import ProjectEssentials from "@/components/project/ProjectEssentials";
 import ProjectNarrative from "@/components/project/ProjectNarrative";
 import ProjectAudienceJourney from "@/components/project/ProjectAudienceJourney";
@@ -111,9 +113,9 @@ const createMetaByProperty = (property: string) => {
 };
 
 const DEFAULT_SHARE_IMAGE =
-  "https://reggiealleyne.com/images/reggie-alleyne-portfolio-og.jpg";
+  "https://reggiealleyne.com/images/reggie-alleyne-portfolio-og-20260915.jpg";
 const DEFAULT_SHARE_IMAGE_ALT =
-  "Reggie Alleyne portfolio with a Figma-inspired canvas and selected product design work.";
+  "Reggie Alleyne, UX/UI Designer and Frontend Developer";
 
 const defaultChapterOrder: CaseStudyChapterKey[] = [
   "glance",
@@ -191,8 +193,7 @@ const Project = () => {
         const isNumeric = !isNaN(Number(lookupSlug));
         const project = await getProject(isNumeric ? Number(lookupSlug) : lookupSlug);
         if (!project) {
-          toast.error(`Project not found: ${lookupSlug}`);
-          throw new Error(`Project not found: ${lookupSlug}`);
+          throw new ProjectNotFoundError(`Project not found: ${lookupSlug}`);
         }
         return project;
       } catch (err) {
@@ -202,7 +203,7 @@ const Project = () => {
     },
     enabled: Boolean(slug),
     placeholderData: getLocalProjectPlaceholder,
-    retry: 1
+    retry: (failureCount, error) => !(error instanceof ProjectNotFoundError) && failureCount < 1
   });
   useEffect(() => {
     // Special handling for projects that might need to hide the header image
@@ -296,7 +297,7 @@ const Project = () => {
 
   // Handle loading state
   if (isLoading) {
-    return <div className="min-h-screen bg-white px-4 pt-24 text-text-primary">
+    return <main id="main-content" tabIndex={-1} className="min-h-screen bg-white px-4 pt-24 text-text-primary">
         <div className="mx-auto w-full max-w-7xl">
           <div className="animate-pulse rounded-2xl border border-gray-200 bg-slate-50 p-5 sm:p-8">
             <div className="mb-5 h-4 w-28 rounded-full bg-slate-200"></div>
@@ -312,13 +313,15 @@ const Project = () => {
             </div>
           </div>
         </div>
-      </div>;
+      </main>;
   }
+
+  if (error instanceof ProjectNotFoundError) return <NotFound />;
 
   // Handle error state
   if (error || !project) {
     console.error("Project error:", error);
-    return <div className="min-h-screen bg-white px-4 pt-24 text-text-primary">
+    return <main id="main-content" tabIndex={-1} className="min-h-screen bg-white px-4 pt-24 text-text-primary">
         <div className="mx-auto w-full max-w-7xl">
           <p className="text-red-500 mb-4">
             Error loading project:{" "}
@@ -328,7 +331,7 @@ const Project = () => {
             Return to Work
           </button>
         </div>
-      </div>;
+      </main>;
   }
 
   // Destructure project properties
@@ -367,6 +370,7 @@ const Project = () => {
     id: `chapter-${chapter}`,
     label: presentation?.chapterLabels[chapter] || defaultChapterLabels[chapter],
   }));
+  if (project.slug === "tech-noir") chapters.unshift({ id: "chapter-demo", label: "Demo" });
   const chapterSections: Record<CaseStudyChapterKey, ReactNode> = {
     glance: (
       <div id="chapter-glance" className="scroll-mt-24">
@@ -414,6 +418,7 @@ const Project = () => {
   }} transition={{
     duration: 0.3
   }} className="min-h-screen bg-white pb-24 text-text-primary md:pb-0">
+      <main id="main-content" tabIndex={-1}>
       <CaseStudyChapterNav chapters={chapters} />
 
       {showHeaderImage && (
@@ -427,13 +432,20 @@ const Project = () => {
       )}
 
       <div className="w-full">
+        {project.slug === "tech-noir" && <TechNoirInteractiveDemo />}
         <PullQuote quote={narrative?.hook} attribution="The thesis" />
         {chapterOrder.map((chapter) => (
           <div key={chapter}>{chapterSections[chapter]}</div>
         ))}
       </div>
 
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6" aria-labelledby="case-contact-heading">
+        <h2 id="case-contact-heading" className="font-display text-3xl text-gray-950">Working on a similar problem?</h2>
+        <p className="mt-3 max-w-2xl text-base leading-7 text-gray-600">Tell me about your team or project and where you need design help.</p>
+        <Link to="/#contact" className="mt-5 inline-flex min-h-11 items-center rounded-lg bg-gray-950 px-6 py-3 font-semibold text-white hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">Discuss a role or project</Link>
+      </section>
       <NextProjectTakeover project={project as ProjectType} />
+      </main>
       <Footer />
     </motion.div>;
 };
