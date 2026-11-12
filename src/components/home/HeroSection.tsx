@@ -1,4 +1,12 @@
-import { type RefObject, useEffect, useLayoutEffect, useRef } from "react";
+import {
+  type RefObject,
+  Suspense,
+  lazy,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { useReducedMotion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -676,6 +684,41 @@ const HeroArtwork = () => (
   </div>
 );
 
+// three.js stays out of the first bundle; it loads once the page is idle.
+const HeroDepthScene = lazy(() => import("./HeroDepthScene"));
+
+/**
+ * Mounts the WebGL depth layer only where it can run well: a wide viewport
+ * with a fine pointer, motion allowed and data saver off. Everywhere else the
+ * HTML hero is the whole experience.
+ */
+const HeroDepthLayer = ({ sectionRef }: { sectionRef: RefObject<HTMLElement> }) => {
+  const shouldReduceMotion = useReducedMotion();
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    if (shouldReduceMotion) return undefined;
+
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } })
+      .connection;
+    const capable =
+      window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches &&
+      !connection?.saveData;
+    if (!capable) return undefined;
+
+    const timer = window.setTimeout(() => setEnabled(true), 900);
+    return () => window.clearTimeout(timer);
+  }, [shouldReduceMotion]);
+
+  if (!enabled) return null;
+
+  return (
+    <Suspense fallback={null}>
+      <HeroDepthScene sectionRef={sectionRef} />
+    </Suspense>
+  );
+};
+
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -946,6 +989,7 @@ const HeroSection = () => {
     >
       <AutonomousReggieCursor sectionRef={sectionRef} />
       <HeroCanvasLayer sectionRef={sectionRef} />
+      <HeroDepthLayer sectionRef={sectionRef} />
 
       <div
         data-hero-sticky

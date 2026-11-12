@@ -4614,6 +4614,8 @@ a:hover .duotone-media::after {
   }
 
   .cs-stage__screen { transform: none; }
+
+  .cs-step { opacity: 1; }
 }
 
 /* ---------- Home: lead work stack ---------- */
@@ -4843,4 +4845,20 @@ a:hover .duotone-media::after {
   }
 
   .lw-stage__screen { transform: none; }
+
+  .lw-item { opacity: 1; }
 }
+
+/* ---------- Hero: WebGL depth layer ---------- */
+.hero-depth-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 900ms var(--ease-out);
+}
+
+.hero-depth-scene[data-ready="true"] { opacity: 1; }

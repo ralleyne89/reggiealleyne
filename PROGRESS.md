@@ -34,9 +34,17 @@ Branch: `claude/portfolio-audit-fixes`. Nothing is published.
 - Audit done from scroll captures at 1440 and 390: hero is the strongest surface; below it the home page is stacked cards, text rows and a nine-row tool list with fade-in motion only; case studies run about 8,100px desktop / 11,500px mobile, mostly bordered text boxes, small screenshots and stock 3D icons; no WebGL anywhere; `DESIGN.md` describes an older build.
 - Research: five Mobbin section sweeps done. Awwwards: Jesper Landberg and Olha Lazarieva watched live in Chrome on Nov 11.
 - Reggie's decisions: keep hero and rebuild the rest; 3D moment is the hero canvas in depth; case studies go screens first; lead work is MotorFlow first (Reggie), then Staybooked and Tech Noir (Claude's pick, reasoning in `direction.md`).
-- `direction.md` written and approved with the MotorFlow change (Nov 11). Build not started.
-- Still to do in this pass: per-project share cards, CreativeWork structured data, empty H2s on case studies, case-study title punctuation.
-- Preview deploy is on hold until this pass is built (Reggie, Nov 11).
+- `direction.md` written and approved with the MotorFlow change (Nov 11).
+- Built (Nov 11):
+  - Case studies: `ScreensFirstCaseStudy` for every project with a curated narrative (11 projects). Header with one framed cover, three-part brief, thesis that lights up on scroll, sticky walkthrough, dark proof band. Staybooked went from 846 to 445 words and 8,101px to 6,831px; MotorFlow 820 to 444 words. Projects without a narrative keep the old layout.
+  - Home: sticky lead-work stack (Motorflow, Staybooked, Tech Noir), statement section whose headline arcs with scroll speed, four "More selected work" rows. Tool list moved to About.
+  - Hero: `HeroDepthScene`, a three.js layer behind the HTML hero with a grid floor and five product screens in depth; camera follows scroll, damped pointer parallax. Lazy chunk (132 kB gzip), desktop with fine pointer only, skipped under reduced motion and data saver.
+  - `SelectionFrame` component used for covers, walkthrough stage and lead-work stage.
+  - `body` and `#root` use `overflow-x: clip`; `hidden` was breaking `position: sticky` site-wide.
+- Verified: build, typecheck, lint (0 errors); scroll captures at 1440 and 390 for home, Staybooked, MotorFlow, Tech Noir, About; no horizontal overflow; no page errors; reduced motion shows all content and no canvas; WebGL scene renders in headless Chrome (software GL).
+- Not verified: frame rate on real hardware, Safari and Firefox, touch devices, Lighthouse score, the old-layout projects after the overflow change beyond a build.
+- Not built yet: shared-element transition from work tile to case-study header; hero DOM panels are not themselves 3D planes (the scene sits behind them); per-project share cards; CreativeWork structured data; case-study title punctuation ("Staybooked - AI Airbnb Optimizer").
+- Preview deploy is on hold until Reggie's Mac can run it (workspace cannot reach Netlify).
 
 ## Deploy facts (found Nov 11)
 - reggiealleyne.com is served by Netlify project `reggiealleyne` via CLI deploys, last on Oct 28. Lovable does not serve the domain.
