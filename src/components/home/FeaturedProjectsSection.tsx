@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  type MouseEvent,
+} from "react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useReducedMotion } from "framer-motion";
@@ -13,6 +20,7 @@ import { DUR, EASE, STAGGER } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import SectionRule from "@/components/motion/SectionRule";
 import SelectionFrame from "@/components/project/SelectionFrame";
+import { startScreenHandoff } from "@/lib/screenHandoff";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -109,9 +117,21 @@ const FeaturedProjectsSection = () => {
 
   const activeProject = leadProjects[active] ?? leadProjects[0];
 
+  // Carry the project's screen across the route change into the case study.
+  const handoff = (event: MouseEvent, index: number) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+
+    const wide = window.matchMedia("(min-width: 1024px)").matches;
+    const image = wide
+      ? sectionRef.current?.querySelectorAll<HTMLImageElement>(".lw-stage__screen")[index]
+      : itemRefs.current[index]?.querySelector<HTMLImageElement>(".lw-item__media img");
+    startScreenHandoff(image);
+  };
+
   return (
     <section
       id="projects"
+      data-layer="Selected work"
       ref={sectionRef}
       className="lw-section relative scroll-mt-24 text-text-primary"
     >
@@ -141,6 +161,7 @@ const FeaturedProjectsSection = () => {
               >
                 <Link
                   to={getProjectPath(project)}
+                  onClick={(event) => handoff(event, index)}
                   className="lw-item__media"
                   aria-hidden="true"
                   tabIndex={-1}
@@ -162,6 +183,7 @@ const FeaturedProjectsSection = () => {
                 <h3 className="lw-item__title">
                   <Link
                     to={getProjectPath(project)}
+                  onClick={(event) => handoff(event, index)}
                     data-cursor-label="Read case study"
                   >
                     {project.curation.featuredTitle}
@@ -176,7 +198,8 @@ const FeaturedProjectsSection = () => {
                 <p className="lw-item__meta">
                   {project.role} · {project.year}
                 </p>
-                <Link to={getProjectPath(project)} className="lw-item__cta">
+                <Link to={getProjectPath(project)}
+                  onClick={(event) => handoff(event, index)} className="lw-item__cta">
                   Read case study
                   <ArrowUpRight size={16} aria-hidden="true" />
                 </Link>
@@ -188,6 +211,7 @@ const FeaturedProjectsSection = () => {
             <div className="lw-stage-wrap" aria-hidden="true">
               <Link
                 to={getProjectPath(activeProject)}
+                onClick={(event) => handoff(event, active)}
                 tabIndex={-1}
                 className="block"
                 data-cursor-label="Read case study"
@@ -221,7 +245,7 @@ const FeaturedProjectsSection = () => {
         </div>
 
         {moreSelectedProjects.length > 0 ? (
-          <div className="mt-16 sm:mt-24" data-supporting-work>
+          <div className="mt-16 sm:mt-24" data-supporting-work data-layer="More work">
             <div className="mb-5 grid gap-2 sm:grid-cols-[1fr_auto] sm:items-end">
               <h3 className="font-display text-2xl font-semibold leading-tight">
                 More selected work

@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/lib/pageMeta";
+import { ABOUT_ROUTE_META } from "@/config/routeMeta";
 import Footer from "@/components/layout/Footer";
 import ToolStackSection from "@/components/home/ToolStackSection";
 import { scrollToTop } from "@/components/layout/SmoothScroll";
@@ -81,12 +82,7 @@ const careerTimeline = [
 ];
 
 const About = () => {
-  usePageMeta({
-    title: "About | Reggie Alleyne",
-    description:
-      "Background, selected experience, and design process of Reggie Alleyne, a senior UX/UI designer who codes and builds with AI.",
-    path: "/about",
-  });
+  usePageMeta(ABOUT_ROUTE_META);
 
   useEffect(() => {
     scrollToTop();

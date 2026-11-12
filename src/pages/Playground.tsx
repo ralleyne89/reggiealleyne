@@ -1,234 +1,179 @@
-import { useEffect } from "react";
-import { scrollToTop } from "@/components/layout/SmoothScroll";
-import { motion } from "framer-motion";
-import {
-  ArrowLeft,
-  ArrowUpRight,
-  ExternalLink,
-  Layers3,
-} from "lucide-react";
+import { useEffect, useLayoutEffect, useRef } from "react";
+import { ArrowLeft, ArrowUpRight, GripVertical } from "lucide-react";
 import { Link } from "react-router-dom";
-import { usePageMeta } from "@/lib/pageMeta";
+import { useReducedMotion } from "framer-motion";
+import { gsap } from "gsap";
+import { Draggable } from "gsap/Draggable";
+import { scrollToTop } from "@/components/layout/SmoothScroll";
 import Footer from "@/components/layout/Footer";
-import EvidenceNote from "@/components/ui/evidence-note";
+import TextReveal from "@/components/motion/TextReveal";
 import { experiments } from "@/config/playgroundExperiments";
+import { DUR, EASE, STAGGER } from "@/lib/motion";
+import { usePageMeta } from "@/lib/pageMeta";
+import { PLAYGROUND_ROUTE_META } from "@/config/routeMeta";
 
+gsap.registerPlugin(Draggable);
+
+/** Resting tilt per artboard, so the canvas reads as work in progress. */
+const RESTING_ROTATION = [-2.2, 1.4, -1.1, 2];
+
+/**
+ * The playground is an open canvas: each experiment is an artboard with a
+ * layer tag you can drag by. Links inside the artboards stay ordinary links.
+ */
 const Playground = () => {
-  usePageMeta({
-    title: "Playground | Reggie Alleyne",
-    description:
-      "Coded product experiments you can inspect, including ScentStack, Chill Vibes Music Player, and Bob's Big Break.",
-    path: "/playground",
-  });
+  const canvasRef = useRef<HTMLDivElement | null>(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  usePageMeta(PLAYGROUND_ROUTE_META);
 
   useEffect(() => {
     scrollToTop();
   }, []);
 
+  useLayoutEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return undefined;
+
+    const canDrag = window.matchMedia(
+      "(min-width: 1024px) and (pointer: fine)",
+    ).matches;
+    const draggables: Draggable[] = [];
+
+    const context = gsap.context(() => {
+      const boards = gsap.utils.toArray<HTMLElement>("[data-pg-board]");
+
+      if (!shouldReduceMotion) {
+        gsap.from(boards, {
+          y: 60,
+          autoAlpha: 0,
+          rotation: 0,
+          duration: DUR.reveal,
+          ease: EASE.gsapBack,
+          stagger: STAGGER.loose,
+          delay: 0.2,
+        });
+      }
+
+      if (!canDrag) return;
+
+      boards.forEach((board, index) => {
+        gsap.set(board, {
+          rotation: shouldReduceMotion ? 0 : RESTING_ROTATION[index % 4],
+        });
+        draggables.push(
+          ...Draggable.create(board, {
+            type: "x,y",
+            bounds: canvas,
+            trigger: board.querySelector("[data-pg-handle]"),
+            edgeResistance: 0.8,
+            zIndexBoost: true,
+            onPress() {
+              gsap.to(board, { rotation: 0, scale: 1.02, duration: DUR.fast });
+            },
+            onRelease() {
+              gsap.to(board, { scale: 1, duration: DUR.base, ease: EASE.gsapBack });
+            },
+          }),
+        );
+      });
+    }, canvas);
+
+    return () => {
+      draggables.forEach((draggable) => draggable.kill());
+      context.revert();
+    };
+  }, [shouldReduceMotion]);
+
   return (
-    <div className="min-h-screen bg-white text-text-primary">
-      <main className="pt-14 md:pt-24">
-        <section className="relative overflow-hidden border-b border-gray-200 bg-white pb-20 pt-8 sm:py-20">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:88px_88px] opacity-35" />
-          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, x: -18 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.45 }}
-              className="mb-10"
-            >
-              <Link
-                to="/"
-                className="-mx-2 inline-flex min-h-11 items-center px-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
-              >
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
-              </Link>
-            </motion.div>
-
-            <div className="grid gap-8 lg:grid-cols-[0.9fr_0.55fr] lg:items-end">
-              <motion.div
-                initial={{ opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.08 }}
-                className="max-w-4xl"
-              >
-                <p className="mb-3 text-sm font-semibold uppercase text-primary">
-                  Building for fun
-                </p>
-                <h1 className="font-display text-[2.7rem] font-semibold leading-[1.04] tracking-normal text-gray-950 sm:text-[3.5rem] lg:text-[4.15rem]">
-                  Coded product experiments you can inspect.
-                </h1>
-                <p className="mt-5 max-w-2xl text-lg leading-8 text-text-secondary">
-                  A focused set of prototypes, creative systems, and AI work.
-                  Each one shows how a rough idea becomes a usable product
-                  surface.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.16 }}
-                className="liquid-glass rounded-[1.75rem] p-5"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="liquid-glass-control flex h-11 w-11 items-center justify-center rounded-full text-primary">
-                    <Layers3 size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-950">
-                      {experiments.length} prototypes
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      Built to test product feel and interaction behavior.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
+    <div className="pg-page">
+      <main>
+        <section className="pg-shell pg-header" data-layer="Intro">
+          <Link to="/" className="cs-back">
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            Back to Home
+          </Link>
+          <p className="cs-eyebrow">Building for fun</p>
+          <TextReveal as="h1" split="lines" trigger="mount" className="pg-title">
+            Coded product experiments you can inspect.
+          </TextReveal>
+          <p className="cs-lede">
+            A focused set of prototypes, creative systems, and AI work. Each one
+            shows how a rough idea becomes a usable product surface.
+          </p>
+          <p className="pg-hint" aria-hidden="true">
+            <GripVertical size={14} />
+            Drag an artboard by its tag to rearrange the canvas.
+          </p>
         </section>
 
-        <section className="bg-gray-50 pb-32 pt-14 sm:py-16">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid auto-rows-fr grid-cols-1 items-stretch gap-5 lg:grid-cols-3">
-              {experiments.map((experiment, index) => {
-                const Icon = experiment.icon;
-                const previewContent = (
-                  <>
-                    <div className="aspect-[16/10]">
-                      {experiment.previewImage ? (
-                        <img
-                          src={experiment.previewImage}
-                          alt={`${experiment.title} preview`}
-                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          loading={index === 0 ? "eager" : "lazy"}
-                          decoding="async"
-                          onError={(event) => {
-                            event.currentTarget.src = "/placeholder.svg";
-                          }}
-                        />
-                      ) : (
-                        <div className="flex h-full flex-col justify-end bg-[radial-gradient(circle_at_20%_20%,rgba(139,92,246,0.28),transparent_32%),linear-gradient(135deg,#0f172a_0%,#1f2a44_52%,#f8fafc_100%)] p-6 text-white">
-                          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-white/15 backdrop-blur">
-                            <Icon size={24} />
-                          </div>
-                          <div>
-                            <p className="font-display text-2xl font-semibold tracking-normal">
-                              {experiment.title}
-                            </p>
-                            <p className="mt-2 max-w-[18rem] text-sm leading-6 text-white/75">
-                              Prototype surface with enough detail to evaluate
-                              the interaction direction.
-                            </p>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-                    <div className="liquid-glass-control absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-gray-950">
-                      {experiment.status}
-                    </div>
-                    {experiment.liveUrl || experiment.detailPath ? (
-                      <div className="liquid-glass liquid-glass-dark absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full text-white opacity-0 transition-all duration-300 group-hover:opacity-100">
-                        <ArrowUpRight size={18} />
-                      </div>
-                    ) : null}
-                  </>
-                );
+        <section className="pg-canvas-wrap" data-layer="Canvas" aria-label="Experiments">
+          <div ref={canvasRef} className="pg-canvas">
+            {experiments.map((experiment, index) => (
+              <article
+                key={experiment.title}
+                className="pg-board"
+                data-pg-board
+                data-layer={experiment.title}
+              >
+                <div className="pg-board__tag" data-pg-handle>
+                  <GripVertical size={12} aria-hidden="true" />
+                  <span>
+                    {String(index + 1).padStart(2, "0")} / {experiment.title}
+                  </span>
+                  <span className="pg-board__status">{experiment.status}</span>
+                </div>
 
-                return (
-                  <motion.article
-                    key={experiment.title}
-                    initial={{ opacity: 0, y: 26 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.12 + index * 0.08 }}
-                    className="group flex h-full min-h-[32rem] flex-col overflow-hidden rounded-[1.75rem] border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 sm:min-h-[34rem]"
-                  >
+                <div className="pg-board__frame">
+                  {experiment.previewImage ? (
+                    <img
+                      src={experiment.previewImage}
+                      alt={`${experiment.title} preview`}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      decoding="async"
+                      draggable={false}
+                    />
+                  ) : null}
+                  <span className="sel-frame__handle sel-frame__handle--tl" aria-hidden="true" />
+                  <span className="sel-frame__handle sel-frame__handle--tr" aria-hidden="true" />
+                  <span className="sel-frame__handle sel-frame__handle--bl" aria-hidden="true" />
+                  <span className="sel-frame__handle sel-frame__handle--br" aria-hidden="true" />
+                </div>
+
+                <div className="pg-board__body">
+                  <h2 className="pg-board__title">{experiment.title}</h2>
+                  <p className="pg-board__copy">{experiment.description}</p>
+                  <p className="pg-board__signal">{experiment.proofSignal}</p>
+                  <ul className="pg-board__tags" aria-label="Built with">
+                    {experiment.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+                  <div className="pg-board__links">
                     {experiment.detailPath ? (
-                      <Link
-                        to={experiment.detailPath}
-                        className="relative block overflow-hidden bg-gray-100"
-                        aria-label={`View ${experiment.title} project details`}
-                      >
-                        {previewContent}
+                      <Link to={experiment.detailPath} className="pg-board__link">
+                        View details
+                        <ArrowUpRight size={15} aria-hidden="true" />
                       </Link>
-                    ) : experiment.liveUrl ? (
+                    ) : null}
+                    {experiment.liveUrl ? (
                       <a
                         href={experiment.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative block overflow-hidden bg-gray-100"
-                        aria-label={`View ${experiment.title} live`}
+                        className="pg-board__link pg-board__link--quiet"
                       >
-                        {previewContent}
+                        Open live
+                        <ArrowUpRight size={15} aria-hidden="true" />
                       </a>
-                    ) : (
-                      <div className="relative block overflow-hidden bg-gray-100">
-                        {previewContent}
-                      </div>
-                    )}
-
-                    <div className="flex flex-1 flex-col p-6">
-                      <div className="mb-5 flex items-start justify-between gap-4">
-                        <div className="liquid-glass-control flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-primary">
-                          <Icon size={22} />
-                        </div>
-                        <div className="flex flex-wrap justify-end gap-2">
-                          {experiment.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-full border border-slate-200 bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <h2 className="font-display text-heading-md font-semibold leading-tight text-gray-950">
-                        {experiment.title}
-                      </h2>
-                      <p className="mt-3 text-sm leading-6 text-text-secondary">
-                        {experiment.description}
-                      </p>
-                      <EvidenceNote className="mt-5" label="Proof">
-                        {experiment.proofSignal}
-                      </EvidenceNote>
-
-                      {experiment.detailPath ? (
-                        <Link
-                          to={experiment.detailPath}
-                          className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
-                        >
-                          View project details
-                          <ArrowUpRight size={15} />
-                        </Link>
-                      ) : experiment.liveUrl ? (
-                        <a
-                          href={experiment.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
-                        >
-                          View live
-                          <ExternalLink size={15} />
-                        </a>
-                      ) : (
-                        <div className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-gray-500">
-                          Ready for review
-                        </div>
-                      )}
-                    </div>
-                  </motion.article>
-                );
-              })}
-            </div>
+                    ) : null}
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );

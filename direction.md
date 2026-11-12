@@ -41,6 +41,8 @@ Supporting moments:
 3. Shared-element transition from a work tile into the case-study header (GSAP Flip).
 4. Statement paragraph on the home page set on a path that bends with scroll velocity and settles flat (from Lazarieva), with words lighting up as it scrolls.
 
+Built note (Nov 11): the hero's own panels and portrait are CSS 3D planes on the live HTML, sharing pointer and scroll with the WebGL scene behind them. Site-wide file chrome (rulers, page readout, layers panel) and the Playground canvas extend the same idea to every page.
+
 ## Structure changes
 - Home order: hero, lead work (MotorFlow first, then Staybooked and Tech Noir), statement, more work rows, playground, contact. The nine-row tool list moves to About.
 - CLLCTVE and Litmus AI move to "More work". Lead order reasoning: MotorFlow first (Reggie, Nov 11). Staybooked second as the solo AI product PRODUCT.md already names the strongest case study. Tech Noir third because it is the one shipped team product and the one mobile app, and its playable demo gives the stack a different kind of proof than a third solo web build.

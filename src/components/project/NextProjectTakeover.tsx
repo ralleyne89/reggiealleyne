@@ -59,6 +59,7 @@ const NextProjectTakeover = ({ project }: NextProjectTakeoverProps) => {
 
   return (
     <Link
+      data-layer="Next project"
       to={getProjectPath(nextProject)}
       aria-label={`Next case study: ${nextProject.title}`}
       data-cursor-label="Next project"

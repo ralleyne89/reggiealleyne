@@ -652,7 +652,7 @@ const HeroArtwork = () => (
     <div className="hero-artboard-outline" aria-hidden="true" />
     <HeroTitleLayer />
 
-    <div className="absolute left-1/2 top-[3.4rem] z-20 h-[29rem] w-[21rem] -translate-x-1/2 sm:top-0 sm:h-[638px] sm:w-[511px]">
+    <div data-hero-portrait-plane className="absolute left-1/2 top-[3.4rem] z-20 h-[29rem] w-[21rem] -translate-x-1/2 sm:top-0 sm:h-[638px] sm:w-[511px]">
       <img
         data-hero-portrait
         src={heroAssets.portrait}
@@ -756,6 +756,34 @@ const HeroSection = () => {
           clearProps: "clipPath,filter,transform",
         });
         return;
+      }
+
+      // Wide screens with a mouse get real depth: the hero layers are CSS 3D
+      // planes that part on scroll and tilt with the pointer, in step with
+      // the WebGL scene behind them.
+      const depth = window.matchMedia(
+        "(min-width: 1024px) and (pointer: fine)",
+      ).matches
+        ? 1
+        : 0;
+
+      if (depth) {
+        const tiltY = gsap.quickTo("[data-hero-artwork]", "rotationY", {
+          duration: 0.9,
+          ease: "power3.out",
+        });
+        const tiltX = gsap.quickTo("[data-hero-artwork]", "rotationX", {
+          duration: 0.9,
+          ease: "power3.out",
+        });
+        const onPointerMove = (event: PointerEvent) => {
+          tiltY(((event.clientX / window.innerWidth) * 2 - 1) * 5);
+          tiltX(((event.clientY / window.innerHeight) * 2 - 1) * -3.5);
+        };
+        window.addEventListener("pointermove", onPointerMove, { passive: true });
+        cleanupCallbacks.push(() =>
+          window.removeEventListener("pointermove", onPointerMove),
+        );
       }
 
       let introDelay: gsap.core.Tween | null = null;
@@ -929,6 +957,9 @@ const HeroSection = () => {
           },
         })
         .to("[data-hero-artwork]", { scale: 0.88, y: -118 }, 0)
+        .to("[data-hero-title]", { z: -340 * depth }, 0)
+        .to("[data-hero-portrait-plane]", { z: 70 * depth }, 0)
+        .to(".hero-positioning-panel", { z: 150 * depth }, 0)
         .to(
           "[data-hero-title-word]",
           { autoAlpha: 0.18, rotationX: 8, scale: 1.16, yPercent: -25 },
@@ -937,7 +968,7 @@ const HeroSection = () => {
         .to("[data-hero-portrait]", { scale: 0.9, y: -116 }, 0)
         .to(
           "[data-hero-tool-panel]",
-          { autoAlpha: 0.64, rotate: -4, x: -96, y: -58 },
+          { autoAlpha: 0.64, rotate: -4, x: -96, y: -58, z: 300 * depth },
           0.03,
         )
         .to(
@@ -947,6 +978,7 @@ const HeroSection = () => {
             stagger: { each: 0.04, from: "end" },
             x: 82,
             y: -54,
+            z: 220 * depth,
           },
           0.02,
         )
@@ -985,6 +1017,7 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
+      data-layer="Hero"
       className="relative min-h-[760px] overflow-hidden bg-white pb-8 text-[#141414] sm:min-h-[860px] sm:pb-10 md:min-h-[900px] lg:min-h-[900px] lg:pb-0"
     >
       <AutonomousReggieCursor sectionRef={sectionRef} />

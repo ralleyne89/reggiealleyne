@@ -8,6 +8,7 @@ import Navbar from "./components/layout/Navbar";
 import SiteCursor from "./components/layout/SiteCursor";
 import ScrollToHash from "./components/layout/ScrollToHash";
 import SmoothScroll from "./components/layout/SmoothScroll";
+import DesignFileChrome from "./components/layout/DesignFileChrome";
 
 // Create a new QueryClient instance with proper configuration
 const queryClient = new QueryClient({
@@ -31,6 +32,7 @@ const App = () => (
         <Navbar />
         <SiteCursor />
         <ScrollToHash />
+        <DesignFileChrome />
         <AnimatedRoutes />
       </BrowserRouter>
     </TooltipProvider>

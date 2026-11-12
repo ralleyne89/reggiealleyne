@@ -4,7 +4,7 @@ export const getStaybookedProject = (): ProjectType => {
   return {
     id: 13,
     slug: "staybooked",
-    title: "Staybooked - AI Airbnb Optimizer",
+    title: "Staybooked: AI Airbnb Optimizer",
     description:
       "A room and listing optimizer for short-term rental hosts who need better photos, sharper copy, and clearer booking signals.",
     fullDescription:

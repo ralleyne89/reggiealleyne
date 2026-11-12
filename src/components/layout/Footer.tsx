@@ -55,6 +55,7 @@ const Footer = () => {
 
   return (
     <footer
+      data-layer="Footer"
       id="footer"
       className="site-footer relative overflow-hidden border-t border-border bg-[linear-gradient(180deg,oklch(var(--color-surface-soft)),oklch(var(--color-surface-raised)))] px-4 text-text-primary"
     >

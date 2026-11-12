@@ -202,7 +202,7 @@ const ScreensFirstCaseStudy = ({ project }: ScreensFirstCaseStudyProps) => {
 
   return (
     <div ref={rootRef} className="cs-page">
-      <header className="cs-header">
+      <header className="cs-header" data-layer="Cover">
         <div className="cs-shell">
           <Link to="/work" className="cs-back" data-cs-rise>
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
@@ -262,7 +262,7 @@ const ScreensFirstCaseStudy = ({ project }: ScreensFirstCaseStudyProps) => {
       {project.slug === "tech-noir" ? <TechNoirInteractiveDemo /> : null}
 
       {brief.length > 0 ? (
-        <section className="cs-shell cs-brief" aria-label="Project brief">
+        <section className="cs-shell cs-brief" aria-label="Project brief" data-layer="Brief">
           {brief.map((item, index) => (
             <div key={item.label} className="cs-brief__item" data-cs-reveal>
               <p className="cs-index">{padIndex(index)}</p>
@@ -274,7 +274,7 @@ const ScreensFirstCaseStudy = ({ project }: ScreensFirstCaseStudyProps) => {
       ) : null}
 
       {narrative?.hook ? (
-        <section className="cs-shell cs-thesis-wrap" aria-label="Thesis">
+        <section className="cs-shell cs-thesis-wrap" aria-label="Thesis" data-layer="Thesis">
           <p className="cs-eyebrow">The thesis</p>
           <p className="cs-thesis" data-cs-thesis>
             {narrative.hook}
@@ -283,7 +283,7 @@ const ScreensFirstCaseStudy = ({ project }: ScreensFirstCaseStudyProps) => {
       ) : null}
 
       {steps.length > 0 ? (
-        <section className="cs-walk" aria-labelledby="cs-walk-title">
+        <section className="cs-walk" aria-labelledby="cs-walk-title" data-layer="Walkthrough">
           <div className="cs-shell cs-shell--wide cs-walk__grid">
             <div className="cs-walk__stage" aria-hidden="true">
               <SelectionFrame
@@ -352,7 +352,7 @@ const ScreensFirstCaseStudy = ({ project }: ScreensFirstCaseStudyProps) => {
         </section>
       ) : null}
 
-      <section className="cs-proof" data-cs-proof aria-labelledby="cs-proof-title">
+      <section className="cs-proof" data-layer="Proof" data-cs-proof aria-labelledby="cs-proof-title">
         <p className="cs-proof__drift" data-cs-drift aria-hidden="true">
           {project.title}
         </p>

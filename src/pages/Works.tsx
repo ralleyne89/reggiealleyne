@@ -3,6 +3,7 @@ import { scrollToTop } from "@/components/layout/SmoothScroll";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { usePageMeta } from "@/lib/pageMeta";
+import { WORK_ROUTE_META } from "@/config/routeMeta";
 import Footer from "@/components/layout/Footer";
 import WorksHeader from "@/components/works/WorksHeader";
 import WorksLoadingSkeleton from "@/components/works/WorksLoadingSkeleton";
@@ -20,12 +21,7 @@ import {
 import { DUR, EASE, STAGGER } from "@/lib/motion";
 
 const Works = () => {
-  usePageMeta({
-    title: "Work | Reggie Alleyne",
-    description:
-      "Selected AI and product design case studies. Each one shows the problem, constraint, decision, and evidence behind the interface.",
-    path: "/work",
-  });
+  usePageMeta(WORK_ROUTE_META);
 
   useEffect(() => {
     scrollToTop();

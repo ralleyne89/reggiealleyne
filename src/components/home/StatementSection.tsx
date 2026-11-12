@@ -116,7 +116,7 @@ const StatementSection = () => {
   }, [shouldReduceMotion]);
 
   return (
-    <section ref={sectionRef} className="st-section" aria-labelledby="st-title">
+    <section ref={sectionRef} className="st-section" data-layer="Point of view" aria-labelledby="st-title">
       <div className="lw-shell">
         <p className="st-eyebrow">How I think about AI tools</p>
         <h2 id="st-title" className="st-headline" data-st-headline>

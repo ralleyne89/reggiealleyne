@@ -43,7 +43,17 @@ Branch: `claude/portfolio-audit-fixes`. Nothing is published.
   - `body` and `#root` use `overflow-x: clip`; `hidden` was breaking `position: sticky` site-wide.
 - Verified: build, typecheck, lint (0 errors); scroll captures at 1440 and 390 for home, Staybooked, MotorFlow, Tech Noir, About; no horizontal overflow; no page errors; reduced motion shows all content and no canvas; WebGL scene renders in headless Chrome (software GL).
 - Not verified: frame rate on real hardware, Safari and Firefox, touch devices, Lighthouse score, the old-layout projects after the overflow change beyond a build.
-- Not built yet: shared-element transition from work tile to case-study header; hero DOM panels are not themselves 3D planes (the scene sits behind them); per-project share cards; CreativeWork structured data; case-study title punctuation ("Staybooked - AI Airbnb Optimizer").
+- Built (Nov 11, second build pass):
+  - Hero layers are real planes in depth on wide screens with a mouse: wordmark, portrait, chips, tool panel and CTA panel sit at different Z under one perspective, tilt with the pointer, and separate on scroll, in step with the WebGL scene behind. Implemented as CSS 3D on the live HTML (text stays crisp and clickable), not as WebGL textures.
+  - `DesignFileChrome`: top and left rulers that track scroll and pointer, a page and scroll readout, and a Layers panel listing the page's sections (`data-layer`) with jump-to. Wide screens with a mouse only.
+  - Playground rebuilt as a dotted canvas of artboards, draggable by their tags (GSAP Draggable). Links inside stay normal links.
+  - Screen handoff: clicking a lead-work tile carries its screen across the route change onto the case-study cover (`src/lib/screenHandoff.ts`).
+  - Build step `build/routeHtml.ts`: writes one HTML file per route (3 pages + 16 projects) with its own title, description, canonical, share image and, for projects, CreativeWork JSON-LD. Route titles and descriptions now live in `src/config/routeMeta.ts`.
+  - Titles: "Staybooked: AI Airbnb Optimizer", "Litmus AI: AI Literacy Testing & Certification Platform".
+- Verified in headless Chrome: layers panel lists and jumps; playground drag moves a board; handoff appears and clears and the route title updates; home title is restored on back; 19 route files written with correct tags; no page errors.
+- Not verified: whether Netlify serves `/project/<slug>/index.html` ahead of the SPA rewrite (expected, untested until a deploy); real-GPU frame rate; Safari, Firefox, touch; Lighthouse.
+- Known gaps: Work, About and the 404 page have the rulers and layers chrome but no layout changes of their own; the Layers jump lands the section about 120px below the top.
+- Blender: not used. The concept is flat planes in a design file, which code handles. A Blender-authored piece would only add something as a real 3D RA mark or a true 3D portrait bust; either needs a session on the Mac with Blender open.
 - Preview deploy is on hold until Reggie's Mac can run it (workspace cannot reach Netlify).
 
 ## Deploy facts (found Nov 11)
