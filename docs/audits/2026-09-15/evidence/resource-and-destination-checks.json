@@ -1,0 +1,210 @@
+[
+  {
+    "url": "https://reggiealleyne.com/assets/index-Cyo6lc7b.js",
+    "final": "https://reggiealleyne.com/assets/index-Cyo6lc7b.js",
+    "status": 200,
+    "type": "text/javascript; charset=utf-8",
+    "bytes": 133883,
+    "cache_control": "public, max-age=31536000, immutable"
+  },
+  {
+    "url": "https://reggiealleyne.com/assets/ui-BdUs3X-h.js",
+    "final": "https://reggiealleyne.com/assets/ui-BdUs3X-h.js",
+    "status": 200,
+    "type": "text/javascript; charset=utf-8",
+    "bytes": 222252,
+    "cache_control": "public, max-age=31536000, immutable"
+  },
+  {
+    "url": "https://reggiealleyne.com/assets/query-Cob-qu-r.js",
+    "final": "https://reggiealleyne.com/assets/query-Cob-qu-r.js",
+    "status": 200,
+    "type": "text/javascript; charset=utf-8",
+    "bytes": 36123,
+    "cache_control": "public, max-age=31536000, immutable"
+  },
+  {
+    "url": "https://reggiealleyne.com/assets/router-oSgzamCV.js",
+    "final": "https://reggiealleyne.com/assets/router-oSgzamCV.js",
+    "status": 200,
+    "type": "text/javascript; charset=utf-8",
+    "bytes": 20966,
+    "cache_control": "public, max-age=31536000, immutable"
+  },
+  {
+    "url": "https://reggiealleyne.com/assets/animation-CRL6ODip.js",
+    "final": "https://reggiealleyne.com/assets/animation-CRL6ODip.js",
+    "status": 200,
+    "type": "text/javascript; charset=utf-8",
+    "bytes": 194575,
+    "cache_control": "public, max-age=31536000, immutable"
+  },
+  {
+    "url": "https://reggiealleyne.com/assets/index-wFx-GDDs.css",
+    "final": "https://reggiealleyne.com/assets/index-wFx-GDDs.css",
+    "status": 200,
+    "type": "text/css; charset=utf-8",
+    "bytes": 202252,
+    "cache_control": "public, max-age=31536000, immutable"
+  },
+  {
+    "url": "https://reggiealleyne.com/images/figma/hero-white/portrait.png",
+    "final": "https://reggiealleyne.com/images/figma/hero-white/portrait.png",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 1476367,
+    "cache_control": null
+  },
+  {
+    "url": "https://reggiealleyne.com/images/figma/hero-white/reggie-alleyne-wordmark-chatgpt-flat.png",
+    "final": "https://reggiealleyne.com/images/figma/hero-white/reggie-alleyne-wordmark-chatgpt-flat.png",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 340298,
+    "cache_control": null
+  },
+  {
+    "url": "https://reggiealleyne.com/images/cllctve-gen-z-card.jpg",
+    "final": "https://reggiealleyne.com/images/cllctve-gen-z-card.jpg",
+    "status": 200,
+    "type": "image/jpeg",
+    "bytes": 373793,
+    "cache_control": null
+  },
+  {
+    "url": "https://reggiealleyne.com/images/litmus-ai-literacy-card.jpg",
+    "final": "https://reggiealleyne.com/images/litmus-ai-literacy-card.jpg",
+    "status": 200,
+    "type": "image/jpeg",
+    "bytes": 215477,
+    "cache_control": null
+  },
+  {
+    "url": "https://reggiealleyne.com/images/staybooked/staybooked-ai-optimizer-light-featured-card.png",
+    "final": "https://reggiealleyne.com/images/staybooked/staybooked-ai-optimizer-light-featured-card.png",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 1392435,
+    "cache_control": null
+  },
+  {
+    "url": "https://reggiealleyne.com/sw.js",
+    "final": "https://reggiealleyne.com/sw.js",
+    "status": 200,
+    "type": "text/javascript; charset=utf-8",
+    "bytes": 2449,
+    "cache_control": "no-cache"
+  },
+  {
+    "url": "https://reggiealleyne.com/audit-missing-page-20260915",
+    "final": "https://reggiealleyne.com/audit-missing-page-20260915",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 4491,
+    "cache_control": "no-cache, must-revalidate, max-age=0"
+  },
+  {
+    "url": "http://reggiealleyne.com/",
+    "final": "https://reggiealleyne.com/",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 4491,
+    "cache_control": "no-cache, must-revalidate, max-age=0"
+  },
+  {
+    "url": "https://www.reggiealleyne.com/",
+    "final": "https://www.reggiealleyne.com/",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 4491,
+    "cache_control": "no-cache, must-revalidate, max-age=0"
+  },
+  {
+    "url": "https://cllctve-demo.web.app",
+    "final": "https://cllctve-demo.web.app",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 4144,
+    "cache_control": "max-age=3600"
+  },
+  {
+    "url": "https://litmusai.netlify.app",
+    "final": "https://litmusai.netlify.app",
+    "status": 200,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 1044,
+    "cache_control": "public,max-age=0,must-revalidate"
+  },
+  {
+    "url": "https://staybooked-ai.netlify.app/",
+    "final": "https://staybooked-ai.netlify.app/",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 115422,
+    "cache_control": "public,max-age=0,must-revalidate"
+  },
+  {
+    "url": "https://covelo.netlify.app",
+    "final": "https://covelo.netlify.app/login",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 15110,
+    "cache_control": "public,max-age=0,must-revalidate"
+  },
+  {
+    "url": "https://symptom-checkr.web.app/",
+    "final": "https://symptom-checkr.web.app/",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 725,
+    "cache_control": "max-age=3600"
+  },
+  {
+    "url": "https://vaultvalidate.netlify.app",
+    "final": "https://vaultvalidate.netlify.app",
+    "status": 200,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 1364,
+    "cache_control": "public,max-age=0,must-revalidate"
+  },
+  {
+    "url": "https://pretty-paws-wag.netlify.app/",
+    "final": "https://pretty-paws-wag.netlify.app/",
+    "status": 200,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 2226,
+    "cache_control": "public,max-age=0,must-revalidate"
+  },
+  {
+    "url": "https://tutord-demo.web.app/",
+    "final": "https://tutord-demo.web.app/",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 1214,
+    "cache_control": "max-age=3600"
+  },
+  {
+    "url": "https://scentstack.lovable.app",
+    "final": "https://scentstack.lovable.app",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 1461,
+    "cache_control": "no-cache, must-revalidate, max-age=0"
+  },
+  {
+    "url": "https://chill-vibes.web.app/",
+    "final": "https://chill-vibes.web.app/",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 1351,
+    "cache_control": "max-age=3600"
+  },
+  {
+    "url": "https://bobsbigbreak.netlify.app/",
+    "final": "https://bobsbigbreak.netlify.app/",
+    "status": 200,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 1283,
+    "cache_control": "public,max-age=0,must-revalidate"
+  }
+]

@@ -1,0 +1,161 @@
+- region "Notifications (F8)":
+  - list
+- banner:
+  - navigation "Primary navigation":
+    - link "Reggie Alleyne home":
+      - /url: /
+    - link "Home":
+      - /url: /
+      - generic "Home"
+    - link "Work":
+      - /url: /work
+      - generic "Work"
+    - link "Playground":
+      - /url: /playground
+      - generic "Playground"
+    - link "About":
+      - /url: /about
+      - generic "About"
+    - link "Contact":
+      - /url: /#contact
+      - generic "Contact"
+- generic: You
+- link "Back to home":
+  - /url: /
+  - text: Back to home
+- paragraph: UX/UI Designer & AI Technologist
+- heading "Reggie Alleyne" [level=1]:
+  - generic: R
+  - generic: e
+  - generic: g
+  - generic: g
+  - generic: i
+  - generic: e
+  - generic: A
+  - generic: l
+  - generic: l
+  - generic: e
+  - generic: "y"
+  - generic: "n"
+  - generic: e
+- region "Selected experience":
+  - heading "Selected experience" [level=2]
+  - list:
+    - paragraph: 11/2016 - Present
+    - heading "Product Designer & Frontend Developer" [level=3]
+    - paragraph: Freelance / Self-Employed, Los Angeles
+    - paragraph: I design and build responsive web products and AI-enabled tools, moving from user flows and prototypes into React, TypeScript, and deployed interfaces.
+    - paragraph: 04/2022 - 07/2025
+    - heading "Principal UX/UI Designer" [level=3]
+    - paragraph: Blue Shield of California, Oakland
+    - paragraph: I led UX strategy for regulated healthcare web and mobile work, partnering with product, engineering, research, compliance, and business teams.
+    - paragraph: 05/2020 - 02/2022
+    - heading "Frontend Engineer" [level=3]
+    - paragraph: CLLCTVE Inc. (Techstars Startup), Los Angeles
+    - paragraph: I built mobile-first React interfaces and reusable Ant Design components, supported user research, and helped prioritize product improvements for a creator platform.
+    - paragraph: 09/2018 - 10/2019
+    - heading "UX/UI Designer" [level=3]
+    - paragraph: IMPROV Learning, Woodland Hills
+    - paragraph: I improved responsive layouts, marketing funnels, email campaigns, and A/B-tested journeys using research and performance data.
+    - paragraph: 04/2017 - 07/2017
+    - heading "Freelance UX/UI Designer" [level=3]
+    - paragraph: A Different Kind of Creative - Doggy Date, Los Angeles
+    - paragraph: I managed the UX/UI lifecycle for an iOS social product and partnered with an iOS developer to deliver specifications and assets through Zeplin.
+    - paragraph: 11/2016 - 12/2016
+    - heading "Freelance UX/UI Designer" [level=3]
+    - paragraph: Tech Noir, Los Angeles
+    - paragraph: I researched wearable technology buying behavior and designed the primary flow and discovery pages for a specialized marketplace.
+- heading "How I think about AI tools" [level=2]
+- heading "Building AI tools people can question" [level=3]
+- paragraph: "Most AI interfaces ask people to trust an answer without showing how the system got there. That is a product problem: people cannot rely on a tool they cannot inspect."
+- paragraph: I design for algorithmic transparency. When an AI makes a recommendation, people should see the reasoning, the uncertainty, and the inputs that shaped the answer. When it needs more data, it should ask instead of guessing.
+- paragraph: The goal is not to make AI feel friendly. It is to make the system legible, so people know when to trust it, challenge it, or override it.
+- heading "The process" [level=2]
+- paragraph: Design
+- paragraph: Research → Prototype
+- generic: ⇄
+- paragraph: Code
+- paragraph: Build → Validate
+- paragraph: Coding is part of how I design. The fastest way to test an interaction is to build enough of it to feel the state changes, edge cases, and handoff details. I prototype in React because static screens miss that.
+- heading "Core competencies" [level=2]
+- heading "Gen AI Prototyping" [level=3]
+- paragraph: Designing and testing AI workflows in working UI
+- heading "Design Systems" [level=3]
+- paragraph: Scalable component libraries and design tokens
+- heading "User Research" [level=3]
+- paragraph: Qualitative & quantitative research methods
+- heading "0-1 Product Design" [level=3]
+- paragraph: Early product framing through shipped UX
+- heading "Accessibility (WCAG)" [level=3]
+- paragraph: Keyboard, contrast, structure, and readable states
+- heading "React Prototyping" [level=3]
+- paragraph: React prototypes teams can test
+- heading "Background" [level=2]
+- paragraph: 10+ years designing for education and healthcare, industries where bad UX has real consequences. I've built tools for teachers managing 30 students, patients navigating health anxiety, and HR leaders trying to assess AI literacy at scale.
+- paragraph: "Born and raised in LA, I care about the everyday side of product work: listening well, making constraints explicit, and helping teams ship without losing sight of the person using the thing."
+- paragraph: "Interactive interface craft: Gaming and anime shaped how I think about motion, spatial cues, pacing, and feedback. I like interfaces where the system teaches you through use instead of making you read a manual."
+- heading "What I'm about" [level=2]
+- heading "Making AI legible" [level=3]
+- paragraph: I keep coming back to the black-box problem in AI. How do we show enough reasoning, uncertainty, and context that a person can make a good call?
+- heading "Concrete collaboration" [level=3]
+- paragraph: I like cross-functional work that gets specific quickly. I ask developers what the system can support, bring options back to the team, and keep the tradeoffs visible.
+- heading "Shipping over perfection" [level=3]
+- paragraph: I dig into user research, prototype quickly, and revise based on what the team learns. A clean mockup matters, but the work is not done until someone can use it.
+- heading "When I'm not designing" [level=2]
+- heading "Gaming" [level=3]
+- paragraph: From indie gems to AAA titles
+- heading "Anime" [level=3]
+- paragraph: Studio Ghibli to Attack on Titan
+- heading "Sushi" [level=3]
+- paragraph: Always hunting for the best spots
+- heading "Learning" [level=3]
+- paragraph: New tools, frameworks, and techniques
+- text: Opportunity fit
+- heading "What I'm looking for" [level=2]
+- paragraph: I want to join a team that is working on a real problem, especially AI products, platform tools, and experiences where trust and clarity determine whether the product works.
+- link "Start the conversation":
+  - /url: /#contact
+  - text: Start the conversation
+- paragraph: Best fit
+- paragraph: Product teams turning ambiguity into something buildable
+- paragraph: Working style
+- paragraph: Evidence, fast prototypes, and thoughtful critique
+- paragraph: Leverage
+- paragraph: Making complex technology feel useful and human
+- paragraph: Give me ambiguous systems, a real user problem, and partners who want to make the product better together.
+- generic: Trust-first AI products
+- generic: Platform tools
+- generic: Creative systems
+- generic: Healthcare, education, entertainment
+- heading "Want to work together?" [level=2]
+- paragraph: Send a note with the problem, timeline, and what needs to get clearer first.
+- link "Get in touch":
+  - /url: /#contact
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne

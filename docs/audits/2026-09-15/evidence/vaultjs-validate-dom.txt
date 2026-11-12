@@ -1,0 +1,226 @@
+- region "Notifications (F8)":
+  - list
+- banner:
+  - navigation "Primary navigation":
+    - link "Reggie Alleyne home":
+      - /url: /
+    - link "Home":
+      - /url: /
+      - generic "Home"
+    - link "Work":
+      - /url: /work
+      - generic "Work"
+    - link "Playground":
+      - /url: /playground
+      - generic "Playground"
+    - link "About":
+      - /url: /about
+      - generic "About"
+    - link "Contact":
+      - /url: /#contact
+      - generic "Contact"
+- generic: You
+- navigation "Case study chapters":
+  - list:
+    - button "Details":
+      - generic: Details
+    - button "Problem":
+      - generic: Problem
+    - button "Audience":
+      - generic: Audience
+    - button "Process":
+      - generic: Process
+    - button "Evidence":
+      - generic: Evidence
+- banner:
+  - link "Back to Work":
+    - /url: /work
+    - text: Back to Work
+  - paragraph: 2026 / Enterprise Security
+  - heading "Vault.js Validate – Enterprise Security Visualization & AI Tool" [level=1]
+  - img "Vault.js Validate – Enterprise Security Visualization & AI Tool"
+- figure "The thesis":
+  - generic: “
+  - blockquote: "Vault.js Validate was a security dashboard sprint built around alert fatigue: teams get warnings all day, but still need to know what to fix first."
+  - generic: The thesis
+- region "Case study at a glance":
+  - paragraph: Project details
+  - term: Role
+  - definition: UX/UI Designer and Frontend Developer
+  - term: Tools
+  - definition: React, Tailwind CSS, AI UX, Security visualization
+  - term: Owned
+  - definition: Risk dashboard, Remediation flow, Visual identity, Frontend prototype
+- paragraph: Problem, decision, evidence
+- heading "The product choice and the proof available today." [level=2]
+- link "View Live Demo":
+  - /url: https://vaultvalidate.netlify.app
+  - generic: View Live Demo
+- article:
+  - paragraph: Problem
+  - generic: "01"
+  - heading "Security teams needed to know which third-party scripts mattered and what to fix first." [level=3]
+- article:
+  - paragraph: Decision
+  - generic: "02"
+  - 'heading "I designed and built Vault.js Validate around a security analyst''s next action: scan the attack surface, see vendor relationships, read the risk in plain English, and apply or review an AI-generated fix." [level=3]'
+- article:
+  - paragraph: Shipped proof
+  - generic: "03"
+  - heading "Created a dashboard concept that turns attack-surface scanning into plain-English risk and remediation steps." [level=3]
+- paragraph: Evidence-aware audience model
+- heading "Audience assumptions to validate" [level=2]
+- generic: This model connects the available project evidence to a workflow that still needs direct research.
+- article:
+  - paragraph: Audience hypothesis
+  - heading "Security analyst triaging third-party script risk." [level=3]
+  - paragraph: They already have enough alerts and need to know which scripts matter, why they matter, and what to fix first.
+  - term: Working need
+  - definition: Risk visualization, plain-English issue context, and an AI-assisted remediation path that stays reviewable.
+  - term: Risk to test
+  - definition: Security dashboards often show dense warnings but leave the analyst to assemble context, impact, and next steps.
+- article:
+  - paragraph: Evidence boundary
+  - paragraph: The available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.
+- article:
+  - paragraph: What the sources support
+  - paragraph: The project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.
+  - paragraph: The portfolio record identifies my role as UX/UI Designer & Frontend Developer. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.
+- article:
+  - paragraph: Workflow to validate
+  - list:
+    - text: "01"
+    - heading "Scan the surface" [level=4]
+    - paragraph: Review third-party scripts, vendor relationships, and exposure patterns in one monitoring view.
+    - text: "02"
+    - heading "Find priority risk" [level=4]
+    - paragraph: Separate urgent findings from background noise using readable severity and relationship cues.
+    - text: "03"
+    - heading "Understand the issue" [level=4]
+    - paragraph: Translate technical vulnerability context into language that supports action and communication.
+    - text: "04"
+    - heading "Review the fix" [level=4]
+    - paragraph: Use generated remediation as a starting point while keeping the analyst in the approval loop.
+- article:
+  - paragraph: Questions for the first study
+  - list:
+    - listitem: Where does this audience hesitate, abandon the flow, or need more context?
+    - listitem: Which step creates enough value for them to continue or return?
+- paragraph: Case study flow
+- heading "From research to product decisions" [level=2]
+- paragraph: "Vault.js Validate was a security dashboard sprint built around alert fatigue: teams get warnings all day, but still need to know what to fix first."
+- paragraph: The product focused on third-party script risk. A scanner can surface exposure, but the analyst still has to understand vendor relationships, data leakage paths, severity, and the next remediation step.
+- list:
+  - generic: "01"
+  - article:
+    - paragraph: Synthesis
+    - generic: "01"
+    - heading "Define the problem" [level=3]
+    - paragraph: The two-week sprint forced a narrow product story. I needed to make the dashboard feel technical and credible while keeping risk explanations readable enough for quick triage.
+  - figure:
+    - img "Faceted magnifying glass and prism for research synthesis."
+  - generic: "02"
+  - article:
+    - paragraph: Information architecture
+    - generic: "02"
+    - heading "Map flows and wireframes" [level=3]
+    - paragraph: Developed a "Cyber-Security Brutalism" design language with JetBrains Mono for technical precision and a dark void navy color palette with neon green accents.
+  - figure:
+    - img "Glossy branching route nodes for information architecture."
+  - generic: "03"
+  - article:
+    - paragraph: UI system
+    - generic: "03"
+    - heading "Design the interface" [level=3]
+    - paragraph: "I designed the product around the analyst's next action: scan the surface, see relationships, understand the risk in plain English, and review a generated remediation before applying it."
+  - figure:
+    - img "Stacked modular interface blocks for a UI system."
+  - generic: "04"
+  - article:
+    - paragraph: Implementation
+    - generic: "04"
+    - heading "Prototype and build" [level=3]
+    - paragraph: I built the React and Tailwind prototype with risk visuals, Recharts data views, compliance-oriented sections, a dark technical visual system, and a remediation flow connected through Supabase and OpenAI-backed functions.
+  - figure:
+    - img "Glossy code cube for prototype and build work."
+  - generic: "05"
+  - article:
+    - paragraph: Evidence
+    - generic: "05"
+    - heading "Validate the proof" [level=3]
+    - paragraph: "The shipped prototype shows a working security dashboard direction in a short sprint: attack-surface scanning, risk visualization, vulnerability explanation, and an Apply Fix path."
+  - figure:
+    - img "Proof badge with chart facets for validation."
+  - generic: "06"
+  - article:
+    - paragraph: Learning
+    - generic: "06"
+    - heading "Reflection" [level=3]
+    - paragraph: The lesson was that technical interfaces still need editorial judgment. A dashboard can be dense, but it should not make the user assemble the story of the risk from scattered fragments.
+  - figure:
+    - img "Luminous prism lamp for reflection and learning."
+- paragraph: Interface evidence
+- heading "How the UX rationale shows up on screen." [level=2]
+- paragraph: "These screens show the product decisions reviewers should inspect: profile credibility, return loops, and opportunity discovery."
+- list:
+  - paragraph: 01 / Prototype the path
+  - paragraph: After the strategy was set, the next UX/UI step was turning the creator journey into screens people could react to.
+  - paragraph: 02 / Design the real states
+  - paragraph: The interface had to cover profile setup, content browsing, community feedback, and brand moments without becoming a copy of older portfolio tools.
+  - paragraph: 03 / Show the product proof
+  - paragraph: "The screenshots below make the platform easier to judge: the profile surface, dashboard, and public landing page."
+- button "Interface view 1 interface View full size Interface view 1 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 1 interface"
+  - text: View full size
+  - generic: Interface view 1
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 2 interface View full size Interface view 2 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 2 interface"
+  - text: View full size
+  - generic: Interface view 2
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 3 interface View full size Interface view 3 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 3 interface"
+  - text: View full size
+  - generic: Interface view 3
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- 'link "Next case study: Covelo Timecard System"':
+  - /url: /project/covelo-timecard-system
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - paragraph: 2026 / Workforce Operations
+  - text: Covelo Timecard System
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne

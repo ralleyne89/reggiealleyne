@@ -1,4 +1,4 @@
-const CACHE_VERSION = "reggiealleyne-pwa-v4";
+const CACHE_VERSION = "reggiealleyne-pwa-v5";
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
@@ -6,8 +6,9 @@ const IMAGE_CACHE = `${CACHE_VERSION}-images`;
 const APP_SHELL_URLS = [
   "/",
   "/manifest.webmanifest",
-  "/icons/ra-icon-192.png",
-  "/icons/ra-icon-512.png"
+  "/icons/ra-stars-192-20260915.png",
+  "/icons/ra-stars-512-20260915.png",
+  "/icons/ra-stars-maskable-512-20260915.png"
 ];
 
 self.addEventListener("install", (event) => {

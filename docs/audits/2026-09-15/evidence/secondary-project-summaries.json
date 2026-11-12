@@ -1,0 +1,195 @@
+[
+  {
+    "headings": [
+      "The product choice and the proof available today.",
+      "Audience assumptions to validate",
+      "From research to product decisions",
+      "How the UX rationale shows up on screen."
+    ],
+    "links": [
+      {
+        "href": "https://symptom-checkr.web.app/",
+        "text": "View Live Demo"
+      },
+      {
+        "href": "https://linkedin.com/in/reggiealleyne",
+        "text": "LinkedIn"
+      },
+      {
+        "href": "https://github.com/ralleyne89",
+        "text": "GitHub"
+      }
+    ],
+    "text": "Home\nWork\nPlayground\nAbout\nContact\nYou\nDETAILS\nPROBLEM\nAUDIENCE\nPROCESS\nEVIDENCE\nBack to Work\n\n2024 / HEALTH UX\n\nSy      \n\nA health-tech concept for people who check symptoms online and need guidance that feels clear, cautious, and easy to question.\n\n“\nSymptomCheckr was designed around a stressful moment: someone wants guidance, but a confident-looking answer can make them panic or over-trust the tool.\nTHE THESIS\n\nPROJECT DETAILS\n\nROLE\nUX/UI Designer\nTOOLS\nFigma, AI guidance, Journey mapping, Health UX\nOWNED\nGuidance model, Assessment UI, Citation patterns, Saved report flow\n\nProblem, decision, evidence\n\nThe product choice and the proof available today.\nView Live Demo\n\nProblem\n\n01\nSymptom guidance can make people more anxious when it does not show confidence, sources, or limits.\n\nDecision\n\n02\nShow confidence levels, source links, and plain-language reasoning instead of hiding the logic behind a simple answer.\n\nShipped proof\n\n03\nDesigned a calmer AI-assisted flow with confidence levels, citations, and saved reports for follow-up care.\n\nEvidence-aware audience model\n\nAudience assumptions to validate\nThis model connects the available project evidence to a workflow that still needs direct research.\n\nAUDIENCE HYPOTHESIS\n\nPerson checking symptoms who needs clarity without a fake diagnosis.\n\nThey may be anxious, overloaded, or trying to decide whether their next step should be self-care, telehealth, or urgent support.\n\nWORKING NEED\nA cautious AI-assisted flow with confidence levels, sources, and saved reports for follow-up care.\nRISK TO TEST\nHealth guidance can create more anxiety when it hides uncertainty or presents a single answer without context.\n\nEVIDENCE BOUNDARY\n\nThe available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.\n\nWHAT THE SOURCES SUPPORT\n\nThe project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.\n\nThe portfolio record identifies my role as UX/UI Designer. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.\n\nWORKFLOW TO VALIDATE\n\n01\nDescribe symptoms\n\nEnter the current concern in a guided flow that keeps the language plain and calm.\n\n02\nReview confidence\n\nSee the likely direction and uncertainty instead of a sealed black-box answer.\n\n03\nCheck sources\n\nUse citations and reasoning cues to decide how much weight to give the guidance.\n\n04\nSave next steps\n\nKeep the report and follow-up path available if clinical care or telehealth is needed.\n\nQUESTIONS FOR THE FIRST STUDY\n\nWhere does this audience hesitate, abandon the flow, or need more context?\nWhich step creates enough value for them to continue or retu",
+    "title": "SymptomCheckr: a calmer way to check symptoms",
+    "url": "https://reggiealleyne.com/project/symptom-checkr"
+  },
+  {
+    "headings": [
+      "The product choice and the proof available today.",
+      "Audience assumptions to validate",
+      "From research to product decisions",
+      "How the UX rationale shows up on screen."
+    ],
+    "links": [
+      {
+        "href": "https://vaultvalidate.netlify.app/",
+        "text": "View Live Demo"
+      },
+      {
+        "href": "https://linkedin.com/in/reggiealleyne",
+        "text": "LinkedIn"
+      },
+      {
+        "href": "https://github.com/ralleyne89",
+        "text": "GitHub"
+      }
+    ],
+    "text": "Home\nWork\nPlayground\nAbout\nContact\nYou\nDETAILS\nPROBLEM\nAUDIENCE\nPROCESS\nEVIDENCE\nBack to Work\n\n2026 / ENTERPRISE SECURITY\n\nVaul        \n\nA security monitoring dashboard that turns third-party script risk into readable scans, risk visuals, and AI-generated code fixes.\n\n“\nVault.js Validate was a security dashboard sprint built around alert fatigue: teams get warnings all day, but still need to know what to fix first.\nTHE THESIS\n\nPROJECT DETAILS\n\nROLE\nUX/UI Designer and Frontend Developer\nTOOLS\nReact, Tailwind CSS, AI UX, Security visualization\nOWNED\nRisk dashboard, Remediation flow, Visual identity, Frontend prototype\n\nProblem, decision, evidence\n\nThe product choice and the proof available today.\nView Live Demo\n\nProblem\n\n01\nSecurity teams needed to know which third-party scripts mattered and what to fix first.\n\nDecision\n\n02\nI designed and built Vault.js Validate around a security analyst's next action: scan the attack surface, see vendor relationships, read the risk in plain English, and apply or review an AI-generated fix.\n\nShipped proof\n\n03\nCreated a dashboard concept that turns attack-surface scanning into plain-English risk and remediation steps.\n\nEvidence-aware audience model\n\nAudience assumptions to validate\nThis model connects the available project evidence to a workflow that still needs direct research.\n\nAUDIENCE HYPOTHESIS\n\nSecurity analyst triaging third-party script risk.\n\nThey already have enough alerts and need to know which scripts matter, why they matter, and what to fix first.\n\nWORKING NEED\nRisk visualization, plain-English issue context, and an AI-assisted remediation path that stays reviewable.\nRISK TO TEST\nSecurity dashboards often show dense warnings but leave the analyst to assemble context, impact, and next steps.\n\nEVIDENCE BOUNDARY\n\nThe available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.\n\nWHAT THE SOURCES SUPPORT\n\nThe project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.\n\nThe portfolio record identifies my role as UX/UI Designer & Frontend Developer. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.\n\nWORKFLOW TO VALIDATE\n\n01\nScan the surface\n\nReview third-party scripts, vendor relationships, and exposure patterns in one monitoring view.\n\n02\nFind priority risk\n\nSeparate urgent findings from background noise using readable severity and relationship cues.\n\n03\nUnderstand the issue\n\nTranslate technical vulnerability context into language that supports action and communication.\n\n04\nReview the fix\n\nUse generated remediation as a starting point while keeping the analyst in the approval loop",
+    "title": "Vault.js Validate – Enterprise Security Visualization & AI Tool",
+    "url": "https://reggiealleyne.com/project/vaultjs-validate"
+  },
+  {
+    "headings": [
+      "The product choice and the proof available today.",
+      "Audience assumptions to validate",
+      "From research to product decisions",
+      "How the UX rationale shows up on screen."
+    ],
+    "links": [
+      {
+        "href": "https://pretty-paws-wag.netlify.app/",
+        "text": "Visit Pretty Paws"
+      },
+      {
+        "href": "https://linkedin.com/in/reggiealleyne",
+        "text": "LinkedIn"
+      },
+      {
+        "href": "https://github.com/ralleyne89",
+        "text": "GitHub"
+      }
+    ],
+    "text": "Home\nWork\nPlayground\nAbout\nContact\nYou\nDETAILS\nPROBLEM\nAUDIENCE\nPROCESS\nEVIDENCE\nBack to Work\n\n2025 / LOCAL BUSINESS WEBSITE\n\nPret   \n\nA public website for Pretty Paws Grooming in Little Rock, built around service discovery, local trust signals, and a request-based appointment flow.\n\n“\nPretty Paws needed a site that felt polished, but the real product problem was trust: pet owners needed clear service information before sending an appointment request.\nTHE THESIS\n\nPROJECT DETAILS\n\nROLE\nUX/UI Designer & Frontend Developer\nTOOLS\nVite, React, TypeScript, Tailwind CSS\nOWNED\nPublic routes, Booking flow, Before/after visuals\n\nProblem, decision, evidence\n\nThe product choice and the proof available today.\nVisit Pretty Paws\n\nProblem\n\n01\nA local grooming salon needed a web experience that made services, booking, contact details, and policies easy to trust from mobile or desktop.\n\nDecision\n\n02\nBuild around the real appointment path: service browsing, service detail pages, a preselected booking request, and clear follow-up language.\n\nShipped proof\n\n03\nCreated a live Netlify site with service routes, booking and contact submissions, policy coverage, and local media assets.\n\nEvidence-aware audience model\n\nAudience assumptions to validate\nThis model connects the available project evidence to a workflow that still needs direct research.\n\nAUDIENCE HYPOTHESIS\n\nLocal pet owner comparing grooming services and requesting an appointment.\n\nThey need to understand services, policies, location details, and appointment expectations from mobile or desktop.\n\nWORKING NEED\nA polished service path with clear details, request-based booking language, and local trust cues.\nRISK TO TEST\nSmall-business websites often blur service details, contact paths, and whether booking is confirmed or only requested.\n\nEVIDENCE BOUNDARY\n\nThe available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.\n\nWHAT THE SOURCES SUPPORT\n\nThe project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.\n\nThe portfolio record identifies my role as UX/UI Designer & Frontend Developer. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.\n\nWORKFLOW TO VALIDATE\n\n01\nCompare services\n\nScan grooming options, policies, and business details before deciding what fits the pet.\n\n02\nPick a service\n\nOpen a service detail page and understand what the appointment request will include.\n\n03\nRequest booking\n\nSend contact and appointment details through a form that keeps confirmation language honest.\n\n04\nWait for follow-up\n\nLeave the site knowing the request was submitted and the salon still needs to con",
+    "title": "Pretty Paws Grooming Website",
+    "url": "https://reggiealleyne.com/project/pretty-paws-grooming"
+  },
+  {
+    "headings": [
+      "The product choice and the proof available today.",
+      "Audience assumptions to validate",
+      "From research to product decisions",
+      "How the UX rationale shows up on screen."
+    ],
+    "links": [
+      {
+        "href": "https://tutord-demo.web.app/",
+        "text": "Visit TutorD"
+      },
+      {
+        "href": "https://linkedin.com/in/reggiealleyne",
+        "text": "LinkedIn"
+      },
+      {
+        "href": "https://github.com/ralleyne89",
+        "text": "GitHub"
+      }
+    ],
+    "text": "Home\nWork\nPlayground\nAbout\nContact\nYou\nDETAILS\nPROBLEM\nAUDIENCE\nPROCESS\nEVIDENCE\nBack to Work\n\n2021 / EDUCATION\n\nTuto \n\nEducational platform connecting students with qualified tutors for personalized learning sessions.\n\n“\nTutor D began with a constraint most learning products treat as an edge case: some students could not rely on full web access at all.\nTHE THESIS\n\nPROJECT DETAILS\n\nROLE\nUX/UI Designer and Frontend Developer\nTOOLS\nReact, Redux, Node.js, Express\nOWNED\nTeacher dashboard, Responsive UI, Progress views, Frontend integration\n\nProblem, decision, evidence\n\nThe product choice and the proof available today.\nVisit TutorD\n\nProblem\n\n01\nTeachers needed to reach students who lacked reliable internet or smart devices during remote learning.\n\nDecision\n\n02\nA distance learning platform leveraging SMS technology that enables students without reliable internet or smart devices to receive assignments, engage with lessons, and stay on track remotely.\n\nShipped proof\n\n03\nBuilt the educator-facing dashboard for SMS-based assignments, progress tracking, and communication.\n\nEvidence-aware audience model\n\nAudience assumptions to validate\nThis model connects the available project evidence to a workflow that still needs direct research.\n\nAUDIENCE HYPOTHESIS\n\nTeacher supporting students who do not always have reliable internet or smart devices.\n\nRemote learning is happening through a mix of SMS, basic phones, informal messages, and manual progress tracking.\n\nWORKING NEED\nAn educator dashboard that treats SMS constraints as a product requirement, not a fallback channel.\nRISK TO TEST\nMost online learning tools assume stable internet, full browsers, and student devices that this audience may not have.\n\nEVIDENCE BOUNDARY\n\nThe available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.\n\nWHAT THE SOURCES SUPPORT\n\nThe project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.\n\nThe portfolio record identifies my role as UX/UI Designer & Frontend Developer. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.\n\nWORKFLOW TO VALIDATE\n\n01\nPrepare the lesson\n\nChoose the assignment and translate it into a format students can receive on basic phones.\n\n02\nSend by SMS\n\nDeliver the work through the channel students can actually access instead of forcing a full web session.\n\n03\nTrack responses\n\nReview completion, gaps, and student replies from one teacher-facing view.\n\n04\nFollow up\n\nUse progress signals to decide who needs reminders, support, or a different path through the material.\n\nQUESTIONS FOR THE FIRST STUDY\n\nWhere does this audience hesitate, aba",
+    "title": "Tutor D",
+    "url": "https://reggiealleyne.com/project/tutor-d"
+  },
+  {
+    "headings": [
+      "The product choice and the proof available today.",
+      "Audience assumptions to validate",
+      "From research to product decisions",
+      "How the UX rationale shows up on screen."
+    ],
+    "links": [
+      {
+        "href": "https://linkedin.com/in/reggiealleyne",
+        "text": "LinkedIn"
+      },
+      {
+        "href": "https://github.com/ralleyne89",
+        "text": "GitHub"
+      }
+    ],
+    "text": "Home\nWork\nPlayground\nAbout\nContact\nYou\nDETAILS\nPROBLEM\nAUDIENCE\nPROCESS\nEVIDENCE\nBack to Work\n\n2020 / CLIENT PROTOTYPE\n\nWRIST\n\nAn interactive storytelling platform designed to democratize content creation and provide diverse representation in digital narratives through choice-driven experiences.\n\n“\nWRISTBAND was a prototype for a storytelling app that had to prove a different point: richer characters and creator input could matter as much as branching mechanics.\nTHE THESIS\n\nPROJECT DETAILS\n\nROLE\nLead UX/UI Designer and Strategist\nTOOLS\nFigma, Photoshop, Principle, React Native\nOWNED\nProduct strategy, Narrative UX, Prototype design, Creator-centered framing\n\nProblem, decision, evidence\n\nThe product choice and the proof available today.\n\nProblem\n\n01\nInteractive storytelling apps often felt repetitive and thin, especially around diverse character depth.\n\nDecision\n\n02\nCreated a platform concept that prioritized authentic storytelling through diverse creator collaboration, quality character development, and user-centric design that put narrative experience first.\n\nShipped proof\n\n03\nValidated a prototype direction centered on authentic narrative, creator collaboration, and richer mobile engagement.\n\nEvidence-aware audience model\n\nAudience assumptions to validate\nThis model connects the available project evidence to a workflow that still needs direct research.\n\nAUDIENCE HYPOTHESIS\n\nMobile reader who wants interactive stories with stronger character depth.\n\nThey are open to choice-driven stories, but they notice when narratives feel repetitive or representation feels shallow.\n\nWORKING NEED\nA narrative product that puts authentic creator input, meaningful choices, and richer character development into the core flow.\nRISK TO TEST\nInteractive storytelling can drift toward quantity, thin branching, and character templates that do not hold attention.\n\nEVIDENCE BOUNDARY\n\nThe available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.\n\nWHAT THE SOURCES SUPPORT\n\nThe project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.\n\nThe portfolio record identifies my role as Lead UX/UI Designer & Strategist. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.\n\nWORKFLOW TO VALIDATE\n\n01\nDiscover a story\n\nBrowse a mobile story library organized around character, genre, and creator signals.\n\n02\nAssess the cast\n\nLook for enough character and representation detail to trust the story before starting.\n\n03\nMake choices\n\nMove through branching moments that give the reader agency without breaking the narrative.\n\n04\nFollow the creator\n\nReturn for new st",
+    "title": "WRISTBAND",
+    "url": "https://reggiealleyne.com/project/wristband"
+  },
+  {
+    "headings": [
+      "The product choice and the proof available today.",
+      "Audience assumptions to validate",
+      "How the UX rationale shows up on screen."
+    ],
+    "links": [
+      {
+        "href": "https://scentstack.lovable.app/",
+        "text": "View Live Demo"
+      },
+      {
+        "href": "https://linkedin.com/in/reggiealleyne",
+        "text": "LinkedIn"
+      },
+      {
+        "href": "https://github.com/ralleyne89",
+        "text": "GitHub"
+      }
+    ],
+    "text": "Home\nWork\nPlayground\nAbout\nContact\nYou\nDETAILS\nPROBLEM\nAUDIENCE\nEVIDENCE\nBack to Work\n\n2026 / AI/ML\n\n     \n\nPROJECT DETAILS\n\nROLE\nUX/UI Designer and AI Product Strategist\nTOOLS\nReact, Tailwind CSS, GPT-5, Computer vision\nOWNED\nProduct concept, Dupe database, Dream Lab, Layering Lab\n\nProblem, decision, evidence\n\nThe product choice and the proof available today.\nView Live Demo\n\nProblem\n\n01\nFragrance discovery is expensive, opaque, and hard to translate from taste into actual products.\n\nDecision\n\n02\nScentStack addresses these gaps through three integrated features: (1) Discover—a comprehensive dupe database showing luxury fragrances alongside affordable alternatives with 90% average savings, (2) Layering Lab—computer vision technology that analyzes your existing fragrances and suggests complementary combinations, and (3) Dream Lab—GPT-5 powered natural language processing that translates scent descriptions into concrete fragrance recommendations.\n\nShipped proof\n\n03\nBuilt a consumer product with 1700+ dupes, dream-scent matching, and photo-based layering recommendations.\n\nEvidence-aware audience model\n\nAudience assumptions to validate\nThis model connects the available project evidence to a workflow that still needs direct research.\n\nAUDIENCE HYPOTHESIS\n\nFragrance shopper translating taste into affordable or layerable options.\n\nThey know what they like, but luxury pricing, scattered dupe knowledge, and fragrance vocabulary make discovery harder than it should be.\n\nWORKING NEED\nA searchable dupe database, natural-language scent matching, and photo-based layering guidance.\nRISK TO TEST\nDupe research lives across forums and reviews, while layering advice assumes insider knowledge.\n\nEVIDENCE BOUNDARY\n\nThe available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.\n\nWHAT THE SOURCES SUPPORT\n\nThe project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.\n\nThe portfolio record identifies my role as UX/UI Designer & AI Product Strategist. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.\n\nWORKFLOW TO VALIDATE\n\n01\nSearch the scent\n\nLook up a fragrance, brand, note, or desired mood without needing expert vocabulary.\n\n02\nCompare alternatives\n\nSee affordable options next to luxury originals so the value tradeoff is visible.\n\n03\nDescribe the dream\n\nUse natural language to translate an imagined scent profile into recommendations.\n\n04\nTry a layer\n\nUse existing collection context to explore combinations that feel personal and practical.\n\nQUESTIONS FOR THE FIRST STUDY\n\nWhere does this audience hesitate, abandon the flow, or need more con",
+    "title": "ScentStack – AI-Powered Fragrance Discovery Platform",
+    "url": "https://reggiealleyne.com/project/scent-stack"
+  },
+  {
+    "headings": [
+      "The product choice and the proof available today.",
+      "Audience assumptions to validate",
+      "How the UX rationale shows up on screen."
+    ],
+    "links": [
+      {
+        "href": "https://chill-vibes.web.app/",
+        "text": "Open Web App"
+      },
+      {
+        "href": "https://linkedin.com/in/reggiealleyne",
+        "text": "LinkedIn"
+      },
+      {
+        "href": "https://github.com/ralleyne89",
+        "text": "GitHub"
+      }
+    ],
+    "text": "Home\nWork\nPlayground\nAbout\nContact\nYou\nDETAILS\nPROBLEM\nAUDIENCE\nEVIDENCE\nBack to Work\n\n2020 / MUSIC\n\nChill   \n\nA freelance project where I built a minimalist music streaming MVP for a client who was tired of cluttered music apps. Clean interface, smooth playback, no distractions.\n\nPROJECT DETAILS\n\nROLE\nUX/UI Designer and Frontend Developer\nTOOLS\nReact, Firebase, Bootstrap, CSS Modules\nOWNED\nMVP interface, Responsive player, Frontend build, Client validation flow\n\nProblem, decision, evidence\n\nThe product choice and the proof available today.\nOpen Web App\n\nProblem\n\n01\nA client wanted to prove a music app could feel calm and focused instead of becoming another social feed.\n\nDecision\n\n02\nA clean, responsive music streaming MVP that prioritizes the music experience over everything else - no social feeds, no complex menus, just good tunes.\n\nShipped proof\n\n03\nBuilt a responsive MVP that kept the listening experience simple enough for validation and user testing.\n\nEvidence-aware audience model\n\nAudience assumptions to validate\nThis model connects the available project evidence to a workflow that still needs direct research.\n\nAUDIENCE HYPOTHESIS\n\nListener who wants a calm player focused on the music itself.\n\nThey are tired of music apps that turn listening into another busy social or recommendation surface.\n\nWORKING NEED\nA responsive MVP that keeps core playback clear enough for client validation and user testing.\nRISK TO TEST\nLarge streaming products often bury playback behind feeds, menus, social layers, and competing actions.\n\nEVIDENCE BOUNDARY\n\nThe available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.\n\nWHAT THE SOURCES SUPPORT\n\nThe project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.\n\nThe portfolio record identifies my role as UX/UI Designer & Frontend Developer. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.\n\nWORKFLOW TO VALIDATE\n\n01\nOpen the player\n\nArrive at a focused interface where playback is the main task, not a secondary action.\n\n02\nChoose music\n\nBrowse enough content to start listening without navigating through a heavy media library.\n\n03\nControl playback\n\nUse clear controls and responsive layout to keep the session comfortable across devices.\n\n04\nReturn to listen\n\nCome back for a simple listening experience that does not ask for social engagement first.\n\nQUESTIONS FOR THE FIRST STUDY\n\nWhere does this audience hesitate, abandon the flow, or need more context?\nWhich step creates enough value for them to continue or return?\nNEXT CASE STUDY\n✦\nNEXT CASE STUDY\n✦\nNEXT CASE STUDY\n✦\nNEXT CASE STUDY\n✦\n\n202",
+    "title": "Chill Vibes Music Player",
+    "url": "https://reggiealleyne.com/project/chill-vibes-music-player"
+  },
+  {
+    "headings": [
+      "The product choice and the proof available today.",
+      "Audience assumptions to validate",
+      "How the UX rationale shows up on screen."
+    ],
+    "links": [
+      {
+        "href": "https://bobsbigbreak.netlify.app/",
+        "text": "Play Game"
+      },
+      {
+        "href": "https://linkedin.com/in/reggiealleyne",
+        "text": "LinkedIn"
+      },
+      {
+        "href": "https://github.com/ralleyne89",
+        "text": "GitHub"
+      }
+    ],
+    "text": "Home\nWork\nPlayground\nAbout\nContact\nYou\nDETAILS\nPROBLEM\nAUDIENCE\nEVIDENCE\nBack to Work\n\n2020 / GAME DEVELOPMENT\n\nBob's  \n\nA low-effort, high-reward idle game for the moments in life when your brain needs a break—but your hustle doesn't.\n\nPROJECT DETAILS\n\nROLE\nUX/UI Designer and Web Developer\nTOOLS\nReact, Node.js, Express, MongoDB\nOWNED\nGame UX, Economy loop, Frontend build, Backend integration\n\nProblem, decision, evidence\n\nThe product choice and the proof available today.\nPlay Game\n\nProblem\n\n01\nThe game needed to reward short, low-attention play sessions without asking players to learn a complex system.\n\nShipped proof\n\n02\nDelivered a playable incremental game prototype with active clicks, passive income, upgrades, and character art.\n\nEvidence-aware audience model\n\nAudience assumptions to validate\nThis model connects the available project evidence to a workflow that still needs direct research.\n\nAUDIENCE HYPOTHESIS\n\nCasual player looking for quick progress in short sessions.\n\nThey want a low-friction game loop that rewards a few clicks now and passive progress later.\n\nWORKING NEED\nA readable loop where clicking, passive income, and upgrades make sense within the first minute.\nRISK TO TEST\nIdle games can become overwhelming when the economy, upgrades, and feedback are introduced too fast.\n\nEVIDENCE BOUNDARY\n\nThe available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.\n\nWHAT THE SOURCES SUPPORT\n\nThe project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.\n\nThe portfolio record identifies my role as UX/UI Designer & Web Developer. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.\n\nWORKFLOW TO VALIDATE\n\n01\nLearn the loop\n\nClick to earn coins and understand the core action without a long tutorial.\n\n02\nBuy upgrades\n\nTurn early earnings into clearer progress through hustles and passive income.\n\n03\nWatch momentum build\n\nSee the economy respond so short play sessions still feel productive.\n\n04\nReturn for growth\n\nCome back to spend earnings, unlock more progress, and keep Bob moving.\n\nQUESTIONS FOR THE FIRST STUDY\n\nWhere does this audience hesitate, abandon the flow, or need more context?\nWhich step creates enough value for them to continue or return?\nNEXT CASE STUDY\n✦\nNEXT CASE STUDY\n✦\nNEXT CASE STUDY\n✦\nNEXT CASE STUDY\n✦\n\n2022 / PLATFORM\n\nCLLCTVE PLATFORM\n\nUX/UI DESIGNER & AI TECHNOLOGIST\n\nWork\nAbout\nResume\nPlayground\nContact\nLinkedIn\nGitHub\nEmail\n\n© 2026 Reggie Alleyne\n\nLos Angeles, CA\nRemote collaboration worldwide\nReggie Alleyne",
+    "title": "Bob's Big Break",
+    "url": "https://reggiealleyne.com/project/bobs-big-break"
+  }
+]

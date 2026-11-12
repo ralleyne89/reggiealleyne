@@ -1,0 +1,193 @@
+- region "Notifications (F8)":
+  - list
+- banner:
+  - navigation "Primary navigation":
+    - link "Reggie Alleyne home":
+      - /url: /
+    - link "Home":
+      - /url: /
+      - generic "Home"
+    - link "Work":
+      - /url: /work
+      - generic "Work"
+    - link "Playground":
+      - /url: /playground
+      - generic "Playground"
+    - link "About":
+      - /url: /about
+      - generic "About"
+    - link "Contact":
+      - /url: /#contact
+      - generic "Contact"
+- generic: You
+- main:
+  - link "Back to home":
+    - /url: /
+    - text: Back to home
+  - paragraph: Services
+  - heading "Growth Websites for service businesses that need more than a brochure page." [level=1]:
+    - generic: Growth Websites for
+    - generic: service businesses
+    - generic: that need more than
+    - generic: a brochure page.
+  - paragraph: "I design and build websites around the moment a visitor becomes an inquiry: clear service pages, contact paths, booking or callback flows, follow-up, and simple reporting."
+  - link "Start a project":
+    - /url: /#contact
+    - generic: Start a project
+    - generic: Start a project
+  - link "View work":
+    - /url: /work
+    - generic: View work
+    - generic: View work
+  - complementary:
+    - paragraph: The useful version
+    - heading "A site that helps the business respond." [level=2]
+    - paragraph: The goal is not to decorate a homepage. The goal is to make the path from interest to response clearer for customers and easier for the business to manage.
+    - text: Lead capture
+    - text: Booking flows
+    - text: Weekly lead reporting
+  - generic: Growth Websites
+  - generic: ✦
+  - generic: Lead Capture & Inquiry Routing
+  - generic: ✦
+  - generic: Booking & Consultation Flows
+  - generic: ✦
+  - generic: Automated Follow-Up Systems
+  - generic: ✦
+  - generic: CRM & Pipeline Setup
+  - generic: ✦
+  - generic: Local Business Website Audits
+  - generic: ✦
+  - generic: AI-Assisted Operations
+  - generic: ✦
+  - generic: Growth Websites
+  - generic: ✦
+  - generic: Lead Capture & Inquiry Routing
+  - generic: ✦
+  - generic: Booking & Consultation Flows
+  - generic: ✦
+  - generic: Automated Follow-Up Systems
+  - generic: ✦
+  - generic: CRM & Pipeline Setup
+  - generic: ✦
+  - generic: Local Business Website Audits
+  - generic: ✦
+  - generic: AI-Assisted Operations
+  - generic: ✦
+  - generic: Growth Websites
+  - generic: ✦
+  - generic: Lead Capture & Inquiry Routing
+  - generic: ✦
+  - generic: Booking & Consultation Flows
+  - generic: ✦
+  - generic: Automated Follow-Up Systems
+  - generic: ✦
+  - generic: CRM & Pipeline Setup
+  - generic: ✦
+  - generic: Local Business Website Audits
+  - generic: ✦
+  - generic: AI-Assisted Operations
+  - generic: ✦
+  - generic: Growth Websites
+  - generic: ✦
+  - generic: Lead Capture & Inquiry Routing
+  - generic: ✦
+  - generic: Booking & Consultation Flows
+  - generic: ✦
+  - generic: Automated Follow-Up Systems
+  - generic: ✦
+  - generic: CRM & Pipeline Setup
+  - generic: ✦
+  - generic: Local Business Website Audits
+  - generic: ✦
+  - generic: AI-Assisted Operations
+  - generic: ✦
+  - generic: "01"
+  - generic: What this includes
+  - heading "Capability-led work, not a generic website package." [level=2]
+  - article:
+    - generic: "01"
+    - heading "Growth Websites" [level=3]
+    - paragraph: Service pages, calls to action, and inquiry paths built around how a local customer decides to reach out.
+  - article:
+    - generic: "02"
+    - heading "Lead Capture & Inquiry Routing" [level=3]
+    - paragraph: Forms, chat/contact paths, and handoff rules that send the right details to the right place.
+  - article:
+    - generic: "03"
+    - heading "Booking & Consultation Flows" [level=3]
+    - paragraph: Callback, appointment, or consultation paths that reduce friction after a visitor raises their hand.
+  - article:
+    - generic: "04"
+    - heading "Automated Follow-Up Systems" [level=3]
+    - paragraph: Confirmation, reminder, and next-step workflows that help new inquiries stay visible.
+  - article:
+    - generic: "05"
+    - heading "CRM & Pipeline Setup" [level=3]
+    - paragraph: Simple contact records, opportunity stages, and lead statuses so the owner can see what needs attention.
+  - article:
+    - generic: "06"
+    - heading "Local Business Website Audits" [level=3]
+    - paragraph: A practical review of the current site, service pages, forms, booking friction, and reporting gaps.
+  - article:
+    - generic: "07"
+    - heading "AI-Assisted Operations" [level=3]
+    - paragraph: Reviewed workflows for intake summaries, lead context, internal notes, and repeated admin steps.
+  - generic: "02"
+  - generic: How the work runs
+  - heading "Start with the customer path, then build the system around it." [level=2]
+  - paragraph: This can begin as an audit, a focused build, or a cleanup of an existing site and response process.
+  - generic: "01"
+  - heading "Audit the current path" [level=3]
+  - paragraph: Map how visitors find the business, what they need to know, and where inquiries currently get lost.
+  - generic: "02"
+  - heading "Build the growth website" [level=3]
+  - paragraph: Create the page structure, service copy, contact paths, and visual system around the real buying moment.
+  - generic: "03"
+  - heading "Connect capture and follow-up" [level=3]
+  - paragraph: Set up forms, booking paths, inquiry routing, reminders, and pipeline stages that match the business.
+  - generic: "04"
+  - heading "Review what is working" [level=3]
+  - paragraph: Use weekly lead reporting and simple workflow checks to see which paths are helping and which need polish.
+  - heading "Best fit" [level=2]
+  - paragraph:
+    - generic: Local or service business with real inquiries, but unclear follow-up
+  - paragraph:
+    - generic: Owner-led team that needs fewer missed messages and cleaner next steps
+  - paragraph:
+    - generic: Existing website that looks fine but does not help the business respond
+  - heading "Boundaries" [level=2]
+  - paragraph:
+    - generic: No generic traffic promises
+  - paragraph:
+    - generic: No fake lead guarantees
+  - paragraph:
+    - generic: No tool-first automation that hides what is happening
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne

@@ -36,7 +36,7 @@ Three things only this portfolio has: the Figma canvas with its selection frames
 Signature moment: **the hero canvas in depth.** The artboard outline, the layer panels, the Design / Code / Prototype chips and the portrait become separate planes in one three.js scene. Scroll pulls the camera through them in three beats (design, code, shipped) and lands on the first Staybooked screen, so the hand-off from hero to work is one continuous move. 3D tier 1, code-only route (no Blender). Landberg's site shows the grammar: real screens as bendable planes over a grid floor. Here the floor is the Figma canvas grid and the planes are the hero's own panels and product screens.
 
 Supporting moments:
-1. Lead work as a pinned stack: MotorFlow, Staybooked, Tech Noir. Each tile's screen sits inside a selection frame that resizes to the next project.
+1. Lead work as a pinned stack: MotorFlow, Staybooked, CLLCTVE. Each tile's screen sits inside a selection frame that resizes to the next project.
 2. Case-study walkthrough: one pinned section where the product screen stays put and the caption swaps per step.
 3. Shared-element transition from a work tile into the case-study header (GSAP Flip).
 4. Statement paragraph on the home page set on a path that bends with scroll velocity and settles flat (from Lazarieva), with words lighting up as it scrolls.
@@ -44,8 +44,8 @@ Supporting moments:
 Built note (Nov 11): the hero's own panels and portrait are CSS 3D planes on the live HTML, sharing pointer and scroll with the WebGL scene behind them. Site-wide file chrome (rulers, page readout, layers panel) and the Playground canvas extend the same idea to every page.
 
 ## Structure changes
-- Home order: hero, lead work (MotorFlow first, then Staybooked and Tech Noir), statement, more work rows, playground, contact. The nine-row tool list moves to About.
-- CLLCTVE and Litmus AI move to "More work". Lead order reasoning: MotorFlow first (Reggie, Nov 11). Staybooked second as the solo AI product PRODUCT.md already names the strongest case study. Tech Noir third because it is the one shipped team product and the one mobile app, and its playable demo gives the stack a different kind of proof than a third solo web build.
+- Home order: hero, lead work (MotorFlow, Staybooked, CLLCTVE), statement, more work rows, playground, contact. The nine-row tool list moves to About.
+- Lead order set by Reggie (Nov 11): MotorFlow, Staybooked, CLLCTVE. Tech Noir and Litmus AI sit in "More work".
 - Case study template, screens first: header with one large screen and a figure row; problem, decision, proof in three short blocks; pinned walkthrough; evidence gallery; reflection; next project. Current pages run 530 to 1,100 words with 13 to 19 images; the Lazarieva case study carries 19 media on 232 words. Target under 400 words per case study with every screen at least half the viewport wide.
 - Process-step 3D icons removed; each step shows the real screen it produced.
 

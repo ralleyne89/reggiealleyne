@@ -113,7 +113,7 @@ const createMetaByProperty = (property: string) => {
 };
 
 const DEFAULT_SHARE_IMAGE =
-  "https://reggiealleyne.com/images/reggie-alleyne-og-v2.jpg";
+  "https://reggiealleyne.com/images/reggie-alleyne-portfolio-og-20260915.jpg";
 const DEFAULT_SHARE_IMAGE_ALT =
   "Reggie Alleyne portfolio with a Figma-inspired canvas and selected product design work.";
 

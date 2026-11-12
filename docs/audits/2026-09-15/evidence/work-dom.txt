@@ -1,0 +1,120 @@
+- region "Notifications (F8)":
+  - list
+- banner:
+  - navigation "Primary navigation":
+    - link "Reggie Alleyne home":
+      - /url: /
+    - link "Home":
+      - /url: /
+      - generic "Home"
+    - link "Work" [active]:
+      - /url: /work
+      - generic "Work"
+    - link "Playground":
+      - /url: /playground
+      - generic "Playground"
+    - link "About":
+      - /url: /about
+      - generic "About"
+    - link "Contact":
+      - /url: /#contact
+      - generic "Contact"
+- generic: You
+- main:
+  - link "Back to Home":
+    - /url: /
+    - text: Back to Home
+  - paragraph: Work
+  - heading "The product decisions behind the interface." [level=1]
+  - paragraph: The featured case studies focus on AI and product-design judgment. Each one shows the problem, constraint, decision, and evidence behind the interface.
+  - region "Featured case studies":
+    - generic: "01"
+    - generic: Featured case studies
+    - link "Gen Z Portfolio Platform A mobile-first creator portfolio bet that reached 500+ creators, 15 brand partnerships, and 85% retention. Creator economy / platform design 2022 · UX/UI Designer & Frontend Engineer":
+      - /url: /project/cllctve-platform
+      - generic: "01"
+      - paragraph: Gen Z Portfolio Platform
+      - paragraph: A mobile-first creator portfolio bet that reached 500+ creators, 15 brand partnerships, and 85% retention.
+      - paragraph: Creator economy / platform design
+      - paragraph: 2022 · UX/UI Designer & Frontend Engineer
+    - link "AI Literacy Platform A shipped assessment, recommendation, training, and certificate path designed around a five-minute target. AI education / assessment 2025 · UX/UI Designer & Frontend Developer":
+      - /url: /project/litmus-ai
+      - generic: "02"
+      - paragraph: AI Literacy Platform
+      - paragraph: A shipped assessment, recommendation, training, and certificate path designed around a five-minute target.
+      - paragraph: AI education / assessment
+      - paragraph: 2025 · UX/UI Designer & Frontend Developer
+    - link "AI Airbnb Optimizer A host workflow that turns listing review into an audit, one grounded fix, and a clear re-check. Hospitality AI / host workflow 2026 · UX/UI Designer & Frontend Developer":
+      - /url: /project/staybooked
+      - generic: "03"
+      - paragraph: AI Airbnb Optimizer
+      - paragraph: A host workflow that turns listing review into an audit, one grounded fix, and a clear re-check.
+      - paragraph: Hospitality AI / host workflow
+      - paragraph: 2026 · UX/UI Designer & Frontend Developer
+  - region "Additional selected work":
+    - generic: "02"
+    - generic: Additional selected work
+    - link "Covelo Timecard System Workforce Operations 2026 · UX/UI Designer & Frontend Developer":
+      - /url: /project/covelo-timecard-system
+      - generic: "01"
+      - paragraph: Covelo Timecard System
+      - paragraph: Workforce Operations
+      - paragraph: 2026 · UX/UI Designer & Frontend Developer
+    - link "Vault.js Validate – Enterprise Security Visualization & AI Tool Enterprise Security 2026 · UX/UI Designer & Frontend Developer":
+      - /url: /project/vaultjs-validate
+      - generic: "02"
+      - paragraph: Vault.js Validate – Enterprise Security Visualization & AI Tool
+      - paragraph: Enterprise Security
+      - paragraph: 2026 · UX/UI Designer & Frontend Developer
+    - link "Pretty Paws Grooming Website Local Business Website 2025 · UX/UI Designer & Frontend Developer":
+      - /url: /project/pretty-paws-grooming
+      - generic: "03"
+      - paragraph: Pretty Paws Grooming Website
+      - paragraph: Local Business Website
+      - paragraph: 2025 · UX/UI Designer & Frontend Developer
+    - 'link "SymptomCheckr: a calmer way to check symptoms Health UX 2024 · UX/UI Designer"':
+      - /url: /project/symptom-checkr
+      - generic: "04"
+      - paragraph: "SymptomCheckr: a calmer way to check symptoms"
+      - paragraph: Health UX
+      - paragraph: 2024 · UX/UI Designer
+    - link "Tutor D Education 2021 · UX/UI Designer & Frontend Developer":
+      - /url: /project/tutor-d
+      - generic: "05"
+      - paragraph: Tutor D
+      - paragraph: Education
+      - paragraph: 2021 · UX/UI Designer & Frontend Developer
+    - link "WRISTBAND Client Prototype 2020 · Lead UX/UI Designer & Strategist":
+      - /url: /project/wristband
+      - generic: "06"
+      - paragraph: WRISTBAND
+      - paragraph: Client Prototype
+      - paragraph: 2020 · Lead UX/UI Designer & Strategist
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne

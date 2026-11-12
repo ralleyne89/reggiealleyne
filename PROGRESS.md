@@ -13,7 +13,7 @@ Branch: `claude/portfolio-audit-fixes`. Nothing is published.
 - 7-9: not started. Checkpoint B (publish) needs Reggie's go.
 
 ## Done on this branch
-- Share/icon logo: favicon, apple-touch-icon and PWA icons rebuilt from the current RA logo (they were the old circled monogram). Old icon files and `ra-logo*.svg` removed. Share image renamed to `reggie-alleyne-og-v2.jpg` so platforms refetch it. Service worker cache bumped to v4.
+- Share/icon logo: favicon, apple-touch-icon and PWA icons rebuilt from the current RA logo (they were the old circled monogram). Old icon files and `ra-logo*.svg` removed. Share image renamed to `reggie-alleyne-portfolio-og-20260915.jpg` so platforms refetch it. Service worker cache bumped to v4.
 - SEO: `/work`, `/about` and `/playground` now set their own title, description and canonical (they previously canonicalised to the home page). Added `robots.txt` and `sitemap.xml`. Unknown URLs show a 404 page (noindex) instead of silently loading the home page.
 - Performance: 105 heavy images got WebP versions and code now points at them (59.3 MB to 7.5 MB). Home page transfer measured locally 5.9 MB to 1.1 MB. Original PNG/JPG files kept because database project records may still reference them. Hero portrait preloaded.
 - Accessibility: Work list titles show at full contrast (they were 34% grey until hovered).

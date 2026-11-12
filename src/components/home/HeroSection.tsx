@@ -709,6 +709,7 @@ const HeroArtwork = () => (
       <div data-hero-portrait className="hero-portrait relative h-full w-full">
         <img
           src={heroAssets.portrait}
+          srcSet={`${assetBase}/portrait-384.webp 384w, ${assetBase}/portrait-768.webp 768w, ${assetBase}/portrait-1024.webp 1024w`}
           alt="Digital portrait of Reggie Alleyne"
           loading="eager"
           decoding="async"

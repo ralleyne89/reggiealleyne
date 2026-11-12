@@ -1,0 +1,235 @@
+- region "Notifications (F8)":
+  - list
+- banner:
+  - navigation "Primary navigation":
+    - link "Reggie Alleyne home":
+      - /url: /
+    - link "Home":
+      - /url: /
+      - generic "Home"
+    - link "Work":
+      - /url: /work
+      - generic "Work"
+    - link "Playground":
+      - /url: /playground
+      - generic "Playground"
+    - link "About":
+      - /url: /about
+      - generic "About"
+    - link "Contact":
+      - /url: /#contact
+      - generic "Contact"
+- generic: You
+- navigation "Case study chapters":
+  - list:
+    - button "Details":
+      - generic: Details
+    - button "Problem":
+      - generic: Problem
+    - button "Audience":
+      - generic: Audience
+    - button "Process":
+      - generic: Process
+    - button "Evidence":
+      - generic: Evidence
+- banner:
+  - link "Back to Work":
+    - /url: /work
+    - text: Back to Work
+  - paragraph: 2026 / Workforce Operations
+  - heading "Covelo Timecard System" [level=1]
+  - img "Covelo Timecard System"
+- figure "The thesis":
+  - generic: “
+  - blockquote: Covelo needed a workforce portal where timecards, approvals, exceptions, and exports could move through one operating model instead of several disconnected workflows.
+  - generic: The thesis
+- region "Case study at a glance":
+  - paragraph: Project details
+  - term: Role
+  - definition: UX/UI Designer and Frontend Developer
+  - term: Tools
+  - definition: Next.js, TypeScript, Postgres, Figma
+  - term: Owned
+  - definition: Product design, Frontend build, Role workflows, Client demo
+  - generic: Solo
+  - paragraph: Client build
+  - paragraph: Role-specific workspaces
+  - paragraph: Deployed demo
+- paragraph: Problem, decision, evidence
+- heading "The product choice and the proof available today." [level=2]
+- link "Open Covelo Demo":
+  - /url: https://covelo.netlify.app
+  - generic: Open Covelo Demo
+- article:
+  - paragraph: Problem
+  - generic: "01"
+  - heading "Covelo needed one portal for staff timecards, approver review, compliance exceptions, assignments, and export prep." [level=3]
+- article:
+  - paragraph: Decision
+  - generic: "02"
+  - heading "Design the product around three role-specific workspaces tied to one operating model instead of treating each team as a separate workflow." [level=3]
+- article:
+  - paragraph: Shipped proof
+  - generic: "03"
+  - heading "Delivered a solo client MVP with a deployed demo, product screenshots, and bounded technical framing for auth, RBAC, APIs, and exports." [level=3]
+- paragraph: Evidence-aware audience model
+- heading "Audience assumptions to validate" [level=2]
+- generic: This model connects the available project evidence to a workflow that still needs direct research.
+- article:
+  - paragraph: Audience hypothesis
+  - heading "Operations lead coordinating timecards, approvals, exceptions, and exports." [level=3]
+  - paragraph: Staff, approvers, and operations teams need one district-scoped operating model without weakening role boundaries.
+  - term: Working need
+  - definition: Role-specific portals tied to the same timecard system, audit history, and exception-management flow.
+  - term: Risk to test
+  - definition: Separate workflows create manual reconciliation, unclear ownership, and risk around exceptions or approvals.
+- article:
+  - paragraph: Evidence boundary
+  - paragraph: The available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.
+- article:
+  - paragraph: What the sources support
+  - paragraph: The project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.
+  - paragraph: The portfolio record identifies my role as UX/UI Designer & Frontend Developer. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.
+- article:
+  - paragraph: Workflow to validate
+  - list:
+    - text: "01"
+    - heading "Submit time" [level=4]
+    - paragraph: Staff enter time and assignment details through a focused submission workflow.
+    - text: "02"
+    - heading "Review approvals" [level=4]
+    - paragraph: Approvers work through a queue with enough context to approve, reject, or ask for correction.
+    - text: "03"
+    - heading "Resolve exceptions" [level=4]
+    - paragraph: Operations users identify compliance issues and fix blockers before export prep.
+    - text: "04"
+    - heading "Prepare export" [level=4]
+    - paragraph: Move approved records toward downstream reporting without losing tenant or role boundaries.
+- article:
+  - paragraph: Questions for the first study
+  - list:
+    - listitem: Where does this audience hesitate, abandon the flow, or need more context?
+    - listitem: Which step creates enough value for them to continue or return?
+- paragraph: Case study flow
+- heading "From research to product decisions" [level=2]
+- paragraph: Covelo needed a workforce portal where timecards, approvals, exceptions, and exports could move through one operating model instead of several disconnected workflows.
+- paragraph: The product served staff, approvers, and operations users who each touched the same time record for different reasons. The design challenge was not only making screens; it was keeping role boundaries clear while the work moved toward payroll and billing handoffs.
+- list:
+  - generic: "01"
+  - article:
+    - paragraph: Synthesis
+    - generic: "01"
+    - heading "Define the problem" [level=3]
+    - paragraph: "Daily use had to stay simple while the product still respected heavier requirements: invite-only access, RBAC, district-scoped data, audit history, and typed API contracts."
+  - figure:
+    - img "Faceted magnifying glass and prism for research synthesis."
+  - generic: "02"
+  - article:
+    - paragraph: Information architecture
+    - generic: "02"
+    - heading "Map flows and wireframes" [level=3]
+    - paragraph: Designed the Staff flow around today's assignment, clock status, weekly timesheets, edited entries, and attestations.
+  - figure:
+    - img "Glossy branching route nodes for information architecture."
+  - generic: "03"
+  - article:
+    - paragraph: UI system
+    - generic: "03"
+    - heading "Design the interface" [level=3]
+    - paragraph: "I organized the MVP around three role-specific workspaces tied to one record model: Staff submission, Approver review, and Ops/Admin exception management."
+  - figure:
+    - img "Stacked modular interface blocks for a UI system."
+  - generic: "04"
+  - article:
+    - paragraph: Implementation
+    - generic: "04"
+    - heading "Prototype and build" [level=3]
+    - paragraph: I designed and built the frontend for staff dashboards, clock and timesheet flows, approver inboxes, exception queues, assignment and member management, settings, and export-oriented operations work.
+  - figure:
+    - img "Glossy code cube for prototype and build work."
+  - generic: "05"
+  - article:
+    - paragraph: Evidence
+    - generic: "05"
+    - heading "Validate the proof" [level=3]
+    - paragraph: The client received a completed solo MVP and deployed demo with role-aware workflows, product screenshots, and technical framing for auth, RBAC, APIs, Postgres-oriented contracts, and exports.
+  - figure:
+    - img "Proof badge with chart facets for validation."
+  - generic: "06"
+  - article:
+    - paragraph: Learning
+    - generic: "06"
+    - heading "Reflection" [level=3]
+    - paragraph: The strongest UX decision was keeping one operational record visible through different role views. That kept the product coherent without forcing every team to rebuild context from scratch.
+  - figure:
+    - img "Luminous prism lamp for reflection and learning."
+- paragraph: Interface evidence
+- heading "How the UX rationale shows up on screen." [level=2]
+- paragraph: "These screens show the product decisions reviewers should inspect: profile credibility, return loops, and opportunity discovery."
+- list:
+  - paragraph: 01 / Prototype the path
+  - paragraph: After the strategy was set, the next UX/UI step was turning the creator journey into screens people could react to.
+  - paragraph: 02 / Design the real states
+  - paragraph: The interface had to cover profile setup, content browsing, community feedback, and brand moments without becoming a copy of older portfolio tools.
+  - paragraph: 03 / Show the product proof
+  - paragraph: "The screenshots below make the platform easier to judge: the profile surface, dashboard, and public landing page."
+- button "Interface view 1 interface View full size Interface view 1 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 1 interface"
+  - text: View full size
+  - generic: Interface view 1
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 2 interface View full size Interface view 2 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 2 interface"
+  - text: View full size
+  - generic: Interface view 2
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 3 interface View full size Interface view 3 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 3 interface"
+  - text: View full size
+  - generic: Interface view 3
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 4 interface View full size Interface view 4 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 4 interface"
+  - text: View full size
+  - generic: Interface view 4
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- 'link "Next case study: Vault.js Validate – Enterprise Security Visualization & AI Tool"':
+  - /url: /project/vaultjs-validate
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - paragraph: 2026 / Enterprise Security
+  - text: Vault.js Validate – Enterprise Security Visualization & AI Tool
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne

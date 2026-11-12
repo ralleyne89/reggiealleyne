@@ -66,7 +66,9 @@ const AnimatedRoutes = () => {
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={routeKey}
-          className="route-motion-shell"
+          id="main-content"
+          tabIndex={-1}
+          className="route-motion-shell outline-none"
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}

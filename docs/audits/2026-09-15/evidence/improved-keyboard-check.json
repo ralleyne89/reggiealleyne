@@ -1,0 +1,14 @@
+{
+  "opened": {
+    "backgroundHidden": "true",
+    "dialog": true,
+    "focusLabel": "Close full-size image"
+  },
+  "reverseTab": {
+    "insideDialog": true
+  },
+  "closed": {
+    "dialogCount": 0,
+    "trigger": "CLLCTVE sitemap connecting the landing page, creator discovery, creator profiles, challenges, brand collaboration, login, and signup routes."
+  }
+}

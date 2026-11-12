@@ -25,9 +25,9 @@ import { startScreenHandoff } from "@/lib/screenHandoff";
 gsap.registerPlugin(ScrollTrigger);
 
 const moreSelectedProjectSlugs = [
+  "tech-noir",
   "litmus-ai",
   "covelo-timecard-system",
-  "cllctve-platform",
   "symptom-checkr",
 ] as const;
 

@@ -160,6 +160,21 @@ export const routeHtml = (): Plugin => ({
       fs.writeFileSync(`${directory}.html`, html);
     });
 
+    // Unknown paths are served this file with a real 404 status. The app
+    // still boots from it, so client-only routes keep working.
+    fs.writeFileSync(
+      path.join(dist, "404.html"),
+      setMeta(
+        template.replace(
+          /<title>[^<]*<\/title>/,
+          "<title>Page not found | Reggie Alleyne</title>",
+        ),
+        "name",
+        "robots",
+        "noindex, follow",
+      ),
+    );
+
     console.log(`route-html: wrote ${pages.length} route pages`);
   },
 });

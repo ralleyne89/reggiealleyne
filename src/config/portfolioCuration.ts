@@ -11,7 +11,7 @@ import {
 export type FeaturedProjectSlug =
   | "motorflow"
   | "staybooked"
-  | "tech-noir";
+  | "cllctve-platform";
 
 export interface FeaturedProjectConfig {
   slug: FeaturedProjectSlug;
@@ -226,13 +226,13 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
       "Shows how product constraints keep AI suggestions tied to the property a host can deliver.",
   },
   {
-    slug: "tech-noir",
-    featuredTitle: "Tech Noir",
-    eyebrow: "Mobile application / shipped",
+    slug: "cllctve-platform",
+    featuredTitle: "Gen Z Portfolio Platform",
+    eyebrow: "Creator economy / platform design",
     impactSummary:
-      "A shipped mobile application for luxury wearable-tech shopping, with designer collections, styling guides, and editorial discovery.",
+      "A mobile-first creator portfolio bet that reached 500+ creators, 15 brand partnerships, and 85% retention.",
     reviewerSignal:
-      "Shows a monochrome editorial system built around one path: discover, learn, visualize, buy.",
+      "Shows the tradeoffs behind mobile behavior, design systems, and brand constraints.",
   },
 ];
 

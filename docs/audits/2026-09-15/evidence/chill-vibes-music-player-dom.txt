@@ -1,0 +1,182 @@
+- region "Notifications (F8)":
+  - list
+- banner:
+  - navigation "Primary navigation":
+    - link "Reggie Alleyne home":
+      - /url: /
+    - link "Home":
+      - /url: /
+      - generic "Home"
+    - link "Work":
+      - /url: /work
+      - generic "Work"
+    - link "Playground":
+      - /url: /playground
+      - generic "Playground"
+    - link "About":
+      - /url: /about
+      - generic "About"
+    - link "Contact":
+      - /url: /#contact
+      - generic "Contact"
+- generic: You
+- navigation "Case study chapters":
+  - list:
+    - button "Details":
+      - generic: Details
+    - button "Problem":
+      - generic: Problem
+    - button "Audience":
+      - generic: Audience
+    - button "Evidence":
+      - generic: Evidence
+- banner:
+  - link "Back to Work":
+    - /url: /work
+    - text: Back to Work
+  - paragraph: 2020 / Music
+  - heading "Chill Vibes Music Player" [level=1]
+  - img "Chill Vibes Music Player"
+- region "Case study at a glance":
+  - paragraph: Project details
+  - term: Role
+  - definition: UX/UI Designer and Frontend Developer
+  - term: Tools
+  - definition: React, Firebase, Bootstrap, CSS Modules
+  - term: Owned
+  - definition: MVP interface, Responsive player, Frontend build, Client validation flow
+- paragraph: Problem, decision, evidence
+- heading "The product choice and the proof available today." [level=2]
+- link "Open Web App":
+  - /url: https://chill-vibes.web.app/
+  - generic: Open Web App
+- article:
+  - paragraph: Problem
+  - generic: "01"
+  - heading "A client wanted to prove a music app could feel calm and focused instead of becoming another social feed." [level=3]
+- article:
+  - paragraph: Decision
+  - generic: "02"
+  - heading "A clean, responsive music streaming MVP that prioritizes the music experience over everything else - no social feeds, no complex menus, just good tunes." [level=3]
+- article:
+  - paragraph: Shipped proof
+  - generic: "03"
+  - heading "Built a responsive MVP that kept the listening experience simple enough for validation and user testing." [level=3]
+- paragraph: Evidence-aware audience model
+- heading "Audience assumptions to validate" [level=2]
+- generic: This model connects the available project evidence to a workflow that still needs direct research.
+- article:
+  - paragraph: Audience hypothesis
+  - heading "Listener who wants a calm player focused on the music itself." [level=3]
+  - paragraph: They are tired of music apps that turn listening into another busy social or recommendation surface.
+  - term: Working need
+  - definition: A responsive MVP that keeps core playback clear enough for client validation and user testing.
+  - term: Risk to test
+  - definition: Large streaming products often bury playback behind feeds, menus, social layers, and competing actions.
+- article:
+  - paragraph: Evidence boundary
+  - paragraph: The available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.
+- article:
+  - paragraph: What the sources support
+  - paragraph: The project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.
+  - paragraph: The portfolio record identifies my role as UX/UI Designer & Frontend Developer. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.
+- article:
+  - paragraph: Workflow to validate
+  - list:
+    - text: "01"
+    - heading "Open the player" [level=4]
+    - paragraph: Arrive at a focused interface where playback is the main task, not a secondary action.
+    - text: "02"
+    - heading "Choose music" [level=4]
+    - paragraph: Browse enough content to start listening without navigating through a heavy media library.
+    - text: "03"
+    - heading "Control playback" [level=4]
+    - paragraph: Use clear controls and responsive layout to keep the session comfortable across devices.
+    - text: "04"
+    - heading "Return to listen" [level=4]
+    - paragraph: Come back for a simple listening experience that does not ask for social engagement first.
+- article:
+  - paragraph: Questions for the first study
+  - list:
+    - listitem: Where does this audience hesitate, abandon the flow, or need more context?
+    - listitem: Which step creates enough value for them to continue or return?
+- paragraph: Interface evidence
+- heading "How the UX rationale shows up on screen." [level=2]
+- paragraph: "These screens show the product decisions reviewers should inspect: profile credibility, return loops, and opportunity discovery."
+- list:
+  - paragraph: 01 / Prototype the path
+  - paragraph: After the strategy was set, the next UX/UI step was turning the creator journey into screens people could react to.
+  - paragraph: 02 / Design the real states
+  - paragraph: The interface had to cover profile setup, content browsing, community feedback, and brand moments without becoming a copy of older portfolio tools.
+  - paragraph: 03 / Show the product proof
+  - paragraph: "The screenshots below make the platform easier to judge: the profile surface, dashboard, and public landing page."
+- button "Interface view 1 interface View full size Interface view 1 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 1 interface"
+  - text: View full size
+  - generic: Interface view 1
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 2 interface View full size Interface view 2 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 2 interface"
+  - text: View full size
+  - generic: Interface view 2
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 3 interface View full size Interface view 3 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 3 interface"
+  - text: View full size
+  - generic: Interface view 3
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 4 interface View full size Interface view 4 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 4 interface"
+  - text: View full size
+  - generic: Interface view 4
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 5 interface View full size Interface view 5 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 5 interface"
+  - text: View full size
+  - generic: Interface view 5
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 6 interface View full size Interface view 6 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 6 interface"
+  - text: View full size
+  - generic: Interface view 6
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- 'link "Next case study: CLLCTVE Platform"':
+  - /url: /project/cllctve-platform
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - paragraph: 2022 / Platform
+  - text: CLLCTVE Platform
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne
