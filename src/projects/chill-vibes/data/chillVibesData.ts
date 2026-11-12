@@ -241,7 +241,7 @@ export const chillVibesIdeationData: IdeationStrategyProps = {
 // User Persona Data
 export const chillVibesPersonaData: UserPersonaProps = {
   title: "User Persona",
-  imageSrc: "/images/4c5d628c-5499-47b1-bf2a-2415a1b24c0c.png",
+  imageSrc: "/images/4c5d628c-5499-47b1-bf2a-2415a1b24c0c.webp",
   imageAlt: "Alex Music Lover Persona",
   name: "Alex Chen",
   details: [

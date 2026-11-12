@@ -9,7 +9,7 @@ export const getCoveloTimecardProject = (): ProjectType => {
       "A client workforce portal for Covelo that brings staff timecards, approver queues, compliance exceptions, assignments, and export workflows into one role-aware product.",
     fullDescription:
       "Covelo needed a focused web portal for daily staffing operations: staff clocking time, approvers reviewing submitted weeks, and operations teams clearing exceptions before payroll and billing exports. I designed and built the frontend for that workflow as a solo client project, pairing role-specific UX with the API and auth contracts needed for a production path.",
-    image: "/images/covelo/login-desktop.png",
+    image: "/images/covelo/login-desktop.webp",
     category: "Workforce Operations",
     tags: [
       "Next.js",
@@ -55,10 +55,10 @@ export const getCoveloTimecardProject = (): ProjectType => {
       "Role-aware frontend architecture tied to API contracts",
     ],
     images: [
-      "/images/covelo/login-desktop.png",
-      "/images/covelo/staff-dashboard-desktop.png",
-      "/images/covelo/approver-inbox-desktop.png",
-      "/images/covelo/ops-exceptions-desktop.png",
+      "/images/covelo/login-desktop.webp",
+      "/images/covelo/staff-dashboard-desktop.webp",
+      "/images/covelo/approver-inbox-desktop.webp",
+      "/images/covelo/ops-exceptions-desktop.webp",
     ],
     videoUrl: null,
     githubUrl: null,

@@ -334,7 +334,7 @@ export const wristbandJourneyData = {
 export const wristbandPersonaData = {
   title: "Meet Our Target User",
   introduction: "Based on our research, we developed detailed personas representing our primary user segments to guide design decisions throughout the project.",
-  imageSrc: "/images/d5de6ddf-336f-45cb-84e5-4cb556419e53.png",
+  imageSrc: "/images/d5de6ddf-336f-45cb-84e5-4cb556419e53.webp",
   imageAlt: "Maya Samuels - Primary User Persona",
   name: "Maya Samuels",
   details: [

@@ -220,7 +220,7 @@ export const symptomCheckrIdeationData: IdeationStrategyProps = {
 // User Persona Data
 export const symptomCheckrPersonaData: UserPersonaProps = {
   title: "Meet Sarah",
-  imageSrc: "/images/Sarah-Mitchell-Persona.png",
+  imageSrc: "/images/Sarah-Mitchell-Persona.webp",
   imageAlt: "Sarah Mitchell Persona",
   name: "Sarah Mitchell",
   details: [
@@ -431,7 +431,7 @@ export const symptomCheckrSitemapData: SitemapWireframesProps = {
   wireframeImages: [
     {
       title: "Symptom Checkr Homepage",
-      imageSrc: "/images/Symptom-Checkr-Home.jpg",
+      imageSrc: "/images/Symptom-Checkr-Home.webp",
       imageAlt: "Symptom Checkr Homepage Wireframe"
     },
     {
@@ -485,22 +485,22 @@ export const symptomCheckrUIData: FinalUIDesignProps = {
   uiImages: [
     {
       title: "Live checker",
-      src: "/images/symptom-checkr-live-checker.png",
+      src: "/images/symptom-checkr-live-checker.webp",
       alt: "SymptomCheckr live symptom checker screen"
     },
     {
       title: "Source-backed result",
-      src: "/images/symptom-checkr-live-results.png",
+      src: "/images/symptom-checkr-live-results.webp",
       alt: "SymptomCheckr source-backed result screen"
     },
     {
       title: "My Reports - Empty",
-      src: "/images/Symptom-Checkr-My-Reports-Empty-Final.jpg",
+      src: "/images/Symptom-Checkr-My-Reports-Empty-Final.webp",
       alt: "SymptomCheckr My Reports empty state"
     },
     {
       title: "Contact Screen",
-      src: "/images/Symptom-Checkr-Contact-Final.jpg",
+      src: "/images/Symptom-Checkr-Contact-Final.webp",
       alt: "SymptomCheckr Contact screen"
     }
   ]

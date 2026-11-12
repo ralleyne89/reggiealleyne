@@ -258,27 +258,27 @@ export const litmusAIUIData: FinalUIDesignProps = {
   ],
   uiImages: [
     {
-      src: "/images/litmus-live-home.png",
+      src: "/images/litmus-live-home.webp",
       alt: "Litmus AI homepage with readiness dashboard preview",
       title: "Homepage"
     },
     {
-      src: "/images/litmus-live-assessment.png",
+      src: "/images/litmus-live-assessment.webp",
       alt: "Litmus AI assessment page with starting level choices",
       title: "Assessment Calibration"
     },
     {
-      src: "/images/litmus-live-training.png",
+      src: "/images/litmus-live-training.webp",
       alt: "Litmus AI training hub with role-based course cards",
       title: "Training Hub"
     },
     {
-      src: "/images/litmus-live-certification.png",
+      src: "/images/litmus-live-certification.webp",
       alt: "Litmus AI certification page with available certificate cards",
       title: "Certification Catalog"
     },
     {
-      src: "/images/litmus-live-pricing.png",
+      src: "/images/litmus-live-pricing.webp",
       alt: "Litmus AI pricing page with plan cards",
       title: "Pricing"
     }

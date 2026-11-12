@@ -1,0 +1,152 @@
+{
+  "routes": [
+    {
+      "path": "/about",
+      "title": "About Reggie Alleyne | UX/UI Designer & Frontend Developer",
+      "canonical": "https://reggiealleyne.com/about",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/",
+      "title": "Reggie Alleyne | UX/UI Designer & Frontend Developer",
+      "canonical": "https://reggiealleyne.com/",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/playground",
+      "title": "Product Experiments & Prototypes | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/playground",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/bobs-big-break",
+      "title": "Bob's Big Break | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/bobs-big-break",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/chill-vibes-music-player",
+      "title": "Chill Vibes Music Player | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/chill-vibes-music-player",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/cllctve-platform",
+      "title": "CLLCTVE Platform | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/cllctve-platform",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/covelo-timecard-system",
+      "title": "Covelo Timecard System | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/covelo-timecard-system",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/doggy-date",
+      "title": "Doggy Date | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/doggy-date",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/improv-learning",
+      "title": "Improv Learning \u2013 Traffic School Landing Page | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/improv-learning",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/litmus-ai",
+      "title": "Litmus AI - AI Literacy Testing & Certification Platform | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/litmus-ai",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/pretty-paws-grooming",
+      "title": "Pretty Paws Grooming Website | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/pretty-paws-grooming",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/scent-stack",
+      "title": "ScentStack \u2013 AI-Powered Fragrance Discovery Platform | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/scent-stack",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/staybooked",
+      "title": "Staybooked - AI Airbnb Optimizer | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/staybooked",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/symptom-checkr",
+      "title": "SymptomCheckr: a calmer way to check symptoms | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/symptom-checkr",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/tech-noir",
+      "title": "TECH NOIR | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/tech-noir",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/tutor-d",
+      "title": "Tutor D | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/tutor-d",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/vaultjs-validate",
+      "title": "Vault.js Validate \u2013 Enterprise Security Visualization & AI Tool | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/vaultjs-validate",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/project/wristband",
+      "title": "WRISTBAND | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/wristband",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/services",
+      "title": "Website Design & Development Services | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/services",
+      "raw_bot_html": "pass"
+    },
+    {
+      "path": "/work",
+      "title": "Selected UX/UI & Product Design Work | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/work",
+      "raw_bot_html": "pass"
+    }
+  ],
+  "icons": [
+    {
+      "path": "/icons/ra-stars-192-20260915.png",
+      "dimensions": [
+        192,
+        192
+      ],
+      "purpose": "any"
+    },
+    {
+      "path": "/icons/ra-stars-512-20260915.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "purpose": "any"
+    },
+    {
+      "path": "/icons/ra-stars-maskable-512-20260915.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "purpose": "maskable"
+    }
+  ],
+  "sitemap_url_count": 16,
+  "checks": "20 unique route titles, canonical and OG URLs, nonempty descriptions, bot-readable HEAD, icon dimensions, manifest purposes, sitemap XML and robots reference passed"
+}

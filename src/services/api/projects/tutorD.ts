@@ -8,7 +8,7 @@ export const getTutorDProject = (): ProjectType => {
     title: "Tutor D",
     description: "Educational platform connecting students with qualified tutors for personalized learning sessions.",
     fullDescription: "A distance learning platform designed to close the homework and accessibility gap in education. By leveraging SMS technology, it enables students without reliable internet or smart devices to receive assignments, engage with lessons, and stay on track—remotely.",
-    image: "/images/tutord-sms-learning-card.jpg",
+    image: "/images/tutord-sms-learning-card.webp",
     category: "Education",
     tags: ["Education", "Distance Learning", "Accessibility"],
     role: "UX/UI Designer & Frontend Developer",
@@ -30,12 +30,12 @@ export const getTutorDProject = (): ProjectType => {
       "Messaging Tools for lesson reminders and feedback"
     ],
     images: [
-      "/images/TutorD-Landing-Page-Final.jpg",
-      "/images/TutorD-Dashboard-Final.jpg",
-      "/images/TutorD-Lesson-Planner-Final.jpg",
-      "/images/TutorD-Landing-Page.jpg",
+      "/images/TutorD-Landing-Page-Final.webp",
+      "/images/TutorD-Dashboard-Final.webp",
+      "/images/TutorD-Lesson-Planner-Final.webp",
+      "/images/TutorD-Landing-Page.webp",
       "/images/TutorD-Dashboard.jpg",
-      "/images/TutorD-Lesson-Planner.jpg"
+      "/images/TutorD-Lesson-Planner.webp"
     ],
     conclusion: {
       impact: "Helped teachers support their students during a time when traditional systems weren't enough, improving accessibility in underserved communities.",

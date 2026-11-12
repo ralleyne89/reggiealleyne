@@ -1,4 +1,12 @@
-import { type RefObject, useEffect, useLayoutEffect, useRef } from "react";
+import {
+  type RefObject,
+  Suspense,
+  lazy,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { useReducedMotion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,8 +24,9 @@ const LOADER_COMPLETE_EVENT = "home-loader:complete";
 const assetBase = "/images/figma/hero-white";
 
 const heroAssets = {
-  portrait: `${assetBase}/portrait.png`,
-  wordmark: `${assetBase}/reggie-alleyne-wordmark-chatgpt-flat.png`,
+  portrait: `${assetBase}/portrait.webp`,
+  portraitDepth: `${assetBase}/portrait-depth.png`,
+  wordmark: `${assetBase}/reggie-alleyne-wordmark-chatgpt-flat.webp`,
   type: `${assetBase}/type-thin.svg`,
   list: `${assetBase}/list-vector.svg`,
   image: `${assetBase}/image-group.svg`,
@@ -539,7 +548,7 @@ const HeroTitleLayer = () => (
     className="pointer-events-none absolute left-1/2 top-[3.65rem] z-0 w-[min(92vw,34rem)] -translate-x-1/2 overflow-visible sm:top-12 sm:w-[min(116vw,82rem)] lg:top-16"
   >
     <span className="sr-only">
-      Reggie Alleyne, UX/UI Designer and frontend developer
+      Reggie Alleyne, Senior UX/UI Designer who codes and builds with AI
     </span>
     <img
       data-hero-title-word
@@ -636,6 +645,58 @@ const CapabilitySwitchboard = ({ className }: { className?: string }) => {
   );
 };
 
+// three.js stays out of the first bundle; it loads once the page is idle.
+const HeroDepthScene = lazy(() => import("./HeroDepthScene"));
+const HeroBust = lazy(() => import("./HeroBust"));
+
+/**
+ * True where the WebGL layers can run well: a wide viewport with a fine
+ * pointer, motion allowed and data saver off. Everywhere else the HTML hero
+ * is the whole experience.
+ */
+const useDepthCapable = () => {
+  const shouldReduceMotion = useReducedMotion();
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    if (shouldReduceMotion) return undefined;
+
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } })
+      .connection;
+    const capable =
+      window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches &&
+      !connection?.saveData;
+    if (!capable) return undefined;
+
+    const timer = window.setTimeout(() => setEnabled(true), 900);
+    return () => window.clearTimeout(timer);
+  }, [shouldReduceMotion]);
+
+  return enabled;
+};
+
+const HeroDepthLayer = ({ sectionRef }: { sectionRef: RefObject<HTMLElement> }) => {
+  const enabled = useDepthCapable();
+  if (!enabled) return null;
+
+  return (
+    <Suspense fallback={null}>
+      <HeroDepthScene sectionRef={sectionRef} />
+    </Suspense>
+  );
+};
+
+const HeroBustLayer = () => {
+  const enabled = useDepthCapable();
+  if (!enabled) return null;
+
+  return (
+    <Suspense fallback={null}>
+      <HeroBust portrait={heroAssets.portrait} depth={heroAssets.portraitDepth} />
+    </Suspense>
+  );
+};
+
 const HeroArtwork = () => (
   <div
     data-hero-artwork
@@ -644,17 +705,20 @@ const HeroArtwork = () => (
     <div className="hero-artboard-outline" aria-hidden="true" />
     <HeroTitleLayer />
 
-    <div className="absolute left-1/2 top-[3.4rem] z-20 h-[29rem] w-[21rem] -translate-x-1/2 sm:top-0 sm:h-[638px] sm:w-[511px]">
-      <img
-        data-hero-portrait
-        src={heroAssets.portrait}
-        alt="Digital portrait of Reggie Alleyne"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-        sizes="(min-width: 1024px) 511px, min(100vw, 34rem)"
-        className="h-full w-full object-contain"
-      />
+    <div data-hero-portrait-plane className="absolute left-1/2 top-[3.4rem] z-20 h-[29rem] w-[21rem] -translate-x-1/2 sm:top-0 sm:h-[638px] sm:w-[511px]">
+      <div data-hero-portrait className="hero-portrait relative h-full w-full">
+        <img
+          src={heroAssets.portrait}
+          srcSet={`${assetBase}/portrait-384.webp 384w, ${assetBase}/portrait-768.webp 768w, ${assetBase}/portrait-1024.webp 1024w`}
+          alt="Digital portrait of Reggie Alleyne"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          sizes="(min-width: 1024px) 511px, min(100vw, 34rem)"
+          className="h-full w-full object-contain"
+        />
+        <HeroBustLayer />
+      </div>
     </div>
     <HeroLightAperture />
 
@@ -713,6 +777,34 @@ const HeroSection = () => {
           clearProps: "clipPath,filter,transform",
         });
         return;
+      }
+
+      // Wide screens with a mouse get real depth: the hero layers are CSS 3D
+      // planes that part on scroll and tilt with the pointer, in step with
+      // the WebGL scene behind them.
+      const depth = window.matchMedia(
+        "(min-width: 1024px) and (pointer: fine)",
+      ).matches
+        ? 1
+        : 0;
+
+      if (depth) {
+        const tiltY = gsap.quickTo("[data-hero-artwork]", "rotationY", {
+          duration: 0.9,
+          ease: "power3.out",
+        });
+        const tiltX = gsap.quickTo("[data-hero-artwork]", "rotationX", {
+          duration: 0.9,
+          ease: "power3.out",
+        });
+        const onPointerMove = (event: PointerEvent) => {
+          tiltY(((event.clientX / window.innerWidth) * 2 - 1) * 5);
+          tiltX(((event.clientY / window.innerHeight) * 2 - 1) * -3.5);
+        };
+        window.addEventListener("pointermove", onPointerMove, { passive: true });
+        cleanupCallbacks.push(() =>
+          window.removeEventListener("pointermove", onPointerMove),
+        );
       }
 
       let introDelay: gsap.core.Tween | null = null;
@@ -886,6 +978,9 @@ const HeroSection = () => {
           },
         })
         .to("[data-hero-artwork]", { scale: 0.88, y: -118 }, 0)
+        .to("[data-hero-title]", { z: -340 * depth }, 0)
+        .to("[data-hero-portrait-plane]", { z: 70 * depth }, 0)
+        .to(".hero-positioning-panel", { z: 150 * depth }, 0)
         .to(
           "[data-hero-title-word]",
           { autoAlpha: 0.18, rotationX: 8, scale: 1.16, yPercent: -25 },
@@ -894,7 +989,7 @@ const HeroSection = () => {
         .to("[data-hero-portrait]", { scale: 0.9, y: -116 }, 0)
         .to(
           "[data-hero-tool-panel]",
-          { autoAlpha: 0.64, rotate: -4, x: -96, y: -58 },
+          { autoAlpha: 0.64, rotate: -4, x: -96, y: -58, z: 300 * depth },
           0.03,
         )
         .to(
@@ -904,6 +999,7 @@ const HeroSection = () => {
             stagger: { each: 0.04, from: "end" },
             x: 82,
             y: -54,
+            z: 220 * depth,
           },
           0.02,
         )
@@ -942,10 +1038,12 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
+      data-layer="Hero"
       className="relative min-h-[760px] overflow-hidden bg-white pb-8 text-[#141414] sm:min-h-[860px] sm:pb-10 md:min-h-[900px] lg:min-h-[900px] lg:pb-0"
     >
       <AutonomousReggieCursor sectionRef={sectionRef} />
       <HeroCanvasLayer sectionRef={sectionRef} />
+      <HeroDepthLayer sectionRef={sectionRef} />
 
       <div
         data-hero-sticky

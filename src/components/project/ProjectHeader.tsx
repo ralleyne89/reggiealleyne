@@ -43,14 +43,14 @@ const caseStudyHeroConfigs: Array<{
   {
     matches: (title) => title.includes("SymptomCheckr"),
     config: {
-      image: "/images/symptomcheckr-trust-ai-card.jpg",
+      image: "/images/symptomcheckr-trust-ai-card.webp",
       useProjectImage: true,
     },
   },
   {
     matches: (title) => title === "TECH NOIR",
     config: {
-      image: "/images/a473ef7d-6076-4386-af99-13262b6e684f.png",
+      image: "/images/a473ef7d-6076-4386-af99-13262b6e684f.webp",
       layout: "wide",
       imageFit: "contain",
       imageFrameRatio: "2 / 1",
@@ -61,58 +61,58 @@ const caseStudyHeroConfigs: Array<{
   {
     matches: (title) => title === "WRISTBAND",
     config: {
-      image: "/images/58637294-5300-47d9-918b-91da32843369.png",
+      image: "/images/58637294-5300-47d9-918b-91da32843369.webp",
     },
   },
   {
     matches: (title) => title.includes("Improv Learning"),
     config: {
-      image: "/images/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
+      image: "/images/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.webp",
     },
   },
   {
     matches: (title) => title === "Doggy Date",
     config: {
-      image: "/images/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
+      image: "/images/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.webp",
     },
   },
   {
     matches: (title) => title === "Chill Vibes Music Player",
     config: {
-      image: "/images/85ce6121-b2ba-435d-b8cd-2606e0e3cc63.png",
+      image: "/images/85ce6121-b2ba-435d-b8cd-2606e0e3cc63.webp",
     },
   },
   {
     matches: (title) => title === "CLLCTVE Platform",
     config: {
-      image: "/images/cllctve-gen-z-card.jpg",
+      image: "/images/cllctve-gen-z-card.webp",
       useProjectImage: true,
     },
   },
   {
     matches: (title) => title.includes("Litmus AI"),
     config: {
-      image: "/images/litmus-ai-literacy-card.jpg",
+      image: "/images/litmus-ai-literacy-card.webp",
       useProjectImage: true,
     },
   },
   {
     matches: (title) => title.includes("Vault.js Validate"),
     config: {
-      image: "/images/vaultjs-security-dashboard-clean.png",
+      image: "/images/vaultjs-security-dashboard-clean.webp",
     },
   },
   {
     matches: (title) => title.includes("ScentStack"),
     config: {
-      image: "/images/scentstack-project-detail-hero.png",
+      image: "/images/scentstack-project-detail-hero.webp",
       imagePosition: "center center",
     },
   },
   {
     matches: (title) => title.includes("Staybooked"),
     config: {
-      image: "/images/staybooked/marketing-homepage-hero-desktop.png",
+      image: "/images/staybooked/marketing-homepage-hero-desktop.webp",
       imageFit: "contain",
       imageFrameRatio: "16 / 10",
       imagePosition: "center center",
@@ -121,13 +121,13 @@ const caseStudyHeroConfigs: Array<{
   {
     matches: (title) => title.includes("Pretty Paws"),
     config: {
-      image: "/images/pretty-paws/project-detail-hero-v2.jpg",
+      image: "/images/pretty-paws/project-detail-hero-v2.webp",
     },
   },
   {
     matches: (title) => title === "Bob's Big Break",
     config: {
-      image: "/images/BBB-banner2.png",
+      image: "/images/BBB-banner2.webp",
       imagePosition: "right center",
     },
   },

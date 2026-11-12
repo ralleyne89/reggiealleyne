@@ -240,7 +240,7 @@ export const tutorDIdeationData: IdeationStrategyProps = {
 // User Persona Data
 export const tutorDPersonaData: UserPersonaProps = {
   title: "User Persona",
-  imageSrc: "/images/Ms-Rodriguez-Persona.png",
+  imageSrc: "/images/Ms-Rodriguez-Persona.webp",
   imageAlt: "Ms. Rodriguez Persona",
   name: "Ms. Rodriguez",
   details: [
@@ -451,12 +451,12 @@ export const tutorDSitemapData: SitemapWireframesProps = {
   wireframeImages: [
     {
       title: "TutorD Landing Page",
-      imageSrc: "/images/TutorD-Landing-Page.jpg",
+      imageSrc: "/images/TutorD-Landing-Page.webp",
       imageAlt: "TutorD Landing Page Wireframe"
     },
     {
       title: "TutorD Lesson Planner Screen",
-      imageSrc: "/images/TutorD-Lesson-Planner.jpg",
+      imageSrc: "/images/TutorD-Lesson-Planner.webp",
       imageAlt: "TutorD Lesson Planner Wireframe"
     },
     {
@@ -509,17 +509,17 @@ export const tutorDUIData: FinalUIDesignProps = {
   ],
   uiImages: [
     {
-      src: "/images/TutorD-Landing-Page-Final.jpg",
+      src: "/images/TutorD-Landing-Page-Final.webp",
       alt: "TutorD Landing Page Final UI Design",
       title: "Landing Page"
     },
     {
-      src: "/images/TutorD-Dashboard-Final.jpg",
+      src: "/images/TutorD-Dashboard-Final.webp",
       alt: "TutorD Dashboard Final UI Design",
       title: "Teacher Dashboard"
     },
     {
-      src: "/images/TutorD-Lesson-Planner-Final.jpg",
+      src: "/images/TutorD-Lesson-Planner-Final.webp",
       alt: "TutorD Lesson Planner Final UI Design",
       title: "Lesson Planner"
     }

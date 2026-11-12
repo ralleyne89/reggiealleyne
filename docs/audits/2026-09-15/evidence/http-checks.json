@@ -1,0 +1,130 @@
+[
+  {
+    "path": "/work",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 4491,
+    "url": "https://reggiealleyne.com/work",
+    "sha256": "9efeae7f94d9f97d926e08c5aa1891782fe9e05c5542ba3fd5cc83e1d2370531",
+    "matches_local": false,
+    "cache_control": "no-cache, must-revalidate, max-age=0"
+  },
+  {
+    "path": "/about",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 4491,
+    "url": "https://reggiealleyne.com/about",
+    "sha256": "9efeae7f94d9f97d926e08c5aa1891782fe9e05c5542ba3fd5cc83e1d2370531",
+    "matches_local": false,
+    "cache_control": "no-cache, must-revalidate, max-age=0"
+  },
+  {
+    "path": "/playground",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 4491,
+    "url": "https://reggiealleyne.com/playground",
+    "sha256": "9efeae7f94d9f97d926e08c5aa1891782fe9e05c5542ba3fd5cc83e1d2370531",
+    "matches_local": false,
+    "cache_control": "no-cache, must-revalidate, max-age=0"
+  },
+  {
+    "path": "/project/cllctve-platform",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 4491,
+    "url": "https://reggiealleyne.com/project/cllctve-platform",
+    "sha256": "9efeae7f94d9f97d926e08c5aa1891782fe9e05c5542ba3fd5cc83e1d2370531",
+    "matches_local": false,
+    "cache_control": "no-cache, must-revalidate, max-age=0"
+  },
+  {
+    "path": "/project/litmus-ai",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 4491,
+    "url": "https://reggiealleyne.com/project/litmus-ai",
+    "sha256": "9efeae7f94d9f97d926e08c5aa1891782fe9e05c5542ba3fd5cc83e1d2370531",
+    "matches_local": false,
+    "cache_control": "no-cache, must-revalidate, max-age=0"
+  },
+  {
+    "path": "/project/staybooked",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 4491,
+    "url": "https://reggiealleyne.com/project/staybooked",
+    "sha256": "9efeae7f94d9f97d926e08c5aa1891782fe9e05c5542ba3fd5cc83e1d2370531",
+    "matches_local": false,
+    "cache_control": "no-cache, must-revalidate, max-age=0"
+  },
+  {
+    "path": "/robots.txt",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "/sitemap.xml",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "/manifest.webmanifest",
+    "status": 200,
+    "type": "application/manifest+json",
+    "bytes": 659,
+    "url": "https://reggiealleyne.com/manifest.webmanifest",
+    "sha256": "18fc3b1a0a2ab841caf1d8c88c490739134f98b0741d18222cb57bfa7c68218b",
+    "matches_local": true,
+    "cache_control": "no-cache"
+  },
+  {
+    "path": "/images/reggie-alleyne-portfolio-og.jpg",
+    "status": 200,
+    "type": "image/jpeg",
+    "bytes": 69729,
+    "url": "https://reggiealleyne.com/images/reggie-alleyne-portfolio-og.jpg",
+    "sha256": "000cd543f3ff292bde8bcd8104f081812121db57cd16456cd57ff7e03156f80e",
+    "matches_local": true,
+    "cache_control": null
+  },
+  {
+    "path": "/images/RA_logo_black.png",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 127579,
+    "url": "https://reggiealleyne.com/images/RA_logo_black.png",
+    "sha256": "0da3ca4a10869d96c68592413b1a956a0d5fa0d14c90ce78c7e95fd50f086b52",
+    "matches_local": true,
+    "cache_control": null
+  },
+  {
+    "path": "/icons/icon-192.png",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 32114,
+    "url": "https://reggiealleyne.com/icons/icon-192.png",
+    "sha256": "654b3df888ba309c79e7aaff9327c961cf9862ea44493df662539085bf9a6366",
+    "matches_local": true,
+    "cache_control": null
+  },
+  {
+    "path": "/icons/icon-512.png",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 228500,
+    "url": "https://reggiealleyne.com/icons/icon-512.png",
+    "sha256": "85c50ac2f68291b07cad9312e055f7c6ce560307d4fa0461da271e915930392c",
+    "matches_local": true,
+    "cache_control": null
+  },
+  {
+    "path": "/resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf",
+    "status": 200,
+    "type": "application/pdf",
+    "bytes": 105005,
+    "url": "https://reggiealleyne.com/resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf",
+    "sha256": "f45b102144c02c7c7bd48837a45c83e48998a22ca8c337ee0216ec5b348e2e75",
+    "matches_local": true,
+    "cache_control": null
+  }
+]

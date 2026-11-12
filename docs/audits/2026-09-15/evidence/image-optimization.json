@@ -1,0 +1,66 @@
+[
+  {
+    "source": "public/images/figma/hero-white/portrait.png",
+    "destination": "public/images/figma/hero-white/portrait-384.webp",
+    "originalBytes": 1476367,
+    "bytes": 22334,
+    "width": 384,
+    "height": 480
+  },
+  {
+    "source": "public/images/figma/hero-white/portrait.png",
+    "destination": "public/images/figma/hero-white/portrait-768.webp",
+    "originalBytes": 1476367,
+    "bytes": 64510,
+    "width": 768,
+    "height": 960
+  },
+  {
+    "source": "public/images/figma/hero-white/portrait.png",
+    "destination": "public/images/figma/hero-white/portrait-1024.webp",
+    "originalBytes": 1476367,
+    "bytes": 101052,
+    "width": 1024,
+    "height": 1280
+  },
+  {
+    "source": "public/images/figma/hero-white/reggie-alleyne-wordmark-chatgpt-flat.png",
+    "destination": "public/images/figma/hero-white/wordmark-640.webp",
+    "originalBytes": 340298,
+    "bytes": 15596,
+    "width": 640,
+    "height": 195
+  },
+  {
+    "source": "public/images/figma/hero-white/reggie-alleyne-wordmark-chatgpt-flat.png",
+    "destination": "public/images/figma/hero-white/wordmark-1280.webp",
+    "originalBytes": 340298,
+    "bytes": 28492,
+    "width": 1280,
+    "height": 390
+  },
+  {
+    "source": "public/images/figma/hero-white/reggie-alleyne-wordmark-chatgpt-flat.png",
+    "destination": "public/images/figma/hero-white/wordmark-2092.webp",
+    "originalBytes": 340298,
+    "bytes": 17482,
+    "width": 2092,
+    "height": 637
+  },
+  {
+    "source": "public/images/staybooked/staybooked-ai-optimizer-light-featured-card.png",
+    "destination": "public/images/staybooked/featured-640.webp",
+    "originalBytes": 1392435,
+    "bytes": 23828,
+    "width": 640,
+    "height": 400
+  },
+  {
+    "source": "public/images/staybooked/staybooked-ai-optimizer-light-featured-card.png",
+    "destination": "public/images/staybooked/featured-1280.webp",
+    "originalBytes": 1392435,
+    "bytes": 63726,
+    "width": 1280,
+    "height": 801
+  }
+]

@@ -1,0 +1,228 @@
+- region "Notifications (F8)":
+  - list
+- banner:
+  - navigation "Primary navigation":
+    - link "Reggie Alleyne home":
+      - /url: /
+    - link "Home":
+      - /url: /
+      - generic "Home"
+    - link "Work":
+      - /url: /work
+      - generic "Work"
+    - link "Playground":
+      - /url: /playground
+      - generic "Playground"
+    - link "About":
+      - /url: /about
+      - generic "About"
+    - link "Contact":
+      - /url: /#contact
+      - generic "Contact"
+- generic: You
+- navigation "Case study chapters":
+  - list:
+    - button "Details":
+      - generic: Details
+    - button "Problem":
+      - generic: Problem
+    - button "Audience":
+      - generic: Audience
+    - button "Process":
+      - generic: Process
+    - button "Evidence":
+      - generic: Evidence
+- banner:
+  - link "Back to Work":
+    - /url: /work
+    - text: Back to Work
+  - paragraph: 2020 / Client Prototype
+  - heading "WRISTBAND" [level=1]
+  - img "WRISTBAND"
+- figure "The thesis":
+  - generic: “
+  - blockquote: "WRISTBAND was a prototype for a storytelling app that had to prove a different point: richer characters and creator input could matter as much as branching mechanics."
+  - generic: The thesis
+- region "Case study at a glance":
+  - paragraph: Project details
+  - term: Role
+  - definition: Lead UX/UI Designer and Strategist
+  - term: Tools
+  - definition: Figma, Photoshop, Principle, React Native
+  - term: Owned
+  - definition: Product strategy, Narrative UX, Prototype design, Creator-centered framing
+- paragraph: Problem, decision, evidence
+- heading "The product choice and the proof available today." [level=2]
+- article:
+  - paragraph: Problem
+  - generic: "01"
+  - heading "Interactive storytelling apps often felt repetitive and thin, especially around diverse character depth." [level=3]
+- article:
+  - paragraph: Decision
+  - generic: "02"
+  - heading "Created a platform concept that prioritized authentic storytelling through diverse creator collaboration, quality character development, and user-centric design that put narrative experience first." [level=3]
+- article:
+  - paragraph: Shipped proof
+  - generic: "03"
+  - heading "Validated a prototype direction centered on authentic narrative, creator collaboration, and richer mobile engagement." [level=3]
+- paragraph: Evidence-aware audience model
+- heading "Audience assumptions to validate" [level=2]
+- generic: This model connects the available project evidence to a workflow that still needs direct research.
+- article:
+  - paragraph: Audience hypothesis
+  - heading "Mobile reader who wants interactive stories with stronger character depth." [level=3]
+  - paragraph: They are open to choice-driven stories, but they notice when narratives feel repetitive or representation feels shallow.
+  - term: Working need
+  - definition: A narrative product that puts authentic creator input, meaningful choices, and richer character development into the core flow.
+  - term: Risk to test
+  - definition: Interactive storytelling can drift toward quantity, thin branching, and character templates that do not hold attention.
+- article:
+  - paragraph: Evidence boundary
+  - paragraph: The available project archive does not preserve participant counts, interview notes, or a research synthesis for this audience model. Treat it as a design hypothesis to test, not a measured persona.
+- article:
+  - paragraph: What the sources support
+  - paragraph: The project archive supports the problem framing, intended workflow, and interface evidence shown in this case study. It does not establish how common these behaviors are across the broader audience.
+  - paragraph: The portfolio record identifies my role as Lead UX/UI Designer & Strategist. The available archive does not preserve enough collaborator detail to attribute specific decisions beyond that role.
+- article:
+  - paragraph: Workflow to validate
+  - list:
+    - text: "01"
+    - heading "Discover a story" [level=4]
+    - paragraph: Browse a mobile story library organized around character, genre, and creator signals.
+    - text: "02"
+    - heading "Assess the cast" [level=4]
+    - paragraph: Look for enough character and representation detail to trust the story before starting.
+    - text: "03"
+    - heading "Make choices" [level=4]
+    - paragraph: Move through branching moments that give the reader agency without breaking the narrative.
+    - text: "04"
+    - heading "Follow the creator" [level=4]
+    - paragraph: Return for new stories, creator updates, and community discovery around the work.
+- article:
+  - paragraph: Questions for the first study
+  - list:
+    - listitem: Where does this audience hesitate, abandon the flow, or need more context?
+    - listitem: Which step creates enough value for them to continue or return?
+- paragraph: Case study flow
+- heading "From research to product decisions" [level=2]
+- paragraph: "WRISTBAND was a prototype for a storytelling app that had to prove a different point: richer characters and creator input could matter as much as branching mechanics."
+- paragraph: The client wanted an interactive narrative product in a market filled with fast content and familiar story loops. The product needed to feel commercial enough to evaluate while still making room for more specific characters, diverse writers, and a stronger sense of authorship.
+- list:
+  - generic: "01"
+  - article:
+    - paragraph: Synthesis
+    - generic: "01"
+    - heading "Define the problem" [level=3]
+    - paragraph: Because the product never launched, the work had to be honest about what the prototype proved. It could show a direction, a creator framework, and a mobile storytelling system, but it could not claim market traction.
+  - figure:
+    - img "Faceted magnifying glass and prism for research synthesis."
+  - generic: "02"
+  - article:
+    - paragraph: Information architecture
+    - generic: "02"
+    - heading "Map flows and wireframes" [level=3]
+    - paragraph: Collaborated with diverse freelance writers and artists to develop authentic character concepts
+  - figure:
+    - img "Glossy branching route nodes for information architecture."
+  - generic: "03"
+  - article:
+    - paragraph: UI system
+    - generic: "03"
+    - heading "Design the interface" [level=3]
+    - paragraph: I designed around story quality before content volume. The product model tied character depth, creator collaboration, branching choices, and creator compensation into the same experience strategy.
+  - figure:
+    - img "Stacked modular interface blocks for a UI system."
+  - generic: "04"
+  - article:
+    - paragraph: Implementation
+    - generic: "04"
+    - heading "Prototype and build" [level=3]
+    - paragraph: I produced the UX strategy, mobile app design system, interactive prototype, content creator framework, and monetization model. The interface stayed focused on helping readers discover stories, assess characters, make choices, and follow creators.
+  - figure:
+    - img "Glossy code cube for prototype and build work."
+  - generic: "05"
+  - article:
+    - paragraph: Evidence
+    - generic: "05"
+    - heading "Validate the proof" [level=3]
+    - paragraph: "The prototype demonstrated the full concept clearly enough for client evaluation: a mobile narrative system, creator-centered content model, and story flow designed around representation and character specificity."
+  - figure:
+    - img "Proof badge with chart facets for validation."
+  - generic: "06"
+  - article:
+    - paragraph: Learning
+    - generic: "06"
+    - heading "Reflection" [level=3]
+    - paragraph: The strongest lesson was restraint. Representation works better when it shapes the content model and creator process from the beginning, not when it is added as a surface treatment after the product is already defined.
+  - figure:
+    - img "Luminous prism lamp for reflection and learning."
+- paragraph: Interface evidence
+- heading "How the UX rationale shows up on screen." [level=2]
+- paragraph: "These screens show the product decisions reviewers should inspect: profile credibility, return loops, and opportunity discovery."
+- list:
+  - paragraph: 01 / Prototype the path
+  - paragraph: After the strategy was set, the next UX/UI step was turning the creator journey into screens people could react to.
+  - paragraph: 02 / Design the real states
+  - paragraph: The interface had to cover profile setup, content browsing, community feedback, and brand moments without becoming a copy of older portfolio tools.
+  - paragraph: 03 / Show the product proof
+  - paragraph: "The screenshots below make the platform easier to judge: the profile surface, dashboard, and public landing page."
+- button "Interface view 1 interface View full size Interface view 1 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 1 interface"
+  - text: View full size
+  - generic: Interface view 1
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 2 interface View full size Interface view 2 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 2 interface"
+  - text: View full size
+  - generic: Interface view 2
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 3 interface View full size Interface view 3 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 3 interface"
+  - text: View full size
+  - generic: Interface view 3
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- button "Interface view 4 interface View full size Interface view 4 This product view keeps the interface evidence next to the case-study decisions it supports.":
+  - img "Interface view 4 interface"
+  - text: View full size
+  - generic: Interface view 4
+  - generic: This product view keeps the interface evidence next to the case-study decisions it supports.
+- 'link "Next case study: CLLCTVE Platform"':
+  - /url: /project/cllctve-platform
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - generic: Next case study
+  - generic: ✦
+  - paragraph: 2022 / Platform
+  - text: CLLCTVE Platform
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne

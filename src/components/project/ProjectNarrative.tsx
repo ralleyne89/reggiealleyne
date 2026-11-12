@@ -45,7 +45,7 @@ const narrativeSteps: Array<{
     eyebrow: "Synthesis",
     icon: SearchCheck,
     key: "constraint",
-    objectImage: "/images/narrative-objects/01-research-synthesis.png",
+    objectImage: "/images/narrative-objects/01-research-synthesis.webp",
     objectAlt: "Faceted magnifying glass and prism for research synthesis.",
   },
   {
@@ -53,7 +53,7 @@ const narrativeSteps: Array<{
     eyebrow: "Information architecture",
     icon: GitBranch,
     key: "structure",
-    objectImage: "/images/narrative-objects/02-information-architecture.png",
+    objectImage: "/images/narrative-objects/02-information-architecture.webp",
     objectAlt: "Glossy branching route nodes for information architecture.",
   },
   {
@@ -61,7 +61,7 @@ const narrativeSteps: Array<{
     eyebrow: "UI system",
     icon: PanelsTopLeft,
     key: "decision",
-    objectImage: "/images/narrative-objects/03-interface-system.png",
+    objectImage: "/images/narrative-objects/03-interface-system.webp",
     objectAlt: "Stacked modular interface blocks for a UI system.",
   },
   {
@@ -69,7 +69,7 @@ const narrativeSteps: Array<{
     eyebrow: "Implementation",
     icon: Code2,
     key: "build",
-    objectImage: "/images/narrative-objects/04-prototype-build.png",
+    objectImage: "/images/narrative-objects/04-prototype-build.webp",
     objectAlt: "Glossy code cube for prototype and build work.",
   },
   {
@@ -77,7 +77,7 @@ const narrativeSteps: Array<{
     eyebrow: "Evidence",
     icon: BadgeCheck,
     key: "proof",
-    objectImage: "/images/narrative-objects/05-proof-validation.png",
+    objectImage: "/images/narrative-objects/05-proof-validation.webp",
     objectAlt: "Proof badge with chart facets for validation.",
   },
   {
@@ -85,7 +85,7 @@ const narrativeSteps: Array<{
     eyebrow: "Learning",
     icon: Lightbulb,
     key: "reflection",
-    objectImage: "/images/narrative-objects/06-reflection-learning.png",
+    objectImage: "/images/narrative-objects/06-reflection-learning.webp",
     objectAlt: "Luminous prism lamp for reflection and learning.",
   },
 ];

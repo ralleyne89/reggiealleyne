@@ -1,0 +1,82 @@
+[
+  {
+    "route": "/",
+    "headings": 1,
+    "mainCount": 1,
+    "mainId": "main-content",
+    "overflow": 0,
+    "title": "Reggie Alleyne | UX/UI Designer & Frontend Developer"
+  },
+  {
+    "route": "/about",
+    "headings": 1,
+    "mainCount": 1,
+    "mainId": "main-content",
+    "overflow": 0,
+    "title": "About Reggie Alleyne | UX/UI Designer & Frontend Developer"
+  },
+  {
+    "route": "/work",
+    "headings": 1,
+    "mainCount": 1,
+    "mainId": "main-content",
+    "overflow": 0,
+    "title": "Selected UX/UI & Product Design Work | Reggie Alleyne"
+  },
+  {
+    "route": "/playground",
+    "headings": 1,
+    "mainCount": 1,
+    "mainId": "main-content",
+    "overflow": 0,
+    "title": "Product Experiments & Prototypes | Reggie Alleyne"
+  },
+  {
+    "route": "/services",
+    "headings": 1,
+    "mainCount": 1,
+    "mainId": "main-content",
+    "overflow": 0,
+    "title": "Website Design & Development Services | Reggie Alleyne"
+  },
+  {
+    "route": "/project/cllctve-platform",
+    "headings": 1,
+    "mainCount": 1,
+    "mainId": "main-content",
+    "overflow": 0,
+    "title": "CLLCTVE Platform | Reggie Alleyne"
+  },
+  {
+    "route": "/project/litmus-ai",
+    "headings": 1,
+    "mainCount": 1,
+    "mainId": "main-content",
+    "overflow": 0,
+    "title": "Litmus AI — Literacy Assessment | Reggie Alleyne"
+  },
+  {
+    "route": "/project/staybooked",
+    "headings": 1,
+    "mainCount": 1,
+    "mainId": "main-content",
+    "overflow": 0,
+    "title": "Staybooked — Host Workspace | Reggie Alleyne"
+  },
+  {
+    "route": "/project/tutor-d",
+    "headings": 1,
+    "mainCount": 1,
+    "mainId": "main-content",
+    "overflow": 0,
+    "title": "Tutor D | Reggie Alleyne"
+  },
+  {
+    "route": "/project/covelo-timecard-system",
+    "headings": 1,
+    "mainCount": 1,
+    "mainId": "main-content",
+    "overflow": 0,
+    "title": "Covelo Timecard System | Reggie Alleyne"
+  }
+]

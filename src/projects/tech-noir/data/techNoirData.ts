@@ -227,11 +227,11 @@ export const techNoirData = {
       }
     ],
     images: [
-      "/images/d0f10fb1-b1eb-4e30-b666-c68f00716676.png",
-      "/images/9e3be8d8-c9d0-4857-a786-b488a8b288c1.png",
-      "/images/e047ad0c-5a06-4795-938c-c65d62909828.png",
-      "/images/a473ef7d-6076-4386-af99-13262b6e684f.png",
-      "/images/5291bbb5-d2b2-4171-b287-9a1d6735805b.png"
+      "/images/d0f10fb1-b1eb-4e30-b666-c68f00716676.webp",
+      "/images/9e3be8d8-c9d0-4857-a786-b488a8b288c1.webp",
+      "/images/e047ad0c-5a06-4795-938c-c65d62909828.webp",
+      "/images/a473ef7d-6076-4386-af99-13262b6e684f.webp",
+      "/images/5291bbb5-d2b2-4171-b287-9a1d6735805b.webp"
     ]
   },
 

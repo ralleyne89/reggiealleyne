@@ -14,6 +14,7 @@ import { RESUME_DOWNLOAD_NAME, RESUME_URL } from "@/config/resume";
 const ContactSection = () => {
   return (
     <section
+      data-layer="Contact"
       id="contact"
       className="relative scroll-mt-24 overflow-hidden bg-slate-950 pb-20 pt-28 text-white sm:pb-24 sm:pt-32"
     >

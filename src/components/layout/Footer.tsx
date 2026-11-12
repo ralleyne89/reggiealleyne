@@ -34,11 +34,6 @@ const Footer = () => {
       name: "Work",
       href: "/work",
     },
-    // Services temporarily hidden — re-add this entry to restore the footer link.
-    // {
-    //   name: "Services",
-    //   href: "/services",
-    // },
     {
       name: "About",
       href: "/about",
@@ -60,6 +55,7 @@ const Footer = () => {
 
   return (
     <footer
+      data-layer="Footer"
       id="footer"
       className="site-footer relative overflow-hidden border-t border-border bg-[linear-gradient(180deg,oklch(var(--color-surface-soft)),oklch(var(--color-surface-raised)))] px-4 text-text-primary"
     >
@@ -80,7 +76,7 @@ const Footer = () => {
             </Link>
             <span className="h-8 w-px bg-border" />
             <p className="max-w-[16rem] text-xs font-semibold uppercase leading-5 text-text-muted sm:max-w-none">
-              UX/UI Designer & AI Technologist
+              Senior UX/UI Designer · Code + AI
             </p>
           </div>
 

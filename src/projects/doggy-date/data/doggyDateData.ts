@@ -225,10 +225,10 @@ export const doggyDateData = {
       }
     ],
     images: [
-      "/images/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.png",
-      "/images/57c3f150-f310-44ad-b0c2-e88165c01417.png",
+      "/images/0b86301b-18ba-4c43-bd8a-ee1e0b41e1cd.webp",
+      "/images/57c3f150-f310-44ad-b0c2-e88165c01417.webp",
       "/images/748d7e06-f545-44ba-842c-6401bf2284d1.png",
-      "/images/b9b62216-4a0c-4367-bdab-32f608350015.png"
+      "/images/b9b62216-4a0c-4367-bdab-32f608350015.webp"
     ]
   },
 

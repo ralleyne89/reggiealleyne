@@ -9,9 +9,9 @@ import {
 } from "./motorflowCaseStudy";
 
 export type FeaturedProjectSlug =
-  | "litmus-ai"
-  | "cllctve-platform"
-  | "staybooked";
+  | "motorflow"
+  | "staybooked"
+  | "cllctve-platform";
 
 export interface FeaturedProjectConfig {
   slug: FeaturedProjectSlug;
@@ -208,22 +208,13 @@ export interface HomepageProofMetric {
 
 export const featuredProjectConfig: FeaturedProjectConfig[] = [
   {
-    slug: "cllctve-platform",
-    featuredTitle: "Gen Z Portfolio Platform",
-    eyebrow: "Creator economy / platform design",
+    slug: "motorflow",
+    featuredTitle: "Motorflow",
+    eyebrow: "AI services / live website",
     impactSummary:
-      "A mobile-first creator portfolio bet that reached 500+ creators, 15 brand partnerships, and 85% retention.",
+      "A website and AI service experience that connects calls, bookings, and customer follow-up for independent auto repair shops.",
     reviewerSignal:
-      "Shows the tradeoffs behind mobile behavior, design systems, and brand constraints.",
-  },
-  {
-    slug: "litmus-ai",
-    featuredTitle: "AI Literacy Platform",
-    eyebrow: "AI education / assessment",
-    impactSummary:
-      "A shipped assessment, recommendation, training, and certificate path designed around a five-minute target.",
-    reviewerSignal:
-      "Shows AI product strategy, learning design, payments, and end-to-end MVP delivery.",
+      "Shows one connected service path with clear AI roles, visible costs, and an explicit step before activation.",
   },
   {
     slug: "staybooked",
@@ -234,6 +225,15 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
     reviewerSignal:
       "Shows how product constraints keep AI suggestions tied to the property a host can deliver.",
   },
+  {
+    slug: "cllctve-platform",
+    featuredTitle: "Gen Z Portfolio Platform",
+    eyebrow: "Creator economy / platform design",
+    impactSummary:
+      "A mobile-first creator portfolio bet that reached 500+ creators, 15 brand partnerships, and 85% retention.",
+    reviewerSignal:
+      "Shows the tradeoffs behind mobile behavior, design systems, and brand constraints.",
+  },
 ];
 
 export const featuredProjectSlugs = featuredProjectConfig.map(
@@ -241,7 +241,7 @@ export const featuredProjectSlugs = featuredProjectConfig.map(
 );
 
 export const caseStudyPresentations: Partial<
-  Record<FeaturedProjectSlug | "motorflow", CaseStudyPresentation>
+  Record<string, CaseStudyPresentation>
 > = {
   motorflow: motorflowPresentation,
   "cllctve-platform": {
@@ -1528,7 +1528,7 @@ export const projectPersonaProfiles: Partial<Record<
   "tutor-d": {
     name: "Ms. Carter",
     title: "SMS-first teacher",
-    image: "/images/personas/tutor-d.jpg",
+    image: "/images/personas/tutor-d.webp",
     imageAlt:
       "Generated portrait of Ms. Carter, an SMS-first teacher persona for the Tutor D case study.",
     theme: {
@@ -1584,7 +1584,7 @@ export const projectPersonaProfiles: Partial<Record<
   "doggy-date": {
     name: "Nina",
     title: "Dog-centered connector",
-    image: "/images/personas/doggy-date.jpg",
+    image: "/images/personas/doggy-date.webp",
     imageAlt:
       "Generated portrait of Nina, a dog-centered connector persona for the Doggy Date case study.",
     theme: {
@@ -1612,7 +1612,7 @@ export const projectPersonaProfiles: Partial<Record<
   "improv-learning": {
     name: "Jordan",
     title: "Referral course visitor",
-    image: "/images/personas/improv-learning.jpg",
+    image: "/images/personas/improv-learning.webp",
     imageAlt:
       "Generated portrait of Jordan, a referral course visitor persona for the Improv Learning case study.",
     theme: {
@@ -1640,7 +1640,7 @@ export const projectPersonaProfiles: Partial<Record<
   wristband: {
     name: "Leah",
     title: "Interactive story reader",
-    image: "/images/personas/wristband.jpg",
+    image: "/images/personas/wristband.webp",
     imageAlt:
       "Generated portrait of Leah, an interactive story reader persona for the Wristband case study.",
     theme: {
@@ -1724,7 +1724,7 @@ export const projectPersonaProfiles: Partial<Record<
   "symptom-checkr": {
     name: "Sam",
     title: "Cautious health checker",
-    image: "/images/personas/symptom-checkr.jpg",
+    image: "/images/personas/symptom-checkr.webp",
     imageAlt:
       "Generated portrait of Sam, a cautious health checker persona for the Symptom Checkr case study.",
     theme: {
@@ -1808,7 +1808,7 @@ export const projectPersonaProfiles: Partial<Record<
   "covelo-timecard-system": {
     name: "Dana",
     title: "Operations approver",
-    image: "/images/personas/covelo-timecard-system.jpg",
+    image: "/images/personas/covelo-timecard-system.webp",
     imageAlt:
       "Generated portrait of Dana, an operations approver persona for the Covelo Timecard System case study.",
     theme: {
@@ -1836,7 +1836,7 @@ export const projectPersonaProfiles: Partial<Record<
   "pretty-paws-grooming": {
     name: "Tanya",
     title: "Mobile booking pet owner",
-    image: "/images/personas/pretty-paws-grooming.jpg",
+    image: "/images/personas/pretty-paws-grooming.webp",
     imageAlt:
       "Generated portrait of Tanya, a mobile booking pet owner persona for the Pretty Paws Grooming case study.",
     theme: {
@@ -1869,7 +1869,7 @@ export const getFeaturedConfig = (slug?: string) =>
   featuredProjectConfig.find((project) => project.slug === slug);
 
 export const getCaseStudyPresentation = (slug?: string) =>
-  slug ? caseStudyPresentations[slug as FeaturedProjectSlug | "motorflow"] : undefined;
+  slug ? caseStudyPresentations[slug] : undefined;
 
 export const hasCaseStudyAtGlance = (slug?: string) =>
   Boolean(

@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { routeHtml } from "./build/routeHtml";
 
 export default defineConfig(({ mode }) => ({
   server: {
@@ -28,6 +29,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    routeHtml(),
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),

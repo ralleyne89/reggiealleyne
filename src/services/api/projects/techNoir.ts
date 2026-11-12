@@ -9,7 +9,7 @@ export const getTechNoirProject = (): ProjectType => {
     liveUrl: "/technoir-demo/index.html",
     description: "A shipped mobile application for luxury wearable-tech shopping, with designer collections, styling guides, and editorial discovery.",
     fullDescription: "Tech Noir is a shipped mobile application that brings wearable technology into a luxury fashion shopping experience. Product discovery, designer collections, How to Wear guides, and editorial content help shoppers understand what to wear and why. AR try-on was explored as a concept. A new native demonstration recreates the experience for client presentations using sample inventory and simulated checkout.",
-    image: "/images/a473ef7d-6076-4386-af99-13262b6e684f.png",
+    image: "/images/a473ef7d-6076-4386-af99-13262b6e684f.webp",
     category: "Mobile application · Shipped",
     tags: ["Mobile Application", "Shipped", "E-commerce", "Fashion", "Wearable Tech"],
     role: "UX/UI & Visual Designer",
@@ -30,19 +30,19 @@ export const getTechNoirProject = (): ProjectType => {
       "Blog - Trend insights, tech news, and daily posts about fashion & wearables"
     ],
     images: [
-      "/images/a473ef7d-6076-4386-af99-13262b6e684f.png",
-      "/images/9e3be8d8-c9d0-4857-a786-b488a8b288c1.png",
-      "/images/e047ad0c-5a06-4795-938c-c65d62909828.png",
-      "/images/5291bbb5-d2b2-4171-b287-9a1d6735805b.png",
-      "/images/d0f10fb1-b1eb-4e30-b666-c68f00716676.png"
+      "/images/a473ef7d-6076-4386-af99-13262b6e684f.webp",
+      "/images/9e3be8d8-c9d0-4857-a786-b488a8b288c1.webp",
+      "/images/e047ad0c-5a06-4795-938c-c65d62909828.webp",
+      "/images/5291bbb5-d2b2-4171-b287-9a1d6735805b.webp",
+      "/images/d0f10fb1-b1eb-4e30-b666-c68f00716676.webp"
     ],
     visuals: [
-      { src: "/images/tech-noir/native-demo-2026.jpg", label: "2026 native reconstruction", note: "Actual iPhone simulator captures from the new SwiftUI client demonstration. Discovery, product selection, and local order confirmation recreate the original journey with sample inventory and simulated checkout." },
-      { src: "/images/a473ef7d-6076-4386-af99-13262b6e684f.png", label: "Original mobile application", note: "The original interface brings editorial discovery, designer browsing, and fashion-tech stories into a monochrome mobile shopping system." },
-      { src: "/images/9e3be8d8-c9d0-4857-a786-b488a8b288c1.png", label: "Discover, learn, visualize, buy", note: "Archived screens show product filtering, designer collections, styling video, a visual try-on concept, and the shopping bag." },
-      { src: "/images/e047ad0c-5a06-4795-938c-c65d62909828.png", label: "Mobile flow and interface study", note: "Original project board documenting the shopping experience and its screen hierarchy." },
-      { src: "/images/5291bbb5-d2b2-4171-b287-9a1d6735805b.png", label: "Original shopping flow", note: "The archived flow connects fashion and tech stories, designer discovery, How to Wear guidance, the bag, and guest or account checkout." },
-      { src: "/images/d0f10fb1-b1eb-4e30-b666-c68f00716676.png", label: "Competitive feature study", note: "The comparison examines native apps, designer filters, product summaries, search, wishlists, image galleries, and styling video across fashion retailers." }
+      { src: "/images/tech-noir/native-demo-2026.webp", label: "2026 native reconstruction", note: "Actual iPhone simulator captures from the new SwiftUI client demonstration. Discovery, product selection, and local order confirmation recreate the original journey with sample inventory and simulated checkout." },
+      { src: "/images/a473ef7d-6076-4386-af99-13262b6e684f.webp", label: "Original mobile application", note: "The original interface brings editorial discovery, designer browsing, and fashion-tech stories into a monochrome mobile shopping system." },
+      { src: "/images/9e3be8d8-c9d0-4857-a786-b488a8b288c1.webp", label: "Discover, learn, visualize, buy", note: "Archived screens show product filtering, designer collections, styling video, a visual try-on concept, and the shopping bag." },
+      { src: "/images/e047ad0c-5a06-4795-938c-c65d62909828.webp", label: "Mobile flow and interface study", note: "Original project board documenting the shopping experience and its screen hierarchy." },
+      { src: "/images/5291bbb5-d2b2-4171-b287-9a1d6735805b.webp", label: "Original shopping flow", note: "The archived flow connects fashion and tech stories, designer discovery, How to Wear guidance, the bag, and guest or account checkout." },
+      { src: "/images/d0f10fb1-b1eb-4e30-b666-c68f00716676.webp", label: "Competitive feature study", note: "The comparison examines native apps, designer filters, product summaries, search, wishlists, image galleries, and styling video across fashion retailers." }
     ],
     conclusion: {
       impact: "The project record reports that 75% of testers felt more confident exploring wearable tech; the sample size and study method are not documented. Feedback on the luxury aesthetic and video styling modules shaped the content structure and usability.",

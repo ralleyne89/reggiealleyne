@@ -15,7 +15,7 @@ const PlaygroundPreviewSection = () => {
       };
 
   return (
-    <section className="relative border-t border-gray-200 bg-white py-14 sm:py-16">
+    <section data-layer="Playground" className="relative border-t border-gray-200 bg-white py-14 sm:py-16">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 grid min-w-0 gap-4 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <motion.div

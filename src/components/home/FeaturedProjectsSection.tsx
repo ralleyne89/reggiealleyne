@@ -1,31 +1,57 @@
 import { Link } from "react-router-dom";
-import { useMemo } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  type MouseEvent,
+} from "react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
+import { useReducedMotion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getAllProjects } from "@/services/api";
 import { getAllPredefinedProjectsSync } from "@/services/api/predefinedProjects";
-import {
-  getCaseStudyBrief,
-  orderFeaturedProjects,
-} from "@/config/portfolioCuration";
+import { orderFeaturedProjects } from "@/config/portfolioCuration";
 import { getProjectPath } from "@/lib/projectRoutes";
+import { DUR, EASE, STAGGER } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 import SectionRule from "@/components/motion/SectionRule";
+import SelectionFrame from "@/components/project/SelectionFrame";
+import { startScreenHandoff } from "@/lib/screenHandoff";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const moreSelectedProjectSlugs = [
-  "motorflow",
+  "tech-noir",
+  "litmus-ai",
   "covelo-timecard-system",
   "symptom-checkr",
 ] as const;
 
+const padIndex = (index: number) => String(index + 1).padStart(2, "0");
+
+/**
+ * Home work section. The three lead case studies scroll past a screen that
+ * holds still inside a selection frame; the frame retargets to whichever
+ * project is centred. Supporting work follows as compact rows.
+ */
 const FeaturedProjectsSection = () => {
-  const { data: projects = [], isLoading } = useQuery({
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const itemRefs = useRef<Array<HTMLElement | null>>([]);
+  const [active, setActive] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
+
+  const { data: projects = [] } = useQuery({
     queryKey: ["projects"],
     queryFn: getAllProjects,
     placeholderData: getAllPredefinedProjectsSync,
     retry: 1,
   });
 
-  const featuredProjects = useMemo(
+  const leadProjects = useMemo(
     () => orderFeaturedProjects(projects).slice(0, 3),
     [projects],
   );
@@ -39,211 +65,236 @@ const FeaturedProjectsSection = () => {
     [projects],
   );
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const index = itemRefs.current.indexOf(entry.target as HTMLElement);
+          if (index >= 0) setActive(index);
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px" },
+    );
+
+    itemRefs.current.forEach((item) => item && observer.observe(item));
+    return () => observer.disconnect();
+  }, [leadProjects.length]);
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    if (!section || shouldReduceMotion) return undefined;
+
+    const context = gsap.context(() => {
+      gsap.fromTo(
+        "[data-lw-stage]",
+        { clipPath: "inset(14% 10% 14% 10%)", autoAlpha: 0 },
+        {
+          clipPath: "inset(0% 0% 0% 0%)",
+          autoAlpha: 1,
+          duration: DUR.reveal,
+          ease: EASE.gsapOut,
+          scrollTrigger: { trigger: "[data-lw-stage]", start: "top 85%", once: true },
+        },
+      );
+
+      ScrollTrigger.batch("[data-lw-reveal]", {
+        start: "top 88%",
+        once: true,
+        onEnter: (elements) =>
+          gsap.from(elements, {
+            y: 28,
+            autoAlpha: 0,
+            duration: DUR.slow,
+            ease: EASE.gsapOut,
+            stagger: STAGGER.base,
+          }),
+      });
+    }, section);
+
+    return () => context.revert();
+  }, [shouldReduceMotion, leadProjects.length]);
+
+  const activeProject = leadProjects[active] ?? leadProjects[0];
+
+  // Carry the project's screen across the route change into the case study.
+  const handoff = (event: MouseEvent, index: number) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+
+    const wide = window.matchMedia("(min-width: 1024px)").matches;
+    const image = wide
+      ? sectionRef.current?.querySelectorAll<HTMLImageElement>(".lw-stage__screen")[index]
+      : itemRefs.current[index]?.querySelector<HTMLImageElement>(".lw-item__media img");
+    startScreenHandoff(image);
+  };
+
   return (
     <section
       id="projects"
-      className="relative scroll-mt-24 overflow-clip bg-[oklch(var(--color-surface-soft))] py-16 text-text-primary sm:py-24"
+      data-layer="Selected work"
+      ref={sectionRef}
+      className="lw-section relative scroll-mt-24 text-text-primary"
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[linear-gradient(180deg,oklch(var(--color-surface-page)),oklch(var(--color-surface-soft)/0))]" />
-
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 grid w-full min-w-0 gap-6 border-b border-gray-200 pb-8 lg:grid-cols-[0.72fr_1fr] lg:items-end">
-          <div>
-            <div className="mb-4">
-              <SectionRule index="01" label="Selected work" />
-            </div>
-            <h2 className="max-w-2xl break-words font-display text-[2.25rem] font-semibold leading-[1.05] text-gray-950 [text-wrap:balance] sm:text-[3.1rem]">
-              Three case studies built around product decisions.
-            </h2>
-          </div>
-          <p className="max-w-2xl text-base leading-7 text-text-secondary sm:text-body-md lg:justify-self-end">
+      <div className="lw-shell">
+        <div className="mb-4">
+          <SectionRule index="01" label="Selected work" />
+        </div>
+        <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+          <h2 className="lw-heading">
+            Three case studies built around product decisions.
+          </h2>
+          <p className="max-w-xl text-base leading-7 text-text-secondary lg:justify-self-end">
             Start with three projects that show product questions moving into
             working interfaces.
           </p>
         </div>
 
-        {isLoading ? (
-          <div className="grid w-full grid-cols-1 gap-5">
-            {[1, 2, 3].map((item) => (
-              <div
-                key={item}
-                className="h-[28rem] animate-pulse rounded-2xl border border-gray-200 bg-white sm:h-[34rem]"
-              />
-            ))}
-          </div>
-        ) : (
-          <>
-            <div className="portfolio-cinema-list">
-              {featuredProjects.map((project, index) => {
-                const brief = getCaseStudyBrief(project.slug);
+        <div className="lw-grid">
+          <ol className="lw-list">
+            {leadProjects.map((project, index) => (
+              <li
+                key={project.id}
+                ref={(element) => {
+                  itemRefs.current[index] = element;
+                }}
+                className={cn("lw-item", index === active && "is-active")}
+              >
+                <Link
+                  to={getProjectPath(project)}
+                  onClick={(event) => handoff(event, index)}
+                  className="lw-item__media"
+                  aria-hidden="true"
+                  tabIndex={-1}
+                >
+                  <SelectionFrame label={`${project.curation.featuredTitle} / Cover`}>
+                    <img
+                      src={project.image}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </SelectionFrame>
+                </Link>
 
-                return (
-                  <div
-                    key={project.id}
-                    className="portfolio-cinema-card-shell portfolio-cinema-card-shell--static"
+                <p className="lw-item__index">
+                  {padIndex(index)}
+                  <span>{project.curation.eyebrow}</span>
+                </p>
+                <h3 className="lw-item__title">
+                  <Link
+                    to={getProjectPath(project)}
+                  onClick={(event) => handoff(event, index)}
+                    data-cursor-label="Read case study"
                   >
-                    <article
-                      className="portfolio-cinema-card group"
-                      aria-labelledby={`home-featured-${project.id}`}
-                    >
-                      <span
-                        className="portfolio-cinema-card__scan"
-                        aria-hidden="true"
+                    {project.curation.featuredTitle}
+                  </Link>
+                </h3>
+                <p className="lw-item__summary">
+                  {project.curation.impactSummary}
+                </p>
+                <p className="lw-item__signal">
+                  {project.curation.reviewerSignal}
+                </p>
+                <p className="lw-item__meta">
+                  {project.role} · {project.year}
+                </p>
+                <Link to={getProjectPath(project)}
+                  onClick={(event) => handoff(event, index)} className="lw-item__cta">
+                  Read case study
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </Link>
+              </li>
+            ))}
+          </ol>
+
+          {activeProject ? (
+            <div className="lw-stage-wrap" aria-hidden="true">
+              <Link
+                to={getProjectPath(activeProject)}
+                onClick={(event) => handoff(event, active)}
+                tabIndex={-1}
+                className="block"
+                data-cursor-label="Read case study"
+                data-lw-stage
+              >
+                <SelectionFrame
+                  label={`${activeProject.curation.featuredTitle} / Cover`}
+                >
+                  <div className="lw-stage">
+                    {leadProjects.map((project, index) => (
+                      <img
+                        key={project.id}
+                        src={project.image}
+                        alt=""
+                        loading={index === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                        className={cn(
+                          "lw-stage__screen",
+                          index === active && "is-active",
+                        )}
                       />
-                      <span
-                        className="portfolio-cinema-card__index"
-                        aria-hidden="true"
-                      >
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-
-                      <div className="portfolio-cinema-card__content">
-                        <div>
-                          <p className="portfolio-cinema-card__eyebrow">
-                            {String(index + 1).padStart(2, "0")} /{" "}
-                            {project.curation.eyebrow}
-                          </p>
-                          <h3
-                            id={`home-featured-${project.id}`}
-                            className="portfolio-cinema-card__title"
-                          >
-                            {project.curation.featuredTitle}
-                          </h3>
-                          <p className="portfolio-cinema-card__summary">
-                            {project.curation.impactSummary}
-                          </p>
-                        </div>
-
-                        <Link
-                          to={getProjectPath(project)}
-                          className="portfolio-cinema-card__cta"
-                          aria-label={`Read case study: ${project.curation.featuredTitle}`}
-                          data-cursor-label="Read case study"
-                        >
-                          Read case study
-                          <ArrowUpRight size={16} />
-                        </Link>
-
-                        <dl className="portfolio-cinema-card__proof">
-                          <div>
-                            <dt>Decision</dt>
-                            <dd>
-                              {brief?.coreDecision ||
-                                "Shape interface around the user's next useful move."}
-                            </dd>
-                          </div>
-                          <div>
-                            <dt>Proof</dt>
-                            <dd>
-                              {brief?.evidence ||
-                                "The case study keeps implementation notes and visible artifacts close to claim."}
-                            </dd>
-                          </div>
-                        </dl>
-
-                        <div className="portfolio-cinema-card__footer">
-                          <div className="portfolio-cinema-card__meta">
-                            <span>{project.role}</span>
-                            <span>{project.year}</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <Link
-                        to={getProjectPath(project)}
-                        className="portfolio-cinema-card__media"
-                        aria-label={`Read case study: ${project.curation.featuredTitle}`}
-                        data-cursor-label="Read case study"
-                      >
-                        <div className="portfolio-cinema-card__media-inner">
-                          <img
-                            src={project.image}
-                            alt=""
-                            aria-hidden="true"
-                            loading={index === 0 ? "eager" : "lazy"}
-                            decoding="async"
-                            fetchpriority={index === 0 ? "high" : "auto"}
-                            className="h-full w-full object-cover"
-                            sizes="(min-width: 1024px) 760px, 100vw"
-                            onError={(event) => {
-                              event.currentTarget.src = "/placeholder.svg";
-                            }}
-                          />
-                        </div>
-                      </Link>
-                    </article>
+                    ))}
                   </div>
-                );
-              })}
+                </SelectionFrame>
+              </Link>
+              <p className="lw-stage__count">
+                <span>{padIndex(active)}</span> / {padIndex(leadProjects.length - 1)}
+              </p>
+            </div>
+          ) : null}
+        </div>
+
+        {moreSelectedProjects.length > 0 ? (
+          <div className="mt-16 sm:mt-24" data-supporting-work data-layer="More work">
+            <div className="mb-5 grid gap-2 sm:grid-cols-[1fr_auto] sm:items-end">
+              <h3 className="font-display text-2xl font-semibold leading-tight">
+                More selected work
+              </h3>
+              <Link
+                to="/work"
+                className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
+              >
+                View all work
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
             </div>
 
-            {moreSelectedProjects.length > 0 ? (
-              <div
-                className="mt-12 border-t border-gray-200 pt-8"
-                data-supporting-work
-              >
-                <div className="mb-5 grid gap-2 sm:grid-cols-[1fr_auto] sm:items-end">
-                  <div>
-                    <h3 className="font-display text-2xl font-semibold leading-tight text-gray-950">
-                      More selected work
-                    </h3>
-                    <p className="mt-2 max-w-2xl text-sm leading-6 text-text-secondary">
-                      Two product systems: a workforce timecard portal and a
-                      cautious health guidance flow.
+            <div className="grid divide-y divide-gray-200 border-y border-gray-200">
+              {moreSelectedProjects.map((project) => (
+                <Link
+                  key={project.id}
+                  to={getProjectPath(project)}
+                  className="portfolio-work-row group py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4"
+                  data-cursor-label="View project"
+                  data-lw-reveal
+                >
+                  <div className="relative z-10 grid min-w-0 gap-3 pr-0 lg:max-w-[58%] lg:pr-10">
+                    <p className="portfolio-work-row__title portfolio-work-row__title--compact">
+                      {project.title}
+                    </p>
+                    <p className="max-w-2xl text-sm leading-6 text-text-secondary">
+                      {project.description}
+                    </p>
+                    <p className="text-xs font-semibold uppercase leading-5 text-primary">
+                      {project.category || project.tags?.[0] || "Product design"}
                     </p>
                   </div>
-                  <Link
-                    to="/work"
-                    className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
-                  >
-                    View all work
-                    <ArrowRight size={16} />
-                  </Link>
-                </div>
-
-                <div className="grid divide-y divide-gray-200 border-y border-gray-200">
-                  {moreSelectedProjects.map((project) => (
-                    <Link
-                      key={project.id}
-                      to={getProjectPath(project)}
-                      className="portfolio-work-row group py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4"
-                      data-cursor-label="View project"
-                    >
-                      <div className="relative z-10 grid min-w-0 gap-3 pr-0 lg:max-w-[58%] lg:pr-10">
-                        <p className="portfolio-work-row__title portfolio-work-row__title--compact">
-                          {project.title}
-                        </p>
-                        <p className="max-w-2xl text-sm leading-6 text-gray-600">
-                          {project.description}
-                        </p>
-                        <p className="text-xs font-semibold uppercase leading-5 text-primary">
-                          {project.category ||
-                            project.tags?.[0] ||
-                            "Product design"}
-                        </p>
-                      </div>
-                      <span
-                        className="portfolio-work-row__preview"
-                        aria-hidden="true"
-                      >
-                        <img
-                          src={project.image}
-                          alt=""
-                          aria-hidden="true"
-                          loading="lazy"
-                          decoding="async"
-                          onError={(event) => {
-                            event.currentTarget.src = "/placeholder.svg";
-                          }}
-                        />
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-          </>
-        )}
+                  <span className="portfolio-work-row__preview" aria-hidden="true">
+                    <img
+                      src={project.image}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      onError={(event) => {
+                        event.currentTarget.src = "/placeholder.svg";
+                      }}
+                    />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ) : null}
       </div>
     </section>
   );

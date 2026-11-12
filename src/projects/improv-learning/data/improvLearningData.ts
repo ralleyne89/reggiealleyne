@@ -294,7 +294,7 @@ export const improvLearningFinalDesignData = {
   ],
   uiImages: [
     {
-      src: "/images/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.png",
+      src: "/images/973f2c83-3ea0-443a-b54c-7f2a59dfbee0.webp",
       alt: "IMPROV Learning Co-branded Landing Page Desktop View",
       title: "Co-branded Desktop Landing Page"
     }

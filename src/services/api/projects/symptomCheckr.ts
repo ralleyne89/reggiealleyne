@@ -11,7 +11,7 @@ export const getSymptomCheckrProject = (): ProjectType => {
     duration: '8 weeks',
     teamSize: '4',
     tags: ['Health UX', 'AI Guidance', 'Health Tech', 'UX Research'],
-    image: '/images/symptomcheckr-trust-ai-card.jpg',
+    image: '/images/symptomcheckr-trust-ai-card.webp',
     summary: "Most symptom checkers give an answer without showing how they got there. I focused on making the AI's uncertainty visible: confidence levels, source links, plain-language reasoning, and saved reports people could bring to a clinician.",
     problem: "When health guidance feels like a sealed answer box, people either panic, over-trust it, or ignore it. The design challenge was to help users understand the level of uncertainty behind each recommendation.",
     solution: "I designed an AI-assisted symptom flow that explains what the system considered, shows confidence levels, links to sources, and gives users practical next steps without pretending to diagnose them.",
@@ -29,15 +29,15 @@ export const getSymptomCheckrProject = (): ProjectType => {
       'High-fidelity responsive screens and report flows'
     ],
     images: [
-      '/images/symptomcheckr-trust-ai-card.jpg',
-      '/images/symptom-checkr-live-checker.png',
-      '/images/symptom-checkr-live-results.png',
-      '/images/Symptom-Checkr-My-Reports-Empty-Final.jpg',
+      '/images/symptomcheckr-trust-ai-card.webp',
+      '/images/symptom-checkr-live-checker.webp',
+      '/images/symptom-checkr-live-results.webp',
+      '/images/Symptom-Checkr-My-Reports-Empty-Final.webp',
       '/images/Symptom-Checkr-My-Reports-empty.jpg',
       '/images/Symptom-Checkr-Contact.jpg',
-      '/images/Symptom-Checkr-Contact-Final.jpg',
-      '/images/Symptom-Checkr-Home.jpg',
-      '/images/symptom-checkr-home-optimized.jpg'
+      '/images/Symptom-Checkr-Contact-Final.webp',
+      '/images/Symptom-Checkr-Home.webp',
+      '/images/symptom-checkr-home-optimized.webp'
     ],
     videoUrl: null,
     githubUrl: null,

@@ -1,0 +1,201 @@
+{
+  "origin": "http://localhost:8888",
+  "checkedAt": "2026-09-15T20:00:31.899Z",
+  "results": [
+    {
+      "route": "/",
+      "status": 200,
+      "title": "Reggie Alleyne | UX/UI Designer &amp; Frontend Developer",
+      "canonical": "https://reggiealleyne.com/"
+    },
+    {
+      "route": "/work",
+      "status": 200,
+      "title": "Selected UX/UI &amp; Product Design Work | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/work"
+    },
+    {
+      "route": "/services",
+      "status": 200,
+      "title": "Website Design &amp; Development Services | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/services"
+    },
+    {
+      "route": "/project/wristband",
+      "status": 200,
+      "title": "WRISTBAND | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/wristband"
+    },
+    {
+      "route": "/project/vaultjs-validate",
+      "status": 200,
+      "title": "Vault.js Validate – Enterprise Security Visualization &amp; AI Tool | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/vaultjs-validate"
+    },
+    {
+      "route": "/project/tutor-d",
+      "status": 200,
+      "title": "Tutor D | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/tutor-d"
+    },
+    {
+      "route": "/project/tech-noir",
+      "status": 200,
+      "title": "TECH NOIR | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/tech-noir"
+    },
+    {
+      "route": "/project/symptom-checkr",
+      "status": 200,
+      "title": "SymptomCheckr: a calmer way to check symptoms | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/symptom-checkr"
+    },
+    {
+      "route": "/project/staybooked",
+      "status": 200,
+      "title": "Staybooked — Host Workspace | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/staybooked"
+    },
+    {
+      "route": "/project/scent-stack",
+      "status": 200,
+      "title": "ScentStack – AI-Powered Fragrance Discovery Platform | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/scent-stack"
+    },
+    {
+      "route": "/project/pretty-paws-grooming",
+      "status": 200,
+      "title": "Pretty Paws Grooming Website | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/pretty-paws-grooming"
+    },
+    {
+      "route": "/project/litmus-ai",
+      "status": 200,
+      "title": "Litmus AI — Literacy Assessment | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/litmus-ai"
+    },
+    {
+      "route": "/project/improv-learning",
+      "status": 200,
+      "title": "Improv Learning – Traffic School Landing Page | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/improv-learning"
+    },
+    {
+      "route": "/project/doggy-date",
+      "status": 200,
+      "title": "Doggy Date | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/doggy-date"
+    },
+    {
+      "route": "/project/covelo-timecard-system",
+      "status": 200,
+      "title": "Covelo Timecard System | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/covelo-timecard-system"
+    },
+    {
+      "route": "/project/cllctve-platform",
+      "status": 200,
+      "title": "CLLCTVE Platform | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/cllctve-platform"
+    },
+    {
+      "route": "/project/chill-vibes-music-player",
+      "status": 200,
+      "title": "Chill Vibes Music Player | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/chill-vibes-music-player"
+    },
+    {
+      "route": "/project/bobs-big-break",
+      "status": 200,
+      "title": "Bob&#39;s Big Break | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/project/bobs-big-break"
+    },
+    {
+      "route": "/playground",
+      "status": 200,
+      "title": "Product Experiments &amp; Prototypes | Reggie Alleyne",
+      "canonical": "https://reggiealleyne.com/playground"
+    },
+    {
+      "route": "/about",
+      "status": 200,
+      "title": "About Reggie Alleyne | UX/UI Designer &amp; Frontend Developer",
+      "canonical": "https://reggiealleyne.com/about"
+    },
+    {
+      "route": "/audit-missing-page",
+      "status": 404,
+      "noindex": true
+    },
+    {
+      "route": "/project/audit-missing-project",
+      "status": 404,
+      "noindex": true
+    },
+    {
+      "route": "/works",
+      "status": 301,
+      "destination": "/work"
+    },
+    {
+      "route": "/project/1",
+      "status": 301,
+      "destination": "/project/cllctve-platform"
+    },
+    {
+      "resource": "/robots.txt",
+      "status": 200,
+      "type": "text/plain; charset=utf-8"
+    },
+    {
+      "resource": "/sitemap.xml",
+      "status": 200,
+      "type": "application/xml"
+    },
+    {
+      "resource": "/icons/ra-stars-192-20260915.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "resource": "/icons/ra-stars-512-20260915.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "resource": "/icons/ra-stars-maskable-512-20260915.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "resource": "/images/reggie-alleyne-portfolio-og-20260915.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "resource": "/icons/ra-stars-16-20260915.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "resource": "/icons/ra-stars-32-20260915.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "resource": "/icons/ra-stars-48-20260915.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "resource": "/icons/ra-stars-180-20260915.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "resource": "/manifest.webmanifest",
+      "status": 200,
+      "type": "application/manifest+json"
+    }
+  ]
+}

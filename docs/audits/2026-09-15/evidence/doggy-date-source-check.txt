@@ -1,0 +1,7 @@
+Date reconciliation, 2026-09-15
+
+pypdf extraction from both local resume PDFs:
+Reggie-Alleyne-AI-Product-Designer-Resume.pdf: Freelance UX/UI Designer, A Different Kind of Creative – Doggy Date, Los Angeles; 04/2017 – 07/2017.
+Reggie-Alleyne-UX-UI-Designer-Resume.pdf: same employer/project and dates.
+
+About already uses 04/2017 – 07/2017. Corrected src/services/api/projects/doggyDate.ts year from 2016 to 2017. Resume PDFs were not modified. This is consistency with supplied records, not independent employment verification.

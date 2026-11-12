@@ -9,10 +9,10 @@ import { DUR, EASE } from "@/lib/motion";
 
 const Index = lazy(() => import("@/pages/Index"));
 const Works = lazy(() => import("@/pages/Works"));
-const Services = lazy(() => import("@/pages/Services"));
 const About = lazy(() => import("@/pages/About"));
 const Playground = lazy(() => import("@/pages/Playground"));
 const Project = lazy(() => import("@/pages/Project"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 
 const RouteFallback = () => (
   <main className="min-h-screen bg-white pt-28">
@@ -66,7 +66,9 @@ const AnimatedRoutes = () => {
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={routeKey}
-          className="route-motion-shell"
+          id="main-content"
+          tabIndex={-1}
+          className="route-motion-shell outline-none"
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
@@ -80,7 +82,6 @@ const AnimatedRoutes = () => {
               <Route path="/" element={<Index />} />
               <Route path="/work" element={<Works />} />
               <Route path="/works" element={<Navigate to="/work" replace />} />
-              <Route path="/services" element={<Services />} />
               <Route path="/playground" element={<Playground />} />
               <Route path="/about" element={<About />} />
               {CLLCTVE_PROJECT_ROUTE_ALIASES.map((alias) => (
@@ -93,7 +94,7 @@ const AnimatedRoutes = () => {
                 />
               ))}
               <Route path="/project/:slug" element={<Project />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </motion.div>

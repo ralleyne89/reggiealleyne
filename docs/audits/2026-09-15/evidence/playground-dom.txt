@@ -1,0 +1,100 @@
+- region "Notifications (F8)":
+  - list
+- navigation "Primary navigation":
+  - link "Home":
+    - /url: /
+    - generic "Home"
+  - link "Work":
+    - /url: /work
+    - generic "Work"
+  - link "Playground":
+    - /url: /playground
+    - generic "Playground"
+  - link "About":
+    - /url: /about
+    - generic "About"
+  - link "Contact":
+    - /url: /#contact
+    - generic "Contact"
+- main:
+  - link "Back to Home":
+    - /url: /
+    - text: Back to Home
+  - paragraph: Building for fun
+  - heading "Coded product experiments you can inspect." [level=1]
+  - paragraph: A focused set of prototypes, creative systems, and AI work. Each one shows how a rough idea becomes a usable product surface.
+  - paragraph: 3 prototypes
+  - paragraph: Built to test product feel and interaction behavior.
+  - article:
+    - link "View ScentStack project details":
+      - /url: /project/scent-stack
+      - img "ScentStack preview"
+      - generic: Live
+    - generic: React
+    - generic: Tailwind
+    - generic: AI
+    - heading "ScentStack" [level=2]
+    - paragraph: A fragrance finder for dupe matching, layering ideas, and searching for the scent someone has in mind.
+    - generic: Proof
+    - paragraph: Shows recommendation UX, premium consumer framing, and fast prototype delivery.
+    - link "View project details":
+      - /url: /project/scent-stack
+      - text: View project details
+  - article:
+    - link "View Chill Vibes Music Player project details":
+      - /url: /project/chill-vibes-music-player
+      - img "Chill Vibes Music Player preview"
+      - generic: Live
+    - generic: React
+    - generic: Firebase
+    - generic: UX/UI
+    - heading "Chill Vibes Music Player" [level=2]
+    - paragraph: A small music streaming MVP built around clean playback and a quiet listening interface.
+    - generic: Proof
+    - paragraph: Shows a focused audio surface with clear hierarchy and restrained interaction design.
+    - link "View project details":
+      - /url: /project/chill-vibes-music-player
+      - text: View project details
+  - article:
+    - link "View Bob's Big Break project details":
+      - /url: /project/bobs-big-break
+      - img "Bob's Big Break preview"
+      - generic: Live
+    - generic: React
+    - generic: Node.js
+    - generic: MongoDB
+    - heading "Bob's Big Break" [level=2]
+    - paragraph: An incremental clicker prototype built around quick sessions, pacing, and reward loops.
+    - generic: Proof
+    - paragraph: Shows systems thinking and game mechanics beyond static interface work.
+    - link "View project details":
+      - /url: /project/bobs-big-break
+      - text: View project details
+- contentinfo:
+  - link "Reggie Alleyne home":
+    - /url: /
+  - paragraph: UX/UI Designer & AI Technologist
+  - navigation "Footer navigation":
+    - link "Work":
+      - /url: /work
+    - link "About":
+      - /url: /about
+    - link "Resume":
+      - /url: /resume/Reggie-Alleyne-AI-Product-Designer-Resume.pdf
+    - link "Playground":
+      - /url: /playground
+    - link "Contact":
+      - /url: /#contact
+  - link "Connect on LinkedIn":
+    - /url: https://linkedin.com/in/reggiealleyne
+    - generic: LinkedIn
+  - link "View code on GitHub":
+    - /url: https://github.com/ralleyne89
+    - generic: GitHub
+  - link "Send me an email":
+    - /url: mailto:reggiealleyne89@gmail.com
+    - generic: Email
+  - paragraph: © 2026 Reggie Alleyne
+  - text: Los Angeles, CA
+  - text: Remote collaboration worldwide
+- generic: Reggie Alleyne

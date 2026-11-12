@@ -39,19 +39,19 @@ const flowSteps = [
 
 const images = [
   {
-    src: "/images/TutorD-Landing-Page-Final.jpg",
+    src: "/images/TutorD-Landing-Page-Final.webp",
     alt: "TutorD landing page final UI design",
     title: "Landing Page",
     description: "A simple entry point that frames TutorD around access and low-friction learning support.",
   },
   {
-    src: "/images/TutorD-Dashboard-Final.jpg",
+    src: "/images/TutorD-Dashboard-Final.webp",
     alt: "TutorD dashboard final UI design",
     title: "Teacher Dashboard",
     description: "A progress surface for seeing student activity, assignment urgency, and follow-up needs.",
   },
   {
-    src: "/images/TutorD-Lesson-Planner-Final.jpg",
+    src: "/images/TutorD-Lesson-Planner-Final.webp",
     alt: "TutorD lesson planner final UI design",
     title: "Lesson Planner",
     description: "A focused workspace for preparing lessons that can be delivered through SMS constraints.",

@@ -35,17 +35,17 @@ const FinalGameplay = ({ handleImageClick }: FinalGameplayProps) => {
       title: "Login Page Interface",
     },
     {
-      src: "/images/6d034732-5293-42a4-a01b-fef0af194695.png",
+      src: "/images/6d034732-5293-42a4-a01b-fef0af194695.webp",
       alt: "Bob's Big Break main game interface",
       title: "Main Game Interface",
     },
     {
-      src: "/images/40c6444f-3a5c-4327-a0d3-aabd6091463e.png",
+      src: "/images/40c6444f-3a5c-4327-a0d3-aabd6091463e.webp",
       alt: "Bob's Big Break game screens mockup",
       title: "Game Interface Design",
     },
     {
-      src: "/images/34473ac0-d26b-48a0-ba58-51bfc4ed23e1.png",
+      src: "/images/34473ac0-d26b-48a0-ba58-51bfc4ed23e1.webp",
       alt: "Bob's Big Break final mockup screens",
       title: "Final Game Screens",
     },

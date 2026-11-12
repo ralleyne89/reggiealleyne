@@ -1,0 +1,256 @@
+- navigation:
+  - link "Litmus AI AI literacy platform":
+    - /url: /
+    - generic: Litmus AI
+    - generic: AI literacy platform
+  - link "Assessment":
+    - /url: /assessment
+    - text: Assessment
+  - link "Training":
+    - /url: /training
+    - text: Training
+  - link "Certification":
+    - /url: /certification
+    - text: Certification
+  - link "Pricing":
+    - /url: /billing
+    - text: Pricing
+  - link "Sign In":
+    - /url: /login
+    - text: Sign In
+  - link "Start free assessment":
+    - /url: /assessment
+    - text: Start free assessment
+- generic: Free AI Readiness Benchmark
+- heading "Build AI literacy you can prove at work" [level=1]:
+  - text: Build AI literacy
+  - text: you can prove at work
+- paragraph: Take a quick assessment, get a personalized learning path, and build practical AI skills through guided training and certification.
+- link "Start free assessment":
+  - /url: /assessment
+  - text: Start free assessment
+- link "Explore training":
+  - /url: /training
+  - text: Explore training
+- generic: AI readiness dashboard
+- generic: Personal plan after assessment
+- generic: Live path
+- generic: Readiness score
+- generic: "74"
+- generic: +18 pts
+- generic: Recommended module
+- generic: Prompt Engineering Mastery
+- generic: Next skill gap
+- generic: Evaluate AI output quality
+- generic: Credential track
+- generic: Workplace AI Proficiency
+- text: AI literacy plan
+- heading "Your AI literacy plan, mapped in minutes" [level=2]
+- paragraph: "LitmusAI turns a quick benchmark into a guided route: what to learn, what to practice, and how to prove it with certification."
+- generic: 3-5m
+- generic: Assessment time
+- generic: "+52"
+- generic: Skill lift tracked
+- generic: Cert
+- generic: Proof path
+- article:
+  - heading "Skill profile" [level=3]
+  - paragraph: See where you are confident, where you are guessing, and which AI concepts matter most for your role.
+  - generic: 15 questions
+- article:
+  - heading "Learning path" [level=3]
+  - paragraph: Get a prioritized training plan that turns assessment gaps into practical workplace exercises.
+  - generic: Role-aware
+- article:
+  - heading "Proof of progress" [level=3]
+  - paragraph: Move from practice into certification so your AI literacy becomes visible and credible.
+  - generic: Credential-ready
+- text: How it works
+- heading "From unsure to AI-literate with a path you can follow" [level=2]
+- paragraph: Assessment, training, and certification work together as one guided system instead of disconnected content.
+- article:
+  - generic: "01"
+  - heading "Benchmark your skills" [level=3]
+  - paragraph: Start with a fast, practical assessment across AI concepts, responsible use, prompting, and workplace application.
+  - link "Start free assessment":
+    - /url: /assessment
+    - text: Start free assessment
+- article:
+  - generic: "02"
+  - heading "Practice workplace workflows" [level=3]
+  - paragraph: Build prompts, review habits, and AI-assisted workflows that connect directly to Sales, HR, Marketing, Operations, and leadership work.
+  - link "Explore live courses":
+    - /url: /training
+    - text: Explore live courses
+- article:
+  - generic: "03"
+  - heading "Earn proof of proficiency" [level=3]
+  - paragraph: Validate real-world AI literacy with certification designed to signal capability, not just course completion.
+  - link "View certification":
+    - /url: /certification
+    - text: View certification
+- text: Complete system
+- heading "The complete LitmusAI journey" [level=2]
+- paragraph: A connected path from curiosity to confidence, with measurable growth at every step.
+- generic: "01"
+- generic: "02"
+- generic: "03"
+- article:
+  - generic: "01"
+  - heading "Assess AI readiness" [level=3]
+  - paragraph: Benchmark core concepts, responsible use, prompting, and practical workplace judgment.
+- article:
+  - generic: "02"
+  - heading "Build with guided practice" [level=3]
+  - paragraph: Role-specific modules turn AI concepts into real workflows, prompts, and review habits.
+- article:
+  - generic: "03"
+  - heading "Certify proficiency" [level=3]
+  - paragraph: Validate practical skill with credentials designed to signal workplace-ready AI literacy.
+- text: Teams and organizations
+- heading "Every company should be AI ready" [level=2]
+- paragraph: LitmusAI helps teams benchmark readiness, activate role-specific skills, and prove progress with trusted credentials.
+- paragraph: Role-specific learning paths for Sales, HR, Marketing, Operations, and leadership.
+- paragraph: Hands-on courses where teams build real prompts, processes, and AI-assisted workflows.
+- paragraph: Practical certification that validates responsible, workplace-ready AI usage.
+- link "Start free AI assessment":
+  - /url: /assessment
+- link "Explore team options":
+  - /url: /billing
+- generic: Team readiness map
+- generic: Sample cohort overview
+- generic: Updated today
+- generic: Prompt quality
+- generic: 82%
+- generic: Responsible use
+- generic: 76%
+- generic: Workflow application
+- generic: 64%
+- generic: 45%
+- generic: Productivity lift
+- generic: 91%
+- generic: Completion intent
+- generic: "+52"
+- generic: Confidence gain
+- text: What sets us apart
+- heading "Built for practical AI adoption" [level=2]
+- paragraph: The platform is designed around measurable behavior change, not passive content consumption.
+- generic: Embedded AI leadership with real execution, not just advice
+- generic: Strategic AI enablement at a fraction of a full-time CAIO.
+- generic: Tailored by department for real-world workflows
+- generic: Custom pathways for the exact work your teams do every day.
+- generic: Live, hands-on training where teams build real tools
+- generic: Learners leave with reusable prompts, habits, and automations.
+- generic: Fast implementation for visible momentum
+- generic: Most teams can establish a baseline and start improving within weeks.
+- generic: Practical certification tied to business use
+- generic: Credentials validate applied skill, not memorized theory.
+- generic: Focused exclusively on AI enablement
+- generic: Assessment, training, and certification are designed as one system.
+- heading "Certification that measures what matters" [level=2]
+- paragraph: Exams reflect real-world AI proficiency across thinking, knowledge, communication, and responsible use.
+- generic: AI Thinking & Cognitive Aptitude
+- generic: Reasoning, decomposition, pattern recognition, and using AI as a thinking partner.
+- generic: AI Knowledge & Understanding
+- generic: Core concepts, capabilities, limitations, safety, and responsible use.
+- generic: Prompt Engineering & Communication
+- generic: Outcome-driven prompting, iteration, evaluation, and clear AI collaboration.
+- generic: Featured live course
+- heading "How to Build a Business in a Weekend with AI" [level=3]
+- paragraph: An intensive, instructor-led workshop where learners rapidly plan, prototype, and launch a business using AI tools.
+- list:
+  - text: Hands-on guided sessions
+  - text: Reusable practical frameworks
+  - text: Certificate of completion
+- link "Explore course":
+  - /url: /training
+  - text: Explore course
+- heading "Frequently asked questions" [level=2]
+- paragraph: Quick answers about assessments, courses, and certifications.
+- heading "What is the AI Mastery Predictor Test?" [level=3]
+- paragraph: A free 15-question assessment that evaluates AI fundamentals, practical usage, responsible thinking, AI impact, and strategic understanding.
+- heading "Do I need technical experience?" [level=3]
+- paragraph: No. LitmusAI is designed for professionals across industries and roles. No coding background is required.
+- heading "What does certification cover?" [level=3]
+- paragraph: A standardized exam validating real-world AI application skills with a verified digital certificate.
+- heading "Are there team options?" [level=3]
+- paragraph: Yes. Teams can use org-wide assessments, analytics, custom programs, and bulk certification management.
+- main:
+  - article:
+    - heading "Proof from real AI enablement work" [level=1]
+    - paragraph: Anonymous feedback from teams using LitmusAI to benchmark readiness, build practical skills, and certify progress.
+  - article:
+    - generic: 2 wk
+    - generic: readiness baseline
+    - paragraph: "\"The assessment gave our team a shared language for AI readiness. Within two weeks, managers knew exactly which skills to build next.\""
+    - heading "Learning and development leader" [level=2]
+    - paragraph: Mid-market operations team
+  - article:
+    - generic: 38%
+    - generic: faster draft cycles
+    - paragraph: "\"The training clicked because it was tied to real workflows. People left with prompts, review habits, and automation ideas they could use the same day.\""
+    - heading "Revenue enablement lead" [level=2]
+    - paragraph: Customer-facing team
+  - article:
+    - generic: "4.7"
+    - generic: learner confidence
+    - paragraph: "\"LitmusAI helped us move from curiosity to measurable adoption. The recommendations made next steps clear without overwhelming the team.\""
+    - heading "Transformation program owner" [level=2]
+    - paragraph: Cross-functional pilot
+  - article:
+    - generic: 91%
+    - generic: completion intent
+    - paragraph: "\"The certification path is practical. It gave us a lightweight way to validate capability without turning AI training into a long academic program.\""
+    - heading "People operations director" [level=2]
+    - paragraph: Policy and hiring teams
+  - article:
+    - generic: 1 view
+    - generic: team progress
+    - paragraph: "\"The dashboard finally made progress visible. We could see assessment history, suggested modules, and training momentum in one place.\""
+    - heading "AI program coordinator" [level=2]
+    - paragraph: Internal enablement cohort
+  - article:
+    - generic: "+52"
+    - generic: readiness lift
+    - paragraph: "\"The biggest shift was confidence. Teams stopped asking whether they should use AI and started asking how to use it responsibly.\""
+    - heading "Operations excellence manager" [level=2]
+    - paragraph: Process improvement group
+- contentinfo:
+  - text: Start here
+  - heading "Find your AI literacy baseline and turn it into practical skill." [level=2]
+  - link "Start free assessment":
+    - /url: /assessment
+    - text: Start free assessment
+  - link "Litmus AI home":
+    - /url: /
+  - paragraph: AI literacy training, assessment, and certification for people and teams who need practical capability they can use at work.
+  - heading "Platform" [level=3]
+  - list:
+    - link "Assessment":
+      - /url: /assessment
+    - link "Training":
+      - /url: /training
+    - link "Certification":
+      - /url: /certification
+    - link "Dashboard":
+      - /url: /dashboard
+  - heading "Teams" [level=3]
+  - list:
+    - link "Pricing":
+      - /url: /billing
+  - heading "Learn" [level=3]
+  - list:
+    - link "FAQ":
+      - /url: "#faq"
+    - link "Featured course":
+      - /url: "#featured-course"
+    - link "AI readiness":
+      - /url: "#ai-readiness"
+  - heading "Legal" [level=3]
+  - list:
+    - link "Terms":
+      - /url: /terms
+    - link "Privacy":
+      - /url: /privacy
+  - paragraph: © 2026 LitmusAI. All rights reserved.
+  - paragraph: Assess. Practice. Certify. Apply.

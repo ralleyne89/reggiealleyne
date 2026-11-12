@@ -24,6 +24,7 @@ import CaseStudyChapterNav, {
 } from "@/components/project/CaseStudyChapterNav";
 import PullQuote from "@/components/project/PullQuote";
 import NextProjectTakeover from "@/components/project/NextProjectTakeover";
+import ScreensFirstCaseStudy from "@/components/project/ScreensFirstCaseStudy";
 import { ProjectType } from "@/types/project";
 import {
   getCaseStudyNarrative,
@@ -112,7 +113,7 @@ const createMetaByProperty = (property: string) => {
 };
 
 const DEFAULT_SHARE_IMAGE =
-  "https://reggiealleyne.com/images/reggie-alleyne-portfolio-og.jpg";
+  "https://reggiealleyne.com/images/reggie-alleyne-portfolio-og-20260915.jpg";
 const DEFAULT_SHARE_IMAGE_ALT =
   "Reggie Alleyne portfolio with a Figma-inspired canvas and selected product design work.";
 
@@ -406,6 +407,19 @@ const Project = () => {
       </div>
     ),
   };
+
+  // Projects with a curated narrative use the screens-first layout.
+  if (narrative) {
+    return (
+      <div className="min-h-screen pb-24 md:pb-0">
+        <main>
+          <ScreensFirstCaseStudy project={project as ProjectType} />
+          <NextProjectTakeover project={project as ProjectType} />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   return <motion.div initial={{
     opacity: 0
