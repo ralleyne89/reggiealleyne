@@ -7,6 +7,7 @@ import {
   UserRound,
   type LucideIcon,
 } from "lucide-react";
+import type { PointerEvent } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -57,6 +58,20 @@ const routeNavItems: NavRouteItem[] = [
 
 const MotionLink = motion.create(Link);
 
+/** Moves the glass highlight to the pointer; the CSS fades it in and out. */
+const trackGlassPointer = (event: PointerEvent<HTMLElement>) => {
+  if (event.pointerType !== "mouse") return;
+  const nav = event.currentTarget;
+  const rect = nav.getBoundingClientRect();
+  nav.style.setProperty("--glass-x", `${event.clientX - rect.left}px`);
+  nav.style.setProperty("--glass-y", `${event.clientY - rect.top}px`);
+  nav.style.setProperty("--glass-glow", "1");
+};
+
+const releaseGlassPointer = (event: PointerEvent<HTMLElement>) => {
+  event.currentTarget.style.setProperty("--glass-glow", "0");
+};
+
 const getNavItemKey = (item: NavItem) =>
   item.kind === "route" ? item.path : `action:${item.title}`;
 
@@ -100,8 +115,8 @@ const Navbar = () => {
         "h-12 min-h-12 min-w-0 flex-1 flex-col gap-0.5 px-1 py-1 text-[0.65rem]",
       "focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950",
       isActive
-        ? "liquid-glass-control liquid-glass-nav-control text-zinc-50 shadow-sm"
-        : "text-zinc-400 hover:bg-white/10 hover:text-zinc-50",
+        ? "liquid-glass-control liquid-glass-nav-control text-zinc-50"
+        : "text-zinc-200 hover:text-zinc-50",
     );
 
   const renderNavItemContent = (
@@ -189,8 +204,10 @@ const Navbar = () => {
       transition={{ type: "spring", stiffness: 300, damping: 26 }}
       role="navigation"
       aria-label="Primary navigation"
+      onPointerMove={trackGlassPointer}
+      onPointerLeave={releaseGlassPointer}
       className={cn(
-        "liquid-glass liquid-glass-nav pointer-events-auto flex h-[3.35rem] min-w-0 max-w-[calc(100vw-1.5rem)] items-center gap-1 rounded-full p-1.5 shadow-xl",
+        "liquid-glass liquid-glass-nav pointer-events-auto flex h-[3.35rem] min-w-0 max-w-[calc(100vw-1.5rem)] items-center gap-1 rounded-full p-1.5 ",
         className,
       )}
     >

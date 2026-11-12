@@ -5,7 +5,10 @@ Status: built and verified on a Netlify draft preview. **Not yet on production.*
 ## What was built
 - **Home:** existing hero, now with layers in real depth, a relief bust of the portrait and a three.js scene of product screens behind it (desktop with a mouse only). Lead work stack: Motorflow, Staybooked, CLLCTVE. Statement section. More selected work: Tech Noir, Litmus AI, Covelo, SymptomCheckr. Playground preview. Contact.
 - **Case studies:** screens-first template for the 11 projects that have a curated narrative. The other five keep the older layout.
+- **Work:** the file's frame index. Three lead artboards on a canvas, then the other frames as a grid that selects on hover.
+- **About:** a spec page. Portrait as the selected layer with a properties panel, Design and Code joined by a prototype connector, experience as a history list.
 - **Playground:** canvas of draggable artboards.
+- **Nav:** dark translucent glass with a rim light and a highlight that follows the pointer. It falls back to solid dark where blur is unsupported or reduced transparency is on.
 - **Design-file chrome:** rulers, page and scroll readout, Layers panel (desktop with a mouse).
 - **Search:** one HTML file per route with its own title, description, canonical and share image; CreativeWork data on projects; `robots.txt`, `sitemap.xml`; unknown URLs return a real 404.
 - **Icons and share image:** the RA stars set and `reggie-alleyne-portfolio-og-20260915.jpg`.
@@ -43,7 +46,6 @@ Status: built and verified on a Netlify draft preview. **Not yet on production.*
 ## Deferred or assumed
 - CLLCTVE figures (500+ creators, 15 partnerships, 85% retention) are shown as reported in the resume; the company is closed and they cannot be sourced.
 - The bust is a relief built from the portrait's silhouette, not a full 360 model. A full model needs image-to-3D credits (38 on Higgsfield) or a scan.
-- Work and About kept their layouts; they gained the chrome, layers and contrast fixes only.
 - Home mobile LCP is about 4.3 s on simulated 4G because the hero reveals after its intro.
 - The word-by-word statements start dim and light up on scroll; they fail contrast until lit.
 - Local edits to hero, pages and project components from the Sep-Oct working tree were not merged where `main` already had newer versions. They are preserved on branch `local-oct28-work`.

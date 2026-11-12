@@ -11,6 +11,7 @@ Branch: `claude/portfolio-audit-fixes`. Nothing is published.
 - 5 Search and measurement: done except analytics (blocked on an Umami website ID) and Search Console (no access)
 - 6 Accessibility: axe AA clean on 7 pages at two widths, keyboard pass done; screen reader pass not done
 - 7 Final QA: verify script passes on the preview; Lighthouse home mobile 83, case study mobile 86, home desktop 92; Chrome only
+- Nov 12: at Checkpoint B Reggie asked for Work and About rebuilt and a dark liquid-glass nav first. Done: `src/pages/Works.tsx`, `src/pages/About.tsx`, nav glass in `src/index.css` and `Navbar.tsx`. axe AA clean on both pages at two widths. Copy on both pages is unchanged; About dropped its duplicate closing CTA.
 - **Checkpoint B: waiting on Reggie's go for production.** Preview: https://6af56842330e7793ba89cb5a--reggiealleyne-pr5-preview.netlify.app
 - 8 Launch: not started
 - 9 Handoff: `handoff.md` drafted, to be finalised after launch
