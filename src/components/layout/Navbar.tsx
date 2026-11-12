@@ -7,8 +7,9 @@ import {
   UserRound,
   type LucideIcon,
 } from "lucide-react";
-import type { PointerEvent } from "react";
+import { useRef, type PointerEvent, type ReactNode } from "react";
 import { motion } from "framer-motion";
+import { useLiquidGlass } from "@/lib/liquidGlass";
 import { cn } from "@/lib/utils";
 
 type NavRouteItem = {
@@ -74,6 +75,65 @@ const releaseGlassPointer = (event: PointerEvent<HTMLElement>) => {
 
 const getNavItemKey = (item: NavItem) =>
   item.kind === "route" ? item.path : `action:${item.title}`;
+
+type GlassNavProps = { className?: string; children: ReactNode };
+
+/**
+ * The nav pill. In Chromium its backdrop is bent at the rim by an SVG
+ * displacement map sized to the pill; elsewhere it keeps the CSS blur.
+ */
+const GlassNav = ({ className, children }: GlassNavProps) => {
+  const ref = useRef<HTMLElement>(null);
+  const { filterId, map, strength } = useLiquidGlass(ref);
+  const refract = map
+    ? `url(#${filterId}) saturate(1.7) brightness(0.46)`
+    : undefined;
+
+  return (
+    <motion.nav
+      ref={ref}
+      initial={{ scale: 0.94, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 300, damping: 26 }}
+      role="navigation"
+      aria-label="Primary navigation"
+      onPointerMove={trackGlassPointer}
+      onPointerLeave={releaseGlassPointer}
+      data-refract={map ? "true" : undefined}
+      style={refract ? { backdropFilter: refract, WebkitBackdropFilter: refract } : undefined}
+      className={cn(
+        "liquid-glass liquid-glass-nav pointer-events-auto flex h-[3.35rem] min-w-0 max-w-[calc(100vw-1.5rem)] items-center gap-1 rounded-full p-1.5",
+        className,
+      )}
+    >
+      {map ? (
+        <svg className="liquid-glass-defs" aria-hidden="true" focusable="false">
+          <filter
+            id={filterId}
+            x="0"
+            y="0"
+            width={map.width}
+            height={map.height}
+            filterUnits="userSpaceOnUse"
+            primitiveUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB"
+          >
+            <feImage href={map.href} x="0" y="0" width={map.width} height={map.height} result="map" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1.4" result="soft" />
+            <feDisplacementMap
+              in="soft"
+              in2="map"
+              scale={strength}
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+          </filter>
+        </svg>
+      ) : null}
+      {children}
+    </motion.nav>
+  );
+};
 
 const Navbar = () => {
   const location = useLocation();
@@ -198,19 +258,7 @@ const Navbar = () => {
     showLogo = false,
     surface: NavSurface = "desktop",
   ) => (
-    <motion.nav
-      initial={{ scale: 0.94, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 300, damping: 26 }}
-      role="navigation"
-      aria-label="Primary navigation"
-      onPointerMove={trackGlassPointer}
-      onPointerLeave={releaseGlassPointer}
-      className={cn(
-        "liquid-glass liquid-glass-nav pointer-events-auto flex h-[3.35rem] min-w-0 max-w-[calc(100vw-1.5rem)] items-center gap-1 rounded-full p-1.5 ",
-        className,
-      )}
-    >
+    <GlassNav className={className}>
       {showLogo ? (
         <MotionLink
           to="/"
@@ -231,7 +279,7 @@ const Navbar = () => {
       ) : null}
 
       {navItems.map((item) => renderNavItem(item, surface))}
-    </motion.nav>
+    </GlassNav>
   );
 
   return (
