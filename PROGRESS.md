@@ -32,9 +32,9 @@ Branch: `claude/portfolio-audit-fixes`. Nothing is published.
 
 ## Pass 2 (design, motion, case studies), started Nov 11
 - Audit done from scroll captures at 1440 and 390: hero is the strongest surface; below it the home page is stacked cards, text rows and a nine-row tool list with fade-in motion only; case studies run about 8,100px desktop / 11,500px mobile, mostly bordered text boxes, small screenshots and stock 3D icons; no WebGL anywhere; `DESIGN.md` describes an older build.
-- Research: five Mobbin section sweeps done. Awwwards list gathered but no site watched live (see `direction.md`, Open items).
-- Reggie's decisions: keep hero and rebuild the rest; 3D moment is the hero canvas in depth; case studies go screens first; lead work is Staybooked, MotorFlow, Litmus AI.
-- `direction.md` written. Build not started: waiting on Reggie's go on the direction.
+- Research: five Mobbin section sweeps done. Awwwards: Jesper Landberg and Olha Lazarieva watched live in Chrome on Nov 11.
+- Reggie's decisions: keep hero and rebuild the rest; 3D moment is the hero canvas in depth; case studies go screens first; lead work is MotorFlow first (Reggie), then Staybooked and Tech Noir (Claude's pick, reasoning in `direction.md`).
+- `direction.md` written and approved with the MotorFlow change (Nov 11). Build not started.
 - Still to do in this pass: per-project share cards, CreativeWork structured data, empty H2s on case studies, case-study title punctuation.
 - Preview deploy is on hold until this pass is built (Reggie, Nov 11).
 

@@ -18,7 +18,9 @@ Three things only this portfolio has: the Figma canvas with its selection frames
 ## References
 | Reference | Source | What it lends |
 |---|---|---|
-| Corentin Bernadou portfolio (2026) | Awwwards / Codrops | Primary. A design tool's own furniture (rulers, grid) used as the interface, three.js geometry behind real HTML, GSAP + Lenis pacing. **Not yet watched live**: taken from published write-ups, see Open items. |
+| Jesper Landberg portfolio (SOTD Sep 29, 2026), watched live | Awwwards | **Primary.** Projects are curved screens with live video inside, standing in one WebGL space over a perspective grid floor; scroll slides the row and the screens flex with speed; one canvas, HTML labels in the corners, near-black ground. Lends: work shown as real screens in depth, the grid floor, velocity flex. |
+| Olha Lazarieva portfolio (Portfolio winners list), home and one case study watched live | Awwwards | Kinetic type: headlines set on curved paths that bend with scroll, a statement whose words scatter as it leaves, numbered sections (2/5), condensed display with mono labels. Case study: 232 words and 19 media in about 9,500px; one meta row, two short paragraphs, then full-bleed screens on a ground coloured from the project, with the project name drifting behind them. |
+| Corentin Bernadou portfolio (2026) | Codrops / Abduzeedo write-ups, not watched | Secondary. A design tool's rulers and grid used as interface furniture. |
 | Cloudstudio, "Selected work" | Mobbin | Home lead work: full-bleed project tiles, index numeral, big title, one number per tile, no card chrome. |
 | Jasper customer story header | Mobbin | Case-study opening: title beside one large image, then a single row of large figures under a hairline. |
 | FLORA, "01 Ideate / 02 Iterate / 03 Scale" | Mobbin | Process section: numbered steps where each tile holds live product UI, replacing the stock 3D icons. |
@@ -31,18 +33,18 @@ Three things only this portfolio has: the Figma canvas with its selection frames
 - Logo: RA comet mark.
 
 ## Motion concept
-Signature moment: **the hero canvas in depth.** The artboard outline, the layer panels, the Design / Code / Prototype chips and the portrait become separate planes in one three.js scene. Scroll pulls the camera through them in three beats (design, code, shipped) and lands on the first Staybooked screen, so the hand-off from hero to work is one continuous move. 3D tier 1, code-only route (no Blender), inspired by the Bernadou reference.
+Signature moment: **the hero canvas in depth.** The artboard outline, the layer panels, the Design / Code / Prototype chips and the portrait become separate planes in one three.js scene. Scroll pulls the camera through them in three beats (design, code, shipped) and lands on the first Staybooked screen, so the hand-off from hero to work is one continuous move. 3D tier 1, code-only route (no Blender). Landberg's site shows the grammar: real screens as bendable planes over a grid floor. Here the floor is the Figma canvas grid and the planes are the hero's own panels and product screens.
 
 Supporting moments:
-1. Lead work as a pinned stack: Staybooked, MotorFlow, Litmus AI. Each tile's screen sits inside a selection frame that resizes to the next project.
+1. Lead work as a pinned stack: MotorFlow, Staybooked, Tech Noir. Each tile's screen sits inside a selection frame that resizes to the next project.
 2. Case-study walkthrough: one pinned section where the product screen stays put and the caption swaps per step.
 3. Shared-element transition from a work tile into the case-study header (GSAP Flip).
-4. Statement paragraph on the home page whose words light up with scroll.
+4. Statement paragraph on the home page set on a path that bends with scroll velocity and settles flat (from Lazarieva), with words lighting up as it scrolls.
 
 ## Structure changes
-- Home order: hero, lead work (Staybooked, MotorFlow, Litmus AI), statement, more work rows, playground, contact. The nine-row tool list moves to About.
-- CLLCTVE moves from lead position to "More work".
-- Case study template, screens first: header with one large screen and a figure row; problem, decision, proof in three short blocks; pinned walkthrough; evidence gallery; reflection; next project. Target about half the current length.
+- Home order: hero, lead work (MotorFlow first, then Staybooked and Tech Noir), statement, more work rows, playground, contact. The nine-row tool list moves to About.
+- CLLCTVE and Litmus AI move to "More work". Lead order reasoning: MotorFlow first (Reggie, Nov 11). Staybooked second as the solo AI product PRODUCT.md already names the strongest case study. Tech Noir third because it is the one shipped team product and the one mobile app, and its playable demo gives the stack a different kind of proof than a third solo web build.
+- Case study template, screens first: header with one large screen and a figure row; problem, decision, proof in three short blocks; pinned walkthrough; evidence gallery; reflection; next project. Current pages run 530 to 1,100 words with 13 to 19 images; the Lazarieva case study carries 19 media on 232 words. Target under 400 words per case study with every screen at least half the viewport wide.
 - Process-step 3D icons removed; each step shows the real screen it produced.
 
 ## Hard rules
@@ -56,6 +58,6 @@ Supporting moments:
 8. No pinned section holds longer than three viewport heights. Nothing snaps or captures the wheel.
 
 ## Open items
-- Awwwards: winners list gathered (Colombel 2026, Jesper Landberg, Maria Vasilyeva, Léo Parpeix, Bruno Simon), but awwwards.com blocks automated reading and the Mac's Chrome returned a black frame mid-preloader, so no reference has been watched in motion yet. Needs a pass with the Mac awake, or references from Reggie.
+- Awwwards: two winners watched live in Chrome on Nov 11 (Landberg; Lazarieva home and case study). Pacôme Pertant's site returned an error page. Bernadou is still write-ups only.
 - Build log (`~/.motion-first-web/build-log.md`) not reachable from this session, so the no-repeat check against the last three builds is not done.
-- Deploy method for the Netlify production site is unknown; production holds per-route HTML this repo does not build.
+- Production (Netlify project `reggiealleyne`) holds per-route HTML from an earlier CLI deploy that this repo does not build, and Reggie does not know its source. Plan: generate per-route HTML at build time in this repo before any production deploy, which also fixes per-project share cards.
