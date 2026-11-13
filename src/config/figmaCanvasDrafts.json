@@ -1705,5 +1705,630 @@
     ]
    }
   ]
+ },
+ "helm": {
+  "project": "Drafts",
+  "fileName": "Helm — Web App + Brand Design",
+  "pages": [
+   {
+    "name": "Research & Assumptions",
+    "frames": [
+     {
+      "name": "Research / Brief",
+      "file": "01-01-research-brief",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 1526
+     },
+     {
+      "name": "Research / Scope and validation",
+      "file": "01-02-research-scope-and-validation",
+      "x": 1740,
+      "y": 220,
+      "width": 1440,
+      "height": 1797
+     },
+     {
+      "name": "Research / Assumptions register",
+      "file": "01-03-research-assumptions-register",
+      "x": 3580,
+      "y": 220,
+      "width": 1440,
+      "height": 1656
+     },
+     {
+      "name": "Research / Sources",
+      "file": "01-04-research-sources",
+      "x": 5120,
+      "y": 220,
+      "width": 1120,
+      "height": 3227
+     },
+     {
+      "name": "Research / Findings",
+      "file": "01-05-research-findings",
+      "x": 200,
+      "y": 3867,
+      "width": 1440,
+      "height": 2177
+     },
+     {
+      "name": "Research / Competitive review",
+      "file": "01-06-research-competitive-review",
+      "x": 1740,
+      "y": 3867,
+      "width": 1440,
+      "height": 1182
+     }
+    ]
+   },
+   {
+    "name": "Personas & Flows",
+    "frames": [
+     {
+      "name": "Persona / The solo operator",
+      "file": "02-01-persona-the-solo-operator",
+      "x": 200,
+      "y": 220,
+      "width": 740,
+      "height": 1154
+     },
+     {
+      "name": "Persona / The small-team lead",
+      "file": "02-02-persona-the-small-team-lead",
+      "x": 1040,
+      "y": 220,
+      "width": 740,
+      "height": 1124
+     },
+     {
+      "name": "Public sitemap",
+      "file": "02-03-public-sitemap",
+      "x": 2180,
+      "y": 220,
+      "width": 1440,
+      "height": 804
+     },
+     {
+      "name": "Visual sitemap",
+      "file": "02-04-visual-sitemap",
+      "x": 3720,
+      "y": 220,
+      "width": 1440,
+      "height": 1345
+     },
+     {
+      "name": "Core user flow",
+      "file": "02-05-core-user-flow",
+      "x": 5260,
+      "y": 220,
+      "width": 1440,
+      "height": 608
+     },
+     {
+      "name": "Recovery paths",
+      "file": "02-06-recovery-paths",
+      "x": 200,
+      "y": 1985,
+      "width": 1440,
+      "height": 647
+     },
+     {
+      "name": "Walkthrough checks",
+      "file": "02-07-walkthrough-checks",
+      "x": 1740,
+      "y": 1985,
+      "width": 1440,
+      "height": 794
+     },
+     {
+      "name": "Screen coverage",
+      "file": "02-08-screen-coverage",
+      "x": 3580,
+      "y": 1985,
+      "width": 1840,
+      "height": 1125
+     }
+    ]
+   },
+   {
+    "name": "Wireframes",
+    "frames": [
+     {
+      "name": "Wireframes / START",
+      "file": "03-01-wireframes-start",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 944
+     },
+     {
+      "name": "W01 / Homepage — Desktop",
+      "file": "03-02-w01-homepage-desktop",
+      "x": 200,
+      "y": 1500,
+      "width": 1440,
+      "height": 10539
+     },
+     {
+      "name": "W02 / Pricing — Desktop",
+      "file": "03-03-w02-pricing-desktop",
+      "x": 2040,
+      "y": 1500,
+      "width": 1440,
+      "height": 3346
+     },
+     {
+      "name": "W03 / Sign up — Desktop",
+      "file": "03-04-w03-sign-up-desktop",
+      "x": 3880,
+      "y": 1500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W04 / Board, first run — Desktop",
+      "file": "03-05-w04-board-first-run-desktop",
+      "x": 5720,
+      "y": 1500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W05 / Board, crew working — Desktop",
+      "file": "03-06-w05-board-crew-working-desktop",
+      "x": 7320,
+      "y": 1500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W06 / Board, decision waiting — Desktop",
+      "file": "03-07-w06-board-decision-waiting-desktop",
+      "x": 8920,
+      "y": 1500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W07 / Board, quest complete — Desktop",
+      "file": "03-08-w07-board-quest-complete-desktop",
+      "x": 10520,
+      "y": 1500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W08 / HQ — Desktop",
+      "file": "03-09-w08-hq-desktop",
+      "x": 12360,
+      "y": 1500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W09 / Party — Desktop",
+      "file": "03-10-w09-party-desktop",
+      "x": 14200,
+      "y": 1500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W10 / Loot — Desktop",
+      "file": "03-11-w10-loot-desktop",
+      "x": 16040,
+      "y": 1500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W11 / Patrols — Desktop",
+      "file": "03-12-w11-patrols-desktop",
+      "x": 17880,
+      "y": 1500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W12 / Billing — Desktop",
+      "file": "03-13-w12-billing-desktop",
+      "x": 200,
+      "y": 12500,
+      "width": 1440,
+      "height": 1025
+     },
+     {
+      "name": "W12b / Settings — Desktop",
+      "file": "03-14-w12b-settings-desktop",
+      "x": 1800,
+      "y": 12500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W13 / Privacy — Desktop",
+      "file": "03-15-w13-privacy-desktop",
+      "x": 3640,
+      "y": 12500,
+      "width": 1440,
+      "height": 2371
+     },
+     {
+      "name": "Responsive / Board, decision waiting — 390 px",
+      "file": "03-16-responsive-board-decision-waiting-390-px",
+      "x": 5480,
+      "y": 12500,
+      "width": 390,
+      "height": 844
+     },
+     {
+      "name": "Responsive / Party — 390 px",
+      "file": "03-17-responsive-party-390-px",
+      "x": 5950,
+      "y": 12500,
+      "width": 390,
+      "height": 844
+     }
+    ]
+   },
+   {
+    "name": "Foundations",
+    "frames": [
+     {
+      "name": "Foundations / Typography",
+      "file": "04-01-foundations-typography",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 1246
+     },
+     {
+      "name": "Foundations / Color",
+      "file": "04-02-foundations-color",
+      "x": 2040,
+      "y": 220,
+      "width": 1440,
+      "height": 1723
+     },
+     {
+      "name": "Foundations / Borders and motion",
+      "file": "04-03-foundations-borders-and-motion",
+      "x": 3880,
+      "y": 220,
+      "width": 1440,
+      "height": 1077
+     }
+    ]
+   },
+   {
+    "name": "Components",
+    "frames": [
+     {
+      "name": "01 — Brand & navigation",
+      "file": "05-01-01-brand-navigation",
+      "x": 120,
+      "y": 120,
+      "width": 1840,
+      "height": 1892
+     },
+     {
+      "name": "02 — Actions",
+      "file": "05-02-02-actions",
+      "x": 2200,
+      "y": 120,
+      "width": 1840,
+      "height": 1491
+     },
+     {
+      "name": "03 — Form controls",
+      "file": "05-03-03-form-controls",
+      "x": 120,
+      "y": 2252,
+      "width": 1840,
+      "height": 813
+     },
+     {
+      "name": "04 — Cards & pricing",
+      "file": "05-04-04-cards-pricing",
+      "x": 2200,
+      "y": 2252,
+      "width": 1840,
+      "height": 2167
+     },
+     {
+      "name": "05 — Lists & tables",
+      "file": "05-05-05-lists-tables",
+      "x": 120,
+      "y": 4659,
+      "width": 1840,
+      "height": 1121
+     },
+     {
+      "name": "06 — Workflows & dialogs",
+      "file": "05-06-06-workflows-dialogs",
+      "x": 2200,
+      "y": 4659,
+      "width": 1840,
+      "height": 1849
+     },
+     {
+      "name": "07 — Main components",
+      "file": "05-07-07-main-components",
+      "x": 4280,
+      "y": 120,
+      "width": 5136,
+      "height": 5147
+     }
+    ]
+   },
+   {
+    "name": "Core Screens",
+    "frames": [
+     {
+      "name": "Core Screens / Launcher",
+      "file": "06-01-core-screens-launcher",
+      "x": 200,
+      "y": 220,
+      "width": 1840,
+      "height": 721
+     },
+     {
+      "name": "Homepage / Desktop · 1440 px",
+      "file": "06-02-homepage-desktop-1440-px",
+      "x": 200,
+      "y": 1700,
+      "width": 1440,
+      "height": 10539
+     },
+     {
+      "name": "Pricing / Desktop · 1440 px",
+      "file": "06-03-pricing-desktop-1440-px",
+      "x": 2040,
+      "y": 1700,
+      "width": 1440,
+      "height": 3346
+     },
+     {
+      "name": "Sign up / Desktop · 1440 px",
+      "file": "06-04-sign-up-desktop-1440-px",
+      "x": 3880,
+      "y": 1700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Privacy / Desktop · 1440 px",
+      "file": "06-05-privacy-desktop-1440-px",
+      "x": 5720,
+      "y": 1700,
+      "width": 1440,
+      "height": 2371
+     },
+     {
+      "name": "Board / First run · 1440 px",
+      "file": "06-06-board-first-run-1440-px",
+      "x": 200,
+      "y": 12700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Board / Crew working · 1440 px",
+      "file": "06-07-board-crew-working-1440-px",
+      "x": 1800,
+      "y": 12700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Board / Decision waiting · 1440 px",
+      "file": "06-08-board-decision-waiting-1440-px",
+      "x": 3400,
+      "y": 12700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Board / Quest complete · 1440 px",
+      "file": "06-09-board-quest-complete-1440-px",
+      "x": 5000,
+      "y": 12700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "HQ / Desktop · 1440 px",
+      "file": "06-10-hq-desktop-1440-px",
+      "x": 6840,
+      "y": 12700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Party / Desktop · 1440 px",
+      "file": "06-11-party-desktop-1440-px",
+      "x": 8680,
+      "y": 12700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Loot / Desktop · 1440 px",
+      "file": "06-12-loot-desktop-1440-px",
+      "x": 10520,
+      "y": 12700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Patrols / Desktop · 1440 px",
+      "file": "06-13-patrols-desktop-1440-px",
+      "x": 12360,
+      "y": 12700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Billing / Desktop · 1440 px",
+      "file": "06-14-billing-desktop-1440-px",
+      "x": 200,
+      "y": 14020,
+      "width": 1440,
+      "height": 1025
+     },
+     {
+      "name": "Settings / Desktop · 1440 px",
+      "file": "06-15-settings-desktop-1440-px",
+      "x": 1800,
+      "y": 14020,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Homepage / Mobile · 390 px",
+      "file": "06-16-homepage-mobile-390-px",
+      "x": 3640,
+      "y": 14020,
+      "width": 390,
+      "height": 12768
+     },
+     {
+      "name": "Board / First run · 390 px",
+      "file": "06-17-board-first-run-390-px",
+      "x": 4110,
+      "y": 14020,
+      "width": 390,
+      "height": 844
+     },
+     {
+      "name": "Board / Decision waiting · 390 px",
+      "file": "06-18-board-decision-waiting-390-px",
+      "x": 4580,
+      "y": 14020,
+      "width": 390,
+      "height": 844
+     },
+     {
+      "name": "Board / Quest complete · 390 px",
+      "file": "06-19-board-quest-complete-390-px",
+      "x": 5050,
+      "y": 14020,
+      "width": 390,
+      "height": 844
+     },
+     {
+      "name": "Party / Mobile · 390 px",
+      "file": "06-20-party-mobile-390-px",
+      "x": 5520,
+      "y": 14020,
+      "width": 390,
+      "height": 844
+     }
+    ]
+   },
+   {
+    "name": "Presentation",
+    "frames": [
+     {
+      "name": "Slide 01 / Cover",
+      "file": "09-01-slide-01-cover",
+      "x": 200,
+      "y": 220,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 02 / The goal",
+      "file": "09-02-slide-02-the-goal",
+      "x": 2200,
+      "y": 220,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 03 / Who it is for",
+      "file": "09-03-slide-03-who-it-is-for",
+      "x": 4200,
+      "y": 220,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 04 / Evidence",
+      "file": "09-04-slide-04-evidence",
+      "x": 6200,
+      "y": 220,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 05 / The flow",
+      "file": "09-05-slide-05-the-flow",
+      "x": 200,
+      "y": 1410,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 06 / The Board",
+      "file": "09-06-slide-06-the-board",
+      "x": 2200,
+      "y": 1410,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 07 / The decision box",
+      "file": "09-07-slide-07-the-decision-box",
+      "x": 4200,
+      "y": 1410,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 08 / Pricing",
+      "file": "09-08-slide-08-pricing",
+      "x": 6200,
+      "y": 1410,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 09 / The game layer",
+      "file": "09-09-slide-09-the-game-layer",
+      "x": 200,
+      "y": 2600,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 10 / The system",
+      "file": "09-10-slide-10-the-system",
+      "x": 2200,
+      "y": 2600,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 11 / Mobile",
+      "file": "09-11-slide-11-mobile",
+      "x": 4200,
+      "y": 2600,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 12 / What is not proven",
+      "file": "09-12-slide-12-what-is-not-proven",
+      "x": 6200,
+      "y": 2600,
+      "width": 1920,
+      "height": 1080
+     }
+    ]
+   }
+  ]
  }
 }
