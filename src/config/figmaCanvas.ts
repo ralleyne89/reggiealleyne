@@ -35,7 +35,7 @@ const f = (
   height: number,
 ): FigmaFrame => ({ name, file, x, y, width, height });
 
-/** Team files, entered by hand. */
+/** Team files entered by hand. */
 const teamFiles: Record<string, FigmaFile> = {
   "tutor-d": {
     project: "Portfolio Projects",
@@ -107,39 +107,12 @@ const teamFiles: Record<string, FigmaFile> = {
       },
     ],
   },
-  staybooked: {
-    project: "StayBooked AI",
-    fileName: "Website Desktop",
-    pages: [
-      {
-        name: "Staybooked Homepage",
-        frames: [
-          f("Staybooked Homepage / Desktop 1440", "homepage-desktop-1440", 80, 80, 1440, 3580),
-          f("Staybooked Homepage / Mobile 390", "homepage-mobile-390", 1600, 80, 390, 2860),
-        ],
-      },
-      {
-        name: "Staybooked Editor Variations",
-        frames: [
-          f("Editor V1 / Left Rail Studio", "editor-v1-left-rail-studio", 0, 0, 1440, 1024),
-          f("Editor V2 / Command Bar Inspector", "editor-v2-command-bar-inspector", 1600, 0, 1440, 1024),
-          f("Editor V3 / Freeform Canvas", "editor-v3-freeform-canvas", 3200, 0, 1440, 1024),
-          f("Editor V4 / Decision Cockpit", "editor-v4-decision-cockpit", 4800, 0, 1440, 1024),
-          f("Editor V5 / Editorial References", "editor-v5-editorial-references", 6400, 0, 1440, 1024),
-          f("Room optimizer", "editor-room-optimizer", 0, 1632, 1440, 1024),
-        ],
-      },
-      {
-        name: "Staybooked Components",
-        frames: [f("Component overview", "components-page", 80, 80, 1160, 1172)],
-      },
-    ],
-  },
 };
 
 /**
- * Litmus AI and Motorflow live in Drafts. Their frames were cut from page
- * exports by script, which wrote figmaCanvasDrafts.json.
+ * Litmus AI, Motorflow and Staybooked follow the ten-page file structure.
+ * Their frames were cut from page exports by script, which wrote
+ * figmaCanvasDrafts.json.
  */
 export const figmaFiles: Record<string, FigmaFile> = {
   ...teamFiles,
