@@ -386,11 +386,11 @@ export const caseStudyBriefs: Partial<
     constraint:
       "The test had to stay short enough for busy users while still producing learning signals a team could trust.",
     coreDecision:
-      "Start with adaptive assessment, then route people into the training, certification, or team view that matched what they missed.",
+      "Start with a level-based assessment, then route people into the training, certification, or team view that matched what they missed.",
     evidence:
       "Shipped an MVP with assessment, role-aware recommendations, progress tracking, certification, billing, and admin visibility.",
     artifacts: [
-      "Adaptive assessment flow",
+      "Level-based assessment flow",
       "Results and recommendations",
       "Training, certificate, and billing paths",
     ],
@@ -577,7 +577,7 @@ export const caseStudyNarratives: Record<
     constraint:
       "The assessment had to stay short without becoming shallow. If the flow took too long, users would leave. If it was too light, the score would not justify the learning path, certificate, or team rollout.",
     decision:
-      "I compressed the first session into an adaptive assessment, then made the result actionable through recommendations, training modules, certification access, billing plans, and admin visibility.",
+      "I compressed the first session into a level-based assessment, then made the result actionable through recommendations, training modules, certification access, billing plans, and admin visibility.",
     build:
       "I shaped the quiz, results, recommendation logic, certificate flow, training surfaces, admin dashboard, auth paths, and Stripe-backed billing. The implementation connected assessment data, account state, and subscription rules into one MVP.",
     proof:

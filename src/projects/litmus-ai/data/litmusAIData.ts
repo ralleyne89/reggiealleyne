@@ -29,7 +29,7 @@ import { AIProductThinkingProps } from "@/components/project/common/AIProductThi
 export const litmusAIAIPMData: AIProductThinkingProps = {
   title: "Testing AI judgment quickly",
   challenge: "How do we test genuine understanding vs. buzzword familiarity without requiring hours of assessment?",
-  dataStrategy: "Used GPT-5 for dynamic question generation, with prompt guardrails that changed difficulty based on each answer.",
+  dataStrategy: "Used a language model through OpenRouter to generate each question set, with prompt guardrails that set difficulty from the level the learner picks.",
   successMetric: "Designed the assessment around a five-minute target, with completion and result comprehension left as measures for the first user study."
 };
 
@@ -37,9 +37,9 @@ export const litmusAIAIPMData: AIProductThinkingProps = {
 export const litmusAIOverviewData: ProjectOverviewProps = {
   title: "AI literacy assessment and certification MVP",
   description: [
-    "Shipped an AI literacy platform with adaptive testing, Stripe subscription plans, certificate paths, and an admin dashboard.",
+    "Shipped an AI literacy platform with level-based testing, Stripe subscription plans, certificate paths, and an admin dashboard.",
     "Most certification products ask users to commit hours before they learn anything useful. HR leaders needed a faster baseline signal. Learners needed to know whether a course was worth their time.",
-    "The product uses a React and Next.js frontend, GPT-5 assessment prompts across five readiness domains, a Supabase backend, and Stripe subscription checkout for Free, Premium, and Enterprise plans."
+    "The product uses a React and Vite frontend, language-model assessment prompts through OpenRouter across five readiness domains, a Supabase backend, and Stripe subscription checkout for Free, Premium, and Enterprise plans."
   ],
   projectDetails: [
     {
@@ -61,12 +61,12 @@ export const litmusAIOverviewData: ProjectOverviewProps = {
   toolDetails: [
     {
       label: "Frontend",
-      value: "React + Next.js",
+      value: "React + Vite",
       icon: Code
     },
     {
       label: "AI Engine",
-      value: "GPT-5 Adaptive Assessment",
+      value: "Level-based AI assessment",
       icon: Brain
     },
     {
@@ -176,7 +176,7 @@ export const litmusAIIdeationData: IdeationStrategyProps = {
   keyInsights: [
     {
       highlight: "Adaptive questions gave the score more signal.",
-      description: "GPT-powered question generation adjusted difficulty based on responses, so the assessment could probe beyond a fixed question bank."
+      description: "Language-model question generation set difficulty from the chosen level, so the assessment could go beyond a fixed question bank."
     },
     {
       highlight: "Users needed a result in under 5 minutes.",
@@ -327,7 +327,7 @@ export const litmusAITradeoffsData = {
   introduction: "The MVP kept a narrow first-session path so the assessment, result, training, and subscription states could ship as one product.",
   tradeoffs: [
     {
-      built: "5-minute adaptive test",
+      built: "5-minute level-based test",
       rejected: "30-minute comprehensive assessment",
       reasoning: "A shorter assessment reduced the commitment required for a first session. Completion time and drop-off still need a measured study before the duration can be treated as an outcome."
     },
@@ -337,9 +337,9 @@ export const litmusAITradeoffsData = {
       reasoning: "Admin functionality needed to ship first to track users and payments. Fancy analytics could iterate post-launch once we had data to analyze."
     },
     {
-      built: "GPT-5 dynamic question generation",
+      built: "Language-model question generation",
       rejected: "Custom adaptive algorithm from scratch",
-      reasoning: "Building custom adaptive logic would have taken 3+ months alone. Prompt engineering let us leverage GPT-5's capabilities, dramatically reducing dev time while improving question quality."
+      reasoning: "Building custom adaptive logic would have taken 3+ months alone. Prompt engineering let us use a hosted language model, dramatically reducing dev time while improving question quality."
     },
     {
       built: "3 subscription tiers (Free, Premium, Enterprise)",
@@ -355,7 +355,7 @@ export const litmusAIChallengesData: ChallengesLearningsProps = {
   challenges: [
     {
       title: "Adaptive testing got complex fast",
-      description: "I first tried to build custom adaptive logic from scratch. The complexity grew quickly, so I moved the hard part into GPT-5 prompts and focused my time on question quality, scoring, and the user flow."
+      description: "I first tried to build custom adaptive logic from scratch. The complexity grew quickly, so I moved the hard part into model prompts and focused my time on question quality, scoring, and the user flow."
     },
     {
       title: "Speed forced sharper decisions",
@@ -414,7 +414,7 @@ export const litmusAIReflectionData: ReflectionProps = {
     },
     {
       title: "AI had to earn its place",
-      description: "Using AI to assess AI literacy only worked because it changed the product behavior. GPT-5 powered adaptive question generation instead of sitting on the page as a feature label."
+      description: "Using AI to assess AI literacy only worked because it changed the product behavior. Model-generated, level-based questions did real work instead of sitting on the page as a feature label."
     }
   ]
 };
