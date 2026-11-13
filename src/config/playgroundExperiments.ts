@@ -1,5 +1,6 @@
 import {
   Code,
+  Bot,
   Gamepad2,
   Music,
   type LucideIcon,
@@ -18,6 +19,19 @@ export type Experiment = {
 };
 
 export const experiments: Experiment[] = [
+  {
+    title: "Helm",
+    description:
+      "An AI workforce cockpit with a 16-bit game layer. A Lead agent staffs specialists, and you approve anything that sends, spends, or publishes.",
+    proofSignal:
+      "Shows agent oversight UX: one approval pattern, a pause-all control, and a game layer that never hides the work.",
+    tags: ["Next.js", "AI agents", "Game UI"],
+    icon: Bot,
+    previewImage: "/images/helm/home.webp",
+    detailPath: "/project/helm",
+    liveUrl: "https://helm-crew.netlify.app/",
+    status: "Preview",
+  },
   {
     title: "ScentStack",
     description:

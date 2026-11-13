@@ -15,6 +15,7 @@ Branch: `claude/portfolio-audit-fixes`. Nothing is published.
 - Nov 12: Reggie approved launch. PR #5 merged and published to the Netlify project, but reggiealleyne.com DNS points at Lovable (185.158.133.1), so the domain still shows the old site. Reggie chose to repoint DNS to Netlify (A @ 75.2.60.5, CNAME www reggiealleyne.netlify.app); waiting on a Namecheap sign-in.
 - Nov 12: Figma canvas section added to case studies that have a file in Reggie's Figma team (Tutor D, SymptomCheckr, Staybooked) or Drafts (Motorflow, Litmus AI; frames cut from page exports into `src/config/figmaCanvasDrafts.json`). Frames exported from the files; manifest in `src/config/figmaCanvas.ts`; scene in `src/components/project/figmaCanvasScene.ts`. On branch `figma-canvas`, not yet on production.
 - Nov 12: Reggie updated DNS at Namecheap; Netlify issued the certificate; reggiealleyne.com serves the new build over HTTPS. Live verify script passes. PRs #6 (Figma canvas) and #7 (nav refraction) merged and published.
+- Nov 13: Helm added to the Playground as a full case study with its Figma canvas; Litmus AI replaces CLLCTVE as the third lead project (CLLCTVE moves to More selected work); nav rim softened, mobile nav enlarged, desktop nav hides on scroll down. On branch `helm-playground`.
 - **Stage 8 Launch: done.** Preview: https://6af56842330e7793ba89cb5a--reggiealleyne-pr5-preview.netlify.app
 - 8 Launch: done Nov 12 (DNS moved from Lovable to Netlify)
 - 9 Handoff: `handoff.md` finalised; open items listed there under Still to do

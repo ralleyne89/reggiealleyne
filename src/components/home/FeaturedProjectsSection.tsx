@@ -26,7 +26,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const moreSelectedProjectSlugs = [
   "tech-noir",
-  "litmus-ai",
+  "cllctve-platform",
   "covelo-timecard-system",
   "symptom-checkr",
 ] as const;

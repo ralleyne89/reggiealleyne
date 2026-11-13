@@ -11,7 +11,7 @@ import {
 export type FeaturedProjectSlug =
   | "motorflow"
   | "staybooked"
-  | "cllctve-platform";
+  | "litmus-ai";
 
 export interface FeaturedProjectConfig {
   slug: FeaturedProjectSlug;
@@ -131,7 +131,8 @@ export type CaseStudyNarrativeSlug =
   | "vaultjs-validate"
   | "staybooked"
   | "covelo-timecard-system"
-  | "pretty-paws-grooming";
+  | "pretty-paws-grooming"
+  | "helm";
 
 export interface ProjectPersonaSnapshot {
   role: string;
@@ -226,13 +227,13 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
       "Shows how product constraints keep AI suggestions tied to the property a host can deliver.",
   },
   {
-    slug: "cllctve-platform",
-    featuredTitle: "Gen Z Portfolio Platform",
-    eyebrow: "Creator economy / platform design",
+    slug: "litmus-ai",
+    featuredTitle: "Litmus AI",
+    eyebrow: "AI education / assessment",
     impactSummary:
-      "A mobile-first creator portfolio bet that reached 500+ creators, 15 brand partnerships, and 85% retention.",
+      "An AI literacy product that starts with a short assessment, then routes people to the training, certification, or team view that fits the result.",
     reviewerSignal:
-      "Shows the tradeoffs behind mobile behavior, design systems, and brand constraints.",
+      "Shows how a short assessment can stay honest about what it measures while still leading to a clear next step.",
   },
 ];
 
@@ -476,6 +477,24 @@ export const caseStudyNarratives: Record<
   CaseStudyNarrative
 > = {
   motorflow: motorflowNarrative,
+  helm: {
+    hook:
+      "Helm began with one discomfort: an AI agent that can send, spend, and publish needs a moment where a person says yes.",
+    setup:
+      "Helm is an AI workforce for solo operators. You describe an outcome, a Lead agent turns it into a plan and staffs specialists, and each specialist works on its own cloud computer. The interface had to make that much parallel activity readable and stoppable.",
+    research:
+      "The Figma file holds the research brief, an assumptions register, a source list, and a competitive review. There is no participant study yet, so the two personas are working assumptions, and the presentation ends with a slide on what is not proven.",
+    constraint:
+      "I wanted the product to feel like a 16-bit game, and it still had to be a tool someone trusts with their inbox and their budget. The game layer could not make the work harder to read, and it needed one switch to turn it off.",
+    decision:
+      "I built the product around the decision box. In a role-playing game the action stops and a dialog asks you to choose; Helm's approvals are that dialog. The shell stays quiet and dark, pixel treatment goes only to what is alive, and amber is reserved for things waiting on you.",
+    build:
+      "I designed and built the landing page and the cockpit in Next.js: the Board with its four quest states, HQ, Party, Loot, Patrols, billing, and settings. The public preview plays a scripted crew in the browser so the flow can be judged without live agents.",
+    proof:
+      "What exists today is a public preview, a pricing page with three plans, and a Figma file that runs from research through components to core screens. Helm has no paying customers yet, so activation and retention are unmeasured.",
+    reflection:
+      "Designing oversight first changed the order of everything else. Once the approval moment was fixed, levels, trust tiers, and the HQ view became ways to explain how much an agent can do without asking.",
+  },
   "cllctve-platform": {
     hook:
       "CLLCTVE gave Gen Z creators a mobile-first portfolio shaped around how they already shared work, found feedback, and discovered brand opportunities.",
@@ -651,6 +670,21 @@ export const caseStudyNarratives: Record<
 };
 
 export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
+  helm: {
+    role: "Product Designer and Developer",
+    problem:
+      "Operators cannot trust AI agents with sending, spending, and publishing when the only view of the work is a chat window.",
+    decision:
+      "Make approval the centre of the product: one decision box for every risky step, with pause-all and a hard spend cap behind it.",
+    outcome:
+      "A public preview of the landing page and cockpit, with the full design file from research to core screens.",
+    tools: ["Next.js", "Tailwind CSS", "Supabase", "AI SDK", "E2B", "Polar", "Figma"],
+    owned: ["Product strategy", "Cockpit UX", "Design system", "Frontend build"],
+    metrics: [
+      { value: "3", label: "Plans on the pricing page", kind: "delivery-fact" },
+      { value: "4", label: "Quest states on the Board", kind: "delivery-fact" },
+    ],
+  },
   motorflow: motorflowTldr,
   "staybooked": {
     role: "UX/UI Designer and Frontend Developer",
@@ -1863,7 +1897,7 @@ export const projectPersonaProfiles: Partial<Record<
   },
 };
 
-const hiddenFromPrimaryWorksIds = new Set([4, 5, 7, 8, 12]);
+const hiddenFromPrimaryWorksIds = new Set([4, 5, 7, 8, 12, 17]);
 
 export const getFeaturedConfig = (slug?: string) =>
   featuredProjectConfig.find((project) => project.slug === slug);

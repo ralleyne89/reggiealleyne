@@ -302,7 +302,7 @@
 
 @media (max-width: 767px) {
   .site-footer {
-    padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+    padding-bottom: calc(7rem + env(safe-area-inset-bottom));
   }
 }
 
@@ -362,24 +362,22 @@
   --glass-x: 50%;
   --glass-y: 0%;
   --glass-glow: 0;
-  /* Dark Liquid Glass: clear enough to see the page move behind it, with a
-     thin smoke tint so white labels hold 4.5:1 even over a white page. */
-  background-color: rgba(10, 10, 14, 0.4);
+  /* Dark Liquid Glass: mostly clear, with a thin smoke tint so white labels
+     hold 4.5:1 even over a white page. There is no drawn outline; the edge
+     comes from light catching the rim (see ::before). */
+  background-color: rgba(10, 10, 14, 0.34);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 38%, rgba(0, 0, 0, 0.1) 100%),
-    rgba(10, 10, 14, 0.4);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 30%, rgba(0, 0, 0, 0.08) 100%),
+    rgba(10, 10, 14, 0.34);
   border: 0;
   box-shadow:
-    0 18px 44px -10px rgba(0, 0, 0, 0.38),
-    0 4px 12px rgba(0, 0, 0, 0.16),
-    inset 0 0 0 0.5px rgba(255, 255, 255, 0.22),
-    inset 0 1.5px 1px -0.5px rgba(255, 255, 255, 0.55),
-    inset 0 -1.5px 1px -0.5px rgba(255, 255, 255, 0.22),
-    inset 2px 2px 6px -3px rgba(255, 255, 255, 0.28),
-    inset -2px -2px 6px -3px rgba(255, 255, 255, 0.16),
-    inset 0 0 14px 2px rgba(255, 255, 255, 0.05);
-  -webkit-backdrop-filter: blur(6px) saturate(1.7) brightness(0.46);
-  backdrop-filter: blur(6px) saturate(1.7) brightness(0.46);
+    0 16px 40px -14px rgba(0, 0, 0, 0.36),
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 0 18px rgba(255, 255, 255, 0.05),
+    inset 0 1px 8px -2px rgba(255, 255, 255, 0.16),
+    inset 0 -1px 8px -2px rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(6px) saturate(1.7) brightness(0.5);
+  backdrop-filter: blur(6px) saturate(1.7) brightness(0.5);
 }
 
 .liquid-glass-defs { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
@@ -390,14 +388,18 @@
   inset: 0;
   z-index: 0;
   padding: 1px;
-  background: linear-gradient(
-    128deg,
-    rgba(255, 255, 255, 0.78) 0%,
-    rgba(255, 255, 255, 0.14) 22%,
-    rgba(255, 255, 255, 0.02) 50%,
-    rgba(255, 255, 255, 0.14) 78%,
-    rgba(255, 255, 255, 0.56) 100%
-  );
+  /* Light pools on the top and bottom edges and almost vanishes down the
+     sides, the way it does on a real glass slab. */
+  background:
+    linear-gradient(
+      172deg,
+      rgba(255, 255, 255, 0.62) 0%,
+      rgba(255, 255, 255, 0.2) 9%,
+      rgba(255, 255, 255, 0.05) 24%,
+      rgba(255, 255, 255, 0.03) 70%,
+      rgba(255, 255, 255, 0.16) 90%,
+      rgba(255, 255, 255, 0.42) 100%
+    );
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);

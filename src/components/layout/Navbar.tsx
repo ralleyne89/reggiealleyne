@@ -7,7 +7,7 @@ import {
   UserRound,
   type LucideIcon,
 } from "lucide-react";
-import { useRef, type PointerEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type PointerEvent, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { useLiquidGlass } from "@/lib/liquidGlass";
 import { cn } from "@/lib/utils";
@@ -137,6 +137,29 @@ const GlassNav = ({ className, children }: GlassNavProps) => {
 
 const Navbar = () => {
   const location = useLocation();
+  const [hidden, setHidden] = useState(false);
+
+  // Desktop: the nav slides away while reading down and returns on the way up.
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let travel = 0;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastY;
+      lastY = y;
+      // Smooth scrolling arrives in small steps, so act on distance travelled
+      // in one direction rather than on any single step.
+      travel = Math.sign(delta) === Math.sign(travel) ? travel + delta : delta;
+      if (y < 140 || travel < -24) setHidden(false);
+      else if (travel > 48) setHidden(true);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setHidden(false);
+  }, [location.pathname]);
 
   const isActivePath = (path: string) => {
     if (path === "/") {
@@ -156,23 +179,11 @@ const Navbar = () => {
     },
   ];
 
-  const navVariants = {
-    hidden: { opacity: 0, y: -18 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.18,
-      },
-    },
-  };
-
   const navItemClassName = (isActive: boolean, surface: NavSurface) =>
     cn(
       "portfolio-nav-item relative inline-flex h-10 min-h-10 items-center justify-center overflow-hidden rounded-full border border-transparent px-3 py-2 text-sm font-semibold transition-colors duration-200",
       surface === "mobile" &&
-        "h-12 min-h-12 min-w-0 flex-1 flex-col gap-0.5 px-1 py-1 text-[0.65rem]",
+        "h-[3.6rem] min-h-[3.6rem] min-w-0 flex-1 flex-col gap-1 rounded-[1.35rem] px-1 py-1.5 text-[0.7rem]",
       "focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950",
       isActive
         ? "liquid-glass-control liquid-glass-nav-control text-zinc-50"
@@ -191,7 +202,7 @@ const Navbar = () => {
           aria-hidden="true"
           className={cn(
             "h-[1.18rem] w-[1.18rem] shrink-0 transition-colors duration-200",
-            surface === "mobile" && "h-[1.05rem] w-[1.05rem]",
+            surface === "mobile" && "h-[1.45rem] w-[1.45rem]",
           )}
           strokeWidth={2.2}
         />
@@ -205,7 +216,7 @@ const Navbar = () => {
           <span
             className={cn(
               "portfolio-nav-item__label-text truncate text-xs font-semibold leading-5 transition-opacity duration-200",
-              surface === "mobile" && "max-w-full text-[0.62rem] leading-none",
+              surface === "mobile" && "max-w-full text-[0.68rem] leading-none",
             )}
             title={item.title}
           >
@@ -286,9 +297,10 @@ const Navbar = () => {
     <>
       <motion.header
         className="mobile-shell-top pointer-events-none fixed inset-x-0 top-0 z-50 hidden px-3 sm:px-6 sm:pt-4 md:block"
-        initial="hidden"
-        animate="visible"
-        variants={navVariants}
+        initial={{ opacity: 0, y: -18 }}
+        animate={{ opacity: hidden ? 0 : 1, y: hidden ? "-130%" : 0 }}
+        transition={{ duration: hidden ? 0.28 : 0.42, ease: [0.16, 1, 0.3, 1] }}
+        onFocusCapture={() => setHidden(false)}
       >
         <div className="mx-auto flex w-full justify-center">
           {navPill("shrink-0", true)}
@@ -297,7 +309,7 @@ const Navbar = () => {
 
       <div className="mobile-shell-bottom pointer-events-none fixed inset-x-0 bottom-0 z-50 flex justify-center px-2 md:hidden">
         {navPill(
-          "h-16 w-full min-w-0 max-w-[24rem] justify-between gap-0.5 rounded-[2rem] p-2",
+          "h-[4.75rem] w-full min-w-0 max-w-[26rem] justify-between gap-0.5 rounded-[1.9rem] p-2.5",
           false,
           "mobile",
         )}
