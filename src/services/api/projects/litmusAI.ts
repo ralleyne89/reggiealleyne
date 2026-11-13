@@ -6,7 +6,7 @@ export const getLitmusAIProject = (): ProjectType => {
     slug: "litmus-ai",
     title: "Litmus AI: AI Literacy Testing & Certification Platform",
     description:
-      "An adaptive AI literacy test and certificate flow designed around a five-minute target, followed by role-aware lessons and recommendations.",
+      "A level-based AI literacy test and certificate flow designed around a five-minute target, followed by role-aware lessons and recommendations.",
     role: "UX/UI Designer & Frontend Developer",
     year: "2025",
     duration: "2025-2026",
@@ -14,7 +14,7 @@ export const getLitmusAIProject = (): ProjectType => {
     tags: [
       "AI Education",
       "EdTech",
-      "Adaptive Learning",
+      "Assessment Design",
       "AI Assessment",
       "Supabase",
       "Stripe Integration",
@@ -45,7 +45,7 @@ export const getLitmusAIProject = (): ProjectType => {
     ],
     deliverables: [
       "Functional MVP Web Platform",
-      "Adaptive AI Literacy Test Engine",
+      "Level-based AI Literacy Test Engine",
       "Personalized Course Recommendations",
       "Stripe Subscription Plans",
       "Admin Dashboard for User Progress",

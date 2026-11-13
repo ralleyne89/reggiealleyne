@@ -26,7 +26,7 @@ for (const route of routes) {
   titles.add(title);
   results.push({ route, status: response.status, title, canonical });
 }
-assert.ok(routes.length >= 20, `expected at least 20 routes, found ${routes.length}`);
+assert.ok(routes.length >= 19, `expected at least 19 routes, found ${routes.length}`);
 assert.equal(titles.size, routes.length, 'Every known route must have a unique title.');
 for (const route of ['/audit-missing-page', '/project/audit-missing-project']) {
   const response = await fetch(`${origin}${route}`);

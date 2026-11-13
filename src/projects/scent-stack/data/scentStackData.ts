@@ -29,16 +29,16 @@ import { ReflectionProps } from "@/components/project/common/Reflection";
 
 // Project Overview Data - Minto Pyramid: Lead with Impact
 export const scentStackOverviewData: ProjectOverviewProps = {
-  title: "1700+ Fragrance Dupes: Democratizing Luxury Scents in 3 Weeks",
+  title: "1,691 Fragrance Dupes: Democratizing Luxury Scents in 3 Weeks",
   description: [
-    "Delivered a complete AI-powered fragrance discovery platform in just 3 weeks: comprehensive dupe database, GPT-5 dream scent matching, computer vision layering suggestions, and A-Z brand browser. Users save 90% on average when switching from luxury originals to affordable alternatives.",
+    "Delivered a complete AI-powered fragrance discovery platform in just 3 weeks: comprehensive dupe database, language-model dream scent matching, computer vision layering suggestions, and A-Z brand browser. Users save 90% on average when switching from luxury originals to affordable alternatives.",
     "The product brief centered on a clear shopper problem: fragrance buyers were paying premium prices for scents with nearly identical affordable alternatives, while layering guidance stayed locked inside enthusiast communities.",
-    "Technical architecture: React + Tailwind CSS frontend with editorial design system, GPT-5 integration for natural language scent matching, computer vision pipeline for photo-based fragrance analysis, comprehensive database of 1700+ dupes across 150+ designer brands.",
+    "Technical architecture: React + Tailwind CSS frontend with editorial design system, an open language model for natural language scent matching, computer vision pipeline for photo-based fragrance analysis, comprehensive database of 1,690+ dupes across 148 designer brands.",
   ],
   projectDetails: [
     {
       label: "Outcome",
-      value: "1700+ dupes, 90% avg savings",
+      value: "1,691 dupes, 78% avg saving",
       icon: CheckCircle,
     },
     {
@@ -60,7 +60,7 @@ export const scentStackOverviewData: ProjectOverviewProps = {
     },
     {
       label: "AI Engine",
-      value: "GPT-5 + Computer Vision",
+      value: "Language + vision models",
       icon: Brain,
     },
     {
@@ -106,7 +106,7 @@ export const scentStackProblemSpaceData: ProblemSpaceProps = {
     {
       title: "AI-Powered Accessibility",
       description:
-        "Use GPT-5 and computer vision to make fragrance expertise accessible—from layering suggestions to dream scent matching.",
+        "Use language and vision models to make fragrance expertise accessible—from layering suggestions to dream scent matching.",
       icon: Brain,
     },
     {
@@ -164,7 +164,7 @@ export const scentStackResearchData: ResearchDiscoveryProps = {
     {
       title: "Finding #2: AI Opportunity",
       description:
-        "GPT-5's natural language capabilities could bridge the gap between scent descriptions and product recommendations—a feature no competitor offers.",
+        "A language model's natural language capabilities could bridge the gap between scent descriptions and product recommendations—a feature no competitor offers.",
     },
     {
       title: "Finding #3: Visual Learning",
@@ -188,7 +188,7 @@ export const scentStackIdeationData: IdeationStrategyProps = {
     {
       highlight: "Dream Lab: Translate imagination to reality.",
       description:
-        "GPT-5 integration that interprets natural language scent descriptions and recommends specific fragrances or combinations.",
+        "A language model that interprets natural language scent descriptions and recommends specific fragrances or combinations.",
     },
     {
       highlight: "Layering Lab: Make expertise accessible.",
@@ -200,12 +200,12 @@ export const scentStackIdeationData: IdeationStrategyProps = {
     {
       number: 1,
       title: "Discover",
-      description: "Browse 150+ brands, compare original vs. dupe pricing, see savings percentages",
+      description: "Browse 148 brands, compare original vs. dupe pricing, see savings percentages",
     },
     {
       number: 2,
       title: "Search",
-      description: "Filter by notes, brand, price range, or similarity score across 1700+ dupes",
+      description: "Filter by notes, brand, price range, or similarity score across 1,690+ dupes",
     },
     {
       number: 3,
@@ -220,7 +220,7 @@ export const scentStackIdeationData: IdeationStrategyProps = {
     {
       number: 5,
       title: "Save",
-      description: "Average 90% savings when choosing affordable alternatives to luxury originals",
+      description: "An average 78% saving when choosing affordable alternatives to luxury originals",
     },
   ],
 };
@@ -307,19 +307,19 @@ export const scentStackOutcomesData: OutcomesImpactProps = {
   metrics: [
     {
       title: "Fragrance Dupes",
-      value: "1700+",
+      value: "1,691",
       description: "Comprehensive database of affordable alternatives to luxury fragrances, continuously expanding",
       icon: Search,
     },
     {
       title: "Average Savings",
-      value: "90%",
+      value: "78%",
       description: "Users save on average when choosing dupe alternatives over luxury originals",
       icon: DollarSign,
     },
     {
       title: "Designer Brands",
-      value: "150+",
+      value: "148",
       description: "Complete A-Z browser covering major designer and niche fragrance houses",
       icon: Award,
     },
@@ -339,12 +339,12 @@ export const scentStackChallengesData: ChallengesLearningsProps = {
     {
       title: "Data Collection at Scale",
       description:
-        "Building a database of 1700+ dupes required systematic data collection and validation. Solution: Leveraged fragrance community resources and created structured data entry workflows to maintain quality while moving fast.",
+        "Building a database of 1,690+ dupes required systematic data collection and validation. Solution: Leveraged fragrance community resources and created structured data entry workflows to maintain quality while moving fast.",
     },
     {
       title: "AI Integration Complexity",
       description:
-        "GPT-5's scent matching required careful prompt engineering to translate subjective descriptions into concrete recommendations. Solution: Developed specialized prompts that capture note profiles, longevity preferences, and occasion contexts.",
+        "Scent matching required careful prompt engineering to translate subjective descriptions into concrete recommendations. Solution: Developed specialized prompts that capture note profiles, longevity preferences, and occasion contexts.",
     },
     {
       title: "Photo Analysis Accuracy",
@@ -361,7 +361,7 @@ export const scentStackChallengesData: ChallengesLearningsProps = {
     {
       title: "AI as Feature Multiplier",
       description:
-        "GPT-5 and computer vision transformed what would have been a static database into an intelligent discovery platform. AI features differentiate and delight.",
+        "Language and vision models transformed what would have been a static database into an intelligent discovery platform. AI features differentiate and delight.",
     },
     {
       title: "Community Value",
@@ -402,7 +402,7 @@ export const scentStackReflectionData: ReflectionProps = {
     {
       title: "AI Democratizes Expertise",
       description:
-        "GPT-5 and computer vision allowed me to encode fragrance knowledge that typically takes years to develop. AI features made ScentStack more than a database—it became a knowledgeable companion for fragrance discovery.",
+        "Language and vision models allowed me to encode fragrance knowledge that typically takes years to develop. AI features made ScentStack more than a database—it became a knowledgeable companion for fragrance discovery.",
     },
     {
       title: "Operational Use Drives Quality",

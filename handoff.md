@@ -3,7 +3,7 @@
 Status: **live at https://reggiealleyne.com since Nov 12, 2026.** Hosted on the Netlify project `reggiealleyne`; DNS is at Namecheap.
 
 ## What was built
-- **Home:** existing hero, now with layers in real depth, a relief bust of the portrait and a three.js scene of product screens behind it (desktop with a mouse only). Lead work stack: Motorflow, Staybooked, CLLCTVE. Statement section. More selected work: Tech Noir, Litmus AI, Covelo, SymptomCheckr. Playground preview. Contact.
+- **Home:** existing hero, now with layers in real depth, a relief bust of the portrait and a three.js scene of product screens behind it (desktop with a mouse only). Lead work stack: Motorflow, Staybooked, Litmus AI. Statement section. More selected work: Tech Noir, CLLCTVE, Covelo, SymptomCheckr. Playground preview. Contact.
 - **Case studies:** screens-first template for the 11 projects that have a curated narrative. The other five keep the older layout.
 - **Work:** the file's frame index. Three lead artboards on a canvas, then the other frames as a grid that selects on hover.
 - **About:** a spec page. Portrait as the selected layer with a properties panel, Design and Code joined by a prototype connector, experience as a history list.

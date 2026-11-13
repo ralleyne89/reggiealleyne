@@ -27,14 +27,25 @@
   to = "/project/tech-noir"
   status = 301
 
+# Doggy Date and IMPROV Learning were retired in Nov 2026.
 [[redirects]]
   from = "/project/4"
-  to = "/project/doggy-date"
+  to = "/work"
   status = 301
 
 [[redirects]]
   from = "/project/5"
-  to = "/project/improv-learning"
+  to = "/work"
+  status = 301
+
+[[redirects]]
+  from = "/project/doggy-date"
+  to = "/work"
+  status = 301
+
+[[redirects]]
+  from = "/project/improv-learning"
+  to = "/work"
   status = 301
 
 [[redirects]]
