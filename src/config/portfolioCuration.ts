@@ -752,8 +752,8 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     problem:
       "Fragrance discovery is expensive, opaque, and hard to translate from taste into actual products.",
     outcome:
-      "Built a consumer product with 1700+ dupes, dream-scent matching, and photo-based layering recommendations.",
-    tools: ["React", "Tailwind CSS", "GPT-5", "Computer vision"],
+      "Built a consumer product with 1,690+ dupes, dream-scent matching, and photo-based layering recommendations.",
+    tools: ["React", "Tailwind CSS", "Supabase", "Qwen models (Hugging Face)"],
     owned: ["Product concept", "Dupe database", "Dream Lab", "Layering Lab"],
   },
   "tutor-d": {

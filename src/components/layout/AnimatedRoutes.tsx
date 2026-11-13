@@ -93,6 +93,9 @@ const AnimatedRoutes = () => {
                   }
                 />
               ))}
+              {["/project/doggy-date", "/project/improv-learning"].map((retired) => (
+                <Route key={retired} path={retired} element={<Navigate to="/work" replace />} />
+              ))}
               <Route path="/project/:slug" element={<Project />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

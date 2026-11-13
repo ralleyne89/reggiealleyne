@@ -3,8 +3,6 @@ import { ProjectType } from '../../types/project';
 import { getCllctveProject } from './projects/cllctve';
 import { getTutorDProject } from './projects/tutorD';
 import { getTechNoirProject } from './projects/techNoir';
-import { getDoggyDateProject } from './projects/doggyDate';
-import { getImprovLearningProject } from './projects/improvLearning';
 import { getWristbandProject } from './projects/wristband';
 import { getChillVibesProject } from './projects/chillVibes';
 import { getBobsBigBreakProject } from './projects/bobsBigBreak';
@@ -23,8 +21,6 @@ const projectGetters: Record<number, () => ProjectType> = {
   1: getCllctveProject,
   2: getTutorDProject,
   3: getTechNoirProject,
-  4: getDoggyDateProject,
-  5: getImprovLearningProject,
   6: getWristbandProject,
   7: getChillVibesProject,
   8: getBobsBigBreakProject,
@@ -44,8 +40,6 @@ const slugToIdMap: Record<string, number> = {
   'cllctve-platform': 1,
   'tutor-d': 2,
   'tech-noir': 3,
-  'doggy-date': 4,
-  'improv-learning': 5,
   'wristband': 6,
   'chill-vibes-music-player': 7,
   'bobs-big-break': 8,
