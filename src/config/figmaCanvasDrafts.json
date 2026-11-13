@@ -1128,5 +1128,582 @@
     ]
    }
   ]
+ },
+ "staybooked": {
+  "project": "StayBooked AI",
+  "fileName": "Website Desktop",
+  "pages": [
+   {
+    "name": "Research & Assumptions",
+    "frames": [
+     {
+      "name": "A / Research brief",
+      "file": "01-01-a-research-brief",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 1676
+     },
+     {
+      "name": "B / Scope, success and validation plan",
+      "file": "01-02-b-scope-success-and-validation-plan",
+      "x": 1740,
+      "y": 220,
+      "width": 1440,
+      "height": 1841
+     },
+     {
+      "name": "C / Assumptions register",
+      "file": "01-03-c-assumptions-register",
+      "x": 3580,
+      "y": 220,
+      "width": 1440,
+      "height": 1785
+     },
+     {
+      "name": "D / Sources and validation rules",
+      "file": "01-04-d-sources-and-validation-rules",
+      "x": 5120,
+      "y": 220,
+      "width": 1120,
+      "height": 3909
+     },
+     {
+      "name": "E / Research findings and design responses",
+      "file": "01-05-e-research-findings-and-design-responses",
+      "x": 200,
+      "y": 4549,
+      "width": 1440,
+      "height": 2297
+     },
+     {
+      "name": "F / Competitive review and transfer choices",
+      "file": "01-06-f-competitive-review-and-transfer-choices",
+      "x": 1740,
+      "y": 4549,
+      "width": 1440,
+      "height": 2105
+     }
+    ]
+   },
+   {
+    "name": "Personas & Flows",
+    "frames": [
+     {
+      "name": "Dana / Working persona",
+      "file": "02-01-dana-working-persona",
+      "x": 200,
+      "y": 220,
+      "width": 740,
+      "height": 917
+     },
+     {
+      "name": "Sam / Working persona",
+      "file": "02-02-sam-working-persona",
+      "x": 1020,
+      "y": 220,
+      "width": 740,
+      "height": 857
+     },
+     {
+      "name": "Staybooked / Sitemap",
+      "file": "02-03-staybooked-sitemap",
+      "x": 2160,
+      "y": 220,
+      "width": 828,
+      "height": 894
+     },
+     {
+      "name": "Staybooked / Visual sitemap",
+      "file": "02-04-staybooked-visual-sitemap",
+      "x": 3088,
+      "y": 220,
+      "width": 2048,
+      "height": 1262
+     },
+     {
+      "name": "Staybooked / Core user flow",
+      "file": "02-05-staybooked-core-user-flow",
+      "x": 5236,
+      "y": 220,
+      "width": 2640,
+      "height": 411
+     },
+     {
+      "name": "Staybooked / Recovery paths",
+      "file": "02-06-staybooked-recovery-paths",
+      "x": 200,
+      "y": 1902,
+      "width": 2640,
+      "height": 387
+     },
+     {
+      "name": "Staybooked / Walkthrough checks",
+      "file": "02-07-staybooked-walkthrough-checks",
+      "x": 2940,
+      "y": 1902,
+      "width": 1100,
+      "height": 557
+     },
+     {
+      "name": "Staybooked / Entry-to-workspace screen map",
+      "file": "02-08-staybooked-entry-to-workspace-screen-map",
+      "x": 4440,
+      "y": 1902,
+      "width": 3200,
+      "height": 620
+     },
+     {
+      "name": "Staybooked / Screen plan and scope",
+      "file": "02-09-staybooked-screen-plan-and-scope",
+      "x": 7740,
+      "y": 1902,
+      "width": 2640,
+      "height": 564
+     }
+    ]
+   },
+   {
+    "name": "Wireframes",
+    "frames": [
+     {
+      "name": "START / Staybooked wireframe walkthrough",
+      "file": "03-01-start-staybooked-wireframe-walkthrough",
+      "x": 200,
+      "y": 220,
+      "width": 2480,
+      "height": 590
+     },
+     {
+      "name": "W01 / Homepage — Desktop",
+      "file": "03-02-w01-homepage-desktop",
+      "x": 200,
+      "y": 1300,
+      "width": 1440,
+      "height": 6756
+     },
+     {
+      "name": "W02 / Tools",
+      "file": "03-03-w02-tools",
+      "x": 2040,
+      "y": 1300,
+      "width": 1440,
+      "height": 2507
+     },
+     {
+      "name": "W03 / Sign up",
+      "file": "03-04-w03-sign-up",
+      "x": 3880,
+      "y": 1300,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W04 / Dashboard — Populated",
+      "file": "03-05-w04-dashboard-populated",
+      "x": 5720,
+      "y": 1300,
+      "width": 1440,
+      "height": 1072
+     },
+     {
+      "name": "W05 / Dashboard — Empty state",
+      "file": "03-06-w05-dashboard-empty-state",
+      "x": 7320,
+      "y": 1300,
+      "width": 1440,
+      "height": 994
+     },
+     {
+      "name": "W06 / Room optimizer",
+      "file": "03-07-w06-room-optimizer",
+      "x": 9160,
+      "y": 1300,
+      "width": 1440,
+      "height": 1014
+     },
+     {
+      "name": "W07 / Generate design",
+      "file": "03-08-w07-generate-design",
+      "x": 11000,
+      "y": 1300,
+      "width": 1440,
+      "height": 1019
+     },
+     {
+      "name": "W08 / Log in",
+      "file": "03-09-w08-log-in",
+      "x": 200,
+      "y": 8500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W09 / Forgot password",
+      "file": "03-10-w09-forgot-password",
+      "x": 1800,
+      "y": 8500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W10 / Plans",
+      "file": "03-11-w10-plans",
+      "x": 3640,
+      "y": 8500,
+      "width": 1440,
+      "height": 1533
+     },
+     {
+      "name": "W11 / Homepage — 390 px",
+      "file": "03-12-w11-homepage-390-px",
+      "x": 5480,
+      "y": 8500,
+      "width": 390,
+      "height": 10920
+     },
+     {
+      "name": "W12 / Dashboard — 390 px",
+      "file": "03-13-w12-dashboard-390-px",
+      "x": 5950,
+      "y": 8500,
+      "width": 390,
+      "height": 2525
+     },
+     {
+      "name": "W13 / Room optimizer — 390 px",
+      "file": "03-14-w13-room-optimizer-390-px",
+      "x": 6420,
+      "y": 8500,
+      "width": 390,
+      "height": 844
+     }
+    ]
+   },
+   {
+    "name": "Foundations",
+    "frames": [
+     {
+      "name": "01 — Typography / Montserrat",
+      "file": "04-01-01-typography-montserrat",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 1110
+     },
+     {
+      "name": "02 — Color and contrast",
+      "file": "04-02-02-color-and-contrast",
+      "x": 2040,
+      "y": 220,
+      "width": 1440,
+      "height": 1376
+     },
+     {
+      "name": "03 — Spacing, radius and motion",
+      "file": "04-03-03-spacing-radius-and-motion",
+      "x": 3880,
+      "y": 220,
+      "width": 1440,
+      "height": 1008
+     }
+    ]
+   },
+   {
+    "name": "Components",
+    "frames": [
+     {
+      "name": "01 — Brand & navigation",
+      "file": "05-01-01-brand-navigation",
+      "x": 120,
+      "y": 120,
+      "width": 1840,
+      "height": 680
+     },
+     {
+      "name": "02 — Actions",
+      "file": "05-02-02-actions",
+      "x": 2200,
+      "y": 120,
+      "width": 1840,
+      "height": 885
+     },
+     {
+      "name": "03 — Form controls",
+      "file": "05-03-03-form-controls",
+      "x": 120,
+      "y": 1040,
+      "width": 1840,
+      "height": 686
+     },
+     {
+      "name": "04 — Cards & pricing",
+      "file": "05-04-04-cards-pricing",
+      "x": 2200,
+      "y": 1245,
+      "width": 1840,
+      "height": 2870
+     },
+     {
+      "name": "05 — Status & feedback",
+      "file": "05-05-05-status-feedback",
+      "x": 120,
+      "y": 1966,
+      "width": 1840,
+      "height": 877
+     },
+     {
+      "name": "06 — Sections & footers",
+      "file": "05-06-06-sections-footers",
+      "x": 2200,
+      "y": 4355,
+      "width": 1840,
+      "height": 709
+     },
+     {
+      "name": "07 — Main components",
+      "file": "05-07-07-main-components",
+      "x": 4280,
+      "y": 120,
+      "width": 5200,
+      "height": 2657
+     }
+    ]
+   },
+   {
+    "name": "Core Screens",
+    "frames": [
+     {
+      "name": "START / Workflow and scenario launcher",
+      "file": "06-01-start-workflow-and-scenario-launcher",
+      "x": 200,
+      "y": 220,
+      "width": 2480,
+      "height": 575
+     },
+     {
+      "name": "Homepage / Desktop · 1440 px",
+      "file": "06-02-homepage-desktop-1440-px",
+      "x": 200,
+      "y": 1700,
+      "width": 1440,
+      "height": 6756
+     },
+     {
+      "name": "Tools / Desktop",
+      "file": "06-03-tools-desktop",
+      "x": 2040,
+      "y": 1700,
+      "width": 1440,
+      "height": 2507
+     },
+     {
+      "name": "Sign up / Desktop",
+      "file": "06-04-sign-up-desktop",
+      "x": 3880,
+      "y": 1700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Dashboard / Populated",
+      "file": "06-05-dashboard-populated",
+      "x": 5720,
+      "y": 1700,
+      "width": 1440,
+      "height": 1072
+     },
+     {
+      "name": "Dashboard / Empty state",
+      "file": "06-06-dashboard-empty-state",
+      "x": 7320,
+      "y": 1700,
+      "width": 1440,
+      "height": 994
+     },
+     {
+      "name": "Room optimizer / Desktop",
+      "file": "06-07-room-optimizer-desktop",
+      "x": 9160,
+      "y": 1700,
+      "width": 1440,
+      "height": 1014
+     },
+     {
+      "name": "Generate design / Desktop",
+      "file": "06-08-generate-design-desktop",
+      "x": 11000,
+      "y": 1700,
+      "width": 1440,
+      "height": 1019
+     },
+     {
+      "name": "Log in / Desktop",
+      "file": "06-09-log-in-desktop",
+      "x": 200,
+      "y": 9200,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Forgot password / Desktop",
+      "file": "06-10-forgot-password-desktop",
+      "x": 1800,
+      "y": 9200,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Plans / Signed-out and account surfaces",
+      "file": "06-11-plans-signed-out-and-account-surfaces",
+      "x": 3640,
+      "y": 9200,
+      "width": 1440,
+      "height": 1533
+     },
+     {
+      "name": "Homepage / Mobile · 390 px",
+      "file": "06-12-homepage-mobile-390-px",
+      "x": 5480,
+      "y": 9200,
+      "width": 390,
+      "height": 10920
+     },
+     {
+      "name": "Dashboard / Mobile · 390 px",
+      "file": "06-13-dashboard-mobile-390-px",
+      "x": 5950,
+      "y": 9200,
+      "width": 390,
+      "height": 2525
+     },
+     {
+      "name": "Room optimizer / Mobile · 390 px",
+      "file": "06-14-room-optimizer-mobile-390-px",
+      "x": 6420,
+      "y": 9200,
+      "width": 390,
+      "height": 844
+     }
+    ]
+   },
+   {
+    "name": "Presentation",
+    "frames": [
+     {
+      "name": "Slide 01 / Fix the listing first.",
+      "file": "09-01-slide-01-fix-the-listing-first",
+      "x": 200,
+      "y": 340,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 02 / Give every host a clear next fix.",
+      "file": "09-02-slide-02-give-every-host-a-clear-next-fix",
+      "x": 2200,
+      "y": 340,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 03 / Two hosts. One repeatable check.",
+      "file": "09-03-slide-03-two-hosts-one-repeatable-check",
+      "x": 200,
+      "y": 1530,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 04 / Connect the scan to the rewrite.",
+      "file": "09-04-slide-04-connect-the-scan-to-the-rewrite",
+      "x": 2200,
+      "y": 1530,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 05 / Let the account hold the work.",
+      "file": "09-05-slide-05-let-the-account-hold-the-work",
+      "x": 200,
+      "y": 2720,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 06 / Lead with what guests judge.",
+      "file": "09-06-slide-06-lead-with-what-guests-judge",
+      "x": 2200,
+      "y": 2720,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 07 / One tool, or the whole path.",
+      "file": "09-07-slide-07-one-tool-or-the-whole-path",
+      "x": 200,
+      "y": 3910,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 08 / Price the work, not the promise.",
+      "file": "09-08-slide-08-price-the-work-not-the-promise",
+      "x": 2200,
+      "y": 3910,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 09 / Name the next action.",
+      "file": "09-09-slide-09-name-the-next-action",
+      "x": 200,
+      "y": 5100,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 10 / One visual language. Every width.",
+      "file": "09-10-slide-10-one-visual-language-every-width",
+      "x": 2200,
+      "y": 5100,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 11 / Define what a good outcome means.",
+      "file": "09-11-slide-11-define-what-a-good-outcome-means",
+      "x": 200,
+      "y": 6290,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 12 / Good listings start with true ones.",
+      "file": "09-12-slide-12-good-listings-start-with-true-ones",
+      "x": 2200,
+      "y": 6290,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Rationale / 1 of 2",
+      "file": "09-13-rationale-1-of-2",
+      "x": 4520,
+      "y": 220,
+      "width": 1120,
+      "height": 1065
+     },
+     {
+      "name": "Rationale / 2 of 2",
+      "file": "09-14-rationale-2-of-2",
+      "x": 5740,
+      "y": 220,
+      "width": 1120,
+      "height": 1192
+     }
+    ]
+   }
+  ]
  }
 }
