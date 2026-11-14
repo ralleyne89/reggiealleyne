@@ -14,7 +14,7 @@ export const getCllctveProject = (): ProjectType => {
     tags: ["Platform", "Creative", "Portfolio", "Product Design", "React", "Supabase"],
     role: "Product Designer & Developer",
     duration: "Rebuild started November 2026",
-    year: "2026",
+    year: "2022",
     challenge:
       "The old app looked finished and was not. Login, signup, the waitlist, and connection requests were simulations, the creator records were mock data, and the mobile navigation disappeared. The rebuild had to keep the brand people remembered and replace everything underneath it.",
     process: [
@@ -96,7 +96,7 @@ export const getCllctveProject = (): ProjectType => {
     methodologies: ["Product Audit", "Requirements", "Desk Research", "Interaction Design", "Design Systems", "Accessibility Testing"],
     summary:
       "CLLCTVE is a creator portfolio platform I first worked on as designer and frontend engineer. In 2026 I started rebuilding it as a real product: accounts, saved portfolios, and a customizable portfolio and work feed, on the original brand.",
-    date: "2026-11-13",
+    date: "2022-06-15",
     solution:
       "Make the work the first thing people see, keep the workspace behind it quiet and reliable, and give creators guided control over how their portfolio looks.",
     liveUrl: "https://cllctve-preview.netlify.app",
