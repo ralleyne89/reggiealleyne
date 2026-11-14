@@ -2995,5 +2995,942 @@
     ]
    }
   ]
+ },
+ "cllctve-platform": {
+  "project": "Drafts",
+  "fileName": "CLLCTVE — Web App + Brand Design",
+  "pages": [
+   {
+    "name": "Research & Assumptions",
+    "frames": [
+     {
+      "name": "Research / Brief",
+      "file": "01-01-research-brief",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 1589
+     },
+     {
+      "name": "Research / Scope and validation",
+      "file": "01-02-research-scope-and-validation",
+      "x": 1740,
+      "y": 220,
+      "width": 1440,
+      "height": 1773
+     },
+     {
+      "name": "Research / Assumptions register",
+      "file": "01-03-research-assumptions-register",
+      "x": 3580,
+      "y": 220,
+      "width": 1440,
+      "height": 1600
+     },
+     {
+      "name": "Research / Sources",
+      "file": "01-04-research-sources",
+      "x": 5120,
+      "y": 220,
+      "width": 1120,
+      "height": 2895
+     },
+     {
+      "name": "Research / Findings",
+      "file": "01-05-research-findings",
+      "x": 200,
+      "y": 3535,
+      "width": 1440,
+      "height": 2177
+     },
+     {
+      "name": "Research / Competitive review",
+      "file": "01-06-research-competitive-review",
+      "x": 1740,
+      "y": 3535,
+      "width": 1440,
+      "height": 1130
+     }
+    ]
+   },
+   {
+    "name": "Personas & Flows",
+    "frames": [
+     {
+      "name": "Persona / The emerging creative",
+      "file": "02-01-persona-the-emerging-creative",
+      "x": 200,
+      "y": 220,
+      "width": 740,
+      "height": 1205
+     },
+     {
+      "name": "Persona / The collaborator seeker",
+      "file": "02-02-persona-the-collaborator-seeker",
+      "x": 1040,
+      "y": 220,
+      "width": 740,
+      "height": 1124
+     },
+     {
+      "name": "Public sitemap",
+      "file": "02-03-public-sitemap",
+      "x": 2180,
+      "y": 220,
+      "width": 1440,
+      "height": 956
+     },
+     {
+      "name": "Visual sitemap",
+      "file": "02-04-visual-sitemap",
+      "x": 3720,
+      "y": 220,
+      "width": 1440,
+      "height": 1282
+     },
+     {
+      "name": "Core user flow",
+      "file": "02-05-core-user-flow",
+      "x": 5260,
+      "y": 220,
+      "width": 1440,
+      "height": 641
+     },
+     {
+      "name": "Recovery paths",
+      "file": "02-06-recovery-paths",
+      "x": 200,
+      "y": 1922,
+      "width": 1440,
+      "height": 668
+     },
+     {
+      "name": "Walkthrough checks",
+      "file": "02-07-walkthrough-checks",
+      "x": 1740,
+      "y": 1922,
+      "width": 1440,
+      "height": 731
+     },
+     {
+      "name": "Screen coverage",
+      "file": "02-08-screen-coverage",
+      "x": 3580,
+      "y": 1922,
+      "width": 1840,
+      "height": 2265
+     }
+    ]
+   },
+   {
+    "name": "Wireframes",
+    "frames": [
+     {
+      "name": "Wireframes / START",
+      "file": "03-01-wireframes-start",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 1535
+     },
+     {
+      "name": "W01 / Homepage — Desktop",
+      "file": "03-02-w01-homepage-desktop",
+      "x": 200,
+      "y": 2175,
+      "width": 1440,
+      "height": 3626
+     },
+     {
+      "name": "W02 / Explore creators — Desktop",
+      "file": "03-03-w02-explore-creators-desktop",
+      "x": 2040,
+      "y": 2175,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W03 / Sign up — Desktop",
+      "file": "03-04-w03-sign-up-desktop",
+      "x": 3880,
+      "y": 2175,
+      "width": 1440,
+      "height": 946
+     },
+     {
+      "name": "W04 / Sign up, validation error — Desktop",
+      "file": "03-05-w04-sign-up-validation-error-desktop",
+      "x": 5480,
+      "y": 2175,
+      "width": 1440,
+      "height": 1139
+     },
+     {
+      "name": "W05 / Log in — Desktop",
+      "file": "03-06-w05-log-in-desktop",
+      "x": 7320,
+      "y": 2175,
+      "width": 1440,
+      "height": 967
+     },
+     {
+      "name": "W06 / Check your email — Desktop",
+      "file": "03-07-w06-check-your-email-desktop",
+      "x": 9160,
+      "y": 2175,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W07 / Reset your password — Desktop",
+      "file": "03-08-w07-reset-your-password-desktop",
+      "x": 10760,
+      "y": 2175,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W08 / Page not found — Desktop",
+      "file": "03-09-w08-page-not-found-desktop",
+      "x": 12600,
+      "y": 2175,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Responsive / Homepage — 390 px",
+      "file": "03-10-responsive-homepage-390-px",
+      "x": 200,
+      "y": 6175,
+      "width": 390,
+      "height": 4292
+     },
+     {
+      "name": "Responsive / Sign up — 390 px",
+      "file": "03-11-responsive-sign-up-390-px",
+      "x": 670,
+      "y": 6175,
+      "width": 390,
+      "height": 1295
+     },
+     {
+      "name": "W09 / Onboarding, profile setup — Desktop",
+      "file": "03-12-w09-onboarding-profile-setup-desktop",
+      "x": 200,
+      "y": 10895,
+      "width": 1440,
+      "height": 1473
+     },
+     {
+      "name": "W10 / Portfolio workspace — Desktop",
+      "file": "03-13-w10-portfolio-workspace-desktop",
+      "x": 2040,
+      "y": 10895,
+      "width": 1440,
+      "height": 1236
+     },
+     {
+      "name": "W11 / Portfolio workspace, no projects yet — Desktop",
+      "file": "03-14-w11-portfolio-workspace-no-projects-yet-desktop",
+      "x": 3640,
+      "y": 10895,
+      "width": 1440,
+      "height": 1095
+     },
+     {
+      "name": "W12 / Add a project — Desktop",
+      "file": "03-15-w12-add-a-project-desktop",
+      "x": 5480,
+      "y": 10895,
+      "width": 1440,
+      "height": 1252
+     },
+     {
+      "name": "W13 / Edit project with images — Desktop",
+      "file": "03-16-w13-edit-project-with-images-desktop",
+      "x": 7080,
+      "y": 10895,
+      "width": 1440,
+      "height": 2069
+     },
+     {
+      "name": "W14 / Private draft preview — Desktop",
+      "file": "03-17-w14-private-draft-preview-desktop",
+      "x": 8920,
+      "y": 10895,
+      "width": 1440,
+      "height": 5383
+     },
+     {
+      "name": "W15 / Creator profile, unavailable — Desktop",
+      "file": "03-18-w15-creator-profile-unavailable-desktop",
+      "x": 10760,
+      "y": 10895,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W16 / Demo · My portfolio — Desktop",
+      "file": "03-19-w16-demo-my-portfolio-desktop",
+      "x": 200,
+      "y": 16775,
+      "width": 1440,
+      "height": 1830
+     },
+     {
+      "name": "W17 / Demo · Arrange projects — Desktop",
+      "file": "03-20-w17-demo-arrange-projects-desktop",
+      "x": 1800,
+      "y": 16775,
+      "width": 1440,
+      "height": 1866
+     },
+     {
+      "name": "W18 / Demo · Edit profile dialog — Desktop",
+      "file": "03-21-w18-demo-edit-profile-dialog-desktop",
+      "x": 3400,
+      "y": 16775,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W19 / Demo · Customize panel — Desktop",
+      "file": "03-22-w19-demo-customize-panel-desktop",
+      "x": 5240,
+      "y": 16775,
+      "width": 1440,
+      "height": 1596
+     },
+     {
+      "name": "W20 / Demo · Customize, editorial layout — Desktop",
+      "file": "03-23-w20-demo-customize-editorial-layout-desktop",
+      "x": 6840,
+      "y": 16775,
+      "width": 1440,
+      "height": 2090
+     },
+     {
+      "name": "W21 / Demo · Portfolio view — Desktop",
+      "file": "03-24-w21-demo-portfolio-view-desktop",
+      "x": 8680,
+      "y": 16775,
+      "width": 1440,
+      "height": 1830
+     },
+     {
+      "name": "W22 / Demo · Another creator’s portfolio — Desktop",
+      "file": "03-25-w22-demo-another-creator-s-portfolio-desktop",
+      "x": 10280,
+      "y": 16775,
+      "width": 1440,
+      "height": 1333
+     },
+     {
+      "name": "W23 / Demo · Explore work feed — Desktop",
+      "file": "03-26-w23-demo-explore-work-feed-desktop",
+      "x": 12120,
+      "y": 16775,
+      "width": 1440,
+      "height": 2102
+     },
+     {
+      "name": "W24 / Demo · Feed, no results — Desktop",
+      "file": "03-27-w24-demo-feed-no-results-desktop",
+      "x": 13720,
+      "y": 16775,
+      "width": 1440,
+      "height": 1128
+     },
+     {
+      "name": "W25 / Demo · Project detail with comments — Desktop",
+      "file": "03-28-w25-demo-project-detail-with-comments-desktop",
+      "x": 15560,
+      "y": 16775,
+      "width": 1440,
+      "height": 3152
+     },
+     {
+      "name": "W26 / Demo · Image credits — Desktop",
+      "file": "03-29-w26-demo-image-credits-desktop",
+      "x": 17400,
+      "y": 16775,
+      "width": 1440,
+      "height": 1162
+     },
+     {
+      "name": "Responsive / Onboarding — 390 px",
+      "file": "03-30-responsive-onboarding-390-px",
+      "x": 200,
+      "y": 20415,
+      "width": 390,
+      "height": 1740
+     },
+     {
+      "name": "Responsive / Portfolio workspace — 390 px",
+      "file": "03-31-responsive-portfolio-workspace-390-px",
+      "x": 670,
+      "y": 20415,
+      "width": 390,
+      "height": 1808
+     },
+     {
+      "name": "Responsive / Edit project — 390 px",
+      "file": "03-32-responsive-edit-project-390-px",
+      "x": 1140,
+      "y": 20415,
+      "width": 390,
+      "height": 3326
+     },
+     {
+      "name": "Responsive / Draft preview — 390 px",
+      "file": "03-33-responsive-draft-preview-390-px",
+      "x": 1610,
+      "y": 20415,
+      "width": 390,
+      "height": 3036
+     },
+     {
+      "name": "Responsive / Demo · My portfolio — 390 px",
+      "file": "03-34-responsive-demo-my-portfolio-390-px",
+      "x": 2080,
+      "y": 20415,
+      "width": 390,
+      "height": 2422
+     },
+     {
+      "name": "Responsive / Demo · Explore work feed — 390 px",
+      "file": "03-35-responsive-demo-explore-work-feed-390-px",
+      "x": 2550,
+      "y": 20415,
+      "width": 390,
+      "height": 4004
+     },
+     {
+      "name": "Responsive / Demo · Project detail — 390 px",
+      "file": "03-36-responsive-demo-project-detail-390-px",
+      "x": 3020,
+      "y": 20415,
+      "width": 390,
+      "height": 3242
+     }
+    ]
+   },
+   {
+    "name": "Foundations",
+    "frames": [
+     {
+      "name": "Foundations / Typography",
+      "file": "04-01-foundations-typography",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 1188
+     },
+     {
+      "name": "Foundations / Color",
+      "file": "04-02-foundations-color",
+      "x": 2040,
+      "y": 220,
+      "width": 1440,
+      "height": 1529
+     },
+     {
+      "name": "Foundations / Imagery and motion",
+      "file": "04-03-foundations-imagery-and-motion",
+      "x": 3880,
+      "y": 220,
+      "width": 1440,
+      "height": 1108
+     }
+    ]
+   },
+   {
+    "name": "Components",
+    "frames": [
+     {
+      "name": "01 — Brand & navigation",
+      "file": "05-01-01-brand-navigation",
+      "x": 120,
+      "y": 120,
+      "width": 1840,
+      "height": 1018
+     },
+     {
+      "name": "02 — Actions",
+      "file": "05-02-02-actions",
+      "x": 2200,
+      "y": 120,
+      "width": 1840,
+      "height": 813
+     },
+     {
+      "name": "03 — Form controls · design states",
+      "file": "05-03-03-form-controls-design-states",
+      "x": 120,
+      "y": 1378,
+      "width": 1840,
+      "height": 747
+     },
+     {
+      "name": "04 — Sections & content",
+      "file": "05-04-04-sections-content",
+      "x": 2200,
+      "y": 1378,
+      "width": 1840,
+      "height": 2234
+     },
+     {
+      "name": "05 — Feedback & empty states",
+      "file": "05-05-05-feedback-empty-states",
+      "x": 120,
+      "y": 3851,
+      "width": 1840,
+      "height": 1212
+     },
+     {
+      "name": "06 — Main components",
+      "file": "05-06-06-main-components",
+      "x": 4280,
+      "y": 120,
+      "width": 5200,
+      "height": 2679
+     }
+    ]
+   },
+   {
+    "name": "Core Screens",
+    "frames": [
+     {
+      "name": "Core Screens / Launcher",
+      "file": "06-01-core-screens-launcher",
+      "x": 200,
+      "y": 220,
+      "width": 1840,
+      "height": 783
+     },
+     {
+      "name": "Homepage / Desktop · 1440 px",
+      "file": "06-02-homepage-desktop-1440-px",
+      "x": 200,
+      "y": 1700,
+      "width": 1440,
+      "height": 3626
+     },
+     {
+      "name": "Explore creators, unavailable / Desktop",
+      "file": "06-03-explore-creators-unavailable-desktop",
+      "x": 2040,
+      "y": 1700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Sign up / Desktop",
+      "file": "06-04-sign-up-desktop",
+      "x": 3880,
+      "y": 1700,
+      "width": 1440,
+      "height": 946
+     },
+     {
+      "name": "Sign up, validation error / Desktop",
+      "file": "06-05-sign-up-validation-error-desktop",
+      "x": 5480,
+      "y": 1700,
+      "width": 1440,
+      "height": 1139
+     },
+     {
+      "name": "Log in / Desktop",
+      "file": "06-06-log-in-desktop",
+      "x": 7320,
+      "y": 1700,
+      "width": 1440,
+      "height": 967
+     },
+     {
+      "name": "Log in, validation error / Desktop",
+      "file": "06-07-log-in-validation-error-desktop",
+      "x": 8920,
+      "y": 1700,
+      "width": 1440,
+      "height": 1190
+     },
+     {
+      "name": "Check your email / Desktop",
+      "file": "06-08-check-your-email-desktop",
+      "x": 10760,
+      "y": 1700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Reset your password / Desktop",
+      "file": "06-09-reset-your-password-desktop",
+      "x": 12360,
+      "y": 1700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Page not found / Desktop",
+      "file": "06-10-page-not-found-desktop",
+      "x": 14200,
+      "y": 1700,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Homepage / Mobile · 390 px",
+      "file": "06-11-homepage-mobile-390-px",
+      "x": 200,
+      "y": 5900,
+      "width": 390,
+      "height": 4292
+     },
+     {
+      "name": "Explore creators / Mobile · 390 px",
+      "file": "06-12-explore-creators-mobile-390-px",
+      "x": 670,
+      "y": 5900,
+      "width": 390,
+      "height": 973
+     },
+     {
+      "name": "Sign up / Mobile · 390 px",
+      "file": "06-13-sign-up-mobile-390-px",
+      "x": 1140,
+      "y": 5900,
+      "width": 390,
+      "height": 1295
+     },
+     {
+      "name": "Log in / Mobile · 390 px",
+      "file": "06-14-log-in-mobile-390-px",
+      "x": 1610,
+      "y": 5900,
+      "width": 390,
+      "height": 1250
+     },
+     {
+      "name": "Page not found / Mobile · 390 px",
+      "file": "06-15-page-not-found-mobile-390-px",
+      "x": 2080,
+      "y": 5900,
+      "width": 390,
+      "height": 973
+     },
+     {
+      "name": "Onboarding, profile setup / Desktop",
+      "file": "06-16-onboarding-profile-setup-desktop",
+      "x": 200,
+      "y": 10620,
+      "width": 1440,
+      "height": 1473
+     },
+     {
+      "name": "Portfolio workspace (sample content) / Desktop",
+      "file": "06-17-portfolio-workspace-sample-content-desktop",
+      "x": 2040,
+      "y": 10620,
+      "width": 1440,
+      "height": 1236
+     },
+     {
+      "name": "Portfolio workspace, no projects yet / Desktop",
+      "file": "06-18-portfolio-workspace-no-projects-yet-desktop",
+      "x": 3560,
+      "y": 10620,
+      "width": 1440,
+      "height": 1095
+     },
+     {
+      "name": "Add a project / Desktop",
+      "file": "06-19-add-a-project-desktop",
+      "x": 5480,
+      "y": 10620,
+      "width": 1440,
+      "height": 1252
+     },
+     {
+      "name": "Edit project with images (sample content) / Desktop",
+      "file": "06-20-edit-project-with-images-sample-content-desktop",
+      "x": 7000,
+      "y": 10620,
+      "width": 1440,
+      "height": 2069
+     },
+     {
+      "name": "Private draft preview (sample content) / Desktop",
+      "file": "06-21-private-draft-preview-sample-content-desktop",
+      "x": 8920,
+      "y": 10620,
+      "width": 1440,
+      "height": 5383
+     },
+     {
+      "name": "Creator profile, unavailable / Desktop",
+      "file": "06-22-creator-profile-unavailable-desktop",
+      "x": 10760,
+      "y": 10620,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Core Screens / Not in the code yet",
+      "file": "06-23-core-screens-not-in-the-code-yet",
+      "x": 12600,
+      "y": 10620,
+      "width": 1120,
+      "height": 1351
+     },
+     {
+      "name": "Onboarding, profile setup / Mobile · 390 px",
+      "file": "06-24-onboarding-profile-setup-mobile-390-px",
+      "x": 200,
+      "y": 16460,
+      "width": 390,
+      "height": 1740
+     },
+     {
+      "name": "Portfolio workspace (sample content) / Mobile · 390 px",
+      "file": "06-25-portfolio-workspace-sample-content-mobile-390-px",
+      "x": 690,
+      "y": 16460,
+      "width": 390,
+      "height": 1808
+     },
+     {
+      "name": "Edit project with images (sample content) / Mobile · 390 px",
+      "file": "06-26-edit-project-with-images-sample-content-mobile-3",
+      "x": 1180,
+      "y": 16460,
+      "width": 390,
+      "height": 3326
+     },
+     {
+      "name": "Private draft preview (sample content) / Mobile · 390 px",
+      "file": "06-27-private-draft-preview-sample-content-mobile-390-",
+      "x": 1670,
+      "y": 16460,
+      "width": 390,
+      "height": 3036
+     },
+     {
+      "name": "Demo · My portfolio / Desktop",
+      "file": "06-28-demo-my-portfolio-desktop",
+      "x": 200,
+      "y": 20220,
+      "width": 1440,
+      "height": 1830
+     },
+     {
+      "name": "Demo · Arrange projects / Desktop",
+      "file": "06-29-demo-arrange-projects-desktop",
+      "x": 1720,
+      "y": 20220,
+      "width": 1440,
+      "height": 1866
+     },
+     {
+      "name": "Demo · Edit profile dialog / Desktop",
+      "file": "06-30-demo-edit-profile-dialog-desktop",
+      "x": 3240,
+      "y": 20220,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Demo · Customize panel / Desktop",
+      "file": "06-31-demo-customize-panel-desktop",
+      "x": 4080,
+      "y": 20220,
+      "width": 1440,
+      "height": 1596
+     },
+     {
+      "name": "Demo · Customize, editorial on dark / Desktop",
+      "file": "06-32-demo-customize-editorial-on-dark-desktop",
+      "x": 5600,
+      "y": 20220,
+      "width": 1440,
+      "height": 2090
+     },
+     {
+      "name": "Demo · Portfolio view / Desktop",
+      "file": "06-33-demo-portfolio-view-desktop",
+      "x": 7440,
+      "y": 20220,
+      "width": 1440,
+      "height": 1830
+     },
+     {
+      "name": "Demo · Another creator’s portfolio / Desktop",
+      "file": "06-34-demo-another-creator-s-portfolio-desktop",
+      "x": 8960,
+      "y": 20220,
+      "width": 1440,
+      "height": 1333
+     },
+     {
+      "name": "Demo · Explore work feed / Desktop",
+      "file": "06-35-demo-explore-work-feed-desktop",
+      "x": 10800,
+      "y": 20220,
+      "width": 1440,
+      "height": 2102
+     },
+     {
+      "name": "Demo · Feed, no results / Desktop",
+      "file": "06-36-demo-feed-no-results-desktop",
+      "x": 12320,
+      "y": 20220,
+      "width": 1440,
+      "height": 1128
+     },
+     {
+      "name": "Demo · Project detail with comments / Desktop",
+      "file": "06-37-demo-project-detail-with-comments-desktop",
+      "x": 14160,
+      "y": 20220,
+      "width": 1440,
+      "height": 3152
+     },
+     {
+      "name": "Demo · Image credits / Desktop",
+      "file": "06-38-demo-image-credits-desktop",
+      "x": 16000,
+      "y": 20220,
+      "width": 1440,
+      "height": 1162
+     },
+     {
+      "name": "Demo · My portfolio / Mobile · 390 px",
+      "file": "06-39-demo-my-portfolio-mobile-390-px",
+      "x": 200,
+      "y": 23800,
+      "width": 390,
+      "height": 2422
+     },
+     {
+      "name": "Demo · Explore work feed / Mobile · 390 px",
+      "file": "06-40-demo-explore-work-feed-mobile-390-px",
+      "x": 690,
+      "y": 23800,
+      "width": 390,
+      "height": 4004
+     },
+     {
+      "name": "Demo · Project detail with comments / Mobile · 390 px",
+      "file": "06-41-demo-project-detail-with-comments-mobile-390-px",
+      "x": 1180,
+      "y": 23800,
+      "width": 390,
+      "height": 3242
+     }
+    ]
+   },
+   {
+    "name": "Presentation",
+    "frames": [
+     {
+      "name": "Slide 01 / Cover",
+      "file": "09-01-slide-01-cover",
+      "x": 200,
+      "y": 220,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 02 / The goal",
+      "file": "09-02-slide-02-the-goal",
+      "x": 2200,
+      "y": 220,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 03 / Who it serves",
+      "file": "09-03-slide-03-who-it-serves",
+      "x": 200,
+      "y": 1410,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 04 / What it does",
+      "file": "09-04-slide-04-what-it-does",
+      "x": 2200,
+      "y": 1410,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 05 / Information architecture",
+      "file": "09-05-slide-05-information-architecture",
+      "x": 200,
+      "y": 2600,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 06 / Entry decision",
+      "file": "09-06-slide-06-entry-decision",
+      "x": 2200,
+      "y": 2600,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 07 / Form decision",
+      "file": "09-07-slide-07-form-decision",
+      "x": 200,
+      "y": 3790,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 08 / Honest states",
+      "file": "09-08-slide-08-honest-states",
+      "x": 2200,
+      "y": 3790,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 09 / Recovery decision",
+      "file": "09-09-slide-09-recovery-decision",
+      "x": 200,
+      "y": 4980,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 10 / System and responsive",
+      "file": "09-10-slide-10-system-and-responsive",
+      "x": 2200,
+      "y": 4980,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 11 / How to evaluate",
+      "file": "09-11-slide-11-how-to-evaluate",
+      "x": 200,
+      "y": 6170,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 12 / Close",
+      "file": "09-12-slide-12-close",
+      "x": 2200,
+      "y": 6170,
+      "width": 1920,
+      "height": 1080
+     }
+    ]
+   }
+  ]
  }
 }
