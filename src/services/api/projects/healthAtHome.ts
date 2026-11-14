@@ -12,7 +12,7 @@ export const getHealthAtHomeProject = (): ProjectType => {
     image: "/images/health-at-home/home.webp",
     category: "Healthcare · Web app",
     tags: ["Healthcare", "Booking", "Product Design", "React", "Design System"],
-    role: "Product Designer & Developer",
+    role: "UX/UI Designer & Developer",
     duration: "2022",
     teamSize: "Solo",
     year: "2022",

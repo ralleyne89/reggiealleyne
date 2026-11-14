@@ -20,7 +20,7 @@ const portraitBase = "/images/figma/hero-white";
 const careerTimeline = [
   {
     period: "11/2016 - Present",
-    role: "Product Designer & Frontend Developer",
+    role: "UX/UI Designer & Frontend Developer",
     organization: "Freelance / Self-Employed",
     location: "Los Angeles",
     detail:
@@ -52,7 +52,7 @@ const careerTimeline = [
   },
   {
     period: "04/2017 - 07/2017",
-    role: "Freelance UX/UI Designer",
+    role: "UX/UI Designer",
     organization: "A Different Kind of Creative - Doggy Date",
     location: "Los Angeles",
     detail:
@@ -60,7 +60,7 @@ const careerTimeline = [
   },
   {
     period: "11/2016 - 12/2016",
-    role: "Freelance UX/UI Designer",
+    role: "UX/UI Designer",
     organization: "Tech Noir",
     location: "Los Angeles",
     detail:

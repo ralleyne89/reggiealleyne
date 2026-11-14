@@ -12,7 +12,7 @@ export const getCllctveProject = (): ProjectType => {
     image: "/images/cllctve/v2/home.webp",
     category: "Creator platform · In progress",
     tags: ["Platform", "Creative", "Portfolio", "Product Design", "React", "Supabase"],
-    role: "Product Designer & Developer",
+    role: "UX/UI Designer & Developer",
     duration: "2022",
     year: "2022",
     challenge:

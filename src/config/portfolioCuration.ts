@@ -669,7 +669,7 @@ export const caseStudyNarratives: Record<
 
 export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
   helm: {
-    role: "Product Designer and Developer",
+    role: "UX/UI Designer and Developer",
     problem:
       "Operators cannot trust AI agents with sending, spending, and publishing when the only view of the work is a chat window.",
     decision:
@@ -712,7 +712,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     ],
   },
   "cllctve-platform": {
-    role: "Product Designer and Developer",
+    role: "UX/UI Designer and Developer",
     problem:
       "The old CLLCTVE app looked finished, but login, signup, and connection requests were simulations and the creators were mock data.",
     decision:
@@ -746,7 +746,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Risk dashboard", "Remediation flow", "Visual identity", "Frontend prototype"],
   },
   "scent-stack": {
-    role: "Product Designer and Developer",
+    role: "UX/UI Designer and Developer",
     problem:
       "Finding a cheaper bottle that smells like a perfume you love means piecing answers together from videos, forums, and spreadsheets.",
     decision:
@@ -762,7 +762,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     ],
   },
   "health-at-home": {
-    role: "Product Designer and Developer",
+    role: "UX/UI Designer and Developer",
     problem:
       "Booking care usually means searching names, opening profiles, and calling to learn who is actually free.",
     decision:
