@@ -8,22 +8,22 @@ export const getHealthAtHomeProject = (): ProjectType => {
     description:
       "A care booking web app: find a doctor, see the next open times, book a visit, and keep a family's appointments, kits, and care tasks in one place.",
     fullDescription:
-      "Health@Home brings the front desk, the schedule board, and the doctor to wherever the patient already is. I built the first version in React in 2022 and redesigned it around one idea: show bookable times first, so getting care starts with a tap instead of a phone call.",
+      "Health@Home brings the front desk, the schedule board, and the doctor to wherever the patient already is. I designed and built it around one idea: show bookable times first, so getting care starts with a tap instead of a phone call.",
     image: "/images/health-at-home/home.webp",
     category: "Healthcare · Web app",
     tags: ["Healthcare", "Booking", "Product Design", "React", "Design System"],
     role: "Product Designer & Developer",
-    duration: "Built 2022, redesigned 2026",
+    duration: "2022",
     teamSize: "Solo",
     year: "2022",
     challenge:
-      "Booking care usually starts with a search, a list of names, and a phone call to learn who is free. The first version of Health@Home had the pages but treated availability as a detail buried inside each provider card, and the homepage read like a generic healthcare template.",
+      "Booking care usually starts with a search, a list of names, and a phone call to learn who is free. Most care sites treat availability as a detail buried inside each provider card, behind a homepage built from generic healthcare parts.",
     process: [
-      "Built the first version in React with routes for finding care, virtual visits, test kits, insurance, and a personal health hub.",
-      "Critiqued that build screen by screen and listed the gaps: no primary booking action above the fold, availability hidden inside search results, and a stock trust section.",
+      "Mapped the product into routes for finding care, virtual visits, test kits, insurance, and a personal health hub, and built them in React.",
+      "Reviewed an early build screen by screen and listed the gaps: no primary booking action above the fold, availability hidden inside search results, and a stock trust section.",
       "Set the direction, House Call: warm paper, one load-bearing blue for actions and bookable times, Bricolage Grotesque for display and Figtree for everything else.",
       "Made the next available visits the homepage's signature and carried the chosen service and time into booking.",
-      "Redesigned every route, then rebuilt the screens and their states in Figma.",
+      "Designed every route and documented the screens and their states in Figma.",
     ],
     deliverables: [
       "Homepage with a next-available board of tappable visit times",
@@ -76,7 +76,7 @@ export const getHealthAtHomeProject = (): ProjectType => {
     ],
     conclusion: {
       impact:
-        "The redesigned app is live as a portfolio demo with sample doctors, prices, and family records. It books nothing real and has no users, so there are no outcomes to report.",
+        "The app is live as a portfolio demo with sample doctors, prices, and family records. It books nothing real and has no users, so there are no outcomes to report.",
       learnings:
         "Putting availability first changed the order of the whole product. Once the time is the first thing a patient sees, search, booking, and the hub all become ways to keep that choice intact.",
       nextSteps:
@@ -86,7 +86,7 @@ export const getHealthAtHomeProject = (): ProjectType => {
     keyAchievements: [
       "Made bookable times the signature of the homepage instead of a detail inside search",
       "Carried the chosen service, doctor, and time from the homepage into booking",
-      "Redesigned 26 desktop and 6 mobile screens with their states in Figma",
+      "Designed 26 desktop and 6 mobile screens with their states in Figma",
     ],
     problemSolved:
       "Lets someone see who can see them and when before they commit to anything, then book without starting over.",
@@ -99,7 +99,7 @@ export const getHealthAtHomeProject = (): ProjectType => {
     ],
     methodologies: ["Product Critique", "Interaction Design", "Design Systems", "Accessibility Checks"],
     summary:
-      "Health@Home is a care booking web app I built in 2022 and redesigned around showing bookable times first: find a doctor, pick an open slot, book, and manage a family's care in one hub.",
+      "Health@Home is a care booking web app I designed and built around showing bookable times first: find a doctor, pick an open slot, book, and manage a family's care in one hub.",
     date: "2022-06-22",
     liveUrl: "https://bs-hh.netlify.app",
   };
