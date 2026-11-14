@@ -6,26 +6,26 @@ export const getCllctveProject = (): ProjectType => {
     slug: "cllctve-platform",
     title: "CLLCTVE Platform",
     description:
-      "A creator portfolio platform, rebuilt in 2026: publish your work, find other creators, and start a collaboration. The original product is where I worked as designer and frontend engineer.",
+      "A creator portfolio platform: publish your work, find other creators, and start a collaboration.",
     fullDescription:
-      "CLLCTVE helps creators publish work, find other creators, and receive collaboration requests. I worked on the original product as UX/UI designer and frontend engineer before the company closed. In 2026 I audited the old React app and started rebuilding it as a real product, with accounts, saved portfolios, and a customizable portfolio and work feed.",
+      "CLLCTVE helps creators publish work, find other creators, and receive collaboration requests. I worked on it as UX/UI designer and frontend engineer: auditing the React app and turning it into a real product, with accounts, saved portfolios, and a customizable portfolio and work feed.",
     image: "/images/cllctve/v2/home.webp",
-    category: "Creator platform · Rebuild in progress",
+    category: "Creator platform · In progress",
     tags: ["Platform", "Creative", "Portfolio", "Product Design", "React", "Supabase"],
     role: "Product Designer & Developer",
-    duration: "Rebuild started November 2026",
+    duration: "2022",
     year: "2022",
     challenge:
-      "The old app looked finished and was not. Login, signup, the waitlist, and connection requests were simulations, the creator records were mock data, and the mobile navigation disappeared. The rebuild had to keep the brand people remembered and replace everything underneath it.",
+      "The existing app looked finished and was not. Login, signup, the waitlist, and connection requests were simulations, the creator records were mock data, and the mobile navigation disappeared. The work had to keep the brand people remembered and replace everything underneath it.",
     process: [
       "Audited the existing app and recorded 15 findings, separating what the code said from what happened in the browser.",
       "Wrote the brief, the product requirements with 24 must-have acceptance criteria, and a screen map covering every state.",
       "Pulled the original pink, orange, and charcoal from the old site's stylesheet and set the direction: the work comes first, the workspace stays quiet.",
-      "Rebuilt the foundation, the homepage, and the account flows, then the private portfolio workspace, each checked at phone and desktop widths.",
+      "Built the foundation, the homepage, and the account flows, then the private portfolio workspace, each checked at phone and desktop widths.",
       "Researched portfolio builders and built an interactive demo of a customizable portfolio and a work feed before committing it to the backend.",
     ],
     deliverables: [
-      "Homepage and brand system rebuilt on the original palette",
+      "Homepage and brand system on the original palette",
       "Sign up, log in, email confirmation, and password recovery",
       "Portfolio workspace: profile, projects, images, ordering, private preview",
       "Customizable portfolio demo: three layouts, canvas, accent, type, and image corners",
@@ -74,9 +74,9 @@ export const getCllctveProject = (): ProjectType => {
     ],
     conclusion: {
       impact:
-        "The rebuilt homepage and account screens are on a public preview, the portfolio workspace is built and tested against a staging database, and the customizable portfolio and feed run as an interactive demo with sample content. It has not launched to real users.",
+        "The homepage and account screens are on a public preview, the portfolio workspace is built and tested against a staging database, and the customizable portfolio and feed run as an interactive demo with sample content. It has not launched to real users.",
       learnings:
-        "Rebuilding something I once shipped made the gap between a screen that looks done and a product that works very plain. Most of the design work was deciding what each state should honestly say.",
+        "Auditing the app made the gap between a screen that looks done and a product that works very plain. Most of the design work was deciding what each state should honestly say.",
       nextSteps:
         "Finish hosted account setup, connect the portfolio and feed to the backend, then publishing, discovery, and collaboration requests.",
     },
@@ -95,7 +95,7 @@ export const getCllctveProject = (): ProjectType => {
     ],
     methodologies: ["Product Audit", "Requirements", "Desk Research", "Interaction Design", "Design Systems", "Accessibility Testing"],
     summary:
-      "CLLCTVE is a creator portfolio platform I first worked on as designer and frontend engineer. In 2026 I started rebuilding it as a real product: accounts, saved portfolios, and a customizable portfolio and work feed, on the original brand.",
+      "CLLCTVE is a creator portfolio platform I first worked on as designer and frontend engineer. I'm now turning it into a real product: accounts, saved portfolios, and a customizable portfolio and work feed, on the original brand.",
     date: "2022-06-15",
     solution:
       "Make the work the first thing people see, keep the workspace behind it quiet and reliable, and give creators guided control over how their portfolio looks.",
