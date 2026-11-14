@@ -8,7 +8,7 @@ export const getScentStackProject = (): ProjectType => {
     description:
       "A fragrance dupe finder: type the perfume you love and see the cheaper bottles that smell like it, side by side with the price. 1,691 dupes for 922 perfumes.",
     category: "Consumer product · Live",
-    role: "Product Designer & Developer",
+    role: "UX/UI Designer & Developer",
     year: "2026",
     duration: "Redesigned November 2026",
     teamSize: "Solo",

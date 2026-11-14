@@ -8,7 +8,7 @@ export const getHelmProject = (): ProjectType => {
     description:
       "An AI workforce cockpit with a 16-bit game layer. You describe an outcome, a Lead agent staffs specialists, and you approve anything that sends, spends, or publishes.",
     category: "AI agents · Public preview",
-    role: "Product Designer & Developer",
+    role: "UX/UI Designer & Developer",
     year: "2026",
     duration: "In progress",
     teamSize: "Solo",
