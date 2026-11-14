@@ -79,7 +79,8 @@ const caseStudyHeroConfigs: Array<{
   {
     matches: (title) => title === "Chill Vibes Music Player",
     config: {
-      image: "/images/85ce6121-b2ba-435d-b8cd-2606e0e3cc63.webp",
+      image: "/images/chill-vibes/v2/desktop.webp",
+      useProjectImage: true,
     },
   },
   {
@@ -127,8 +128,8 @@ const caseStudyHeroConfigs: Array<{
   {
     matches: (title) => title === "Bob's Big Break",
     config: {
-      image: "/images/BBB-banner2.webp",
-      imagePosition: "right center",
+      image: "/images/bobs-big-break/v2/desktop.webp",
+      useProjectImage: true,
     },
   },
 ];

@@ -12,6 +12,9 @@ export interface ProjectVisual {
 
   /** Optional supporting note for comparison or context */
   note?: string | null;
+
+  /** Portrait phone screens render narrower than wide desktop screens */
+  orientation?: "wide" | "tall";
 }
 
 export interface ProjectType {

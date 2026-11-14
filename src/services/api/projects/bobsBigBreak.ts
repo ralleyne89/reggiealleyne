@@ -1,4 +1,3 @@
-
 import { ProjectType } from '../../../types/project';
 
 export const getBobsBigBreakProject = (): ProjectType => {
@@ -6,51 +5,92 @@ export const getBobsBigBreakProject = (): ProjectType => {
     id: 8,
     slug: "bobs-big-break",
     title: "Bob's Big Break",
-    description: "A low-effort, high-reward idle game for the moments in life when your brain needs a break—but your hustle doesn't.",
-    fullDescription: "An incremental clicker game designed for short attention spans and mobile-friendly interaction. Players help Bob, a scrappy entrepreneur, earn Coins through hustles or by hiring hustlers for passive income.",
-    image: "/images/71cb9624-eeb6-4af5-a137-8a38307549f4.png", // Updated to use Bob logo for banner/thumbnail
-    category: "Game Development",
-    tags: ["React", "Node.js", "Game Design", "School Project"],
-    role: "UX/UI Designer & Web Developer",
+    description:
+      "An idle mobile game about growing Bob's neighborhood hustle: tap for coins, hire a crew, finish daily gigs, and dress Bob up as the business grows.",
+    fullDescription:
+      "Bob's Big Break is a game for the moments when your brain needs a break but you still want something to show for it. Tap Bob for coins, reinvest in upgrades and a crew that earns while you are away, and work through five chapters of Bob's street.",
+    image: "/images/bobs-big-break/v2/desktop.webp",
+    category: "Game · Mobile app",
+    tags: ["Game Design", "Mobile", "React Native", "Expo"],
+    role: "UX/UI Designer & Developer",
     duration: "2 weeks",
     year: "2020",
-    challenge: "Whether it's a tired commuter on the way home, a parent entertaining a curious child, or a user waiting on a phone call, there are times when people want a game that doesn't demand much focus but still feels rewarding.",
+    challenge:
+      "Idle games often turn into dashboards full of numbers. A commuter or someone waiting on a call needs to open the game, see one clear next move, and put it down again without losing anything.",
     process: [
-      "We began with concept development and used whiteboarding to define the user journey and key game mechanics. The goal was to streamline the clicker mechanics into a simple flow that would allow for immediate playability and long-term satisfaction.",
-      "I led the design of our MVP components, including the dashboard, upgrade store, and character profile. I also designed custom character art and branding assets, including a logo and UI icons. Wireframes helped us visualize the game economy and interface before development.",
-      "I built the frontend in React and styled it with Bulma, while integrating backend functionality using Node.js and MongoDB. We set up a basic economy system and character progression logic, including local data persistence and real-time passive income tracking."
+      "Defined the core job: build Bob's business by tapping, hiring, and reinvesting, then leave and come back to a run that is still yours.",
+      "Designed the economy: tap income, upgrades, crew members with passive income, daily gigs, achievements, and a Big Break that restarts a stronger run.",
+      "Set the direction: an illustrated street scene with reachable controls, Bob red and yellow on warm pale surfaces, and bold signage for chapter titles.",
+      "Split the game into four tabs, Hustle, Crew, Journey, and Bag, so each screen carries one job.",
+      "Built it in Expo and React Native with saves on the device, so it runs on iOS, Android, and in the browser without an account.",
     ],
-    deliverables: ["UX/UI Design", "Frontend Development", "Backend Integration", "Game Economy Design", "Character Art"],
+    deliverables: [
+      "Hustle screen with Bob, the wallet, income per second, and one next move",
+      "Crew and upgrades with prices and expected effect on every row",
+      "Journey with daily gigs and progress",
+      "Bag with style unlocks and achievements",
+      "Character art, chapter artwork, and the Bob logo",
+      "Playable browser build with on-device saves",
+    ],
     images: [
-      "/images/bobs-big-break/platform-login-page-20260522.webp",
-      "/images/bobs-big-break/platform-command-floor-20260522.webp",
-      "/images/bobs-big-break/platform-boosts-market-20260522.png",
-      "/images/bobs-big-break/platform-daily-gigs-20260522.png",
-      "/images/bobs-big-break/platform-style-bag-20260522.png"
+      "/images/bobs-big-break/v2/desktop.webp",
+      "/images/bobs-big-break/v2/hustle.webp",
+      "/images/bobs-big-break/v2/crew.webp",
+      "/images/bobs-big-break/v2/journey.webp",
+      "/images/bobs-big-break/v2/bag.webp",
+    ],
+    visuals: [
+      {
+        src: "/images/bobs-big-break/v2/hustle.webp",
+        label: "Hustle",
+        note: "The wallet, income per second, Bob, and one next move. Everything else lives on another tab.",
+        orientation: "tall",
+      },
+      {
+        src: "/images/bobs-big-break/v2/crew.webp",
+        label: "Your crew",
+        note: "Hire once and keep earning while you are away. Each row says what it costs and what it adds per second.",
+        orientation: "tall",
+      },
+      {
+        src: "/images/bobs-big-break/v2/journey.webp",
+        label: "The road ahead",
+        note: "Daily gigs give a short goal for each session, with a progress bar and a clear reward.",
+        orientation: "tall",
+      },
+      {
+        src: "/images/bobs-big-break/v2/bag.webp",
+        label: "Your collection",
+        note: "Style unlocks and achievements earned by playing, so progress shows up on Bob himself.",
+        orientation: "tall",
+      },
     ],
     conclusion: {
-      impact: "Successfully delivered a playable game prototype as part of a school project",
-      learnings: "Balancing complexity in idle mechanics taught me how to scale features without overwhelming users. Designing for low-attention states challenged my UX instincts and helped me think more empathetically about user context.",
-      nextSteps: "User testing with casual players, to fine-tune engagement pacing, achievements or social sharing to increase player retention, mobile optimization for even more intuitive thumb-first interaction"
+      impact:
+        "The game is playable in the browser with no account or download, and the same build exports to iOS and Android. It has not been released to the app stores, so there are no player numbers.",
+      learnings:
+        "Designing for low attention meant showing less, not more. One next move on the main screen did more for the loop than any extra statistic.",
+      nextSteps:
+        "Test pacing with casual players, add cloud backup for accounts, and prepare the store release.",
     },
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "Bulma"],
+    techStack: ["Expo", "React Native", "TypeScript", "Expo Router", "SQLite"],
     keyAchievements: [
-      "Designed and developed a functional game prototype in just 2 weeks",
-      "Created a balanced game economy with both active and passive progression systems",
-      "Implemented data persistence using MongoDB to save player progress"
+      "Four focused tabs replaced one long dashboard",
+      "Every purchase shows its price and its effect before you tap",
+      "Runs saved on the device, with a reset that can be undone",
     ],
     githubUrl: null,
-    liveUrl: "https://bobsbigbreak.netlify.app/",
-    problemSolved: "Creating an engaging game experience for low-attention, short-session moments",
+    liveUrl: "https://bobs-big-break-demo.web.app/",
+    problemSolved:
+      "Gives people a game they can open for a minute, make one good move in, and leave without losing progress.",
     technicalHighlights: [
-      "Tap or Idle Play: Earn coins by clicking or passively through investments",
-      "Upgradeable Hustles & Hustlers: Strategic choice between active and passive income streams",
-      "Cosmetic Customization: Outfit Bob with style as his empire grows",
-      "Data Persistence: Progress is saved across sessions using a MongoDB backend"
+      "One economy shared by the web and mobile builds",
+      "On-device saves with a lock so two tabs cannot overwrite a run",
+      "Away earnings collected when you come back",
     ],
-    teamSize: "2 members",
-    methodologies: ["Rapid Prototyping", "Iterative Design", "Game Balance Testing"],
-    summary: "A lighthearted incremental clicker game where players help Bob, an entrepreneur, earn coins through active clicking or passive income generators. Built as a school project in 2 weeks.",
-    date: "2020-08-15"
+    methodologies: ["Game Design", "Interaction Design", "Rapid Prototyping"],
+    summary:
+      "An idle mobile game where you grow Bob's neighborhood hustle by tapping, hiring a crew, and finishing daily gigs.",
+    date: "2020-08-15",
   };
 };

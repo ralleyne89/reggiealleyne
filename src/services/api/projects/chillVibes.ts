@@ -1,67 +1,103 @@
-
 import { ProjectType } from '../../../types/project';
 
 export const getChillVibesProject = (): ProjectType => {
   return {
     id: 7,
-    slug: "chill-vibes-music-player", 
+    slug: "chill-vibes-music-player",
     title: "Chill Vibes Music Player",
-    description: "A freelance project where I built a minimalist music streaming MVP for a client who was tired of cluttered music apps. Clean interface, smooth playback, no distractions.",
-    fullDescription: "Got hired by a client who wanted to prove that music apps didn't have to be overwhelming. I designed and built the entire thing from wireframes to deployment - a responsive web app focused on just playing music without all the usual bells and whistles.",
-    image: "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.webp",
-    tags: ["Music", "UX/UI", "React.js", "Firebase"],
+    description:
+      "A browser music player for relaxed listening: press play, keep a session going without managing it, and come back to the tracks you saved.",
+    fullDescription:
+      "Chill Vibes is a music player built like a listening desk. Artwork gives the session a sense of place, the controls stay in reach, and the track lists make the next action obvious. It works on desktop and phone browsers, with a guest mode so anyone can try it.",
+    image: "/images/chill-vibes/v2/desktop.webp",
+    category: "Music · Web app",
+    tags: ["Music", "UX/UI", "React", "Firebase"],
     role: "UX/UI Designer & Frontend Developer",
     duration: "3 months",
     year: "2020",
-    challenge: "The client was frustrated with how every music app felt like a social media platform. They wanted something for people who just want to listen to music - no podcasts, no social feeds, no algorithmic chaos. Just clean design and good tunes.",
+    challenge:
+      "Most music apps bury playback under feeds, podcasts, and recommendations. Someone studying or unwinding just wants to start something calm and not touch the player again after every track.",
     process: [
-      "Started with user interviews and competitive analysis to understand what people actually wanted",
-      "Wireframed a super simple interface - literally just the music and basic controls",
-      "Designed in Figma with a dark, minimal aesthetic that wouldn't compete with the music",
-      "Built the frontend in React with clean, reusable components",
-      "Integrated with music streaming APIs and optimized for smooth playback",
-      "Made everything responsive because people listen to music on their phones",
-      "Deployed on Firebase for easy client testing and feedback"
+      "Defined the core job in one line: find music for the moment and keep listening without managing the player after every track.",
+      "Mapped the screens and their states: now playing, browse, library, up next, sign in, and every empty and error case.",
+      "Set the direction, a listening desk: true-black stage, neutral surfaces, one blue for actions, and the system type stack.",
+      "Built the player in React with a separate session queue, so Play starts a list and the next track follows on its own.",
+      "Made Save independent of Play, added a library with favorites, and gave narrow screens task sheets with the transport always visible.",
     ],
     deliverables: [
-      "Clean Music Interface - Land on the page and immediately know how to play music",
-      "Dark Mode Design - Easy on the eyes and won't compete with your music",
-      "Mobile-First Build - Works perfectly on phones because that's where people listen", 
-      "Smooth Audio Streaming - Music plays reliably without stutters or gaps",
-      "Live MVP Deployment - Hosted and ready for the client to test with real users"
+      "Now-playing view with artwork and a persistent transport",
+      "Browse with search across title, artist, genre, and mood, plus genre and mood filters",
+      "Library with favorites, removal, and empty states",
+      "Up next queue with shuffle, repeat off, all, or one",
+      "Volume, mute, playback speed, and keyboard controls",
+      "Email, Google, and guest sign-in",
     ],
     images: [
-      "/images/a6e65372-edc9-4098-aa00-82ee5a49def0.webp",
-      "/images/668e3d64-e2f9-4f31-9499-72d8db2269f0.webp",
-      "/images/7c5ca8bf-a2f4-41e8-a3fa-71e0099a2adf.webp",
-      "/images/6c61f05a-9d32-4df9-bcbe-d5187f822b51.webp",
-      "/images/6f0c29e0-049e-4fed-addf-089a0fd9abbe.webp",
-      "/images/77847d00-98c9-4081-9595-ed324d71c1e6.webp"
+      "/images/chill-vibes/v2/desktop.webp",
+      "/images/chill-vibes/v2/now-playing.webp",
+      "/images/chill-vibes/v2/browse.webp",
+      "/images/chill-vibes/v2/library.webp",
+      "/images/chill-vibes/v2/up-next.webp",
+      "/images/chill-vibes/v2/sign-in.webp",
+    ],
+    visuals: [
+      {
+        src: "/images/chill-vibes/v2/now-playing.webp",
+        label: "Now playing",
+        note: "Artwork sets the mood, the title and artist sit underneath, and the transport never leaves the bottom of the screen.",
+        orientation: "tall",
+      },
+      {
+        src: "/images/chill-vibes/v2/browse.webp",
+        label: "Find your next track",
+        note: "Search by title, artist, genre, or mood, or narrow with two filters. Tapping a row starts it straight away.",
+        orientation: "tall",
+      },
+      {
+        src: "/images/chill-vibes/v2/library.webp",
+        label: "Your library",
+        note: "Saved tracks with favorites and removal on every row. Saving never interrupts what is playing.",
+        orientation: "tall",
+      },
+      {
+        src: "/images/chill-vibes/v2/up-next.webp",
+        label: "Up next",
+        note: "The session queue shows what is playing and what follows, with the repeat setting stated in words.",
+        orientation: "tall",
+      },
+      {
+        src: "/images/chill-vibes/v2/sign-in.webp",
+        label: "Sign in",
+        note: "Email or Google to keep a library, or try it without an account and keep guest saves in the browser.",
+        orientation: "tall",
+      },
     ],
     conclusion: {
-      impact: "The client was stoked with how the MVP turned out. It proved their point that music apps could be simple and still functional. They got the validation they needed to move forward with user testing.",
-      learnings: "This project taught me that sometimes the best feature is the one you don't build. Every decision was about what to leave out, not what to add in.",
-      nextSteps: "The client took the MVP and ran user tests, which gave them great feedback for the next iteration. They're now working on adding social features, but keeping the core experience clean."
+      impact:
+        "The player is live and anyone can try it as a guest. It has no usage analytics, so there are no listening numbers to report.",
+      learnings:
+        "Separating Play from Save and giving the queue its own state removed most of the friction. The player stopped asking for attention once it knew what came next.",
+      nextSteps:
+        "Run a timed session with first-time listeners to see whether they reach audible playback within 30 seconds, and confirm rights for every track in the catalog.",
     },
-    techStack: ["React.js", "Firebase", "Bootstrap", "CSS Modules"],
+    techStack: ["React", "React Router", "Firebase Auth", "Sass", "React Bootstrap"],
     keyAchievements: [
-      "Delivered a complete MVP that the client could immediately test with users",
-      "Created an interface so simple that user onboarding was basically non-existent", 
-      "Built a responsive web app that worked perfectly on mobile from day one",
-      "Proved that music apps don't need to be complicated to be useful"
+      "Play starts a session that keeps going on its own",
+      "Save and favorites work without interrupting playback",
+      "Desktop workspace and phone task sheets share one transport",
     ],
-    problemSolved: "My client wanted to prove that music streaming could be simple and focused. I built them an MVP that does exactly that - plays music without getting in your way.",
+    problemSolved:
+      "Lets someone start calm music in a couple of taps and keep it going without touching the player again.",
     technicalHighlights: [
-      "Functional components and React Hooks",
-      "Mobile-first responsive design",
-      "Modular architecture for easy expansion",
-      "Firebase integration for hosting",
-      "Dark mode UI with custom gradients"
+      "A session queue kept separate from the library, with history-aware Previous",
+      "Per-user libraries that survive reload, with duplicate prevention",
+      "Labelled keyboard controls, visible focus, and focus-managed sheets on narrow screens",
     ],
-    teamSize: "1 member (Solo Project)",
     liveUrl: "https://chill-vibes.web.app/",
-    methodologies: ["Mobile-First Design", "Minimalist UX/UI", "Design Thinking"],
-    summary: "A freelance project where I helped a client prove that music apps could be simple and focused instead of overwhelming and cluttered.",
-    solution: "A clean, responsive music streaming MVP that prioritizes the music experience over everything else - no social feeds, no complex menus, just good tunes."
+    methodologies: ["Interaction Design", "Mobile-First Design", "Accessibility Checks"],
+    summary:
+      "A browser music player built like a listening desk: press play, let the session run, and come back to the tracks you saved.",
+    solution:
+      "Make Play the primary action, give the queue its own state so music keeps going, and keep the transport in reach on every screen.",
   };
 };

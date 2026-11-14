@@ -4442,6 +4442,11 @@ a:hover .duotone-media::after {
 
 .cs-steps { margin-top: 2.5rem; display: grid; gap: 3.5rem; }
 
+.cs-step__image--tall {
+  width: min(100%, 300px);
+  margin-inline: auto;
+}
+
 .cs-step__image {
   width: 100%;
   margin-bottom: 1.25rem;

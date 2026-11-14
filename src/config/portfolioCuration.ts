@@ -135,7 +135,9 @@ export type CaseStudyNarrativeSlug =
   | "pretty-paws-grooming"
   | "helm"
   | "scent-stack"
-  | "health-at-home";
+  | "health-at-home"
+  | "chill-vibes-music-player"
+  | "bobs-big-break";
 
 export interface ProjectPersonaSnapshot {
   role: string;
@@ -511,6 +513,42 @@ export const caseStudyNarratives: Record<
     reflection:
       "One idea did most of the work. Once the time is the first thing a patient sees, search, booking, and the hub stop being separate pages and become ways to keep that choice intact.",
   },
+  "chill-vibes-music-player": {
+    hook:
+      "Chill Vibes is a music player for people who want to press play once and not touch it again.",
+    setup:
+      "It is a browser music player for relaxed listening while studying, working, or unwinding. You pick something, it keeps going, and the tracks you save are there when you come back.",
+    research:
+      "I looked at how Spotify handles the queue and saving, and how newer music libraries lay out their tracks, using Mobbin. That shaped behavior, not the brand. There were no user interviews, so the audience is a working assumption.",
+    constraint:
+      "The catalog is a fixed set of 61 tracks with artwork from outside hosts, so the design could not lean on endless recommendations. It had to make a small library feel easy to move through.",
+    decision:
+      "I made Play the primary action and gave the player its own session queue. Playing a track starts a list and the next track follows on its own. Save became a separate action that never interrupts the music.",
+    build:
+      "I built it in React with a two-column listening workspace on wide screens and task sheets on phones, with the transport always visible. Shuffle, repeat, volume, speed, keyboard controls, and email, Google, or guest sign-in are all there.",
+    proof:
+      "The player is live and you can try it below without an account. Its tests and production build pass. It has no analytics yet, so time to first play is still a target, not a measured result.",
+    reflection:
+      "The quietest version of the player was the one that knew what to do next. Once the queue had its own state, most of the interface could get out of the way.",
+  },
+  "bobs-big-break": {
+    hook:
+      "Bob's Big Break is a game for the minute you are waiting on something and want to feel like you got somewhere.",
+    setup:
+      "It is an idle game about growing Bob's neighborhood hustle. You tap Bob for coins, hire a crew that earns while you are away, take on daily gigs, and unlock outfits as the business grows.",
+    research:
+      "Apple Games, Duolingo, Finch, and Structured, seen on Mobbin, shaped the reachable navigation, one-step guidance, a single clear reward, and the save status. There was no player research, so pacing is still a guess to test.",
+    constraint:
+      "People play in short, distracted bursts. The game had to make sense in a few seconds and never lose a run, even when someone closes it mid-tap.",
+    decision:
+      "I replaced the long dashboard with a portrait street scene: the wallet, income, Bob, and one next move on Hustle, with Crew, Journey, and Bag as fixed tabs. Every purchase shows its price and expected effect before you commit.",
+    build:
+      "I designed the economy, the character art, and the four screens, and built the game in Expo and React Native with saves on the device. The same build runs in the browser, which is what you can play below.",
+    proof:
+      "The game is playable now with no account or download, and the iOS and Android exports build. It has not been released to the stores, so there are no player numbers yet.",
+    reflection:
+      "Designing for low attention meant cutting statistics, not adding them. One clear next move kept people tapping better than any number on the screen.",
+  },
   "tutor-d": {
     hook:
       "Tutor D began with a constraint most learning products treat as an edge case: some students could not rely on full web access at all.",
@@ -827,21 +865,27 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
   "chill-vibes-music-player": {
     role: "UX/UI Designer and Frontend Developer",
     problem:
-      "A client wanted to prove a music app could feel calm and focused instead of becoming another social feed.",
+      "Music apps bury playback under feeds and recommendations, and make you manage the player after every track.",
+    decision:
+      "Make Play the main action, give the queue its own state so the session keeps going, and keep the transport in reach everywhere.",
     outcome:
-      "Built a responsive MVP that kept the listening experience simple enough for validation and user testing.",
-    tools: ["React", "Firebase", "Bootstrap", "CSS Modules"],
-    owned: ["MVP interface", "Responsive player", "Frontend build", "Client validation flow"],
+      "A live browser player with browse, library, an up-next queue, and a guest mode anyone can try.",
+    tools: ["Figma", "React", "Firebase Auth", "Sass", "React Bootstrap"],
+    owned: ["Interaction design", "Visual direction", "Frontend build", "Accessibility"],
   },
+
   "bobs-big-break": {
-    role: "UX/UI Designer and Web Developer",
+    role: "UX/UI Designer and Developer",
     problem:
-      "The game needed to reward short, low-attention play sessions without asking players to learn a complex system.",
+      "Idle games tend to become dashboards of numbers, which is the opposite of what someone wants in a one-minute break.",
+    decision:
+      "One next move on the main screen, four tabs for everything else, and saves on the device so a run is always waiting.",
     outcome:
-      "Delivered a playable incremental game prototype with active clicks, passive income, upgrades, and character art.",
-    tools: ["React", "Node.js", "Express", "MongoDB", "Bulma"],
-    owned: ["Game UX", "Economy loop", "Frontend build", "Backend integration"],
+      "A playable mobile game with tapping, a crew, daily gigs, style unlocks, and on-device saves, running in the browser and exportable to iOS and Android.",
+    tools: ["Figma", "Expo", "React Native", "TypeScript", "SQLite"],
+    owned: ["Game design", "Economy", "Character art", "Mobile build"],
   },
+
   "covelo-timecard-system": {
     role: "UX/UI Designer and Frontend Developer",
     problem:
@@ -1214,7 +1258,7 @@ export const projectPersonaJourneys: Record<
       friction:
         "Large streaming products often bury playback behind feeds, menus, social layers, and competing actions.",
       need:
-        "A responsive MVP that keeps core playback clear enough for client validation and user testing.",
+        "A player that keeps going on its own once a session starts, with saving that never interrupts it.",
     },
     journey: [
       {
@@ -1690,7 +1734,7 @@ export const projectPersonaProfiles: Partial<Record<
       { label: "Visual calm", score: 92 },
       { label: "Browse effort", score: 72 },
       { label: "Responsive comfort", score: 84 },
-      { label: "Client testability", score: 78 },
+      { label: "Hands-off listening", score: 86 },
     ],
   },
   "bobs-big-break": {
