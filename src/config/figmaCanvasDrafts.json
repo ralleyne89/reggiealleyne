@@ -2330,5 +2330,670 @@
     ]
    }
   ]
+ },
+ "scent-stack": {
+  "project": "Drafts",
+  "fileName": "ScentStack — Web App + Brand Design",
+  "pages": [
+   {
+    "name": "Research & Assumptions",
+    "frames": [
+     {
+      "name": "Research / Brief",
+      "file": "01-01-research-brief",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 1526
+     },
+     {
+      "name": "Research / Scope and validation",
+      "file": "01-02-research-scope-and-validation",
+      "x": 1740,
+      "y": 220,
+      "width": 1440,
+      "height": 1797
+     },
+     {
+      "name": "Research / Assumptions register",
+      "file": "01-03-research-assumptions-register",
+      "x": 3580,
+      "y": 220,
+      "width": 1440,
+      "height": 1554
+     },
+     {
+      "name": "Research / Sources",
+      "file": "01-04-research-sources",
+      "x": 5120,
+      "y": 220,
+      "width": 1120,
+      "height": 3003
+     },
+     {
+      "name": "Research / Findings",
+      "file": "01-05-research-findings",
+      "x": 200,
+      "y": 3643,
+      "width": 1440,
+      "height": 2177
+     },
+     {
+      "name": "Research / Competitive review",
+      "file": "01-06-research-competitive-review",
+      "x": 1740,
+      "y": 3643,
+      "width": 1440,
+      "height": 1104
+     }
+    ]
+   },
+   {
+    "name": "Personas & Flows",
+    "frames": [
+     {
+      "name": "Persona / The dupe hunter",
+      "file": "02-01-persona-the-dupe-hunter",
+      "x": 200,
+      "y": 220,
+      "width": 740,
+      "height": 1175
+     },
+     {
+      "name": "Persona / The curious hobbyist",
+      "file": "02-02-persona-the-curious-hobbyist",
+      "x": 1040,
+      "y": 220,
+      "width": 740,
+      "height": 1124
+     },
+     {
+      "name": "Public sitemap",
+      "file": "02-03-public-sitemap",
+      "x": 2180,
+      "y": 220,
+      "width": 1440,
+      "height": 887
+     },
+     {
+      "name": "Visual sitemap",
+      "file": "02-04-visual-sitemap",
+      "x": 3720,
+      "y": 220,
+      "width": 1440,
+      "height": 1323
+     },
+     {
+      "name": "Core user flow",
+      "file": "02-05-core-user-flow",
+      "x": 5260,
+      "y": 220,
+      "width": 1440,
+      "height": 617
+     },
+     {
+      "name": "Recovery paths",
+      "file": "02-06-recovery-paths",
+      "x": 200,
+      "y": 1963,
+      "width": 1440,
+      "height": 641
+     },
+     {
+      "name": "Walkthrough checks",
+      "file": "02-07-walkthrough-checks",
+      "x": 1740,
+      "y": 1963,
+      "width": 1440,
+      "height": 794
+     },
+     {
+      "name": "Screen coverage",
+      "file": "02-08-screen-coverage",
+      "x": 3580,
+      "y": 1963,
+      "width": 1840,
+      "height": 1125
+     }
+    ]
+   },
+   {
+    "name": "Wireframes",
+    "frames": [
+     {
+      "name": "Wireframes / START",
+      "file": "03-01-wireframes-start",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 944
+     },
+     {
+      "name": "W01 / Homepage — Desktop",
+      "file": "03-02-w01-homepage-desktop",
+      "x": 200,
+      "y": 1500,
+      "width": 1440,
+      "height": 6518
+     },
+     {
+      "name": "W02 / Pair comparison — Desktop",
+      "file": "03-03-w02-pair-comparison-desktop",
+      "x": 2040,
+      "y": 1500,
+      "width": 1440,
+      "height": 1582
+     },
+     {
+      "name": "W03 / Fragrance — Desktop",
+      "file": "03-04-w03-fragrance-desktop",
+      "x": 3880,
+      "y": 1500,
+      "width": 1440,
+      "height": 4641
+     },
+     {
+      "name": "W04 / Brand — Desktop",
+      "file": "03-05-w04-brand-desktop",
+      "x": 5720,
+      "y": 1500,
+      "width": 1440,
+      "height": 3792
+     },
+     {
+      "name": "W05 / Browse A–Z — Desktop",
+      "file": "03-06-w05-browse-a-z-desktop",
+      "x": 7560,
+      "y": 1500,
+      "width": 1440,
+      "height": 6121
+     },
+     {
+      "name": "W06 / Search results — Desktop",
+      "file": "03-07-w06-search-results-desktop",
+      "x": 9400,
+      "y": 1500,
+      "width": 1440,
+      "height": 1588
+     },
+     {
+      "name": "W07 / Your stack — Desktop",
+      "file": "03-08-w07-your-stack-desktop",
+      "x": 200,
+      "y": 8700,
+      "width": 1440,
+      "height": 1384
+     },
+     {
+      "name": "W08 / Finder quiz, question — Desktop",
+      "file": "03-09-w08-finder-quiz-question-desktop",
+      "x": 2040,
+      "y": 8700,
+      "width": 1440,
+      "height": 1384
+     },
+     {
+      "name": "W09 / Finder quiz, picks — Desktop",
+      "file": "03-10-w09-finder-quiz-picks-desktop",
+      "x": 3640,
+      "y": 8700,
+      "width": 1440,
+      "height": 2777
+     },
+     {
+      "name": "W10 / Dream Lab, matches — Desktop",
+      "file": "03-11-w10-dream-lab-matches-desktop",
+      "x": 5480,
+      "y": 8700,
+      "width": 1440,
+      "height": 2348
+     },
+     {
+      "name": "W11 / Layering Lab — Desktop",
+      "file": "03-12-w11-layering-lab-desktop",
+      "x": 7320,
+      "y": 8700,
+      "width": 1440,
+      "height": 1384
+     },
+     {
+      "name": "Responsive / Pair comparison — 390 px",
+      "file": "03-13-responsive-pair-comparison-390-px",
+      "x": 9160,
+      "y": 8700,
+      "width": 390,
+      "height": 2544
+     },
+     {
+      "name": "Responsive / Your stack — 390 px",
+      "file": "03-14-responsive-your-stack-390-px",
+      "x": 9630,
+      "y": 8700,
+      "width": 390,
+      "height": 1634
+     }
+    ]
+   },
+   {
+    "name": "Foundations",
+    "frames": [
+     {
+      "name": "Foundations / Typography",
+      "file": "04-01-foundations-typography",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 1150
+     },
+     {
+      "name": "Foundations / Colour",
+      "file": "04-02-foundations-colour",
+      "x": 2040,
+      "y": 220,
+      "width": 1440,
+      "height": 1505
+     },
+     {
+      "name": "Foundations / Shape and motion",
+      "file": "04-03-foundations-shape-and-motion",
+      "x": 3880,
+      "y": 220,
+      "width": 1440,
+      "height": 1031
+     }
+    ]
+   },
+   {
+    "name": "Components",
+    "frames": [
+     {
+      "name": "01 — Brand & navigation",
+      "file": "05-01-01-brand-navigation",
+      "x": 120,
+      "y": 120,
+      "width": 1840,
+      "height": 1433
+     },
+     {
+      "name": "02 — Actions",
+      "file": "05-02-02-actions",
+      "x": 2200,
+      "y": 120,
+      "width": 1840,
+      "height": 1825
+     },
+     {
+      "name": "03 — Form controls",
+      "file": "05-03-03-form-controls",
+      "x": 120,
+      "y": 2185,
+      "width": 1840,
+      "height": 1092
+     },
+     {
+      "name": "04 — Cards & tiles",
+      "file": "05-04-04-cards-tiles",
+      "x": 2200,
+      "y": 2185,
+      "width": 1840,
+      "height": 4053
+     },
+     {
+      "name": "05 — Lists & rows",
+      "file": "05-05-05-lists-rows",
+      "x": 120,
+      "y": 6478,
+      "width": 1840,
+      "height": 1431
+     },
+     {
+      "name": "06 — Search & Labs",
+      "file": "05-06-06-search-labs",
+      "x": 2200,
+      "y": 6478,
+      "width": 1840,
+      "height": 754
+     },
+     {
+      "name": "07 — Pricing & savings",
+      "file": "05-07-07-pricing-savings",
+      "x": 120,
+      "y": 8149,
+      "width": 1840,
+      "height": 1093
+     },
+     {
+      "name": "08 — Main components",
+      "file": "05-08-08-main-components",
+      "x": 4280,
+      "y": 120,
+      "width": 5200,
+      "height": 5315
+     }
+    ]
+   },
+   {
+    "name": "Core Screens",
+    "frames": [
+     {
+      "name": "Core Screens / Launcher",
+      "file": "06-01-core-screens-launcher",
+      "x": 200,
+      "y": 220,
+      "width": 1840,
+      "height": 692
+     },
+     {
+      "name": "Homepage / Desktop · 1440 px",
+      "file": "06-02-homepage-desktop-1440-px",
+      "x": 200,
+      "y": 1700,
+      "width": 1440,
+      "height": 6518
+     },
+     {
+      "name": "Pair comparison / Desktop",
+      "file": "06-03-pair-comparison-desktop",
+      "x": 2040,
+      "y": 1700,
+      "width": 1440,
+      "height": 1582
+     },
+     {
+      "name": "Fragrance / Desktop",
+      "file": "06-04-fragrance-desktop",
+      "x": 3880,
+      "y": 1700,
+      "width": 1440,
+      "height": 4641
+     },
+     {
+      "name": "Brand / Desktop",
+      "file": "06-05-brand-desktop",
+      "x": 5720,
+      "y": 1700,
+      "width": 1440,
+      "height": 3792
+     },
+     {
+      "name": "Browse A–Z / Desktop",
+      "file": "06-06-browse-a-z-desktop",
+      "x": 7560,
+      "y": 1700,
+      "width": 1440,
+      "height": 6121
+     },
+     {
+      "name": "Search results / Desktop",
+      "file": "06-07-search-results-desktop",
+      "x": 9400,
+      "y": 1700,
+      "width": 1440,
+      "height": 1588
+     },
+     {
+      "name": "Stack, two saved / Desktop",
+      "file": "06-08-stack-two-saved-desktop",
+      "x": 200,
+      "y": 8700,
+      "width": 1440,
+      "height": 1384
+     },
+     {
+      "name": "Stack, empty / Desktop",
+      "file": "06-09-stack-empty-desktop",
+      "x": 1800,
+      "y": 8700,
+      "width": 1440,
+      "height": 1384
+     },
+     {
+      "name": "Finder quiz, question 1 / Desktop",
+      "file": "06-10-finder-quiz-question-1-desktop",
+      "x": 3640,
+      "y": 8700,
+      "width": 1440,
+      "height": 1384
+     },
+     {
+      "name": "Finder quiz, question 2 / Desktop",
+      "file": "06-11-finder-quiz-question-2-desktop",
+      "x": 5240,
+      "y": 8700,
+      "width": 1440,
+      "height": 1384
+     },
+     {
+      "name": "Finder quiz, picks / Desktop",
+      "file": "06-12-finder-quiz-picks-desktop",
+      "x": 6840,
+      "y": 8700,
+      "width": 1440,
+      "height": 2777
+     },
+     {
+      "name": "Dream Lab / Desktop",
+      "file": "06-13-dream-lab-desktop",
+      "x": 8680,
+      "y": 8700,
+      "width": 1440,
+      "height": 1384
+     },
+     {
+      "name": "Dream Lab, matches / Desktop",
+      "file": "06-14-dream-lab-matches-desktop",
+      "x": 10280,
+      "y": 8700,
+      "width": 1440,
+      "height": 2348
+     },
+     {
+      "name": "Layering Lab / Desktop",
+      "file": "06-15-layering-lab-desktop",
+      "x": 12120,
+      "y": 8700,
+      "width": 1440,
+      "height": 1384
+     },
+     {
+      "name": "Search palette open / Desktop",
+      "file": "06-16-search-palette-open-desktop",
+      "x": 200,
+      "y": 11900,
+      "width": 1440,
+      "height": 6518
+     },
+     {
+      "name": "Labs menu open / Desktop",
+      "file": "06-17-labs-menu-open-desktop",
+      "x": 1800,
+      "y": 11900,
+      "width": 1440,
+      "height": 6518
+     },
+     {
+      "name": "Pair comparison, dark / Desktop",
+      "file": "06-18-pair-comparison-dark-desktop",
+      "x": 3640,
+      "y": 11900,
+      "width": 1440,
+      "height": 1606
+     },
+     {
+      "name": "Homepage, dark / Desktop",
+      "file": "06-19-homepage-dark-desktop",
+      "x": 5240,
+      "y": 11900,
+      "width": 1440,
+      "height": 6518
+     },
+     {
+      "name": "Not found / Desktop",
+      "file": "06-20-not-found-desktop",
+      "x": 7080,
+      "y": 11900,
+      "width": 1440,
+      "height": 1384
+     },
+     {
+      "name": "Design kit (/kit) / Desktop",
+      "file": "06-21-design-kit-kit-desktop",
+      "x": 8920,
+      "y": 11900,
+      "width": 1440,
+      "height": 4627
+     },
+     {
+      "name": "Homepage / Mobile · 390 px",
+      "file": "06-22-homepage-mobile-390-px",
+      "x": 200,
+      "y": 18900,
+      "width": 390,
+      "height": 7000
+     },
+     {
+      "name": "Pair comparison / Mobile · 390 px",
+      "file": "06-23-pair-comparison-mobile-390-px",
+      "x": 670,
+      "y": 18900,
+      "width": 390,
+      "height": 2544
+     },
+     {
+      "name": "Stack / Mobile · 390 px",
+      "file": "06-24-stack-mobile-390-px",
+      "x": 1140,
+      "y": 18900,
+      "width": 390,
+      "height": 1634
+     },
+     {
+      "name": "Search palette / Mobile · 390 px",
+      "file": "06-25-search-palette-mobile-390-px",
+      "x": 1610,
+      "y": 18900,
+      "width": 390,
+      "height": 7000
+     },
+     {
+      "name": "Menu sheet / Mobile · 390 px",
+      "file": "06-26-menu-sheet-mobile-390-px",
+      "x": 2080,
+      "y": 18900,
+      "width": 390,
+      "height": 7000
+     },
+     {
+      "name": "Browse A–Z / Mobile · 390 px",
+      "file": "06-27-browse-a-z-mobile-390-px",
+      "x": 2550,
+      "y": 18900,
+      "width": 390,
+      "height": 10783
+     }
+    ]
+   },
+   {
+    "name": "Presentation",
+    "frames": [
+     {
+      "name": "Slide 01 / Cover",
+      "file": "09-01-slide-01-cover",
+      "x": 200,
+      "y": 220,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 02 / The goal",
+      "file": "09-02-slide-02-the-goal",
+      "x": 2200,
+      "y": 220,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 03 / Who it serves",
+      "file": "09-03-slide-03-who-it-serves",
+      "x": 200,
+      "y": 1410,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 04 / What it does",
+      "file": "09-04-slide-04-what-it-does",
+      "x": 2200,
+      "y": 1410,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 05 / Information architecture",
+      "file": "09-05-slide-05-information-architecture",
+      "x": 200,
+      "y": 2600,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 06 / Entry decision",
+      "file": "09-06-slide-06-entry-decision",
+      "x": 2200,
+      "y": 2600,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 07 / Comparison decision",
+      "file": "09-07-slide-07-comparison-decision",
+      "x": 200,
+      "y": 3790,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 08 / Saving decision",
+      "file": "09-08-slide-08-saving-decision",
+      "x": 2200,
+      "y": 3790,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 09 / Labs decision",
+      "file": "09-09-slide-09-labs-decision",
+      "x": 200,
+      "y": 4980,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 10 / System and responsive",
+      "file": "09-10-slide-10-system-and-responsive",
+      "x": 2200,
+      "y": 4980,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 11 / How to evaluate",
+      "file": "09-11-slide-11-how-to-evaluate",
+      "x": 200,
+      "y": 6170,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 12 / Close",
+      "file": "09-12-slide-12-close",
+      "x": 2200,
+      "y": 6170,
+      "width": 1920,
+      "height": 1080
+     }
+    ]
+   }
+  ]
  }
 }

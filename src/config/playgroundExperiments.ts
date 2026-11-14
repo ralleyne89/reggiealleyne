@@ -35,14 +35,14 @@ export const experiments: Experiment[] = [
   {
     title: "ScentStack",
     description:
-      "A fragrance finder for dupe matching, layering ideas, and searching for the scent someone has in mind.",
+      "A fragrance dupe finder. Type the perfume you love and see the cheaper bottles that smell like it, side by side with the price.",
     proofSignal:
-      "Shows recommendation UX, premium consumer framing, and fast prototype delivery.",
-    tags: ["React", "Tailwind", "AI"],
+      "Shows a full redesign of a live product: one concept carried through search, comparison, saving, and two AI labs.",
+    tags: ["React", "three.js", "AI"],
     icon: Code,
-    previewImage: "/images/scentstack_hero.webp",
+    previewImage: "/images/scentstack/home.webp",
     detailPath: "/project/scent-stack",
-    liveUrl: "https://scentstack.lovable.app",
+    liveUrl: "https://scentstack.netlify.app",
     status: "Live",
   },
   {

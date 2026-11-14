@@ -132,7 +132,8 @@ export type CaseStudyNarrativeSlug =
   | "staybooked"
   | "covelo-timecard-system"
   | "pretty-paws-grooming"
-  | "helm";
+  | "helm"
+  | "scent-stack";
 
 export interface ProjectPersonaSnapshot {
   role: string;
@@ -477,6 +478,24 @@ export const caseStudyNarratives: Record<
   CaseStudyNarrative
 > = {
   motorflow: motorflowNarrative,
+  "scent-stack": {
+    hook:
+      "ScentStack answers the question a perfume shopper actually types: what smells like this, for less?",
+    setup:
+      "It is a dupe finder with 1,691 original-to-dupe pairs covering 922 perfumes. The first version worked, but it looked like a template and buried the one thing people came for. I redesigned and rebuilt it as a showpiece that is still quick to use.",
+    research:
+      "The Figma file holds the research brief, an assumptions register, the sources, and a competitive review. The two personas, the dupe hunter and the curious hobbyist, are assumptions, and there is no analytics baseline yet.",
+    constraint:
+      "The data set the limits. Only about one pair in eight comes with scent notes, most pairs share the same similarity line, and I own no bottle photography. The interface could not lean on rich descriptions, so it had to lean on what every pair does have: two prices.",
+    decision:
+      "I made the price gap the loudest thing on the page and built everything else from one idea, the stack. A perfume is three layers, the product is called a stack, and what you save is your stack. Each scent family gets its own colour, and the badge with the saving sits on every comparison.",
+    build:
+      "I rebuilt the app in React with a search palette, A–Z browse, brand and fragrance pages, the pair comparison, the stack, a finder quiz, Dream Lab, and Layering Lab, in light and dark. The home page carries a three.js bottle made of three layers, and the two labs call open language and vision models.",
+    proof:
+      "The redesign is live. Across the 1,661 pairs with both prices, the median dupe costs 82% less than its original. There is no analytics yet, so how often visitors open a comparison is unmeasured.",
+    reflection:
+      "Thin data pushed the design toward honesty. When most rows cannot describe a scent, the page should say what it knows for certain, which is the price, and let the labs do the describing.",
+  },
   helm: {
     hook:
       "Helm began with one discomfort: an AI agent that can send, spend, and publish needs a moment where a person says yes.",
@@ -748,13 +767,20 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     owned: ["Risk dashboard", "Remediation flow", "Visual identity", "Frontend prototype"],
   },
   "scent-stack": {
-    role: "UX/UI Designer and AI Product Strategist",
+    role: "Product Designer and Developer",
     problem:
-      "Fragrance discovery is expensive, opaque, and hard to translate from taste into actual products.",
+      "Finding a cheaper bottle that smells like a perfume you love means piecing answers together from videos, forums, and spreadsheets.",
+    decision:
+      "Lead every screen with the two prices, and build the product around one idea: the stack.",
     outcome:
-      "Built a consumer product with 1,690+ dupes, dream-scent matching, and photo-based layering recommendations.",
-    tools: ["React", "Tailwind CSS", "Supabase", "Qwen models (Hugging Face)"],
-    owned: ["Product concept", "Dupe database", "Dream Lab", "Layering Lab"],
+      "A redesigned live app with search, comparison, a saved stack, a finder quiz, and two AI labs, in light and dark.",
+    tools: ["React", "TypeScript", "Tailwind CSS", "three.js", "Supabase", "Qwen models (Hugging Face)"],
+    owned: ["Product audit", "Visual direction", "Design system", "Frontend build"],
+    metrics: [
+      { value: "1,691", label: "Dupe pairs", kind: "delivery-fact" },
+      { value: "922", label: "Perfumes covered", kind: "delivery-fact" },
+      { value: "82%", label: "Median saving at listed prices", kind: "delivery-fact" },
+    ],
   },
   "tutor-d": {
     role: "UX/UI Designer and Frontend Developer",
