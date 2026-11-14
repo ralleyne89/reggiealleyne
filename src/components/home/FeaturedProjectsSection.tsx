@@ -26,7 +26,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const moreSelectedProjectSlugs = [
   "tech-noir",
-  "cllctve-platform",
   "covelo-timecard-system",
   "symptom-checkr",
 ] as const;
@@ -34,7 +33,7 @@ const moreSelectedProjectSlugs = [
 const padIndex = (index: number) => String(index + 1).padStart(2, "0");
 
 /**
- * Home work section. The three lead case studies scroll past a screen that
+ * Home work section. The four lead case studies scroll past a screen that
  * holds still inside a selection frame; the frame retargets to whichever
  * project is centred. Supporting work follows as compact rows.
  */
@@ -52,7 +51,7 @@ const FeaturedProjectsSection = () => {
   });
 
   const leadProjects = useMemo(
-    () => orderFeaturedProjects(projects).slice(0, 3),
+    () => orderFeaturedProjects(projects).slice(0, 4),
     [projects],
   );
 
@@ -141,7 +140,7 @@ const FeaturedProjectsSection = () => {
         </div>
         <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr] lg:items-end">
           <h2 className="lw-heading">
-            Three case studies built around product decisions.
+            Four case studies built around product decisions.
           </h2>
           <p className="max-w-xl text-base leading-7 text-text-secondary lg:justify-self-end">
             Start with three projects that show product questions moving into
