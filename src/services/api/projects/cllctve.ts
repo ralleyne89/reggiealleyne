@@ -5,54 +5,101 @@ export const getCllctveProject = (): ProjectType => {
     id: 1,
     slug: "cllctve-platform",
     title: "CLLCTVE Platform",
-    description: "A mobile-first creator portfolio platform that reached 500+ creators by focusing on behavior fit instead of Behance-style feature parity.",
-    fullDescription: "We chose mobile-first over desktop feature parity because creators needed a portfolio they could update and share from a phone. The resume reports 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
-    image: "/images/cllctve-gen-z-card.webp",
-    category: "Platform",
-    tags: ["Platform", "Creative", "Gen Z", "Portfolio"],
-    role: "UX/UI Designer & Frontend Engineer",
-    duration: "1 year, 10 months",
-    year: "2022",
-    challenge: "Behance already had reach, credibility, and desktop workflows. CLLCTVE had to give Gen Z creators a reason to use a smaller platform, so we bet on mobile creation, community feedback, and faster iteration instead of chasing every professional portfolio feature.",
+    description:
+      "A creator portfolio platform, rebuilt in 2026: publish your work, find other creators, and start a collaboration. The original product is where I worked as designer and frontend engineer.",
+    fullDescription:
+      "CLLCTVE helps creators publish work, find other creators, and receive collaboration requests. I worked on the original product as UX/UI designer and frontend engineer before the company closed. In 2026 I audited the old React app and started rebuilding it as a real product, with accounts, saved portfolios, and a customizable portfolio and work feed.",
+    image: "/images/cllctve/v2/home.webp",
+    category: "Creator platform · Rebuild in progress",
+    tags: ["Platform", "Creative", "Portfolio", "Product Design", "React", "Supabase"],
+    role: "Product Designer & Developer",
+    duration: "Rebuild started November 2026",
+    year: "2026",
+    challenge:
+      "The old app looked finished and was not. Login, signup, the waitlist, and connection requests were simulations, the creator records were mock data, and the mobile navigation disappeared. The rebuild had to keep the brand people remembered and replace everything underneath it.",
     process: [
-      "Used mobile browsing data to prioritize phone-first portfolio creation and viewing over desktop power tools.",
-      "Stayed with React because it was the existing product stack and supported fast design-to-code iteration.",
-      "Built the community feed before analytics to test whether feedback could create a stronger return loop.",
-      "Constrained brand customization so challenge pages could flex without breaking the platform system."
+      "Audited the existing app and recorded 15 findings, separating what the code said from what happened in the browser.",
+      "Wrote the brief, the product requirements with 24 must-have acceptance criteria, and a screen map covering every state.",
+      "Pulled the original pink, orange, and charcoal from the old site's stylesheet and set the direction: the work comes first, the workspace stays quiet.",
+      "Rebuilt the foundation, the homepage, and the account flows, then the private portfolio workspace, each checked at phone and desktop widths.",
+      "Researched portfolio builders and built an interactive demo of a customizable portfolio and a work feed before committing it to the backend.",
     ],
     deliverables: [
-      "Custom Portfolio Builder - Drag-and-drop interface that prioritized mobile touch interactions",
-      "Modular Portfolios - Category-based organization designed for swipe-based browsing",
-      "Branded Challenge Pages - Customization within strict design system constraints",
-      "Real-time Notifications - Engagement hooks designed for return visits"
+      "Homepage and brand system rebuilt on the original palette",
+      "Sign up, log in, email confirmation, and password recovery",
+      "Portfolio workspace: profile, projects, images, ordering, private preview",
+      "Customizable portfolio demo: three layouts, canvas, accent, type, and image corners",
+      "Work feed and project detail demo with likes and comments",
+      "Figma file from research to core screens",
     ],
     images: [
-      "/images/cllctve-gen-z-card.webp",
-      "/images/cllctve-profile-rebuilt.jpg",
-      "/images/fbb376a0-30ad-4530-8445-159e6767e748.webp",
-      "/images/009d9393-dfb9-453e-8811-1f52d78bf7f1.webp"
+      "/images/cllctve/v2/home.webp",
+      "/images/cllctve/v2/portfolio.webp",
+      "/images/cllctve/v2/customize.webp",
+      "/images/cllctve/v2/feed.webp",
+      "/images/cllctve/v2/project-detail.webp",
+      "/images/cllctve/v2/workspace.webp",
+    ],
+    visuals: [
+      {
+        src: "/images/cllctve/v2/home.webp",
+        label: "Home",
+        note: "One statement, one action, and a stack of work beside it. No feature grid and no borrowed social proof.",
+      },
+      {
+        src: "/images/cllctve/v2/portfolio.webp",
+        label: "My portfolio",
+        note: "A short bio, then the work. The portfolio sits on its own canvas inside the charcoal workspace. Sample content.",
+      },
+      {
+        src: "/images/cllctve/v2/customize.webp",
+        label: "Customize",
+        note: "Guided choices instead of a page builder: three layouts, light or dark canvas, accent, heading type, and image corners, previewed on the real portfolio.",
+      },
+      {
+        src: "/images/cllctve/v2/feed.webp",
+        label: "Explore work",
+        note: "A chronological feed with discipline filters and search. Nothing is ranked by an algorithm. Sample creators.",
+      },
+      {
+        src: "/images/cllctve/v2/project-detail.webp",
+        label: "Project detail",
+        note: "The image leads, with the creator, status, likes, and comments attached to the project.",
+      },
+      {
+        src: "/images/cllctve/v2/workspace.webp",
+        label: "Portfolio workspace",
+        note: "The working view behind the portfolio: draft projects, order, and a private preview before anything is public.",
+      },
     ],
     conclusion: {
-      impact: "Reached 500+ creators, 15 brand partnerships, and 85% user retention. The mobile-first choice gave us an engagement path larger desktop-first platforms were not prioritizing.",
-      learnings: "The useful lesson was that the best technical choice depends on product risk. React was not the purest mobile answer, but it let our team learn faster.",
-      nextSteps: "The company closed, but the product lesson still guides how I weigh user behavior against category convention."
+      impact:
+        "The rebuilt homepage and account screens are on a public preview, the portfolio workspace is built and tested against a staging database, and the customizable portfolio and feed run as an interactive demo with sample content. It has not launched to real users.",
+      learnings:
+        "Rebuilding something I once shipped made the gap between a screen that looks done and a product that works very plain. Most of the design work was deciding what each state should honestly say.",
+      nextSteps:
+        "Finish hosted account setup, connect the portfolio and feed to the backend, then publishing, discovery, and collaboration requests.",
     },
-    techStack: ["React.js", "MongoDB", "Ant Design", "Axios", "Styled Components"],
+    techStack: ["React 19", "Vite", "Supabase", "TanStack Query", "dnd-kit", "Vitest"],
     keyAchievements: [
-      "85% user retention by prioritizing mobile experience over feature parity",
-      "15 brand partnerships by limiting customization to maintain platform quality", 
-      "500+ active creators in a market dominated by established players"
+      "Turned a simulated app into a specified product with 24 acceptance criteria",
+      "Kept the original brand while replacing the whole foundation",
+      "Shipped a customizable portfolio and feed demo that passes automated accessibility checks at 320 px",
     ],
-    problemSolved: "Gave Gen Z creators a portfolio flow built for mobile, visual sharing, and community feedback without forcing them into a desktop-first professional mold.",
+    problemSolved:
+      "Gives creators one place to publish work, be found, and be asked to collaborate, without pretending anything is saved or sent when it is not.",
     technicalHighlights: [
-      "Used lazy loading to keep media-heavy portfolio pages manageable on mobile connections",
-      "Built design token system that enabled brand customization without breaking platform coherence",
-      "Implemented optimistic UI updates for instant-feeling interactions on slower mobile connections"
+      "Supabase Auth, Postgres, and Storage behind feature adapters, with row-level access rules tested in SQL",
+      "Drag-and-drop project ordering that also works by keyboard and touch",
+      "Server-rendered homepage with a static fallback for the hero composition",
     ],
-    methodologies: ["Agile", "Bi-weekly Sprints", "User Testing", "React.js", "Figma", "Ant Design"],
-    summary: "A mobile-first portfolio platform that proved Gen Z creators would trade network size for a product shaped around how they already shared work.",
-    date: "2022-06-15",
-    solution: "Built a mobile-first portfolio platform that prioritized quick publishing, visual browsing, feedback, and brand opportunities over desktop feature parity.",
-    liveUrl: "https://cllctve-demo.web.app"
+    methodologies: ["Product Audit", "Requirements", "Desk Research", "Interaction Design", "Design Systems", "Accessibility Testing"],
+    summary:
+      "CLLCTVE is a creator portfolio platform I first worked on as designer and frontend engineer. In 2026 I started rebuilding it as a real product: accounts, saved portfolios, and a customizable portfolio and work feed, on the original brand.",
+    date: "2026-11-13",
+    solution:
+      "Make the work the first thing people see, keep the workspace behind it quiet and reliable, and give creators guided control over how their portfolio looks.",
+    liveUrl: "https://cllctve-preview.netlify.app",
+    prototypeUrl: "https://6af7c38a2ae4883ce8e00f61--cllctve-preview.netlify.app/portfolio",
   };
 };

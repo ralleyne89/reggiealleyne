@@ -11,7 +11,8 @@ import {
 export type FeaturedProjectSlug =
   | "motorflow"
   | "staybooked"
-  | "litmus-ai";
+  | "litmus-ai"
+  | "cllctve-platform";
 
 export interface FeaturedProjectConfig {
   slug: FeaturedProjectSlug;
@@ -236,6 +237,15 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
     reviewerSignal:
       "Shows how a short assessment can stay honest about what it measures while still leading to a clear next step.",
   },
+  {
+    slug: "cllctve-platform",
+    featuredTitle: "CLLCTVE",
+    eyebrow: "Creator platform / rebuild",
+    impactSummary:
+      "A creator portfolio platform rebuilt as a real product: accounts, saved portfolios, and a portfolio creators can customize.",
+    reviewerSignal:
+      "Shows an audit turned into requirements, a brand kept intact, and a product that only says what is true about its state.",
+  },
 ];
 
 export const featuredProjectSlugs = featuredProjectConfig.map(
@@ -246,41 +256,6 @@ export const caseStudyPresentations: Partial<
   Record<string, CaseStudyPresentation>
 > = {
   motorflow: motorflowPresentation,
-  "cllctve-platform": {
-    variant: "outcome-led",
-    audienceEyebrow: "Evidence base",
-    audienceTitle: "Creator behavior and team context",
-    audienceDescription:
-      "The source repo confirms a mobile-first React build and multi-contributor delivery. The resume supplies the launch outcomes.",
-    evidenceBasis:
-      "The resume reports 500+ creators, 15 brand partnerships, and 85% retention. The source repository confirms the mobile-first React product, but it does not preserve the research sample behind the strategy.",
-    teamContext:
-      "Git history confirms a multi-contributor build, and the resume records my Frontend Engineer role with UX/UI ownership. The available sources do not document collaborator roles or team size.",
-    limitation:
-      "The available project archive does not document participant counts, interview transcripts, collaborator roles, or team size, so the case study does not claim them.",
-    validationQuestions: [
-      "Which profile steps caused creators to pause or abandon setup?",
-      "Which feedback loops brought creators back after publishing?",
-    ],
-    chapterOrder: [
-      "glance",
-      "impact",
-      "overview",
-      "audience",
-      "process",
-      "artifacts",
-      "evidence",
-    ],
-    chapterLabels: {
-      glance: "Details",
-      impact: "Results",
-      overview: "Product bet",
-      audience: "Evidence",
-      process: "Decisions",
-      artifacts: "Artifacts",
-      evidence: "Interface",
-    },
-  },
   "litmus-ai": {
     variant: "assessment-led",
     audienceEyebrow: "Validation plan",
@@ -362,10 +337,10 @@ export const homepageProofMetrics: HomepageProofMetric[] = [
     href: "/project/litmus-ai",
   },
   {
-    value: "85%",
-    label: "Creator retention",
+    value: "3 layouts",
+    label: "Customizable portfolio",
     description:
-      "CLLCTVE reached 500+ creators and 15 brand partnerships by betting on mobile behavior.",
+      "CLLCTVE gives creators guided control over layout, canvas, accent, and type instead of a freeform page builder.",
     href: "/project/cllctve-platform",
   },
   {
@@ -394,21 +369,6 @@ export const caseStudyBriefs: Partial<
       "Level-based assessment flow",
       "Results and recommendations",
       "Training, certificate, and billing paths",
-    ],
-  },
-  "cllctve-platform": {
-    audience:
-      "Gen Z creators building portfolios from the same phones they used to share their work.",
-    constraint:
-      "Behance already owned the professional portfolio lane, so the product had to win on mobile behavior and community feedback.",
-    coreDecision:
-      "Prioritize mobile creation and creator feedback over desktop feature parity and deep analytics.",
-    evidence:
-      "Reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
-    artifacts: [
-      "Mobile-first portfolio builder",
-      "Creator feed and engagement loops",
-      "Design-token system for brand challenges",
     ],
   },
   "staybooked": {
@@ -516,21 +476,21 @@ export const caseStudyNarratives: Record<
   },
   "cllctve-platform": {
     hook:
-      "CLLCTVE gave Gen Z creators a mobile-first portfolio shaped around how they already shared work, found feedback, and discovered brand opportunities.",
+      "CLLCTVE is a creator portfolio platform I once helped ship. In 2026 I opened the old app again and found that most of what looked finished was a simulation.",
     setup:
-      "Behance already owned the professional portfolio category. Creator work lived across phones, social posts, screenshots, challenge submissions, and community feedback, so the team focused on faster mobile publishing instead of desktop feature parity.",
+      "CLLCTVE helps creators publish work, find other creators, and receive collaboration requests. I worked on the original as UX/UI designer and frontend engineer before the company closed. The rebuild treats it as a real product: verified accounts, saved portfolios, and requests that actually arrive.",
     research:
-      "The product strategy focused on a profile creators could update from a phone and a reason to return after publishing. The available archive does not preserve participant counts or interview transcripts, so this case study presents those ideas as product hypotheses.",
+      "I started with an audit of the existing app, 15 findings in all, then desk research: portfolio creation in Contra and Vimeo, project pages in Behance, Adobe Portfolio's documentation, and two Awwwards portfolio case studies. These are observations from published products, not interviews. The two personas in the Figma file are working assumptions.",
     constraint:
-      "The hardest constraint was choosing where not to compete. A smaller platform could not match Behance's network effects or every professional feature, and too much customization would make branded challenge pages inconsistent.",
+      "Two limits shaped the work. The brand had to stay recognisably CLLCTVE, so the pink, orange, and charcoal come from the original site's stylesheet. And nothing could claim more than it does: no old traction numbers as proof, no sample creators presented as real users, and no success message before something is saved.",
     decision:
-      "I focused the product on mobile creation, creator feedback, and a controlled design-token system. That meant prioritizing swipe-friendly portfolio browsing and community loops over desktop analytics and feature parity.",
+      "I put the work first and kept the workspace quiet. The homepage leads with one statement and a stack of work. Inside, a creator gets guided control over their portfolio (three layouts, canvas, accent, type, image corners) instead of a freeform page builder that breaks on a phone.",
     build:
-      "In my Product Designer and Frontend Developer role, I worked across the mobile portfolio builder, modular portfolio organization, branded challenge pages, notifications, and the design system that kept partner pages consistent.",
+      "I rebuilt the foundation in React with Supabase behind it: the homepage, sign up, log in, email confirmation and recovery, then the private portfolio workspace with projects, images, ordering, and a draft preview. The customizable portfolio, work feed, and project detail with likes and comments run as an interactive demo with sample content.",
     proof:
-      "The product reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed. Those outcomes support the mobile-first product decision without turning the company closure into a success story.",
+      "The homepage and account screens are on a public preview. The portfolio workspace passes 233 database checks against staging, and the demo passes automated accessibility checks at 320 px with sorting by mouse, keyboard, and touch. It has not launched, so there are no usage numbers to report.",
     reflection:
-      "The project still guides how I think about category strategy. When an incumbent owns the obvious feature set, the design opportunity is often in the behavior they are too large or too slow to serve well.",
+      "Coming back to a product I had shipped years earlier showed me how much of a screen's honesty lives in its states. The most useful design decisions here were about what the interface says when something is empty, private, unsaved, or not built yet.",
   },
   "tutor-d": {
     hook:
@@ -733,19 +693,19 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     ],
   },
   "cllctve-platform": {
-    role: "UX/UI Designer and Frontend Engineer",
+    role: "Product Designer and Developer",
     problem:
-      "Gen Z creators needed a mobile-first portfolio experience that felt closer to how they already shared work.",
+      "The old CLLCTVE app looked finished, but login, signup, and connection requests were simulations and the creators were mock data.",
     decision:
-      "Prioritize mobile creation and feedback loops over desktop feature parity with older portfolio platforms.",
+      "Rebuild it as a real product on the original brand: work first, a quiet workspace, and guided portfolio customization.",
     outcome:
-      "Reached 500+ creators, 15 brand partnerships, and 85% retention before the company closed.",
-    tools: ["Figma", "React", "Ant Design", "MongoDB", "Styled Components"],
-    owned: ["Mobile portfolio flow", "Creator feedback loops", "Design system", "Mobile behavior synthesis"],
+      "A public preview of the homepage and account flows, a tested portfolio workspace, and an interactive portfolio and feed demo. Not launched yet.",
+    tools: ["Figma", "React", "Supabase", "TanStack Query", "dnd-kit"],
+    owned: ["Product audit", "Requirements and screen map", "Visual direction", "Frontend and backend build"],
     metrics: [
-      { value: "500+", label: "Creators on platform", kind: "measured-outcome", context: "Reported in the resume." },
-      { value: "85%", label: "Creator retention", kind: "measured-outcome", context: "Reported in the resume." },
-      { value: "15", label: "Brand partnerships", kind: "measured-outcome", context: "Reported in the resume." },
+      { value: "24", label: "Must-have acceptance criteria", kind: "delivery-fact" },
+      { value: "3", label: "Portfolio layouts to choose from", kind: "delivery-fact" },
+      { value: "233", label: "Database checks passing on staging", kind: "delivery-fact" },
     ],
   },
   "symptom-checkr": {
@@ -923,52 +883,6 @@ export const caseStudyProcessArtifacts: Partial<
         "Learners need a next step they can act on; the business needs the free assessment to lead naturally into learning and certification.",
     },
   ],
-  "cllctve-platform": [
-    {
-      type: "sitemap",
-      title: "Product map",
-      image: "/images/cllctve/process/cllctve-sitemap.svg",
-      alt:
-        "CLLCTVE sitemap connecting the landing page, creator discovery, creator profiles, challenges, brand collaboration, login, and signup routes.",
-      insight:
-        "The route map keeps discovery and opportunity close together instead of treating a portfolio as a static destination.",
-      connectsPersonaNeedTo:
-        "Creators need one shareable home for scattered work; the business needs a browsable creator inventory for brands.",
-    },
-    {
-      type: "user-flow",
-      title: "Creator to brand-opportunity flow",
-      image: "/images/cllctve/process/cllctve-creator-flow.svg",
-      alt:
-        "CLLCTVE user flow from signup through profile creation, feedback, challenge discovery, and brand opportunity review.",
-      insight:
-        "The main loop gives creators a reason to return: update work, get community response, and find a relevant brand challenge.",
-      connectsPersonaNeedTo:
-        "Fast profile updates support creator momentum; return loops support retention and partner challenge supply.",
-    },
-    {
-      type: "wireframe",
-      title: "Profile builder wireframe",
-      image: "/images/cllctve/process/cllctve-wireframe-profile-builder.svg",
-      alt:
-        "Low-fidelity CLLCTVE creator profile builder wireframe with profile details, work cards, and share actions.",
-      insight:
-        "The profile builder starts with identity and recent work before deeper customization, so creators can publish without a blank-page problem.",
-      connectsPersonaNeedTo:
-        "Creators need edit speed; the product needs enough structure for profiles to stay consistent and brand-readable.",
-    },
-    {
-      type: "wireframe",
-      title: "Discovery feed wireframe",
-      image: "/images/cllctve/process/cllctve-wireframe-discovery-feed.svg",
-      alt:
-        "Low-fidelity CLLCTVE discovery feed wireframe with creator cards, challenge prompts, and community feedback actions.",
-      insight:
-        "The feed puts work, feedback, and challenges in the same scanning path instead of splitting discovery from opportunity.",
-      connectsPersonaNeedTo:
-        "Creators need response and reach; brands need a cleaner path to find active talent.",
-    },
-  ],
 };
 
 export const caseStudyImpacts: Partial<Record<string, CaseStudyImpact>> = {
@@ -1000,22 +914,6 @@ export const caseStudyImpacts: Partial<Record<string, CaseStudyImpact>> = {
       "The first study should measure start-to-completion rate and the time learners spend on each question.",
       "Result comprehension matters as much as speed: learners should understand why a domain score leads to a specific training path.",
       "Team buyers need a separate check for whether the five-domain view supports a real training decision.",
-    ],
-  },
-  "cllctve-platform": {
-    title: "What the product proved",
-    summary:
-      "A focused mobile workflow attracted creators and brand partners without matching every desktop portfolio feature. The company later closed, so the case study separates product traction from business survival.",
-    framing: "measured-outcomes",
-    metrics: [
-      { value: "500+", label: "Creators on platform", kind: "measured-outcome", context: "Reported in the resume." },
-      { value: "15", label: "Brand partnerships", kind: "measured-outcome", context: "Reported in the resume." },
-      { value: "85%", label: "Creator retention", kind: "measured-outcome", context: "Reported in the resume." },
-    ],
-    notes: [
-      "The strongest product signal was retention: creators had a reason to come back, not only a place to publish once.",
-      "The brand-partnership count gave the creator-side experience a business reason to exist.",
-      "The company closed, so the case study stays honest about product traction without overstating business survival.",
     ],
   },
   staybooked: {
@@ -1056,36 +954,41 @@ export const projectPersonaJourneys: Record<
   motorflow: motorflowJourney,
   "cllctve-platform": {
     persona: {
-      role: "Gen Z creator building a public body of work from a phone.",
+      role: "Emerging creative with work spread across several places.",
       context:
-        "Their projects, collaborations, and identity live across social channels, screenshots, and brand challenge submissions.",
+        "Their projects live in social posts, folders, and links, and they want to be found by people who might work with them. This is a working persona, not a research participant.",
       goal:
-        "Turn scattered work into a mobile-first portfolio that feels current enough to share with collaborators and brands.",
+        "Publish a portfolio that looks like them and makes it easy for someone to start a conversation.",
       friction:
-        "Traditional portfolio tools feel too desktop-heavy, too slow to update, and too disconnected from how creators already publish.",
+        "Page builders take too long and break on a phone, while fixed templates make every portfolio look the same.",
       need:
-        "A lightweight profile flow, fast feedback loops, and enough structure to make the work feel credible without flattening the creator's style.",
+        "A fast way to add work, a few meaningful style choices, and a clear line between a private draft and what is public.",
     },
     journey: [
       {
-        label: "Collect work",
+        label: "Create an account",
         description:
-          "Bring recent projects, visuals, and creator details into one profile instead of sending people across several links.",
+          "Sign up, confirm the email, and set a name, handle, and discipline.",
       },
       {
-        label: "Shape the profile",
+        label: "Add the work",
         description:
-          "Use a mobile-native portfolio flow that can be edited quickly and still read as intentional.",
+          "Create projects with images and descriptions, then put them in order by drag, keyboard, or touch.",
       },
       {
-        label: "Share for feedback",
+        label: "Make it yours",
         description:
-          "Put work in front of peers, brands, and community moments where feedback can create momentum.",
+          "Pick a layout, canvas, accent, and heading style, and see each change on the real portfolio.",
       },
       {
-        label: "Return for opportunity",
+        label: "Preview and publish",
         description:
-          "Keep the portfolio active as new challenges, collaborations, and brand work come in.",
+          "Check the private draft exactly as others will see it before anything goes public.",
+      },
+      {
+        label: "Be found",
+        description:
+          "Appear in the work feed, where another creator can open a project and send a collaboration request.",
       },
     ],
   },

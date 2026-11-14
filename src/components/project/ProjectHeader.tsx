@@ -85,7 +85,7 @@ const caseStudyHeroConfigs: Array<{
   {
     matches: (title) => title === "CLLCTVE Platform",
     config: {
-      image: "/images/cllctve-gen-z-card.webp",
+      image: "/images/cllctve/v2/home.webp",
       useProjectImage: true,
     },
   },
