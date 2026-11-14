@@ -6,7 +6,7 @@ export const getTutorDProject = (): ProjectType => {
     id: 2,
     slug: "tutor-d",
     title: "Tutor D",
-    description: "Educational platform connecting students with qualified tutors for personalized learning sessions.",
+    description: "A distance learning platform that lets teachers plan, send, and track lessons by SMS, so students without reliable internet can still keep up.",
     fullDescription: "A distance learning platform designed to close the homework and accessibility gap in education. By leveraging SMS technology, it enables students without reliable internet or smart devices to receive assignments, engage with lessons, and stay on track—remotely.",
     image: "/images/tutord-sms-learning-card.webp",
     category: "Education",
@@ -28,6 +28,23 @@ export const getTutorDProject = (): ProjectType => {
       "Real-Time Updates system via Redis integration",
       "Weekly Summaries with performance overview cards",
       "Messaging Tools for lesson reminders and feedback"
+    ],
+    visuals: [
+      {
+        src: "/images/tutor-d/landing.webp",
+        label: "Landing page",
+        note: "One promise and one action for teachers and families, before any feature list.",
+      },
+      {
+        src: "/images/tutor-d/lesson-planner.webp",
+        label: "Lesson planner",
+        note: "A single form for title, subject, grade, duration, and objectives. Saved lessons sit one tab away.",
+      },
+      {
+        src: "/images/tutor-d/dashboard.webp",
+        label: "Dashboard",
+        note: "Courses, pending work, grades, and what is due next at a glance, with progress by subject underneath.",
+      },
     ],
     images: [
       "/images/TutorD-Landing-Page-Final.webp",

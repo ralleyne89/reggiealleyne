@@ -10,7 +10,7 @@ import {
 
 export type FeaturedProjectSlug =
   | "motorflow"
-  | "staybooked"
+  | "health-at-home"
   | "litmus-ai"
   | "cllctve-platform";
 
@@ -134,7 +134,8 @@ export type CaseStudyNarrativeSlug =
   | "covelo-timecard-system"
   | "pretty-paws-grooming"
   | "helm"
-  | "scent-stack";
+  | "scent-stack"
+  | "health-at-home";
 
 export interface ProjectPersonaSnapshot {
   role: string;
@@ -220,13 +221,13 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
       "Shows one connected service path with clear AI roles, visible costs, and an explicit step before activation.",
   },
   {
-    slug: "staybooked",
-    featuredTitle: "AI Airbnb Optimizer",
-    eyebrow: "Hospitality AI / host workflow",
+    slug: "health-at-home",
+    featuredTitle: "Health@Home",
+    eyebrow: "Healthcare / care booking",
     impactSummary:
-      "A host workflow that turns listing review into an audit, one grounded fix, and a clear re-check.",
+      "A care booking web app that leads with the next open visit times, so finding a doctor and booking happen in one move.",
     reviewerSignal:
-      "Shows how product constraints keep AI suggestions tied to the property a host can deliver.",
+      "Shows how one signature idea, availability first, can reorder search, booking, and a family's care hub.",
   },
   {
     slug: "litmus-ai",
@@ -240,9 +241,9 @@ export const featuredProjectConfig: FeaturedProjectConfig[] = [
   {
     slug: "cllctve-platform",
     featuredTitle: "CLLCTVE",
-    eyebrow: "Creator platform / rebuild",
+    eyebrow: "Creator platform / web app",
     impactSummary:
-      "A creator portfolio platform rebuilt as a real product: accounts, saved portfolios, and a portfolio creators can customize.",
+      "A creator portfolio platform with accounts, saved portfolios, and a portfolio creators can customize.",
     reviewerSignal:
       "Shows an audit turned into requirements, a brand kept intact, and a product that only says what is true about its state.",
   },
@@ -476,9 +477,9 @@ export const caseStudyNarratives: Record<
   },
   "cllctve-platform": {
     hook:
-      "CLLCTVE is a creator portfolio platform I once helped ship. In 2026 I opened the old app again and found that most of what looked finished was a simulation.",
+      "CLLCTVE is a creator portfolio platform I once helped ship. Coming back to it, I found that most of what looked finished in the old app was a simulation.",
     setup:
-      "CLLCTVE helps creators publish work, find other creators, and receive collaboration requests. I worked on the original as UX/UI designer and frontend engineer before the company closed. The rebuild treats it as a real product: verified accounts, saved portfolios, and requests that actually arrive.",
+      "CLLCTVE helps creators publish work, find other creators, and receive collaboration requests. I worked on the original as UX/UI designer and frontend engineer before the company closed. The new version treats it as a real product: verified accounts, saved portfolios, and requests that actually arrive.",
     research:
       "I started with an audit of the existing app, 15 findings in all, then desk research: portfolio creation in Contra and Vimeo, project pages in Behance, Adobe Portfolio's documentation, and two Awwwards portfolio case studies. These are observations from published products, not interviews. The two personas in the Figma file are working assumptions.",
     constraint:
@@ -486,11 +487,29 @@ export const caseStudyNarratives: Record<
     decision:
       "I put the work first and kept the workspace quiet. The homepage leads with one statement and a stack of work. Inside, a creator gets guided control over their portfolio (three layouts, canvas, accent, type, image corners) instead of a freeform page builder that breaks on a phone.",
     build:
-      "I rebuilt the foundation in React with Supabase behind it: the homepage, sign up, log in, email confirmation and recovery, then the private portfolio workspace with projects, images, ordering, and a draft preview. The customizable portfolio, work feed, and project detail with likes and comments run as an interactive demo with sample content.",
+      "I built the new foundation in React with Supabase behind it: the homepage, sign up, log in, email confirmation and recovery, then the private portfolio workspace with projects, images, ordering, and a draft preview. The customizable portfolio, work feed, and project detail with likes and comments run as an interactive demo with sample content.",
     proof:
       "The homepage and account screens are on a public preview. The portfolio workspace passes 233 database checks against staging, and the demo passes automated accessibility checks at 320 px with sorting by mouse, keyboard, and touch. It has not launched, so there are no usage numbers to report.",
     reflection:
       "Coming back to a product I had shipped years earlier showed me how much of a screen's honesty lives in its states. The most useful design decisions here were about what the interface says when something is empty, private, unsaved, or not built yet.",
+  },
+  "health-at-home": {
+    hook:
+      "Most care booking starts with a list of names and a phone call to find out who is free. Health@Home starts with the times.",
+    setup:
+      "Health@Home is a care booking web app: find a doctor, book an in-person or video visit, order an at-home test kit, and keep a family's care in one hub. I built the first version in React in 2022. In 2026 I came back to it with a critique and a redesign.",
+    research:
+      "The redesign began with a screen-by-screen critique of the existing build, not with interviews. It found no booking action above the fold, availability hidden inside each search result, and a homepage built from stock healthcare parts. Zocdoc's booking patterns (slots as chips, a sticky booking action, coverage beside the decision) were the main reference.",
+    constraint:
+      "This is a portfolio demo, so every doctor, price, rating, and family record is sample data, and nothing books real care. The design could not lean on real outcomes, so it had to make the flow itself convincing and say clearly what is simulated.",
+    decision:
+      "I made availability the signature. The homepage shows the next open video and in-person visits like a departures board, and tapping a time starts booking with that doctor and slot already chosen. The direction, House Call, keeps the page calm: warm paper, one blue used only for actions and bookable times, Bricolage Grotesque for display and Figtree for the rest.",
+    build:
+      "I redesigned every route: home, find care, booking with review and a calendar download, appointments, the My health hub with family members, virtual care, test kits, insurance, the health survey, and the Well Guide, plus a Care Concierge panel that gives guided answers. The Figma file holds 26 desktop and 6 mobile core screens with their states.",
+    proof:
+      "The redesigned app is live as a demo. Booking runs end to end with validation and a calendar event, keyboard and reduced-motion checks pass, and there is no horizontal overflow at 360 px. It has no real patients, so there is nothing to report about bookings or retention.",
+    reflection:
+      "One idea did most of the work. Once the time is the first thing a patient sees, search, booking, and the hub stop being separate pages and become ways to keep that choice intact.",
   },
   "tutor-d": {
     hook:
@@ -697,7 +716,7 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
     problem:
       "The old CLLCTVE app looked finished, but login, signup, and connection requests were simulations and the creators were mock data.",
     decision:
-      "Rebuild it as a real product on the original brand: work first, a quiet workspace, and guided portfolio customization.",
+      "Make it a real product on the original brand: work first, a quiet workspace, and guided portfolio customization.",
     outcome:
       "A public preview of the homepage and account flows, a tested portfolio workspace, and an interactive portfolio and feed demo. Not launched yet.",
     tools: ["Figma", "React", "Supabase", "TanStack Query", "dnd-kit"],
@@ -742,13 +761,31 @@ export const caseStudyTldrs: Partial<Record<string, CaseStudyTldr>> = {
       { value: "82%", label: "Median saving at listed prices", kind: "delivery-fact" },
     ],
   },
+  "health-at-home": {
+    role: "Product Designer and Developer",
+    problem:
+      "Booking care usually means searching names, opening profiles, and calling to learn who is actually free.",
+    decision:
+      "Lead with bookable times: a next-available board on the homepage that hands the chosen doctor and slot straight to booking.",
+    outcome:
+      "A redesigned live demo covering search, booking, appointments, a family health hub, test kits, insurance, and a guided concierge.",
+    tools: ["Figma", "React", "React Router", "Sass", "React Hook Form"],
+    owned: ["Product critique", "Visual direction", "Design system", "Frontend build"],
+    metrics: [
+      { value: "26", label: "Desktop screens and states in Figma", kind: "delivery-fact" },
+      { value: "6", label: "Mobile screens in Figma", kind: "delivery-fact" },
+      { value: "10", label: "Product routes redesigned", kind: "delivery-fact" },
+    ],
+  },
   "tutor-d": {
     role: "UX/UI Designer and Frontend Developer",
     problem:
       "Teachers needed to reach students who lacked reliable internet or smart devices during remote learning.",
     outcome:
       "Built the educator-facing dashboard for SMS-based assignments, progress tracking, and communication.",
-    tools: ["React", "Redux", "Node.js", "Express", "Ant Design"],
+    decision:
+      "Treat SMS as the product requirement, and let the teacher's dashboard carry the complexity so students only need a basic phone.",
+    tools: ["Figma", "React", "Redux", "Node.js", "Express", "Ant Design"],
     owned: ["Teacher dashboard", "Responsive UI", "Progress views", "Frontend integration"],
   },
   "tech-noir": {
