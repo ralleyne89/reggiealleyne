@@ -3448,8 +3448,16 @@
     "name": "Components",
     "frames": [
      {
+      "name": "00 — Library index",
+      "file": "05-01-00-library-index",
+      "x": 9720,
+      "y": 120,
+      "width": 1760,
+      "height": 1532
+     },
+     {
       "name": "01 — Brand & navigation",
-      "file": "05-01-01-brand-navigation",
+      "file": "05-02-01-brand-navigation",
       "x": 120,
       "y": 120,
       "width": 1840,
@@ -3457,7 +3465,7 @@
      },
      {
       "name": "02 — Actions",
-      "file": "05-02-02-actions",
+      "file": "05-03-02-actions",
       "x": 2200,
       "y": 120,
       "width": 1840,
@@ -3465,7 +3473,7 @@
      },
      {
       "name": "03 — Form controls · design states",
-      "file": "05-03-03-form-controls-design-states",
+      "file": "05-04-03-form-controls-design-states",
       "x": 120,
       "y": 1378,
       "width": 1840,
@@ -3473,7 +3481,7 @@
      },
      {
       "name": "04 — Sections & content",
-      "file": "05-04-04-sections-content",
+      "file": "05-05-04-sections-content",
       "x": 2200,
       "y": 1378,
       "width": 1840,
@@ -3481,7 +3489,7 @@
      },
      {
       "name": "05 — Feedback & empty states",
-      "file": "05-05-05-feedback-empty-states",
+      "file": "05-06-05-feedback-empty-states",
       "x": 120,
       "y": 3851,
       "width": 1840,
@@ -3489,11 +3497,67 @@
      },
      {
       "name": "06 — Main components",
-      "file": "05-06-06-main-components",
+      "file": "05-07-06-main-components",
       "x": 4280,
       "y": 120,
       "width": 5200,
       "height": 2679
+     },
+     {
+      "name": "07 — Buttons & actions",
+      "file": "05-08-07-buttons-actions",
+      "x": 120,
+      "y": 5400,
+      "width": 2560,
+      "height": 1796
+     },
+     {
+      "name": "08 — Form controls",
+      "file": "05-09-08-form-controls",
+      "x": 2800,
+      "y": 5400,
+      "width": 2560,
+      "height": 1739
+     },
+     {
+      "name": "09 — Navigation & layout",
+      "file": "05-10-09-navigation-layout",
+      "x": 120,
+      "y": 7436,
+      "width": 2560,
+      "height": 3365
+     },
+     {
+      "name": "10 — Feedback & overlays",
+      "file": "05-11-10-feedback-overlays",
+      "x": 2800,
+      "y": 7379,
+      "width": 2560,
+      "height": 3370
+     },
+     {
+      "name": "11 — Identity & data display",
+      "file": "05-12-11-identity-data-display",
+      "x": 120,
+      "y": 11040,
+      "width": 2560,
+      "height": 1870
+     },
+     {
+      "name": "12 — Cards & content",
+      "file": "05-13-12-cards-content",
+      "x": 2800,
+      "y": 10989,
+      "width": 2560,
+      "height": 4747
+     },
+     {
+      "name": "13 — Icons",
+      "file": "05-14-13-icons",
+      "x": 120,
+      "y": 13151,
+      "width": 2560,
+      "height": 591
      }
     ]
    },
