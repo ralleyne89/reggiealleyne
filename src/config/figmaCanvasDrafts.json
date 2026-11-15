@@ -4813,5 +4813,614 @@
     ]
    }
   ]
+ },
+ "tutor-d": {
+  "project": "Portfolio Projects",
+  "fileName": "TutorD Scholars",
+  "pages": [
+   {
+    "name": "Research & Assumptions",
+    "frames": [
+     {
+      "name": "Research / 01A Research brief",
+      "file": "01-01-research-01a-research-brief",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 1496
+     },
+     {
+      "name": "Research / 01B Scope and validation plan",
+      "file": "01-02-research-01b-scope-and-validation-plan",
+      "x": 1740,
+      "y": 220,
+      "width": 1440,
+      "height": 1596
+     },
+     {
+      "name": "Research / 01C Assumptions register",
+      "file": "01-03-research-01c-assumptions-register",
+      "x": 200,
+      "y": 2236,
+      "width": 1440,
+      "height": 1611
+     },
+     {
+      "name": "Research / 01D Sources",
+      "file": "01-04-research-01d-sources",
+      "x": 1740,
+      "y": 2236,
+      "width": 1120,
+      "height": 2988
+     },
+     {
+      "name": "Research / 01E Findings",
+      "file": "01-05-research-01e-findings",
+      "x": 200,
+      "y": 5644,
+      "width": 1440,
+      "height": 2177
+     },
+     {
+      "name": "Research / 01F Competitive review",
+      "file": "01-06-research-01f-competitive-review",
+      "x": 1740,
+      "y": 5644,
+      "width": 1440,
+      "height": 1051
+     }
+    ]
+   },
+   {
+    "name": "Personas & Flows",
+    "frames": [
+     {
+      "name": "Persona / Jordan, the middle-school teacher",
+      "file": "02-01-persona-jordan-the-middle-school-teacher",
+      "x": 200,
+      "y": 220,
+      "width": 740,
+      "height": 1352
+     },
+     {
+      "name": "Persona / Maya, the ninth-grade student",
+      "file": "02-02-persona-maya-the-ninth-grade-student",
+      "x": 1040,
+      "y": 220,
+      "width": 740,
+      "height": 1217
+     },
+     {
+      "name": "Public sitemap",
+      "file": "02-03-public-sitemap",
+      "x": 200,
+      "y": 1992,
+      "width": 740,
+      "height": 1060
+     },
+     {
+      "name": "Visual sitemap",
+      "file": "02-04-visual-sitemap",
+      "x": 1040,
+      "y": 1992,
+      "width": 1440,
+      "height": 1183
+     },
+     {
+      "name": "Core user flow",
+      "file": "02-05-core-user-flow",
+      "x": 2580,
+      "y": 1992,
+      "width": 1440,
+      "height": 659
+     },
+     {
+      "name": "Recovery paths",
+      "file": "02-06-recovery-paths",
+      "x": 200,
+      "y": 3595,
+      "width": 1440,
+      "height": 707
+     },
+     {
+      "name": "Walkthrough checks",
+      "file": "02-07-walkthrough-checks",
+      "x": 1740,
+      "y": 3595,
+      "width": 1440,
+      "height": 860
+     },
+     {
+      "name": "Screen coverage",
+      "file": "02-08-screen-coverage",
+      "x": 200,
+      "y": 4875,
+      "width": 1440,
+      "height": 809
+     },
+     {
+      "name": "Screen plan and scope",
+      "file": "02-09-screen-plan-and-scope",
+      "x": 1740,
+      "y": 4875,
+      "width": 740,
+      "height": 834
+     }
+    ]
+   },
+   {
+    "name": "Wireframes",
+    "frames": [
+     {
+      "name": "START / Wireframe walkthrough",
+      "file": "03-01-start-wireframe-walkthrough",
+      "x": 200,
+      "y": 220,
+      "width": 2400,
+      "height": 870
+     },
+     {
+      "name": "W01 / Homepage — Desktop",
+      "file": "03-02-w01-homepage-desktop",
+      "x": 200,
+      "y": 1500,
+      "width": 1440,
+      "height": 5496
+     },
+     {
+      "name": "W02 / Lesson Planner, Create Lesson — Desktop",
+      "file": "03-03-w02-lesson-planner-create-lesson-desktop",
+      "x": 2040,
+      "y": 1500,
+      "width": 1440,
+      "height": 2407
+     },
+     {
+      "name": "W02b / Lesson Planner, Saved Lessons — Desktop",
+      "file": "03-04-w02b-lesson-planner-saved-lessons-desktop",
+      "x": 3580,
+      "y": 1500,
+      "width": 1440,
+      "height": 1557
+     },
+     {
+      "name": "W03 / Dashboard selector — Desktop",
+      "file": "03-05-w03-dashboard-selector-desktop",
+      "x": 5420,
+      "y": 1500,
+      "width": 1440,
+      "height": 1331
+     },
+     {
+      "name": "W04 / Student Dashboard — Desktop",
+      "file": "03-06-w04-student-dashboard-desktop",
+      "x": 7100,
+      "y": 1500,
+      "width": 1440,
+      "height": 1845
+     },
+     {
+      "name": "W05 / Teacher Dashboard — Desktop",
+      "file": "03-07-w05-teacher-dashboard-desktop",
+      "x": 8780,
+      "y": 1500,
+      "width": 1440,
+      "height": 1845
+     },
+     {
+      "name": "W06 / Page not found — Desktop",
+      "file": "03-08-w06-page-not-found-desktop",
+      "x": 10460,
+      "y": 1500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "W07.1 / Homepage — Mobile 390",
+      "file": "03-09-w07-1-homepage-mobile-390",
+      "x": 200,
+      "y": 7416,
+      "width": 390,
+      "height": 8222
+     },
+     {
+      "name": "W07.2 / Homepage, menu open — Mobile 390",
+      "file": "03-10-w07-2-homepage-menu-open-mobile-390",
+      "x": 670,
+      "y": 7416,
+      "width": 390,
+      "height": 8222
+     },
+     {
+      "name": "W07.3 / Lesson Planner — Mobile 390",
+      "file": "03-11-w07-3-lesson-planner-mobile-390",
+      "x": 1140,
+      "y": 7416,
+      "width": 390,
+      "height": 3725
+     },
+     {
+      "name": "W07.4 / Dashboard selector — Mobile 390",
+      "file": "03-12-w07-4-dashboard-selector-mobile-390",
+      "x": 1610,
+      "y": 7416,
+      "width": 390,
+      "height": 2397
+     },
+     {
+      "name": "W07.5 / Student Dashboard — Mobile 390",
+      "file": "03-13-w07-5-student-dashboard-mobile-390",
+      "x": 2080,
+      "y": 7416,
+      "width": 390,
+      "height": 3673
+     },
+     {
+      "name": "W07.6 / Teacher Dashboard — Mobile 390",
+      "file": "03-14-w07-6-teacher-dashboard-mobile-390",
+      "x": 2550,
+      "y": 7416,
+      "width": 390,
+      "height": 3665
+     },
+     {
+      "name": "Wireframe / Navigation / Desktop",
+      "file": "03-15-wireframe-navigation-desktop",
+      "x": 200,
+      "y": 16058,
+      "width": 1440,
+      "height": 72
+     },
+     {
+      "name": "Wireframe / Footer / Desktop",
+      "file": "03-16-wireframe-footer-desktop",
+      "x": 200,
+      "y": 16210,
+      "width": 1440,
+      "height": 413
+     }
+    ]
+   },
+   {
+    "name": "Foundations",
+    "frames": [
+     {
+      "name": "Foundations / Typography",
+      "file": "04-01-foundations-typography",
+      "x": 200,
+      "y": 220,
+      "width": 1440,
+      "height": 1228
+     },
+     {
+      "name": "Foundations / Color",
+      "file": "04-02-foundations-color",
+      "x": 2040,
+      "y": 220,
+      "width": 1440,
+      "height": 1549
+     },
+     {
+      "name": "Foundations / Spacing and layout",
+      "file": "04-03-foundations-spacing-and-layout",
+      "x": 3880,
+      "y": 220,
+      "width": 1440,
+      "height": 872
+     },
+     {
+      "name": "Foundations / Radius, elevation, motion",
+      "file": "04-04-foundations-radius-elevation-motion",
+      "x": 200,
+      "y": 2206,
+      "width": 1440,
+      "height": 905
+     },
+     {
+      "name": "Foundations / Logo and imagery",
+      "file": "04-05-foundations-logo-and-imagery",
+      "x": 2040,
+      "y": 2206,
+      "width": 1440,
+      "height": 1265
+     }
+    ]
+   },
+   {
+    "name": "Components",
+    "frames": [
+     {
+      "name": "00 — Library index",
+      "file": "05-01-00-library-index",
+      "x": 7800,
+      "y": 120,
+      "width": 1600,
+      "height": 1527
+     },
+     {
+      "name": "01 — Brand & navigation",
+      "file": "05-02-01-brand-navigation",
+      "x": 120,
+      "y": 736,
+      "width": 1840,
+      "height": 1846
+     },
+     {
+      "name": "02 — Actions",
+      "file": "05-03-02-actions",
+      "x": 2040,
+      "y": 736,
+      "width": 1840,
+      "height": 1727
+     },
+     {
+      "name": "03 — Form controls",
+      "file": "05-04-03-form-controls",
+      "x": 3960,
+      "y": 736,
+      "width": 1840,
+      "height": 1252
+     },
+     {
+      "name": "04 — Cards",
+      "file": "05-05-04-cards",
+      "x": 5880,
+      "y": 736,
+      "width": 1840,
+      "height": 2905
+     },
+     {
+      "name": "05 — Dashboard modules",
+      "file": "05-06-05-dashboard-modules",
+      "x": 120,
+      "y": 2822,
+      "width": 1840,
+      "height": 1973
+     },
+     {
+      "name": "06 — Sections",
+      "file": "05-07-06-sections",
+      "x": 2040,
+      "y": 2703,
+      "width": 1840,
+      "height": 1794
+     },
+     {
+      "name": "07 — Feedback & menus",
+      "file": "05-08-07-feedback-menus",
+      "x": 3960,
+      "y": 2228,
+      "width": 1840,
+      "height": 1040
+     },
+     {
+      "name": "08 — Icons",
+      "file": "05-09-08-icons",
+      "x": 5880,
+      "y": 3881,
+      "width": 1840,
+      "height": 848
+     }
+    ]
+   },
+   {
+    "name": "Core Screens",
+    "frames": [
+     {
+      "name": "Core Screens / Launcher",
+      "file": "06-01-core-screens-launcher",
+      "x": 200,
+      "y": 220,
+      "width": 2400,
+      "height": 816
+     },
+     {
+      "name": "Homepage / Desktop · 1440 px",
+      "file": "06-02-homepage-desktop-1440-px",
+      "x": 200,
+      "y": 1500,
+      "width": 1440,
+      "height": 5496
+     },
+     {
+      "name": "Lesson Planner, Create Lesson / Desktop",
+      "file": "06-03-lesson-planner-create-lesson-desktop",
+      "x": 2040,
+      "y": 1500,
+      "width": 1440,
+      "height": 2407
+     },
+     {
+      "name": "Lesson Planner, Saved Lessons / Desktop",
+      "file": "06-04-lesson-planner-saved-lessons-desktop",
+      "x": 3580,
+      "y": 1500,
+      "width": 1440,
+      "height": 1557
+     },
+     {
+      "name": "Dashboard selector / Desktop",
+      "file": "06-05-dashboard-selector-desktop",
+      "x": 5420,
+      "y": 1500,
+      "width": 1440,
+      "height": 1331
+     },
+     {
+      "name": "Student Dashboard / Desktop",
+      "file": "06-06-student-dashboard-desktop",
+      "x": 7100,
+      "y": 1500,
+      "width": 1440,
+      "height": 1845
+     },
+     {
+      "name": "Teacher Dashboard / Desktop",
+      "file": "06-07-teacher-dashboard-desktop",
+      "x": 8780,
+      "y": 1500,
+      "width": 1440,
+      "height": 1845
+     },
+     {
+      "name": "Page not found / Desktop",
+      "file": "06-08-page-not-found-desktop",
+      "x": 10460,
+      "y": 1500,
+      "width": 1440,
+      "height": 900
+     },
+     {
+      "name": "Homepage / Mobile · 390 px",
+      "file": "06-09-homepage-mobile-390-px",
+      "x": 200,
+      "y": 7416,
+      "width": 390,
+      "height": 8222
+     },
+     {
+      "name": "Homepage, menu open / Mobile · 390 px",
+      "file": "06-10-homepage-menu-open-mobile-390-px",
+      "x": 670,
+      "y": 7416,
+      "width": 390,
+      "height": 8222
+     },
+     {
+      "name": "Lesson Planner / Mobile · 390 px",
+      "file": "06-11-lesson-planner-mobile-390-px",
+      "x": 1140,
+      "y": 7416,
+      "width": 390,
+      "height": 3725
+     },
+     {
+      "name": "Dashboard selector / Mobile · 390 px",
+      "file": "06-12-dashboard-selector-mobile-390-px",
+      "x": 1610,
+      "y": 7416,
+      "width": 390,
+      "height": 2397
+     },
+     {
+      "name": "Student Dashboard / Mobile · 390 px",
+      "file": "06-13-student-dashboard-mobile-390-px",
+      "x": 2080,
+      "y": 7416,
+      "width": 390,
+      "height": 3673
+     },
+     {
+      "name": "Teacher Dashboard / Mobile · 390 px",
+      "file": "06-14-teacher-dashboard-mobile-390-px",
+      "x": 2550,
+      "y": 7416,
+      "width": 390,
+      "height": 3665
+     }
+    ]
+   },
+   {
+    "name": "Presentation",
+    "frames": [
+     {
+      "name": "Slide 01 / A Smarter Way to Learn & Teach",
+      "file": "09-01-slide-01-a-smarter-way-to-learn-teach",
+      "x": 200,
+      "y": 340,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 02 / Help teachers plan and students see progress",
+      "file": "09-02-slide-02-help-teachers-plan-and-students-see-pro",
+      "x": 2200,
+      "y": 340,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 03 / Two people, two views",
+      "file": "09-03-slide-03-two-people-two-views",
+      "x": 200,
+      "y": 1530,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 04 / How the pieces connect",
+      "file": "09-04-slide-04-how-the-pieces-connect",
+      "x": 2200,
+      "y": 1530,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 05 / Split by role, not by feature",
+      "file": "09-05-slide-05-split-by-role-not-by-feature",
+      "x": 200,
+      "y": 2720,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 06 / Lead with the promise",
+      "file": "09-06-slide-06-lead-with-the-promise",
+      "x": 2200,
+      "y": 2720,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 07 / Ask for the role first",
+      "file": "09-07-slide-07-ask-for-the-role-first",
+      "x": 200,
+      "y": 3910,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 08 / One screen for a whole lesson",
+      "file": "09-08-slide-08-one-screen-for-a-whole-lesson",
+      "x": 2200,
+      "y": 3910,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 09 / Show what needs attention",
+      "file": "09-09-slide-09-show-what-needs-attention",
+      "x": 200,
+      "y": 5100,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 10 / Same system on a phone",
+      "file": "09-10-slide-10-same-system-on-a-phone",
+      "x": 2200,
+      "y": 5100,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 11 / How to evaluate the design",
+      "file": "09-11-slide-11-how-to-evaluate-the-design",
+      "x": 200,
+      "y": 6290,
+      "width": 1920,
+      "height": 1080
+     },
+     {
+      "name": "Slide 12 / Make saving real, then test it",
+      "file": "09-12-slide-12-make-saving-real-then-test-it",
+      "x": 2200,
+      "y": 6290,
+      "width": 1920,
+      "height": 1080
+     }
+    ]
+   }
+  ]
  }
 }
