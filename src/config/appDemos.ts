@@ -12,16 +12,6 @@ export interface AppDemo {
 }
 
 const appDemos: Record<string, AppDemo> = {
-  "tutor-d": {
-    url: "https://tutord-demo.web.app/",
-    eyebrow: "Try it",
-    heading: "Plan a lesson.",
-    body: "This is the Tutor D web app at phone size. Open the teacher or student dashboard, look through progress and upcoming work, and fill in a lesson plan.",
-    note: "No account needed. Dashboards use sample classes, and nothing is sent to students.",
-    poster: "/images/tutor-d/v2/mobile-landing.webp",
-    posterAlt: "Tutor D landing page on a phone with the headline A Smarter Way to Learn and Teach",
-    startLabel: "Open Tutor D",
-  },
   "bobs-big-break": {
     url: "https://bobs-big-break-demo.web.app/",
     eyebrow: "Play it",
