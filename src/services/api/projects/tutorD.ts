@@ -8,7 +8,7 @@ export const getTutorDProject = (): ProjectType => {
     title: "Tutor D",
     description: "A distance learning platform that lets teachers plan, send, and track lessons by SMS, so students without reliable internet can still keep up.",
     fullDescription: "A distance learning platform designed to close the homework and accessibility gap in education. By leveraging SMS technology, it enables students without reliable internet or smart devices to receive assignments, engage with lessons, and stay on track—remotely.",
-    image: "/images/tutord-sms-learning-card.webp",
+    image: "/images/tutor-d/v2/landing.webp",
     category: "Education",
     tags: ["Education", "Distance Learning", "Accessibility"],
     role: "UX/UI Designer & Frontend Developer",
@@ -23,6 +23,7 @@ export const getTutorDProject = (): ProjectType => {
       "Implemented responsive views for mobile and tablet usage."
     ],
     deliverables: [
+      "Teacher and student dashboards with progress by subject",
       "Lesson Planner for creating assignments automatically sent via SMS",
       "Progress Dashboard showing student engagement and response rates",
       "Real-Time Updates system via Redis integration",
@@ -31,28 +32,39 @@ export const getTutorDProject = (): ProjectType => {
     ],
     visuals: [
       {
-        src: "/images/tutor-d/landing.webp",
-        label: "Landing page",
-        note: "One promise and one action for teachers and families, before any feature list.",
+        src: "/images/tutor-d/v2/teacher.webp",
+        label: "Teacher dashboard",
+        note: "Students, active courses, lesson plans, and upcoming sessions at a glance, then progress by subject and the tasks due next.",
       },
       {
-        src: "/images/tutor-d/lesson-planner.webp",
+        src: "/images/tutor-d/v2/planner.webp",
         label: "Lesson planner",
-        note: "A single form for title, subject, grade, duration, and objectives. Saved lessons sit one tab away.",
+        note: "One form for title, subject, grade, duration, date, and objectives. Saved lessons sit one tab away.",
       },
       {
-        src: "/images/tutor-d/dashboard.webp",
-        label: "Dashboard",
-        note: "Courses, pending work, grades, and what is due next at a glance, with progress by subject underneath.",
+        src: "/images/tutor-d/v2/student.webp",
+        label: "Student dashboard",
+        note: "Courses, pending work, grade average, and upcoming classes, with progress by subject and what is due next.",
+      },
+      {
+        src: "/images/tutor-d/v2/selector.webp",
+        label: "Choose a dashboard",
+        note: "Teachers and students start from the same place and pick the view that matches their role.",
+      },
+      {
+        src: "/images/tutor-d/v2/mobile-teacher.webp",
+        label: "Teacher dashboard on a phone",
+        note: "The same numbers stack into one column, so a teacher can check in between classes.",
+        orientation: "tall",
       },
     ],
     images: [
-      "/images/TutorD-Landing-Page-Final.webp",
-      "/images/TutorD-Dashboard-Final.webp",
-      "/images/TutorD-Lesson-Planner-Final.webp",
-      "/images/TutorD-Landing-Page.webp",
-      "/images/TutorD-Dashboard.jpg",
-      "/images/TutorD-Lesson-Planner.webp"
+      "/images/tutor-d/v2/landing.webp",
+      "/images/tutor-d/v2/teacher.webp",
+      "/images/tutor-d/v2/planner.webp",
+      "/images/tutor-d/v2/student.webp",
+      "/images/tutor-d/v2/selector.webp",
+      "/images/tutor-d/v2/mobile-teacher.webp"
     ],
     conclusion: {
       impact: "Helped teachers support their students during a time when traditional systems weren't enough, improving accessibility in underserved communities.",
