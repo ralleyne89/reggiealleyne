@@ -320,7 +320,7 @@ export const getPlatformScreens = (project: ProjectType): PlatformScreen[] => {
         src,
         label: copy.label,
         note: copy.note,
-        orientation: copy.orientation || "wide",
+        orientation: visual?.orientation || copy.orientation || "wide",
       };
     });
 };

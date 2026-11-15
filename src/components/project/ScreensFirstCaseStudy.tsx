@@ -20,6 +20,8 @@ import { getPlatformScreens } from "./ProjectInterfaceEvidence";
 import FigmaCanvasSection from "./FigmaCanvasSection";
 import SelectionFrame from "./SelectionFrame";
 import TechNoirInteractiveDemo from "./TechNoirInteractiveDemo";
+import AppPhoneDemo from "./AppPhoneDemo";
+import { getAppDemo } from "@/config/appDemos";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -337,7 +339,7 @@ const ScreensFirstCaseStudy = ({ project }: ScreensFirstCaseStudyProps) => {
                         alt={generic ? `${project.title} screen ${index + 1}` : step.label}
                         loading="lazy"
                         decoding="async"
-                        className="cs-step__image"
+                        className={cn("cs-step__image", step.orientation === "tall" && "cs-step__image--tall")}
                       />
                       <p className="cs-index">{padIndex(index)}</p>
                       <h3 className="cs-step__title">
@@ -353,7 +355,11 @@ const ScreensFirstCaseStudy = ({ project }: ScreensFirstCaseStudyProps) => {
         </section>
       ) : null}
 
-      <FigmaCanvasSection slug={project.slug} title={project.title} />
+      {getAppDemo(project.slug) ? (
+        <AppPhoneDemo demo={getAppDemo(project.slug)!} title={project.title} />
+      ) : (
+        <FigmaCanvasSection slug={project.slug} title={project.title} />
+      )}
 
       <section className="cs-proof" data-layer="Proof" data-cs-proof aria-labelledby="cs-proof-title">
         <p className="cs-proof__drift" data-cs-drift aria-hidden="true">
