@@ -23,7 +23,7 @@ const appDemos: Record<string, AppDemo> = {
     startLabel: "Start playing",
   },
   "chill-vibes-music-player": {
-    url: "https://chill-vibes--portfolio-demo-9zj1mb1j.web.app/?guest=1",
+    url: "https://chill-vibes.web.app/?guest=1",
     eyebrow: "Listen to it",
     heading: "Press play.",
     body: "This is the player running in your browser as a guest. Start a track, browse by genre or mood, save tracks to your library, and see what plays next.",
