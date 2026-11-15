@@ -37,38 +37,6 @@ const f = (
 
 /** Team files entered by hand. */
 const teamFiles: Record<string, FigmaFile> = {
-  "tutor-d": {
-    project: "Portfolio Projects",
-    fileName: "TutorD Scholars",
-    pages: [
-      {
-        name: "Wireframes",
-        frames: [
-          f("Desktop / Landing Page", "wireframes-landing", -3855, -1969, 1440, 4649),
-          f("Desktop / Lesson Planner", "wireframes-lesson-planner", -2287, -1969, 1440, 2002),
-          f("Desktop / Dashboard", "wireframes-dashboard", -2287, 161, 1440, 1540),
-        ],
-      },
-      {
-        name: "High Fidelity",
-        frames: [
-          f("Desktop / Landing Page", "hifi-landing", -3855, -1969, 1440, 5770),
-          f("Desktop / Lesson Planner", "hifi-lesson-planner", -2287, -1969, 1440, 2741),
-          f("Desktop / Dashboard", "hifi-dashboard", -2287, 866, 1440, 2324),
-        ],
-      },
-      {
-        name: "Components",
-        frames: [
-          f("Nav bar", "components-nav-bar", 923, -542, 1440, 88),
-          f("Footer", "components-footer", 923, -394, 1440, 437),
-          f("Container", "components-container", 923, 250, 1440, 2166),
-          f("Input", "components-input", 145, -394, 618, 276),
-          f("Button", "components-button", 537, 250, 226, 364),
-        ],
-      },
-    ],
-  },
   "symptom-checkr": {
     project: "Portfolio Projects",
     fileName: "Symptom Checker",

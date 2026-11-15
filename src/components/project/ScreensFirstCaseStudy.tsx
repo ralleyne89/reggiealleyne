@@ -357,9 +357,9 @@ const ScreensFirstCaseStudy = ({ project }: ScreensFirstCaseStudyProps) => {
 
       {getAppDemo(project.slug) ? (
         <AppPhoneDemo demo={getAppDemo(project.slug)!} title={project.title} />
-      ) : (
-        <FigmaCanvasSection slug={project.slug} title={project.title} />
-      )}
+      ) : null}
+
+      <FigmaCanvasSection slug={project.slug} title={project.title} />
 
       <section className="cs-proof" data-layer="Proof" data-cs-proof aria-labelledby="cs-proof-title">
         <p className="cs-proof__drift" data-cs-drift aria-hidden="true">
